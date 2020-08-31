@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, 受領通知, Windows.ApplicationModel.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: ba87de0755469f373f9000f3d96d3021c9197985
-ms.sourcegitcommit: 28bd367ab8acc64d4b6f3f73adca12100cbd359f
+ms.openlocfilehash: 0bbdaa8164e5d3a7e660fc4667b7cfe3c090bc10
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148882"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171326"
 ---
 # <a name="use-receipts-to-verify-product-purchases"></a>受領通知を使った製品購入の確認
 
@@ -20,15 +20,15 @@ ms.locfileid: "82148882"
 この情報は、ユーザーがアプリを購入したことや、Microsoft Store からアドオン (アプリ内製品または IAP とも呼ばれます) の購入が行われたことをアプリで確認する必要がある場合に役立ちます。 たとえば、ダウンロードしたコンテンツを提供するゲームを想像してください。 ゲーム コンテンツを購入したユーザーが別のデバイスでゲームをする場合、そのユーザーが既にコンテンツを所有していることを確認する必要があります。 ここではその方法を説明します。
 
 > [!IMPORTANT]
-> この記事では、[Windows.ApplicationModel.Store](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store) 名前空間のメンバーを使って、アプリ内での購入の受領通知を取得および検証する方法について説明します。 アプリ内購入に [Windows.Services.Store](https://docs.microsoft.com/uwp/api/Windows.Services.Store) 名前空間 (Windows 10 バージョン 1607 で導入され、Visual Studio で **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットにするプロジェクトでも利用できる) を使用している場合、この名前空間では、アプリ内購入の購入受領通知を取得するための API が提供されません。 ただし、Microsoft Store コレクション API の REST メソッドを使うと、購入トランザクションのデータを取得することができます。 詳しくは、「[アプリ内購入の受領通知](in-app-purchases-and-trials.md#receipts)」をご覧ください。
+> この記事では、[Windows.ApplicationModel.Store](/uwp/api/Windows.ApplicationModel.Store) 名前空間のメンバーを使って、アプリ内での購入の受領通知を取得および検証する方法について説明します。 アプリ内購入に [Windows.Services.Store](/uwp/api/Windows.Services.Store) 名前空間 (Windows 10 バージョン 1607 で導入され、Visual Studio で **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットにするプロジェクトでも利用できる) を使用している場合、この名前空間では、アプリ内購入の購入受領通知を取得するための API が提供されません。 ただし、Microsoft Store コレクション API の REST メソッドを使うと、購入トランザクションのデータを取得することができます。 詳しくは、「[アプリ内購入の受領通知](in-app-purchases-and-trials.md#receipts)」をご覧ください。
 
 ## <a name="requesting-a-receipt"></a>通知の要求
 
 
 **Windows.ApplicationModel.Store** 名前空間は、受領通知を取得する複数の方法をサポートしています。
 
-* [CurrentApp.RequestAppPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestapppurchaseasync)か [CurrentApp.RequestProductPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync) (またはこのメソッドの他のオーバーロードのいずれか) を使って購入すると、戻り値に受領通知が含まれます。
-* [CurrentApp.GetAppReceiptAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.getappreceiptasync) メソッドを呼び出して、アプリおよびアプリ内のアドオンに関する現在の受領通知を取得できます。
+* [CurrentApp.RequestAppPurchaseAsync](/uwp/api/windows.applicationmodel.store.currentapp.requestapppurchaseasync)か [CurrentApp.RequestProductPurchaseAsync](/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync) (またはこのメソッドの他のオーバーロードのいずれか) を使って購入すると、戻り値に受領通知が含まれます。
+* [CurrentApp.GetAppReceiptAsync](/uwp/api/windows.applicationmodel.store.currentapp.getappreceiptasync) メソッドを呼び出して、アプリおよびアプリ内のアドオンに関する現在の受領通知を取得できます。
 
 アプリの通知は次のようになります。
 
@@ -87,7 +87,7 @@ ms.locfileid: "82148882"
 
 ## <a name="validating-a-receipt"></a>通知の検証
 
-受領通知の真正を検証するには、バックエンド システム (Web サービスやそれに類するサービス) でパブリック証明書を使って受領通知の署名を確認する必要があります。 この証明書を取得するには```https://lic.apps.microsoft.com/licensing/certificateserver/?cid=CertificateId%60%60%60, where ```、証明書 id ' ' ' を使用して、受信確認の**certificateid**値を指定します。
+受領通知の真正を検証するには、バックエンド システム (Web サービスやそれに類するサービス) でパブリック証明書を使って受領通知の署名を確認する必要があります。 この証明書を取得するには、証明書 id ' ' ' を使用して、 ```https://lic.apps.microsoft.com/licensing/certificateserver/?cid=CertificateId%60%60%60, where ``` 受信確認の **certificateid** 値を指定します。
 
 検証プロセスの例を以下に示します。 このコードは、**System.Security** アセンブリへの参照を含む .NET Framework コンソール アプリケーションで実行されます。
 
@@ -146,7 +146,7 @@ ms.locfileid: "82148882"
 |-------------|-------------------|
 |  **Id**  |    購入を識別します。           |
 |  **AppId**  |     ユーザーが購入に使ったアプリを識別します。           |
-|  **Id**  |     購入した製品を識別します。           |
+|  **ProductId**  |     購入した製品を識別します。           |
 |  **ProductType**  |    製品の種類を示します。 現在サポートされている値は、**Durable** のみです。          |  
 |  **購入日**  |    購入した日付です。          |  |
 

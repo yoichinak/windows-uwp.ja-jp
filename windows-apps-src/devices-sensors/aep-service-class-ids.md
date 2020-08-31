@@ -6,22 +6,22 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0af0e8b17578c2ef3cd3fb0a466446b06f8e4a00
-ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
+ms.openlocfilehash: 025db9ae6ed3b7ab2c532ddc140fd5279db58777
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854738"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168616"
 ---
 # <a name="aep-service-class-ids"></a>AEP サービス クラス ID
 
 アソシエーション エンドポイント (AEP) サービスは、デバイスが特定のプロトコル経由でサポートするサービスのプログラミング コントラクトを提供します。 これらのサービスのいくつかでは、サービスの参照時に使う必要がある識別子が設定されています。 これらのコントラクトは、**System.Devices.AepService.ServiceClassId** プロパティで識別されます。 このトピックでは、既知の AEP サービス クラス ID のいくつかを一覧表示します。 AEP サービス クラス ID は、カスタム クラス ID によってプロトコルに適用することもできます。
 
-アプリの開発者は、使用予定の AEP サービスに対するクエリを制限するために、クラス ID に基づいて高度なクエリ構文 (AQS) フィルターを使う必要があります。 これによって、関連サービスへのクエリ結果が制限され、デバイスのパフォーマンス、バッテリ寿命、およびサービス品質が大幅に向上します。 たとえば、アプリケーションでこれらのサービス クラス ID を使って、デバイスを Miracast の同期または DLNA デジタル メディア レンダラー (DMR) として使うことができます。 デバイスとサービスが互いにどのようにやり取りするかについて詳しくは、「[**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind)」をご覧ください。
+アプリの開発者は、使用予定の AEP サービスに対するクエリを制限するために、クラス ID に基づいて高度なクエリ構文 (AQS) フィルターを使う必要があります。 これによって、関連サービスへのクエリ結果が制限され、デバイスのパフォーマンス、バッテリ寿命、およびサービス品質が大幅に向上します。 たとえば、アプリケーションでこれらのサービス クラス ID を使って、デバイスを Miracast の同期または DLNA デジタル メディア レンダラー (DMR) として使うことができます。 デバイスとサービスが互いにどのようにやり取りするかについて詳しくは、「[**DeviceInformationKind**](/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind)」をご覧ください。
 
 > **重要な API**
 >
-> - [**Windows.Devices.Enumeration**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration)
+> - [**Windows.Devices.Enumeration**](/uwp/api/Windows.Devices.Enumeration)
 
 ## <a name="bluetooth-and-bluetooth-le-services"></a>Bluetooth および Bluetooth LE サービス
 
@@ -32,7 +32,7 @@ Bluetooth サービスは、Bluetooth プロトコルまたは Bluetooth LE プ�
 
 Bluetooth プロトコルは複数のサービスをサポートしており、すべてのサービスで同じ基本的なフォーマットを採用しています。 GUID の最初の 4 桁はサービスによって異なりますが、すべての Bluetooth Guid は **0000-0000-1000-8000-00805F9B34FB** で終わります。 たとえば、RFCOMM サービスでは前に 0x0003 が付くため、完全な ID は **00030000-0000-1000-8000-00805F9B34FB** になります。 次の表に、一般的な Bluetooth サービスをいくつか示します。
 
-| サービス名                         | GUID                                     |
+| [サービス名]                         | GUID                                     |
 |--------------------------------------|------------------------------------------|
 | RFCOMM                               | **00030000-0000-1000-8000-00805F9B34FB** |
 | GATT - アラート通知サービス    | **18110000-0000-1000-8000-00805F9B34FB** |
@@ -82,7 +82,7 @@ UPnP サービスは、次のプロトコル識別子を使います。{0e261de4
 
 一般的に、すべての UPnP サービスでは、RFC 4122 で定義されたアルゴリズムを使い、サービスの名前が GUID にハッシュされています。 次の表では、Windows で定義されている一般的な UPnP サービスのいくつかを紹介します。
 
-| サービス名                       | GUID                                      |
+| [サービス名]                       | GUID                                      |
 |------------------------------------|-------------------------------------------|
 | [ODBC 入力元エディター]                 | **ba36014c-b51f-51cc-bf71-1ad779ced3c6**  |
 | AV トランスポート                       | **deeacb78-707a-52df-b1c6-6f945e7e25bf**  |
@@ -103,14 +103,14 @@ WSD サービスは、次のプロトコル識別子を使います。{782232aa-
 
 一般的に、すべての WSD サービスでは、RFC 4122 で定義されたアルゴリズムを使い、サービスの名前が GUID にハッシュされています。 次の表では、Windows で定義されている一般的な WSD サービスのいくつかを紹介します。
 
-| サービス名 | GUID                                     |
+| [サービス名] | GUID                                     |
 |--------------|------------------------------------------|
-| プリンター      | **65dca7bd-2611-583e-9a12-ad90f47749cf** |
+| [プリンター]      | **65dca7bd-2611-583e-9a12-ad90f47749cf** |
 | スキャナー      | **56ec8b9e-0237-5cae-aa3f-d322dd2e6c1e** |
 
 ## <a name="aqs-sample"></a>AQS サンプル
 
-この AQS は、DIAL をサポートするすべての UPnP **AssociationEndpointService** オブジェクトに対してフィルターを実行します。 この場合、[**DeviceInformationKind**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) は **AsssociationEndpointService** に設定されています。
+この AQS は、DIAL をサポートするすべての UPnP **AssociationEndpointService** オブジェクトに対してフィルターを実行します。 この場合、[**DeviceInformationKind**](/uwp/api/Windows.Devices.Enumeration.DeviceInformationKind) は **AsssociationEndpointService** に設定されています。
 
 ``` syntax
 System.Devices.AepService.ProtocolId:="{0e261de4-12f0-46e6-91ba-428607ccef64}" AND

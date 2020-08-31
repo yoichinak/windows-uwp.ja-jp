@@ -6,19 +6,19 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, エラー処理, JavaScript, XAML, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e3cc4d3d0b0cde40117a8534589f48c9d463c44
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: 2a1a82c9977bfbe61712d39e4d23fdd68cd598ae
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77507116"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171556"
 ---
 # <a name="handle-ad-errors"></a>広告のエラー処理
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-[AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol)、[InterstitialAd](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.interstitialad)、[NativeAdsManagerV2](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.nativeadsmanagerv2) の各クラスには、広告関連のエラーが発生した場合に発生する **ErrorOccurred** イベントがあります。 アプリ コードでこのイベントを処理し、イベント引数オブジェクトの [ErrorCode](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.aderroreventargs.errorcode) プロパティと [ErrorMessage](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.aderroreventargs.errormessage) プロパティを調べて、エラーの原因を特定することができます。
+[AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol)、[InterstitialAd](/uwp/api/microsoft.advertising.winrt.ui.interstitialad)、[NativeAdsManagerV2](/uwp/api/microsoft.advertising.winrt.ui.nativeadsmanagerv2) の各クラスには、広告関連のエラーが発生した場合に発生する **ErrorOccurred** イベントがあります。 アプリ コードでこのイベントを処理し、イベント引数オブジェクトの [ErrorCode](/uwp/api/microsoft.advertising.winrt.ui.aderroreventargs.errorcode) プロパティと [ErrorMessage](/uwp/api/microsoft.advertising.winrt.ui.aderroreventargs.errormessage) プロパティを調べて、エラーの原因を特定することができます。
 
 <span id="bkmk-dotnet"/>
 
@@ -28,9 +28,9 @@ XAML アプリで広告関連のエラーを処理するには:
 
 1. **AdControl**、**InterstitialAd**、**NativeAdsManagerV2** オブジェクトの **ErrorOccurred** イベントを、イベント ハンドラー デリゲートの名前に割り当てます。
 
-2. 送信元の **Object** と [AdErrorEventArgs](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.aderroreventargs) オブジェクトの、2 つのパラメーターを受け取るようにエラー イベント処理デリゲートのコードを記述します。
+2. 送信元の **Object** と [AdErrorEventArgs](/uwp/api/microsoft.advertising.winrt.ui.aderroreventargs) オブジェクトの、2 つのパラメーターを受け取るようにエラー イベント処理デリゲートのコードを記述します。
 
-**OnAdError** という名前のデリゲートを **myBannerAdControl** という名前の **AdControl** オブジェクトの *ErrorOccurred* イベントに割り当てる例を次に示します。
+**OnAdError** という名前のデリゲートを *myBannerAdControl* という名前の **AdControl** オブジェクトの **ErrorOccurred** イベントに割り当てる例を次に示します。
 
 > [!div class="tabbedCodeSnippets"]
 ``` csharp
@@ -48,7 +48,7 @@ private void OnAdError(object sender, AdErrorEventArgs e)
 }
 ```
 
-XAML および C# での [AdControl](error-handling-in-xamlc-walkthrough.md) エラー処理について説明するチュートリアルについては、「**XAML/C# チュートリアルでのエラー処理**」をご覧ください。
+XAML および C# での **AdControl** エラー処理について説明するチュートリアルについては、「[XAML/C# チュートリアルでのエラー処理](error-handling-in-xamlc-walkthrough.md)」をご覧ください。
 
 <span id="bkmk-javascript"/>
 
@@ -70,9 +70,9 @@ JavaScript アプリで **ErrorOccur** エラーを処理するには:
 </div>
 ```
 
-エラー処理関数は宣言型で、[markSupportedForProcessing](https://docs.microsoft.com/previous-versions/windows/apps/hh967819(v=win.10)) 関数内で囲む必要があります。
+エラー処理関数は宣言型で、[markSupportedForProcessing](/previous-versions/windows/apps/hh967819(v=win.10)) 関数内で囲む必要があります。
 
-エラーが発生すると、エラー ハンドラーが JavaScript エラー オブジェクトをキャッチします。 エラー オブジェクトは 2 つの引数をエラー ハンドラーに提供します。 詳しくは、「[非同期 Windows ランタイム メソッドからの特殊なエラー プロパティ](https://docs.microsoft.com/scripting/jswinrt/special-error-properties-from-asynchronous-windows-runtime-methods)」をご覧ください。
+エラーが発生すると、エラー ハンドラーが JavaScript エラー オブジェクトをキャッチします。 エラー オブジェクトは 2 つの引数をエラー ハンドラーに提供します。 詳しくは、「[非同期 Windows ランタイム メソッドからの特殊なエラー プロパティ](/scripting/jswinrt/special-error-properties-from-asynchronous-windows-runtime-methods)」をご覧ください。
 
 **onErrorOccurred** イベントを処理する **errorLogger** という名前のエラー処理関数の例を示します。
 
@@ -85,4 +85,4 @@ window.errorLogger = function (sender, evt) {
 });
 ```
 
-JavaScript での [AdControl](error-handling-in-javascript-walkthrough.md) エラー処理について説明するチュートリアルについては、「**JavaScript チュートリアルでのエラー処理**」をご覧ください。
+JavaScript での **AdControl** エラー処理について説明するチュートリアルについては、「[JavaScript チュートリアルでのエラー処理](error-handling-in-javascript-walkthrough.md)」をご覧ください。

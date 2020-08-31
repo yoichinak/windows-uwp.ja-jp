@@ -6,12 +6,12 @@ ms.date: 03/05/2019
 ms.topic: article
 keywords: Windows 10, uwp, 税金, アプリの税, 税の要件, コマース拡張, 税率
 ms.localizationpriority: medium
-ms.openlocfilehash: f1147ab6ee76b1d7615d6acaadaf6190db96c668
-ms.sourcegitcommit: 829af8cf4679a6aa9e7ecad961e1e33a09235028
+ms.openlocfilehash: 2d78a5a6af362a52b55830f279b3fffc1fb74346
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681263"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170876"
 ---
 # <a name="tax-details-for-windows-appgame-developers-and-azure-marketplace-publishers"></a>Windows アプリ/ゲーム開発者と Azure Marketplace パブリッシャーの税金の詳細
 
@@ -24,10 +24,10 @@ Microsoft が管理している国 (開発者/発行者が管理している国)
 価格選択の税金に関する考慮事項と、アプリ開発者契約または最新の発行元契約での税金責任を理解するために、以下の表にある国/地域の分布をご覧ください。
 
 > [!NOTE]
-> 限られた一部の国/地域では、商取引拡大調整が支払いに影響を及ぼす場合があります。 Commerce Expansion Adjustment とそれが適用される市場の詳細については、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)および[影響を受ける国/地域](define-market-selection.md#price-considerations-for-specific-markets)のリストを参照してください。
+> 限られた一部の国/地域では、商取引拡大調整が支払いに影響を及ぼす場合があります。 Commerce Expansion Adjustment とそれが適用される市場の詳細については、[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)および[影響を受ける国/地域](define-market-selection.md#price-considerations-for-specific-markets)のリストを参照してください。
 
 > [!IMPORTANT]
-> 次の表に記載されている情報 [に従って](#reseller-countriesregions)、販売店の国/地域および環境に対する税金の責任は、 [アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)の C で説明されています。
+> 次の表に記載されている情報 [に従って](#reseller-countriesregions)、販売店の国/地域および環境に対する税金の責任は、 [アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)の C で説明されています。
 > **支払いの意味**列は、Windows アプリ/ゲーム開発者にのみ適用されることに注意してください。 この列に示されている税率は、いつでも変更される可能性があります。Microsoft では、以下の表の料金が常に正確であることを保証いたしかねます。
 
 
@@ -289,7 +289,7 @@ Microsoft が管理している国 (開発者/発行者が管理している国)
 
 ## <a name="reseller-countriesregions"></a>再販業者の国/地域
 
-特定の国/地域では、発行元のアプリとアプリ内製品を Microsoft Store で利用可能にするために、Microsoft はエージェントではなく再販業者として機能します。 リセラーの国と地域に関するご契約条件について詳しくは、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)をご覧ください。
+特定の国/地域では、発行元のアプリとアプリ内製品を Microsoft Store で利用可能にするために、Microsoft はエージェントではなく再販業者として機能します。 リセラーの国と地域に関するご契約条件について詳しくは、[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)をご覧ください。
 
 以下は、Windows アプリ/ゲーム開発者にのみ適用されます。   
 

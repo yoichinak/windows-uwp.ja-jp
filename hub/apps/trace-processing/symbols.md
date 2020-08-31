@@ -5,16 +5,16 @@ author: maiak
 ms.author: maiak
 ms.date: 02/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: a6954538159c6fffb3185aa8b3137af26e17b32f
-ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
+ms.openlocfilehash: 72264b51edcc0b02aa335b8766100c196a0d5090
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77629093"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168816"
 ---
 # <a name="use-symbols-in-net-traceprocessing"></a>.NET トレース処理でシンボルを使用する
 
-[Traceprocessor](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.traceprocessor)は、複数のデータソースからシンボルを読み込み、スタックを取得することをサポートしています。 次のコンソールアプリケーションは、CPU サンプルを調べ、特定の関数が実行されていた推定時間を出力します (CPU 使用率のトレースの統計サンプリングに基づいています)。
+[Traceprocessor](/dotnet/api/microsoft.windows.eventtracing.traceprocessor) は、複数のデータソースからシンボルを読み込み、スタックを取得することをサポートしています。 次のコンソールアプリケーションは、CPU サンプルを調べ、特定の関数が実行されていた推定時間を出力します (CPU 使用率のトレースの統計サンプリングに基づいています)。
 
 ```csharp
 using Microsoft.Windows.EventTracing;
@@ -94,10 +94,10 @@ winlogon.exe: 20.15 ms
 
 ## <a name="symbols-format"></a>シンボルの形式
 
-内部的には、TraceProcessor は、PDB に格納されている一部のデータのキャッシュである[symcache](https://docs.microsoft.com/windows-hardware/test/wpt/loading-symbols#symcache-path)形式を使用します。 シンボルを読み込むときに、TraceProcessor は、これらの SymCache ファイル (SymCache パス) に使用する場所を指定し、必要に応じて Pdb にアクセスするためのシンボルパスを指定する必要があります。 シンボルパスが指定されると、TraceProcessor は必要に応じて、PDB ファイルから SymCache ファイルを作成します。また、同じデータの後続の処理では、パフォーマンス向上のために SymCache ファイルを直接使用できます。
+内部的には、TraceProcessor は、PDB に格納されている一部のデータのキャッシュである [symcache](/windows-hardware/test/wpt/loading-symbols#symcache-path) 形式を使用します。 シンボルを読み込むときに、TraceProcessor は、これらの SymCache ファイル (SymCache パス) に使用する場所を指定し、必要に応じて Pdb にアクセスするためのシンボルパスを指定する必要があります。 シンボルパスが指定されると、TraceProcessor は必要に応じて、PDB ファイルから SymCache ファイルを作成します。また、同じデータの後続の処理では、パフォーマンス向上のために SymCache ファイルを直接使用できます。
 
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次の手順
 
 このチュートリアルでは、トレースの処理時にシンボルを読み込む方法について学習しました。
 
-次の手順では、ストリーミングを[使用](streaming.md)して、メモリ内のすべてのデータをバッファリングすることなく、トレースデータにアクセスする方法を学習します。
+次の手順では、ストリーミングを [使用](streaming.md) して、メモリ内のすべてのデータをバッファリングすることなく、トレースデータにアクセスする方法を学習します。

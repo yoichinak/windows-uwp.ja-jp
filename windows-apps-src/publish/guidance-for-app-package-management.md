@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4615503c41df6cef891ab8e77024d9951c489b38
-ms.sourcegitcommit: 96b7be654a0922eeb421b5fa51ebfc586abe74fe
+ms.openlocfilehash: 5ecd8cc96196c31615eac032183956de3bee9e4b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945949"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171056"
 ---
 # <a name="guidance-for-app-package-management"></a>アプリ パッケージ管理のガイダンス
 
@@ -30,7 +30,7 @@ ms.locfileid: "84945949"
 一般に、新しい OS バージョンでは、同じデバイス ファミリの以前の OS バージョンを対象にしたパッケージを実行できます。 Windows 10 デバイスは、以前にサポートされていたすべての OS バージョン (デバイスファミリごと) を実行できます。 Windows 10 のデスクトップ デバイスでは Windows 8.1 または Windows 8 用に構築されたアプリを実行でき、Windows 10 のモバイル デバイスでは Windows Phone 8.1、Windows Phone 8、さらには Windows Phone 7.x 用に構築されたアプリまで実行できます。 ただし、Windows 10 のお客様は、該当するデバイスファミリをターゲットとする UWP パッケージがアプリに含まれていない場合にのみ、これらのパッケージを取得します。
 
 > [!IMPORTANT]
-> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
+> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの [ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
 
 
 ## <a name="removing-an-app-from-the-store"></a>アプリを Microsoft Store から削除する
@@ -52,7 +52,7 @@ ms.locfileid: "84945949"
 
 ## <a name="removing-packages-for-a-previously-supported-device-family"></a>これまでサポートされていたデバイス ファミリ用のパッケージを削除する
 
-アプリで以前にサポートされていた特定の[デバイスファミリ](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)のすべてのパッケージを削除すると、[**パッケージ**] ページに変更を保存する前に、これが目的であることを確認するメッセージが表示されます。
+アプリで以前にサポートされていた特定の [デバイスファミリ](/uwp/extension-sdks/device-families-overview) のすべてのパッケージを削除すると、[ **パッケージ** ] ページに変更を保存する前に、これが目的であることを確認するメッセージが表示されます。
 
 アプリが以前にサポートしていたデバイスファミリで実行可能なすべてのパッケージを削除する送信を発行すると、新しい顧客はそのデバイスファミリでアプリを取得できなくなります。 そのデバイス ファミリ向けのパッケージを提供するための別の更新プログラムは、後でいつでも公開することができます。
 
@@ -63,7 +63,7 @@ ms.locfileid: "84945949"
 
 ## <a name="adding-packages-for-windows10-to-a-previously-published-app"></a>以前に公開したアプリに Windows 10 用のパッケージを追加する
 
-Windows 8.x および/または Windows Phone 2.x のパッケージのみを含むアプリがストアにある場合、Windows 10 用にアプリを更新するには、新しい送信を作成し、[パッケージ](upload-app-packages.md)の手順の間に msixupload または .appxupload パッケージを追加する必要があります。 アプリが認定プロセスを通過した後、UWP パッケージは Windows 10 のお客様による新しい買収にも利用できます。
+Windows 8.x および/または Windows Phone 2.x のパッケージのみを含むアプリがストアにある場合、Windows 10 用にアプリを更新するには、新しい送信を作成し、 [パッケージ](upload-app-packages.md) の手順の間に msixupload または .appxupload パッケージを追加する必要があります。 アプリが認定プロセスを通過した後、UWP パッケージは Windows 10 のお客様による新しい買収にも利用できます。
 
 > [!NOTE]
 > Windows 10 のユーザーが UWP パッケージを入手した場合、以前の OS バージョン用のパッケージを使うようにそのユーザーをロールバックすることはできません。 

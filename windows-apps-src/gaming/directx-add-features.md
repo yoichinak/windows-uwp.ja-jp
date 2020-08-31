@@ -1,17 +1,17 @@
 ---
 title: DirectX ゲームへの機能の追加
-description: DirectX ゲームに機能を追加します。
+description: Directx および XAML を使用して、DirectX ゲームで UI インターフェイスを作成し、コントロールを追加し、画面の回転を処理する方法について説明します。
 ms.assetid: 78e17048-a4a5-47d3-b250-19375b6f186c
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, XAML, 画面の向き, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: 432e7716363f6a51254e1476dac38f713c94fb69
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d6d32097675ee5a85b689203d7e1034f31246221
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57599507"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89053832"
 ---
 # <a name="add-features-to-directx-games"></a>DirectX ゲームへの機能の追加
 
@@ -36,15 +36,15 @@ ms.locfileid: "57599507"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="directx-and-xaml-interop.md">DirectX および XAML の相互運用機能</a></p></td>
+<td align="left"><p><a href="directx-and-xaml-interop.md">DirectX と XAML の相互運用機能</a></p></td>
 <td align="left"><p>DirectX と XAML の相互運用機能を有効にします。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="directx-game-input.md">ゲームの入力</a></p></td>
+<td align="left"><p><a href="directx-game-input.md">ゲーム入力</a></p></td>
 <td align="left"><p>入力方式をゲームに追加します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="supporting-screen-rotation-directx-and-cpp.md">画面の向きをサポートしています。</a></p></td>
+<td align="left"><p><a href="supporting-screen-rotation-directx-and-cpp.md">画面の向きのサポート</a></p></td>
 <td align="left"><p>画面の向きのサポートを追加します。</p></td>
 </tr>
 </tbody>

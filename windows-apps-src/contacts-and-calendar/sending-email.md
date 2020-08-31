@@ -6,12 +6,12 @@ keywords: 連絡先, メール, 送信
 ms.date: 10/11/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e7839a26afca81913e50296ac5ed9bb9210edbf2
-ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
+ms.openlocfilehash: 47d07fa1932aae87704f7922762a8f0b7e430444
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86997899"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154666"
 ---
 # <a name="send-email"></a>電子メールの送信
 
@@ -25,7 +25,7 @@ ms.locfileid: "86997899"
 
 ## <a name="launch-the-compose-email-dialog"></a>メールの作成ダイアログの起動
 
-新しい [**EmailMessage**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Email.EmailMessage) オブジェクトを作成し、メールの作成ダイアログに事前に入力するデータを設定します。 ダイアログを表示するには、[**ShowComposeNewEmailAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.email.emailmanager.showcomposenewemailasync) を呼び出します。
+新しい [**EmailMessage**](/uwp/api/Windows.ApplicationModel.Email.EmailMessage) オブジェクトを作成し、メールの作成ダイアログに事前に入力するデータを設定します。 ダイアログを表示するには、[**ShowComposeNewEmailAsync**](/uwp/api/windows.applicationmodel.email.emailmanager.showcomposenewemailasync) を呼び出します。
 
 ``` cs
 private async Task ComposeEmail(Windows.ApplicationModel.Contacts.Contact recipient,
@@ -47,11 +47,11 @@ private async Task ComposeEmail(Windows.ApplicationModel.Contacts.Contact recipi
 ```
 
 >[!NOTE]
-> [Emailattachment](https://docs.microsoft.com/uwp/api/windows.applicationmodel.email.emailattachment)クラスを使用して電子メールに追加した添付ファイルは、メールアプリでのみ表示されます。 他のメールプログラムが既定のメールプログラムとして構成されている場合は、[作成] ウィンドウが添付ファイルなしで表示されます。 これは既知の問題です。
+> [Emailattachment](/uwp/api/windows.applicationmodel.email.emailattachment)クラスを使用して電子メールに追加した添付ファイルは、メールアプリでのみ表示されます。 他のメールプログラムが既定のメールプログラムとして構成されている場合は、[作成] ウィンドウが添付ファイルなしで表示されます。 これは既知の問題です。
 
 ## <a name="summary-and-next-steps"></a>まとめと次のステップ
 
-このトピックでは、メールの作成ダイアログの起動方法を示しました。 メール メッセージの受信者として使う連絡先を選ぶ方法については、「[連絡先の選択](selecting-contacts.md)」をご覧ください。 電子メールの添付ファイルとして使用するファイルの選択については、「[**PickSingleFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync)」をご覧ください。
+このトピックでは、メールの作成ダイアログの起動方法を示しました。 メール メッセージの受信者として使う連絡先を選ぶ方法については、「[連絡先の選択](selecting-contacts.md)」をご覧ください。 電子メールの添付ファイルとして使用するファイルの選択については、「[**PickSingleFileAsync**](/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 

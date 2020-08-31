@@ -7,12 +7,12 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10、uwp、通知、コレクション、グループ、ux、ux ガイダンス、ガイダンス、アクション、トースト、アクションセンター、noninterruptive、有効な通知、非侵入通知、アクション可能、管理、整理
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e970b5ae2019dcc0290dc6b0b72b48208eb5c12
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 9879d052882532e4d47c27c0b636f728293311cf
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684600"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169176"
 ---
 # <a name="toast-notification-ux-guidance"></a>トースト通知 UX のガイダンス
 通知は、最新の生活の中で必要な部分です。これにより、ユーザーの生産性を高め、アプリや web サイトを使用したり、更新プログラムを最新の状態に保つことができます。 ただし、通知は、ユーザー中心の方法で設計されていない場合、非常に役に立ち、過度に影響を受けやすいものにすることができます。 通知は、1回の右クリックでオフになっています。オフにすると、無効になり、再び有効になります。  そのため、通知がユーザーの画面領域と時間の敬意になっていることを確認し、このエンゲージメントチャネルを開いたままにしておくことができます。
@@ -26,7 +26,7 @@ Microsoft では、Windows テレメトリ、およびその他の最初とサ�
 
 ![入力テキストボックスとボタンを使用して通知を設定し、通知に応答するための、アクションにつながる通知](images/actionable-notification-example01.png)
 
-アクションを活用する通知の例を次に示します。 タスクを完了することは、非常に肯定的な気分であり、アクション可能なコンテンツを含む通知を送信することによって、アプリまたは web サイトにその感じを与えることができます。 実行可能な通知を使用すると、企業とコンシューマーの両方のシナリオで、ユーザーがこれらの小さなタスクを実行するための時間を短縮して生産性を向上させることもできます。 ユーザーが定期的に実行するアクションや、ユーザーにトレーニングしようとしているものを含めることをお勧めします。  以下に例を挙げます。
+アクションを活用する通知の例を次に示します。 タスクを完了することは、非常に肯定的な気分であり、アクション可能なコンテンツを含む通知を送信することによって、アプリまたは web サイトにその感じを与えることができます。 実行可能な通知を使用すると、企業とコンシューマーの両方のシナリオで、ユーザーがこれらの小さなタスクを実行するための時間を短縮して生産性を向上させることもできます。 ユーザーが定期的に実行するアクションや、ユーザーにトレーニングしようとしているものを含めることをお勧めします。  次に例をいくつか示します。
 * 好み、お気に入り登録、フラグ、または starring のコンテンツ
 * 経費報告書、期限切れ、アクセス許可などを承認または拒否する。
 * メッセージ、電子メール、グループチャット、コメントなどにインラインで返信します。
@@ -38,18 +38,18 @@ Microsoft では、Windows テレメトリ、およびその他の最初とサ�
 ## <a name="2-timing-and-urgency"></a>2. タイミングと緊急度
 私たちが通知について考えているのとは対照的に、リアルタイムは必ずしも最良とは限りません。 開発者は、ユーザーについて考えて、送信している通知が緊急情報であるかどうかを検討するようにします。 ユーザーは、情報が多すぎると簡単にオーバーロードでき、フォーカスを移動しようとしている間に中断されている場合は、不満を感じてしまう可能性があります。 Windows には、送信する通知の割り込みを考慮する方法に関するいくつかのオプションが用意されています。
 
-**生の通知:** [生の通知](raw-notification-overview.md)を使用すると、特にユーザーへの中断を最小限に抑えた場合に、多くの理由で有益な場合があります。  生の通知を送信すると、バックグラウンドでアプリがウェイクアップされるので、通知をアプリのコンテキストですぐに配信することが理にかなっているかどうかを評価できます。 ユーザーにすぐに表示する必要がある場合は、そこから[ローカルトースト](send-local-toast.md)をポップすることができます。  ユーザーがすぐに表示する必要がない場合は、後で起動するようにスケジュールされた[トースト](https://blogs.msdn.microsoft.com/tiles_and_toasts/2016/09/30/quickstart-sending-an-alarm-in-windows-10/)を作成することができます。
+**生の通知:**[生の通知](raw-notification-overview.md)を使用すると、特にユーザーへの中断を最小限に抑えた場合に、多くの理由で有益な場合があります。  生の通知を送信すると、バックグラウンドでアプリがウェイクアップされるので、通知をアプリのコンテキストですぐに配信することが理にかなっているかどうかを評価できます。 ユーザーにすぐに表示する必要がある場合は、そこから [ローカルトースト](send-local-toast.md) をポップすることができます。  ユーザーがすぐに表示する必要がない場合は、後で起動するようにスケジュールされた [トースト](/archive/blogs/tiles_and_toasts/quickstart-sending-an-alarm-in-windows-10) を作成することができます。
 
 
-**ゴーストトースト:** 画面の右下隅にポップアップを表示せず、アクションセンターに直接通知を送信する通知を起動することもできます。 これを実現するには、 [Supresspopup プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.notifications.toastnotification.suppresspopup)を True に設定します。 アクションセンター以外で通知がポップアップ表示されないことがありますが、skepticism は2-3、ポップされたトーストに対してアクションセンターでライブになっています。  ユーザーは、通知を受信する準備ができたときに応答性が向上し、中断されたタイミングを制御できます。これは、アクションセンターのコンテンツを noninvasively に通知するユーザーにとってはるかに効果的です。
+**ゴーストトースト:** 画面の右下隅にポップアップを表示せず、アクションセンターに直接通知を送信する通知を起動することもできます。 これを実現するには、 [Supresspopup プロパティ](/uwp/api/windows.ui.notifications.toastnotification.suppresspopup) を True に設定します。 アクションセンター以外で通知がポップアップ表示されないことがありますが、skepticism は2-3、ポップされたトーストに対してアクションセンターでライブになっています。  ユーザーは、通知を受信する準備ができたときに応答性が向上し、中断されたタイミングを制御できます。これは、アクションセンターのコンテンツを noninvasively に通知するユーザーにとってはるかに効果的です。
 
 ## <a name="3-clear-out-the-clutter"></a>3. 乱雑さを解消する
 通知は、非常に長い時間 (既定では3日間)、アクションセンターに保持されます。  ここに表示されるコンテンツが最新であり、ユーザーがアクションセンターを開くたびに関連性があることを確認する必要があります。 ユーザーの画面領域を無駄にしており、さらに最新の状態にするために使用できるスロットを占有しています。  たとえば、ユーザーが電子メール管理アプリをインストールし、10個の電子メールと10通の通知を受信したとします。  目的のエクスペリエンスに応じて、ユーザーが対応する電子メールを読んだ場合や、アクションセンターから古い乱雑を削除する方法としてアプリを開いた場合は、これらの通知をクリアすることを検討してください。
 
-アクションセンターのコンテンツを確認したり、これらの通知を管理したりできるようにする一連の[Toastnotificationhistory](https://docs.microsoft.com/uwp/api/windows.ui.notifications.toastnotificationhistory) api が用意されています。 ユーザーの画面領域を敬意にして、関連するコンテンツと現在のコンテンツのみをユーザーに表示するように注意してください。
+アクションセンターのコンテンツを確認したり、これらの通知を管理したりできるようにする一連の [Toastnotificationhistory](/uwp/api/windows.ui.notifications.toastnotificationhistory) api が用意されています。 ユーザーの画面領域を敬意にして、関連するコンテンツと現在のコンテンツのみをユーザーに表示するように注意してください。
 
 ## <a name="4-keeping-organized"></a>4. 整理された状態を維持する
-前述のように、アクションセンターのコンテンツは3日間保持されます。  ユーザーが探している情報を簡単に見つけられるように、[ヘッダー](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-headers)または[コレクション](https://docs.microsoft.com/uwp/api/windows.ui.notifications.toastcollection)を使用してアクションセンターで通知を整理します。 以下のヘッダーの例を確認できます。
+前述のように、アクションセンターのコンテンツは3日間保持されます。  ユーザーが探している情報を簡単に見つけられるように、 [ヘッダー](./toast-headers.md) または [コレクション](/uwp/api/windows.ui.notifications.toastcollection)を使用してアクションセンターで通知を整理します。 以下のヘッダーの例を確認できます。
 
 ![ヘッダーに ' キャンプ!! ' というラベルが付いたトーストの例](images/toast-headers-action-center.png)
 
@@ -61,7 +61,7 @@ Microsoft では、Windows テレメトリ、およびその他の最初とサ�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [トーストコンテンツ](adaptive-interactive-toasts.md)
+* [トーストのコンテンツ](adaptive-interactive-toasts.md)
 * [直接通知](raw-notification-overview.md)
-* [保留中の更新](toast-pending-update.md)
-* [GitHub の通知ライブラリ (Windows Community Toolkit の一部)](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)
+* [保留中の更新プログラム](toast-pending-update.md)
+* [GitHub の通知ライブラリ (Windows コミュニティ ツールキットの一部)](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Notifications)

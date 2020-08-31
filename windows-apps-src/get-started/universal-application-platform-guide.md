@@ -2,20 +2,27 @@
 title: ユニバーサル Windows プラットフォーム (UWP) アプリとは
 description: Windows 10 を搭載するさまざまなデバイスで実行できるユニバーサル Windows プラットフォーム (UWP) アプリについて説明します。
 ms.assetid: 59849197-B5C7-493C-8581-ADD6F5F8800B
-ms.date: 05/07/2018
+ms.date: 08/21/2020
 ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: c9b2c270538ec49a139b88fb1c7eddb92acad10a
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 412dfe7d9e2387a90bc51f834755e8565f170812
+ms.sourcegitcommit: ab68ff43139f2423091bf8830c00f8a0fc7326ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730096"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88785034"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
-![ユニバーサル Windows プラットフォーム アプリは、さまざまなデバイスで実行でき、アダプティブ ユーザー インターフェイス、自然なユーザー入力、1 つのストア、パートナー センター、およびクラウド サービスをサポートしています。](images/universalapps-overview.png)
+
+## <a name="where-does-uwp-fit-in-the-microsoft-development-story"></a>UWP が Microsoft 開発ストーリーの中で占める位置
+
+UWP は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つです。 UWP アプリは、WinRT API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。 UWP アプリでは、Win32 API や .NET クラスも引き続き使用できます ([UWP アプリ用の API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事を参照してください)。
+
+Microsoft の開発ストーリーは進化を続けており、[WinUI](https://docs.microsoft.com/windows/apps/winui/)、[MSIX](https://docs.microsoft.com/windows/msix/)、[Project Reunion](https://github.com/microsoft/ProjectReunion) などのイニシアチブと並んで、UWP はクライアント アプリを作成するための強力なツールです。
+
+## <a name="features-of-a-uwp-app"></a>UWP アプリの機能
 
 UWP アプリには次のような特長があります。
 
@@ -77,7 +84,7 @@ UWP アプリは、詳細なテレメトリや分析のために [Application In
 - 有料のダウンロードは最も簡単な方法です。 必要な作業は価格の指定だけです。
 - 試用版を使うとユーザーは購入前にアプリを試すことができ、従来の "フリーミアム" オプションよりも目につきやすく、コンバージョンも簡単です。
 - セール価格はユーザーに対して動機付けとなります。
-- アプリ内購入と広告も利用できます。
+- アプリ内購入。
 
 ### <a name="apps-from-the-microsoft-store-provide-a-seamless-install-uninstall-and-upgrade-experience"></a>Microsoft Store からアプリのシームレスなインストール、アンインストール、アップグレードのエクスペリエンスを提供する
 

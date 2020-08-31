@@ -5,12 +5,12 @@ author: maiak
 ms.author: maiak
 ms.date: 02/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: e04f306a6a5c03d1f502b9cfb6c2cbb737e0098f
-ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
+ms.openlocfilehash: 6ad0f5977ed4d739ce3133c9e67c0eefc6e0cbd9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77629083"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168826"
 ---
 # <a name="use-streaming-with-traceprocessor"></a>TraceProcessor でのストリーミングの使用
 
@@ -141,7 +141,7 @@ class Program
 
 バッファリングとストリーミングの使用には、次のような重要な違いがあります。
 
-1. バッファリングは[IPendingResult&lt;t&gt;](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.ipendingresult-1)を返し、保持される結果はトレースが処理される前にのみ使用できます。 トレースが処理された後、foreach や LINQ などの手法を使用して結果を列挙できます。
+1. バッファリングは[IPendingResult &lt; T &gt; ](/dotnet/api/microsoft.windows.eventtracing.ipendingresult-1)を返し、保持される結果はトレースが処理される前にのみ使用できます。 トレースが処理された後、foreach や LINQ などの手法を使用して結果を列挙できます。
 2. Streaming は void を返し、代わりにコールバック引数を受け取ります。 各項目が使用可能になると、コールバックが1回呼び出されます。 データはバッファリングされないため、foreach または LINQ で列挙する結果の一覧はありません。ストリーミングコールバックは、処理が完了した後に使用するために保存するデータのすべての部分をバッファーする必要があります。
 3. バッファリングされたデータを処理するためのコードは、trace の呼び出しの後に表示されます。処理 ()。保留中の結果を使用できます。
 4. ストリーミングデータを処理するためのコードは、トレースの呼び出しの前に表示されます。プロセス () をトレースへのコールバックとして処理します。UseStreaming...() メソッド。
@@ -176,7 +176,7 @@ class Program
 
 最後に、trace を行います。UseStreaming () には、上記のリストのデータを関連付けるために使用される、基になるイベントも用意されています。 これらの基になるイベントは次のとおりです。
 
-| コード                                                        | 説明                                                                                | 内容                                 |
+| コード                                                        | 説明                                                                                | このバージョンを含む製品                                 |
 |-------------------------------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------------------|
 | トレース.UseStreaming().UseCompactContextSwitchEvents()        | ストリーム解析コンパクトコンテキスト切り替えイベント。                                              | トレース.UseStreaming().UseContextSwitchData() |
 | トレース.UseStreaming().UseContextSwitchEvents()               | ストリーム解析されたコンテキストの切り替えイベント。 SwitchInThreadIds は、場合によっては正確でない場合があります。 | トレース.UseStreaming().UseContextSwitchData() |
@@ -192,4 +192,4 @@ class Program
 
 このチュートリアルでは、ストリーミングを使用して、すぐにトレースデータにアクセスし、使用するメモリを少なくする方法を学習しました。
 
-次の手順では、トレースから必要なデータにアクセスします。 いくつかのアイデアについては、[サンプル](https://github.com/microsoft/eventtracing-processing-samples)を参照してください。 すべてのトレースにサポートされているすべての種類のデータが含まれているわけではありません。
+次の手順では、トレースから必要なデータにアクセスします。 いくつかのアイデアについては、 [サンプル](https://github.com/microsoft/eventtracing-processing-samples) を参照してください。 すべてのトレースにサポートされているすべての種類のデータが含まれているわけではありません。

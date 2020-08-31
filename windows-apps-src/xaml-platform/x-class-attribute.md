@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dcda1677a8b5d289fd4c5e86db69212004f00824
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: be238be3414fb17ff64a5c6d5da713f614c297be
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371102"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169086"
 ---
 # <a name="xclass-attribute"></a>x:Class 属性
 
@@ -29,14 +29,14 @@ ms.locfileid: "66371102"
 
 ## <a name="xaml-values"></a>XAML 値
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| 名前空間 | (省略可能)。 _classname_ で識別される部分クラスが含まれている名前空間を指定します。 _名前空間_を指定すると、_名前空間_と_クラス名_がドット (.) で区切られます。 _名前空間_を省略すると、_クラス名_には名前空間がないものと見なされます。 |
+| namespace | 任意。 _classname_ で識別される部分クラスが含まれている名前空間を指定します。 _名前空間_を指定すると、_名前空間_と_クラス名_がドット (.) で区切られます。 _名前空間_を省略すると、_クラス名_には名前空間がないものと見なされます。 |
 | classname | 必須。 ロードされた XAML とその XAML のコード ビハインドを結び付ける部分クラスの名前を指定します。 | 
 
 ## <a name="remarks"></a>注釈
 
-**x:Class** は、XAML ファイル/オブジェクト ツリーのルートであり、ビルド アクションによってコンパイルされる任意の要素か、コンパイルされたアプリケーションのアプリケーション定義中の [**Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) ルートの属性として宣言できます。 ルート ノード以外の任意の要素に対して **x:Class** を宣言した場合、XAML ファイルが **Page** ビルド動作でコンパイルされていない任意の状況下で、コンパイル時エラーになります。
+**x:Class** は、XAML ファイル/オブジェクト ツリーのルートであり、ビルド アクションによってコンパイルされる任意の要素か、コンパイルされたアプリケーションのアプリケーション定義中の [**Application**](/uwp/api/Windows.UI.Xaml.Application) ルートの属性として宣言できます。 ルート ノード以外の任意の要素に対して **x:Class** を宣言した場合、XAML ファイルが **Page** ビルド動作でコンパイルされていない任意の状況下で、コンパイル時エラーになります。
 
 **x:Class** として使われたクラスは、ネストされたクラスにすることはできません。
 
@@ -45,4 +45,3 @@ ms.locfileid: "66371102"
 ## <a name="clr-language-rules"></a>CLR 言語規則
 
 コード ビハインド ファイルとしては C++ ファイルが使用可能ですが、XAML 構文に違いが出ないようにするため、CLR の言語形式に従う特定の構文があります。 特に、任意の **x:Class** 値の名前空間とクラス名の間の区切り文字は、XAML に関連付けられた C++ コード ファイルの名前空間とクラス名の間の区切り文字が "::" であっても、常にドット (".") になります。 **x:Class** 値の *namespace* 部分を指定する場合、C++ で入れ子になった名前空間を宣言すると、以降の入れ子になった名前空間の文字列間の区切り文字も "::" ではなく "." である必要があります。
-

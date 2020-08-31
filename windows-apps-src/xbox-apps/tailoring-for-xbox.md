@@ -1,16 +1,16 @@
 ---
 title: Xbox ベスト プラクティス
-description: Xbox 用のアプリを最適化する方法を説明します。
+description: Xbox 開発のベストプラクティスに従って、Xbox One 用にユニバーサル Windows プラットフォーム (UWP) アプリケーションを最適化する方法について説明します。
 ms.date: 10/12/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1ce69549996a5adfb8c5d2d585753cf95ef3fdc3
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 8aaf8759b59c8ccbb5b09ba969675096700ce9e8
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684901"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094459"
 ---
 # <a name="xbox-best-practices"></a>Xbox ベスト プラクティス
 
@@ -22,7 +22,7 @@ ms.locfileid: "75684901"
 
 ### <a name="do-turn-off-mouse-mode"></a>*行うこと:* マウス モードをオフにします
 
-Xbox ユーザーは自分のコントローラーを気に入っています。 コントローラー入力を最適化するには、[マウスモードを無効](how-to-disable-mouse-mode.md)にし、方向のナビゲーションを有効にします ( [XY フォーカスナビゲーションと対話](../design/input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction)とも呼ばれます)。 フォーカスのあるトラップとアクセスできない UI に注意してください。
+Xbox ユーザーは自分のコントローラーを気に入っています。 コントローラー入力を最適化するには、 [マウスモードを無効](how-to-disable-mouse-mode.md) にし、方向のナビゲーションを有効にします ( [XY フォーカスナビゲーションと対話](../design/input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction)とも呼ばれます)。 フォーカスのあるトラップとアクセスできない UI に注意してください。
 
 ### <a name="do-draw-a-focus-rectangle-that-is-appropriate-for-a-10-foot-experience"></a>*行うこと:* 10 フィート エクスペリエンス向けの適切なフォーカス用の四角形を描画します
 
@@ -43,7 +43,7 @@ One of the unique features of Xbox One is that users can snap apps such as Corta
 
 ### <a name="consider-use-tv-safe-colors"></a>*考慮すること:* テレビ セーフ カラーを使用します
 
-テレビでは、コンピューター モニターほど極端な色の輝度は処理されません。 不自然な縞模様や色あせた画像が表示されないように、アプリでは高輝度の色を使わないようにする必要があります。 また、テレビの間の違いに留意してください。テレビによって色の表現が大きく異なる場合があります。 アプリをすべてのユーザーにとって優れた外観にする方法については、「[色](../design/devices/designing-for-tv.md#colors)の読み取り」を参照してください。
+テレビでは、コンピューター モニターほど極端な色の輝度は処理されません。 不自然な縞模様や色あせた画像が表示されないように、アプリでは高輝度の色を使わないようにする必要があります。 また、テレビの間の違いに留意してください。テレビによって色の表現が大きく異なる場合があります。** アプリをすべてのユーザーにとって優れた外観にする方法については、「 [色](../design/devices/designing-for-tv.md#colors) の読み取り」を参照してください。
 
 ### <a name="remember-you-can-disable-scaling"></a>*憶えておくこと:* スケーリングを無効にできます
 
@@ -56,21 +56,21 @@ UWP アプリは、コントロールやフォントなどの UI 要素がすべ
 
 ## <a name="channel-9"></a>Channel 9
 
-[Channel 9](https://channel9.msdn.com/) の以下の講演は、Xbox でのすばらしいアプリの開発に関する優れたソースです。
+[Channel 9](https://channel9.msdn.com/)に関する次の説明は、Xbox で素晴らしいアプリを構築するための優れた情報源です。
 
 - [Xbox 向けの優れたユニバーサル Windows プラットフォーム (UWP) アプリのビルド](https://channel9.msdn.com/Events/Build/2016/B883)
 - [アプリを Xbox One とテレビに対応させる](https://channel9.msdn.com/Events/Build/2016/T651-R1)
-- [UWP 開発 1: アダプティブ UI の構築](https://channel9.msdn.com/Events/Build/2016/L724-R1)
-- [ブラウザーを超えた Web Apps: クロスプラットフォームはクロスデバイスを満たす](https://channel9.msdn.com/Events/Build/2016/B888)
+- [UWP の開発 1: アダプティブ UI の作成](https://channel9.msdn.com/Events/Build/2016/L724-R1)
+- [ブラウザーに留まらない Web アプリ: クロスプラットフォームとクロス デバイスの遭遇](https://channel9.msdn.com/Events/Build/2016/B888)
 
-## <a name="app-dev-on-xbox"></a>Xbox でのアプリ開発
+## <a name="app-dev-on-xbox"></a>Xbox でのアプリの開発
 
-Xbox 上の**アプリ開発者は、xbox**でアプリを開発することを初めてお勧めします。
+Xbox 上の **アプリ開発者は、xbox** でアプリを開発することを初めてお勧めします。
 
 * [記録されたセッションを見る](https://developer.microsoft.com/windows/projects/campaigns/app-dev-on-xbox-event#WatchNow)
 * [ブログ投稿を読む](https://developer.microsoft.com/windows/projects/campaigns/app-dev-on-xbox-event#BlogSeries)
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
 - [Xbox One の UWP](index.md)
 - [Xbox およびテレビ向け設計](../design/devices/designing-for-tv.md)

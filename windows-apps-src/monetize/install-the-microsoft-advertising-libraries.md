@@ -1,17 +1,17 @@
 ---
 ms.assetid: 3aeddb83-5314-447b-b294-9fc28273cd39
-description: Microsoft Advertising SDK をインストールする方法について説明します。
+description: Microsoft Advertising SDK をインストールして、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリに広告を表示する方法について説明します。
 title: Microsoft Advertising SDK のインストール
 ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, インストール, SDK, Advertising ライブラリ
 ms.localizationpriority: medium
-ms.openlocfilehash: 109ddbd3551dbd4304b86e56ace40f39e1b71211
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: d5c5c18c41996c5d46c261f351a900fea2532a93
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209638"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094671"
 ---
 # <a name="install-the-microsoft-advertising-sdk"></a>Microsoft Advertising SDK のインストール
 
@@ -21,7 +21,7 @@ ms.locfileid: "79209638"
 Windows 10 用の UWP アプリで広告を表示するには、[Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。 この SDK は、Visual Studio 2015 およびそれ以降のバージョンの拡張機能です。
 
 > [!NOTE]
-> JavaScript/HTML UWP アプリを開発していて、Windows 10 SDK バージョン 10.0.14393 (記念日更新) 以降がインストールされている場合は、 [WinJS](https://github.com/winjs/winjs)ライブラリもインストールする必要があります。 このライブラリは以前のバージョンの Windows 10 SDK に含まれていましたが、Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) 以降ではこのライブラリを別個にインストールする必要があります。
+> JavaScript/HTML UWP アプリを開発していて、Windows 10 SDK バージョン 10.0.14393 (記念日更新) 以降がインストールされている場合は、 [WinJS](https://github.com/winjs/winjs) ライブラリもインストールする必要があります。 このライブラリは以前のバージョンの Windows 10 SDK に含まれていましたが、Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) 以降ではこのライブラリを別個にインストールする必要があります。
 
 <span id="install-msi" />
 
@@ -42,7 +42,7 @@ MSI インストーラーを使って Microsoft Advertising SDK をインスト�
 
 4.  Visual Studio を再起動します。
 
-5.  以前のバージョンの Microsoft Advertising SDK、Universal Ad Client SDK、Microsoft Store Engagement and Monetization SDK の Advertising ライブラリを参照する既存のプロジェクトがある場合には、Visual Studio でプロジェクトを開き、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプ ローラー**でプロジェクト ノードを右クリックして、 **[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、 **[リビルド]** を選択します)。
+5.  以前のバージョンの Microsoft Advertising SDK、Universal Ad Client SDK、Microsoft Store Engagement and Monetization SDK の Advertising ライブラリを参照する既存のプロジェクトがある場合には、Visual Studio でプロジェクトを開き、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプ ローラー**でプロジェクト ノードを右クリックして、**[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、**[リビルド]** を選択します)。
 
   または、プロジェクトで初めて Microsoft Advertising SDK を使う場合には、[Microsoft Advertising SDK への参照を追加](#reference)することができます。
 
@@ -65,7 +65,7 @@ NuGet を使って特定の UWP プロジェクトに Microsoft Advertising SDK 
     > [!NOTE]
     > プロジェクトに SDK の以前の MSI インストールからのライブラリの参照が既に含まれている場合は、これらの参照をプロジェクトから削除します。 これらの参照は、参照先のライブラリが前の手順で削除されたため、その隣に警告アイコンが表示されます。
 
-4. Visual Studio で、 **[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
+4. Visual Studio で、**[プロジェクト]** と **[NuGet パッケージの管理]** をクリックします。
 
 5. 検索ボックスに、「**Microsoft.Advertising.XAML**」(XAML プロジェクト用) または「**Microsoft.Advertising.JS**」(JavaScript/HTML プロジェクト用) と入力し、対応するパッケージをインストールします。 パッケージのインストールが完了したら、ソリューションを保存します。
     > [!NOTE]
@@ -73,7 +73,7 @@ NuGet を使って特定の UWP プロジェクトに Microsoft Advertising SDK 
 
 6. ソリューションを閉じ、再度開きます。
 
-7.  プロジェクトが NuGet によりインストールされた以前のバージョンの Microsoft Advertising SDK のライブラリを既に参照している場合で、プロジェクトを SDK の新しいリリースに更新する場合には、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプローラー**でプロジェクト ノードを右クリックして、 **[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、 **[リビルド]** を選択します)。
+7.  プロジェクトが NuGet によりインストールされた以前のバージョンの Microsoft Advertising SDK のライブラリを既に参照している場合で、プロジェクトを SDK の新しいリリースに更新する場合には、プロジェクトをクリーンしてリビルドすることをお勧めします (**ソリューション エクスプローラー**でプロジェクト ノードを右クリックして、**[クリーン]** を選択し、次にもう一度プロジェクト ノードを右クリックして、**[リビルド]** を選択します)。
 
   または、プロジェクトで初めて Microsoft Advertising SDK を使う場合には、[Microsoft Advertising SDK への参照を追加](#reference)することができます。
 
@@ -85,11 +85,11 @@ Microsoft Advertising SDK をインストールした後、次の手順に従っ
 
 1. Visual Studio でプロジェクトを開きます。
     > [!NOTE]
-    > プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、 **[x86]** ) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising SDK への参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
+    > プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、**[x86]**) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising SDK への参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
 
-2. **ソリューション エクスプローラー**で、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
+2. **ソリューション エクスプローラー**で、**[参照設定]** を右クリックし、**[参照の追加]** を選択します。
 
-3. **[参照マネージャー]** で **[ユニバーサル Windows]** を展開して **[拡張機能]** をクリックし、 **[Microsoft Advertising XAML for XAML]** (XAML アプリの場合) または **[Microsoft Advertising SDK for JavaScript]** (JavaScript と HTML を使って構築されたアプリの場合) の横にあるチェック ボックスをオンにします。
+3. **[参照マネージャー]** で **[ユニバーサル Windows]** を展開して **[拡張機能]** をクリックし、**[Microsoft Advertising XAML for XAML]** (XAML アプリの場合) または **[Microsoft Advertising SDK for JavaScript]** (JavaScript と HTML を使って構築されたアプリの場合) の横にあるチェック ボックスをオンにします。
 
 4.  **[参照マネージャー]** で、[OK] をクリックします。
 
@@ -97,7 +97,7 @@ Microsoft Advertising SDK をインストールした後、次の手順に従っ
 
 * [スポット広告](interstitial-ads.md)
 * [ネイティブ広告](native-ads.md)
-* [XAML および .NET での AdControl](adcontrol-in-xaml-and--net.md)
+* [XAML および .NET の AdControl](adcontrol-in-xaml-and--net.md)
 * [HTML 5 および Javascript での AdControl](adcontrol-in-html-5-and-javascript.md)
 
 <span id="framework" />

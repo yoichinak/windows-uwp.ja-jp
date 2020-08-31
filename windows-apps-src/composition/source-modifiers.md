@@ -1,28 +1,28 @@
 ---
 title: ソース修飾子を使用した引っ張って更新
-description: SourceModifier を使用してカスタムの引っ張って更新コントロールを作成します。
+description: InteractionTracker の SourceModifier 機能を使用して、カスタムのプルから更新コントロールを作成する方法について説明します。
 ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 87e4eb90b4801d01ecb85c91b5e64ccc9155d199
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: b20b4b22d1de2252864287b97bedc4a1fc176602
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318094"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89053962"
 ---
 # <a name="pull-to-refresh-with-source-modifiers"></a>ソース修飾子を使用した引っ張って更新
 
 この記事では、InteractionTracker の SourceModifier 機能を使用する方法について詳しく説明します。また、カスタムの引っ張って更新コントロールを作成して、具体的な使用方法を紹介します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 ここでは、以下の記事で説明されている概念を理解していることを前提とします。
 
-- [入力に基づくアニメーション](input-driven-animations.md)
-- [カスタム操作 InteractionTracker 経験](interaction-tracker-manipulations.md)
-- [ベースのリレーションのアニメーション](relation-animations.md)
+- [入力駆動型アニメーション](input-driven-animations.md)
+- [InteractionTracker を使用したカスタム操作エクスペリエンス](interaction-tracker-manipulations.md)
+- [関係ベース アニメーション](relation-animations.md)
 
 ## <a name="what-is-a-sourcemodifier-and-why-are-they-useful"></a>SourceModifier の説明、および SourceModifier が便利である理由
 
@@ -67,7 +67,7 @@ ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsScrollInertiaEnabled="F
 </StackPanel>
 ```
 
-ListView (`ThumbnailList`) は既にスクロールされる XAML コントロールであるため、一番上の項目に到達し、それ以上スクロールできなくなったときに親の (`ContentPanel`) までチェーンされるスクロールが必要になります (ContentPanel はソース修飾子が適用されます) です。この ScrollViewer.IsVerticalScrollChainingEnabled に設定する必要があるため**true** ListView マークアップ。 また、VisualInteractionSource のチェーン モードを **Always** に設定する必要もあります。
+ListView (`ThumbnailList`) は既にスクロールされる XAML コントロールであるため、一番上の項目に到達し、それ以上スクロールできなくなったときに親の (`ContentPanel`) までチェーンされるスクロールが必要になります  (ContentPanel でソース修飾子を適用します)。そのためには、ListView マークアップで ScrollViewer.IsVerticalScrollChainingEnabled を **true** に設定する必要があります。 また、VisualInteractionSource のチェーン モードを **Always** に設定する必要もあります。
 
 _handledEventsToo_ パラメーターを使用して、PointerPressedEvent ハンドラーを **true** に設定する必要があります。 このオプションを使用しないと、PointerPressedEvent は ListView コントロールとして ContentPanel にチェーンされず、これらのイベントは処理済みとしてマークされ、これらのイベントはビジュアル チェーンに送信されなくなります。
 

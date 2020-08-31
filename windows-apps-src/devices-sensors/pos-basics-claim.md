@@ -1,16 +1,16 @@
 ---
 title: PointOfService device claim と enable model
-description: PointOfService の要求とモデルの有効化について学習する
+description: サービスのデバイス信頼性情報を使用し、Api を有効にしてデバイスを要求し、i/o 操作に対して有効にします。
 ms.date: 06/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: bc3a8afbc0d3ca4655e0b1745090db633bcd92b7
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 1977fd5db2f2e026ae4bbab21de9683f275e96d3
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684676"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89053752"
 ---
 # <a name="point-of-service-device-claim-and-enable-model"></a>サービスを使用するデバイスの要求とモデルの有効化
 
@@ -19,11 +19,11 @@ ms.locfileid: "75684676"
 PointOfService デバイス オブジェクトを正常に作成したら、入出力にデバイスを使用する前に、デバイスの種類に適切な要求方法を使用して要求する必要があります。  要求により、多くのデバイスの機能に対する排他的アクセスがアプリケーションに付与され、あるアプリケーションが別のアプリケーションによるデバイスの使用を妨げないようにします。  排他的使用のために一度に PointOfService デバイスを要求できるアプリケーションは 1 つだけです。 
 
 > [!Note]
-> 要求アクションは、デバイスに対して排他ロックを確立しますが、動作状態にはなりません。  詳細については、「 [i/o 操作用にデバイスを有効にする](#enable-device-for-io-operations)」を参照してください。
+> 要求アクションは、デバイスに対して排他ロックを確立しますが、動作状態にはなりません。  詳細については、「 [i/o 操作用にデバイスを有効にする](#enable-device-for-io-operations) 」を参照してください。
 
 ### <a name="apis-used-to-claim--release"></a>要求/リリースに使用される Api
 
-|デバイス|要求 | リリース | 
+|Device|要求 | リリース | 
 |-|:-|:-|
 |BarcodeScanner | [Bar、Claimscanを非同期に](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.claimscannerasync) | [ClaimedBarcodeScanner](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.close) |
 |CashDrawer | [CashDrawer を呼び出す](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.cashdrawer.claimdrawerasync) | [ClaimedCashDrawer](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.close) | 
@@ -34,11 +34,11 @@ PointOfService デバイス オブジェクトを正常に作成したら、入�
 
 ## <a name="enable-device-for-io-operations"></a>I/o 操作のためにデバイスを有効にする
 
-要求アクションは、単純にデバイスに対する排他的な権限を確立しますが、動作状態にはなりません。  イベントを受信するか、出力操作を実行するには、 **Enableasync**を使用してデバイスを有効にする必要があります。  逆に、 **Disableasync**を呼び出して、デバイスからのイベントのリッスンを停止したり、出力を実行したりすることができます。  **IsEnabled**を使用して、デバイスの状態を確認することもできます。
+要求アクションは、単純にデバイスに対する排他的な権限を確立しますが、動作状態にはなりません。  イベントを受信するか、出力操作を実行するには、 **Enableasync**を使用してデバイスを有効にする必要があります。  逆に、 **Disableasync** を呼び出して、デバイスからのイベントのリッスンを停止したり、出力を実行したりすることができます。  **IsEnabled**を使用して、デバイスの状態を確認することもできます。
 
 ### <a name="apis-used-enable--disable"></a>有効/無効に使用される Api
 
-| デバイス | [有効にする] | [無効] | IsEnabled? |
+| Device | 有効化 | Disable | IsEnabled? |
 |-|:-|:-|:-|
 |ClaimedBarcodeScanner | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.disableasync) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedbarcodescanner.isenabled) | 
 |ClaimedCashDrawer | [EnableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.enableasync) | [DisableAsync](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.disableasync) | [IsEnabled](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.claimedcashdrawer.isenabled) |
@@ -81,8 +81,8 @@ PointOfService デバイス オブジェクトを正常に作成したら、入�
 
 > [!Warning]
 > 次のような場合に要求が失われることがあります。
-> 1. 別のアプリで同じデバイスの要求がリクエストされ、アプリが **ReleaseDeviceRequested** イベントへの応答として **RetainDevice** を発行しなかった  (詳細については、以下の「[要求のネゴシエーション](#claim-negotiation)」を参照してください)。
-> 2. アプリが中断され、その結果としてデバイス オブジェクトが終了し、結果的に要求が有効ではなくなった (詳細については、「[デバイス オブジェクトのライフサイクル](pos-basics-deviceobject.md#device-object-lifecycle)」を参照してください)。
+> 1. 別のアプリで同じデバイスの要求がリクエストされ、アプリが **ReleaseDeviceRequested** イベントへの応答として **RetainDevice** を発行しなかった   (詳細については、以下の「[要求のネゴシエーション](#claim-negotiation)」を参照してください)。
+> 2. アプリが中断され、その結果としてデバイス オブジェクトが終了し、結果的に要求が有効ではなくなった  (詳細については、「[デバイス オブジェクトのライフサイクル](pos-basics-deviceobject.md#device-object-lifecycle)」を参照してください)。
 
 
 ## <a name="claim-negotiation"></a>要求のネゴシエーション

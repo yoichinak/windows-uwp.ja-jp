@@ -1,17 +1,17 @@
 ---
 title: ナビゲーションの概要
-description: ナビゲーションの概要
+description: ユニバーサル Windows プラットフォーム (UWP) フレームクラスを使用して、複数のビューを含む Windows 10 アプリにページナビゲーションを追加する方法について説明します。
 ms.assetid: F4DF5C5F-C886-4483-BBDA-498C4E2C1BAF
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 22d2f73ba6a14ace1319285ca436db4738f84548
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 3d26bf6e63c61207142b8945c48f9925a7459844
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493297"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094689"
 ---
 # <a name="getting-started-navigation"></a>概要: ［ナビゲーション］
 
@@ -22,7 +22,7 @@ iOS では、アプリのナビゲーション用に **UINavigationController** 
 
 これに対して、複数のビューを含む Windows 10 アプリはナビゲーションに対してさらに多くの Web サイト アプローチを行います。 ユーザーがコントロールをクリックしてページ間を移動し、アプリ内を進むことを考えてみることができます。 詳しくは、「[ナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)」をご覧ください。
 
-Windows 10 アプリでこのナビゲーションを管理する方法の1つは、 [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)クラスを使用することです。 以下のチュートリアルでは実際に試す方法を示しています。
+Windows 10 アプリでこのナビゲーションを管理する方法の1つは、 [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラスを使用することです。 以下のチュートリアルでは実際に試す方法を示しています。
 
 以前に開始したソリューションに戻り、**MainPage.xaml** ファイルを開いて、**[デザイン]** ビューにボタンを追加します。 このボタンの **Content** プロパティを "Button" から "Go To Page" に変更します。 次に、ボタンの **Click** イベントのハンドラーを、次の図に示すように作成します。 作成方法がわからない場合は、前のセクションのチュートリアルを見直してください (ヒント: **[デザイン]** ビューにあるボタンをダブルクリックします)。
 
@@ -34,7 +34,7 @@ Windows 10 アプリでこのナビゲーションを管理する方法の1つ�
 
 次に、BlankPage.xaml ファイルにボタンを追加します。 ここでは、AppBarButton コントロールを使い、ボタンに "前に戻る矢印" の画像を設定します。**[XAML]** ビューで、` <AppBarButton Icon="Back"/>` を `<Grid> </Grid>` 要素の間に追加します。
 
-次に、イベントハンドラーをボタンに追加してみましょう。**デザイン**ビューでコントロールをダブルクリックし、次の図に示すように、Microsoft Visual Studio "AppBarButton click" というテキストを \_ **クリック**ボックスに追加して、対応するイベントハンドラーを BlankPage.xaml.cs ファイルに追加して表示します。
+次に、イベントハンドラーをボタンに追加してみましょう。 **デザイン** ビューでコントロールをダブルクリックし、次の図に示すように、Microsoft Visual Studio "AppBarButton click" というテキストを \_ **クリック** ボックスに追加して、対応するイベントハンドラーを BlankPage.xaml.cs ファイルに追加して表示します。
 
 ![Visual Studio での戻るボタンとそのクリック イベントの追加](images/ios-to-uwp/vs-add-back-button.png)
 
@@ -64,7 +64,7 @@ private void Button_Click(object sender, RoutedEventArgs e)
 
 それでは、プログラムを実行してみましょう。 [Go To Page] ボタンをタップすると、他のページに進みます。矢印スタイルの戻るボタンをタップすると、前のページに戻ります。
 
-ページのナビゲーションは、[**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラスによって管理されます。 IOS の**UINavigationController**クラスで**Pushviewcontroller**メソッドと**popviewcontroller**メソッドが使用されているため、UWP アプリの**Frame**クラスは[**Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate)メソッドと[**GoBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback)メソッドを提供します。 **Frame** クラスには、名前から推測されるとおりに動作する [**GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) というメソッドもあります。
+ページのナビゲーションは、[**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラスによって管理されます。 IOS の **UINavigationController** クラスで **Pushviewcontroller** メソッドと **popviewcontroller** メソッドが使用されているため、UWP アプリの **Frame** クラスは [**Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) メソッドと [**GoBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback) メソッドを提供します。 **Frame** クラスには、名前から推測されるとおりに動作する [**GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) というメソッドもあります。
 
 このチュートリアルでは、ナビゲーションを行うたびに BlankPage の新しいインスタンスが作成されます。 (前のインスタンスは自動的に*解放*されます)。 毎回新しいインスタンスが作成されることがないようにするには、BlankPage.xaml.cs ファイル内の BlankPage クラスのコンストラクターに以下のコードを追加します。 これにより、[**NavigationCacheMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.navigationcachemode) 動作が有効になります。
 

@@ -4,16 +4,16 @@ description: 開発者はプロトコルのアクティブ化および起動ア�
 ms.topic: article
 ms.localizationpriority: medium
 ms.date: 02/08/2017
-ms.openlocfilehash: abc0b40178dc9b7c386342af6a6d85c6fb61945a
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 661576ede9a940f7f8aa71715900306d2c2b28a9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320266"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154876"
 ---
 # <a name="automate-launching-windows-10-uwp-apps"></a>Windows 10 UWP アプリの自動起動
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 開発者はいくつかの方法でユニバーサル Windows プラットフォーム (UWP) アプリの自動起動を実現できます。 ここでは、プロトコルのアクティブ化と起動アクティブ化を使ってアプリを起動する方法を説明します。
 
@@ -29,14 +29,14 @@ ms.locfileid: "67320266"
 
 1. Visual Studio で **Package.appxmanifest** ファイルを開きます。
 2. **[宣言]** タブをクリックします。
-3. **[使用可能な宣言]** ボックスの一覧で **[プロトコル]** を選び、 **[追加]** をクリックします。
+3. **[使用可能な宣言]** ボックスの一覧で **[プロトコル]** を選び、**[追加]** をクリックします。
 4. **[プロパティ]** の **[名前]** フィールドに、アプリの起動に使うプロトコルの一意の名前を入力します。 
 
     ![プロトコルのアクティブ化](images/automate-uwp-apps-1.png)
 
 5. ファイルを保存し、プロジェクトを展開します。 
 6. プロジェクトの展開が完了したら、プロトコルのアクティブ化を設定します。 
-7. **[コントロール パネル]、[すべてのコントロール パネル項目]、[既定のプログラム]** の順にクリックし、 **[ファイルの種類またはプロトコルのプログラムへの関連付け]** を選択します。 **[プロトコル]** セクションまでスクロールし、プロトコルが一覧に表示されていることを確認します。 
+7. **[コントロール パネル]、[すべてのコントロール パネル項目]、[既定のプログラム]** の順にクリックし、**[ファイルの種類またはプロトコルのプログラムへの関連付け]** を選択します。 **[プロトコル]** セクションまでスクロールし、プロトコルが一覧に表示されていることを確認します。 
 
 プロトコルのアクティブ化を設定したら、2 つの方法 (コマンド ラインまたはランチャー アプリケーション) のどちらかを使用して、プロトコルを使ってアプリをアクティブ化できます。 
 
@@ -48,9 +48,9 @@ ms.locfileid: "67320266"
   scheme://username:password@host:port/path.extension?query#fragment
   ```
 
-この形式の URI 文字列は、Uri オブジェクトのメソッドで解析できます。 詳しくは、[MSDN の Uri クラスのトピック](https://docs.microsoft.com/uwp/api/windows.foundation.uri)をご覧ください。 
+この形式の URI 文字列は、Uri オブジェクトのメソッドで解析できます。 詳しくは、[MSDN の Uri クラスのトピック](/uwp/api/windows.foundation.uri)をご覧ください。 
 
-例:
+例 :
 
   ```
   >start bingnews:
@@ -110,7 +110,7 @@ Uri(URI));
 パッケージ ファミリ名を取得するには、次の手順に従うと最も簡単です。
 
 1. **Package.appxmanifest** ファイルを開きます。
-2. **[パッケージ化]** タブで、 **[パッケージ名]** を入力します。
+2. **[パッケージ化]** タブで、**[パッケージ名]** を入力します。
 
     ![起動アクティブ化](images/automate-uwp-apps-2.png)
 
@@ -136,7 +136,7 @@ C:\Program Files (x86)\Windows Kits\10\App Certification Kit\microsoft.windows.s
 
 ### <a name="launcher-application"></a>ランチャー アプリケーション
 
-COM の使用をサポートするアプリケーションを起動用に別途作成できます。 起動アクティブ化を使ってアプリを起動するランチャー プログラムの C++ コードの例を次に示します。 このコードでは、**ApplicationActivationManager** を作成して **ActivateApplication** を呼び出し、先ほど確認した AUMID と任意の引数を渡すことができます。 その他のパラメーターについて詳しくは、[MSDN の IApplicationActivationManager::ActivateApplication メソッドのトピック](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication)をご覧ください。
+COM の使用をサポートするアプリケーションを起動用に別途作成できます。 起動アクティブ化を使ってアプリを起動するランチャー プログラムの C++ コードの例を次に示します。 このコードでは、**ApplicationActivationManager** を作成して **ActivateApplication** を呼び出し、先ほど確認した AUMID と任意の引数を渡すことができます。 その他のパラメーターについて詳しくは、[MSDN の IApplicationActivationManager::ActivateApplication メソッドのトピック](/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication)をご覧ください。
 
 ```
 #include <ShObjIdl.h>
@@ -207,9 +207,8 @@ void OnActivated(IActivatedEventArgs^ args)
 }
 ```
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 以上のように、UWP アプリはさまざまな方法で起動することができます。 要件や用途に応じて、適切な方法を利用してください。 
 
 ## <a name="see-also"></a>関連項目
 - [Xbox One の UWP](index.md)
-

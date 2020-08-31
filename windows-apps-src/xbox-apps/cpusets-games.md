@@ -4,16 +4,16 @@ description: この記事では、ユニバーサル Windows プラットフォ�
 ms.topic: article
 ms.localizationpriority: medium
 ms.date: 02/08/2017
-ms.openlocfilehash: 693abe68fcc7e4a341d773c6fa1af0d777c60c15
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: a20838a6d58eede75efb2441680aba6629db1700
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67322154"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154206"
 ---
 # <a name="cpusets-for-game-development"></a>ゲーム開発用の CPUSets
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 ユニバーサル Windows プラットフォーム (UWP) は、多様な家庭用電子機器の中核に位置付けられています。 そのため、ゲームや埋め込みアプリケーションからサーバーで実行されるエンタープライズ ソフトウェアまで、あらゆる種類のアプリケーションのニーズに対応する汎用 API が必要です。 この API によって提供される適切な情報を活用して、ゲームがどのようなハードウェアでも最適な状態で実行されることを保証できます。
 
@@ -43,16 +43,16 @@ GetSystemCpuSetInformation(cpuSets, size, &size, curProc, 0);
 
 返される **SYSTEM_CPU_SET_INFORMATION** の各インスタンスには、一意の処理装置 (CPU セットとも呼ばれる) の 1 つに関する情報が格納されます。 これは、必ずしも一意の物理ハードウェアを表すとは限りません。 ハイパースレッディングを利用する CPU では、1 つの物理的な処理コア上で複数の論理コアが実行されます。 同一の物理コア上にある複数の論理コアで複数のスレッドをスケジュールする場合は、ハードウェア レベルでリソースを最適化できますが、それ以外の場合は、カーネル レベルでの追加の処理が必要になります。 2 つのスレッドが同じ物理コア上の異なる論理コアでスケジュールされている場合、CPU 時間を共有する必要がありますが、同じ論理コアでスケジュールされている場合よりも効率的に実行されます。
 
-### <a name="systemcpusetinformation"></a>SYSTEM_CPU_SET_INFORMATION
+### <a name="system_cpu_set_information"></a>SYSTEM_CPU_SET_INFORMATION
 
 **GetSystemCpuSetInformation** から返されるこのデータ構造体の各インスタンスには、スレッドをスケジュールできる一意の処理装置に関する情報が格納されます。 可能なターゲット デバイスの範囲を考えると、**SYSTEM_CPU_SET_INFORMATION** データ構造体の情報の多くがゲーム開発には適用されない可能性があります。 表 1 では、ゲームの開発に役立つデータ メンバーについて説明します。
 
- **表 1。データ メンバーのゲーム開発に便利です。**
+ **表 1.ゲーム開発に役立つデータメンバー。**
 
-| メンバー名  | データの種類 | 説明 |
+| メンバー名  | データ型 | 説明 |
 | ------------- | ------------- | ------------- |
-| 種類  | CPU_SET_INFORMATION_TYPE  | 構造体内の情報の種類です。 この値が **CpuSetInformation** ではない場合、この値は無視されます。  |
-| ID  | unsigned long  | 指定した CPU セットの ID です。 これは、**SetThreadSelectedCpuSets** などの CPU セット関数で使用する必要がある ID です。  |
+| Type  | CPU_SET_INFORMATION_TYPE  | 構造体内の情報の種類です。 この値が **CpuSetInformation** ではない場合、この値は無視されます。  |
+| Id  | unsigned long  | 指定した CPU セットの ID です。 これは、**SetThreadSelectedCpuSets** などの CPU セット関数で使用する必要がある ID です。  |
 | グループ  | unsigned short  | CPU セットの "プロセッサ グループ" を指定します。 プロセッサ グループを使用すると、PC で 64 個を超える論理コアを使用でき、システムの実行中に CPU のホット スワップが可能になります。 サーバー以外で複数のグループを持つ PC は一般的ではありません。 ほとんどのコンシューマー向け PC ではプロセッサ グループは 1 つだけであるため、大規模なサーバーやサーバー ファームで実行されるアプリケーションを作成している場合を除き、単一グループの CPU セットを使用することをお勧めします。 この構造体の他のすべての値は、グループを基準にしています。  |
 | LogicalProcessorIndex  | unsigned char  | グループを基準とした CPU セットのインデックス。  |
 | CoreIndex  | unsigned char  | グループを基準とした、CPU セットが配置されている物理 CPU コアのインデックス。  |
@@ -64,15 +64,15 @@ GetSystemCpuSetInformation(cpuSets, size, &size, curProc, 0);
 
 次に、さまざまな種類のハードウェアで実行される UWP アプリケーションから収集される情報の種類について、例をいくつか示します。
 
-**表 2。Microsoft Lumia 950 で実行されている UWP アプリから返された情報。これは、複数のラスト レベル キャッシュを持つシステムの例です。Lumia 950 には、デュアル コア ARM Cortex A57 とクアッド コア ARM Cortex A53 Cpu を含む Qualcomm 808 Snapdragon プロセスが機能します。**
+**表 2.Microsoft Lumia 950 で実行されている UWP アプリから返される情報。これは、最後のレベルのキャッシュが複数あるシステムの例です。Lumia 950 は、デュアルコア ARM Cortex A57 とクワッドコア ARM Cortex A53 Cpu を含む Qualcomm 808 Snapdragon プロセスを特徴としています。**
 
-  ![表 2](images/cpusets-table2.png)
+  ![テーブル 2](images/cpusets-table2.png)
 
-**表 3。一般的な PC で実行されている UWP アプリから返された情報。これは、ハイパースレッディングを使用しているシステムの例です。各物理コアには、スレッドをスケジュールできる論理コアが 2 つあります。この場合、システムには、Intel Xenon CPU E5 2620 が含まれています。**
+**表 3.一般的な PC で実行されている UWP アプリから返される情報。ハイパースレッディングを使用するシステムの例を次に示します。各物理コアには、スレッドをスケジュールできる2つの論理コアがあります。この場合、システムに Intel Xenon CPU E5-2620 が含まれています。**
 
   ![表 3](images/cpusets-table3.png)
 
-**表 4。クアッド コア Microsoft Surface Pro 4 で実行されている UWP アプリから返された情報。このシステムには、Intel Core i5 6300 CPU が必要があります。**
+**表 4.Microsoft Surface Pro 4 のクワッドコアで実行されている UWP アプリから返される情報。このシステムには、Intel Core i5-6300 CPU が搭載されています。**
 
   ![表 4](images/cpusets-table4.png)
 
@@ -182,16 +182,15 @@ for (size_t i = 0; i < count; ++i)
 
 図 1 に示すキャッシュ レイアウトは、システムに見られるレイアウトの例です。 次の図は、Microsoft Lumia 950 のキャッシュを図示したものです。 CPU 256 と CPU 260 の間でスレッド間通信が発生する場合、システムが L2 キャッシュの一貫性を維持する必要があるため、大きなオーバーヘッドが発生します。
 
-**図 1。Microsoft Lumia 950 デバイスで検出されたアーキテクチャをキャッシュします。**
+**図 1.Microsoft Lumia 950 デバイスでキャッシュアーキテクチャが見つかりました。**
 
 ![Lumia 950 のキャッシュ](images/cpusets-lumia950cache.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 UWP 開発で使用できる CPUSets API によって、相当な量の情報が提供され、マルチスレッド オプションを制御できます。 Windows 開発用の以前のマルチスレッド API と比較して、複雑な部分が増えているため学習に時間が必要ですが、柔軟性が向上しているため、最終的にはさまざまなコンシューマー向け PC やその他のハードウェア ターゲットでパフォーマンスが向上します。
 
-## <a name="additional-resources"></a>その他の資料
-- [CPU セット (MSDN)](https://docs.microsoft.com/windows/desktop/ProcThread/cpu-sets)
-- [ATG によって提供される CPUSets サンプル](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/Samples/System/CPUSets)
+## <a name="additional-resources"></a>その他のリソース
+- [CPU セット (MSDN)](/windows/desktop/ProcThread/cpu-sets)
+- [ATG によって提供される CPUSets のサンプル](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/Samples/System/CPUSets)
 - [Xbox One の UWP](index.md)
-

@@ -1,17 +1,17 @@
 ---
 title: DirectX プログラミングの基本
-description: DirectX プログラミングの基本について説明します。
+description: DirectX プログラミングの基礎に関する記事 (Direct2D、Direct3D のライブラリ、使用方法など) を参照してください。
 ms.assetid: 05a1bc59-f32e-44a0-8902-94cf1e099b1b
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 読み込み, ラスタライズ, メッシュ, ビットマップ, 2D, 3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 942a775fca262903b1ee72831b4eae6612d25786
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 1718677dce325cccc535e603aca1910eb83d1de0
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368865"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89053582"
 ---
 # <a name="fundamentals-of-directx-programming"></a>DirectX プログラミングの基本
 
@@ -38,19 +38,19 @@ ms.locfileid: "66368865"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="working-with-2d-graphics-in-your-directx-game.md">DirectX ゲームの 2D グラフィック</a></p></td>
+<td align="left"><p><a href="working-with-2d-graphics-in-your-directx-game.md">DirectX ゲームの 2D グラフィックス</a></p></td>
 <td align="left"><p>DirectX を使用して 2D グラフィックスを作成します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/uwp/graphics-concepts/index">Direct3D グラフィックス学習ガイド</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/windows/uwp/graphics-concepts/index">Direct3D グラフィックスの学習ガイド</a></p></td>
 <td align="left"><p>Direct3D でのグラフィックスの概念について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="an-introduction-to-3d-graphics-with-directx.md">DirectX ゲーム用の基本的な 3D グラフィック</a></p></td>
+<td align="left"><p><a href="an-introduction-to-3d-graphics-with-directx.md">DirectX ゲームの基本的な 3D グラフィックス</a></p></td>
 <td align="left"><p>DirectX の基本的な 3D グラフィックスを作成します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="load-a-game-asset.md">DirectX ゲームでリソースを読み込む</a></p></td>
+<td align="left"><p><a href="load-a-game-asset.md">DirectX ゲームでのリソースの読み込み</a></p></td>
 <td align="left"><p>DirectX ゲームでメッシュを読み込みます。</p></td>
 </tr>
 </tbody>

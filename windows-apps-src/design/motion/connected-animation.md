@@ -9,12 +9,12 @@ pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ad94d7b887e28ac01156592ac47cfc9ac4783193
-ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
+ms.openlocfilehash: ff252faf4dd49929ec46c2ceaa02f94011e6b225
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775906"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169326"
 ---
 # <a name="connected-animation-for-windows-apps"></a>Windows アプリの接続されたアニメーション
 
@@ -22,7 +22,7 @@ ms.locfileid: "83775906"
 
 接続されたアニメーションでは、UI コンテンツの変更時に2つのビューの間で "continue" という要素が表示されます。これにより、ソースビュー内の場所から新しいビューのターゲットに画面が移動します。 これにより、ビュー間の一般的なコンテンツが強調され、遷移の一部として美しい効果と動的効果が作成されます。
 
-> **重要な api**: [connectedanimation クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimation)、 [connectedanimation service クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)
+> **重要な api**:  [connectedanimation クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimation)、 [connectedanimation service クラス](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)
 
 
 ## <a name="examples"></a>例
@@ -63,18 +63,18 @@ ms.locfileid: "83775906"
 
 ## <a name="when-to-use-connected-animation"></a>接続型アニメーションを使用するタイミング
 
-一般に、接続型アニメーションはページを変更するとき使用されます。ただし、UI のコンテンツを変更するときに、そのコンテンツが維持されるようにユーザーに対して表示する必要がある場合は、接続型アニメーションをどのようなエクスペリエンスにでも適用できます。 ソース ビューと切り替え先のビューの間で UI の画像や他の UI の要素が共有されている場合は、必ず、[ドリル インによるナビゲーション切り替え](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.NavigationThemeTransition)ではなく、接続型アニメーションの使用を検討してください。
+一般に、接続型アニメーションはページを変更するとき使用されます。ただし、UI のコンテンツを変更するときに、そのコンテンツが維持されるようにユーザーに対して表示する必要がある場合は、接続型アニメーションをどのようなエクスペリエンスにでも適用できます。 ソース ビューと切り替え先のビューの間で UI の画像や他の UI の要素が共有されている場合は、必ず、[ドリル インによるナビゲーション切り替え](/uwp/api/Windows.UI.Xaml.Media.Animation.NavigationThemeTransition)ではなく、接続型アニメーションの使用を検討してください。
 
 ## <a name="configure-connected-animation"></a>接続されたアニメーションの構成
 
 > [!IMPORTANT]
-> この機能を使用するには、アプリのターゲットバージョンが Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降である必要があります。 構成プロパティは、以前の Sdk では使用できません。 アダプティブコードまたは条件付き XAML を使用して、SDK 17763 より低い最小バージョンを対象にすることができます。 詳細については、「[バージョンアダプティブアプリ](/windows/uwp/debug-test-perf/version-adaptive-apps)」を参照してください。
+> この機能を使用するには、アプリのターゲットバージョンが Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降である必要があります。 構成プロパティは、以前の Sdk では使用できません。 アダプティブコードまたは条件付き XAML を使用して、SDK 17763 より低い最小バージョンを対象にすることができます。 詳細については、「 [バージョンアダプティブアプリ](../../debug-test-perf/version-adaptive-apps.md)」を参照してください。
 
 Windows 10 バージョン1809以降では、接続されたアニメーションは、前方および後方ページナビゲーション専用に調整されたアニメーション構成を提供することで、Fluent デザインをさらに具体化します。
 
 アニメーションの構成を指定するには、ConnectedAnimation の構成プロパティを設定します。 (例については、次のセクションで説明します)。
 
-次の表では、使用可能な構成について説明します。 これらのアニメーションで適用されるモーション原則の詳細については、「[方向性と重力](index.md)」を参照してください。
+次の表では、使用可能な構成について説明します。 これらのアニメーションで適用されるモーション原則の詳細については、「 [方向性と重力](index.md)」を参照してください。
 
 | [GravityConnectedAnimationConfiguration](/uwp/api/windows.ui.xaml.media.animation.gravityconnectedanimationconfiguration) |
 | - |
@@ -111,7 +111,7 @@ Windows 10 バージョン1809以降では、接続されたアニメーショ�
 1. ソースページでアニメーションオブジェクトを*準備*します。これは、ソース要素が接続されたアニメーションに参加するシステムを示します。
 1. コピー先のページでアニメーションを*開始*し、ターゲット要素への参照を渡します。
 
-ソースページから移動する場合は、 [ConnectedGetForCurrentView](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice.getforcurrentview)を呼び出して、connectedanimationservice のインスタンスを取得します。 アニメーションを準備するには、このインスタンスで [インスタンス[化](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice.preparetoanimate)] を呼び出し、切り替えに使用する一意のキーと UI 要素を渡します。 [一意キー] を使用すると、後で変換先ページでアニメーションを取得できます。
+ソースページから移動する場合は、 [ConnectedGetForCurrentView](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice.getforcurrentview) を呼び出して、connectedanimationservice のインスタンスを取得します。 アニメーションを準備するには、このインスタンスで [インスタンス [化](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice.preparetoanimate) ] を呼び出し、切り替えに使用する一意のキーと UI 要素を渡します。 [一意キー] を使用すると、後で変換先ページでアニメーションを取得できます。
 
 ```csharp
 ConnectedAnimationService.GetForCurrentView()
@@ -133,7 +133,7 @@ if (animation != null)
 
 この例では、ConnectedAnimationService を使用して、2つのページ間の前方移動 (Page_A Page_B) の遷移を作成する方法を示します。
 
-前方ナビゲーションの推奨されるアニメーション構成は[GravityConnectedAnimationConfiguration](/uwp/api/windows.ui.xaml.media.animation.gravityconnectedanimationconfiguration)です。 これは既定値であるため、別の構成を指定する場合を除き、[構成](/uwp/api/windows.ui.xaml.media.animation.connectedanimation.configuration)プロパティを設定する必要はありません。
+前方ナビゲーションの推奨されるアニメーション構成は [GravityConnectedAnimationConfiguration](/uwp/api/windows.ui.xaml.media.animation.gravityconnectedanimationconfiguration)です。 これは既定値であるため、別の構成を指定する場合を除き、 [構成](/uwp/api/windows.ui.xaml.media.animation.connectedanimation.configuration) プロパティを設定する必要はありません。
 
 ソースページでアニメーションを設定します。
 
@@ -259,7 +259,7 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 </ListView>
 ```
 
-指定されたリスト項目に対応する楕円を使用して接続されたアニメーションを準備するには、一意のキー、項目、および名前 "PortraitEllipse" を使用し[て、"](/uwp/api/windows.ui.xaml.controls.listviewbase.prepareconnectedanimation) " という名前の、"" という名前の "/" を呼び出します。
+指定されたリスト項目に対応する楕円を使用して接続されたアニメーションを準備するには、一意のキー、項目、および名前 "PortraitEllipse" を使用し [て、"](/uwp/api/windows.ui.xaml.controls.listviewbase.prepareconnectedanimation) " という名前の、"" という名前の "/" を呼び出します。
 
 ```csharp
 void PrepareAnimationWithItem(ContactsItem item)
@@ -296,7 +296,7 @@ private async void ContactsListView_Loaded(object sender, RoutedEventArgs e)
 <iframe width=640 height=360 src='https://microsoft.sharepoint.com/portals/hub/_layouts/15/VideoEmbedHost.aspx?chId=552c725c%2De353%2D4118%2Dbd2b%2Dc2d0584c9848&amp;vId=9066bbbe%2Dcf58%2D4ab4%2Db274%2D595616f5d0a0&amp;width=640&amp;height=360&amp;autoPlay=false&amp;showInfo=true' allowfullscreen></iframe>
 -->
 
-コーディネートされた*アニメーション*とは、接続されたアニメーションのターゲットと共に要素が表示され、接続されたアニメーションの要素が画面間を移動するときにアニメーション化される、特殊な種類の入口アニメーションです。 連動型アニメーションによって、ビューの切り替え時に視覚的にさらに注目を引く効果が発生し、ソース ビューと切り替え先のビューの間で共有されているコンテキストにユーザーを注目させることができます。 上記の画像では、連動型アニメーションを使用して、項目のキャプション UI がアニメーション化されています。
+コーディネートされた *アニメーション* とは、接続されたアニメーションのターゲットと共に要素が表示され、接続されたアニメーションの要素が画面間を移動するときにアニメーション化される、特殊な種類の入口アニメーションです。 連動型アニメーションによって、ビューの切り替え時に視覚的にさらに注目を引く効果が発生し、ソース ビューと切り替え先のビューの間で共有されているコンテキストにユーザーを注目させることができます。 上記の画像では、連動型アニメーションを使用して、項目のキャプション UI がアニメーション化されています。
 
 コーディネートされたアニメーションで重力構成を使用する場合、[接続されたアニメーション] 要素と [調整された要素] の両方に重力が適用されます。 調整された要素は、接続された要素と共に "一挙" されるので、要素は実際には調整されたままです。
 
@@ -329,8 +329,8 @@ void OnNavigatedTo(NavigationEventArgs e)
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
 - 接続型アニメーションは、ソース ページと切り替え先のページの間で要素が共有されている場合に、ページの切り替えで使用してください。
-- 前方ナビゲーションには[GravityConnectedAnimationConfiguration](/uwp/api/windows.ui.xaml.media.animation.gravityconnectedanimationconfiguration)を使用します。
-- 戻るナビゲーションには、 [Directconnectedanimationconfiguration](/uwp/api/windows.ui.xaml.media.animation.directconnectedanimationconfiguration)を使用します。
+- 前方ナビゲーションには [GravityConnectedAnimationConfiguration](/uwp/api/windows.ui.xaml.media.animation.gravityconnectedanimationconfiguration) を使用します。
+- 戻るナビゲーションには、 [Directconnectedanimationconfiguration](/uwp/api/windows.ui.xaml.media.animation.directconnectedanimationconfiguration) を使用します。
 - ネットワーク要求や、接続されたアニメーションの準備と開始の間で実行時間の長い非同期操作を待機しないでください。 早めに切り替えを実行するには、必要な情報を事前に読み込んでおく必要があります。または、高解像度の画像が切り替え先のビューに読み込まれるときに、低解像度のプレースホルダー画像を使用する必要があります。
 - 接続されたアニメーションが既定のナビゲーション遷移で同時に使用されることはないため、 **Connectedanimation service**を使用している場合は、 [SuppressNavigationTransitionInfo](/uwp/api/windows.ui.xaml.media.animation.suppressnavigationtransitioninfo)を使用して**フレーム**内の遷移アニメーションを防止します。 ナビゲーション切り替えの使用方法について詳しくは、「[NavigationThemeTransition](/uwp/api/Windows.UI.Xaml.Media.Animation.NavigationThemeTransition)」をご覧ください。
 

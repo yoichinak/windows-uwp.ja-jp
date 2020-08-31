@@ -1,6 +1,6 @@
 ---
-Description: ユーザーが有効な範囲から値を設定できます。
 title: スライダー
+description: ユーザーがトラックに沿って Thumb コントロールを動かすことで値の範囲から選択できるようにする、Windows UI ライブラリのスライダー コントロールを実装する方法について説明します。
 ms.assetid: 7EC7EA33-BE7E-4FD5-B205-B8FA7B729ACC
 label: Sliders
 template: detail.hbs
@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a1de8437c5b463b13e3adb8c4d7eb7161663f4d6
-ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
+ms.openlocfilehash: a51bfb262e81668d167a380a9f3572011dbf7e2c
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86997969"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88943102"
 ---
 # <a name="sliders"></a>スライダー
 

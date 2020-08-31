@@ -8,22 +8,22 @@ ms.date: 06/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, 通知リスナー, usernotificationlistener, ドキュメント, 通知へのアクセス
 ms.localizationpriority: medium
-ms.openlocfilehash: d6c18740cbba0ea037440300edbe2d7ba4fd116e
-ms.sourcegitcommit: 1d04910a6bbfcaa985d2074caf8f898c35eab7ab
+ms.openlocfilehash: dc2afb36337439cd115273cd9df8ee1cb2eb3741
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65933161"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169186"
 ---
-# <a name="notification-listener-access-all-notifications"></a>通知リスナー。すべての通知へのアクセスします。
+# <a name="notification-listener-access-all-notifications"></a>通知リスナー: すべての通知にアクセスする
 
-通知リスナーを使用すると、ユーザーの通知にアクセスすることができます。 スマートウォッチや他のウェアラブルでは、通知リスナーを使用して、電話の通知をウェアラブル デバイスに送信することができます。 ホーム オートメーション アプリは、通知リスナーを使用して、呼び出しを受信するときに、ライトが点滅するなど、通知が受信したときに、特定のアクションを実行できます。 
+通知リスナーを使用すると、ユーザーの通知にアクセスすることができます。 スマートウォッチや他のウェアラブルでは、通知リスナーを使用して、電話の通知をウェアラブル デバイスに送信することができます。 ホームオートメーションアプリでは、通知リスナーを使用して、通知を受信したときに特定のアクションを実行できます。たとえば、通話を受信したときにライトを点滅させることができます。 
 
 > [!IMPORTANT]
-> **Anniversary Update が必要です**:SDK 14393 を対象にして、14393 以上通知リスナーを使用するビルドを実行します。
+> **Anniversary Update が必要**: 通知リスナーを使用するには、SDK 14393 以降をターゲットとし、ビルド 14393 以降を実行している必要があります。
 
 
-> **重要な API**:[UserNotificationListener クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.Management.UserNotificationListener)、 [UserNotificationChangedTrigger クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.UserNotificationChangedTrigger)
+> **重要な API**: [UserNotificationListener クラス](/uwp/api/Windows.UI.Notifications.Management.UserNotificationListener)、[UserNotificationChangedTrigger クラス](/uwp/api/Windows.ApplicationModel.Background.UserNotificationChangedTrigger)
 
 
 ## <a name="enable-the-listener-by-adding-the-user-notification-capability"></a>ユーザー通知機能を追加して、リスナーを有効にする 
@@ -37,7 +37,7 @@ ms.locfileid: "65933161"
 
 ## <a name="check-whether-the-listener-is-supported"></a>リスナーがサポートされているかどうかを確認する
 
-アプリで Windows 10 の以前のバージョンをサポートする場合は、[ApiInformation クラス](https://docs.microsoft.com/uwp/api/Windows.Foundation.Metadata.ApiInformation) を使用して、リスナーがサポートされているかどうかを確認する必要があります。  リスナーがサポートされていない場合は、リスナー API の呼び出しを実行しないでください。
+アプリで Windows 10 の以前のバージョンをサポートする場合は、[ApiInformation クラス](/uwp/api/Windows.Foundation.Metadata.ApiInformation) を使用して、リスナーがサポートされているかどうかを確認する必要があります。  リスナーがサポートされていない場合は、リスナー API の呼び出しを実行しないでください。
 
 ```csharp
 if (ApiInformation.IsTypePresent("Windows.UI.Notifications.Management.UserNotificationListener"))
@@ -54,7 +54,7 @@ else
 
 ## <a name="requesting-access-to-the-listener"></a>リスナーへのアクセスを要求する
 
-リスナーではユーザーの通知へのアクセスが許可されるため、ユーザーは、通知へのアクセス許可をアプリに付与する必要があります。 アプリの最初の実行エクスペリエンスの際に、通知リスナーを使用するためのアクセスを要求する必要があります。 必要な場合は、[RequestAccessAsync](https://docs.microsoft.com/uwp/api/windows.ui.notifications.management.usernotificationlistener.RequestAccessAsync) を呼び出す前に、アプリがユーザーの通知にアクセスする必要がある理由を説明する UI を事前に表示することができます。これにより、ユーザーはアクセスが許可される理由を理解することができます。
+リスナーではユーザーの通知へのアクセスが許可されるため、ユーザーは、通知へのアクセス許可をアプリに付与する必要があります。 アプリの最初の実行エクスペリエンスの際に、通知リスナーを使用するためのアクセスを要求する必要があります。 必要な場合は、[RequestAccessAsync](/uwp/api/windows.ui.notifications.management.usernotificationlistener.RequestAccessAsync) を呼び出す前に、アプリがユーザーの通知にアクセスする必要がある理由を説明する UI を事前に表示することができます。これにより、ユーザーはアクセスが許可される理由を理解することができます。
 
 ```csharp
 // Get the listener
@@ -91,12 +91,12 @@ switch (accessStatus)
 }
 ```
 
-ユーザーは Windows 設定アプリを使用して、アクセスをいつでも取り消すことができます。 そのため、アプリでする必要がありますを使用してアクセスの状態を確認常に、 [GetAccessStatus](https://docs.microsoft.com/uwp/api/windows.ui.notifications.management.usernotificationlistener.GetAccessStatus)通知リスナーを使用するコードを実行する前にメソッド。 ユーザーがアクセスを取り消すと、API は例外をスローせず、警告なしに失敗します (たとえば、すべての通知を取得する API は空のリストを返すだけです)。
+ユーザーは Windows 設定アプリを使用して、アクセスをいつでも取り消すことができます。 そのため、アプリケーションでは、通知リスナーを使用するコードを実行する前に、常に [Getaccessstatus](/uwp/api/windows.ui.notifications.management.usernotificationlistener.GetAccessStatus) メソッドを使用してアクセスの状態を確認する必要があります。 ユーザーがアクセスを取り消すと、API は例外をスローせず、警告なしに失敗します (たとえば、すべての通知を取得する API は空のリストを返すだけです)。
 
 
 ## <a name="access-the-users-notifications"></a>ユーザーの通知にアクセスする
 
-通知リスナーを使用すると、ユーザーの現在の通知に関する一覧を取得できます。 [GetNotificationsAsync](https://docs.microsoft.com/uwp/api/windows.ui.notifications.management.usernotificationlistener.GetNotificationsAsync) メソッドを呼び出し、取得する必要がある通知の種類を指定するだけです (現時点では、サポートされている通知の種類はトースト通知のみです)。
+通知リスナーを使用すると、ユーザーの現在の通知に関する一覧を取得できます。 [GetNotificationsAsync](/uwp/api/windows.ui.notifications.management.usernotificationlistener.GetNotificationsAsync) メソッドを呼び出し、取得する必要がある通知の種類を指定するだけです (現時点では、サポートされている通知の種類はトースト通知のみです)。
 
 ```csharp
 // Get the toast notifications
@@ -106,7 +106,7 @@ IReadOnlyList<UserNotification> notifs = await listener.GetNotificationsAsync(No
 
 ## <a name="displaying-the-notifications"></a>通知の表示
 
-各通知は [UserNotification](https://docs.microsoft.com/uwp/api/windows.ui.notifications.usernotification) として表されます。このクラスは、通知の送信元となるアプリに関する情報、通知が作成された時間、通知の ID、および通知自体を提供します。
+各通知は [UserNotification](/uwp/api/windows.ui.notifications.usernotification) として表されます。このクラスは、通知の送信元となるアプリに関する情報、通知が作成された時間、通知の ID、および通知自体を提供します。
 
 ```csharp
 public sealed class UserNotification
@@ -118,7 +118,7 @@ public sealed class UserNotification
 }
 ```
 
-[AppInfo](https://docs.microsoft.com/uwp/api/windows.ui.notifications.usernotification.AppInfo) プロパティは、通知の表示に必要な情報を提供します。
+[AppInfo](/uwp/api/windows.ui.notifications.usernotification.AppInfo) プロパティは、通知の表示に必要な情報を提供します。
 
 > [!NOTE]
 > 1 つの通知をキャプチャしたときに予期しない例外が発生する場合に備えて、1 つの通知を処理するコードはすべて、try/catch で囲むことをお勧めします。 ある特定の通知で問題が発生した場合でも、他の通知の表示がすべて失敗するのを防ぐ必要があります。
@@ -136,9 +136,9 @@ RandomAccessStreamReference appLogoStream = notif.AppInfo.DisplayInfo.GetLogo(ne
 await appLogo.SetSourceAsync(await appLogoStream.OpenReadAsync());
 ```
 
-通知の本文などの通知自体のコンテンツは、[Notification](https://docs.microsoft.com/uwp/api/windows.ui.notifications.usernotification.Notification) プロパティに含まれています。 このプロパティには、通知の視覚的な部分が含まれます。 (Windows での通知の送信について詳しく理解している方は、[Notification](https://docs.microsoft.com/uwp/api/windows.ui.notifications.notification) オブジェクトの [Visual](https://docs.microsoft.com/uwp/api/windows.ui.notifications.notification.Visual) プロパティと [Visual.Bindings](https://docs.microsoft.com/uwp/api/windows.ui.notifications.notificationvisual.Bindings) プロパティが、通知が表示されるときに開発者が送信するデータに対応するということにお気づきでしょう)。
+通知の本文などの通知自体のコンテンツは、[Notification](/uwp/api/windows.ui.notifications.usernotification.Notification) プロパティに含まれています。 このプロパティには、通知の視覚的な部分が含まれます。 (Windows での通知の送信について詳しく理解している方は、[Notification](/uwp/api/windows.ui.notifications.notification) オブジェクトの [Visual](/uwp/api/windows.ui.notifications.notification.Visual) プロパティと [Visual.Bindings](/uwp/api/windows.ui.notifications.notificationvisual.Bindings) プロパティが、通知が表示されるときに開発者が送信するデータに対応するということにお気づきでしょう)。
 
-トーストのバインディングを調べる必要があります (エラー防止コードのために、バインディングが null でないことを確認する必要があります)。 バインディングから、テキスト要素を取得できます。 テキスト要素は、必要な数だけ表示するように選択できます  (理想的には、する必要があります表示すべて)。テキスト要素を取り扱うことができます。たとえば、本文としてタイトルのテキストとして 1 つ目と後続の要素を処理します。
+トーストのバインディングを調べる必要があります (エラー防止コードのために、バインディングが null でないことを確認する必要があります)。 バインディングから、テキスト要素を取得できます。 テキスト要素は、必要な数だけ表示するように選択できます  (テキスト要素はすべて表示することをお勧めします)。それぞれのテキスト要素を異なる方法で処理することができます。たとえば、最初のテキスト要素をタイトル テキストとして扱い、後続の要素を本文テキストとして扱うことができます。
 
 ```csharp
 // Get the toast binding, if present
@@ -161,7 +161,7 @@ if (toastBinding != null)
 
 ## <a name="remove-a-specific-notification"></a>特定の通知を削除する
 
-お使いのウェアラブルやサービスで、ユーザーが通知を無視することが許可されている場合、実際の通知を削除し、ユーザーの電話や PC に後で通知が表示されないようにすることができます。 そのためには、削除する通知の通知 ID ([UserNotification](https://docs.microsoft.com/uwp/api/windows.ui.notifications.usernotification) オブジェクトから取得します) を指定するだけです。 
+お使いのウェアラブルやサービスで、ユーザーが通知を無視することが許可されている場合、実際の通知を削除し、ユーザーの電話や PC に後で通知が表示されないようにすることができます。 そのためには、削除する通知の通知 ID ([UserNotification](/uwp/api/windows.ui.notifications.usernotification) オブジェクトから取得します) を指定するだけです。 
 
 ```csharp
 // Remove the notification
@@ -171,7 +171,7 @@ listener.RemoveNotification(notifId);
 
 ## <a name="clear-all-notifications"></a>すべての通知を消去する
 
-[UserNotificationListener.ClearNotifications](https://docs.microsoft.com/uwp/api/windows.ui.notifications.management.usernotificationlistener.ClearNotifications) メソッドは、すべてのユーザーの通知を消去します。 このメソッドは慎重に使用してください。 お使いのウェアラブルやサービスですべての通知が表示される場合にのみ、すべての通知を消去してください。 ウェアラブルやサービスで表示されるのが特定の通知のみである場合、ユーザーが [通知を消去する] ボタンをクリックしたとき、ユーザーは特定の通知のみが削除されると想定しますが、[ClearNotifications](https://docs.microsoft.com/uwp/api/windows.ui.notifications.management.usernotificationlistener.ClearNotifications) メソッドが呼び出されると、実際にはすべての通知 (ウェアラブルやサービスでは表示されていなかった通知を含む) が削除されてしまいます。
+[UserNotificationListener.ClearNotifications](/uwp/api/windows.ui.notifications.management.usernotificationlistener.ClearNotifications) メソッドは、すべてのユーザーの通知を消去します。 このメソッドは慎重に使用してください。 お使いのウェアラブルやサービスですべての通知が表示される場合にのみ、すべての通知を消去してください。 ウェアラブルやサービスで表示されるのが特定の通知のみである場合、ユーザーが [通知を消去する] ボタンをクリックしたとき、ユーザーは特定の通知のみが削除されると想定しますが、[ClearNotifications](/uwp/api/windows.ui.notifications.management.usernotificationlistener.ClearNotifications) メソッドが呼び出されると、実際にはすべての通知 (ウェアラブルやサービスでは表示されていなかった通知を含む) が削除されてしまいます。
 
 ```csharp
 // Clear all notifications. Use with caution.
@@ -183,7 +183,7 @@ listener.ClearNotifications();
 
 アプリで通知をリッスンできるようにするための一般的な方法は、バックグラウンド タスクのセットアップです。これにより、アプリが現在実行されているかどうかに関係なく、いつ通知が追加されたかまたは無視されたかを把握することができます。
 
-Anniversary Update には[シングル プロセス モデル](../../../launch-resume/create-and-register-an-inproc-background-task.md)が導入されたため、バックグラウンド タスクの追加が非常に簡単になりました。 メイン アプリのコードで、通知リスナーへのユーザー アクセスを取得し、バックグラウンド タスクを実行するためのアクセスを取得した後で、新しいバックグラウンド タスクを登録し、[トースト通知の種類](https://docs.microsoft.com/uwp/api/windows.ui.notifications.notificationkinds)を使用して [UserNotificationChangedTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.usernotificationchangedtrigger) を設定するだけです。
+Anniversary Update には[シングル プロセス モデル](../../../launch-resume/create-and-register-an-inproc-background-task.md)が導入されたため、バックグラウンド タスクの追加が非常に簡単になりました。 メイン アプリのコードで、通知リスナーへのユーザー アクセスを取得し、バックグラウンド タスクを実行するためのアクセスを取得した後で、新しいバックグラウンド タスクを登録し、[トースト通知の種類](/uwp/api/windows.ui.notifications.notificationkinds)を使用して [UserNotificationChangedTrigger](/uwp/api/windows.applicationmodel.background.usernotificationchangedtrigger) を設定するだけです。
 
 ```csharp
 // TODO: Request/check Listener access via UserNotificationListener.Current.RequestAccessAsync
@@ -207,7 +207,7 @@ if (!BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name.Equals("UserNotif
 }
 ```
 
-その後で、App.xaml.cs で [OnBackgroundActivated](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.OnBackgroundActivated) メソッドをオーバーライドします (まだオーバーライドしていない場合)。タスク名に対して switch ステートメントを使用して、どのバックグラウンド タスク トリガーが起動されたかを特定します。
+その後で、App.xaml.cs で [OnBackgroundActivated](/uwp/api/windows.ui.xaml.application.OnBackgroundActivated) メソッドをオーバーライドします (まだオーバーライドしていない場合)。タスク名に対して switch ステートメントを使用して、どのバックグラウンド タスク トリガーが起動されたかを特定します。
 
 ```csharp
 protected override async void OnBackgroundActivated(BackgroundActivatedEventArgs args)
@@ -229,7 +229,7 @@ protected override async void OnBackgroundActivated(BackgroundActivatedEventArgs
 
 バックグラウンド タスクは単純な "ショルダー タップ" です。追加または削除された特定の通知に関する情報は提供しません。 バックグラウンド タスクがトリガーされたら、プラットフォームでの通知が反映されるように、ウェアラブルの通知を同期する必要があります。 これにより、バックグラウンド タスクが失敗した場合でも、次回バックグラウンド タスクが実行されたときに、ウェアラブルの通知を復旧することができます。
 
-`SyncNotifications` を実装する方法します。次のセクションの方法を示します。 
+`SyncNotifications` は、実装するメソッドです。次のセクションでは、その方法について説明します。 
 
 
 ## <a name="determining-which-notifications-were-added-and-removed"></a>追加または削除された通知を特定する
@@ -277,9 +277,9 @@ foreach (uint id in toBeRemoved)
 ## <a name="foreground-event-for-notification-addeddismissed"></a>追加/無視される通知のフォアグラウンド イベント
 
 > [!IMPORTANT] 
-> 既知の問題:17763 をビルドする前に/2018 の年 10 月のビルドで更新プログラム]、[バージョン 1809、フォア グラウンドのイベントにより、CPU のループや動作しませんでした。 それらの以前のビルドでのサポートが必要な場合は、バック グラウンド タスクを使用します。
+> 既知の問題: ビルド 17763/10 月2018更新プログラム/バージョン1809の前のビルドでは、フォアグラウンドイベントによって CPU ループが発生するか、または動作しませんでした。 これらの以前のビルドでをサポートする必要がある場合は、代わりにバックグラウンドタスクを使用します。
 
-メモリ内のイベント ハンドラーから通知をリッスンすることができますもしています.
+メモリ内のイベントハンドラーからの通知をリッスンすることもできます...
 
 ```csharp
 // Subscribe to foreground event
@@ -292,6 +292,6 @@ private void Listener_NotificationChanged(UserNotificationListener sender, UserN
 ```
 
 
-## <a name="howto-fixdelays-in-the-background-task"></a>バック グラウンド タスクの遅延を修正する方法
+## <a name="howto-fixdelays-in-the-background-task"></a>バックグラウンド タスクの遅延を解決する方法
 
-アプリをテストするときにバック グラウンド タスクが遅延される場合があり、数分をトリガーしないことが分かります。 プロンプトでユーザーをシステムの設定を遅延を解決するには、システム-> バッテリ-> アプリによってバッテリの使用量を -> の一覧でアプリを見つけ、選択し、および バック グラウンドで許可されている常に"に設定 その後にするバック グラウンド タスクの通知を受信している 2 つ目の周り内で常にトリガーする必要があります。
+アプリをテストするときに、バックグラウンドタスクが遅れることがあり、数分間トリガーされないことがあります。 遅延を修正するには、ユーザーに対して [システム設定] >-[システム-> バッテリ使用量 > アプリ別バッテリ使用率] の順に選択し、一覧でアプリを検索して選択し、[常にバックグラウンドで許可する] に設定します。この操作を行うと、バックグラウンド タスクは、通知の受信後数秒以内にトリガーされるようになります。

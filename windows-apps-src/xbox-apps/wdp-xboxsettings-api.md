@@ -1,17 +1,17 @@
 ---
 title: Device Portal の Xbox 開発者向け設定 API のリファレンス
-description: Xbox 開発者向け設定にアクセスする方法について説明します。
+description: Xbox デバイスポータル REST API を使用して、開発に役立つ Xbox 1 設定にアクセスする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 6ab12b99-2944-49c9-92d9-f995efc4f6ce
 ms.localizationpriority: medium
-ms.openlocfilehash: 54a15be26adf0da97105f15f3a44f26ee7bfc96d
-ms.sourcegitcommit: 681c1e3836d2a51cd3b31d824ece344281932bcd
+ms.openlocfilehash: 0aceb7afdce9cc76eab3ee330f0018fdc7ccd1bb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59240040"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168986"
 ---
 # <a name="developer-settings-api-reference"></a>開発者向け設定 API のリファレンス
 
@@ -19,11 +19,11 @@ ms.locfileid: "59240040"
 
 ## <a name="get-all-developer-settings-at-once"></a>すべての開発者向け設定を一度に取得する
 
-**要求**
+**Request**
 
 次の要求を使用して、すべての開発者向け設定を 1 つの要求で取得できます。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
 GET | /ext/settings
 
@@ -49,17 +49,17 @@ GET | /ext/settings
 * Category: (文字列) 設定のカテゴリ。
 * Type - ("Text" | "Number" | "Bool" | "Select") このフィールドは、設定の型を示します。テキスト入力、ブール値 ("true" または "false")、最小値と最大値を持つ数値、値の特定のリストを持つ選択のいずれかです。
 
-設定が数値の場合。
+設定が数値の場合:
 
-* Min (Number) このフィールドでは、設定の最小の数値を示します。
-* 最大の (数) このフィールドが設定の最大の数値を示します。
+* Min-(Number) このフィールドは、設定の最小の数値を示します。
+* Max-(Number) このフィールドは、設定の数値の最大値を示します。
 
-場合は、設定を選択します。
+設定が [選択] の場合:
 
-* OptionsVariable - ([はい] |"No") このフィールドが再起動せず、有効なオプションを変更できる場合、変数は、設定オプションをかどうかを示します。
+* オプション変数-("Yes" |"No") このフィールドは、再起動せずに有効なオプションを変更できる場合に、設定オプションが変数かどうかを示します。
 * Options - 有効な選択オプションを文字列として含む JSON 配列。
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
@@ -73,13 +73,13 @@ HTTP 状態コード      | 説明
 
 設定は個別に取得することもできます。
 
-**要求**
+**Request**
 
 次の要求を使って、個別の設定に関する情報を取得できます。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
-GET | /ext/settings/\<setting name\>
+GET | /ext/\<setting name\>
 
 **URI パラメーター**
 
@@ -103,17 +103,17 @@ GET | /ext/settings/\<setting name\>
 * Category: (文字列) 設定のカテゴリ。
 * Type - ("Text" | "Number" | "Bool" | "Select") このフィールドは、設定の型を示します。テキスト入力、ブール値 ("true" または "false")、最小値と最大値を持つ数値、値の特定のリストを持つ選択のいずれかです。
 
-設定が数値の場合。
+設定が数値の場合:
 
-* Min (Number) このフィールドでは、設定の最小の数値を示します。
-* 最大の (数) このフィールドが設定の最大の数値を示します。
+* Min-(Number) このフィールドは、設定の最小の数値を示します。
+* Max-(Number) このフィールドは、設定の数値の最大値を示します。
 
-場合は、設定を選択します。
+設定が [選択] の場合:
 
-* OptionsVariable - ([はい] |"No") このフィールドが再起動せず、有効なオプションを変更できる場合、変数は、設定オプションをかどうかを示します。
+* オプション変数-("Yes" |"No") このフィールドは、再起動せずに有効なオプションを変更できる場合に、設定オプションが変数かどうかを示します。
 * Options - 有効な選択オプションを文字列として含む JSON 配列。
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
@@ -127,13 +127,13 @@ HTTP 状態コード      | 説明
 
 設定の値を設定できます。
 
-**要求**
+**Request**
 
 次の要求を使って、設定の値を設定できます。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
-PUT | /ext/settings/\<setting name\>
+PUT | /ext/\<setting name\>
 
 **URI パラメーター**
 
@@ -147,11 +147,11 @@ PUT | /ext/settings/\<setting name\>
 要求本文は、次のフィールドを含む JSON オブジェクトです。   
 Value: (文字列) 設定の新しい値。
 
-**応答**   
+**Response**   
 
 - なし
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 

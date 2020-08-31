@@ -1,6 +1,6 @@
 ---
-Description: Windows アプリでのページ切り替えの使用方法について説明します。
 title: ページ切り替え効果
+description: ユニバーサル Windows プラットフォーム (UWP) ページの切り替え効果を使用して、アプリ内のページ間の関係に関するフィードバックをユーザーに提供する方法について説明します。
 template: detail.hbs
 ms.date: 04/08/2018
 ms.topic: article
@@ -8,12 +8,12 @@ keywords: windows 10, uwp
 pm-contact: stmoy
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6239d8409767cab06d4d2c8c9c3abb9d743ca1c9
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: c77f99e170bdfe6689a9bfd4e8d8075ec2154d28
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970517"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094678"
 ---
 # <a name="page-transitions"></a>ページ切り替え効果
 
@@ -21,7 +21,7 @@ ms.locfileid: "82970517"
 
 アプリ内のページ間のナビゲーションについて 2 つの異なるアニメーション (*ページの更新*および*ドリル*) が提供されており、[**NavigationTransitionInfo**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.navigationtransitioninfo) のサブクラスとして表されています。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 <table>
 <th align="left">XAML コントロール ギャラリー<th>
@@ -95,7 +95,7 @@ myFrame.Navigate(typeof(Page2), null, new SuppressNavigationTransitionInfo());
 
 アニメーションの抑制は、[接続型アニメーション](connected-animation.md)または暗黙的な表示/非表示アニメーションを使用して独自の切り替え効果を作成している場合に役立ちます。
 
-## <a name="backwards-navigation"></a>後方ナビゲーション
+## <a name="backwards-navigation"></a>逆方向のナビゲーション
 
 `Frame.GoBack(NavigationTransitionInfo)` を使用して逆方向に移動するときに特定の切り替え効果を再生することができます。
 

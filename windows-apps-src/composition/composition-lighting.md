@@ -1,54 +1,54 @@
 ---
-title: コンポジション照明
-description: 動的な 3D ライティングをアプリケーションに追加する合成照明の Api を使用できます。
+title: コンポジションの光源
+description: コンポジション照明 Api を使用して、動的3D 光源をアプリケーションに追加できます。
 ms.date: 07/16/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c23de238a0004066b44cfe962e2de72216eb7a6d
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 5531382ef46346a40844a8eb5a5a77c0ad565fbb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318465"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154706"
 ---
-# <a name="using-lights-in-windows-ui"></a>Windows の UI でのライトの使用
+# <a name="using-lights-in-windows-ui"></a>Windows UI でのライトの使用
 
-Windows.UI.Composition Api を使用すると、リアルタイムのアニメーションや効果を作成できます。 コンポジション照明は、2 D のアプリケーションで 3D ライティングを使用できます。 この概要では、コンポジションのライトのセットアップ、各ライトを受信するビジュアルを識別し、効果を使用して、コンテンツの素材を定義する方法の機能を使用して実行します。
+Windows の UI の Api を使用すると、リアルタイムのアニメーションと効果を作成できます。 合成照明は、2D アプリケーションで3D 照明を使用できるようにします。 この概要では、コンポジションライトを設定する方法、各ライトを受信するためのビジュアルを識別する方法、および効果を使用してコンテンツの素材を定義する方法の機能を実行します。
 
 > [!NOTE]
-> 読み取り方法を[XamlLight](/uwp/api/windows.ui.xaml.media.xamllight)オブジェクトを適用[CompositionLights](/uwp/api/Windows.UI.Composition.CompositionLight) XAML Uielement を明らかに、次を参照してください。 [XAML 照明](xaml-lighting.md)します。
+> [CompositionLights](/uwp/api/Windows.UI.Composition.CompositionLight)を適用して Xaml uielements を点灯さ[せる方法について](/uwp/api/windows.ui.xaml.media.xamllight)は、「 [xaml ライティング](xaml-lighting.md)」を参照してください。
 
-コンポジション照明を使用して、UI を許可することで興味深いを作成できます。
+コンポジション照明を使用すると、次のことを許可することで、興味深い UI を作成できます
 
-- 音楽の再生のシーンなどの没入型のシナリオを有効にするシーン内の他のオブジェクトのライトに依存しない変換します。
-- 一緒に移動できるように、ライトを持つオブジェクトをペアリングする機能 Fluent のようなシナリオを有効にするシーンの残りの部分の独立した[表示](/windows/uwp/design/style/reveal)を強調表示します。
-- 素材と深さを作成するグループとして光とシーン全体の変換です。
+- シーン内の他のオブジェクトから独立した光の変換。音楽再生シーンなどのイマーシブシナリオを実現します。
+- オブジェクトとライトを組み合わせることにより、シーンの残りの部分とは無関係に移動し [、Fluent の](../design/style/reveal.md) 強調表示などのシナリオが可能になります。
+- 素材と深度を作成するためのグループとしてのライトとシーン全体の変換。
 
-コンポジション照明は、次の 3 つの主要な概念をサポートしています。**Light**、**ターゲット**、および**SceneLightingEffect**します。
+コンポジション照明では、 **ライト**、 **ターゲット**、 **SceneLightingEffect**という3つの主要概念がサポートされています。
 
-## <a name="light"></a>明るい
+## <a name="light"></a>白
 
-[CompositionLight](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositionlight)さまざまなライトを作成して、座標空間内に配置することができます。 これらのライトはターゲットがライトによって照らさとして識別するビジュアルです。
+[CompositionLight](/uwp/api/windows.ui.composition.compositionlight) を使用すると、さまざまなライトを作成し、それらを座標空間に配置できます。 これらのライトは、ライトで点灯していることを示すビジュアルをターゲットにします。
 
 ### <a name="light-types"></a>ライトの種類
 
-| 種類 | 説明 |
+| Type | 説明 |
 | --- | --- |
-| [AmbientLight](/uwp/api/windows.ui.composition.ambientlight) | シーン内のすべてが表示される方向性のない光を放射光源が反映されます。 |
-| [DistantLight](/uwp/api/windows.ui.composition.distantlight) | 無限に大規模な光源を 1 つの方向に光を出力します。 太陽の。 |
-| [PointLight](/uwp/api/windows.ui.composition.pointlight) | すべての方向に光が放射される光のポイントのソース。 電球など。 |
-| [SpotLight](/uwp/api/windows.ui.composition.spotlight) | 光の内側と外側の円錐を出力する光源を使用します。 懐中電灯など。 |
+| [AmbientLight](/uwp/api/windows.ui.composition.ambientlight) | シーン内のすべての要素によって反射される非指向性ライトを出力する光源。 |
+| [Distの薄い](/uwp/api/windows.ui.composition.distantlight) | 1つの方向に光を発する、無限に大きく離れた光源。 Sun と同様です。 |
+| [PointLight](/uwp/api/windows.ui.composition.pointlight) | すべての方向に光を発する光源のポイントソース。 電球のようになります。 |
+| [スポット](/uwp/api/windows.ui.composition.spotlight) | 光の内側と外側のコーンを出力する光源。 懐中電灯に似ています。 |
 
-## <a name="targets"></a>ターゲット
+## <a name="targets"></a>対象サーバー
 
-ライトがビジュアルを対象する場合 (に追加[ターゲット](/uwp/api/windows.ui.composition.compositionlight.targets)一覧)、ビジュアルとそのすべての子孫が認識して、この光源に応答します。 これは、ポイント ライトの方向をアニメーションに対応する以下のすべてのビジュアル ツリーのルートにある PointLight ソース設定と同じくらい単純ことができます。
+ライトがビジュアル ( [ターゲット](/uwp/api/windows.ui.composition.compositionlight.targets) リストに追加) を対象としている場合、ビジュアルとそのすべての子孫がこの光源を認識して応答します。 これは、ツリーのルートで PointLight source を設定することによって単純なものにすることができ、その下のすべてのビジュアルはポイントライトの方向のアニメーションに反応します。
 
-**ExclusionsFromTargets**ターゲットを追加すると同様の方法でビジュアルの場合、またはビジュアルのサブツリーの照明を削除する機能を提供します。 除外されているビジュアルで root 化されているツリー内の子が結果として、点灯していません。
+**ExclusionsFromTargets** を使用すると、ターゲットを追加する場合と同様の方法で、ビジュアルまたはビジュアルのサブツリーの光源を削除できます。 除外されているビジュアルをルートとするツリー内の子は、結果として点灯しません。
 
 ### <a name="sample-targets"></a>サンプル (ターゲット)
 
-次の例では、XAML の TextBlock を対象に、CompositionPointLight を使用します。
+次のサンプルでは、CompositionPointLight を使用して XAML TextBlock をターゲットにしています。
 
 ```cs
     _pointLight = _compositor.CreatePointLight();
@@ -57,77 +57,77 @@ Windows.UI.Composition Api を使用すると、リアルタイムのアニメ�
     _pointLight.Targets.Add(text); //target XAML TextBlock
 ```
 
-ポイント ライトのオフセットにアニメーションを追加することで、光る効果を簡単に行います。
+ポイントライトのオフセットにアニメーションを追加することで、shimmering 効果を簡単に実現できます。
 
 ```cs
 _pointLight.Offset = new Vector3(-(float)TextBlock.ActualWidth, (float)TextBlock.ActualHeight / 2, (float)TextBlock.FontSize);
 ```
 
-参照してください[テキスト シマー](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 14393/TextShimmer)詳しく WindowUIDevLabs サンプル ギャラリーにあるサンプル。
+詳細については、WindowUIDevLabs サンプルゲラにある complete [Text Shimmer](https://github.com/microsoft/WindowsCompositionSamples/tree/master/SampleGallery/Samples/SDK 14393/TextShimmer) サンプルを参照してください。
 
-## <a name="restrictions"></a>制限
+## <a name="restrictions"></a>制限事項
 
-CompositionLight で点灯するコンテンツを決定する際に考慮するいくつかの要素があります。
+CompositionLight によってどのコンテンツがどのようになるかを決定する際に考慮する必要がある要素がいくつかあります。
 
 概念 | 詳細
 --- | ---
-**アンビエント ライト** | シーンに非アンビエント ライトを追加すると、既存のライトがすべてオフになります。  対象非アンビエント ライトでもないアイテムは、黒で表示されます。  自然な方法でライトによって発信周囲のビジュアルを点灯するには、他のライトと組み合わせて、アンビエント ライトを使用します。
-**ライトの数** | UI を対象とするのに任意の組み合わせで、2 つの非アンビエント コンポジション ライトを使用できます。 アンビエント ライトではありません。スポット、ポイント、および離れたライトです。
-**有効期間** | CompositionLight 有効期間の条件が発生する可能性があります (例: される前に、ガベージ コレクターは軽量のオブジェクトをリサイクル可能性があります)。  アプリケーションの有効期間の管理に役立つメンバーとして、ライトを追加することで、ライトへの参照を維持することをお勧めします。
-**変換** | ライトをなどの効果を使用する UI 上のノードに配置する必要があります[パースペクティブ変換](/windows/uwp/design/layout/3-d-perspective-effects)で、視覚的な構造が適切に描画されます。
-**ターゲットと座標空間** | CoordinateSpace は、visual の領域のすべてのライトのプロパティを設定する必要があります。 CompositionLight.Targets は CoordinateSpace ツリー内である必要があります。
+**環境光** | シーンに非アンビエント光を追加すると、既存のすべてのライトがオフになります。  非アンビエント光の対象になっていない項目は黒で表示されます。  光の対象になっていない周囲のビジュアルを自然な方法で点灯させるには、他のライトと組み合わせてアンビエントライトを使用します。
+**ライトの数** | UI をターゲットにするには、任意の組み合わせで任意の2つの非アンビエントコンポジションライトを使用できます。 アンビエントライトは制限されていません。スポットライト、ポイントライト、遠くのライトがあります。
+**有効期間** | CompositionLight では、有効期間の条件が発生する可能性があります (例: ガベージコレクターは、使用前に光源オブジェクトをリサイクルする場合があります)。  アプリケーションの有効期間を管理するために、メンバーとしてライトを追加することによって、ライトへの参照を保持することをお勧めします。
+**変換** | ライトは、ビジュアル構造内の [パースペクティブ変換](../design/layout/3-d-perspective-effects.md) のような効果を使用して適切に描画されるように、UI の上のノードに配置する必要があります。
+**ターゲットと座標空間** | CoordinateSpace は、すべてのライトプロパティを設定する必要がある視覚空間です。 CompositionLight は CoordinateSpace ツリー内にある必要があります。
 
-## <a name="lighting-properties"></a>照明プロパティ
+## <a name="lighting-properties"></a>光源のプロパティ
 
-、使用するライトの種類に応じて、光の減衰と領域のプロパティことができます。 すべての種類の光源がすべてのプロパティを使うわけではありません。
+使用されるライトの種類に応じて、光には減衰と領域のプロパティを含めることができます。 すべての種類の光源がすべてのプロパティを使うわけではありません。
 
 プロパティ | 説明
 --- | ---
-**色** | [色](/uwp/api/windows.ui.color)光の。 光の色の値がによって定義されている[D3D](https://docs.microsoft.com/windows/uwp/graphics-concepts/light-properties)拡散、アンビエント、および反射出力される色を定義します。 照明ライト; RGBA 値が使用されます。色のアルファ コンポーネントは使用されません。
-**[方向]** | 光の方向です。 に対して相対的な光が指している方向が指定されたその[CoordinateSpace](/uwp/api/windows.ui.composition.distantlight.coordinatespace)ビジュアル。
-**座標空間** | すべてのビジュアルでは、暗黙の 3D 座標空間は。 X 方向は、左から右です。 Y 方向は、上から下です。 Z 方向は、平面からポイントです。 この座標の元のポイントは、ビジュアルの左上隅にあると、単位はデバイス独立ピクセル (DIP)。 この座標で定義されている光のオフセット。
-**内側と外側の円錐** | スポットライトは、明るい内部コーンと外部コーンの 2 つの部分を持つ光のコーンを放射します。 コンポジションは、内側と外側の円錐の角度と色を制御できます。
-**オフセット** | 座標空間 Visual 基準とした光の光源のオフセット。
+**色** | ライトの [色](/uwp/api/windows.ui.color) 。 光源の色の値は、出力される色を定義する [D3D](../graphics-concepts/light-properties.md) 拡散、アンビエント、およびスペキュラによって定義されます。 光源は、ライトに RGBA 値を使用します。アルファカラーコンポーネントは使用されません。
+**方向** | ライトの方向。 光源をポイントする方向は、 [CoordinateSpace](/uwp/api/windows.ui.composition.distantlight.coordinatespace) のビジュアルに対して相対的に指定されます。
+**座標空間** | すべてのビジュアルには、3D 座標空間が暗黙的に含まれています。 X 方向は左から右です。 Y 方向は、上から下に向かっています。 Z 方向は、平面からのポイントです。 この座標の元の点はビジュアルの左上隅で、単位はデバイスに依存しないピクセル (DIP) です。 この座標で定義されたライトのオフセット。
+**内部コーンと外側コーン** | スポットライトは、明るい内部コーンと外部コーンの 2 つの部分を持つ光のコーンを放射します。 コンポジションを使用すると、円錐の内側と外側の角度と色を制御できます。
+**Offset** | 座標空間のビジュアルを基準とした光源のオフセット。
 
 > [!NOTE]
-> 複数のライトが同じのビジュアルをヒットしたときに、または 1.0 を超える大きさ光の色の値を取得するたびに、光の色をクランプ ライトの色チャネルのため変更可能性があります。
+> 複数のライトが同じビジュアルにヒットした場合、または薄い色の値が1.0 を超える大きさになった場合は、ライトカラーチャネルが固定されているため、光の色が変化することがあります。
 
-### <a name="advanced-lighting-properties"></a>高度なライティング プロパティ
+### <a name="advanced-lighting-properties"></a>高度な照明のプロパティ
 
 プロパティ | 説明
 --- | ---
-**輝度** | 光源の輝度を制御します。
-**減衰** | 減衰は、範囲プロパティによって指定された最大距離にいたるまでに光の強さがどのように弱くなっていくかを制御します。  定数、Quadradic と線形 attenuation プロパティができます。
+**明暗** | ライトの明るさを制御します。
+**減衰** | 減衰は、範囲プロパティによって指定された最大距離にいたるまでに光の強さがどのように弱くなっていくかを制御します。  定数、Quadradic、および線形の減衰プロパティを使用できます。
 
-## <a name="getting-started-with-lighting"></a>照明の概要
+## <a name="getting-started-with-lighting"></a>光源を使用したはじめに
 
-ライトを追加する一般的な手順に従います。
+ライトを追加するには、次の一般的な手順に従います。
 
-- 作成し、ライトを配置します。ライトを作成し、指定された座標空間内に配置します。
-- ライトをオブジェクトを識別します。関連するビジュアルのライトを対象します。
-- [省略可能]どのように個々 のオブジェクトを定義ライトに対応します。EffectBrush SceneLightingEffect を使用すると、SpriteVisual を表示するためのライトの反射をカスタマイズできます。 リフレクションの既定値は、光源の CoordinateSpace の子の照明をサポートします。  SceneLightingEffect と描画ビジュアルには、そのビジュアルの既定の照明が上書きされます。
+- ライトを作成して配置します。ライトを作成し、指定した座標空間に配置します。
+- ライトするオブジェクトを特定します。関連するビジュアルのターゲットライト。
+- Optional個々のオブジェクトがライトにどのように反応するかを定義します。 SceneLightingEffect を EffectBrush と共に使用して、SpriteVisual を表示するための明るい反射をカスタマイズします。 反射の既定値では、ライトソースの CoordinateSpace の子の光源がサポートされます。  SceneLightingEffect を使用して描画されたビジュアルは、そのビジュアルの既定の光源を上書きします。
 
 ## <a name="scenelightingeffect"></a>SceneLightingEffect
 
-[SceneLightingEffect](/uwp/api/Windows.UI.Composition.Effects.SceneLightingEffect)の内容に適用される既定の光源を変更するために使用する[SpriteVisual](/uwp/api/Windows.UI.Composition.SpriteVisual)の対象となる、 [CompositionLight](/uwp/api/windows.ui.composition.compositionlight)します。
+[SceneLightingEffect](/uwp/api/Windows.UI.Composition.Effects.SceneLightingEffect)は、 [CompositionLight](/uwp/api/windows.ui.composition.compositionlight)の対象となる[SpriteVisual](/uwp/api/Windows.UI.Composition.SpriteVisual)のコンテンツに適用される既定の光源を変更するために使用されます。
 
-[SceneLightingEffect](/uwp/api/Windows.UI.Composition.Effects.SceneLightingEffect)の素材の作成に頻繁に使用します。 SceneLightingEffect は、イメージの反射プロパティの有効化や法線マップで、奥行を提供するようより複雑なものを実現するときに使われる効果です。 SceneLightingEffect スペキュラ、拡散の金額のように照明プロパティを使用して、UI をカスタマイズする機能を提供します。 さらに、blend し、compose のコンテンツとのさまざまな照明反応に個別に使用できる効果のパイプラインの残りの部分と光源の効果をカスタマイズすることができます。
+[SceneLightingEffect](/uwp/api/Windows.UI.Composition.Effects.SceneLightingEffect) は、多くの場合、素材の作成に使用されます。 SceneLightingEffect は、画像の反射プロパティを有効にしたり、通常の地図で奥行を提供したりするなど、より複雑な処理を行う場合に使用される効果です。 SceneLightingEffect は、スペキュラや拡散量などの光源のプロパティを使用して UI をカスタマイズする機能を提供します。 その他の効果パイプラインを使用して照明効果をさらにカスタマイズできます。これにより、さまざまな照明の反応を個別にブレンドして、コンテンツと共に構成することができます。
 
 > [!NOTE]
-> シーンの照明が shadows; を作成できません。2D レンダリングに重点を置いて効果になります。  影をなど、実際の照明モデルを含む考慮対象として 3D ライティング シナリオにはなりません。
+> シーンの光源は影を生成しません。これは、2D レンダリングに焦点を絞った効果です。  影を含む実際の照明モデルを含む3D 照明シナリオは考慮されません。
 
 
 プロパティ | 説明
 --- | ---
-**法線マップ** | NormalMaps では、テクスチャ、明るい光の方向に通常のポイントになりますであり通常を指しているすぐ調光の効果を作成します。 対象となる visual 使用時に、NormalMap を追加する、 [compositionsurfacebrush クラス](/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)NormalMap 資産を読み込む LoadedImageSurface を使用します。
-**アンビエント** | アンビエント プロパティはほとんどの場合、全体的な色の反射を制御するために使用します。
-**反射** | スペキュラ反射は、オブジェクト、光沢のある表示したりすることで、強調表示を作成します。 スペキュラ反射のレベルと光沢のレベルを制御できます。  これらのプロパティでは光沢金属など光沢紙の素材の効果を作成する操作します。
-**拡散** | 拡散型のリフレクションでは、すべての方向に光を拡散します。
-**反射のモデル** | [反射モデル](/uwp/api/windows.ui.composition.effects.scenelightingeffectreflectancemodel)間を選択することができます[Blinn フォン](https://docs.microsoft.com/visualstudio/designers/how-to-create-a-basic-phong-shader)と Blinn フォンを物理的に基づきます。  反射の光源が狭い場合は、Blinn フォンを物理的にベースを選択します。
+**法線マップ** | NormalMaps はテクスチャの効果を作成しますが、通常は光をポイントすると明るくなり、通常は点けがあります。 対象となるビジュアルに NormalMap を追加するには、LoadedImageSurface を使用する [CompositionSurfaceBrush](/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush) を使用して、normalmap アセットを読み込みます。
+**環境光** | アンビエントプロパティは、ほとんどの場合、カラーリフレクション全体を制御するために使用されます。
+**反射** | 反射反射は、オブジェクトにハイライトを作成し、光沢のあるものとして表示します。 反射のレベルと、反射のレベルを制御できます。  これらのプロパティは、shinny 金属や光沢紙などの素材効果を作成するために操作されます。
+**拡散光** | 拡散されたリフレクションは、すべての方向に光を scatters ます。
+**反射率モデル** | [反射率モデル](/uwp/api/windows.ui.composition.effects.scenelightingeffectreflectancemodel) では、 [Blinn phong](/visualstudio/designers/how-to-create-a-basic-phong-shader) 物理的に基づく Blinn phong 選択できます。  反射の光源を縮小する場合は、[物理的な Blinn] を選択します。
 
 ### <a name="sample-scenelightingeffect"></a>サンプル (SceneLightingEffect)
 
-以下のサンプルでは、通常のマップを SceneLightingEffect を追加する方法を示します。
+次のサンプルでは、通常のマップを SceneLightingEffect に追加する方法を示します。
 
 ```cs
 CompositionBrush CreateNormalMapBrush(ICompositionSurface normalMapImage)
@@ -162,9 +162,9 @@ CompositionBrush CreateNormalMapBrush(ICompositionSurface normalMapImage)
 
 ## <a name="related-articles"></a>関連記事
 
-- [ビジュアル層で素材と光源を作成します。](https://blogs.windows.com/buildingapps/2017/08/04/creating-materials-lights-visual-layer/)
-- [照明の概要](https://docs.microsoft.com/windows/uwp/graphics-concepts/lighting-overview)
-- [CompositionCapabilities API](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositioncapabilities)
-- [照明の計算](https://docs.microsoft.com/windows/uwp/graphics-concepts/mathematics-of-lighting)
-- [SceneLightingEffect](https://docs.microsoft.com/uwp/api/windows.ui.composition.effects.scenelightingeffect)
+- [ビジュアルレイヤーでの素材とライトの作成](https://blogs.windows.com/buildingapps/2017/08/04/creating-materials-lights-visual-layer/)
+- [照明の概要](../graphics-concepts/lighting-overview.md)
+- [CompositionCapabilities API](/uwp/api/windows.ui.composition.compositioncapabilities)
+- [照明の数学](../graphics-concepts/mathematics-of-lighting.md)
+- [SceneLightingEffect](/uwp/api/windows.ui.composition.effects.scenelightingeffect)
 - [WindowsUIDevLabs GitHub リポジトリ](https://github.com/microsoft/WindowsCompositionSamples)

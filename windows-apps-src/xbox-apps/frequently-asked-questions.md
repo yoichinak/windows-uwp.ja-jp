@@ -1,17 +1,17 @@
 ---
 title: よく寄せられる質問
-description: Xbox の UWP についてのよく寄せられる質問。
+description: 期待どおりに動作しない場合は、「Xbox での UWP に関してよく寄せられる質問」のページを参照してください。
 ms.date: 03/29/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 265fe827-bd4a-48d4-b362-8793b9b25705
 ms.localizationpriority: medium
-ms.openlocfilehash: e134e64c441aececdc50b1ac868efeb2b31bd5e5
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 7da3b6a6507f2652eb2357ab80897d9ba35d7484
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259828"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170736"
 ---
 # <a name="frequently-asked-questions"></a>よく寄せられる質問
 
@@ -19,7 +19,7 @@ ms.locfileid: "74259828"
 
 ### <a name="why-arent-my-games-and-apps-working"></a>作成したゲームとアプリが動作しない
 
-ゲームやアプリが動作しない場合、またストアや Live サービスにアクセスできない場合、開発者モードで実行している場合があります。 現在のモードを調べるには、コントローラーの **[ホーム]** ボタンを押します。 製品版ホーム エクスペリエンスではなく Dev Home に移動した場合は、開発者モードです。 ゲームをプレイする場合には、Dev Home を開き、 **[Leave developer mode]**  ボタンを使って、リテール モードに切り替えます。
+ゲームやアプリが動作しない場合、またストアや Live サービスにアクセスできない場合、開発者モードで実行している場合があります。 現在のモードを調べるには、コントローラーの **[ホーム]** ボタンを押します。 製品版ホーム エクスペリエンスではなく Dev Home に移動した場合は、開発者モードです。 ゲームをプレイする場合には、Dev Home を開き、**[Leave developer mode] ** ボタンを使って、リテール モードに切り替えます。
 
 ### <a name="why-cant-i-connect-to-my-xbox-one-using-visual-studio"></a>Visual Studio を使って Xbox One に接続できない
 
@@ -61,9 +61,9 @@ Xbox では、x86 アプリの開発または x86 アプリのストアへの申
 
 Xbox One へのアクセス権がなくなった場合は、Windows パートナーセンターで非アクティブ化できます。 詳細については、 [Xbox One Developer Mode の非](devkit-deactivation.md#deactivate-your-console-using-partner-center)アクティブ化に関するトピックの「**パートナーセンターを使用したコンソールの非アクティブ化**」セクションを参照してください。 
 
-### <a name="i-left-the-developer-program-using-partner-center-but-im-in-still-developer-mode-what-do-i-do"></a>パートナーセンターを使用して開発者プログラムを残しましたが、まだ開発者モードです。 解決するには、
+### <a name="i-left-the-developer-program-using-partner-center-but-im-in-still-developer-mode-what-do-i-do"></a>パートナーセンターを使用して開発者プログラムを残しましたが、まだ開発者モードです。 どうすればよいですか。
 
-Dev Home を開始し、 **[Leave developer mode]** ボタンを選択します。 コンソールがリテール モードで再起動します。 
+Dev Home を開始し、**[Leave developer mode]** ボタンを選択します。 コンソールがリテール モードで再起動します。 
 
 ### <a name="can-i-publish-my-app"></a>自分のアプリを公開できますか
 
@@ -71,7 +71,7 @@ Dev Home を開始し、 **[Leave developer mode]** ボタンを選択します�
 
 ### <a name="can-i-publish-my-game"></a>自分のゲームを公開できますか
 
-UWP と Xbox One の開発者モードを使って、Xbox One でゲームの構築とテストを行えます。 UWP ゲームを公開するには、[ID@XBOX](https://www.xbox.com/Developers/id) に登録するか、[Xbox Live Creators プログラム](https://developer.microsoft.com/games/xbox/xboxlive/creator)に参加する必要があります。 詳しくは、「[開発者プログラムの概要](https://developer.microsoft.com/games/xbox/docs/xboxlive/get-started/developer-program-overview.html)」をご覧ください。
+UWP と Xbox One の開発者モードを使って、Xbox One でゲームの構築とテストを行えます。 UWP ゲームを発行するには、に登録する [ID@XBOX](https://www.xbox.com/Developers/id) か、 [Xbox Live](https://developer.microsoft.com/games/xbox/xboxlive/creator)作成者プログラムに参加する必要があります。 詳細については、「 [開発者プログラムの概要](https://developer.microsoft.com/games/xbox/docs/xboxlive/get-started/developer-program-overview.html)」を参照してください。
 
 ### <a name="will-the-standard-game-engines-work"></a>標準的なゲーム エンジンは機能しますか
 
@@ -99,9 +99,9 @@ Visual Studio からアプリを展開できない場合、次の手順が問題
 Visual Studio が Xbox One に接続できない場合:
 
 1. 開発者モードであることを確認します (このページで既に説明した方法を確認します)。
-2. 開発用 PC が正しく設定されていることを確認します。 *Xbox One の UWP アプリ開発の概要*の[すべての](getting-started.md)指示に従いましたか。 
+2. 開発用 PC が正しく設定されていることを確認します。 [Xbox One の UWP アプリ開発の概要](getting-started.md)の*すべての*指示に従いましたか。 
 
-3. まだの場合、「[開発環境のセットアップ](development-environment-setup.md)」と「[Xbox One ツールの概要](introduction-to-xbox-tools.md)」をよくお読みください。
+3. まだお持ちでない場合は、 [開発環境のセットアップ](development-environment-setup.md) に関するトピックと「 [Xbox One tools の概要](introduction-to-xbox-tools.md) 」トピックを参照してください。
 
 4. 開発用 PC から本体の IP アドレスに "ping" ができることを確認します。
   > [!NOTE]
@@ -114,7 +114,7 @@ Visual Studio が Xbox One に接続できない場合:
 
 TVHelpers は、JavaScript と XAML/C# のサンプルとライブラリです。JavaScript と C# による、Xbox One とテレビの優れたエクスペリエンスの構築をサポートします。 TVJS は Xbox One のための優れた UWP アプリの構築をサポートします。 TVJS には、自動コントローラー ナビゲーション、リッチ メディアの再生、検索などのサポートが含まれています。 ホストされた Web アプリで TVJS を使うと、パッケージ化された Web UWP アプリを使う場合のように容易に、すべての Windows ランタイム API にアクセスできます。
 
-詳しくは、「[TVHelpers](https://github.com/Microsoft/TVHelpers) プロジェクトとプロジェクト [wiki](https://github.com/Microsoft/TVHelpers/wiki)」をご覧ください。
+詳細については、 [TVHelpers](https://github.com/Microsoft/TVHelpers) プロジェクトとプロジェクト [wiki](https://github.com/Microsoft/TVHelpers/wiki)を参照してください。
 
 ## <a name="see-also"></a>関連項目
 - [Xbox One の UWP に関する既知の問題](known-issues.md)

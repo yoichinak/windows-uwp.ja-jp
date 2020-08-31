@@ -6,16 +6,16 @@ ms.date: 10/29/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e784b14c30222a28a0e10f8ba0bcf96e6c7f9afd
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 3b368ca2f429d52674ba1cb3493012d54dc0848a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372316"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154926"
 ---
 # <a name="templatebinding-markup-extension"></a>{TemplateBinding} マークアップ拡張
 
-コントロール テンプレート内のプロパティの値を、template 宣言されたコントロールのその他の公開されているプロパティの値にリンクします。 XAML では、**TemplateBinding** は [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) 定義内でのみ使用できます。
+コントロール テンプレート内のプロパティの値を、template 宣言されたコントロールのその他の公開されているプロパティの値にリンクします。 **TemplateBinding** は、XAML の [**ControlTemplate**](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) 定義内でのみ使用できます。
 
 ## <a name="xaml-attribute-usage"></a>XAML 属性の使用方法
 
@@ -31,41 +31,41 @@ ms.locfileid: "66372316"
 
 ## <a name="xaml-values"></a>XAML 値
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | propertyName | setter 構文で設定されるプロパティの名前。 これは依存関係プロパティであることが必要です。 |
 | sourceProperty | template 宣言された型に存在する、別の依存関係プロパティの名前。 |
 
 ## <a name="remarks"></a>注釈
 
-カスタム コントロールの作成者である場合でも、コントロール テンプレートを今あるコントロールに置き換える場合でも、コントロール テンプレートを定義するうえでは **TemplateBinding** を使うことが欠かせません。 詳細については、次を参照してください。[クイック スタート。コントロール テンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh465374(v=win.10))します。
+カスタム コントロールの作成者である場合でも、コントロール テンプレートを今あるコントロールに置き換える場合でも、コントロール テンプレートを定義するうえでは **TemplateBinding** を使うことが欠かせません。 詳しくは、「[クイック スタート: コントロール テンプレート](/previous-versions/windows/apps/hh465374(v=win.10))」をご覧ください。
 
-*propertyName* と *targetProperty* では同じプロパティ名を使うことが一般的です。 この場合、コントロール自体でプロパティを定義し、プロパティを、そのいずれかのコンポーネントの直感的な名前を持つ既にあるプロパティに転送します。 たとえば、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) をコントロールの合成に組み込んでコントロール自体の **Text** プロパティの表示に使う場合は、コントロール テンプレートの一部として次の XAML を含めることができます。`<TextBlock Text="{TemplateBinding Text}" .... />`
+*propertyName* と *targetProperty* では同じプロパティ名を使うことが一般的です。 この場合、コントロール自体でプロパティを定義し、プロパティを、そのいずれかのコンポーネントの直感的な名前を持つ既にあるプロパティに転送します。 たとえば、コントロールの独自の**Text**プロパティを表示するために使用される[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)を複合に組み込むコントロールには、この XAML をコントロールテンプレートに含めることができます。`<TextBlock Text="{TemplateBinding Text}" .... />`
 
 ソース プロパティとターゲット プロパティの値として使う型は一致する必要があります。 **TemplateBinding** を使うとコンバーターを導入する機会がありません。 値が一致しないと、XAML を解析したときにエラーが発生します。 コンバーターを必要とする場合は、次のようなテンプレート バインドの冗長な形式の構文を使うことができます。`{Binding RelativeSource={RelativeSource TemplatedParent}, Converter="..." ...}`
 
-XAML の [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) 定義の外側で **TemplateBinding** を使うと、パーサー エラーが発生します。
+XAML の [**ControlTemplate**](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) 定義の外側で **TemplateBinding** を使うと、パーサー エラーが発生します。
 
 親のテンプレート値も別のバインドとして延期される場合は、**TemplateBinding** を使用できます。 **TemplateBinding** の評価は、必要な実行時バインドに値が設定されるまで待機することができます。
 
-**TemplateBinding** は常に一方向バインドです。 関係するプロパティはどちらも依存関係プロパティである必要があります。
+**TemplateBinding** は常に一方向バインドです。 関連する両方のプロパティは、依存関係プロパティである必要があります。
 
-**TemplateBinding** はマークアップ拡張です。 通常、マークアップ拡張は、属性値をリテラル値やハンドラー名以外にエスケープする必要があり、特定の型やプロパティに対して型コンバーターを指定するのではなく、よりグローバルにその必要がある場合に実装します。 XAML のすべてのマークアップ拡張では、それぞれの属性構文で "{" と "}" の文字を使います。これは規約であり、これに従って XAML プロセッサは、マークアップ拡張で属性を処理する必要があることを認識します。
+**TemplateBinding** はマークアップ拡張です。 一般にマークアップ拡張機能を実装するのは、属性値をリテラル値やハンドラー名以外にエスケープする要件が存在し、その要件の適用範囲がグローバルで、特定の型やプロパティに型コンバーターを適用するだけにとどまらない場合です。 XAML のすべてのマークアップ拡張では、それぞれの属性構文で "{" と "}" の文字を使います。これは規約であり、これに従って XAML プロセッサは、マークアップ拡張で属性を処理する必要があることを認識します。
 
-**注**  Windows ランタイム XAML でプロセッサの実装のバッキング クラスの表現はありません**TemplateBinding**します。 **TemplateBinding** は、XAML マークアップでのみ使用できます。 コードの動作を再現する方法には単純なものがありません。
+**メモ**   Windows ランタイム XAML プロセッサの実装では、 **TemplateBinding**のバッキングクラス表現はありません。 **TemplateBinding** は、XAML マークアップでのみ使用できます。 コードの動作を再現する方法には単純なものがありません。
 
-### <a name="xbind-in-controltemplate"></a>X:bind の ControlTemplate
+### <a name="xbind-in-controltemplate"></a>ControlTemplate の x:Bind
 
 > [!NOTE]
-> Windows 10、バージョンは 1809 ControlTemplate に x: バインドを使用する必要があります ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) またはそれ以降。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
+> ControlTemplate で x:Bind を使用するには、Windows 10 バージョン 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降が必要です。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](../debug-test-perf/version-adaptive-code.md)」をご覧ください。
 
-使用できます Windows 10、バージョンは 1809、以降では、 **X:bind**マークアップ拡張機能使用する任意の場所**TemplateBinding**で、 [ **ControlTemplate** ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate). 
+Windows 10 バージョン1809以降では、 [**ControlTemplate**](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)で**TemplateBinding**を使用する任意の場所で、 **x:Bind**マークアップ拡張機能を使用できます。 
 
-[TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.controltemplate.targettype)プロパティは (オプションではなく) が必要で[ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)を使用する場合**X:bind**します。
+**X:Bind**を使用する場合、 [ControlTemplate](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)には[TargetType](/uwp/api/windows.ui.xaml.controls.controltemplate.targettype)プロパティが必要です (省略可能ではありません)。
 
-**X:bind**サポート、両方を使用することができます[関数バインド](../data-binding/function-bindings.md)で双方向のバインディングと、 [ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)します。
+**X:Bind**のサポートにより、 [ControlTemplate](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)では、[関数バインド](../data-binding/function-bindings.md)と双方向のバインディングの両方を使用できます。
 
-この例で、 **TextBlock.Text**にプロパティが評価される**Button.Content.ToString**します。 ControlTemplate の TargetType では、データ ソースとして機能し、TemplateBinding を親と同じ結果を実現します。
+この例では、 **TextBlock** プロパティは、".. **コンテンツ. ToString**" に評価されます。 ControlTemplate の TargetType はデータソースとして機能し、親の TemplateBinding と同じ結果を達成します。
 
 ```xaml
 <ControlTemplate TargetType="Button">
@@ -77,10 +77,9 @@ XAML の [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xam
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイック スタート:コントロール テンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh465374(v=win.10))
-* [データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)
-* [**ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)
+* [クイック スタート: コントロール テンプレート](/previous-versions/windows/apps/hh465374(v=win.10))
+* [データ バインディングの詳細](../data-binding/data-binding-in-depth.md)
+* [**ControlTemplate**](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate)
 * [XAML の概要](xaml-overview.md)
 * [依存関係プロパティの概要](dependency-properties-overview.md)
  
-

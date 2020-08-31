@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: e7dee32d-3756-430d-a026-32c1ee288a85
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ff826be0f5b0b8e9a6723fbb1593663f1748c3d
-ms.sourcegitcommit: d708ac4ec4fac0135dafc0d8c5161ef9fd945ce7
+ms.openlocfilehash: 7d41e49f599e1fe5e835443f7c8cb732e625491e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069473"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168596"
 ---
 # <a name="bluetooth-developer-faq"></a>Bluetooth に関する開発者向け FAQ
 
@@ -22,7 +22,7 @@ ms.locfileid: "85069473"
 
 ### <a name="bluetooth-le-windowsdevicesbluetoothgenericattributeprofile"></a>Bluetooth LE (Windows.Devices.Bluetooth.GenericAttributeProfile)
 
-Bluetooth 低エネルギーをサポートするデバイスと通信している場合は、GATT API を使用します。 ユースケースの頻度が低い、帯域幅が少ない、または電力が不足している場合は、Bluetooth 低エネルギーがその答えになります。 この機能を含む主な名前空間は、[Windows.Devices.Bluetooth.GenericAttributeProfile](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) です。 
+Bluetooth 低エネルギーをサポートするデバイスと通信している場合は、GATT API を使用します。 ユースケースの頻度が低い、帯域幅が少ない、または電力が不足している場合は、Bluetooth 低エネルギーがその答えになります。 この機能を含む主な名前空間は、[Windows.Devices.Bluetooth.GenericAttributeProfile](/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) です。 
 
 **Bluetooth LE を使用しない場合**
 - 高帯域幅で使用頻度の高いシナリオ。 常に大量のデータを同期する必要がある場合は、Bluetooth Classic または WiFi の使用を検討します。 
@@ -33,7 +33,7 @@ RFCOMM Api は、開発者に対して、シリアルポートスタイルの双
 
 **Bluetooth Rfcomm を使用しない場合** 
 - 通知。 Bluetooth GATT プロトコルにはこのための特定のコマンドがあり、電力消費量が大幅に減少し、応答時間が高速になります。 
-- 近接通信またはプレゼンスの検出の確認。 [アドバタイズ API](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement) を使用し、Bluetooth LE 経由で接続することをお勧めします。 
+- 近接通信またはプレゼンスの検出の確認。 [アドバタイズ API](/uwp/api/windows.devices.bluetooth.advertisement) を使用し、Bluetooth LE 経由で接続することをお勧めします。 
 
 
 ## <a name="why-does-my-bluetooth-le-device-stop-responding-after-a-disconnect"></a>Bluetooth LE デバイスが、切断後、応答を停止する理由を教えてください。
@@ -63,7 +63,7 @@ Windows 10 リリース1511以降、開発者はペアリングハンドシェ�
 
 Bluetooth RFCOMM (クラシック) を利用する場合は、デバイスをペアリングする必要はありません。 Windows 10 リリース 1607 以降では、簡単に近くにあるデバイスを照会し、そのデバイスに接続できます。 更新された[RFCOMM チャット サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/BluetoothRfcommChat)で、この機能について説明しています。 
 
-**(14393 以下)** この機能は、Bluetooth 低エネルギー (GATT Client) では使用できません。そのため、これらのデバイスにアクセスするには、[設定] ページを使用するか、または[Windows の列挙](https://docs.microsoft.com/uwp/api/windows.devices.enumeration)api を使用してペアリングする必要があります。
+**(14393 以下)** この機能は、Bluetooth 低エネルギー (GATT Client) では使用できません。そのため、これらのデバイスにアクセスするには、[設定] ページを使用するか、または [Windows の列挙](/uwp/api/windows.devices.enumeration) api を使用してペアリングする必要があります。
 
 **(15030 以上)** Bluetooth デバイスのペアリングは不要になりました。 リモート デバイスの現在の状態を照会するために、GetGattServicesAsync や GetCharacteristicsAsync のような新しい非同期 API を使います。 詳しくは、[クライアントのマニュアル](gatt-client.md)をご覧ください。 
 
@@ -72,7 +72,7 @@ Bluetooth RFCOMM (クラシック) を利用する場合は、デバイスをペ
 
 ## <a name="do-all-windows-devices-support-peripheral-role"></a>すべての Windows デバイスが周辺機器の役割をサポートしていますか。
 
-いいえ。 これはハードウェアに依存する機能ですが、サポートされているかどうかについてクエリを実行するためのメソッド (BluetoothAdapter IsPeripheralRoleSupported) が用意されています。  現在サポートされているデバイスには、8992 以上を搭載した Windows Phone や RPi3 (Windows IoT) が含まれます。 
+不正解です。 これはハードウェアに依存する機能ですが、サポートされているかどうかについてクエリを実行するためのメソッド (BluetoothAdapter IsPeripheralRoleSupported) が用意されています。  現在サポートされているデバイスには、8992 以上を搭載した Windows Phone や RPi3 (Windows IoT) が含まれます。 
 
 ## <a name="can-i-access-these-apis-from-win32"></a>Win32 からこれらの API にアクセスできますか。
 

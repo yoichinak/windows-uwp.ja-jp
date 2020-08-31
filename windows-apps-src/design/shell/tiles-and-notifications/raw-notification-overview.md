@@ -1,5 +1,5 @@
 ---
-Description: 直接通知は、短い汎用のプッシュ通知です。
+description: 生の通知について説明します。これは、厳密な指示を受け、UI コンポーネントを含まない、短い汎用のプッシュ通知です。
 title: 直接通知の概要
 ms.assetid: A867C75D-D16E-4AB5-8B44-614EEB9179C7
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5eb90e47a1d821c489e06a9ce19c913eb6702767
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 2c4072070837d0bde67b644e2536bc2c93b0efc3
+ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493237"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89053972"
 ---
 # <a name="raw-notification-overview"></a>直接通知の概要
 
@@ -36,7 +36,7 @@ ms.locfileid: "86493237"
 すべての直接通知はプッシュ通知です。 このため、プッシュ通知の送受信に必要な設定が直接通知にも適用されます。
 
 -   直接通知を送るためには有効な WNS チャネルが必要です。 プッシュ通知チャネルの取得について詳しくは、「[通知チャネルを要求、作成、保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))」をご覧ください。
--   アプリ マニフェストに **インターネット** 機能を含める必要があります。 Microsoft Visual Studio マニフェスト エディターでは、**[機能]** タブの **[インターネット (クライアント)]** としてこのオプションが用意されています。 詳細については、「[**機能**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-capabilities)」を参照してください。
+-   アプリ マニフェストに **インターネット** 機能を含める必要があります。 Microsoft Visual Studio マニフェスト エディターでは、**[機能]** タブの **[インターネット (クライアント)]** としてこのオプションが用意されています。 詳細については、「 [**機能**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-capabilities)」を参照してください。
 
 通知の本文は、アプリで定義された形式に従います。 クライアントは、アプリだけが認識すればよい、NULL で終了する文字列 (**HSTRING**) としてデータを受け取ります。
 
@@ -74,7 +74,7 @@ ms.locfileid: "86493237"
 
 アプリで通知配信イベント ([**PushNotificationReceived**](https://docs.microsoft.com/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannel.PushNotificationReceived)) を使うと、アプリの実行中に直接通知を受信できます。 クラウド サービスが直接通知を送る場合、実行中のアプリはチャネル URI 上の通知配信イベントを処理することによって直接通知を受け取ることができます。
 
-アプリが実行されておらず、[バックグラウンドタスク](#background-tasks-triggered-by-raw-notifications)を使用していない場合、そのアプリに送信された未加工の通知は、受信時に WNS によって破棄されます。 クラウド サービスのリソースの消費を削減するには、アプリがアクティブであるかどうかを追跡するロジックをサービスに実装することを検討する必要があります。 このロジックの情報源は 2 種類あります。アプリが通知を受け取る準備ができたことをサービスに明示的に伝えることも、WNS が停止するタイミングをサービスに伝えることもできます。
+アプリが実行されておらず、 [バックグラウンドタスク](#background-tasks-triggered-by-raw-notifications)を使用していない場合、そのアプリに送信された未加工の通知は、受信時に WNS によって破棄されます。 クラウド サービスのリソースの消費を削減するには、アプリがアクティブであるかどうかを追跡するロジックをサービスに実装することを検討する必要があります。 このロジックの情報源は 2 種類あります。アプリが通知を受け取る準備ができたことをサービスに明示的に伝えることも、WNS が停止するタイミングをサービスに伝えることもできます。
 
 -   **アプリがクラウド サービスに通知する**: アプリは、サービスにアクセスし、アプリがフォアグラウンドで実行されていると知らせることができます。 この方法の欠点は、アプリがサービスに頻繁にアクセスするようになる可能性があるということです。 ただし、到着した直接通知をアプリが受け取ることができるタイミングをサービスが常に把握しているという利点もあります。 この他、アプリがそのサービスにアクセスする際に、サービスがブロードキャストではなく直接通知をそのアプリの特定のインスタンスに送る必要があるとわかるという利点もあります。
 -   **クラウド サービスが WNS 応答メッセージに応答する** : アプリ サービスは、WNS によって返された [X-WNS-NotificationStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) の情報と [X-WNS-DeviceConnectionStatus](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) の情報を使って、アプリへの直接通知の送信を停止するタイミングを判断できます。 サービスが通知を HTTP POST としてチャネルに送る場合、サービスは応答で以下のメッセージの 1 つを受け取ることがあります。

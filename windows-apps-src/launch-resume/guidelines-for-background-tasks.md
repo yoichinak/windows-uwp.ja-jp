@@ -1,17 +1,17 @@
 ---
 title: バックグラウンド タスクのガイドライン
-description: アプリがバックグラウンド タスクを実行するための要件を満たしていることを確認します。
+description: アプリケーションでのインプロセスおよびアウトプロセスのバックグラウンドタスクの開発と実行に関する詳細なガイダンスを表示します。
 ms.assetid: 18FF1104-1F73-47E1-9C7B-E2AA036C18ED
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: 7709e93ba14d3ecf5418accc41a9fe52c968fcec
-ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
+ms.openlocfilehash: bdcf398b448a3b0571b07063b9d4e70800259248
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262763"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094589"
 ---
 # <a name="guidelines-for-background-tasks"></a>バックグラウンド タスクのガイドライン
 
@@ -29,17 +29,17 @@ ms.locfileid: "84262763"
 |考慮事項 | 影響 |
 |--------------|--------|
 |回復力   | バックグラウンド プロセスが別のプロセスで実行されている場合、バックグラウンド プロセスでクラッシュが発生してもフォアグラウンド アプリケーションがダウンしません。 さらに、実行時間制限を過ぎて実行された場合、アプリ内からでもバックグラウンド アクティビティを終了できます。 フォアグラウンド プロセスとバックグラウンド プロセスが互いに通信する必要がない場合は、バックグラウンド処理をフォアグラウンド アプリとは別のタスクに分離することをお勧めします (インプロセス バックグラウンド タスクの主な利点の 1 つは、プロセス間通信が不要になることであるためです)。 |
-|シンプルさ    | インプロセス バックグラウンド タスクでは、プロセス間通信が不要のため、記述内容は複雑になりません。  |
-|使用可能なトリガー | インプロセスバックグラウンドタスクは、 [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396)、 [DeviceServicingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceservicingtrigger) 、および**iotstartuptask**というトリガーをサポートしていません。 |
+|簡便性    | インプロセス バックグラウンド タスクでは、プロセス間通信が不要のため、記述内容は複雑になりません。  |
+|使用可能なトリガー | インプロセスバックグラウンドタスクは、 [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396)、 [DeviceServicingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceservicingtrigger) 、および **iotstartuptask**というトリガーをサポートしていません。 |
 |VoIP | インプロセス バックグラウンド タスクでは、アプリケーション内での VoIP バックグラウンド タスクのアクティブ化がサポートされていません。 |  
 
 **トリガー インスタンスの数の制限:** アプリが登録できる一部のトリガー インスタンスの数には制限があります。 アプリが [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger)、[MediaProcessingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.mediaprocessingtrigger)、および [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396) を登録できるのは、アプリのインスタンスごとに 1 回のみです。 アプリでこの制限を超えると、登録で例外がスローされます。
 
 **CPU クォータ:** バックグラウンドタスクは、トリガーの種類に基づいて取得されるウォールクロックの使用時間によって制限されます。 ほとんどのトリガーは、使用時間がウォールクロック時間で 30 秒に制限されますが、負荷の高いタスクを完了するために最大 10 分実行できるトリガーもあります。 バッテリの寿命を長くし、フォアグラウンド アプリのユーザー エクスペリエンスを高めるため、バックグラウンド タスクは軽量にしてください。 バックグラウンド タスクに適用されるリソースの制約については、「[バックグラウンド タスクによるアプリのサポート](support-your-app-with-background-tasks.md)」をご覧ください。
 
-**バックグラウンドタスクの管理:** アプリは、登録されたバックグラウンドタスクの一覧を取得し、進行状況と完了ハンドラーを登録して、それらのイベントを適切に処理する必要があります。 バックグラウンド タスク クラスでは、進行状況、キャンセル、完了を報告する必要があります。 詳細については、「キャンセルされ[たバックグラウンドタスクの処理](handle-a-cancelled-background-task.md)」と「[バックグラウンドタスクの進行状況と完了の監視](monitor-background-task-progress-and-completion.md)」を参照してください。
+**バックグラウンドタスクの管理:** アプリは、登録されたバックグラウンドタスクの一覧を取得し、進行状況と完了ハンドラーを登録して、それらのイベントを適切に処理する必要があります。 バックグラウンド タスク クラスでは、進行状況、キャンセル、完了を報告する必要があります。 詳細については、「キャンセルされ [たバックグラウンドタスクの処理](handle-a-cancelled-background-task.md)」と「 [バックグラウンドタスクの進行状況と完了の監視](monitor-background-task-progress-and-completion.md)」を参照してください。
 
-** [Backgroundtaskdeferral](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskDeferral)を使用します。** バックグラウンドタスククラスで非同期コードを実行する場合は、必ず遅延を使用してください。 そうしないと、 [Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run)メソッドから制御が戻ったとき (または、インプロセスバックグラウンドタスクの場合は[onbackgroundactivated 化](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated)されたメソッド)、バックグラウンドタスクが途中で終了することがあります。 詳しくは、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください
+** [Backgroundtaskdeferral](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskDeferral)を使用します。** バックグラウンドタスククラスで非同期コードを実行する場合は、必ず遅延を使用してください。 そうしないと、 [Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドから制御が戻ったとき (または、インプロセスバックグラウンドタスクの場合は [onbackgroundactivated 化](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated) されたメソッド)、バックグラウンドタスクが途中で終了することがあります。 詳しくは、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください
 
 別の方法として、保留を 1 回要求し、**async/await** を使って、非同期メソッドの呼び出しを完了させることもできます。 **await** メソッドを呼び出した後、保留を閉じます。
 
@@ -61,9 +61,9 @@ ms.locfileid: "84262763"
 
 > **重要**   Windows 10 以降では、バックグラウンドタスクを実行するための前提条件として、アプリがロック画面に表示される必要がなくなりました。
 
-ユニバーサル Windows プラットフォーム (UWP) アプリは、ロック画面にピン留めしなくても、サポートされているすべての種類のタスクを実行できます。 ただし、アプリは[**Getaccessstate**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus)を呼び出し、アプリがバックグラウンドで実行されることを拒否されていないことを確認する必要があります。 [**Getaccessstatus**] が、拒否された[**backgroundaccessstatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus)列挙体のいずれかを返さないことを確認します。 たとえば、 https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundAccessStatus) ユーザーがデバイスの設定でアプリのバックグラウンドタスクのアクセス許可を明示的に拒否している場合、このメソッドはを返します。
+ユニバーサル Windows プラットフォーム (UWP) アプリは、ロック画面にピン留めしなくても、サポートされているすべての種類のタスクを実行できます。 ただし、アプリは [**Getaccessstate**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出し、アプリがバックグラウンドで実行されることを拒否されていないことを確認する必要があります。 [**Getaccessstatus**] が、拒否された [**backgroundaccessstatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙体のいずれかを返さないことを確認します。 たとえば、 https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundAccessStatus) ユーザーがデバイスの設定でアプリのバックグラウンドタスクのアクセス許可を明示的に拒否している場合、このメソッドはを返します。
 
-アプリがバックグラウンドでの実行を拒否された場合、アプリは[**Requestaccessasync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus)を呼び出して、バックグラウンドタスクを登録する前に応答が拒否されないようにする必要があります。
+アプリがバックグラウンドでの実行を拒否された場合、アプリは [**Requestaccessasync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出して、バックグラウンドタスクを登録する前に応答が拒否されないようにする必要があります。
 
 バックグラウンド アクティビティとバッテリー節約機能についてのユーザーの選択について詳しくは、「[バックグラウンド アクティビティの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity)」をご覧ください。 
 ## <a name="background-task-checklist"></a>バックグラウンド タスクのチェック リスト

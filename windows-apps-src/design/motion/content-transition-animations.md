@@ -10,12 +10,12 @@ pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7703f2dfac2eed6df1f59b8e1cdfa6371e240eb4
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 8d498c3214effd64895c6a894802a9ccc82ff357
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67317101"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169266"
 ---
 # <a name="content-transition-animations"></a>コンテンツ切り替えアニメーション
 
@@ -23,7 +23,7 @@ ms.locfileid: "67317101"
 
 コンテンツ切り替えアニメーションを使うと、コンテナーや背景はそのままに、画面のある領域のコンテンツを変更できます。 新しいコンテンツはフェード インします。 既にあるコンテンツを差し替える場合、そのコンテンツはフェード アウトします。
 
-> **重要な API**:[**ContentThemeTransition クラス (XAML)** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.contentthemetransition)
+> **重要な API**: [**ContentThemeTransition クラス (XAML)**](/uwp/api/windows.ui.xaml.media.animation.contentthemetransition)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -41,15 +41,11 @@ ms.locfileid: "67317101"
 ## <a name="related-articles"></a>関連記事
 
 **開発者向け (XAML)**
-* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
-* [コンテンツの切り替えをアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649426(v=win.10))
-* [クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
-* [**ContentThemeTransition クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.contentthemetransition)
+* [アニメーションの概要](./xaml-animation.md)
+* [コンテンツ切り替えのアニメーション化](/previous-versions/windows/apps/jj649426(v=win.10))
+* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](/previous-versions/windows/apps/hh452703(v=win.10))
+* [**ContentThemeTransition クラス**](/uwp/api/windows.ui.xaml.media.animation.contentthemetransition)
 
  
 
  
-
-
-
-

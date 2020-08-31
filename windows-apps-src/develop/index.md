@@ -1,16 +1,16 @@
 ---
-description: UWP アプリの開発方法を説明します。
+description: 概要、サンプル、API リファレンスなど、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリの開発に関する記事へのリンクの一覧を示します。
 title: UWP アプリの開発
 keywords: uwp アプリ 開発 スレッディング 非同期 プラットフォーム 概要 ポータル 開発 開発者
 ms.date: 03/29/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 86fa9fb7f2cea7f190640b02fdcf219c3376115d
-ms.sourcegitcommit: 6cdba316bdbd85a2429259ebfb59ff94440e234a
+ms.openlocfilehash: 6d1f4b63f6caee6b7bb081a03158dc4798c0435d
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85882854"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094718"
 ---
 # <a name="develop-uwp-apps"></a>UWP アプリの開発
 

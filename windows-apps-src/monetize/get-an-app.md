@@ -1,21 +1,21 @@
 ---
 ms.assetid: DAF92881-6AF6-44C7-B466-215F5226AE04
-description: パートナー センター アカウントに登録されている特定のアプリについての情報を取得するのに、Microsoft Store 送信 API でこのメソッドを使用します。
+description: Microsoft Store 送信 API でこのメソッドを使用して、パートナーセンターアカウントに登録されている特定のアプリに関する情報を取得します。
 title: アプリの入手
 ms.date: 02/28/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリ
 ms.localizationpriority: medium
-ms.openlocfilehash: 96efc6145d382d4f6a996e541d638f2a1d896e80
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 29f4b7fdb196e1463f4e738618694363094933f0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372660"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171476"
 ---
 # <a name="get-an-app"></a>アプリの入手
 
-パートナー センター アカウントに登録されている特定のアプリについての情報を取得するのに、Microsoft Store 送信 API でこのメソッドを使用します。
+Microsoft Store 送信 API でこのメソッドを使用して、パートナーセンターアカウントに登録されている特定のアプリに関する情報を取得します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -28,26 +28,26 @@ ms.locfileid: "66372660"
 
 このメソッドの構文は次のとおりです。 ヘッダーと要求本文の使用例と説明については、次のセクションをご覧ください。
 
-| メソッド | 要求 URI                                                      |
+| 認証方法 | 要求 URI                                                      |
 |--------|------------------------------------------------------------------|
 | GET    | `https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                                                                 |
+| Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-| 名前        | 種類   | 説明                                                                 |
+| 名前        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 取得するアプリのストア ID。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
+| applicationId | string | 必須。 取得するアプリのストア ID。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](../publish/view-app-identity-details.md)」をご覧ください。  |
 
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 このメソッドでは要求本文を指定しないでください。
 
@@ -91,12 +91,12 @@ Authorization: Bearer <your access token>
 | エラー コード |  説明   |
 |--------|------------------|
 | 404  | 指定したアプリは見つかりませんでした。 |
-| 409  | アプリはパートナー センター機能を使用する[現在サポートされていません、Microsoft Store 送信 API](create-and-manage-submissions-using-windows-store-services.md#not_supported)します。  |
+| 409  | このアプリでは、 [Microsoft Store 送信 API で現在サポート](create-and-manage-submissions-using-windows-store-services.md#not_supported)されていないパートナーセンター機能を使用しています。  |
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [作成し、Microsoft Store サービスを使用して送信の管理](create-and-manage-submissions-using-windows-store-services.md)
-* [すべてのアプリを入手します。](get-all-apps.md)
-* [アプリのパッケージのフライトを取得します。](get-flights-for-an-app.md)
-* [アプリのアドオンを入手します。](get-add-ons-for-an-app.md)
+* [Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
+* [すべてのアプリの取得](get-all-apps.md)
+* [アプリのパッケージ フライトの取得](get-flights-for-an-app.md)
+* [アプリのアドオンの取得](get-add-ons-for-an-app.md)

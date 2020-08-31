@@ -1,17 +1,17 @@
 ---
 title: Microsoft Store のポリシーの変更履歴
-description: Microsoft Store のポリシーの変更履歴
+description: Microsoft Store のポリシーの変更履歴について、各変更の追加、更新、削除に関する説明を含めて表にまとめて説明します。
 ms.date: 10/01/2019
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: D451D271-A6CA-4B46-AE99-C2269E8A078C
-ms.openlocfilehash: 3fbdc8e4831a39386396dc2c1dad25581f12fbf9
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: bfdcaca05d704b0f6b62aa5c1023ea09ed2392c0
+ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77607279"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88942862"
 ---
 # <a name="change-history-for-microsoft-store-policies"></a>Microsoft Store のポリシーの変更履歴
 

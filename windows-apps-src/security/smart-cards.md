@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: ff17facbb22e4e336b302415b0b64d0dffda93e0
-ms.sourcegitcommit: 68051d2adcf3facc036c9f4c76d82bb4d342a75f
+ms.openlocfilehash: 5c792cde951b2bf01585256f51f67a545d96510d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67498884"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170836"
 ---
 # <a name="smart-cards"></a>スマート カード
 
@@ -20,7 +20,7 @@ ms.locfileid: "67498884"
 
 このトピックでは、ユニバーサル Windows プラットフォーム (UWP) アプリでスマート カードを使ってユーザーをセキュリティで保護されたネットワーク サービスに接続する方法のほか、物理スマート カード リーダーにアクセスする方法、仮想スマート カードの作成方法、スマート カードとの通信方法、ユーザーの認証方法、ユーザーの PIN のリセット方法、スマート カードの取り外しや切断の方法などについて説明します。 
 
-## <a name="configure-the-app-manifest"></a>アプリ マニフェストの構成
+## <a name="configure-the-app-manifest"></a>アプリ マニフェストを構成する
 
 
 アプリでスマート カードや仮想スマート カードを使ってユーザーを認証するには、あらかじめプロジェクトの Package.appxmanifest ファイルで、**共有ユーザー証明書**機能を設定しておく必要があります。
@@ -28,7 +28,7 @@ ms.locfileid: "67498884"
 ## <a name="access-connected-card-readers-and-smart-cards"></a>接続されているカード リーダーとスマート カードへのアクセス
 
 
-[  **DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) に指定されているデバイス ID を [**SmartCardReader.FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardreader.fromidasync) メソッドに渡すと、リーダーや装着されているスマート カードを照会することができます。 返されたリーダー デバイスに現在装着されているスマート カードにアクセスするには、[**SmartCardReader.FindAllCardsAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardreader.findallcardsasync) を呼び出します。
+[**DeviceInformation**](/uwp/api/Windows.Devices.Enumeration.DeviceInformation) に指定されているデバイス ID を [**SmartCardReader.FromIdAsync**](/uwp/api/windows.devices.smartcards.smartcardreader.fromidasync) メソッドに渡すと、リーダーや装着されているスマート カードを照会することができます。 返されたリーダー デバイスに現在装着されているスマート カードにアクセスするには、[**SmartCardReader.FindAllCardsAsync**](/uwp/api/windows.devices.smartcards.smartcardreader.findallcardsasync) を呼び出します。
 
 ```cs
 string selector = SmartCardReader.GetDeviceSelector();
@@ -48,7 +48,7 @@ foreach (DeviceInformation device in devices)
 }
 ```
 
-また、カードが挿入されたときのアプリの動作を処理するメソッドを実装して、アプリによる [**CardAdded**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardreader.cardadded) イベントの監視を有効にする必要もあります。
+また、カードが挿入されたときのアプリの動作を処理するメソッドを実装して、アプリによる [**CardAdded**](/uwp/api/windows.devices.smartcards.smartcardreader.cardadded) イベントの監視を有効にする必要もあります。
 
 ```cs
 private void reader_CardAdded(SmartCardReader sender, CardAddedEventArgs args)
@@ -57,16 +57,16 @@ private void reader_CardAdded(SmartCardReader sender, CardAddedEventArgs args)
 }
 ```
 
-その後、返された各 [**SmartCard**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCard) オブジェクトを [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) に渡すことで、その構成へのアクセスやカスタマイズを行うメソッドを使えるようになります。
+その後、返された各 [**SmartCard**](/uwp/api/Windows.Devices.SmartCards.SmartCard) オブジェクトを [**SmartCardProvisioning**](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) に渡すことで、その構成へのアクセスやカスタマイズを行うメソッドを使えるようになります。
 
 ## <a name="create-a-virtual-smart-card"></a>仮想スマート カードの作成
 
 
-アプリで [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) を使って仮想スマート カードを作成するには、まずフレンドリ名、管理者キー、[**SmartCardPinPolicy**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardPinPolicy) を提供する必要があります。 通常、フレンドリ名は既にアプリに用意されている可能性がありますが、アプリではさらに、管理者キーを提供し、現在の **SmartCardPinPolicy** のインスタンスを生成する必要があります。その後、これらの 3 つの値をすべて [**RequestVirtualSmartCardCreationAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) に渡します。
+アプリで [**SmartCardProvisioning**](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) を使って仮想スマート カードを作成するには、まずフレンドリ名、管理者キー、[**SmartCardPinPolicy**](/uwp/api/Windows.Devices.SmartCards.SmartCardPinPolicy) を提供する必要があります。 通常、フレンドリ名は既にアプリに用意されている可能性がありますが、アプリではさらに、管理者キーを提供し、現在の **SmartCardPinPolicy** のインスタンスを生成する必要があります。その後、これらの 3 つの値をすべて [**RequestVirtualSmartCardCreationAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) に渡します。
 
-1.  [  **SmartCardPinPolicy**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardPinPolicy) の新しいインスタンスを作成します。
-2.  サービスまたは管理ツールから提供された管理者キーの値に対して [**CryptographicBuffer.GenerateRandom**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.cryptographicbuffer.generaterandom) を呼び出して、管理者キーの値を生成します。
-3.  これらの値と *FriendlyNameText* 文字列を [**RequestVirtualSmartCardCreationAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) に渡します。
+1.  [**SmartCardPinPolicy**](/uwp/api/Windows.Devices.SmartCards.SmartCardPinPolicy) の新しいインスタンスを作成します。
+2.  サービスまたは管理ツールから提供された管理者キーの値に対して [**CryptographicBuffer.GenerateRandom**](/uwp/api/windows.security.cryptography.cryptographicbuffer.generaterandom) を呼び出して、管理者キーの値を生成します。
+3.  これらの値を *FriendlyNameText* 文字列と共に [**Requestvirtualsmartcard**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync)に渡します。
 
 ```cs
 SmartCardPinPolicy pinPolicy = new SmartCardPinPolicy();
@@ -81,10 +81,10 @@ SmartCardProvisioning provisioning = await
           pinPolicy);
 ```
 
-関連付けられた [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトが [**RequestVirtualSmartCardCreationAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) から返されたら、仮想スマート カードのプロビジョニングが完了し、使う準備ができたことになります。
+関連付けられた [**SmartCardProvisioning**](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトが [**RequestVirtualSmartCardCreationAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) から返されたら、仮想スマート カードのプロビジョニングが完了し、使う準備ができたことになります。
 
 >[!NOTE]
->UWP アプリを使用して仮想スマート カードを作成するには、アプリを実行しているユーザーは、administrators グループのメンバーにある必要があります。 ユーザーが administrators グループのメンバーでない場合は、仮想スマート カードの作成は失敗します。
+>UWP アプリを使用して仮想スマートカードを作成するには、アプリを実行するユーザーが administrators グループのメンバーである必要があります。 ユーザーが administrators グループのメンバーでない場合、仮想スマートカードの作成は失敗します。
 
 ## <a name="handle-authentication-challenges"></a>認証チャレンジの処理
 
@@ -118,11 +118,11 @@ static class ChallengeResponseAlgorithm
 
 これで認証チャレンジのロジックが定義されたので、リーダーと通信してスマート カードにアクセスするか、その代わりに仮想スマート カードにアクセスして、認証を行うことができます。
 
-1.  チャレンジを始めるには、スマート カードに関連付けられた [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトから [**GetChallengeContextAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.getchallengecontextasync) を呼び出します。 これにより、[**SmartCardChallengeContext**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardChallengeContext) のインスタンスが生成されます。このインスタンスには、カードの [**Challenge**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardchallengecontext.challenge) 値が含まれています。
+1.  チャレンジを始めるには、スマート カードに関連付けられた [**SmartCardProvisioning**](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトから [**GetChallengeContextAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.getchallengecontextasync) を呼び出します。 これにより、[**SmartCardChallengeContext**](/uwp/api/Windows.Devices.SmartCards.SmartCardChallengeContext) のインスタンスが生成されます。このインスタンスには、カードの [**Challenge**](/uwp/api/windows.devices.smartcards.smartcardchallengecontext.challenge) 値が含まれています。
 
 2.  次に、カードのチャレンジ値とサービスまたは管理ツールから提供された管理者キーを、前の例で定義した **ChallengeResponseAlgorithm** に渡します。
 
-3.  [**VerifyResponseAsync** ](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardchallengecontext.verifyresponseasync)戻ります**true**認証が成功した場合。
+3.  [**VerifyResponseAsync**](/uwp/api/windows.devices.smartcards.smartcardchallengecontext.verifyresponseasync) は、認証に成功すると **true** を返します。
 
 ```cs
 bool verifyResult = false;
@@ -146,9 +146,9 @@ using (SmartCardChallengeContext context =
 
 スマート カードに関連付けられている PIN を変更するには、次の手順に従います。
 
-1.  カードにアクセスし、関連付けられた [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトを生成します。
-2.  [  **RequestPinChangeAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestpinchangeasync) を呼び出して、この操作を完了するための UI をユーザーに表示します。
-3.  PIN が正しく変更された場合は、呼び出しから **true** が返されます。
+1.  カードにアクセスし、関連付けられた [**SmartCardProvisioning**](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) オブジェクトを生成します。
+2.  [**RequestPinChangeAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestpinchangeasync) を呼び出して、この操作を完了するための UI をユーザーに表示します。
+3.  PIN が正常に変更された場合、呼び出しは **true**を返します。
 
 ```cs
 SmartCardProvisioning provisioning =
@@ -159,10 +159,10 @@ bool result = await provisioning.RequestPinChangeAsync();
 
 PIN のリセットを要求するには、次の手順に従います。
 
-1.  [  **RequestPinResetAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestpinresetasync) を呼び出して操作を開始します。 この呼び出しには、スマート カードと PIN のリセット要求を表す [**SmartCardPinResetHandler**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardpinresethandler) メソッドが含まれます。
-2.  [**SmartCardPinResetHandler** ](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardpinresethandler)情報を提供する、 **ChallengeResponseAlgorithm**でラップされた、 [ **SmartCardPinResetDeferral** ](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardPinResetDeferral)を呼び出すと、カードのチャレンジの値と要求の認証にサービスや管理のツールによって提供される管理キーを比較するために使用します。
+1.  [**RequestPinResetAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestpinresetasync) を呼び出して操作を開始します。 この呼び出しには、スマート カードと PIN のリセット要求を表す [**SmartCardPinResetHandler**](/uwp/api/windows.devices.smartcards.smartcardpinresethandler) メソッドが含まれます。
+2.  [**SmartCardPinResetHandler**](/uwp/api/windows.devices.smartcards.smartcardpinresethandler)[**SmartCardPinResetDeferra**](/uwp/api/Windows.Devices.SmartCards.SmartCardPinResetDeferral) 呼び出しにラップされた **ChallengeResponseAlgorithm** で、カードのチャレンジ値とサービスまたは管理ツールから提供された管理者キーを比較して要求を認証するための、情報を提供します。
 
-3.  チャレンジが成功すると、[**RequestPinResetAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestpinresetasync) の呼び出しが完了し、PIN が正しくリセットされた場合は **true** が返されます。
+3.  チャレンジが成功すると、[**RequestPinResetAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestpinresetasync) の呼び出しが完了し、PIN が正しくリセットされた場合は **true** が返されます。
 
 ```cs
 SmartCardProvisioning provisioning =
@@ -193,7 +193,7 @@ bool result = await provisioning.RequestPinResetAsync(
 ## <a name="remove-a-smart-card-or-virtual-smart-card"></a>スマート カードまたは仮想スマート カードの取り外し
 
 
-物理スマート カードが取り外されると、カードの削除時に [**CardRemoved**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardreader.cardremoved) イベントが発生します。
+物理スマート カードが取り外されると、カードの削除時に [**CardRemoved**](/uwp/api/windows.devices.smartcards.smartcardreader.cardremoved) イベントが発生します。
 
 カード リーダーでこのイベントが発生したときのイベント ハンドラーとして、カードまたはリーダーが取り外されたときのアプリの動作を定義するメソッドを関連付けます。 この動作は、カードが取り外されたことをユーザーに通知するといった単純なものでかまいません。
 
@@ -202,7 +202,7 @@ reader = card.Reader;
 reader.CardRemoved += HandleCardRemoved;
 ```
 
-仮想スマート カードの削除はプログラムによって行います。まずカードを取得し、次に [**SmartCardProvisioning**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) によって返されたオブジェクトから [**RequestVirtualSmartCardDeletionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcarddeletionasync) を呼び出します。
+仮想スマート カードの削除はプログラムによって行います。まずカードを取得し、次に [**SmartCardProvisioning**](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) によって返されたオブジェクトから [**RequestVirtualSmartCardDeletionAsync**](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcarddeletionasync) を呼び出します。
 
 ```cs
 bool result = await SmartCardProvisioning

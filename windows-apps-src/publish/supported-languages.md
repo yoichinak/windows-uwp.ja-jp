@@ -6,19 +6,19 @@ ms.date: 03/07/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a3b3ada3415e6f1abc98dc3c351f6db791adc984
-ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.openlocfilehash: 79d729f97bef68a429c57894e6c0eeeab389c642
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89043434"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170896"
 ---
 # <a name="supported-languages"></a>サポートされている言語
 
 
 100以上の言語で Microsoft Store にアプリを送信できます。
 
-アプリでの言語の構成の詳細については、「 [グローバリゼーションとローカリゼーション](../design/globalizing/globalizing-portal.md) 」および「 [ユーザープロファイル言語とアプリマニフェスト言語](../design/globalizing/manage-language-and-region.md)について」を参照してください。 複数の言語をサポートするアプリを作るのに役立つ[多言語アプリ ツールキット](https://docs.microsoft.com/windows/uwp/design/globalizing/use-mat)も用意されています。
+アプリでの言語の構成の詳細については、「 [グローバリゼーションとローカリゼーション](../design/globalizing/globalizing-portal.md) 」および「 [ユーザープロファイル言語とアプリマニフェスト言語](../design/globalizing/manage-language-and-region.md)について」を参照してください。 複数の言語をサポートするアプリを作るのに役立つ[多言語アプリ ツールキット](../design/globalizing/use-mat.md)も用意されています。
 
 ## <a name="supported-languages"></a>サポートされている言語
 
@@ -138,7 +138,3 @@ ms.locfileid: "89043434"
  
 
  
-
-
-
-
