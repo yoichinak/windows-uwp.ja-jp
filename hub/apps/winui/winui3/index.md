@@ -3,12 +3,12 @@ title: WinUI 3 Preview 2 (2020 年 7 月)
 description: WinUI 3 Preview 2 リリースの概要。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 4d971ffd3ec44ab766122dbb80847b9c2ccfc891
-ms.sourcegitcommit: e6b1ed3c9ddcf650e2f71c29d81bffac6ab292f4
+ms.openlocfilehash: c57132ec5219ef32f2b2b69168592e07f49d904b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89116807"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168776"
 ---
 # <a name="windows-ui-library-3-preview-2-july-2020"></a>Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)
 
@@ -54,7 +54,7 @@ WinUI 3 Preview 2 には、WinUI ベースのユーザー インターフェイ�
 
 4. [WinUI 3 Preview 2 VSIX パッケージ](https://aka.ms/winui3/previewdownload)をダウンロードしてインストールします。 この VSIX パッケージをインストールすると、WinUI 3 プロジェクト テンプレートと、WinUI 3 ライブラリを含む NuGet パッケージが Visual Studio 2019 に追加されます。
 
-    VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2019#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
+    VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2019#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
 
 
 ## <a name="create-winui-projects"></a>WinUI プロジェクトを作成する
@@ -99,10 +99,10 @@ WinUI 3 Preview 1 を使用してプロジェクトを作成した場合、Previ
 |----------|----------|-------------|
 | 空白のページ (WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Controls.Page** クラスから派生する新しいページを定義する XAML ファイルとコード ファイルを追加します。 |
 | 空のウィンドウ (デスクトップの WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Window** クラスから派生する新しいウィンドウを定義する XAML ファイルとコード ファイルを追加します。 |
-| カスタム コントロール (WinUI) | C++ および C# | 既定スタイルを使用してテンプレート化されたコントロールを作成するためのコード ファイルを追加します。 テンプレート化されたコントロールは、WinUI ライブラリの **Microsoft.UI.Xaml.Controls.Control** クラスから派生します。<p></p>この項目テンプレートの使用方法を示すチュートリアルについては、「[C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール](xaml-templated-controls-cppwinrt-winui3.md)」を参照してください。 テンプレート化されたコントロールの詳細については、「[カスタム XAML コントロール](https://docs.microsoft.com/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |
+| カスタム コントロール (WinUI) | C++ および C# | 既定スタイルを使用してテンプレート化されたコントロールを作成するためのコード ファイルを追加します。 テンプレート化されたコントロールは、WinUI ライブラリの **Microsoft.UI.Xaml.Controls.Control** クラスから派生します。<p></p>この項目テンプレートの使用方法を示すチュートリアルについては、「[C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール](xaml-templated-controls-cppwinrt-winui3.md)」を参照してください。 テンプレート化されたコントロールの詳細については、「[カスタム XAML コントロール](/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |
 | リソース ディクショナリ (WinUI) | C++ および C# | 空の、XAML リソースのキー付きコレクションを追加します。 詳細については、「[ResourceDictionary と XAML リソースの参照](/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)」を参照してください。 |
 | リソース ファイル (WinUI) | C++ および C# | アプリ用の文字列および条件付きリソースを格納するファイルを追加します。 この項目を使用して、アプリをローカライズすることができます。 詳細については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](/windows/uwp/app-resources/localize-strings-ui-manifest)」を参照してください。 |
-| ユーザー コントロール (WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Controls.UserControl** クラスから派生するユーザー コントロールを作成するための XAML ファイルとコード ファイルを追加します。 通常、ユーザー コントロールによって関連する既存のコントロールがカプセル化され、独自のロジックが提供されます。<p></p>ユーザー コントロールの詳細については、「[カスタム XAML コントロール](https://docs.microsoft.com/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |
+| ユーザー コントロール (WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Controls.UserControl** クラスから派生するユーザー コントロールを作成するための XAML ファイルとコード ファイルを追加します。 通常、ユーザー コントロールによって関連する既存のコントロールがカプセル化され、独自のロジックが提供されます。<p></p>ユーザー コントロールの詳細については、「[カスタム XAML コントロール](/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |
 
 ## <a name="bug-fixes-and-other-improvements-in-winui-3-preview-2"></a>WinUI 3 Preview 2 のバグ修正とその他の機能強化
 
@@ -111,10 +111,10 @@ Preview 2 のバグ修正とその他の更新の包括的な一覧を次に示�
 > [!NOTE]
 > WinUI 3 プレビュー 2 は WinUI 2 ライブラリのバージョン 2.4.2 を使用します。 
 
-- [INotifyCollectionChanged](https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=net-5.0) と [INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-5.0) が C# デスクトップ アプリで正常に機能するようになりました
+- [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=net-5.0) と [INotifyPropertyChanged](/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-5.0) が C# デスクトップ アプリで正常に機能するようになりました
   - これにより、バックエンドで更新されている間、UI の更新されないコレクション コントロールに関連する他のいくつかの問題が解消されました。
   - *@hshristov さん、GitHub で[似た問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2490)を提出していただきありがとうございます。*
-- Preview 2 はデスクトップ アプリの [.NET 5 Preview 5](https://docs.microsoft.com/dotnet/api/?view=net-5.0) と互換性があるようになりました
+- Preview 2 はデスクトップ アプリの [.NET 5 Preview 5](/dotnet/api/?view=net-5.0) と互換性があるようになりました
 - WinUI 3 は [WinUI 2.4](../winui2/release-notes/winui-2.4.md) と同等になりました。これには、[階層型の NavigationView](../winui2/release-notes/winui-2.4.md#hierarchical-navigation)、[ProgressRing](../winui2/release-notes/winui-2.4.md#progressring) などの新しいコントロールと機能が含まれています。
 - クラッシュの修正:タッチでの [TabView](/windows/uwp/design/controls-and-patterns/tab-view) の使用
 - [XAML コントロール ギャラリー サンプル](#xaml-controls-gallery-winui-3-preview-2-branch)の [NavigationView](/windows/uwp/design/controls-and-patterns/navigationview) には、左コンパクト モードではなく左モードが使用されるようになりました
@@ -122,7 +122,7 @@ Preview 2 のバグ修正とその他の更新の包括的な一覧を次に示�
   - *@paulovilla さん、GitHub で[この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2563)を提出していただきありがとうございます。*
 - クラッシュの修正: [TextBox](/windows/uwp/design/controls-and-patterns/text-box) メニューが表示されているときの XAML UI の操作
 - 複数のページに移動した後、[XAML コントロール ギャラリー サンプル](#xaml-controls-gallery-winui-3-preview-2-branch)のタイトル テキストがスクランブルされなくなりました
-- [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) でタッチを使用しても、位置にわずかなオフセットが生じなくなりました
+- [WebView2](/microsoft-edge/webview2/) でタッチを使用しても、位置にわずかなオフセットが生じなくなりました
 - WinUIEdit.dll のクラスは、Windows.UI.Text 名前空間から Microsoft.UI.Text 名前空間に移動されました
 - クラッシュの修正: 複数選択モードでの [TreeView](/windows/uwp/design/controls-and-patterns/tree-view) の項目の選択 (Windows 10 バージョン 1803)
 - Point、Rect、および Size の各メンバーは、デスクトップ アプリの API の C# プロジェクションで Double 型になりました。
@@ -152,7 +152,7 @@ Preview 2 のバグ修正とその他の更新の包括的な一覧を次に示�
 - [RadialGradientBrush](/windows/uwp/design/style/brushes#radial-gradient-brushes)
 - [TabView の更新](/windows/uwp/design/controls-and-patterns/tab-view)
 - ダーク テーマの更新
-- [WebView2](https://docs.microsoft.com/microsoft-edge/hosting/webview2) の機能強化と更新
+- [WebView2](/microsoft-edge/hosting/webview2) の機能強化と更新
   - 高 DPI のサポート
   - ウィンドウのサイズ変更と移動のサポート
   - より新しいバージョンの Edge を対象とするよう更新されました
