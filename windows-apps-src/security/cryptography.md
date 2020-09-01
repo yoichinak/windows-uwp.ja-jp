@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: abe151bd78a0340b91aa1600ad34282b94b6d216
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d8a4ff658e05f9483dc8afbb6beb9f70f39676a0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372592"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167246"
 ---
 # <a name="cryptography"></a>暗号化
 
@@ -25,21 +25,21 @@ ms.locfileid: "66372592"
 
 暗号化と公開キー基盤 (PKI) でよく使われる用語を以下に示します。
 
-| 用語                        | 説明                                                                                                                                                                                           |
+| 期間                        | 説明                                                                                                                                                                                           |
 |-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 暗号化                  | 暗号化アルゴリズムとキーを使ってデータを変換するプロセス。 変換されたデータは、同じアルゴリズムと、同じ (対称) または関連する (公開) キーを使った場合のみ回復できます。 |
-| 暗号化解除                  | 暗号化されたデータを元の形式に戻すプロセス。                                                                                                                                         |
+| 暗号化の解除                  | 暗号化されたデータを元の形式に戻すプロセス。                                                                                                                                         |
 | プレーンテキスト                   | 当初は暗号化されていないテキスト メッセージを表しました。 現在は、すべての暗号化されていないデータを表します。                                                                                                         |
 | 暗号化テキスト                  | 当初は暗号化された読み取り不可能なテキスト メッセージを表しました。 現在はすべての暗号化データを表します。                                                                                  |
 | ハッシュ                     | 可変長データを、通常それより小さい値の固定長データに変換するプロセス。 ハッシュを比較して、2 つ以上のデータが同じものであることを合理的に保証できます。            |
 | 署名                   | データの送信者を認証するために、または、送信中にデータが改ざんされていないことを確認するために使われるデジタル データの暗号化されたハッシュ。                                               |
 | アルゴリズム                   | データを暗号化するための詳しい手順。                                                                                                                                                         |
-| Key                         | データを暗号化および暗号化解除するために、暗号化アルゴリズムへの入力に使われる乱数または疑似乱数。                                                                                               |
+| キー                         | データを暗号化および暗号化解除するために、暗号化アルゴリズムへの入力に使われる乱数または疑似乱数。                                                                                               |
 | 対称キーの暗号化  | 暗号化と暗号化解除に同じキーを使う暗号化。 これは、秘密鍵の暗号化とも呼ばれます。                                                                                      |
 | 非対称キーの暗号化 | 暗号化と暗号化解除に異なる、数学的に関連性のあるキーを使う暗号化。 これは、公開キーの暗号化とも呼ばれます。                                                          |
-| [エンコード]                    | 証明書などのデジタル メッセージをネットワーク経由で送るためにエンコードするプロセス。                                                                                                     |
+| Encoding                    | 証明書などのデジタル メッセージをネットワーク経由で送るためにエンコードするプロセス。                                                                                                     |
 | アルゴリズム プロバイダー          | 暗号化アルゴリズムを実装する DLL。                                                                                                                                                      |
-| キー ストレージ プロバイダー        | キー マテリアルを格納するコンテナー。 現在、キーはソフトウェア、スマート カード、またはトラステッド プラットフォーム モジュール (TPM) に格納できます。                                                                   |
+| キー格納プロバイダー        | キー マテリアルを格納するコンテナー。 現在、キーはソフトウェア、スマート カード、またはトラステッド プラットフォーム モジュール (TPM) に格納できます。                                                                   |
 | X.509 証明書           | 個人、システム、またはエンティティをその他の関係者に識別させるために、通常、証明機関によって発行されるデジタル ドキュメント。                                            |
 
  
@@ -93,7 +93,7 @@ CryptographicBuffer クラスと静的メソッドが含まれています。こ
 
 ### <a name="cryptography-support"></a>暗号化のサポート
 
-次の暗号化タスクを実行できます。 詳しくは、「[**Windows.Security.Cryptography.Core**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core) 名前空間」をご覧ください。
+次の暗号化タスクを実行できます。 詳しくは、「[**Windows.Security.Cryptography.Core**](/uwp/api/Windows.Security.Cryptography.Core) 名前空間」をご覧ください。
 
 -   対称キーの作成
 -   対称暗号化の実行
@@ -104,21 +104,21 @@ CryptographicBuffer クラスと静的メソッドが含まれています。こ
 -   コンテンツのハッシュ
 -   コンテンツへのデジタル署名
 
-SDK では、パスワードベースのデータ保護を行うのための簡素化されたインターフェイスも提供されます。 これを使って、次のタスクを実行できます。 詳しくは、「[**Windows.Security.Cryptography.DataProtection**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間」をご覧ください。
+SDK では、パスワードベースのデータ保護を行うのための簡素化されたインターフェイスも提供されます。 これを使って、次のタスクを実行できます。 詳しくは、「[**Windows.Security.Cryptography.DataProtection**](/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間」をご覧ください。
 
 -   静的データの非同期保護
 -   データ ストリームの非同期保護
 
 ### <a name="encoding-support"></a>暗号化のサポート
 
-アプリでは、暗号化されたデータをネットワーク経由で送るためにエンコードし、ネットワーク ソースから受け取ったデータをデコードすることができます。 詳しくは、「[**Windows.Security.Cryptography**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography) 名前空間」をご覧ください。
+アプリでは、暗号化されたデータをネットワーク経由で送るためにエンコードし、ネットワーク ソースから受け取ったデータをデコードすることができます。 詳しくは、「[**Windows.Security.Cryptography**](/uwp/api/Windows.Security.Cryptography) 名前空間」をご覧ください。
 
 ### <a name="pki-support"></a>PKI サポート
 
-アプリは次の PKI タスクを実行できます。 詳しくは、「[**Windows.Security.Cryptography.Certificates**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Certificates) 名前空間」をご覧ください。
+アプリは次の PKI タスクを実行できます。 詳しくは、「[**Windows.Security.Cryptography.Certificates**](/uwp/api/Windows.Security.Cryptography.Certificates) 名前空間」をご覧ください。
 
 -   証明書を作成する
--   自己署名証明書を作成する
+-   自己署名証明書の作成
 -   証明書応答のインストール
 -   証明書を PFX 形式でインポートする
 -   スマート カード証明書とキーを使う (sharedUserCertificates 機能設定)
@@ -143,7 +143,7 @@ SDK では、パスワードベースのデータ保護を行うのための簡�
 |-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [証明書](certificates.md)                                               | この記事では、UWP アプリでの証明書の利用について説明します。 デジタル証明書は、公開キーを個人、コンピューター、組織にバインドするために、公開キーの暗号化で使われます。 バインドされた識別情報は、あるエンティティを別のエンティティに対して認証する際に最も頻繁に使われます。 たとえば、証明書は、Web サーバーをユーザーに対して、また、ユーザーを Web サーバーに対して認証するためによく使われます。 証明書要求を作成し、発行された証明書をインストールまたはインポートすることができます。 また、証明書階層で証明書を登録することもできます。 |
 | [暗号化キー](cryptographic-keys.md)                                   | この記事では、標準のキー派生関数を使ってキーを派生させる方法、および対称キーと非対称キーを使ってコンテンツを暗号化する方法について説明します。                                                                                                                                                                                                                                                                                                                                                                             |
-| [データ保護](data-protection.md)                                         | この記事では、[Windows.Security.Cryptography.DataProtection](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間の [DataProtectionProvider](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) クラスを使って、UWP アプリでデジタル データの暗号化と暗号化解除を行う方法について説明します。                                                                                                                                                                                                                  |
+| [データ保護](data-protection.md)                                         | この記事では、[Windows.Security.Cryptography.DataProtection](/uwp/api/Windows.Security.Cryptography.DataProtection) 名前空間の [DataProtectionProvider](/uwp/api/Windows.Security.Cryptography.DataProtection.DataProtectionProvider) クラスを使って、UWP アプリでデジタル データの暗号化と暗号化解除を行う方法について説明します。                                                                                                                                                                                                                  |
 | [MAC、ハッシュ、および署名](macs-hashes-and-signatures.md)               | この記事では、メッセージ認証コード (MAC)、ハッシュ、署名を UWP アプリで使って、メッセージの改ざんを検出する方法について説明します。                                                                                                                                                                                                                                                                                                                                                                                |
 | [暗号化に関する輸出制限の順守](export-restrictions-on-cryptography.md) | アプリでの暗号化が、Microsoft Store に登録されない可能性がある方法で使われていないかどうかを判断する場合に、この情報を利用してください。                                                                                                                                                                                                                                                                                                                                                                                            |
 | [一般的な暗号化タスク](common-cryptography-tasks.md)                     | これらの記事では、乱数の生成、バッファーの比較、文字列とバイナリ データの間の変換、バイト配列間のコピー、データのエンコードとデコードなど、一般的な UWP 暗号化タスクのコード例が示されています。                                                                                                                                                                                                                                                                                    |

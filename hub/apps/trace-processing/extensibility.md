@@ -5,16 +5,16 @@ author: maiak
 ms.author: maiak
 ms.date: 02/23/2020
 ms.topic: overview
-ms.openlocfilehash: 59722f1f31364c464a8a763d28f3d15ef13609a8
-ms.sourcegitcommit: cfba95a96202c4250de845115d1b99361412a779
+ms.openlocfilehash: f5680bdc6502c4b917667e5a59084286b445063c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77903289"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166736"
 ---
 # <a name="extend-traceprocessor"></a>TraceProcessor の拡張
 
-多くの種類のトレースデータには[Traceprocessor](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.traceprocessor)が組み込まれていますが、他のプロバイダー (独自のカスタムプロバイダーを含む) を分析する必要がある場合は、処理の実行中にトレースからデータを取得することもできます。
+多くの種類のトレースデータには [Traceprocessor](/dotnet/api/microsoft.windows.eventtracing.traceprocessor)が組み込まれていますが、他のプロバイダー (独自のカスタムプロバイダーを含む) を分析する必要がある場合は、処理の実行中にトレースからデータを取得することもできます。
 
 > [!NOTE]
 > API のこの部分はプレビュー段階で、アクティブな開発中です。 将来のリリースで変更される可能性があります。
@@ -65,8 +65,8 @@ class CustomDataSource : IFilteredEventConsumer
 }
 ```
 
-## <a name="next-steps"></a>次のステップ:
+## <a name="next-steps"></a>次の手順
 
 このチュートリアルでは、TraceProcessor を拡張する方法について学習しました。
 
-次の手順では、トレースの[シンボルを読み込む](symbols.md)方法について説明します。
+次の手順では、トレースの [シンボルを読み込む](symbols.md) 方法について説明します。

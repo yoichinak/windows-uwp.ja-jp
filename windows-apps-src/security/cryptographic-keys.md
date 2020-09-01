@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae9d6e3092acb994c755b01d2ed2487c71011c1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a781ae79b54223916c9de379dcdb4f8cb3b8e4b5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372599"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167256"
 ---
 # <a name="cryptographic-keys"></a>暗号化キー
 
@@ -23,7 +23,7 @@ ms.locfileid: "66372599"
 ## <a name="symmetric-keys"></a>対称キー
 
 
-秘密鍵の暗号化とも呼ばれる対称キーの暗号化には、暗号化にも暗号化解除にも使われるキーが必要です。 [  **SymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider) クラスを使って対称アルゴリズムを指定し、キーを作成またはインポートできます。 [  **CryptographicEngine**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスで静的メソッドを使って、アルゴリズムとキーでデータを暗号化および暗号化解除できます。
+秘密鍵の暗号化とも呼ばれる対称キーの暗号化には、暗号化にも暗号化解除にも使われるキーが必要です。 [**SymmetricKeyAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider) クラスを使って対称アルゴリズムを指定し、キーを作成またはインポートできます。 [**CryptographicEngine**](/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスで静的メソッドを使って、アルゴリズムとキーでデータを暗号化および暗号化解除できます。
 
 通常、対称キーの暗号化ではブロック暗号とブロック暗号モードを使います。 ブロック暗号は、固定サイズのブロックで動作する対称暗号化機能です。 暗号化するメッセージがブロックの長さよりも長い場合は、ブロック暗号モードを使う必要があります。 ブロック暗号モードは、ブロック暗号を使って作成された対称暗号化機能です。 このモードでは、プレーンテキストが一連の固定サイズ ブロックとして暗号化されます。 アプリでは、次のモードがサポートされます。
 
@@ -32,18 +32,18 @@ ms.locfileid: "66372599"
 -   CCM (Counter with CBC-MAC) モードは、CBC ブロック暗号モードとメッセージ認証コード (MAC) が組み合わされたものです。
 -   GCM (ガロア カウンター モード) モードは、カウンター暗号化モードとガロア認証モードが組み合わされたものです。
 
-CBC などの一部のモードでは、最初の暗号テキスト ブロックに初期化ベクトル (IV) を使う必要があります。 一般的な初期化ベクトルを次に示します。 IV は [**CryptographicEngine.Encrypt**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographicengine.encrypt) を呼び出すときに指定します。 多くの場合、IV は同じキーで再利用しないことが重要です。
+CBC などの一部のモードでは、最初の暗号テキスト ブロックに初期化ベクトル (IV) を使う必要があります。 一般的な初期化ベクトルを次に示します。 IV は [**CryptographicEngine.Encrypt**](/uwp/api/windows.security.cryptography.core.cryptographicengine.encrypt) を呼び出すときに指定します。 多くの場合、IV は同じキーで再利用しないことが重要です。
 
 -   "固定" では、暗号化されるすべてのメッセージで同じ IV を使います。 情報が漏れるので、この方法を使うことはお勧めできません。
 -   "カウンター" ではブロックごとに IV を増分します。
--   "ランダム" では、擬似乱数の IV を作成します。 [  **CryptographicBuffer.GenerateRandom**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.cryptographicbuffer.generaterandom) を使って IV を追加できます。
+-   "ランダム" では、擬似乱数の IV を作成します。 [**CryptographicBuffer.GenerateRandom**](/uwp/api/windows.security.cryptography.cryptographicbuffer.generaterandom) を使って IV を追加できます。
 -   "nonce 生成" では、暗号化されるメッセージごとに固有の番号を使います。 通常、nonce は修正されたメッセージまたはトランザクションの識別子を表します。 nonce は秘密にする必要はありませんが、同じキーで再利用できません。
 
 ほとんどのモードでは、プレーンテキストの長さをブロック サイズの正確な倍数にする必要があります。 このため、通常はプレーンテキストをパディングして適切な長さにする必要があります。
 
 ブロック暗号は固定サイズのデータ ブロックを暗号化する一方、ストリーム暗号はプレーンテキスト ビットと擬似乱数ビット ストリーム (キー ストリームと呼ばれる) を組み合わせて暗号テキストを生成する対称暗号化機能を表します。 出力フィードバック モード (OTF) やカウンター モード (CTR) などの一部のブロック暗号モードでは、ブロック暗号がストリーム暗号に効率よく変換されます。 ただし、RC4 などの実際のストリーム暗号は通常、ブロック暗号モードよりも高速で動作します。
 
-次の例に、[**SymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider) クラスを使って対称キーを作成し、それを使ってデータを暗号化および暗号化解除する方法を示します。
+次の例に、[**SymmetricKeyAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider) クラスを使って対称キーを作成し、それを使ってデータを暗号化および暗号化解除する方法を示します。
 
 ## <a name="asymmetric-keys"></a>非対称キー
 
@@ -62,17 +62,17 @@ CBC などの一部のモードでは、最初の暗号テキスト ブロック
 -   アリスは、(秘密キー/公開キー ペアの) 自分の秘密キーを使って、ボブの対称キーを暗号化解除します。
 -   アリスは、ボブの対称キーを使って、メッセージを暗号化解除します。
 
-[  **AsymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) オブジェクトを使うと、非対称アルゴリズムまたは署名アルゴリズムの指定、短期的なキー ペアの作成またはインポート、キー ペアの公開キー部分のインポートが可能になります。
+[**AsymmetricKeyAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) オブジェクトを使うと、非対称アルゴリズムまたは署名アルゴリズムの指定、短期的なキー ペアの作成またはインポート、キー ペアの公開キー部分のインポートが可能になります。
 
 ## <a name="deriving-keys"></a>キーの派生
 
 
-多くの場合、共有シークレットから追加キーを派生する必要があります。 [  **KeyDerivationAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider) クラスおよび [**KeyDerivationParameters**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.KeyDerivationParameters) クラスの次の専用メソッドのいずれかを使って、キーを派生できます。
+多くの場合、共有シークレットから追加キーを派生する必要があります。 [**KeyDerivationAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider) クラスおよび [**KeyDerivationParameters**](/uwp/api/Windows.Security.Cryptography.Core.KeyDerivationParameters) クラスの次の専用メソッドのいずれかを使って、キーを派生できます。
 
-| オブジェクト                                                                            | 説明                                                                                                                                |
+| Object                                                                            | 説明                                                                                                                                |
 |-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| [**BuildForPbkdf2**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.keyderivationparameters.buildforpbkdf2)    | パスワードベースのキー派生関数 2 (PBKDF2) で使う KeyDerivationParameters オブジェクトを作成します。                                 |
-| [**BuildForSP800108**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.keyderivationparameters.buildforsp800108)  | カウンター モードのハッシュベース メッセージ認証コード (HMAC) キー派生関数で使う KeyDerivationParameters オブジェクトを作成します。 |
-| [**BuildForSP80056a**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.keyderivationparameters.buildforsp80056a)  | SP800-56A キー派生関数で使う KeyDerivationParameters オブジェクトを作成します。                                                 |
+| [**BuildForPbkdf2**](/uwp/api/windows.security.cryptography.core.keyderivationparameters.buildforpbkdf2)    | パスワードベースのキー派生関数 2 (PBKDF2) で使う KeyDerivationParameters オブジェクトを作成します。                                 |
+| [**BuildForSP800108**](/uwp/api/windows.security.cryptography.core.keyderivationparameters.buildforsp800108)  | カウンター モードのハッシュベース メッセージ認証コード (HMAC) キー派生関数で使う KeyDerivationParameters オブジェクトを作成します。 |
+| [**BuildForSP80056a**](/uwp/api/windows.security.cryptography.core.keyderivationparameters.buildforsp80056a)  | SP800-56A キー派生関数で使う KeyDerivationParameters オブジェクトを作成します。                                                 |
 
  

@@ -6,21 +6,21 @@ ms.date: 06/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 78faef0d6a6e02c43221d1d525adedd364dd6e34
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: ff40b506ef305ac4bc651864da34fe746f6229a3
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493157"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164856"
 ---
 # <a name="launch-the-default-app-for-a-uri"></a>URI に応じた既定のアプリの起動
 
 
 **重要な API**
 
-- [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)
-- [**PreferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
-- [**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)
+- [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync)
+- [**PreferredApplicationPackageFamilyName**](/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
+- [**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview)
 
 URI (Uniform Resource Identifier) に応じて既定のアプリを起動する方法について説明します。 URI を使うと、別のアプリを起動して特定の作業を実行できます。 また、Windows に組み込まれている多くの URI スキームの概要についても説明します。 カスタム URI も起動することができます。 カスタム URI スキームを登録する方法と URI のアクティブ化を処理する方法について詳しくは、「[URI のアクティブ化の処理](handle-uri-activation.md)」をご覧ください。
 
@@ -30,7 +30,7 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 
 | URI スキーム | 起動対象 |
 | ----------:|----------|
-|[bingmaps:、ms-drive to:、および ms ウォークスルー:](#maps-app-uri-schemes) | マップ アプリ |
+|[bingmaps:、ms-drive to:、および ms ウォークスルー: ](#maps-app-uri-schemes) | マップ アプリ |
 |[http](#http-uri-scheme) | 既定の Web ブラウザー |
 |[mailto](#email-uri-scheme) | 既定のメール アプリ |
 |[ms-call:](#call-app-uri-scheme) |  通話アプリ |
@@ -54,9 +54,9 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 
 ### <a name="call-launchuriasync-to-launch-a-uri"></a>LaunchUriAsync を呼び出して URI を起動
 
-URI を起動するには、[**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを使います。 このメソッドを呼び出すとき、アプリはユーザーに表示されるフォアグラウンド アプリである必要があります。 この要件は、ユーザーが制御を維持するのに役立ちます。 この要件を満たすために、すべての URI 起動がアプリの UI に直接結び付けられていることを確認します。 URI 起動を開始するには、常にユーザーがなんらかの操作を行う必要があります。 URI を起動しようとしたときにアプリがフォアグラウンドにない場合、起動は失敗し、エラー コールバックが呼び出されます。
+URI を起動するには、[**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドを使います。 このメソッドを呼び出すとき、アプリはユーザーに表示されるフォアグラウンド アプリである必要があります。 この要件は、ユーザーが制御を維持するのに役立ちます。 この要件を満たすために、すべての URI 起動がアプリの UI に直接結び付けられていることを確認します。 URI 起動を開始するには、常にユーザーがなんらかの操作を行う必要があります。 URI を起動しようとしたときにアプリがフォアグラウンドにない場合、起動は失敗し、エラー コールバックが呼び出されます。
 
-最初に URI を表す [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) オブジェクトを作成し、それを [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドに渡します。 次の例のように、返される結果を使って呼び出しが成功したかどうかを確認します。
+最初に URI を表す [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) オブジェクトを作成し、それを [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドに渡します。 次の例のように、返される結果を使って呼び出しが成功したかどうかを確認します。
 
 ```cs
 private async void launchURI_Click(object sender, RoutedEventArgs e)
@@ -117,9 +117,9 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ### <a name="set-remaining-view-preference"></a>残りの表示の基本設定
 
-[**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) を呼び出すソース アプリは、URI の起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリと URI を処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、URI の起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わっても良いことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
+[**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) を呼び出すソース アプリは、URI の起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリと URI を処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、URI の起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わっても良いことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
 
-**メモ**   ソースアプリの最終的なウィンドウサイズ (ソースアプリの優先度、画面上のアプリの数、画面の向きなど) を決定するときに、Windows では複数の異なる要因が考慮されます。 [**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
+**メモ**   ソースアプリの最終的なウィンドウサイズ (ソースアプリの優先度、画面上のアプリの数、画面の向きなど) を決定するときに、Windows では複数の異なる要因が考慮されます。 [**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
 
 ```cs
 // Set the desired remaining view.
@@ -167,7 +167,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ![Windows マップ アプリの例。](images/mapnyc.png)
 
-詳しくは、「[Windows マップ アプリの起動](launch-maps-app.md)」をご覧ください。 独自のアプリでマップ コントロールを使うには、「[2D、3D、Streetside ビューでの地図の表示](https://docs.microsoft.com/windows/uwp/maps-and-location/display-maps)」をご覧ください。
+詳しくは、「[Windows マップ アプリの起動](launch-maps-app.md)」をご覧ください。 独自のアプリでマップ コントロールを使うには、「[2D、3D、Streetside ビューでの地図の表示](../maps-and-location/display-maps.md)」をご覧ください。
 
 ### <a name="messaging-app-uri-scheme"></a>メッセージング アプリの URI スキーム
 
@@ -189,7 +189,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 |------------|---------|
 | ms-tonepicker: | トーン、アラーム、システム音を選択します。 |
 
-パラメーターは [ValueSet](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) を介して LaunchURI API に渡されます。 詳しくは、「[ms-tonepicker URI スキームを使ったトーンの選択と保存](launch-ringtone-picker.md)」をご覧ください。
+パラメーターは [ValueSet](/uwp/api/windows.foundation.collections.valueset) を介して LaunchURI API に渡されます。 詳しくは、「[ms-tonepicker URI スキームを使ったトーンの選択と保存](launch-ringtone-picker.md)」をご覧ください。
 
 ### <a name="nearby-numbers-app-uri-scheme"></a>近隣の施設検索アプリの URI スキーム
 
@@ -197,7 +197,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 | URI スキーム | 結果 |
 |------------|---------|
-| yellowpage:? input = \[ keyword \]&method = \[ String または T9\] | 近隣の施設検索アプリを起動します。<br>`input`検索するキーワードを参照します。<br>`method`検索の種類 (string または T9 search) を参照します。<br>`method` が `T9` (キーボードの種類) である場合、`keyword` は T9 キーボードの文字にマップされた数字の検索文字列になります。<br>`method` が `String` の場合は、`keyword` は検索するキーワードになります。 |
+| yellowpage:? input = \[ keyword \]&method = \[ String または T9\] | 近隣の施設検索アプリを起動します。<br>`input` 検索するキーワードを参照します。<br>`method` 検索の種類 (string または T9 search) を参照します。<br>`method` が `T9` (キーボードの種類) である場合、`keyword` は T9 キーボードの文字にマップされた数字の検索文字列になります。<br>`method` が `String` の場合は、`keyword` は検索するキーワードになります。 |
 
 ### <a name="people-app-uri-scheme"></a>People アプリの URI スキーム
 
@@ -207,8 +207,8 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 ### <a name="photos-app-uri-scheme"></a>フォト アプリの URI スキーム
 
 **ms-photos:** URI スキームを使ってフォト アプリを起動し、イメージを表示したり、ビデオを編集したりします。 次に例を示します。  
-画像を表示するには:`ms-photos:viewer?fileName=c:\users\userName\Pictures\image.jpg`  
-ビデオを編集するには:`ms-photos:videoedit?InputToken=123abc&Action=Trim&StartTime=01:02:03`  
+画像を表示するには: `ms-photos:viewer?fileName=c:\users\userName\Pictures\image.jpg`  
+ビデオを編集するには: `ms-photos:videoedit?InputToken=123abc&Action=Trim&StartTime=01:02:03`  
 
 > [!NOTE]
 > ビデオを編集したり画像を表示するための URI は、デスクトップでのみ利用できます。
@@ -216,9 +216,9 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 | URI スキーム |結果 |
 |------------|--------|
 | ms-photos:viewer?fileName={filename} | フォト アプリを起動して指定したイメージを表示します。ここで、{filename} は完全修飾パス名です。 例: `c:\users\userName\Pictures\ImageToView.jpg` |
-| ms-photos:videoedit?InputToken={input token} | ファイルのトークンで表されるファイルのビデオ編集モードでフォト アプリを起動します。 **InputToken** は必須です。 [SharedStorageAccessManager](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager) を使用してファイルのトークンを取得します。 |
-| ms-photos:videoedit?Action={action} | で Photos アプリを開くためのビデオ編集モードを示すパラメーター。ここで、{action} は: **SlowMotion**、**フレーム抽出**、**トリミング**、**ビュー**、**インク**のいずれかです。 **操作**が必要です。 |
-| ms-photos:videoedit?StartTime={timespan} | ビデオの再生を開始する場所を指定するオプションのパラメーターです。 `{timespan}`の形式である必要があり `"hh:mm:ss.ffff"` ます。 指定しない場合、既定値は`00:00:00.0000` |
+| ms-photos:videoedit?InputToken={input token} | ファイルのトークンで表されるファイルのビデオ編集モードでフォト アプリを起動します。 **InputToken** は必須です。 [SharedStorageAccessManager](/uwp/api/Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager) を使用してファイルのトークンを取得します。 |
+| ms-photos:videoedit?Action={action} | で Photos アプリを開くためのビデオ編集モードを示すパラメーター。ここで、{action} は: **SlowMotion**、 **フレーム抽出**、 **トリミング**、 **ビュー**、 **インク**のいずれかです。 **操作** が必要です。 |
+| ms-photos:videoedit?StartTime={timespan} | ビデオの再生を開始する場所を指定するオプションのパラメーターです。 `{timespan}` の形式である必要があり `"hh:mm:ss.ffff"` ます。 指定しない場合、既定値は `00:00:00.0000` |
 
 ### <a name="settings-app-uri-scheme"></a>設定アプリの URI スキーム
 
@@ -244,4 +244,4 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 | URI スキーム | 結果 |
 |------------|---------|
-| msnweather:/予測? la = \[ 緯度 \]&lo = \[ 経度\] | 場所の地理的な座標に基づいて、予測ページで気象アプリを起動します。<br>`latitude`場所の緯度を参照します。<br> `longitude`場所の経度を参照します。<br> |
+| msnweather:/予測? la = \[ 緯度 \]&lo = \[ 経度\] | 場所の地理的な座標に基づいて、予測ページで気象アプリを起動します。<br>`latitude` 場所の緯度を参照します。<br> `longitude` 場所の経度を参照します。<br> |

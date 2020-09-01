@@ -3,14 +3,14 @@ title: マイ連絡先の通知
 description: 新しい種類のトーストである、マイ連絡先の通知を作成して使用する方法について説明します。
 ms.date: 10/25/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c106df0efc7952895f882ec5c05cc1af52bcfac
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 3e00e3de9445a8b7c63ebaead70173c29b637b54
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75683500"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166326"
 ---
 # <a name="my-people-notifications"></a>マイ連絡先の通知
 
@@ -18,12 +18,12 @@ ms.locfileid: "75683500"
 
 ![ハート絵文字通知](images/heart-emoji-notification-small.gif)
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
-+ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)」をご覧ください。
-+ C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](../get-started/get-set-up.md)」をご覧ください。
++ C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](../get-started/create-a-hello-world-app-xaml-universal.md)」をご覧ください。
 
-## <a name="how-it-works"></a>機能のしくみ
+## <a name="how-it-works"></a>しくみ
 
 汎用のトースト通知の代わりに、マイ連絡先の機能を使って、通知を送信できます。これによって、さらにパーソナルなエクスペリエンスをユーザーに提供できます。 これは、ユーザーのタスク バーにピン留めされた連絡先からマイ連絡先機能を使用して送信される、新しい種類のトーストです。 通知を受信すると、通知が開始されていることを知らせるため、送信者の連絡先の写真がタスク バー上でアニメーションされ、サウンドが再生されます。 アニメーションまたはペイロードで指定された画像が 5 秒間表示されます (または、ペイロードが 5 秒以下のアニメーションの場合、5 秒までループされます)。
 
@@ -53,9 +53,9 @@ experienceType="shoulderTap"
     + アセットの URI。 HTTP/HTTPS Web URI、msappx URI、またはローカル ファイルへのパスを指定できます。
 + **spritesheet-src**
     + アセットの URI。 HTTP/HTTPS Web URI、msappx URI、またはローカル ファイルへのパスを指定できます。 Spritesheet アニメーションの場合のみ必要です。
-+ **spritesheet-高さ**
++ **spritesheet-height**
     + フレームの高さ (ピクセル単位)。 Spritesheet アニメーションの場合のみ必要です。
-+ **spritesheet**
++ **spritesheet-fps**
     + 1 秒あたりのフレーム数 (FPS)。 Spritesheet アニメーションの場合のみ必要です。 1 ～ 120 の値のみがサポートされます。
 + **spritesheet-startingFrame**
     + アニメーションを開始するフレーム番号です。 Spritesheet アニメーションの場合のみ使用されます。指定されていない場合は、既定値は 0 となります。
@@ -75,10 +75,10 @@ experienceType="shoulderTap"
     + 例: remoteid:1234
 
 > [!NOTE]
-> [ContactStore APIs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.contacts.contactstore) を使ったアプリで [StoredContact.RemoteId](https://docs.microsoft.com/uwp/api/Windows.Phone.PersonalInformation.StoredContact.RemoteId) プロパティを使い、PC に保存されている連絡先とリモートに保存されている連絡先とを関連付ける場合、RemoteId プロパティの値は不変かつ一意であることが不可欠です。 つまり、リモート ID は、PC にある他の連絡先 (他のアプリが所有する連絡先も含む) のリモート ID と決して競合しないよう、常に同じユーザー アカウントを一意に識別し、固有のタグを保持している必要があります。
-> アプリで使われるリモート ID の不変性と一意性に確証がない場合、[RemoteIdHelper クラス](https://docs.microsoft.com/previous-versions/windows/apps/jj207024(v=vs.105)#BKMK_UsingtheRemoteIdHelperclass)を使うと、システムに追加するすべてのリモート ID にあらかじめ一意のタグを追加することができます。 または、RemoteId プロパティを一切使わない代わりに、カスタムの拡張プロパティを作成し、そこに連絡先のリモート ID を格納する方法もあります。
+> [ContactStore APIs](/uwp/api/windows.applicationmodel.contacts.contactstore) を使ったアプリで [StoredContact.RemoteId](/uwp/api/Windows.Phone.PersonalInformation.StoredContact.RemoteId) プロパティを使い、PC に保存されている連絡先とリモートに保存されている連絡先とを関連付ける場合、RemoteId プロパティの値は不変かつ一意であることが不可欠です。 つまり、リモート ID は、PC にある他の連絡先 (他のアプリが所有する連絡先も含む) のリモート ID と決して競合しないよう、常に同じユーザー アカウントを一意に識別し、固有のタグを保持している必要があります。
+> アプリで使われるリモート ID の不変性と一意性に確証がない場合、[RemoteIdHelper クラス](/previous-versions/windows/apps/jj207024(v=vs.105)#BKMK_UsingtheRemoteIdHelperclass)を使うと、システムに追加するすべてのリモート ID にあらかじめ一意のタグを追加することができます。 または、RemoteId プロパティを一切使わない代わりに、カスタムの拡張プロパティを作成し、そこに連絡先のリモート ID を格納する方法もあります。
 
-2 番目のバインドとペイロードだけでなく、フォールバック トーストの最初のバインドに別のペイロードを含める必要があります。 標準のトーストに強制的に戻される場合に、通知でこれが使用されます (詳細については、[この記事の最後](/windows/uwp/contacts-and-calendar/my-people-notifications#falling-back-to-toast)を参照)。
+2 番目のバインドとペイロードだけでなく、フォールバック トーストの最初のバインドに別のペイロードを含める必要があります。 標準のトーストに強制的に戻される場合に、通知でこれが使用されます (詳細については、[この記事の最後](#falling-back-to-toast)を参照)。
 
 ## <a name="creating-the-notification"></a>通知を作成する
 [トースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)と同様に、マイ連絡先通知テンプレートを作成することができます。
@@ -126,7 +126,7 @@ experienceType="shoulderTap"
 ![Spritesheet 通知](images/pizza-notification-small.gif)
 
 ## <a name="starting-the-notification"></a>通知を開始する
-マイ連絡先の通知を開始するには、トースト テンプレートを [XmlDocument](https://docs.microsoft.com/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトに変換する必要があります。 トーストを (ここでは "content.xml" という名前の) XML ファイル内で定義すると、次のコードを使用して開始できます。
+マイ連絡先の通知を開始するには、トースト テンプレートを [XmlDocument](/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトに変換する必要があります。 トーストを (ここでは "content.xml" という名前の) XML ファイル内で定義すると、次のコードを使用して開始できます。
 
 ```CSharp
 string xmlText = File.ReadAllText("content.xml");
@@ -150,8 +150,8 @@ ToastNotificationManager.CreateToastNotifier().Show(notification);
 
 マイ連絡先の通知がトーストにフォールバックすると、2 番目のマイ連絡先固有のバインドは無視され、1 番目のバインドのみが使用されて、トーストが表示されます。 これは、最初のトースト バインドでフォールバック ペイロードを指定することが重要である理由です。
 
-## <a name="see-also"></a>「
-+ [マイユーザーの通知のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/MyPeopleNotifications)
-+ [People サポートを追加する](my-people-support.md)
-+ [アダプティブトースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)
-+ [ToastNotification クラス](https://docs.microsoft.com/uwp/api/windows.ui.notifications.toastnotification)
+## <a name="see-also"></a>関連項目
++ [マイ連絡先の通知のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/MyPeopleNotifications)
++ [マイ連絡先のサポートを追加する](my-people-support.md)
++ [アダプティブ トースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)
++ [ToastNotification クラス](/uwp/api/windows.ui.notifications.toastnotification)

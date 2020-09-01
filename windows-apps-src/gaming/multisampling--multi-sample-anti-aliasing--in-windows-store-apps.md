@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, マルチサンプリング, Direct3D
 ms.localizationpriority: medium
-ms.openlocfilehash: f4d3e590f99fdf6ca907fcc8fd5b412c5796f474
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.openlocfilehash: 0fccc549deb579a51cfedaad1fd0a1e1dd861fa8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74735107"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165176"
 ---
 # <a name="span-iddev_gamingmultisampling__multi-sample_anti_aliasing__in_windows_store_appsspan-multisampling-in-universal-windows-platform-uwp-apps"></a><span id="dev_gaming.multisampling__multi-sample_anti_aliasing__in_windows_store_apps"></span>ユニバーサル Windows プラットフォーム (UWP) アプリのマルチサンプリング
 
 
 
-Direct3D を使って構築されたユニバーサル Windows プラットフォーム (UWP) アプリでマルチサンプリングを使う方法について説明します。 マルチサンプリングとは、マルチサンプル アンチエイリアシングとも呼ばれ、エッジを滑らかに描画するために使用されるグラフィックス技法です。 最終的なレンダー ターゲットの実際のピクセルよりも多くのピクセルを描画し、その値を平均して、特定のピクセルで "部分的" エッジの外観を維持するというしくみです。 Direct3D で実際にマルチサンプリングがどのように働くかについて詳しくは、「[マルチサンプル アンチエイリアシング ラスタライズ規則](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-rasterizer-stage-rules)」をご覧ください。
+Direct3D を使って構築されたユニバーサル Windows プラットフォーム (UWP) アプリでマルチサンプリングを使う方法について説明します。 マルチサンプリングとは、マルチサンプル アンチエイリアシングとも呼ばれ、エッジを滑らかに描画するために使用されるグラフィックス技法です。 最終的なレンダー ターゲットの実際のピクセルよりも多くのピクセルを描画し、その値を平均して、特定のピクセルで "部分的" エッジの外観を維持するというしくみです。 Direct3D で実際にマルチサンプリングがどのように働くかについて詳しくは、「[マルチサンプル アンチエイリアシング ラスタライズ規則](/windows/desktop/direct3d11/d3d10-graphics-programming-guide-rasterizer-stage-rules)」をご覧ください。
 
 ## <a name="multisampling-and-the-flip-model-swap-chain"></a>マルチサンプリングとフリップ モデル スワップ チェーン
 
@@ -28,11 +28,11 @@ DirectX を使う UWP アプリでは、フリップ モデル スワップ チ�
 
 Direct3D 機能レベルは、特定の最小サンプル数機能のサポートを保証し、マルチサンプリングをサポートする特定のバッファー形式が使用できることを保証します。 グラフィックス デバイスは、多くの場合、最小限必要なものよりも広い範囲の形式とサンプル数をサポートしています。 マルチサンプリング サポートは、特定の DXGI 形式を使うマルチサンプリング機能がサポートされているか確認し、サポートされている形式ごとに使うことのできるサンプル数を確認することで、実行時に判断できます。
 
-1.  [  **ID3D11Device::CheckFeatureSupport**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport) を呼び出して、どの DXGI 形式をマルチサンプリングで使うことができるか確認します。 ゲームで使うことのできるレンダー ターゲット形式を指定します。 レンダーターゲットと解決ターゲットは両方とも同じ形式を使用する必要があるため、 [**D3D11\_形式\_サポート\_マルチサンプリング\_作り**](https://docs.microsoft.com/windows/desktop/api/d3d11/ne-d3d11-d3d11_format_support)と**D3D11\_形式\_サポート\_マルチサンプリング\_解決をサポート**していることを確認してください。
+1.  [**ID3D11Device::CheckFeatureSupport**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport) を呼び出して、どの DXGI 形式をマルチサンプリングで使うことができるか確認します。 ゲームで使うことのできるレンダー ターゲット形式を指定します。 レンダーターゲットと解決ターゲットは両方とも同じ形式を使用する必要があるため、両方の [**D3D11 \_ 形式でマルチサンプリング \_ \_ \_ 作り**](/windows/desktop/api/d3d11/ne-d3d11-d3d11_format_support) と **D3D11 形式がサポートさ \_ \_ \_ \_ **れているかどうかを確認してください。
 
-    **機能レベル 9:  **機能レベル9のデバイスで[はマルチサンプリングテクスチャレンダーターゲット形式のサポートが保証](https://docs.microsoft.com/previous-versions/ff471324(v=vs.85))されますが、マルチサンプルの解決ターゲットではサポートが保証されません。 そこで、このトピックで説明するマルチサンプリング技法を使おうとする前に、この確認が必要になります。
+    **機能レベル 9:  ** 機能レベル9のデバイスで [はマルチサンプリングテクスチャレンダーターゲット形式のサポートが保証](/previous-versions/ff471324(v=vs.85))されますが、マルチサンプルの解決ターゲットではサポートが保証されません。 そこで、このトピックで説明するマルチサンプリング技法を使おうとする前に、この確認が必要になります。
 
-    次のコードでは、すべての DXGI\_フォーマット値のマルチサンプリングサポートをチェックします。
+    次のコードでは、すべての DXGI フォーマット値のマルチサンプリングサポートをチェックし \_ ます。
 
     ```cpp
     // Determine the format support for multisampling.
@@ -55,7 +55,7 @@ Direct3D 機能レベルは、特定の最小サンプル数機能のサポー�
     }
     ```
 
-2.  サポートされている形式ごとに、[**ID3D11Device::CheckMultisampleQualityLevels**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkmultisamplequalitylevels) を呼び出して、サンプル数のサポートを照会します。
+2.  サポートされている形式ごとに、[**ID3D11Device::CheckMultisampleQualityLevels**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkmultisamplequalitylevels) を呼び出して、サンプル数のサポートを照会します。
 
     次のコードは、サポートされている DXGI 形式についてサンプル サイズのサポートを確認します。
 
@@ -82,11 +82,11 @@ Direct3D 機能レベルは、特定の最小サンプル数機能のサポー�
     }
     ```
 
-    > タイル化されたリソースバッファーのマルチサンプリングサポートを確認する必要がある場合は、代わりに[**ID3D11Device2:: CheckMultisampleQualityLevels1**](https://docs.microsoft.com/windows/desktop/api/d3d11_2/nf-d3d11_2-id3d11device2-checkmultisamplequalitylevels1)を**使用  。**
+    > **メモ**   タイル化されたリソースバッファーのマルチサンプリングサポートを確認する必要がある場合は、代わりに[**ID3D11Device2:: CheckMultisampleQualityLevels1**](/windows/desktop/api/d3d11_2/nf-d3d11_2-id3d11device2-checkmultisamplequalitylevels1)を使用します。
 
      
 
-3.  目的のサンプル数を使って、バッファーとレンダー ターゲット ビューを作成します。 スワップチェーンと同じ DXGI\_形式、幅、および高さを使用しますが、1より大きいサンプル数を指定し、マルチサンプリングテクスチャテクスチャディメンション (**D3D11\_RTV\_dimension\_TEXTURE2DMS**を使用します) を使用します。 必要な場合、マルチサンプリングに最適な新しい設定を使ってスワップ チェーンを再作成することもできます。
+3.  目的のサンプル数を使って、バッファーとレンダー ターゲット ビューを作成します。 \_スワップチェーンと同じ DXGI 形式、幅、および高さを使用しますが、1より大きいサンプル数を指定し、マルチサンプリングテクスチャテクスチャディメンション (**D3D11 \_ rtv \_ dimension \_ TEXTURE2DMS**など) を使用します。 必要な場合、マルチサンプリングに最適な新しい設定を使ってスワップ チェーンを再作成することもできます。
 
     次のコードでは、マルチサンプリングされたレンダー ターゲットが作成されます。
 
@@ -179,7 +179,7 @@ Direct3D 機能レベルは、特定の最小サンプル数機能のサポー�
     m_d3dContext->RSSetViewports(1, &m_screenViewport);
     ```
 
-6.  マルチサンプリングされたレンダー ターゲットに各フレームをレンダリングします。 レンダリングが完了したら、フレームを表示する前に [**ID3D11DeviceContext::ResolveSubresource**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-resolvesubresource) を呼び出します。 これにより Direct3D はマルチサンプリング操作を実行し、表示する各ピクセルの値を計算して、結果をバック バッファーに配置します。 バック バッファーには最終的なアンチエイリアシングされた画像が格納され、表示できるようになります。
+6.  マルチサンプリングされたレンダー ターゲットに各フレームをレンダリングします。 レンダリングが完了したら、フレームを表示する前に [**ID3D11DeviceContext::ResolveSubresource**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-resolvesubresource) を呼び出します。 これにより Direct3D はマルチサンプリング操作を実行し、表示する各ピクセルの値を計算して、結果をバック バッファーに配置します。 バック バッファーには最終的なアンチエイリアシングされた画像が格納され、表示できるようになります。
 
     次のコードは、フレームを表示する前に、サブリソースを解決します。
 
@@ -206,7 +206,3 @@ Direct3D 機能レベルは、特定の最小サンプル数機能のサポー�
  
 
  
-
-
-
-

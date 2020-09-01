@@ -6,24 +6,24 @@ ms.date: 03/22/2018
 ms.topic: article
 keywords: Windows 10, UWP, StoreRequestHelper, SendRequestAsync
 ms.localizationpriority: medium
-ms.openlocfilehash: 810c546eb0ee0263dcb50b3ce58e593ad294435c
-ms.sourcegitcommit: 577a54d36145f91c8ade8e4509d4edddd8319137
+ms.openlocfilehash: a02be93a56d6066ebd4d9547c8cc9ea1a96c9e09
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83867332"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164496"
 ---
 # <a name="send-requests-to-the-microsoft-store"></a>Microsoft Store に要求を送信する
 
-Windows 10 バージョン 1607 以降、Windows SDK の [Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間にはストアに関連する操作 (アプリ内購入など) の API が用意されています。 ただし、ストアをサポートするサービスは OS がリリースされるたびに継続的に更新、拡張、強化されていますが、新しい API は通常 OS のメジャー リリース時にのみ Windows SDK に追加されます。
+Windows 10 バージョン 1607 以降、Windows SDK の [Windows.Services.Store](/uwp/api/windows.services.store) 名前空間にはストアに関連する操作 (アプリ内購入など) の API が用意されています。 ただし、ストアをサポートするサービスは OS がリリースされるたびに継続的に更新、拡張、強化されていますが、新しい API は通常 OS のメジャー リリース時にのみ Windows SDK に追加されます。
 
-[SendRequestAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storerequesthelper.sendrequestasync) メソッドは、新しいバージョンの Windows SDK がリリースされる前にユニバーサル Windows プラットフォーム (UWP) アプリで新しいストアの操作を利用できるようにする柔軟な方法として用意されています。 このメソッドを使うと、最新リリースの Windows SDK に対応する API がまだない新しい操作の要求をストアに送信することができます。
+[SendRequestAsync](/uwp/api/windows.services.store.storerequesthelper.sendrequestasync) メソッドは、新しいバージョンの Windows SDK がリリースされる前にユニバーサル Windows プラットフォーム (UWP) アプリで新しいストアの操作を利用できるようにする柔軟な方法として用意されています。 このメソッドを使うと、最新リリースの Windows SDK に対応する API がまだない新しい操作の要求をストアに送信することができます。
 
 > [!NOTE]
 > **SendRequestAsync** メソッドは、Windows 10 バージョン 1607 以降をターゲットとするアプリにのみ使うことができます。 このメソッドでサポートされている要求の一部は、Windows 10 バージョン 1607 より後のリリースでのみサポートされます。
 
-**SendRequestAsync** は、[StoreRequestHelper](https://docs.microsoft.com/uwp/api/windows.services.store.storerequesthelper) クラスの静的メソッドです。 このメソッドを呼び出すには、次の情報をメソッドに渡す必要があります。
-* 操作を実行するユーザーに関する情報を提供する [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) オブジェクト。 このオブジェクトについて詳しくは、「[StoreContext クラスの概要](in-app-purchases-and-trials.md#get-started-with-the-storecontext-class)」をご覧ください。
+**SendRequestAsync** は、[StoreRequestHelper](/uwp/api/windows.services.store.storerequesthelper) クラスの静的メソッドです。 このメソッドを呼び出すには、次の情報をメソッドに渡す必要があります。
+* 操作を実行するユーザーに関する情報を提供する [StoreContext](/uwp/api/windows.services.store.storecontext) オブジェクト。 このオブジェクトについて詳しくは、「[StoreContext クラスの概要](in-app-purchases-and-trials.md#get-started-with-the-storecontext-class)」をご覧ください。
 * ストアに送信する要求を識別する整数。
 * 要求が任意の引数をサポートする場合、要求と共に渡す引数を含む JSON 形式の文字列も渡すことができます。
 
@@ -72,12 +72,12 @@ public async Task<bool> AddUserToFlightGroup()
 
 この要求は、現在のユーザーまたはデバイスの最も順位の高いフライト グループのリモート変数を取得します。 この要求を送信するには、次の情報を **SendRequestAsync** メソッドの *requestKind* パラメーターと *parametersAsJson* パラメーターに渡します。
 
-|  パラメーター  |  [説明]  |
+|  パラメーター  |  説明  |
 |----------------------|---------------|
 |  *requestKind*                   |  デバイスの最も順位の高いフライト グループを返すには 7 を指定し、現在のユーザーとデバイスの最も順位の高いフライト グループを返すには 8 を指定します。 *requestKind* パラメーターには値 8 を使うことをお勧めします。この値は、現在のユーザーおよびデバイスの両方のメンバーシップにおいて最も順位の高いフライト グループを返すためです。  |
 |  *parametersAsJson*                   |  次の例に示すように、データを含む JSON 形式の文字列を渡します。  |
 
-次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *GetRemoteVariables* に割り当てる必要があります。 パートナーセンターで、リモート変数を定義したプロジェクトの ID に*projectId*フィールドを割り当てます。
+次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *GetRemoteVariables* に割り当てる必要があります。 パートナーセンターで、リモート変数を定義したプロジェクトの ID に *projectId* フィールドを割り当てます。
 
 ```json
 { 
@@ -86,11 +86,11 @@ public async Task<bool> AddUserToFlightGroup()
 }
 ```
 
-この要求を提出すると、[StoreSendRequestResult](https://docs.microsoft.com/uwp/api/windows.services.store.storesendrequestresult) の戻り値の [Response](https://docs.microsoft.com/uwp/api/windows.services.store.storesendrequestresult.Response) プロパティには、次のフィールドを持つ JSON 形式の文字列が含められます。
+この要求を提出すると、[StoreSendRequestResult](/uwp/api/windows.services.store.storesendrequestresult) の戻り値の [Response](/uwp/api/windows.services.store.storesendrequestresult.Response) プロパティには、次のフィールドを持つ JSON 形式の文字列が含められます。
 
 |  フィールド  |  説明  |
 |----------------------|---------------|
-|  *anonymous*                   |  ブール値。**true** はユーザーまたはデバイス ID が要求に存在していなかったことを示し、**false** はユーザーまたはデバイス ID が要求に存在していたことを示します。  |
+|  *非同期*                   |  ブール値。**true** はユーザーまたはデバイス ID が要求に存在していなかったことを示し、**false** はユーザーまたはデバイス ID が要求に存在していたことを示します。  |
 |  *name*                   |  デバイスまたはユーザーが所属する最も順位の高いフライト グループの名前を含む文字列です。  |
 |  *設定*                   |  開発者がフライト グループに構成したリモート変数の名前を値を含むキー/値ペアのディクショナリです。  |
 
@@ -115,7 +115,7 @@ public async Task<bool> AddUserToFlightGroup()
 
 この要求を送信するには、次の情報を **SendRequestAsync** メソッドの *requestKind* パラメーターと *parametersAsJson* パラメーターに渡します。
 
-|  パラメーター  |  [説明]  |
+|  パラメーター  |  説明  |
 |----------------------|---------------|
 |  *requestKind*                   |  デバイスをフライト グループに追加するには 7 を指定し、現在ストアにサインインしているユーザーをフライト グループに追加するには 8 を指定します。  |
 |  *parametersAsJson*                   |  次の例に示すように、データを含む JSON 形式の文字列を渡します。  |
@@ -129,7 +129,7 @@ public async Task<bool> AddUserToFlightGroup()
 }
 ```
 
-要求でエラーが発生した場合、[StoreSendRequestResult](https://docs.microsoft.com/uwp/api/windows.services.store.storesendrequestresult) の戻り値の [HttpStatusCode](https://docs.microsoft.com/uwp/api/windows.services.store.storesendrequestresult.HttpStatusCode) プロパティには応答コードが含められます。
+要求でエラーが発生した場合、[StoreSendRequestResult](/uwp/api/windows.services.store.storesendrequestresult) の戻り値の [HttpStatusCode](/uwp/api/windows.services.store.storesendrequestresult.HttpStatusCode) プロパティには応答コードが含められます。
 
 ### <a name="remove-the-current-device-or-user-from-a-flight-group"></a>フライト グループから現在のデバイスまたはユーザーを削除する
 
@@ -138,7 +138,7 @@ public async Task<bool> AddUserToFlightGroup()
 
 この要求を送信するには、次の情報を **SendRequestAsync** メソッドの *requestKind* パラメーターと *parametersAsJson* パラメーターに渡します。
 
-|  パラメーター  |  [説明]  |
+|  パラメーター  |  説明  |
 |----------------------|---------------|
 |  *requestKind*                   |  デバイスをフライト グループから削除するには 7 を指定し、現在ストアにサインインしているユーザーをフライト グループから削除するには 8 を指定します。  |
 |  *parametersAsJson*                   |  次の例に示すように、データを含む JSON 形式の文字列を渡します。  |
@@ -152,9 +152,9 @@ public async Task<bool> AddUserToFlightGroup()
 }
 ```
 
-要求でエラーが発生した場合、[StoreSendRequestResult](https://docs.microsoft.com/uwp/api/windows.services.store.storesendrequestresult) の戻り値の [HttpStatusCode](https://docs.microsoft.com/uwp/api/windows.services.store.storesendrequestresult.HttpStatusCode) プロパティには応答コードが含められます。
+要求でエラーが発生した場合、[StoreSendRequestResult](/uwp/api/windows.services.store.storesendrequestresult) の戻り値の [HttpStatusCode](/uwp/api/windows.services.store.storesendrequestresult.HttpStatusCode) プロパティには応答コードが含められます。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [アプリ内での評価とレビュー ダイアログの表示](request-ratings-and-reviews.md#show-a-rating-and-review-dialog-in-your-app)
-* [SendRequestAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storerequesthelper.sendrequestasync)
+* [SendRequestAsync](/uwp/api/windows.services.store.storerequesthelper.sendrequestasync)

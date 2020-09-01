@@ -6,17 +6,17 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, アプリのインストール数
 ms.localizationpriority: medium
-ms.openlocfilehash: 9391ac3222f98a52d6c9aaf4ed39eb8ac2e3de56
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: f6a22d8f7763b6f6048992e546a70a7b747e771e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492787"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164686"
 ---
 # <a name="get-app-installs"></a>アプリのインストール数の取得
 
 
-日付範囲やその他のオプション フィルターを指定して、アプリケーションに関する集計インストール データを JSON 形式で取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報は、パートナーセンターの[購入レポート](../publish/acquisitions-report.md)でも確認できます。
+日付範囲やその他のオプション フィルターを指定して、アプリケーションに関する集計インストール データを JSON 形式で取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 この情報は、パートナーセンターの [購入レポート](../publish/acquisitions-report.md) でも確認できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,23 +38,23 @@ ms.locfileid: "86492787"
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                                                                 |
+| Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
 | 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-| パラメーター        | 種類   |  説明      |  必須  
+| パラメーター        | Type   |  説明      |  必須  
 |---------------|--------|---------------|------|
 | applicationId | string | インストール データを取得するアプリの [Store ID](in-app-purchases-and-trials.md#store-ids) です。  |  はい  |
-| startDate | date | 取得するインストール データの日付範囲の開始日です。 既定値は現在の日付です。 |  いいえ  |
+| startDate | 日付 | 取得するインストール データの日付範囲の開始日です。 既定値は現在の日付です。 |  いいえ  |
 | endDate | 日付 | 取得するインストール データの日付範囲の終了日です。 既定値は現在の日付です。 |  いいえ  |
-| top | INT | 要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |  いいえ  |
+| top | int | 要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。 |  いいえ  |
 | skip | int | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。 |  いいえ  |
 | filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 *filter* パラメーターでは、文字列値を単一引用符で囲む必要があります。 応答本文から次のフィールドを指定することができます。<p/><ul><li><strong>マーケティング</strong></li><li><strong>osVersion</strong></li><li><strong>deviceType</strong></li><li><strong>packageVersion</strong></li></ul> | いいえ   |
 | aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。<strong>day</strong>、<strong>week</strong>、または <strong>month</strong>。 指定しない場合、既定値は <strong>day</strong> です。 | いいえ |
-| orderby | string | 各インストールの結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターには、応答本文から次のフィールドのいずれかを指定できます。<p/><ul><li><strong>applicationName</strong></li><li><strong>date</strong><li><strong>deviceType</strong></li><li><strong>マーケティング</strong></li><li><strong>osVersion</strong></li><li><strong>packageVersion</strong></li><li><strong>successfulInstallCount</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は<strong>asc</strong>です。</p><p><em>orderby</em> 文字列の例: <em>orderby=date,market</em></p> |  いいえ  |
+| orderby | string | 各インストールの結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターには、応答本文から次のフィールドのいずれかを指定できます。<p/><ul><li><strong>applicationName</strong></li><li><strong>date</strong><li><strong>deviceType</strong></li><li><strong>マーケティング</strong></li><li><strong>osVersion</strong></li><li><strong>packageVersion</strong></li><li><strong>successfulInstallCount</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は <strong>asc</strong>です。</p><p><em>orderby</em> 文字列の例: <em>orderby=date,market</em></p> |  いいえ  |
 | groupby | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 応答本文から次のフィールドを指定することができます。<p/><ul><li><strong>applicationName</strong></li><li><strong>date</strong><li><strong>deviceType</strong></li><li><strong>マーケティング</strong></li><li><strong>osVersion</strong></li><li><strong>packageVersion</strong></li></ul><p>返されるデータ行には、<em>groupby</em> パラメーターに指定したフィールドと次の値が含まれます。</p><ul><li><strong>date</strong></li><li><strong>applicationId</strong></li><li><strong>successfulInstallCount</strong></li></ul><p><em>groupby</em> パラメーターは、<em>aggregationLevel</em> パラメーターと同時に使用できます。 例: <em> &amp; Groupby = agegroup、market &amp; aggregationLevel = week</em></p> |  いいえ  |
 
  
@@ -75,7 +75,7 @@ Authorization: Bearer <your access token>
 
 ### <a name="response-body"></a>応答本文
 
-| 値      | 種類   | 説明                  |
+| 値      | Type   | 説明                  |
 |------------|--------|-------------------------------------------------------|
 | 値      | array  | 集計インストール データが含まれるオブジェクトの配列です。 各オブジェクトのデータの詳細については、以下の表を参照してください。                                                                                                                      |
 | @nextLink  | string | データの追加ページがある場合、この文字列には、データの次のページを要求するために使用できる URI が含まれます。 たとえば、要求の **top** パラメーターを 10000 に設定した場合、クエリに適合するインストール データが 10,000 行を超えると、この値が返されます。 |
@@ -84,7 +84,7 @@ Authorization: Bearer <your access token>
 
 *Value* 配列の要素には、次の値が含まれます。
 
-| 値               | 種類   | 説明                           |
+| 値               | Type   | 説明                           |
 |---------------------|--------|-------------------------------------------|
 | date                | string | インストール データの日付範囲の最初の日付です。 要求に日付を指定した場合、この値はその日付になります。 要求に週、月、またはその他の日付範囲を指定した場合、この値はその日付範囲の最初の日付になります。 |
 | applicationId       | string | インストール データを取得するアプリのストア ID です。     |
@@ -121,5 +121,5 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [インストール レポート](../publish/installs-report.md)
+* [インストール レポート](../publish/acquisitions-report.md)
 * [Microsoft Store サービスを使った分析データへのアクセス](access-analytics-data-using-windows-store-services.md)

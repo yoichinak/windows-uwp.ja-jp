@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, スワップ チェーン スケーリング, オーバーレイ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 77e5dac007654449fcfbe2053fda65b123e073fa
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ade5812999a3fe085a7c2091363857d7eefa1870
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368342"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165166"
 ---
 # <a name="swap-chain-scaling-and-overlays"></a>スワップ チェーンのスケーリングとオーバーレイ
 
@@ -119,7 +119,7 @@ Direct3D 11.2 には、フリップ モデルのスワップ チェーンで待�
 ## <a name="create-a-hardware-overlay-swap-chain-for-ui-elements"></a>UI 要素のためのハードウェア オーバーレイ スワップ チェーンの作成
 
 
-スワップ チェーンのスケーリングを使った場合、この手法に固有の短所として、UI も縮小され、ぼやけて使いづらくなる可能性があります。 オーバーレイ スナップ チェーンがハードウェア サポートされているデバイスでは、この問題を解決するために、リアルタイムのゲーム コンテンツとは別のスワップ チェーンを使ってネイティブの解像度で UI をレンダリングします。 この手法は [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) スワップ チェーンにのみ適用される点に注意してください。XAML との相互運用には使用できません。
+スワップ チェーンのスケーリングを使った場合、この手法に固有の短所として、UI も縮小され、ぼやけて使いづらくなる可能性があります。 オーバーレイ スナップ チェーンがハードウェア サポートされているデバイスでは、この問題を解決するために、リアルタイムのゲーム コンテンツとは別のスワップ チェーンを使ってネイティブの解像度で UI をレンダリングします。 この手法は [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) スワップ チェーンにのみ適用される点に注意してください。XAML との相互運用には使用できません。
 
 ハードウェア オーバーレイ機能を使う前景スワップ チェーンを作成するには、次の手順を実行します。 この手順は、前に述べたように最初にリアルタイムのゲーム コンテンツ用のスワップ チェーンを作成した後で実行されます。
 
@@ -142,21 +142,21 @@ Direct3D 11.2 には、フリップ モデルのスワップ チェーンで待�
         );
     ```
 
-    DXGI アダプターでは、出力アダプターが [**SupportsOverlays**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgioutput2-supportsoverlays) に対して True を返す場合はオーバーレイがサポートされます。
+    DXGI アダプターでは、出力アダプターが [**SupportsOverlays**](/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgioutput2-supportsoverlays) に対して True を返す場合はオーバーレイがサポートされます。
 
     ```cpp
     m_overlaySupportExists = dxgiOutput2->SupportsOverlays() ? true : false;
     ```
     
-    > **注**   DXGI アダプターでは、オーバーレイをサポートする場合は、[次へ] の手順に進みます。 デバイスがオーバーレイをサポートしない場合は、複数のスワップ チェーンを使ったレンダリングは効率的ではありません。 代わりに、リアルタイムのゲーム コンテンツと同じスワップ チェーンで解像度を下げて UI をレンダリングします。
+    > **メモ**   DXGI アダプターがオーバーレイをサポートしている場合は、次の手順に進みます。 デバイスがオーバーレイをサポートしない場合は、複数のスワップ チェーンを使ったレンダリングは効率的ではありません。 代わりに、リアルタイムのゲーム コンテンツと同じスワップ チェーンで解像度を下げて UI をレンダリングします。
 
      
 
-2.  [  **IDXGIFactory2::CreateSwapChainForCoreWindow**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow) を使って前景スワップ チェーンを作成します。 次のオプションを設定する必要があります、 [ **DXGI\_スワップ\_チェーン\_DESC1** ](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)に指定された、 *pDesc*パラメーター。
+2.  [**IDXGIFactory2::CreateSwapChainForCoreWindow**](/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow) を使って前景スワップ チェーンを作成します。 次のオプションは、 *Pdesc*パラメーターに指定された[**DXGI \_ スワップ \_ チェーン \_ DESC1**](/windows/desktop/api/dxgi1_2/ns-dxgi1_2-dxgi_swap_chain_desc1)で設定する必要があります。
 
-    -   指定、 [ **DXGI\_スワップ\_チェーン\_フラグ\_フォア グラウンド\_レイヤー** ](https://docs.microsoft.com/windows/desktop/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)スワップ チェーン スワップ チェーンの前景色を示すフラグ。
-    -   使用して、 [ **DXGI\_アルファ\_モード\_合成チャンネル**](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ne-dxgi1_2-dxgi_alpha_mode)アルファ モード フラグ。 前景スワップ チェーンは常にプリマルチプライ済みです。
-    -   設定、 [ **DXGI\_スケーリング\_NONE** ](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/ne-dxgi1_2-dxgi_scaling)フラグ。 前景スワップ チェーンは、常にネイティブの解像度で実行されます。
+    -   前のスワップチェーンを示すように、 [**DXGI \_ スワップ \_ チェーン \_ フラグの \_ 前景色 \_ **](/windows/desktop/api/dxgi/ne-dxgi-dxgi_swap_chain_flag) を指定します。
+    -   [**DXGI \_ アルファモードの \_ 前 \_ 乗算**](/windows/desktop/api/dxgi1_2/ne-dxgi1_2-dxgi_alpha_mode)されたアルファモードフラグを使用します。 前景スワップ チェーンは常にプリマルチプライ済みです。
+    -   [**DXGI \_ SCALING \_ NONE**](/windows/desktop/api/dxgi1_2/ne-dxgi1_2-dxgi_scaling)フラグを設定します。 前景スワップ チェーンは、常にネイティブの解像度で実行されます。
 
     ```cpp
      foregroundSwapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER;
@@ -164,7 +164,7 @@ Direct3D 11.2 には、フリップ モデルのスワップ チェーンで待�
      foregroundSwapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED; // Foreground swap chain alpha values must be premultiplied.
     ```
 
-    > **注**  設定、 [ **DXGI\_スワップ\_チェーン\_フラグ\_フォア グラウンド\_レイヤー** ](https://docs.microsoft.com/windows/desktop/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)もう一度すべてスワップ チェーンのサイズが変更された時刻。
+    > **メモ**   スワップチェーンのサイズを変更するたびに、 [**DXGI \_ スワップ \_ チェーン \_ フラグの \_ フォアグラウンド \_ レイヤー**](/windows/desktop/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)を再度設定します。
 
     ```cpp
     HRESULT hr = m_foregroundSwapChain->ResizeBuffers(
@@ -199,7 +199,7 @@ Direct3D 11.2 には、フリップ モデルのスワップ チェーンで待�
 
 4.  前景スワップ チェーンでは、プリマルチプライ アルファ値が必ず使われます。 各ピクセルのカラー値は、フレームが表示される前にアルファ値が乗算されることが前提となります。 たとえば、アルファ値 50% の場合、100% 白の BGRA ピクセルは (0.5, 0.5, 0.5, 0.5) に設定されます。
 
-    アルファ premultiplication 手順は、アプリ ブレンドの状態を適用することで、出力マージャー ステージで実行できます (を参照してください[ **ID3D11BlendState**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11blendstate)) で、 [ **D3D11\_レンダリング\_ターゲット\_BLEND\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_render_target_blend_desc)構造体の**SrcBlend**フィールドに設定**D3D11\_SRC\_アルファ**します。 プリマルチプライ アルファ値を含むアセットを使うこともできます。
+    アルファ premultiplication 手順は、出力マージステージでアプリの blend 状態を適用することによって実行できます (「 [**ID3D11BlendState**](/windows/desktop/api/d3d11/nn-d3d11-id3d11blendstate)」を参照してください)。 [**D3D11 \_ レンダー \_ ターゲットの \_ Blend \_ DESC**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_render_target_blend_desc) 構造体の **srcblend** フィールドは **D3D11 \_ SRC \_ alpha**に設定されています。 プリマルチプライ アルファ値を含むアセットを使うこともできます。
 
     アルファ値のプリマルチプライの手順が実行されていない場合、前景スワップ チェーンのカラーは想定よりも明るくなります。
 
@@ -325,7 +325,3 @@ Direct3D 11.2 には、フリップ モデルのスワップ チェーンで待�
  
 
  
-
-
-
-

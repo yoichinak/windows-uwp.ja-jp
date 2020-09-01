@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 78b14023f61dd3f8c27bc31f5876407ff0ed0366
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7932636679a09834b982e2c320309b90c759c365
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371206"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167146"
 ---
 # <a name="macs-hashes-and-signatures"></a>MAC、ハッシュ、および署名
 
@@ -23,22 +23,22 @@ ms.locfileid: "66371206"
 ## <a name="message-authentication-codes-macs"></a>メッセージ認証コード (MAC)
 
 
-暗号化は、承認されていない個人によるメッセージの読み取りを防止できますが、その個人によるメッセージの改ざんを防止することはできません。 メッセージが改ざんされたことにより、そのメッセージが無意味な内容にすぎない場合であっても、実際にコストが発生する場合があります。 メッセージ認証コード (MAC) は、メッセージの改ざんを防止します。 たとえば、次のシナリオについて考えてみます。
+暗号化は、承認されていない個人によるメッセージの読み取りを防止できますが、その個人によるメッセージの改ざんを防止することはできません。 メッセージが改ざんされたことにより、そのメッセージが無意味な内容にすぎない場合であっても、実際にコストが発生する場合があります。 メッセージ認証コード (MAC) は、メッセージの改ざんを防止します。 ここでは、次のシナリオを例に説明します。
 
 -   ボブとアリスは秘密鍵を共有し、MAC 関数を使うことに同意しています。
 -   ボブはメッセージを作成し、そのメッセージと秘密鍵を MAC 関数に入力して MAC 値を取得します。
--   Bob の送信、\[暗号化されていない\]メッセージと、MAC、ネットワーク経由で alice 値します。
+-   Bob は、 \[ 暗号化され \] ていないメッセージと MAC 値をネットワーク経由で Alice に送信します。
 -   アリスは秘密鍵とメッセージを使って MAC 関数に入力します。 アリスは、生成された MAC 値とボブから受け取った MAC 値を比較します。 両者が同じものである場合、メッセージは転送中に変更されていません。
 
 ボブとアリスの通信を傍受する第三者のイブは、メッセージを効果的に操作できません。 イブは秘密キーにアクセスできないため、アリスに対して改ざんされたメッセージが本物であるかのように見せる MAC 値を作成することができません。
 
 メッセージ認証コードの作成によって保証されるのは、元のメッセージが改ざんされていないことと、共有の秘密鍵を使ったことから、その秘密鍵にアクセスできる人物によってメッセージ ハッシュへの署名が行われたことのみです。
 
-[  **MacAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.MacAlgorithmProvider) を使って、利用可能な MAC アルゴリズムを列挙して対称キーを生成することができます。 [  **CryptographicEngine**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスで静的メソッドを使って、MAC 値を作成する必要な暗号化を実行することができます。
+[**MacAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.MacAlgorithmProvider) を使って、利用可能な MAC アルゴリズムを列挙して対称キーを生成することができます。 [**CryptographicEngine**](/uwp/api/Windows.Security.Cryptography.Core.CryptographicEngine) クラスで静的メソッドを使って、MAC 値を作成する必要な暗号化を実行することができます。
 
 デジタル署名は、秘密キーによるメッセージ認証コード (MAC) と等価の公開キーのコードです。 MAC ではメッセージが転送中に改ざんされなかったことをメッセージの受信者が確認するのに秘密キーを使いますが、署名では秘密キーと公開キーのペアを使います。
 
-次のコード例は、[**MacAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.MacAlgorithmProvider) クラスを使ってハッシュ メッセージ認証コード (HMAC) を作成する方法を示しています。
+次のコード例は、[**MacAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.MacAlgorithmProvider) クラスを使ってハッシュ メッセージ認証コード (HMAC) を作成する方法を示しています。
 
 ```cs
 using Windows.Security.Cryptography;
@@ -125,23 +125,23 @@ namespace SampleMacAlgorithmProvider
 }
 ```
 
-## <a name="hashes"></a>Hashes
+## <a name="hashes"></a>ハッシュ
 
 
 暗号化ハッシュ関数は任意の長さのデータ ブロックを受け取り、固定ビット サイズの文字列を返します。 通常、ハッシュ関数はデータへの署名時に使われます。 多くの公開キー署名操作は負荷が高いため、通常は元のメッセージに署名 (暗号化) するよりもメッセージのハッシュに署名する方が効率的です。 次の手順では、一般的なシナリオを簡略化して説明します。
 
 -   ボブとアリスは秘密鍵を共有し、MAC 関数を使うことに同意しています。
 -   ボブはメッセージを作成し、そのメッセージと秘密鍵を MAC 関数に入力して MAC 値を取得します。
--   Bob の送信、\[暗号化されていない\]メッセージと、MAC、ネットワーク経由で alice 値します。
+-   Bob は、 \[ 暗号化され \] ていないメッセージと MAC 値をネットワーク経由で Alice に送信します。
 -   アリスは秘密鍵とメッセージを使って MAC 関数に入力します。 アリスは、生成された MAC 値とボブから受け取った MAC 値を比較します。 両者が同じものである場合、メッセージは転送中に変更されていません。
 
 アリスは暗号化されていないメッセージを送信したことに注目してください。 ハッシュが暗号化されただけです。 この手順によって保証されるのは、元のメッセージが改変されていないことと、アリスの公開キーが使われていることから、アリスの秘密キーにアクセスできるだれか、おそらくアリス本人によってメッセージのハッシュが署名されたことだけです。
 
-[  **HashAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.HashAlgorithmProvider) クラスを使って利用できるハッシュ アルゴリズムを列挙し、[**CryptographicHash**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) 値を作成することができます。
+[**HashAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.HashAlgorithmProvider) クラスを使って利用できるハッシュ アルゴリズムを列挙し、[**CryptographicHash**](/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) 値を作成することができます。
 
 デジタル署名は、秘密キーによるメッセージ認証コード (MAC) と等価の公開キーのコードです。 MAC ではメッセージが転送中に改変されなかったことをメッセージの受信者が確認するのに秘密キーを使いますが、署名では秘密キーと公開キーのペアを使います。
 
-[  **CryptographicHash**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) オブジェクトを使うと、その都度オブジェクトを作らなくても、異なるデータを繰り返しハッシュできます。 [  **Append**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographichash.append) メソッドは、ハッシュ対象のバッファーに、新しいデータを追加します。 [  **GetValueAndReset**](https://docs.microsoft.com/uwp/api/windows.security.cryptography.core.cryptographichash.getvalueandreset) メソッドは、データをハッシュし、次の使用のためにオブジェクトをリセットします。 この例を次に示します。
+[**CryptographicHash**](/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) オブジェクトを使うと、その都度オブジェクトを作らなくても、異なるデータを繰り返しハッシュできます。 [**Append**](/uwp/api/windows.security.cryptography.core.cryptographichash.append) メソッドは、ハッシュ対象のバッファーに、新しいデータを追加します。 [**GetValueAndReset**](/uwp/api/windows.security.cryptography.core.cryptographichash.getvalueandreset) メソッドは、データをハッシュし、次の使用のためにオブジェクトをリセットします。 この例を次に示します。
 
 ```cs
 public void SampleReusableHash()
@@ -191,4 +191,4 @@ public void SampleReusableHash()
 
 署名によって保証されるのは、元のメッセージが改変されていないことと、送信者の公開キーが使われていることから、秘密キーにアクセスできる人によってメッセージのハッシュが署名されたことだけです。
 
-[  **AsymmetricKeyAlgorithmProvider**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) オブジェクトを使って、利用できる署名アルゴリズムを列挙したり、キー ペアを生成またはインポートしたりできます。 [  **CryptographicHash**](https://docs.microsoft.com/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) クラスの静的メソッドを使って、メッセージに署名したり、署名を検証したりできます。
+[**AsymmetricKeyAlgorithmProvider**](/uwp/api/Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider) オブジェクトを使って、利用できる署名アルゴリズムを列挙したり、キー ペアを生成またはインポートしたりできます。 [**CryptographicHash**](/uwp/api/Windows.Security.Cryptography.Core.CryptographicHash) クラスの静的メソッドを使って、メッセージに署名したり、署名を検証したりできます。

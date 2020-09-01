@@ -13,12 +13,12 @@ design-contact: jeffarn
 dev-contact: ''
 doc-status: ''
 ms.localizationpriority: medium
-ms.openlocfilehash: 5aaa5b5a51ab2aea863fece8fb466f274a00ace3
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: c0b1ae069959e74239234ae5c9ba409fe7a65f23
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684248"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165976"
 ---
 # <a name="designing-for-mixed-reality"></a>Mixed Reality 向けの設計
 
@@ -26,7 +26,7 @@ Mixed Reality で適切に表示されるようにアプリを設計し、新し
 
 ## <a name="overview"></a>概要
 
-[Mixed Reality](https://developer.microsoft.com/windows/mixed-reality/mixed_reality) は現実世界とデジタル世界を組み合わせたものです。 Mixed Reality のさまざまなエクスペリエンスには、HoloLens (コンピューターで生成されたコンテンツと現実世界を組み合わせるデバイス) など、1 つの優れたデバイスによるものと、他の Virtual Reality の完全なイマーシブ ビュー (Windows Mixed Reality ヘッドセットに表示される) によるものが含まれます。 さまざまなエクスペリエンスの例については、「[Mixed Reality アプリの種類](https://developer.microsoft.com/windows/mixed-reality/types_of_mixed_reality_apps)」をご覧ください。
+[Mixed Reality](https://developer.microsoft.com/windows/mixed-reality/mixed_reality) は、物理的な世界とデジタルの世界をブレンドした結果です。 Mixed Reality のさまざまなエクスペリエンスには、HoloLens (コンピューターで生成されたコンテンツと現実世界を組み合わせるデバイス) など、1 つの優れたデバイスによるものと、他の Virtual Reality の完全なイマーシブ ビュー (Windows Mixed Reality ヘッドセットに表示される) によるものが含まれます。 さまざまなエクスペリエンスの例については、「[Mixed Reality アプリの種類](https://developer.microsoft.com/windows/mixed-reality/types_of_mixed_reality_apps)」をご覧ください。
 
 このトピックのいくつかのガイダンスを実行してユーザー エクスペリエンスを改善しますが、既存のほぼすべての UWP アプリは、変更しなくても Mixed Reality 環境で 2D アプリとして実行されます。
 
@@ -36,11 +36,11 @@ HoloLens と Windows Mixed Reality ヘッドセットの両方が UWP プラッ�
 
 ### <a name="2d-vs-immersive-experience"></a>2D とイマーシブ エクスペリエンス
 
-イマーシブ アプリはユーザーに表示される画面全体を制御し、アプリによって作成されるビューの中央にユーザーが配置されます。 たとえば、イマーシブなゲームでは、エイリアンの惑星の地表にユーザーが配置されたり、ツアー ガイド アプリでは、南アメリカの村にユーザーが配置されることもあります。 イマーシブ アプリを作成するには、3 D グラフィックスまたはキャプチャした立体映像が必要です。 多くの場合、Unity や DirectX など、サード パーティのゲーム エンジンを使用してイマーシブ アプリを開発します。
+イマーシブ アプリはユーザーに表示される画面全体を制御し、アプリによって作成されるビューの中央にユーザーが配置されます。 たとえば、イマーシブなゲームでは、エイリアンの惑星の地表にユーザーが配置されたり、ツアー ガイド アプリでは、南米の村にユーザーが配置されることもあります。 イマーシブ アプリを作成するには、3 D グラフィックスまたはキャプチャした立体映像が必要です。 多くの場合、Unity や DirectX など、サード パーティのゲーム エンジンを使用してイマーシブ アプリを開発します。
 
 イマーシブ アプリを作成する場合、詳細については、[Windows Mixed Reality デベロッパー センター](https://developer.microsoft.com/mixed-reality) を参照してください。
 
-2D アプリは、ユーザーのビュー内で従来のフラット ウィンドウとして実行します。 HoloLens では、ユーザー独自の現実世界でリビング ルームやオフィスの空間内にある壁またはポイントに固定されたビューを指します。 Windows Mixed Reality ヘッドセットで、アプリは [Mixed Reality ホーム](https://docs.microsoft.com/windows/mixed-reality/enthusiast-guide/your-mixed-reality-home) (*クリフ ハウス*とも呼ばれる) の壁に固定されます。
+2D アプリは、ユーザーのビュー内で従来のフラット ウィンドウとして実行します。 HoloLens では、ユーザー独自の現実世界でリビング ルームやオフィスの空間内にある壁またはポイントに固定されたビューを指します。 Windows Mixed Reality ヘッドセットで、アプリは [Mixed Reality ホーム](/windows/mixed-reality/enthusiast-guide/your-mixed-reality-home) (*クリフ ハウス*とも呼ばれる) の壁に固定されます。
 
 ![Mixed Reality で実行される複数のアプリ](images/MR-multiple.png)
 
@@ -70,7 +70,7 @@ HoloLens と Mixed Reality の両方のプラットフォームでは、キー�
 
 重要なことは、UWP プラットフォーム上で実行することで、自分でコーディングを追加しなくても、これらすべての操作が自動的に行われる点です。 HoloLens と Mixed Reality ヘッドセットからの入力は、タッチ入力として 2D アプリに表示されます。 つまり、既定では、多くの UWP アプリを実行し、Mixed Reality で使用することができます。 
 
-ただし、作業を少し追加すると、エクスペリエンスを大幅に向上できます。 たとえば、[音声コントロール](https://developer.microsoft.com/windows/mixed-reality/voice_design)は特に有効です。 HoloLens と Mixed Reality の両方の環境でアプリの起動と操作の音声コマンドがサポートされており、音声サポートなどはこの方法の一般的な拡張機能として表示されます。 音声サポートを UWP アプリに追加する際の詳細については、「[音声操作]( https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)」をご覧ください。 
+ただし、作業を少し追加すると、エクスペリエンスを大幅に向上できます。 たとえば、[音声コントロール](https://developer.microsoft.com/windows/mixed-reality/voice_design)は特に有効です。 HoloLens と Mixed Reality の両方の環境でアプリの起動と操作の音声コマンドがサポートされており、音声サポートなどはこの方法の一般的な拡張機能として表示されます。 音声サポートを UWP アプリに追加する際の詳細については、「[音声操作]( ../input/speech-interactions.md)」をご覧ください。 
 
 
 ### <a name="selecting-the-right-controller"></a>適切なコントローラーの選択
@@ -82,7 +82,7 @@ Mixed Reality 専用のいくつかの新しい入力方法が設計されまし
 * [ハンド ジェスチャ](https://developer.microsoft.com/windows/mixed-reality/gestures) (HoloLens のみ、2D アプリの起動専用)
 * [ゲームパッド サポート](https://developer.microsoft.com/windows/mixed-reality/hardware_accessories) (両方の環境)
 * [クリッカー デバイス](https://developer.microsoft.com/windows/mixed-reality/hardware_accessories) (HoloLens のみ)
-* [モーション コントローラー](https://docs.microsoft.com/windows/mixed-reality/motion-controllers) (Mixed Reality デバイスのみ、上述のとおり)
+* [モーション コントローラー](/windows/mixed-reality/motion-controllers) (Mixed Reality デバイスのみ、上述のとおり)
 
 これらのコントローラーにより、仮想オブジェクトの操作が自然かつ正確になります。 いくつかの操作は無料で利用できます。 たとえば、HoloLens を選択するジェスチャや、モーションコントローラーの Windows キーまたはトリガーをクリックすると、必要な入力応答が再び生成されます。コードを記述する必要はありません。
 
@@ -98,7 +98,7 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 
 * モーション コントローラー、ゲームパッド、またはジェスチャを使用すると、ドラッグ アンド ドロップが適切に動作しない場合があります。 ドラッグ アンド ドロップを頻繁に使用するアプリケーションの場合は、オブジェクトを新しい場所に移動するかどうかを確認するダイアログを表示するなど、この操作をサポートする代替方法を提供する必要があります。
 
-* 音の変化に注意してください。 アプリでサウンド エフェクトを生成する場合、音源はアプリの仮想世界で固定された場所に表示されます。 ユーザーがアプリから離れると、音が消えます。 詳しくは、「[立体音響](https://docs.microsoft.com/windows/mixed-reality/spatial-sound)」をご覧ください。
+* 音の変化に注意してください。 アプリでサウンド エフェクトを生成する場合、音源はアプリの仮想世界で固定された場所に表示されます。 ユーザーがアプリから離れると、音が消えます。 詳しくは、「[立体音響](/windows/mixed-reality/spatial-sound)」をご覧ください。
 
 * 視野を考慮して、アフォーダンスを用意します。 すべてのデバイスでコンピューター モニターと同じ大きさの視野が用意されるわけではありません。 詳しくは、「[ホログラフィック フレーム](https://developer.microsoft.com/windows/mixed-reality/holographic_frame)」をご覧ください。 さらに、ユーザーが実行中のアプリから離れている場合があります。 つまり、アプリが現実世界または仮想世界の異なる場所にある壁に固定されている場合があります。 ユーザーの注意を引く必要があったり、ビューが常に表示されていないことを考慮する必要があります。 トースト通知は使用できますが、音または[音声](https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/SpeechRecognitionAndSynthesis/cs/Scenario_SynthesizeText.xaml.cs) アラートを使用してユーザーの注意を引く別の方法もあります。
 
@@ -107,7 +107,7 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 
 ## <a name="2d-app-design-considerations-uiux"></a>2D アプリ設計の考慮事項: UI/UX
 
-* [ナビゲーション ビュー](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview) などの[Fluent Design System](https://docs.microsoft.com/windows/uwp/design/fluent-design-system/) を実装する XAML コントロールと [アクリル](https://docs.microsoft.com/windows/uwp/design/style/acrylic) などのエフェクトはすべて、2D Mixed Reality アプリに特化して適切に動作します。
+* [ナビゲーション ビュー](../controls-and-patterns/navigationview.md) などの[Fluent Design System](/windows/uwp/design/fluent-design-system/) を実装する XAML コントロールと [アクリル](../style/acrylic.md) などのエフェクトはすべて、2D Mixed Reality アプリに特化して適切に動作します。
 
 * Mixed Reality デバイス、または少なくとも Mixed Reality シミュレーターでアプリのテキストとウィンドウのサイズをテストします。 アプリの既定のウィンドウ サイズは 853 x 480 有効ピクセルです。 フォント サイズを大きくし (推奨ポイント サイズは約 32)、「[Hololens 用の既存のユニバーサル アプリを更新する](https://developer.microsoft.com/windows/mixed-reality/updating_your_existing_universal_app_for_hololens)」を確認します。 記事「[文字体裁](https://developer.microsoft.com/windows/mixed-reality/typography)」では、このトピックの詳細について説明しています。 Visual Studio で作業する場合は、57 インチ HoloLens 2D アプリ用に設定された XAML 設計エディターがあるため、正しいスケールと寸法のビューが表示されます。 
 
@@ -115,7 +115,7 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 
 * [視線がマウスになります](https://developer.microsoft.com/windows/mixed-reality/gaze_targeting)。 ユーザーが何かを見ると、**タッチ ホバー** イベントとして動作するため、オブジェクトを見るだけで、不要なホップアップが表示されたり、他の不要な操作が実行される場合があります。 アプリが Mixed Reality で現在実行されているかどうかを検出し、この動作の変更が必要になる場合があります。 下記の「**ランタイム サポート**」のご覧ください。 
 
-* ユーザーがモーション コントローラーを使用してどこかの方向やポイントを見ると、**タッチ ホバー** イベントが発生します。 これは **[PointerPoint]** で構成されます。この場合、 **[PointerType]** は **[Touch]** 、 **[IsInContact]** は **[false]** です。 何かが確定すると (たとえば、ゲームパッドの A ボタンが押された場合、クリッカー デバイスが押された場合、モーション コントローラーのトリガーが押された場合、または音声認識で 選択 を選んだ場合)、**PointerPoint** の **IsInContact** が **true** となり、**タッチ プレス**が発生します。 入力イベントの詳細については、「[タッチ操作](https://docs.microsoft.com/windows/uwp/design/input/touch-interactions)」をご覧ください。
+* ユーザーがモーション コントローラーを使用してどこかの方向やポイントを見ると、**タッチ ホバー** イベントが発生します。 これは [**PointerPoint**] で構成されます。この場合、[**PointerType**] は [**Touch**]、[**IsInContact**] は [**false**] です。 何かが確定すると (たとえば、ゲームパッドの A ボタンが押された場合、クリッカー デバイスが押された場合、モーション コントローラーのトリガーが押された場合、または音声認識で [選択] を選んだ場合)、[**PointerPoint**] の [**IsInContact**] が [**true**] となり、**タッチ プレス**が発生します。 入力イベントの詳細については、「[タッチ操作](../input/touch-interactions.md)」をご覧ください。
 
 * 視線はマウス ポインターほど正確でありません。 マウス ターゲットまたはボタンが小さくなるほど、ユーザーには不便になるため、コントロールのサイズを適切に変更します。 タッチ操作用に設計した場合は、Mixed Reality で動作しますが、実行時にいくつかのボタンを大きくすることもあります。 「[Hololens 用の既存のユニバーサル アプリを更新する](https://developer.microsoft.com/windows/mixed-reality/updating_your_existing_universal_app_for_hololens)」をご覧ください。
 
@@ -126,7 +126,7 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 
 ## <a name="other-points-to-consider"></a>他に考慮する点
 
-* [デスクトップ ブリッジ](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root) により、既存の (Win32) デスクトップ アプリを Windows 10 および Microsoft Store に移植できますが、現時点で HoloLens または Mixed Reality で実行できるアプリを作成することはできません。
+* [デスクトップ ブリッジ](/windows/msix/desktop/source-code-overview) により、既存の (Win32) デスクトップ アプリを Windows 10 および Microsoft Store に移植できますが、現時点で HoloLens または Mixed Reality で実行できるアプリを作成することはできません。
 
 
 
@@ -163,9 +163,7 @@ bool isViewingInMR = Windows.ApplicationModel.Preview.Holographic.HolographicApp
 ## <a name="related-articles"></a>関連記事
 
 
-* [シェルの Api を使用するアプリの現在の制限事項](https://developer.microsoft.com/windows/mixed-reality/current_limitations_for_apps_using_apis_from_the_shell)
-* [2D アプリの構築](https://developer.microsoft.com/windows/mixed-reality/building_2d_apps)
-* [HoloLens: Microsoft HoloLens 用の UWP 2D アプリの構築](https://channel9.msdn.com/Events/Build/2016/B854)
-* [条件付き XAML](https://docs.microsoft.com/windows/uwp/debug-test-perf/conditional-xaml)
-
-
+* [シェルから API を使用するアプリの現在の制限事項](https://developer.microsoft.com/windows/mixed-reality/current_limitations_for_apps_using_apis_from_the_shell)
+* [2D アプリのビルド](https://developer.microsoft.com/windows/mixed-reality/building_2d_apps)
+* [HoloLens: Microsoft HoloLens 用の UWP 2D アプリのビルド](https://channel9.msdn.com/Events/Build/2016/B854)
+* [条件付き XAML](../../debug-test-perf/conditional-xaml.md)

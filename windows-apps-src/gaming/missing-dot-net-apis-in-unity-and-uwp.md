@@ -6,12 +6,12 @@ ms.date: 02/21/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、.NET、Unity
 ms.localizationpriority: medium
-ms.openlocfilehash: 8c7f906a19ddbabea85b0426aca9e41a62327e36
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: dcacb227205c0049cfc3467c9906784b0b55728f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82729806"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165236"
 ---
 # <a name="missing-net-apis-in-unity-and-uwp"></a>Unity や UWP で不足している .NET API
 
@@ -19,15 +19,15 @@ ms.locfileid: "82729806"
 
 さらに、Unity の Mono など一部のゲーム エンジンは、UWP 用の .NET とは完全な互換性のない別の種類の .NET を使用しています。 したがって、ゲームを作成する際に、エディターでは問題なく動作しても、UWP 用にビルドすると、"**型または名前空間の名前 'Formatters' は名前空間 'System.Runtime.Serialization' に存在しません (アセンブリ参照があることを確認してください)**" というエラーが出力される可能性があります。
 
-幸いなことに、Unity では、これらの不足している API の一部を拡張メソッドや置換型として提供しています。詳しくは、[ユニバーサル Windows プラットフォームの .NET Scripting Backend で不足している .NET 型に関するページ](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)をご覧ください。 ただし、必要な機能がここで使用されていない場合は、 [.net For Windows 8.x アプリの概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))では、コードを変換して Windows ランタイム Api で WinRT または .net を使用する方法について説明します。 (このページでは、Windows 8 について説明していますが、Windows 10 の UWP アプリにも適用できます)。
+幸いなことに、Unity では、これらの不足している API の一部を拡張メソッドや置換型として提供しています。詳しくは、[ユニバーサル Windows プラットフォームの .NET Scripting Backend で不足している .NET 型に関するページ](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)をご覧ください。 ただし、必要な機能がここで使用されていない場合は、 [.net For Windows 8.x アプリの概要](/previous-versions/windows/apps/br230302(v=vs.140)) では、コードを変換して Windows ランタイム Api で WinRT または .net を使用する方法について説明します。 (このページでは、Windows 8 について説明していますが、Windows 10 の UWP アプリにも適用できます)。
 
 ## <a name="net-standard"></a>.NET Standard
 
-一部の API が動作しない理由を理解するには、.NET のさまざまな種類と、UWP での .NET の実装方法を理解しておく必要があります。 [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) は、クロスプラットフォームに対応し、さまざまな種類の .NET を統一することを目的とした、.NET API の正式な仕様です。 .NET の各実装では、特定のバージョンの .NET Standard をサポートしています。 標準や実装の一覧表については、「[.NET 実装のサポート](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support)」をご覧ください。
+一部の API が動作しない理由を理解するには、.NET のさまざまな種類と、UWP での .NET の実装方法を理解しておく必要があります。 [.NET Standard](/dotnet/standard/net-standard) は、クロスプラットフォームに対応し、さまざまな種類の .NET を統一することを目的とした、.NET API の正式な仕様です。 .NET の各実装では、特定のバージョンの .NET Standard をサポートしています。 標準や実装の一覧表については、「[.NET 実装のサポート](/dotnet/standard/net-standard#net-implementation-support)」をご覧ください。
 
 UWP SDK の各バージョンは、.NET Standard のさまざまなレベルに準拠しています。 たとえば、16299 SDK (Fall Creators Update) では、.NET Standard 2.0 をサポートしています。
 
-ターゲットにしている UWP バージョンで特定の .NET API がサポートされるかどうかを確認する場合は、[.NET Standard API リファレンス](https://docs.microsoft.com/dotnet/api/index?view=netstandard-2.0)を参照して、そのバージョンの UWP でサポートされている .NET Standard のバージョンを選択します。
+ターゲットにしている UWP バージョンで特定の .NET API がサポートされるかどうかを確認する場合は、[.NET Standard API リファレンス](/dotnet/api/index?view=netstandard-2.0)を参照して、そのバージョンの UWP でサポートされている .NET Standard のバージョンを選択します。
 
 ## <a name="scripting-backend-configuration"></a>スクリプト バックエンドの構成
 
@@ -35,7 +35,7 @@ UWP のビルドで問題が発生した場合に最初に行うことは、**[P
 
 **[Scripting Runtime Version] (スクリプト ランタイム バージョン)** は、Unity スクリプト バックエンドが使用するもので、選択した .NET Framework サポートと (ほぼ) 同等のバージョンを取得できます。 ただし、そのバージョンの .NET Framework のすべての API がサポートされるわけではない点に注意してください。UWP がターゲットにしている .NET Standard のバージョンでサポートされている API のみがサポートされます。
 
-新しい .NET リリースでは、通常、より多くの API が .NET Standard に追加され、スタンドアロンと UWP で同じコードを使用できるようになっている場合があります。 たとえば、[System.Runtime.Serialization.Json](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.json) 名前空間は .NET Standard 2.0 で導入されました。 **[Scripting Runtime Version] (スクリプト ランタイム バージョン)** を **[.NET 3.5 Equivalent] (.NET 3.5 相当)** (以前のバージョンの .NET Standard をターゲットにする) に設定した場合、API を使用しようとしたときにエラーが表示されます。**[.NET 4.6 Equivalent] (.NET 4.6 相当)** (.NET Standard 2.0 をサポートする) に切り替えると、API は動作します。
+新しい .NET リリースでは、通常、より多くの API が .NET Standard に追加され、スタンドアロンと UWP で同じコードを使用できるようになっている場合があります。 たとえば、[System.Runtime.Serialization.Json](/dotnet/api/system.runtime.serialization.json) 名前空間は .NET Standard 2.0 で導入されました。 **[Scripting Runtime Version] (スクリプト ランタイム バージョン)** を **[.NET 3.5 Equivalent] (.NET 3.5 相当)** (以前のバージョンの .NET Standard をターゲットにする) に設定した場合、API を使用しようとしたときにエラーが表示されます。**[.NET 4.6 Equivalent] (.NET 4.6 相当)** (.NET Standard 2.0 をサポートする) に切り替えると、API は動作します。
 
 **[Scripting Backend] (スクリプト バックエンド)** は、**[.NET]** または **[IL2CPP]** に設定できます。 このトピックでは、.NET で発生する問題について説明しているため、**[.NET]** を選択していることを想定しています。 詳細については、[スクリプト バックエンドに関するページ](https://docs.unity3d.com/Manual/windowsstore-scriptingbackends.html)をご覧ください。
 
@@ -60,7 +60,7 @@ UWP アプリとして実行する場合にのみコードをコンパイルす�
 ```
 
 > [!NOTE]
-> `NETFX_CORE`は、.NET スクリプトバックエンドに対して C# コードをコンパイルしているかどうかを確認することのみを目的としています。 IL2CPP など、別のスクリプトバックエンドを使用している場合[`ENABLE_WINMD_SUPPORT`](https://docs.unity3d.com/Manual/windowsstore-code-snippets.html)は、代わりにを使用します。
+> `NETFX_CORE` は、.NET スクリプトバックエンドに対して C# コードをコンパイルしているかどうかを確認することのみを目的としています。 IL2CPP など、別のスクリプトバックエンドを使用している場合は、代わりにを使用 [`ENABLE_WINMD_SUPPORT`](https://docs.unity3d.com/Manual/windowsstore-code-snippets.html) します。
 
 プラットフォーム依存のコンパイル ディレクティブの一覧については、[プラットフォーム依存のコンパイルに関するページ](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html)をご覧ください。
 
@@ -70,7 +70,7 @@ UWP アプリとして実行する場合にのみコードをコンパイルす�
 
 ### <a name="data-serialization-using-binaryformatter"></a>BinaryFormatter を使用したデータのシリアル化
 
-ゲームでは、プレイヤーが簡単に操作ができないように、セーブ データをシリアル化するのが一般的です。 ただし、オブジェクトをバイナリにシリアル化する [BinaryFormatter](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter) は、.NET Standard の以前のバージョン (2.0 よりも前) では使用できません。 代わりに、[XmlSerializer](https://docs.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer) または [DataContractJsonSerializer](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.json.datacontractjsonserializer) を使用することを検討してください。
+ゲームでは、プレイヤーが簡単に操作ができないように、セーブ データをシリアル化するのが一般的です。 ただし、オブジェクトをバイナリにシリアル化する [BinaryFormatter](/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter) は、.NET Standard の以前のバージョン (2.0 よりも前) では使用できません。 代わりに、[XmlSerializer](/dotnet/api/system.xml.serialization.xmlserializer) または [DataContractJsonSerializer](/dotnet/api/system.runtime.serialization.json.datacontractjsonserializer) を使用することを検討してください。
 
 ```csharp
 private void Save()
@@ -90,15 +90,15 @@ private void Save()
 
 ### <a name="io-operations"></a>I/O 操作
 
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) 名前空間の一部の型 ([FileStream](https://docs.microsoft.com/dotnet/api/system.io.filestream) など) は、以前のバージョンの .NET Standard では使用できません。 ただし、Unity では、[Directory](https://docs.microsoft.com/dotnet/api/system.io.directory)、[File](https://docs.microsoft.com/dotnet/api/system.io.file)、および **FileStream** 型を提供しているため、ゲームでこれらを使用できます。
+[System.IO](/dotnet/api/system.io) 名前空間の一部の型 ([FileStream](/dotnet/api/system.io.filestream) など) は、以前のバージョンの .NET Standard では使用できません。 ただし、Unity では、[Directory](/dotnet/api/system.io.directory)、[File](/dotnet/api/system.io.file)、および **FileStream** 型を提供しているため、ゲームでこれらを使用できます。
 
-また、UWP アプリでのみ利用できる [Windows.Storage](https://docs.microsoft.com/uwp/api/Windows.Storage) API を使用することもできます。 ただし、これらの API では、アプリの書き込みは特定の記憶域に制限され、ファイル システム全体に自由にアクセスすることはできません。 詳しくは、「[ファイル、フォルダー、およびライブラリ](https://docs.microsoft.com/windows/uwp/files/)」をご覧ください。
+また、UWP アプリでのみ利用できる [Windows.Storage](/uwp/api/Windows.Storage) API を使用することもできます。 ただし、これらの API では、アプリの書き込みは特定の記憶域に制限され、ファイル システム全体に自由にアクセスすることはできません。 詳しくは、「[ファイル、フォルダー、およびライブラリ](../files/index.md)」をご覧ください。
 
-重要な注意事項は、[Close](https://docs.microsoft.com/dotnet/api/system.io.stream.close) メソッドは、.NET Standard 2.0 以降でのみ利用できることです (ただし、Unity は拡張メソッドを提供しています)。 代わりに、[Dispose](https://docs.microsoft.com/dotnet/api/system.io.stream.dispose) を使用します。
+重要な注意事項は、[Close](/dotnet/api/system.io.stream.close) メソッドは、.NET Standard 2.0 以降でのみ利用できることです (ただし、Unity は拡張メソッドを提供しています)。 代わりに、[Dispose](/dotnet/api/system.io.stream.dispose) を使用します。
 
-### <a name="threading"></a>スレッド
+### <a name="threading"></a>スレッド処理
 
-[System.Threading](https://docs.microsoft.com/dotnet/api/system.threading) 名前空間の一部の型 ([ThreadPool](https://docs.microsoft.com/dotnet/api/system.threading.threadpool) など) は、以前のバージョンの .NET Standard では使用できません。 このような場合は、代わりに [Windows.System.Threading](https://docs.microsoft.com/uwp/api/windows.system.threading) 名前空間を使用できます。
+[System.Threading](/dotnet/api/system.threading) 名前空間の一部の型 ([ThreadPool](/dotnet/api/system.threading.threadpool) など) は、以前のバージョンの .NET Standard では使用できません。 このような場合は、代わりに [Windows.System.Threading](/uwp/api/windows.system.threading) 名前空間を使用できます。
 
 以下に、プラットフォーム依存のコンパイルを使用し、UWP と UWP 以外の両方のプラットフォーム用に準備して、Unity ゲームでスレッド化を処理する方法を示します。
 
@@ -113,9 +113,9 @@ private void UsingThreads()
 }
 ```
 
-### <a name="security"></a>Security
+### <a name="security"></a>セキュリティ
 
-**System.Security.*** 名前空間の一部 ([System.Security.Cryptography.X509Certificates](https://docs.microsoft.com/dotnet/api/system.security.cryptography.x509certificates?view=netstandard-2.0) など) は、UWP 用に Unity ゲームを構築する場合は利用できません。 このような場合は、同じ機能の多くをカバーしている **Windows.Security.*** API を使用します。
+**System.Security.*** 名前空間の一部 ([System.Security.Cryptography.X509Certificates](/dotnet/api/system.security.cryptography.x509certificates?view=netstandard-2.0) など) は、UWP 用に Unity ゲームを構築する場合は利用できません。 このような場合は、同じ機能の多くをカバーしている **Windows.Security.*** API を使用します。
 
 次の例では、指定した名前の証明書ストアからの証明書だけを取得します。
 
@@ -134,16 +134,16 @@ private async void GetCertificatesAsync(string certStoreName)
     }
 ```
 
-WinRT セキュリティ API の使用方法の詳細については、「[セキュリティ](https://docs.microsoft.com/windows/uwp/security/)」を参照してください。
+WinRT セキュリティ API の使用方法の詳細については、「[セキュリティ](../security/index.md)」を参照してください。
 
 ### <a name="networking"></a>ネットワーク
 
-**System&period;Net.*** 名前空間の一部 ([System.Net.Mail](https://docs.microsoft.com/dotnet/api/system.net.mail?view=netstandard-2.0) など) も、UWP 用に Unity ゲームを構築する場合は利用できません。 これらの API のほとんどについては、対応する **Windows.Networking.*** と **Windows.Web.*** WinRT API を使用して同様の機能を実現できます。 詳細については、「[ネットワークと Web サービス](https://docs.microsoft.com/windows/uwp/networking/)」を参照してください。
+**System&period;Net.*** 名前空間の一部 ([System.Net.Mail](/dotnet/api/system.net.mail?view=netstandard-2.0) など) も、UWP 用に Unity ゲームを構築する場合は利用できません。 これらの API のほとんどについては、対応する **Windows.Networking.*** と **Windows.Web.*** WinRT API を使用して同様の機能を実現できます。 詳細については、「[ネットワークと Web サービス](../networking/index.md)」を参照してください。
 
-**System.Net.Mail** の場合は、[Windows.ApplicationModel.Email](https://docs.microsoft.com/uwp/api/windows.applicationmodel.email) 名前空間を使用します。 詳細については、「[メールの送信](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/sending-email)」を参照してください。
+**System.Net.Mail** の場合は、[Windows.ApplicationModel.Email](/uwp/api/windows.applicationmodel.email) 名前空間を使用します。 詳細については、「[メールの送信](../contacts-and-calendar/sending-email.md)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 
 * [ユニバーサル Windows プラットフォーム: .NET Scripting Backend で不足している .NET 型](https://docs.unity3d.com/Manual/windowsstore-missingtypes.html)
-* [UWP アプリ用の .NET の概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))
+* [UWP アプリ用の .NET の概要](/previous-versions/windows/apps/br230302(v=vs.140))
 * [Unity UWP 移植ガイド](https://unity3d.com/partners/microsoft/porting-guides)

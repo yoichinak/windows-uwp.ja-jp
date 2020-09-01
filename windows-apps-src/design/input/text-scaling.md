@@ -8,12 +8,12 @@ ms.date: 08/02/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 4db3af0d2ec0ce1dbd0866f569ad9bf9b0392aa8
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 386920532f4598ee2d1519d292454b47c285555b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970567"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165836"
 ---
 # <a name="text-scaling"></a>テキストの拡大縮小
 
@@ -36,7 +36,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 
 <!-- If you want to support text scaling in your application with these frameworks, you’ll need to support the text scaling change event outlined below and provide alternative sizes for your UI and content.   -->
 
-## <a name="user-experience"></a>ユーザー側の表示と操作
+## <a name="user-experience"></a>ユーザー エクスペリエンス
 
 ユーザーは、[設定] の [画面のサイズを大きくする] スライダーを使用してテキストのスケールを調整できます。 > > の視覚/表示画面が表示されます。
 
@@ -100,7 +100,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 
 コントロールに絶対サイズを指定しないでください。 可能な場合は常に、ユーザーとデバイスの設定に基づいて、プラットフォームのサイズを自動的に変更します。  
 
-前の例のこのスニペットでは、一連の`Auto`グリッド`*`列にと幅の値を使用して、グリッド内に含まれる要素のサイズに基づいて、プラットフォームでアプリのレイアウトを調整できるようにします。
+前の例のこのスニペットでは、一連の `Auto` `*` グリッド列にと幅の値を使用して、グリッド内に含まれる要素のサイズに基づいて、プラットフォームでアプリのレイアウトを調整できるようにします。
 
 ``` xaml
 <Grid.ColumnDefinitions>
@@ -116,7 +116,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 
 テキストの折り返しを指定しない場合は、他の方法でクリップ (前の例を参照) を含むレイアウトが調整されます。
 
-ここでは、と`AcceptsReturn` `TextWrapping`のテキストボックスプロパティを使用して、レイアウトが可能な限り柔軟になるようにします。
+ここでは、とのテキストボックスプロパティを使用して、 `AcceptsReturn` `TextWrapping` レイアウトが可能な限り柔軟になるようにします。
 
 ``` xaml
 <TextBox PlaceholderText="Type something here" 
@@ -133,7 +133,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 > [!NOTE]
 > テキストをクリップする必要がある場合は、先頭ではなく文字列の末尾をクリップします。
 
-この例では、 [Texttrimming](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.texttrimming)プロパティを使用して TextBlock 内のテキストをクリップする方法を示します。
+この例では、 [Texttrimming](/uwp/api/windows.ui.xaml.controls.textblock.texttrimming) プロパティを使用して TextBlock 内のテキストをクリップする方法を示します。
 
 ``` xaml
 <TextBlock TextTrimming="Clip">
@@ -163,11 +163,11 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 
 フォントベースのアイコンを強調または装飾に使用する場合は、これらの文字の拡大/縮小を無効にします。
 
-ほとんどの XAML コントロールで、 [Istextscalefactorenabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.istextscalefactorenabled)プロパティをに`false`設定します。
+ほとんどの XAML コントロールで、 [Istextscalefactorenabled](/uwp/api/windows.ui.xaml.controls.control.istextscalefactorenabled) プロパティをに設定し `false` ます。
 
 ### <a name="support-text-scaling-natively"></a>テキストスケーリングのネイティブサポート
 
-カスタムフレームワークとコントロールで[Textscalefactorchanged](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.textscalefactorchanged) uisettings システムイベントを処理します。 このイベントは、ユーザーがシステムでテキストの拡大率を設定するたびに発生します。
+カスタムフレームワークとコントロールで [Textscalefactorchanged](/uwp/api/windows.ui.viewmanagement.uisettings.textscalefactorchanged) uisettings システムイベントを処理します。 このイベントは、ユーザーがシステムでテキストの拡大率を設定するたびに発生します。
 
 ## <a name="summary"></a>まとめ
 
@@ -177,5 +177,5 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 
 ### <a name="api-reference"></a>API リファレンス
 
-- [IsTextScaleFactorEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.istextscalefactorenabled)
-- [TextScaleFactorChanged](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.textscalefactorchanged)
+- [IsTextScaleFactorEnabled](/uwp/api/windows.ui.xaml.controls.control.istextscalefactorenabled)
+- [TextScaleFactorChanged](/uwp/api/windows.ui.viewmanagement.uisettings.textscalefactorchanged)

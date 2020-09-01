@@ -7,30 +7,30 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 50c8fa623130412688f14307fa46540c81f38554
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 5f53ebf6a7326bd9e6a99272c01d9eeb5c03f580
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370484"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165076"
 ---
 # <a name="bc6h-format"></a>BC6H 形式
 
 
 BC6H 形式は、ソース データのハイ ダイナミック レンジ (HDR) 色空間をサポートするように設計されたテクスチャ圧縮形式です。
 
-## <a name="span-idabout-bc6h-dxgi-format-bc6hspanspan-idabout-bc6h-dxgi-format-bc6hspanspan-idabout-bc6h-dxgi-format-bc6hspanabout-bc6hdxgiformatbc6h"></a><span id="About-BC6H-DXGI-FORMAT-BC6H"></span><span id="about-bc6h-dxgi-format-bc6h"></span><span id="ABOUT-BC6H-DXGI-FORMAT-BC6H"></span>BC6H/DXGI について\_形式\_BC6H
+## <a name="span-idabout-bc6h-dxgi-format-bc6hspanspan-idabout-bc6h-dxgi-format-bc6hspanspan-idabout-bc6h-dxgi-format-bc6hspanabout-bc6hdxgi_format_bc6h"></a><span id="About-BC6H-DXGI-FORMAT-BC6H"></span><span id="about-bc6h-dxgi-format-bc6h"></span><span id="ABOUT-BC6H-DXGI-FORMAT-BC6H"></span>BC6H/DXGI \_ 形式の BC6H について \_
 
 
 BC6H 形式は、3 つの HDR カラー チャネルを使用した画像に、高品質の圧縮を提供します。各カラー チャネルに (16:16:16) の 16 ビット値を使用します。 アルファ チャネルはサポートされません。
 
-次の DXGI によって BC6H が指定された\_列挙値の書式設定。
+BC6H は、次の DXGI 形式の列挙値によって指定され \_ ます。
 
--   **DXGI\_形式\_BC6H\_TYPELESS**します。
--   **DXGI\_形式\_BC6H\_UF16**します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用しません。
--   **DXGI\_形式\_BC6H\_SF16**します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用します。
+-   **DXGI \_\_BC6H \_ の形式を指定**しないでください。
+-   **DXGI \_\_BC6H \_ UF16 の書式を設定**します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用しません。
+-   **DXGI \_\_BC6H \_ SF16 の書式を設定**します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用します。
 
-**注**   16 ビットの浮動小数点形式のカラー チャネルには多くの場合、呼ば「半分」浮動小数点の書式。 この形式には、次のビット レイアウトがあります。
+**メモ**   カラーチャネルの16ビット浮動小数点形式は、"ハーフ" 浮動小数点形式と呼ばれることがよくあります。 この形式には、次のビット レイアウトがあります。
 |                       |                                                 |
 |-----------------------|-------------------------------------------------|
 | UF16 (符号なし浮動小数点) | 5 指数ビット + 11 仮数ビット              |
@@ -40,18 +40,18 @@ BC6H 形式は、3 つの HDR カラー チャネルを使用した画像に、�
 
  
 
-BC6H 形式は、[Texture2D](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
+BC6H 形式は、[Texture2D](/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
 
 BC6H は、16バイト (128 ビット) の固定ブロックサイズと 4 × 4 テクセルの固定タイル サイズを使用します。 以前の BC 形式と同様に、サポートされるタイル サイズ (4 x 4) よりも大きなテクスチャ画像は、複数のブロックを使用して圧縮されます。 このアドレス指定 ID は、3 次元画像とミップマップ、キューブマップ、テクスチャ配列にも適用されます。 すべての画像タイルは同じ形式でなければなりません。
 
 BC6H 形式の注意事項:
 
--   BC6H は浮動小数点非正規化数をサポートしていますが、INF (無限大) と NaN (非数) をサポートしていません。 例外は BC6H の符号付きのモード (DXGI\_形式\_BC6H\_SF16)、INF (負の無限大) をサポートしています。 この -INF のサポートは、形式そのものの結果に過ぎず、この形式のエンコーダーでは特にサポートされていません。 一般に、エンコーダーが INF (正または負) または NaN 入力データを検出する場合には、圧縮前にそのデータを最大許容非 INF 表現値に変換したり、NaN を 0 にマッピングする必要があります。
+-   BC6H は浮動小数点非正規化数をサポートしていますが、INF (無限大) と NaN (非数) をサポートしていません。 例外は、 \_ \_ \_ -INF (負の無限大) をサポートする BC6H (DXGI FORMAT BC6H SF16) の署名モードです。 この -INF のサポートは、形式そのものの結果に過ぎず、この形式のエンコーダーでは特にサポートされていません。 一般に、エンコーダーが INF (正または負) または NaN 入力データを検出する場合には、圧縮前にそのデータを最大許容非 INF 表現値に変換したり、NaN を 0 にマッピングする必要があります。
 -   BC6H はアルファ チャネルをサポートしません。
 -   BC6H デコーダーは、テクスチャ フィルタリングを実行する前に、圧縮解除を実行します。
 -   BC6H の圧縮解除はビットアキュレートである必要があります。ハードウェアは、このドキュメントで説明されているデコーダーと同じ結果を返す必要があります。
 
-## <a name="span-idbc6h-implementationspanspan-idbc6h-implementationspanspan-idbc6h-implementationspanbc6h-implementation"></a><span id="BC6H-implementation"></span><span id="bc6h-implementation"></span><span id="BC6H-IMPLEMENTATION"></span>BC6H 実装
+## <a name="span-idbc6h-implementationspanspan-idbc6h-implementationspanspan-idbc6h-implementationspanbc6h-implementation"></a><span id="BC6H-implementation"></span><span id="bc6h-implementation"></span><span id="BC6H-IMPLEMENTATION"></span>BC6H の実装
 
 
 BC6H ブロックは、モードビット、圧縮エンドポイント、圧縮インデックス、パーティション インデックス (オプション) で構成されています。 この形式は、14 の異なるモードを指定します。
@@ -93,7 +93,7 @@ decompress_bc6h(x, y, block)
 
 次の表に、BC6H ブロックで使用可能な 14 の形式のビット数と値を示します。
 
-| Mode | パーティション インデックス | パーティション | カラー エンドポイント                  | モード ビット      |
+| モード | パーティション インデックス | Partition | カラー エンドポイント                  | モード ビット      |
 |------|-------------------|-----------|----------------------------------|----------------|
 | 1    | 46 ビット           | 5 ビット    | 75 ビット (10.555, 10.555, 10.555) | 2 ビット (00)    |
 | 2    | 46 ビット           | 5 ビット    | 75 ビット (7666, 7666, 7666)       | 2 ビット (01)    |
@@ -122,7 +122,7 @@ decompress_bc6h(x, y, block)
 
 BC6H では、アルファ チャネルはモードに関係なく常に 1.0 を返す必要があります。
 
-### <a name="span-idbc6h-partition-setspanspan-idbc6h-partition-setspanspan-idbc6h-partition-setspanbc6h-partition-set"></a><span id="BC6H-partition-set"></span><span id="bc6h-partition-set"></span><span id="BC6H-PARTITION-SET"></span>BC6H パーティション セット
+### <a name="span-idbc6h-partition-setspanspan-idbc6h-partition-setspanspan-idbc6h-partition-setspanbc6h-partition-set"></a><span id="BC6H-partition-set"></span><span id="bc6h-partition-set"></span><span id="BC6H-PARTITION-SET"></span>BC6H パーティションセット
 
 2 領域のタイルでは 32 のパーティション セットが使用可能で、それらは下の表で定義されています。 各 4 x 4 ブロックは単一の形状を表しています。
 
@@ -130,12 +130,12 @@ BC6H では、アルファ チャネルはモードに関係なく常に 1.0 を
 
 このパーティション・セットの表では、太字の下線付きの項目は、サブセット 1 の修正インデックスの位置です (1 つ少ないビットで指定されます)。 パーティションは常にインデックス 0 がサブセット 0 になるように配置されるため、サブセット 0 の修正インデックスは常にインデックス 0 です。 パーティションの順序は、左上から右下、つまり左から右へ、上から下へとなります。
 
-## <a name="span-idbc6h-compressed-endpoint-formatspanspan-idbc6h-compressed-endpoint-formatspanspan-idbc6h-compressed-endpoint-formatspanbc6h-compressed-endpoint-format"></a><span id="BC6H-compressed-endpoint-format"></span><span id="bc6h-compressed-endpoint-format"></span><span id="BC6H-COMPRESSED-ENDPOINT-FORMAT"></span>BC6H 圧縮されたエンドポイントの形式
+## <a name="span-idbc6h-compressed-endpoint-formatspanspan-idbc6h-compressed-endpoint-formatspanspan-idbc6h-compressed-endpoint-formatspanbc6h-compressed-endpoint-format"></a><span id="BC6H-compressed-endpoint-format"></span><span id="bc6h-compressed-endpoint-format"></span><span id="BC6H-COMPRESSED-ENDPOINT-FORMAT"></span>BC6H 圧縮エンドポイント形式
 
 
 ![BC6H 圧縮エンドポイント形式のビット フィールド](images/bc6h-headers-med.png)
 
-この表は、圧縮エンドポイントのビット フィールドを、エンドポイント形式の関数として示しています。各列がエンコードを示し、各行がビット フィールドを示しています。 この方法では、2 領域タイルで 82 ビット、1 領域タイルで 65 ビットを使用します。 たとえば、1 つのリージョンの最初の 5 ビット\[16 4\]ビット m には (具体的には右端の列) の上にエンコード\[4:0\]、[次へ] の 10 ビットがビット rw\[9:0\]などbw を含む最後の 6 ビットで\[10時 15分\]します。
+この表は、圧縮エンドポイントのビット フィールドを、エンドポイント形式の関数として示しています。各列がエンコードを示し、各行がビット フィールドを示しています。 この方法では、2 領域タイルで 82 ビット、1 領域タイルで 65 ビットを使用します。 例として、上の1つの地域の 16 4 エンコーディングの最初の5ビット \[ \] (具体的には右端の列) は、ビット m \[ 4:0 \] 、次の10ビットは bits rw \[ 9:0 \] 、および bw 10:15 を含む最後の6ビットになり \[ \] ます。
 
 上記の表のフィールド名は、次のように定義されています。
 
@@ -143,26 +143,26 @@ BC6H では、アルファ チャネルはモードに関係なく常に 1.0 を
 |-------|-------------------|
 | m     | mode              |
 | d     | shape index       |
-| rw    | endpt\[0\]します。A\[0\] |
-| rx    | endpt\[0\]します。B\[0\] |
-| ry    | endpt\[1\]します。A\[0\] |
-| rz    | endpt\[1\]します。B\[0\] |
-| gw    | endpt\[0\]します。A\[1\] |
-| gx    | endpt\[0\]します。B\[1\] |
-| gy    | endpt\[1\]します。A\[1\] |
-| gz    | endpt\[1\]します。B\[1\] |
-| bw    | endpt\[0\]します。A\[2\] |
-| bx    | endpt\[0\]します。B\[2\] |
-| by    | endpt\[1\]します。A\[2\] |
-| bz    | endpt\[1\]します。B\[2\] |
+| rw    | endpt \[ 0 \] 。\[0\] |
+| rx    | endpt \[ 0 \] 。B \[ 0\] |
+| ry    | endpt \[ 1 \] 。\[0\] |
+| rz    | endpt \[ 1 \] 。B \[ 0\] |
+| gw    | endpt \[ 0 \] 。\[1\] |
+| gx    | endpt \[ 0 \] 。B \[ 1\] |
+| gy    | endpt \[ 1 \] 。\[1\] |
+| gz    | endpt \[ 1 \] 。B \[ 1\] |
+| bw    | endpt \[ 0 \] 。\[2\] |
+| bx    | endpt \[ 0 \] 。B \[ 2\] |
+| by    | endpt \[ 1 \] 。\[2\] |
+| bz    | endpt \[ 1 \] 。B \[ 2\] |
 
  
 
-Endpt\[は\]i が 0 または 1 である場合、それぞれとエンドポイントのインデックスまたは 1 日のセットを指します。
-## <a name="span-idsign-extension-for-endpoint-valuesspanspan-idsign-extension-for-endpoint-valuesspanspan-idsign-extension-for-endpoint-valuesspansign-extension-for-endpoint-values"></a><span id="Sign-extension-for-endpoint-values"></span><span id="sign-extension-for-endpoint-values"></span><span id="SIGN-EXTENSION-FOR-ENDPOINT-VALUES"></span>エンドポイントの値の符号拡張
+Endpt \[ i \] (i は0または 1) で、それぞれ0番目または1番目のエンドポイントを参照します。
+## <a name="span-idsign-extension-for-endpoint-valuesspanspan-idsign-extension-for-endpoint-valuesspanspan-idsign-extension-for-endpoint-valuesspansign-extension-for-endpoint-values"></a><span id="Sign-extension-for-endpoint-values"></span><span id="sign-extension-for-endpoint-values"></span><span id="SIGN-EXTENSION-FOR-ENDPOINT-VALUES"></span>エンドポイント値の符号拡張
 
 
-2 領域タイルでは、符号拡張が可能な 4 つのエンドポイント値があります。 Endpt\[0\]します。形式が署名の形式である場合にのみが符号付きまたは、形式は、署名の形式をエンドポイントが変換される場合にのみ、他のエンドポイントは署名されます。 以下のコードは、2 領域のエンドポイント値の符号を拡張するアルゴリズムを示しています。
+2 領域タイルでは、符号拡張が可能な 4 つのエンドポイント値があります。 Endpt \[ 0 \] 。は、形式が符号付き形式の場合にのみ署名されます。他のエンドポイントは、エンドポイントが変換された場合、または形式が符号付きの場合にのみ署名されます。 以下のコードは、2 領域のエンドポイント値の符号を拡張するアルゴリズムを示しています。
 
 ``` syntax
 static void sign_extend_two_region(Pattern &p, IntEndpts endpts[NREGIONS_TWO])
@@ -181,7 +181,7 @@ static void sign_extend_two_region(Pattern &p, IntEndpts endpts[NREGIONS_TWO])
 }
 ```
 
-動作では 1 つの地域のタイルは同じ endpt でのみ\[1\]削除します。
+1つの地域のタイルでは、動作は同じですが、endpt 1 が削除された場合にのみ使用され \[ \] ます。
 
 ``` syntax
 static void sign_extend_one_region(Pattern &p, IntEndpts endpts[NREGIONS_ONE])
@@ -196,25 +196,25 @@ static void sign_extend_one_region(Pattern &p, IntEndpts endpts[NREGIONS_ONE])
 }
 ```
 
-## <a name="span-idtransform-inversion-for-endpoint-valuesspanspan-idtransform-inversion-for-endpoint-valuesspanspan-idtransform-inversion-for-endpoint-valuesspantransform-inversion-for-endpoint-values"></a><span id="Transform-inversion-for-endpoint-values"></span><span id="transform-inversion-for-endpoint-values"></span><span id="TRANSFORM-INVERSION-FOR-ENDPOINT-VALUES"></span>エンドポイントの値の反転を変換します。
+## <a name="span-idtransform-inversion-for-endpoint-valuesspanspan-idtransform-inversion-for-endpoint-valuesspanspan-idtransform-inversion-for-endpoint-valuesspantransform-inversion-for-endpoint-values"></a><span id="Transform-inversion-for-endpoint-values"></span><span id="transform-inversion-for-endpoint-values"></span><span id="TRANSFORM-INVERSION-FOR-ENDPOINT-VALUES"></span>エンドポイント値の変換の反転
 
 
-2 リージョンのタイルの変換は逆の違いは、エンコード、endpt に基本の値を追加する、適用\[0\]します。A、合計 9 の他の 3 つのエントリには、操作を追加します。 下の画像では、基本値は「A0」として表され、最も高い浮動小数点精度を持ちます。 「A1」「B0」「B1」は全てアンカー値から算出されたデルタであり、これらのデルタ値は、より低い精度で表されます。 (A0 の場合に対応する endpt\[0\]します。A、B0 に対応する endpt\[0\]します。B、A1 に対応する endpt\[1\]します。A、され B1 endpt に対応した\[1\]します。B.)
+2つの領域からなるタイルの場合、変換によって、差分エンコードの逆の値が適用され、endpt 0 に基本値が追加され \[ \] ます。合計で9個の追加操作のための、他の3つのエントリへの。 下の画像では、基本値は「A0」として表され、最も高い浮動小数点精度を持ちます。 「A1」「B0」「B1」は全てアンカー値から算出されたデルタであり、これらのデルタ値は、より低い精度で表されます。 (A0 は endpt 0 に相当 \[ \] します。、B0 は endpt 0 に対応し \[ \] ます。B、A1 は endpt 1 に対応 \[ \] します。、B1 は endpt \[ 1. B に対応し \] ます)。
 
 ![変換の反転のエンドポイント値の計算](images/bc6h-transform-inverse.png)
 
 1 領域のタイルでは、デルタ オフセットは 1 つだけであるため、3 つの加算演算のみとなります。
 
-伸張プログラムでは、こと、逆行列の結果が変換も endpt の有効桁数はオーバーフローできませんを確認する必要があります\[0\]。 をします。 オーバーフローの場合には、反転から生じる値は、同じビット数内でラップする必要があります。 A0 の精度が「p」ビットの場合、変換アルゴリズムは次のようになります。
+伸張では、逆変換の結果が endpt \[ 0. a の有効桁数をオーバーフローしないようにする必要があります。 \] オーバーフローの場合には、反転から生じる値は、同じビット数内でラップする必要があります。 A0 の精度が「p」ビットの場合、変換アルゴリズムは次のようになります。
 
 `B0 = (B0 + A0) & ((1 << p) - 1)`
 
 符号付き形式の場合、デルタ計算の結果も符号拡張される必要があります。 符号拡張演算が両方の符号を拡張することを考慮する場合には、0 が正、1 が負であり、0 の符号拡張がこのクランプの処理を行います。 同様に、このクランプ後に、値 1 (負) のみ符号拡張する必要があります。
 
-## <a name="span-idunquantization-of-color-endpointsspanspan-idunquantization-of-color-endpointsspanspan-idunquantization-of-color-endpointsspanunquantization-of-color-endpoints"></a><span id="Unquantization-of-color-endpoints"></span><span id="unquantization-of-color-endpoints"></span><span id="UNQUANTIZATION-OF-COLOR-ENDPOINTS"></span>色のエンドポイントの unquantization
+## <a name="span-idunquantization-of-color-endpointsspanspan-idunquantization-of-color-endpointsspanspan-idunquantization-of-color-endpointsspanunquantization-of-color-endpoints"></a><span id="Unquantization-of-color-endpoints"></span><span id="unquantization-of-color-endpoints"></span><span id="UNQUANTIZATION-OF-COLOR-ENDPOINTS"></span>カラー エンドポイントの非量子化
 
 
-圧縮されていないエンドポイントでは、次のステップはカラー エンドポイントの最初の非量子化を実行することです。 これには次の 3 つのステップがあります。
+圧縮されていないエンドポイントでは、次のステップはカラー エンドポイントの最初の非量子化を実行することです。 これを行うには、3 つの手順を実行します。
 
 -   カラー パレットの非量子化
 -   パレットの補間
@@ -249,7 +249,7 @@ void generate_palette_unquantized(UINT8 uNumIndices, int c1, int c2, int prec, U
 次のコード サンプルでは、補間のプロセスを示しています。次のようなことがわかります。
 
 -   **非量子化**関数 (下記) のカラー値の有効な範囲は -32768 〜 65535 であるため、インターポレーターは 17 ビット符号付き算術演算を使って実装されています。
--   渡される値、補間後、**完了\_unquantize** (このセクションでは、3 番目のサンプルで説明)、最終的なスケーリングを適用する関数。
+-   補間後、値は **終了 \_ unquantize** 関数 (このセクションの3番目のサンプルで説明します) に渡されます。これにより、最終的なスケーリングが適用されます。
 -   すべてのハードウェアの圧縮解除プログラムは、これらの関数でビットアキュレートの結果を返す必要があります。
 
 ``` syntax
@@ -296,7 +296,7 @@ int unquantize(int comp, int uBitsPerComp)
 }
 ```
 
-**[完了]\_unquantize**パレットの補間後に呼び出されます。 **Unquantize** 関数は、符号付きの場合は 31/32、符号なしの場合は 31/64 で、スケーリングを延期します。 この動作は、パレット補間の完了後の最終値を有効な半範囲 (-0x7BFF〜0x7BFF) にして、必要な乗算の数を減らすために必要です。 **[完了]\_unquantize**最終的なスケーリングを適用し、返します、 **unsigned short**に解釈取得値**半分**します。
+**finish \_ unquantize** は、パレット補間の後に呼び出されます。 **Unquantize** 関数は、符号付きの場合は 31/32、符号なしの場合は 31/64 で、スケーリングを延期します。 この動作は、パレット補間の完了後の最終値を有効な半範囲 (-0x7BFF〜0x7BFF) にして、必要な乗算の数を減らすために必要です。 **finish \_ unquantize**は、最終的なスケーリングを適用し、**半分**に解釈される**符号なし short**値を返します。
 
 ``` syntax
 unsigned short finish_unquantize(int comp)
@@ -328,7 +328,3 @@ unsigned short finish_unquantize(int comp)
  
 
  
-
-
-
-

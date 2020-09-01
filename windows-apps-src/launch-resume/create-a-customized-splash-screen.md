@@ -6,32 +6,32 @@ ms.date: 02/19/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bbc0c7c695a99354ee389118087773440b60fb20
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8eaede14fad920653e24506298c1d80b7d176a1f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366282"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164976"
 ---
 # <a name="display-a-splash-screen-for-more-time"></a>スプラッシュ スクリーンの表示時間の延長
 
 **重要な API**
 
--   [SplashScreen クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)
--   [Window.SizeChanged イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.sizechanged)
--   [Application.OnLaunched メソッド](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched)
+-   [SplashScreen クラス](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)
+-   [Window.SizeChanged イベント](/uwp/api/windows.ui.xaml.window.sizechanged)
+-   [Application.OnLaunched メソッド](/uwp/api/windows.ui.xaml.application.onlaunched)
 
 アプリに追加スプラッシュ画面を作成すれば、より長い時間、スプラッシュ画面を表示することができます。 この追加画面は、アプリを起動したときに表示されるスプラッシュ画面に似ていますが、カスタマイズできます。 読み込み状況をリアルタイムにユーザーに表示する場合や、アプリの最初の UI の準備に時間がかかる場合、追加スプラッシュ画面を使って起動時のエクスペリエンスを定義できます。
 
 > [!NOTE]
-> 語句"拡張スプラッシュ画面"では、このトピックでは、長期間の画面に保存されるスプラッシュ スクリーンを指します。 派生するサブクラスとは限りません、 [SplashScreen](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)クラス。
+> このトピックの「拡張されたスプラッシュスクリーン」という語句は、長時間にわたって画面に表示されるスプラッシュスクリーンを指します。 [SplashScreen](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) クラスを拡張するサブクラスやこのクラスから派生したサブクラスという意味ではありません。
 
 追加スプラッシュ画面の外観は、次の推奨事項に従って、既定のスプラッシュ画面に厳密に似せるようにしてください。
 
--   この追加スプラッシュ画面ページでは、アプリ マニフェスト内でスプラッシュ画面に指定したイメージ (アプリのスプラッシュ画面のイメージ) と一致する 620 x 300 ピクセルのイメージを使います。 Microsoft Visual Studio 2015 では、スプラッシュ画面の設定が格納されている、**スプラッシュ スクリーン**のセクション、**ビジュアル資産** タブで、アプリ マニフェスト (Package.appxmanifest ファイル)。
+-   この追加スプラッシュ画面ページでは、アプリ マニフェスト内でスプラッシュ画面に指定したイメージ (アプリのスプラッシュ画面のイメージ) と一致する 620 x 300 ピクセルのイメージを使います。 Microsoft Visual Studio 2015 では、スプラッシュ画面の設定はアプリ マニフェストの **[ビジュアル資産]** タブの **[スプラッシュ画面]** セクション (Package.appxmanifest ファイル) に保存されています。
 -   追加スプラッシュ画面では、アプリ マニフェスト内でスプラッシュ画面に指定した背景色 (アプリのスプラッシュ画面の背景) と一致する背景色を使います。
--   コードを使用する必要があります、 [SplashScreen](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)既定のスプラッシュ スクリーンとして同じ画面で、アプリのスプラッシュ スクリーン イメージを配置するクラスを調整します。
--   コードは、ウィンドウのサイズ変更イベントに応答する必要があります (画面の回転時など、アプリが移動され、画面上の別のアプリの横にある) を使用して、 [SplashScreen](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)クラス拡張のスプラッシュ画面上のアイテムの位置を変更します。
+-   コードでは、[SplashScreen](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) クラスを使って、アプリのスプラッシュ画面画像の座標が、既定のスプラッシュ画面と同じになるようにします。
+-   コードでは、[SplashScreen](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) クラスを使って追加スプラッシュ画面上の項目を配置し直すことで、ウィンドウ サイズ変更イベント (画面が回転されたり、画面上で次の別のアプリに移動したりするなど) に応答するようにする必要があります。
 
 次の手順を使うと、既定のスプラッシュ画面とよく似た追加スプラッシュ画面を作成できます。
 
@@ -41,7 +41,7 @@ ms.locfileid: "66366282"
 また、このトピックでは、C#、Visual Basic、C++ を使って、既にあるユニバーサル Windows プラットフォーム (UWP) アプリ プロジェクト用の追加スプラッシュ画面を作成することを想定しています。
 
 -   Visual Studio でアプリを開きます。
--   メニュー バーから **[プロジェクト]** を開き、 **[新しい項目の追加]** をクリックします。 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+-   メニュー バーから **[プロジェクト]** を開き、**[新しい項目の追加]** をクリックします。 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 -   このダイアログ ボックスから新しい**空白のページ**をアプリに追加します。 このトピックでは、追加スプラッシュ画面ページの名前を "ExtendedSplash" とします。
 
 **[空白のページ]** 項目を追加すると、2 つのファイルが生成されます。1 つはマークアップ用 (ExtendedSplash.xaml)、もう 1 つはコード用 (ExtendedSplash.xaml.cs) です。
@@ -53,12 +53,12 @@ ms.locfileid: "66366282"
 
 ExtendedSplash.xaml ファイルで次の操作を行います。
 
--   変更、[バック グラウンド](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.backgroundproperty)プロパティの既定の[グリッド](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)アプリケーション マニフェストでの設定、アプリのスプラッシュ スクリーンの背景色と一致する要素 (で、**ビジュアル アセット**、Package.appxmanifest ファイルのセクション)。 既定のスプラッシュ画面の色が薄い灰色 (16 進数の値\#464646)。 新しい**空白のページ**を作成すると、この **Grid** 要素が既定で使われることに注意してください。 必ずしも **Grid** を使う必要はありません。追加スプラッシュ画面を作り始めるときに便利なだけです。
--   追加、[キャンバス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)要素を[グリッド](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)します。 この **Canvas** を使って追加スプラッシュ画面にイメージを配置します。
--   追加、[イメージ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image)要素を[キャンバス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)します。 既定のスプラッシュ画面用に選んだ同じ 600 × 320 ピクセルの画像を追加スプラッシュ画面に使います。
--   (省略可能) アプリが読み込み中であることをユーザーに示すにはプログレス コントロールを追加します。 このトピックの追加、 [ProgressRing](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)ではなく、不確定または中間の[ProgressBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressBar)します。
+-   既定の [Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid) 要素の [Background](/uwp/api/windows.ui.xaml.controls.control.backgroundproperty) プロパティを変更して、アプリ マニフェスト (Package.appxmanifest ファイルの **[ビジュアル資産]** セクション) でアプリのスプラッシュ画面に設定した背景色に合わせます。 既定のスプラッシュスクリーンの色は薄い灰色 (16 進値 \# 464646) です。 新しい**空白のページ**を作成すると、この **Grid** 要素が既定で使われることに注意してください。 必ずしも **Grid** を使う必要はありません。追加スプラッシュ画面を作り始めるときに便利なだけです。
+-   [Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid) に [Canvas](/uwp/api/Windows.UI.Xaml.Controls.Canvas) 要素を追加します。 この **Canvas** を使って追加スプラッシュ画面にイメージを配置します。
+-   [Image](/uwp/api/Windows.UI.Xaml.Controls.Image) 要素を [Canvas](/uwp/api/Windows.UI.Xaml.Controls.Canvas) に追加します。 既定のスプラッシュ画面用に選んだ同じ 600 × 320 ピクセルの画像を追加スプラッシュ画面に使います。
+-   (省略可能) アプリが読み込み中であることをユーザーに示すにはプログレス コントロールを追加します。 このトピックでは、確定または不定の [ProgressBar](/uwp/api/Windows.UI.Xaml.Controls.ProgressBar) ではなく、[ProgressRing](/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) を追加します。
 
-次の例で、[グリッド](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)でこれらの追加および変更します。
+次の例は、これらの追加と変更を含む [グリッド](/uwp/api/Windows.UI.Xaml.Controls.Grid) を示しています。
 
 ```xaml
     <Grid Background="#464646">
@@ -70,7 +70,7 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
 ```
 
 > [!NOTE]
-> この例の幅の設定、 [ProgressRing](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) 20 ピクセルにします。 この幅はアプリに合わせて手動で設定できますが、20 ピクセル未満の幅ではコントロールがレンダリングされません。
+> この例では、進行中の [リング](/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) の幅を20ピクセルに設定します。 この幅はアプリに合わせて手動で設定できますが、20 ピクセル未満の幅ではコントロールがレンダリングされません。
 
 ## <a name="essential-code-for-an-extended-splash-screen-class"></a>追加スプラッシュ画面クラスの基本的なコード
 
@@ -79,9 +79,9 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
 
 これらの手順を使って、追加スプラッシュ画面を正しく表示するためのメソッドを定義します。
 
-1.  **必要な名前空間を追加します。**
+1.  **必要な名前空間を追加する**
 
-    次の名前空間を追加する必要があります**ExtendedSplash.xaml.cs**にアクセスする、 [SplashScreen](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)クラス、 [Rect](https://docs.microsoft.com/uwp/api/windows.foundation.rect)構造体、および[Window.SizeChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.sizechanged)イベント。
+    [SplashScreen](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)クラス、 [Rect](/uwp/api/windows.foundation.rect)構造体、および ExtendedSplash.xaml.cs イベントにアクセスするには、次の名前空間を**ExtendedSplash.xaml.cs**に追加する必要があり[ます。](/uwp/api/windows.ui.xaml.window.sizechanged)
 
     ```cs
     using Windows.ApplicationModel.Activation;
@@ -89,7 +89,7 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     using Windows.UI.Core;
     ```
 
-2.  **部分クラスを作成し、クラス変数の宣言**
+2.  **部分クラスを作成し、クラス変数を宣言する**
 
     次のコードを ExtendedSplash.xaml.cs に挿入して、追加スプラッシュ画面を表す部分クラスを作成します。
 
@@ -105,9 +105,9 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     }
     ```
 
-    これらのクラス変数は、複数のメソッドで使われます。 `splashImageRect` は、アプリのスプラッシュ画面のイメージが表示された座標を格納する変数です。 `splash`変数ストア、 [SplashScreen](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)オブジェクト、および`dismissed`変数は、システムによって表示されるスプラッシュ スクリーンが消去されたかどうかを追跡します。
+    これらのクラス変数は、複数のメソッドで使われます。 `splashImageRect` は、アプリのスプラッシュ画面のイメージが表示された座標を格納する変数です。 `splash` は [SplashScreen](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) オブジェクトを格納する変数であり、`dismissed` は表示されたスプラッシュ画面が閉じられたかどうかを追跡する変数です。
 
-3.  **イメージの位置を正しく指定するクラスのコンス トラクターを定義します。**
+3.  **画像を正しく配置するクラスのコンストラクターを定義する**
 
     次のコードでは、ウィンドウ サイズ変更イベントをリッスンする追加スプラッシュ画面クラスのコンストラクターを定義し、追加スプラッシュ画面にイメージ (必要に応じてプログレス コントロール) を配置し、ナビゲーション用のフレームを作成し、保存済みのセッションを復元する非同期メソッドを呼び出しています。
 
@@ -139,9 +139,9 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     }
     ```
 
-    登録することを確認、 [Window.SizeChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.sizechanged)ハンドラー (`ExtendedSplash_OnResize`の例で)、クラス コンス トラクターで、アプリにイメージを配置正しく拡張スプラッシュ スクリーンでようにします。
+    アプリが追加スプラッシュ画面でイメージを正しく配置できるように、クラス コンストラクターに [Window.SizeChanged](/uwp/api/windows.ui.xaml.window.sizechanged) ハンドラー (この例の `ExtendedSplash_OnResize`) を登録します。
 
-4.  **拡張のスプラッシュ スクリーンにイメージを配置するメソッドをクラス定義します。**
+4.  **追加スプラッシュ画面にイメージを配置するクラスのメソッドを定義する**
 
     次のコードでは、`splashImageRect` クラス変数を使って追加スプラッシュ画面ページにイメージを配置する方法を示しています。
 
@@ -155,9 +155,9 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     }
     ```
 
-5.  **(省略可能)拡張のスプラッシュ スクリーンで進行状況コントロールを配置するメソッドをクラス定義します。**
+5.  **(省略可能) 追加スプラッシュ画面にプログレス コントロールを配置するクラスのメソッドを定義する**
 
-    追加した場合、 [ProgressRing](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ProgressRing)拡張のスプラッシュ画面にスプラッシュ スクリーン イメージに対する相対位置します。 ExtendedSplash.xaml.cs で、**ProgressRing** をイメージの 32 ピクセル下の中央に配置する次のコードを追加します。
+    [ProgressRing](/uwp/api/Windows.UI.Xaml.Controls.ProgressRing) を追加スプラッシュ画面に追加する場合、スプラッシュ画面のイメージに相対的に配置します。 ExtendedSplash.xaml.cs で、**ProgressRing** をイメージの 32 ピクセル下の中央に配置する次のコードを追加します。
 
     ```cs
     void PositionRing()
@@ -167,9 +167,9 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     }
     ```
 
-6.  **破棄イベントのハンドラーを定義、クラス内で**
+6.  **クラス内で Dismissed イベントのハンドラーを定義する**
 
-    ExtendedSplash.xaml.cs、応答時に、 [SplashScreen.Dismissed](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.dismissed)を設定してイベントが発生した、`dismissed`クラス変数を true にします。 アプリにセットアップ操作がある場合は、それらの操作をこのイベント ハンドラーに追加します。
+    ExtendedSplash.xaml.cs で、`dismissed` クラス変数を true に設定することで、[SplashScreen.Dismissed](/uwp/api/windows.applicationmodel.activation.splashscreen.dismissed) イベントが発生したときに応答するようにします。 アプリにセットアップ操作がある場合は、それらの操作をこのイベント ハンドラーに追加します。
 
     ```cs
     // Include code to be executed when the system has transitioned from the splash screen to the extended splash screen (application's first view).
@@ -193,9 +193,9 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
       }
       ```
 
-7.  **クラス内部 Window.SizeChanged イベントのハンドラーを定義します**
+7.  **クラス内で Window.SizeChanged イベントのハンドラーを定義する**
 
-    ユーザーによってウィンドウのサイズが変更された場合にその要素を配置し直すように、追加スプラッシュ画面を準備します。 このコードは、応答時に、 [Window.SizeChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.sizechanged)新しい座標を取得し、イメージの位置を変更イベントが発生します。 追加スプラッシュ画面にプログレス コントロールを追加した場合は、同様に、このイベント ハンドラー内でそのコントロールを配置し直すようにします。
+    ユーザーによってウィンドウのサイズが変更された場合にその要素を配置し直すように、追加スプラッシュ画面を準備します。 このコードでは、新しい座標を取得してイメージを配置し直すことで、[Window.SizeChanged](/uwp/api/windows.ui.xaml.window.sizechanged) イベントが発生したときに応答するようにしています。 追加スプラッシュ画面にプログレス コントロールを追加した場合は、同様に、このイベント ハンドラー内でそのコントロールを配置し直すようにします。
 
     ```cs
     void ExtendedSplash_OnResize(Object sender, WindowSizeChangedEventArgs e)
@@ -214,13 +214,13 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     ```
 
     > [!NOTE]
-    > 前に取得しようとするイメージの場所を確認、クラス変数 (`splash`) を含む、有効な[SplashScreen](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)オブジェクトの例で示すようにします。
+    > イメージの場所を取得する前に、 `splash` 次の例に示すように、クラス変数 () に有効な [SplashScreen](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) オブジェクトが含まれていることを確認してください。
 
      
 
-8.  **(省略可能)保存されているセッション状態を復元するクラスのメソッドを追加します。**
+8.  **(省略可能) クラス メソッドを追加して保存済みのセッション状態を復元する**
 
-    追加したコード、 [OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched)メソッドでは、手順 4。[起動アクティブ化のハンドラーを変更](#modify-the-launch-activation-handler)により、アプリを起動するときに、拡張のスプラッシュ スクリーンを表示します。 拡張のスプラッシュ画面クラスでのアプリの起動に関連するすべてのメソッドを統合するには、アプリの状態を復元する ExtendedSplash.xaml.cs ファイルにメソッドを追加することもできます。
+    手順 4「[起動アクティブ化ハンドラーの変更](#modify-the-launch-activation-handler)」で [OnLaunched](/uwp/api/windows.ui.xaml.application.onlaunched) メソッドに追加したコードにより、アプリでは起動時に追加スプラッシュ画面が表示されます。 拡張されたスプラッシュスクリーンクラスでアプリの起動に関連するすべてのメソッドを統合するには、ExtendedSplash.xaml.cs ファイルにメソッドを追加してアプリの状態を復元することを検討してください。
 
     ```cs
     void RestoreState(bool loadState)
@@ -232,14 +232,14 @@ ExtendedSplash.xaml ファイルで次の操作を行います。
     }
     ```
 
-    設定 App.xaml.cs で、起動アクティブ化のハンドラーを変更するときに`loadstate`場合に true に、以前[ApplicationExecutionState](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState) 、アプリが**Terminated**します。 その場合、`RestoreState` メソッドは、アプリを前の状態に復元します。 アプリの起動、中断、終了の概要については、「[アプリのライフサイクル](app-lifecycle.md)」をご覧ください。
+    App.xaml.cs ファイルで起動アクティブ化ハンドラーを変更するときは、アプリの以前の [ApplicationExecutionState](/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState) が **Terminated** だった場合にも `loadstate` を true に設定します。 その場合、`RestoreState` メソッドは、アプリを前の状態に復元します。 アプリの起動、中断、終了の概要については、「[アプリのライフサイクル](app-lifecycle.md)」をご覧ください。
 
 ## <a name="modify-the-launch-activation-handler"></a>起動アクティブ化ハンドラーの変更
 
 
-アプリが起動されるとき、スプラッシュ画面の情報がアプリの起動アクティブ化イベント ハンドラーに渡されます。 この情報を使って、追加スプラッシュ画面ページにイメージを適切に配置できます。 取得できますこのスプラッシュ画面の情報、アクティブ化が渡されるイベント引数に、アプリの[OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched)ハンドラー (を参照してください、`args`次のコードに変数)。
+アプリが起動されるとき、スプラッシュ画面の情報がアプリの起動アクティブ化イベント ハンドラーに渡されます。 この情報を使って、追加スプラッシュ画面ページにイメージを適切に配置できます。 このスプラッシュ画面の情報は、アプリの [OnLaunched](/uwp/api/windows.ui.xaml.application.onlaunched) ハンドラーに渡されるアクティブ化イベント引数から取得できます (次のコードの `args` 変数を参照)。
 
-既にオーバーライドされていない場合、 [OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) 、アプリでは、ハンドラーを参照してください[アプリのライフ サイクル](app-lifecycle.md)をアクティブ化イベントを処理する方法について説明します。
+アプリの [OnLaunched](/uwp/api/windows.ui.xaml.application.onlaunched) ハンドラーをまだオーバーライドしていない場合、アクティブ化イベントを処理する方法については、「[アプリのライフサイクル](app-lifecycle.md)」をご覧ください。
 
 App.xaml.cs ファイルで、追加スプラッシュ画面を作成して表示する次のコードを挿入します。
 
@@ -257,15 +257,15 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 }
 ```
 
-## <a name="complete-code"></a>コードを完成させる
+## <a name="complete-code"></a>完成したコード
 
-次のコードは、少し前の手順で示すスニペットとは異なります。
+次のコードは、前の手順で示したスニペットと若干異なります。
 -   ExtendedSplash.xaml には `DismissSplash` ボタンが含まれています。 このボタンがクリックされると、イベント ハンドラーである `DismissSplashButton_Click` が `DismissExtendedSplash` メソッドを呼び出します。 アプリで、リソースの読み込みまたは UI の初期化の完了時に `DismissExtendedSplash` を呼び出します。
--   このアプリを使用して、UWP のアプリのプロジェクト テンプレートを使用も[フレーム](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)ナビゲーション。 App.xaml.cs 起動アクティブ化のハンドラーでその結果、([OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched)) を定義、`rootFrame`を使用して、アプリ ウィンドウのコンテンツを設定するとします。
+-   このアプリは、[Frame](/uwp/api/Windows.UI.Xaml.Controls.Frame) ナビゲーションを使う、UWP アプリのプロジェクト テンプレートも使います。 その結果、App.xaml.cs ファイルで、起動アクティブ化ハンドラー ([OnLaunched](/uwp/api/windows.ui.xaml.application.onlaunched)) は `rootFrame` を定義し、それを使ってアプリのウィンドウのコンテンツを設定します。
 
-### <a name="extendedsplashxaml"></a>ExtendedSplash.xaml
+### <a name="extendedsplashxaml"></a>ExtendedSplash
 
-この例では、`DismissSplash`に読み込むアプリのリソースがないためにボタンをクリックします。 アプリでは、リソースの読み込みまたはその最初の UI の準備の完了時に追加スプラッシュ画面が自動的に閉じられます。
+この例には、読み込むアプリケーションリソースがないため、ボタンが含まれてい `DismissSplash` ます。 アプリでは、リソースの読み込みまたはその最初の UI の準備の完了時に追加スプラッシュ画面が自動的に閉じられます。
 
 ```xml
 <Page
@@ -291,7 +291,7 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 
 ### <a name="extendedsplashxamlcs"></a>ExtendedSplash.xaml.cs
 
-なお、`DismissExtendedSplash`のクリック イベント ハンドラーからメソッドが呼び出されます、`DismissSplash`ボタンをクリックします。 アプリでは、`DismissSplash` ボタンは不要です。 その代わりに、アプリがリソースの読み込みの完了時に `DismissExtendedSplash` を呼び出し、そのメイン ページに移動します。
+この `DismissExtendedSplash` メソッドは、ボタンの click イベントハンドラーから呼び出されることに注意して `DismissSplash` ください。 アプリでは、`DismissSplash` ボタンは不要です。 その代わりに、アプリがリソースの読み込みの完了時に `DismissExtendedSplash` を呼び出し、そのメイン ページに移動します。
 
 ```cs
 using System;
@@ -419,9 +419,9 @@ namespace SplashScreenExample
 
 ### <a name="appxamlcs"></a>App.xaml.cs
 
-このプロジェクトは、UWP アプリを使用して作成された**空白アプリ (XAML)** Visual Studio でプロジェクト テンプレート。 `OnNavigationFailed` と `OnSuspending` の両方のイベント ハンドラーは自動的に生成され、追加スプラッシュ画面を実装するために変更する必要はありません。 このトピックでは、`OnLaunched` のみを変更します。
+このプロジェクトは、Visual Studio の UWP アプリの [ **空のアプリ (XAML)** ] プロジェクトテンプレートを使用して作成されました。 `OnNavigationFailed` と `OnSuspending` の両方のイベント ハンドラーは自動的に生成され、追加スプラッシュ画面を実装するために変更する必要はありません。 このトピックでは、`OnLaunched` のみを変更します。
 
-アプリのプロジェクト テンプレートを使用していない場合は、手順 4. を参照してください。[起動アクティブ化のハンドラーを変更](#modify-the-launch-activation-handler)修正後の例については`OnLaunched`を使用しない[フレーム](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)ナビゲーション。
+アプリにプロジェクト テンプレートを使わなかった場合、[Frame](/uwp/api/Windows.UI.Xaml.Controls.Frame) ナビゲーションを使用しないように変更した `OnLaunched` の例については、手順 4「[起動アクティブ化ハンドラーの変更](#modify-the-launch-activation-handler)」をご覧ください。
 
 ```cs
 using System;
@@ -545,10 +545,10 @@ namespace SplashScreenExample
 
 **リファレンス**
 
-* [Windows.ApplicationModel.Activation 名前空間](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation)
-* [Windows.ApplicationModel.Activation.SplashScreen クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)
-* [Windows.ApplicationModel.Activation.SplashScreen.ImageLocation プロパティ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.splashscreen.imagelocation)
-* [Windows.ApplicationModel.Core.CoreApplicationView.Activated イベント](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)
+* [Windows.ApplicationModel.Activation 名前空間](/uwp/api/Windows.ApplicationModel.Activation)
+* [Windows.ApplicationModel.Activation.SplashScreen クラス](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen)
+* [Windows.ApplicationModel.Activation.SplashScreen.ImageLocation プロパティ](/uwp/api/windows.applicationmodel.activation.splashscreen.imagelocation)
+* [Windows.ApplicationModel.Core.CoreApplicationView.Activated イベント](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)
 
  
 

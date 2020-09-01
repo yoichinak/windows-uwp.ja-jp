@@ -7,18 +7,18 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: dd45408c484534009bf632eb81be11e6ef4d58b7
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 11c9f0a52c4a320306cf5dfd5ce90fd5bbe2c407
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370587"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165016"
 ---
 # <a name="hull-shader-hs-stage"></a>ハル シェーダー (HS) ステージ
 
 ハル シェーダー (HS) ステージは、モデルの 1 つのサーフェスを効率的に多数の三角形に分割する、テセレーション ステージの 1 つです。 ハル シェーダー (HS) ステージは、各入力パッチ (クワッド、トライアングル、またはライン) に対応するジオメトリ パッチ (およびパッチ定数) を生成します。 ハル シェーダーは、パッチごとに 1 回呼び出され、低次サーフェスを定義する入力制御点を、パッチを構成する制御点に変換します。 また、ハル シェーダーは、いくつかのパッチごとの計算を行い、データを[テッセレータ (TS) ステージ](tessellator-stage--ts-.md)と[ドメイン シェーダー (DS) ステージ](domain-shader-stage--ds-.md)に提供します。
 
-## <a name="span-idpurposeandusesspanspan-idpurposeandusesspanspan-idpurposeandusesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と使用
+## <a name="span-idpurpose_and_usesspanspan-idpurpose_and_usesspanspan-idpurpose_and_usesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と用途
 
 
 ![ハル シェーダー ステージの図](images/d3d11-hull-shader.png)
@@ -32,7 +32,7 @@ ms.locfileid: "66370587"
 -   制御点フェーズは制御点ごとに 1 回実行され、パッチの制御点を読み取り、1 つの出力制御点 (**ControlPointID** で識別される) を生成します。
 -   パッチ定数フェーズは、パッチごとに 1 回実行され、エッジ テセレーション係数とその他のパッチごとの定数を生成します。 内部的には、複数のパッチ定数フェーズが同時に実行される場合があります。 パッチ定数フェーズでは、すべての入力制御点と出力制御点に対して読み取り専用アクセスの権限があります。
 
-## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
+## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>代入
 
 
 1 ～ 32 個の入力制御点。これらがまとまって低次サーフェスを定義します。
@@ -40,7 +40,7 @@ ms.locfileid: "66370587"
 -   ハル シェーダーは、[テッセレータ (TS) ステージ](tessellator-stage--ts-.md)で必要な状態を宣言します。 これには、テセレーションで使用する制御点の数、パッチ面の種類、分割の種類などの情報が含まれます。 この情報は、通常、シェーダー コードの最初に宣言として表示されます。
 -   テセレーション係数は、各パッチを分割する程度を決定します。
 
-## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
+## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>Output
 
 
 1 ～ 32 個の出力制御点。これらがまとまってパッチを構成します。
@@ -48,7 +48,7 @@ ms.locfileid: "66370587"
 -   シェーダーの出力は、テセレーション係数の数に関係なく、1 ～ 32 個の制御点です。 ハル シェーダーから出力された制御点は、ドメイン シェーダー ステージで使用できます。 パッチ定数データは、ドメイン シェーダーで使用できます。 テセレーション係数は、[テッセレータ (TS) ステージ](tessellator-stage--ts-.md)と[ドメイン シェーダー (DS) ステージ](domain-shader-stage--ds-.md)で使用できます。
 -   ハル シェーダーがいずれかのエッジ テセレーション係数を ≤ 0または NaN に設定する場合、パッチをカリングする (省略する) ことができます。 その結果、テッセレータ ステージは実行される場合と実行されない場合があり、ドメイン シェーダーは実行されず、そのパッチの表示出力は生成されません。
 
-## <a name="span-idexamplespanspan-idexamplespanspan-idexamplespanexample"></a><span id="Example"></span><span id="example"></span><span id="EXAMPLE"></span>例
+## <a name="span-idexamplespanspan-idexamplespanspan-idexamplespanexample"></a><span id="Example"></span><span id="example"></span><span id="EXAMPLE"></span>よう
 
 
 ```hlsl
@@ -67,7 +67,7 @@ MyOutPoint main(uint Id : SV_ControlPointID,
 }
 ```
 
-参照してください[方法。ハル シェーダーを作成する](https://docs.microsoft.com/windows/desktop/direct3d11/direct3d-11-advanced-stages-hull-shader-create)します。
+「[方法: ハル シェーダーの作成](/windows/desktop/direct3d11/direct3d-11-advanced-stages-hull-shader-create)」を参照してください。
 
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
@@ -77,7 +77,3 @@ MyOutPoint main(uint Id : SV_ControlPointID,
  
 
  
-
-
-
-

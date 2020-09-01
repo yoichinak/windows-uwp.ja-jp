@@ -6,14 +6,14 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ムーブ/ルック, コントロール
 ms.localizationpriority: medium
-ms.openlocfilehash: f1516ada043ac5e9d5c059f7cd2b91cb69a5eab1
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ed17d38bfaa90956b22265d1dfc320bfcc13ede7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367854"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165126"
 ---
-# <a name="span-iddevgamingtutorialaddingmove-lookcontrolstoyourdirectxgamespanmove-look-controls-for-games"></a><span id="dev_gaming.tutorial__adding_move-look_controls_to_your_directx_game"></span>ゲームの移動検索コントロール
+# <a name="span-iddev_gamingtutorial__adding_move-look_controls_to_your_directx_gamespanmove-look-controls-for-games"></a><span id="dev_gaming.tutorial__adding_move-look_controls_to_your_directx_game"></span>ゲームのムーブ/ルック コントロール
 
 
 
@@ -25,7 +25,7 @@ ms.locfileid: "66367854"
 
 これらのコントロールは、ゲームでは一般的に WASD コントロールと呼ばれます。WASD コントロールでは、x-z 平面に固定されたカメラを動かすのに W、A、S、D のキーを使用し、x 軸と y 軸を中心としたカメラの回転を制御するのにマウスを使用します。
 
-## <a name="objectives"></a>目標
+## <a name="objectives"></a>目的
 
 
 -   マウス/キーボード用とタッチ スクリーン用の両方の基本的なムーブ/ルック コントロールを DirectX ゲームに追加する。
@@ -145,45 +145,45 @@ internal:
 
 まず、カメラ ビューに関する更新情報を保持する、便利なフィールドをいくつか定義します。
 
--   **m\_位置**カメラ (およびそのため、viewplane) 3 D のシーンでシーンの座標を使用しての位置です。
--   **m\_ピッチ**カメラまたは上下回転 (ラジアン単位)、viewplane の x 軸の周りのピッチします。
--   **m\_ヨー**カメラまたは左から右回転 (ラジアン単位)、viewplane の y 軸の周りのヨーです。
+-   **m \_ 位置** は、シーン座標を使用した、3d シーンでのカメラ (および viewplane) の位置です。
+-   **m \_ ピッチ** は、カメラのピッチ、または viewplane の x 軸を中心とするアップダウンの角度 (ラジアン) です。
+-   **m \_ ヨー** は、カメラのヨー、または viewplane の y 軸を中心とする左右の回転 (ラジアン) です。
 
 次に、コントローラーの状態と位置に関する情報を格納するフィールドを定義してみましょう。 まず、タッチ ベースのムーブ コントローラーに必要なフィールドを定義します。 (ムーブ コントローラーのキーボード実装に関して特別必要なことはありません。 キーボードのイベントと具体的なハンドラーについては先ほど説明しました。)
 
--   **m\_moveInUse**移動コント ローラーが使用中かどうかを示します。
--   **m\_movePointerID**現在移動ポインターの一意の ID です。 これは、ポインターの ID 値を確認するときにルック ポインターとムーブ ポインターを区別するために使います。
--   **m\_moveFirstDown** player コント ローラーのポインターの移動 領域がタッチされた最初の画面上のポイントです。 この値は、小さな動きによってビューが不安定にならないようデッド ゾーンを設定するために後で使います。
--   **m\_movePointerPosition**は、プレーヤーがへのポインターを移動して現在の画面上のポイント。 プレーヤーを基準とすることを調べることで移行したい方向を判断するために使用**m\_moveFirstDown**します。
--   **m\_moveCommand**移動コント ローラーの計算された最後のコマンドは、: (進む)、上下 (戻る)、left または right。
+-   **m \_ moveinuse** は、移動コントローラーが使用中かどうかを示します。
+-   **m \_ movepointer id** は、現在の移動ポインターの一意の id です。 これは、ポインターの ID 値を確認するときにルック ポインターとムーブ ポインターを区別するために使います。
+-   **m \_ movefirstdown** は、プレーヤーが移動コントローラーポインター領域に最初に触れた画面上のポイントです。 この値は、小さな動きによってビューが不安定にならないようデッド ゾーンを設定するために後で使います。
+-   **m \_ movepointer position** は、プレーヤーがポインターを現在移動している画面上のポイントです。 このメソッドを使用して、プレーヤーが移動する方向を、 **m \_ movefirstdown**と比較して確認します。
+-   **m \_ movecommand** は、移動コントローラーの最終的な計算されたコマンドである、上 (順)、下 (戻る)、左、または右です。
 
 次に、ルック コントローラーに使うフィールドを、マウス実装とタッチ実装の両方に対して定義します。
 
--   **m\_lookInUse**検索コントロールが使用中かどうかを示します。
--   **m\_lookPointerID**現在参照ポインターの一意の ID です。 これは、ポインターの ID 値を確認するときにルック ポインターとムーブ ポインターを区別するために使います。
--   **m\_lookLastPoint**は最後のポイント、シーンの座標の前のフレームのキャプチャされました。
--   **m\_lookLastDelta**計算の現在の違いは、 **m\_位置**と**m\_lookLastPoint**します。
+-   **m \_ lookInUse** は、ルックコントロールが使用されているかどうかを示します。
+-   **m \_ look ポインター ID** は、現在の参照ポインターの一意の id です。 これは、ポインターの ID 値を確認するときにルック ポインターとムーブ ポインターを区別するために使います。
+-   "m" は、前のフレームでキャプチャされた最後のポイント (シーン座標) です。 ** \_ **
+-   "m" は、現在の**m \_ 位置**と " **m" \_ ポイント**との間で計算された差です。 ** \_ **
 
 最後に、6 段階の動きに対して次の 6 つのブール値を定義します。これらの値は、それぞれの方向移動操作の現在の状態 (オンまたはオフ) を示すために使います。
 
--   **m\_フォワード**、 **m\_戻る**、 **m\_左**、 **m\_右**、 **m\_を**と**m\_ダウン**します。
+-   **m \_ forward**、 **m \_ back**、 **m \_ left**、 **m \_ right**、 **m \_ up** 、および **m \_ down**。
 
 これら 6 つのイベント ハンドラーを使って、次のコントローラーの状態を更新するための入力データをキャプチャします。
 
 -   **OnPointerPressed**。 プレイヤーが、ポインターがゲーム画面にある状態でマウスの左ボタンを押したか、画面にタッチしました。
--   **OnPointerMoved**。 プレイヤーが、ポインターがゲーム画面にある状態でマウスを動かしたか、画面上でタッチ ポインターをドラッグしました。
+-   **Onポインターが移動**されました。 プレイヤーが、ポインターがゲーム画面にある状態でマウスを動かしたか、画面上でタッチ ポインターをドラッグしました。
 -   **OnPointerReleased**。 プレイヤーが、ポインターがゲーム画面にある状態でマウスの左ボタンを離したか、画面から手を離しました。
 -   **OnKeyDown**。 プレイヤーがキーを押しました。
 -   **OnKeyUp**。 プレイヤーがキーを離しました。
 
 最後に、次のメソッドとプロパティを使って、コントローラーの状態情報の初期化、アクセス、更新を行います。
 
--   **Initialize**。 Windows ストア アプリは、コントロールを初期化して、表示ウィンドウを定義する [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトにそれらのコントロールを適用するときに、このイベント ハンドラーを呼び出します。
+-   を**初期化**します。 Windows ストア アプリは、コントロールを初期化して、表示ウィンドウを定義する [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトにそれらのコントロールを適用するときに、このイベント ハンドラーを呼び出します。
 -   **SetPosition**。 Windows ストア アプリは、シーン空間内のコントロールの (x、y、z) 座標を設定するときに、このメソッドを呼び出します。
 -   **SetOrientation**。 Windows ストア アプリは、カメラのピッチとヨーを設定するときに、このメソッドを呼び出します。
--   **取得\_位置**します。 Windows ストア アプリは、シーン空間内のカメラの現在の位置を取得するときに、このプロパティにアクセスします。 このプロパティは、カメラの現在の位置をアプリに伝える手段として使います。
--   **取得\_LookPoint**します。 Windows ストア アプリは、現在コントローラーのカメラが向いている点を取得するときに、このプロパティにアクセスします。
--   **更新プログラム**。 ムーブ コントローラーとルック コントローラーの状態を読み取り、カメラの位置を更新します。 このメソッドをアプリのメイン ループから継続的に呼び出して、カメラ コントローラーのデータとシーン空間内のカメラの位置を更新します。
+-   **取得 \_位置**。 Windows ストア アプリは、シーン空間内のカメラの現在の位置を取得するときに、このプロパティにアクセスします。 このプロパティは、カメラの現在の位置をアプリに伝える手段として使います。
+-   **取得 \_参照ポイント**。 Windows ストア アプリは、現在コントローラーのカメラが向いている点を取得するときに、このプロパティにアクセスします。
+-   を**更新**します。 ムーブ コントローラーとルック コントローラーの状態を読み取り、カメラの位置を更新します。 このメソッドをアプリのメイン ループから継続的に呼び出して、カメラ コントローラーのデータとシーン空間内のカメラの位置を更新します。
 
 これで、ムーブ/ルック コントロールの実装に必要なコンポーネントがすべて揃いました。 次は、これらのコンポーネントどうしを接続してみましょう。
 
@@ -192,19 +192,19 @@ internal:
 
 Windows ランタイムのイベント ディスパッチャーは、**MoveLookController** クラスのインスタンスで処理するイベントを 5 つ提供します。
 
--   [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerpressed)
--   [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved)
--   [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased)
--   [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keyup)
--   [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.keydown)
+-   [**PointerPressed**](/uwp/api/windows.ui.core.corewindow.pointerpressed)
+-   [**PointerMoved**](/uwp/api/windows.ui.core.corewindow.pointermoved)
+-   [**PointerReleased**](/uwp/api/windows.ui.core.corewindow.pointerreleased)
+-   [**KeyUp**](/uwp/api/windows.ui.core.corewindow.keyup)
+-   [**KeyDown**](/uwp/api/windows.ui.core.corewindow.keydown)
 
-これらのイベントは、[**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) 型に実装されています。 ここでは、操作する **CoreWindow** オブジェクトが既にあると想定しています。 取得方法が不明な場合は、「[ユニバーサル Windows プラットフォーム (UWP) C++ アプリで DirectX ビューを表示するための設定方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465077(v=win.10))」をご覧ください。
+これらのイベントは、[**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) 型に実装されています。 ここでは、操作する **CoreWindow** オブジェクトが既にあると想定しています。 取得方法が不明な場合は、「[ユニバーサル Windows プラットフォーム (UWP) C++ アプリで DirectX ビューを表示するための設定方法](/previous-versions/windows/apps/hh465077(v=win.10))」をご覧ください。
 
 これらのイベントは Windows ストア アプリの実行中に起動するため、ハンドラーはプライベート フィールドに定義されているコントローラーの状態情報を更新します。
 
-まず、マウス ポインターとタッチ ポインターのイベント ハンドラーを設定します。 最初のイベント ハンドラーである **OnPointerPressed()** では、ユーザーがルック コントローラー領域でマウスをクリックまたは画面をタッチすると、表示を管理する [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) からポインターの x-y 座標を取得します。
+まず、マウス ポインターとタッチ ポインターのイベント ハンドラーを設定します。 最初のイベント ハンドラーである **OnPointerPressed()** では、ユーザーがルック コントローラー領域でマウスをクリックまたは画面をタッチすると、表示を管理する [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) からポインターの x-y 座標を取得します。
 
-**OnPointerPressed**
+**Onポインタが押されました**
 
 ```cpp
 void MoveLookController::OnPointerPressed(
@@ -251,9 +251,9 @@ _In_ PointerEventArgs^ args)
 }
 ```
 
-このイベント ハンドラーは、ポインターがマウスでないかどうか (このサンプルではマウスとタッチの両方をサポートするため) と、ムーブ コントローラー領域内にあるかどうかを確認します。 両方の条件が true の場合、チェックするかどうか、ポインターだけ、押された具体的には、これが関連付けられていないかどうかがある場合、前に移動または場合をテストして、入力、確認**m\_moveInUse**は false です。 ハンドラーが、キーを押してが発生し、設定は、移動コント ローラーの領域内のポイントをキャプチャするため場合、 **m\_moveInUse** true、このハンドラーが再度呼び出されると、移動の開始位置が上書きされないようにするコント ローラーの入力対話します。 さらに、ムーブ コントローラーのポインター ID を現在のポインターの ID に更新します。
+このイベント ハンドラーは、ポインターがマウスでないかどうか (このサンプルではマウスとタッチの両方をサポートするため) と、ムーブ コントローラー領域内にあるかどうかを確認します。 両方の条件が true の場合は、 **m \_ moveinuse** が false かどうかをテストすることによって、ポインターが押されたばかりかどうかを確認します。具体的には、このクリックが前の移動または検索に関連付けられていないかどうかをテストします。 その場合、ハンドラーは、押された位置の移動コントローラー領域のポイントをキャプチャし、 **m \_ moveinuse** を true に設定します。これにより、このハンドラーが再度呼び出されたときに、移動コントローラーの入力操作の開始位置が上書きされることはありません。 さらに、ムーブ コントローラーのポインター ID を現在のポインターの ID に更新します。
 
-ポインターがマウスの場合、またはタッチ ポインターがムーブ コントローラー領域内にない場合は、ルック コントローラー領域内にある必要があります。 設定**m\_lookLastPoint**を現在の位置、ユーザーの押されたマウス ボタンまたは操作された、押された、リセット、デルタと外観のコント ローラーのポインター ID をポインターの現在の ID に更新します。 また、ルック コントローラーの状態をアクティブに設定します。
+ポインターがマウスの場合、またはタッチ ポインターがムーブ コントローラー領域内にない場合は、ルック コントローラー領域内にある必要があります。 このメソッドは、ユーザーがマウスボタンを押したか、タッチされて押された現在の位置に **m の \_ 視点** を設定し、デルタをリセットして、表示コントローラーのポインター id を現在のポインター id に更新します。 また、ルック コントローラーの状態をアクティブに設定します。
 
 **OnPointerMoved**
 
@@ -299,13 +299,13 @@ void MoveLookController::OnPointerMoved(
 
 **OnPointerMoved** イベント ハンドラーは、ポインターが動くたび起動します (この場合、タッチ スクリーンのポインターがドラッグされているとき、またはマウスの左ボタンを押しながらマウス ポインターが動かされているとき)。 ポインター ID がムーブ コントローラーのポインターの ID と同じ場合は、ムーブ ポインターになります。違う場合は、アクティブなポインターであるルック コントローラーかどうかを確認します。
 
-ムーブ コントローラーの場合は、単にポインターの位置を更新します。 **OnPointerPressed** イベント ハンドラーでキャプチャした最初の位置と最後の位置を比較するため、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) イベントが起動を続ける限りポインターの位置を更新し続けます。
+ムーブ コントローラーの場合は、単にポインターの位置を更新します。 **OnPointerPressed** イベント ハンドラーでキャプチャした最初の位置と最後の位置を比較するため、[**PointerMoved**](/uwp/api/windows.ui.core.corewindow.pointermoved) イベントが起動を続ける限りポインターの位置を更新し続けます。
 
 ルック コントローラーの場合は、やや複雑になります。 新しい視点を計算してカメラの中心をそこに合わせ、前の視点と現在の画面の位置との差分を計算する必要があります。その後、倍率を乗算します。倍率を調整すると、画面移動の距離に比例して動きが小さくまたは大きく見えるようにすることができます。 その値を使って、ピッチとヨーを計算します。
 
-最後に、プレイヤーがマウスの移動を停止したとき、または画面から手を離したときに、ムーブ コントローラーまたはルック コントローラーの動作を非アクティブにする必要があります。 使用して**OnPointerReleased**、ときと呼ばれる[ **PointerReleased** ](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointerreleased)を設定する発生した**m\_moveInUse**または**m\_lookInUse**を FALSE にカメラのパンの動きをオフにして、ポインター ID をゼロにする
+最後に、プレイヤーがマウスの移動を停止したとき、または画面から手を離したときに、ムーブ コントローラーまたはルック コントローラーの動作を非アクティブにする必要があります。 ここでは、ポインターが[**解放**](/uwp/api/windows.ui.core.corewindow.pointerreleased)されたときに呼び出される**onpointer**を使用し、 **m \_ MOVEINUSE**または**m \_ lookInUse**を FALSE に設定し、カメラのパン移動をオフにして、ポインター ID をゼロにします。
 
-**OnPointerReleased**
+**Onポインタが解放されました**
 
 ```cpp
 void MoveLookController::OnPointerReleased(
@@ -384,7 +384,7 @@ void MoveLookController::OnKeyUp(
 
 次は、イベントをフックして、コントローラー状態の全フィールドを初期化しましょう。
 
-**初期化します。**
+**化**
 
 ```cpp
 void MoveLookController::Initialize( _In_ CoreWindow^ window )
@@ -424,7 +424,7 @@ void MoveLookController::Initialize( _In_ CoreWindow^ window )
 }
 ```
 
-**Initialize** は、アプリの [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) インスタンスへの参照をパラメーターとして使い、先ほど作成したイベント ハンドラーをその **CoreWindow** の適切なイベントに登録します。 このハンドラーは、ムーブ ポインターとルック ポインターの ID を初期化し、タッチ スクリーンのムーブ コントローラー実装用のコマンド ベクターをゼロに設定して、アプリの起動時にカメラが正面を向くように設定します。
+**Initialize** は、アプリの [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) インスタンスへの参照をパラメーターとして使い、先ほど作成したイベント ハンドラーをその **CoreWindow** の適切なイベントに登録します。 このハンドラーは、ムーブ ポインターとルック ポインターの ID を初期化し、タッチ スクリーンのムーブ コントローラー実装用のコマンド ベクターをゼロに設定して、アプリの起動時にカメラが正面を向くように設定します。
 
 ## <a name="getting-and-setting-the-position-and-orientation-of-the-camera"></a>カメラの位置と向きの取得と設定
 
@@ -470,7 +470,7 @@ DirectX::XMFLOAT3 MoveLookController::get_LookPoint()
 ## <a name="updating-the-controller-state-info"></a>コントローラーの状態情報の更新
 
 
-追跡するポインターの座標情報に変換する計算は、実行、 **m\_movePointerPosition**新しい座標それぞれの情報、ワールド座標系にします。 Windows ストア アプリは、アプリのメイン ループが更新されるたびに、このメソッドを呼び出します。 このため、ビュー マトリックスをビューポートへのプロジェクションの前に更新するためにアプリに渡す新しい視点位置情報は、ここで計算します。
+ここでは、 **m \_ movepointer position** で追跡されているポインターの座標情報を、世界の座標系に対応する新しい座標情報に変換する計算を実行します。 Windows ストア アプリは、アプリのメイン ループが更新されるたびに、このメソッドを呼び出します。 このため、ビュー マトリックスをビューポートへのプロジェクションの前に更新するためにアプリに渡す新しい視点位置情報は、ここで計算します。
 
 ```cpp
 void MoveLookController::Update(CoreWindow ^window)
@@ -557,7 +557,7 @@ void MoveLookController::Update(CoreWindow ^window)
 
 速度を計算するときは、さらに、ムーブ コントローラーとルック コントローラーから受け取った座標を、シーンのビュー マトリックスを計算するメソッドに送信する実際の視点の動きに変換します。 まず、x 座標を反転します。これは、ルック コントローラーで、クリックしてから左または右方向への移動またはドラッグを行うと、カメラがその中心軸の周囲でスイングするように視点がシーン内で反対方向に回転するためです。 次に、y 軸と z 軸を入れ替えます。これは、ムーブ コントローラーで、上/下方向キーを押す、またはタッチ ドラッグ動作 (y 軸動作として読み取られます) を行うと、視点を画面 (z 軸) の中に、または外へ動かすカメラ操作が行われるためです。
 
-プレーヤーの外観のポイントの最後の位置は最後の位置と計算速度、あり、これを呼び出すときに、レンダラーによって読み取り対象、**取得\_位置**(多くの場合のそれぞれのセットアップ中にメソッドフレーム)。 その後、移動コマンドをゼロにリセットします。
+プレーヤーの検索ポイントの最終的な位置は、最後の位置と計算されたベロシティです。これは、 **get \_ position** メソッド (各フレームのセットアップ時に発生する可能性が高い) を呼び出すときにレンダラーによって読み取られます。 その後、移動コマンドをゼロにリセットします。
 
 ## <a name="updating-the-view-matrix-with-the-new-camera-position"></a>カメラの新しい位置によるビュー マトリックスの更新
 
@@ -575,14 +575,10 @@ myFirstPersonCamera->SetViewParameters(
                  ); 
 ```
 
-これで終了です。 タッチ スクリーン用とキーボード/マウス用の入力タッチ コントロールの両方の基本的なムーブ/ルック コントロールがゲームで実装されました。
+お疲れさまでした。 タッチ スクリーン用とキーボード/マウス用の入力タッチ コントロールの両方の基本的なムーブ/ルック コントロールがゲームで実装されました。
 
 
 
  
 
  
-
-
-
-

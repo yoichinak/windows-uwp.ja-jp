@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: bce484921a987f06ed79ad65007eb38d646c3227
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 62951db34cfd63c8d47f95a887b79aedea77a1c5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259511"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165036"
 ---
 # <a name="compute-shader-cs-stage"></a>計算シェーダー (CS) ステージ
 
@@ -21,7 +21,7 @@ ms.locfileid: "74259511"
 
 計算シェーダーは、多数のスレッドで並列に実行できます。
 
-計算シェーダーは、[DirectCompute](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl) テクノロジを使用して、グラフィックス プログラミングを超えて Direct3D を拡張する、[HLSL](https://blogs.msdn.com/b/chuckw/archive/2010/07/14/directcompute.aspx) のプログラム可能なシェーダー ステージです。
+計算シェーダーは、[DirectCompute](https://blogs.msdn.com/b/chuckw/archive/2010/07/14/directcompute.aspx) テクノロジを使用して、グラフィックス プログラミングを超えて Direct3D を拡張する、[HLSL](/windows/desktop/direct3dhlsl/dx-graphics-hlsl) のプログラム可能なシェーダー ステージです。
 
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
@@ -33,7 +33,3 @@ ms.locfileid: "74259511"
  
 
  
-
-
-
-

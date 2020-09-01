@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, 使用状況, カスタム イベント, レポート, 利用統計情報, ユーザー セッション
 ms.localizationpriority: medium
-ms.openlocfilehash: bced71620b5e52e90b104a9a50d8fb774ba14228
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: d2839112d36822be5eb8297b838cdc38bab5c71b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846812"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167276"
 ---
 # <a name="usage-report"></a>利用状況レポート
 
@@ -35,7 +35,7 @@ ms.locfileid: "88846812"
 > このレポートに含まれるのは、Windows 10 ユーザー (Xbox ユーザーを含む) で製品利用統計情報の提供を辞退していないユーザーの使用状況データのみです。 Xbox ゲームの使用状況データは、ユーザーが Xbox Live にサインインしているかどうかに関係なく含まれます。 
 
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用
 
 **[使用状況]** グラフからは、選択された期間中にアプリがどのように使われたかについて詳しく知ることができます。 このグラフでは、アプリの一意のユーザーまたは一意のユーザー セッションは追跡されないことに注意してください (つまり、ユーザーがその日にアプリを 1 回しか使っていなくても、複数回使っていても、1 ユーザーとしてカウントされます)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "88846812"
 
 **[カスタム イベント]** グラフには、アプリに定義したカスタム イベントが発生した合計回数が示されます。 この回数には、それらのイベントが同じお客様によって複数回発生した場合も含まれます。 フィルターを使って特定のカスタム イベントを選び、このデータを表示することもできます。
 
-カスタム イベントは、[Microsoft Store Services SDK](../monetize/microsoft-store-services-sdk.md) の [StoreServicesCustomEventLogger.Log](https://docs.microsoft.com/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドを使って実装されています。
+カスタム イベントは、[Microsoft Store Services SDK](../monetize/microsoft-store-services-sdk.md) の [StoreServicesCustomEventLogger.Log](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドを使って実装されています。
 
 詳しくは、「[デベロッパー センターのカスタム イベントをログに記録する](../monetize/log-custom-events-for-dev-center.md)」をご覧ください。
 

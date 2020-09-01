@@ -8,12 +8,12 @@ keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ffc3ce96c7e8c2ad4a34aecd1ca85ff644bdef97
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 9e83cb1ceca96e5c7b51e71cb419b86b0395ea99
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234484"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165866"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
@@ -42,7 +42,7 @@ ms.locfileid: "83234484"
 
 タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 タッチ入力用に Windows アプリのデザインを最適化し、既定でタッチパッドのサポートを取得します。
 
-タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
+タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
 
 このトピックで説明されているジェスチャとガイドラインを利用することで、アプリはタッチパッド入力を最小限のコードでシームレスにサポートできます。
 
@@ -70,7 +70,7 @@ ms.locfileid: "83234484"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">用語</th>
+<th align="left">期間</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -119,7 +119,7 @@ ms.locfileid: "83234484"
 ## <a name="hardware"></a>ハードウェア
 
 
-マウス デバイス機能 ([**MouseCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseCapabilities)) を照会して、タッチパッド ハードウェアから直接アクセスできるアプリ UI の要素を識別します。 タッチ入力とマウス入力の両方の UI を用意することをお勧めします。
+マウス デバイス機能 ([**MouseCapabilities**](/uwp/api/Windows.Devices.Input.MouseCapabilities)) を照会して、タッチパッド ハードウェアから直接アクセスできるアプリ UI の要素を識別します。 タッチ入力とマウス入力の両方の UI を用意することをお勧めします。
 
 デバイス機能の照会について詳しくは、「[入力デバイスの識別](identify-input-devices.md)」をご覧ください。
 
@@ -132,14 +132,14 @@ ms.locfileid: "83234484"
 -   タッチパッド操作ではフォーカス用の四角形を使わないでください。 これはキーボード操作専用です。
 -   同じ入力対象を表すすべての要素に対して視覚的なフィードバックを同時に表示します。
 
-視覚的なフィードバックに関する一般的なガイダンスについては、「[視覚的なフィードバックのガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-visualfeedback)」をご覧ください。
+視覚的なフィードバックに関する一般的なガイダンスについては、「[視覚的なフィードバックのガイドライン](./guidelines-for-visualfeedback.md)」をご覧ください。
 
 ## <a name="cursors"></a>カーソル
 
 
 タッチパッド ポインターとして利用できる標準のカーソル セットが用意されています。 これらが要素のプライマリ操作を示すために使われます。
 
-標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 UWP アプリでは、[**PointerCursor**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使用して、カーソル画像を指定します。
+標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 UWP アプリでは、[**PointerCursor**](/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使用して、カーソル画像を指定します。
 
 マウス カーソルをカスタマイズする必要がある場合は、以下のガイドラインに従ってください。
 

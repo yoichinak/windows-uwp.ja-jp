@@ -6,27 +6,27 @@ ms.date: 05/29/2020
 ms.topic: article
 keywords: windows 10, uwp, 支払い, アプリの販売, アプリの収益, 受け取り, Microsoft Store の手数料, 支払い保留, パーセント
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d42677aeda694e2fc8924cee1832b62d98b15e5
-ms.sourcegitcommit: a937963ce63a14c254420926661b9b68be28a8ee
+ms.openlocfilehash: 5e2b67984c43d799f0f4e3a1c6662b57bdc6ae9d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84746772"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167396"
 ---
 # <a name="getting-paid"></a>支払いを受ける
 アプリ、アドオン、広告収益の支払いに関する重要な情報を次に示します。
 
 > [!IMPORTANT]
-> Microsoft Store のアプリの売上から money を受け取るには、[支払いアカウントを設定し、必要な税金のフォームに記入](setting-up-your-payout-account-and-tax-forms.md)する必要があります。
+> Microsoft Store のアプリの売上から money を受け取るには、 [支払いアカウントを設定し、必要な税金のフォームに記入](setting-up-your-payout-account-and-tax-forms.md)する必要があります。
 
 > [!NOTE]
 > 支払いに関するサポートが必要な場合 (支払いアカウントの構成、行われていない支払い、支払いの保留など) は、[こちら](https://developer.microsoft.com/windows/support)からサポートにお問い合わせください。
 
 ## <a name="store-fee"></a>Microsoft Store 料金
 
-[開発者アカウントを登録する](https://developer.microsoft.com/store/register)際に、開発者は[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)に同意します。 この契約には、Microsoft Store でのアプリ販売に関する、開発者と Microsoft との関係が説明されています。これには、Microsoft がすべての販売に対して課金する Microsoft Store の手数料に関する規定も含まれています。
+[開発者アカウントを登録する](https://developer.microsoft.com/store/register)際に、開発者は[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)に同意します。 この契約には、Microsoft Store でのアプリ販売に関する、開発者と Microsoft との関係が説明されています。これには、Microsoft がすべての販売に対して課金する Microsoft Store の手数料に関する規定も含まれています。
 
-これらの手数料は、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)で正式に定められています。 問題がある場合は、必ずそのドキュメントを確認してください。
+これらの手数料は、[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)で正式に定められています。 問題がある場合は、必ずそのドキュメントを確認してください。
 
 Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で生じたすべてのアプリ販売に適用されます。
 
@@ -59,11 +59,11 @@ Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で
 
 ##  <a name="payout-hold-status"></a>支払い保留状態
 
-既定では、前述のように月単位で支払いを送信します。 ただし、必要であれば、プログラムの支払いを保留状態にして、ご利用のアカウントへの送金を止めることもできます。 支払いを保持することを選択した場合は、お客様が獲得した収益を引き続き記録し、**支払いの概要**に詳細を入力します。 ただしパートナー様によって保留状態が解除されるまでは、Microsoft からの支払いは口座に送金されません。
+既定では、前述のように月単位で支払いを送信します。 ただし、必要であれば、プログラムの支払いを保留状態にして、ご利用のアカウントへの送金を止めることもできます。 支払いを保持することを選択した場合は、お客様が獲得した収益を引き続き記録し、 **支払いの概要**に詳細を入力します。 ただしパートナー様によって保留状態が解除されるまでは、Microsoft からの支払いは口座に送金されません。
 
-支払いを保留状態にするには、 **[開発者向け設定]** に移動します。 **[支払いと税金]** の **[支払いと税金プロファイルの割り当て]** セクションで、支払いを保留にするプログラムを見つけます。 **[支払の保留]** チェックボックスをクリックすると、このプログラムの支払いが保留になります。 支払い保留状態はいつでも変更できますが、その決定は、翌月の支払いに影響することに注意してください。 たとえば、4月の支払い額を保持する場合は、3月の終わりまでに支払いの保留状態を**On**に設定してください。
+支払いを保留状態にするには、 **[開発者向け設定]** に移動します。 **[支払いと税金]** の **[支払いと税金プロファイルの割り当て]** セクションで、支払いを保留にするプログラムを見つけます。 **[支払の保留]** チェックボックスをクリックすると、このプログラムの支払いが保留になります。 支払い保留状態はいつでも変更できますが、その決定は、翌月の支払いに影響することに注意してください。 たとえば、4月の支払い額を保持する場合は、3月の終わりまでに支払いの保留状態を **On** に設定してください。
 
-いったん支払い保留状態を **[オン]** に設定すると、スライダーを **[オフ]** に戻すまで、このプログラムのすべての支払いが保留されます。 これを行うと、(該当する支払いしきい値が満たされた場合) 翌月の支払いサイクルに組み込まれます。 たとえば、支払いを保持していても、6月に支払いを生成したい場合は、の終了日が切れる前に、支払い保留の状態を**Off**に切り替えてください。
+いったん支払い保留状態を **[オン]** に設定すると、スライダーを **[オフ]** に戻すまで、このプログラムのすべての支払いが保留されます。 これを行うと、(該当する支払いしきい値が満たされた場合) 翌月の支払いサイクルに組み込まれます。 たとえば、支払いを保持していても、6月に支払いを生成したい場合は、の終了日が切れる前に、支払い保留の状態を **Off** に切り替えてください。
 
 > [!NOTE]
 > **[支払い保留ステータス]** は各プログラム (Microsoft Store、広告、Azure Marketplace など) に個別に適用されます。 すべてのプログラムの支払いを保留にする場合は、各プログラムで個別に支払いを保留にする必要があります。
@@ -72,7 +72,3 @@ Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で
  
 
  
-
-
-
-

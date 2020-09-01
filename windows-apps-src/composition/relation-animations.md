@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 91e3ae5b23b7429633053f4d4d876f02127d26e3
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: 57d2f3729430faefc7db31cad6a0ac91ddaa2e02
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054422"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166366"
 ---
 # <a name="relation-based-animations"></a>関係ベース アニメーション
 
@@ -46,9 +46,9 @@ Expression の数学的な関係を構築する際に利用できる主なコン
 
 - パラメーター – 定数値または他のコンポジション オブジェクトへの参照を表す値です。
 - 数学演算子 – 式を構成するためにパラメーターを結合する一般的な数学演算子 (加算 (+)、減算 (-)、乗算 (*)、除算 (/)) です。 条件演算子 (より大きい (>)、等しい (==) など) や、三項演算子 (condition ?  ifTrue : ifFalse) なども含まれます。
-- 数学関数 – System.Numerics に基づく数学関数/数学ショートカットです。 サポートされる関数の完全な一覧については、「[ExpressionAnimation](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ExpressionAnimation)」をご覧ください。
+- 数学関数 – System.Numerics に基づく数学関数/数学ショートカットです。 サポートされる関数の完全な一覧については、「[ExpressionAnimation](/uwp/api/Windows.UI.Composition.ExpressionAnimation)」をご覧ください。
 
-Expression では一連のキーワードもサポートされています。キーワードとは、ExpressionAnimation システム内でのみ使われる独自の意味を持つ特別な語句です。 これらのキーワードの一覧 (および数学関数の完全な一覧) については、「[ExpressionAnimation](https://docs.microsoft.com/uwp/api/Windows.UI.Composition.ExpressionAnimation)」の説明をご覧ください。
+Expression では一連のキーワードもサポートされています。キーワードとは、ExpressionAnimation システム内でのみ使われる独自の意味を持つ特別な語句です。 これらのキーワードの一覧 (および数学関数の完全な一覧) については、「[ExpressionAnimation](/uwp/api/Windows.UI.Composition.ExpressionAnimation)」の説明をご覧ください。
 
 ### <a name="creating-expressions-with-expressionbuilder"></a>ExpressionBuilder を使用して Expression を作成する
 

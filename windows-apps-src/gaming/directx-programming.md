@@ -6,12 +6,12 @@ ms.date: 06/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 概要, プログラミング, Directx
 ms.localizationpriority: medium
-ms.openlocfilehash: 24c15516bc18eacd6c5dfcad8edec9a2c088fc7f
-ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
+ms.openlocfilehash: 846c333a7cce9d8f373b01aabf525f103dba57f2
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88970260"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165306"
 ---
 # <a name="directx-programming"></a>DirectX プログラミング
 
@@ -61,11 +61,5 @@ ms.locfileid: "88970260"
 </table>
 
 
-DirectX のリファレンスとプログラミング ガイドについては、「[Direct3D 11 グラフィックス](https://docs.microsoft.com/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11)」と「[Direct3D 12 グラフィックス](https://docs.microsoft.com/windows/desktop/direct3d12/direct3d-12-graphics)」を参照してください。
+DirectX のリファレンスとプログラミング ガイドについては、「[Direct3D 11 グラフィックス](/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11)」と「[Direct3D 12 グラフィックス](/windows/desktop/direct3d12/direct3d-12-graphics)」を参照してください。
  
-
-
-
-
-
-

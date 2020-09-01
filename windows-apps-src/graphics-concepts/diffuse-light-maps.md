@@ -1,18 +1,18 @@
 ---
 title: 拡散ライト マップ
-description: マット サーフェスには、拡散光の反射があります。
+description: テクスチャライトマップを使用して、マットサーフェイスの複雑な拡散光反射をシミュレートする方法について説明します。
 ms.assetid: D02E76DB-1DA8-4B51-86EF-4DDB07C02541
 keywords:
 - 拡散ライト マップ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0605de5313b59689c19b9560d10e088d26d29b52
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 25089911a1dd273cd7513cda7e0a904b8d36d6f5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57627737"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165026"
 ---
 # <a name="diffuse-light-maps"></a>拡散ライト マップ
 
@@ -24,7 +24,7 @@ ms.locfileid: "57627737"
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[テクスチャのライトのマッピング](light-mapping-with-textures.md)
+[テクスチャでのライト マッピング](light-mapping-with-textures.md)
 
  
 

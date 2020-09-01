@@ -5,12 +5,12 @@ ms.date: 07/16/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 95a7355241f9ba4cc7b4bb743b78ac09169d65d9
-ms.sourcegitcommit: 2747d9266e1678fca96d3822ce47499ca91a2c70
+ms.openlocfilehash: 3d4aa82f70e9bad7a60a97b6b28f28f3dfd008c9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213679"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166406"
 ---
 # <a name="tailoring-effects--experiences-using-windows-ui"></a>Windows UI を使用した効果 & エクスペリエンスの調整
 
@@ -22,7 +22,7 @@ UI の調整は、次の領域に関する高性能で美しい UI の作業を�
 - アニメーションのユーザー設定の対応
 - 特定のハードウェア機能用の UI の最適化
 
-ここでは、上記の領域でビジュアル レイヤーを使用して効果とアニメーションを調整する方法について説明します。優れたエンド ユーザー エクスペリエンスを保証するためにアプリケーションを調整する方法は他にも多くあります。 さまざまなデバイス用の UI を[調整](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)し、応答性の高い[ui を作成](/windows/uwp/design/layout/responsive-design)する方法に関するガイダンスドキュメントをご利用いただけます。
+ここでは、上の領域でビジュアルレイヤーを使用して効果とアニメーションを調整する方法について説明しますが、優れたエンドユーザーエクスペリエンスを実現するためにアプリケーションを調整する方法は他にも多数あります。 さまざまなデバイス用の UI を [調整](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md) し、応答性の高い [ui を作成](../design/layout/responsive-design.md)する方法に関するガイダンスドキュメントをご利用いただけます。
 
 ## <a name="user-effects-settings"></a>ユーザー効果の設定
 
@@ -38,10 +38,10 @@ UI の調整は、次の領域に関する高性能で美しい UI の作業を�
 
 オフにすると、既定では、XAML の acrylic brush がこのイベントをリッスンしているため、acrylic マテリアルは自動的に純色に戻ります。 ここでは、透明度効果が有効になっていない場合に、電卓アプリが適切に単色に戻ります。
 
-Acrylic](images/tailoring-acrylic.png)
-を使用した計算ツールでは、Acrylic を使用して、透明度の](images/tailoring-acrylic-fallback.png) 設定に対応するを ![します。 ![
+![Acrylic 計算を使用した電卓と ](images/tailoring-acrylic.png)
+ ![ Acrylic の透明度設定への応答](images/tailoring-acrylic-fallback.png)
 
-ただし、カスタム効果の場合、アプリケーションは[AdvancedEffectsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabled)プロパティまたは[AdvancedEffectsEnabledChanged](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabledchanged)イベントに応答し、透明度のない効果を使用するように効果/効果グラフを切り替える必要があります。 この例を次に示します。
+ただし、カスタム効果の場合、アプリケーションは [AdvancedEffectsEnabled](/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabled) プロパティまたは [AdvancedEffectsEnabledChanged](/uwp/api/windows.ui.viewmanagement.uisettings.advancedeffectsenabledchanged) イベントに応答し、透明度のない効果を使用するように効果/効果グラフを切り替える必要があります。 この例を次に示します。
 
 ```cs
 public MainPage()
@@ -59,7 +59,7 @@ private void Uisettings_AdvancedEffectsEnabledChanged(UISettings sender, object 
 
 ## <a name="animations-settings"></a>アニメーションの設定
 
-同様に、設定のユーザー設定に基づいてアニメーションがオンまたはオフになっていることを確認するために、 [Uisettings.](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.animationsenabled)のプロパティをリッスンして応答する必要があります。これにより、アクセス > 表示 > 簡単になります。
+同様に、設定のユーザー設定に基づいてアニメーションがオンまたはオフになっていることを確認するために、 [Uisettings.](/uwp/api/windows.ui.viewmanagement.uisettings.animationsenabled) のプロパティをリッスンして応答する必要があります。これにより、アクセス > 表示 > 簡単になります。
 
 ![[設定] の [アニメーション] オプション](images/tailoring-animations-setting.png)
 
@@ -116,13 +116,13 @@ CompositionCapabilities 機能は、Acrylic 資料などの機能に既に利用
 
 ## <a name="fast-vs-slow-effects"></a>高速効果と低速効果
 
-アプリケーションでは、CompositionCapabilities API で提供され[ている、サポート](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectssupported)されている Areの[高速](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectsfast)メソッドからのフィードバックに基づいて、デバイス用に最適化されたその他の効果に対して、高価またはサポートされていない影響をスワップすることができます。 一部の効果は、常に他のリソースよりも多くのリソースを消費することがわかっているため、控えめに使用する必要があり、その他の効果はより自由に使用できます。 ただし、すべての効果については、チェーンとアニメーション化を使用して、いくつかのシナリオや組み合わせが効果グラフのパフォーマンス特性を変更することがあります。 次に、個々の効果の thumb パフォーマンス特性の規則をいくつか示します。
+アプリケーションでは、CompositionCapabilities API で提供され [ている、サポート](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectssupported) されている Areの [高速](/uwp/api/windows.ui.composition.compositioncapabilities.areeffectsfast) メソッドからのフィードバックに基づいて、デバイス用に最適化されたその他の効果に対して、高価またはサポートされていない影響をスワップすることができます。 一部の効果は、常に他のリソースよりも多くのリソースを消費することがわかっているため、控えめに使用する必要があり、その他の効果はより自由に使用できます。 ただし、すべての効果については、チェーンとアニメーション化を使用して、いくつかのシナリオや組み合わせが効果グラフのパフォーマンス特性を変更することがあります。 次に、個々の効果の thumb パフォーマンス特性の規則をいくつか示します。
 
-- パフォーマンスに大きな影響があるとわかっている効果は、ブラー (ガウス)、シャドウマスク、BackDropBrush、HostBackDropBrush、およびレイヤービジュアルのようになります。 これらは、低エンドデバイス[(機能レベル 9.1-9.3)](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)には推奨されません。ハイエンドデバイスでは慎重に使用する必要があります。
+- パフォーマンスに大きな影響があるとわかっている効果は、ブラー (ガウス)、シャドウマスク、BackDropBrush、HostBackDropBrush、およびレイヤービジュアルのようになります。 これらは、低エンドデバイス [(機能レベル 9.1-9.3)](/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro)には推奨されません。ハイエンドデバイスでは慎重に使用する必要があります。
 - パフォーマンスに大きな影響を与える効果には、カラーマトリックス、特定の Blend 効果の BlendModes (輝度、色、鮮やかさ、色合い)、スポットライト、SceneLightingEffect、および (シナリオによっては) BorderEffect があります。 これらの効果は、低レベルのデバイスで特定のシナリオで動作する場合がありますが、チェーンとアニメーション化には注意が必要です。 使用を2以下に制限することをお勧めします。また、遷移のみをアニメーション化します。
 - 他のすべての効果は、アニメーション化とチェーン化を行う際に、パフォーマンスへの影響が少なく、すべての適切なシナリオで動作します。
 
-## <a name="related-articles"></a>関連トピック
+## <a name="related-articles"></a>関連記事
 
-- [UWP の応答性の高い設計手法](https://docs.microsoft.com/windows/uwp/design/layout/responsive-design)
-- [UWP デバイスの調整](https://docs.microsoft.com/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)
+- [UWP の応答性の高い設計手法](../design/layout/responsive-design.md)
+- [UWP デバイスの調整](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md)
