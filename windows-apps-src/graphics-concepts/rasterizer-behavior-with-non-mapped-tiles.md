@@ -1,20 +1,20 @@
 ---
 title: マップされていないタイルでのラスタライザー動作
-description: このセクションでは、マップされていないタイルを使用したラスタライザー動作について説明します。
+description: マップされていないタイルを使用した DepthStencilView (DSV) と RenderTargetView (RTV) ラスタライザーの動作について説明します。
 ms.assetid: AC7B818D-E52B-4727-AEA2-39CFDC279CE7
 keywords:
 - マップされていないタイルでのラスタライザー動作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e3089444820f990644526eaafb7f2ef9007fa70a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: f8085d8d29a86c0c5da82f6cb98c57c037b81beb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631887"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171886"
 ---
-# <a name="span-iddirect3dconceptsrasterizerbehaviorwithnon-mappedtilesspanrasterizer-behavior-with-non-mapped-tiles"></a><span id="direct3dconcepts.rasterizer_behavior_with_non-mapped_tiles"></span>タイルが、マップされていないラスタライザーの動作
+# <a name="span-iddirect3dconceptsrasterizer_behavior_with_non-mapped_tilesspanrasterizer-behavior-with-non-mapped-tiles"></a><span id="direct3dconcepts.rasterizer_behavior_with_non-mapped_tiles"></span>マップされていないタイルでのラスタライザー動作
 
 
 このセクションでは、マップされていないタイルを使用したラスタライザー動作について説明します。
@@ -42,7 +42,7 @@ RTV からの読み取りでは、存在しないタイルにおいては 0 が�
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[リソースのストリーミング パイプラインへのアクセス](pipeline-access-to-streaming-resources.md)
+[ストリーミング リソースへのパイプライン アクセス](pipeline-access-to-streaming-resources.md)
 
  
 

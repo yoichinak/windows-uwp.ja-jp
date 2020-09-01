@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 65a4643e6a73e0eb015fc40c7354d0cd307fa0d1
-ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
+ms.openlocfilehash: b4cf26d4f4fe5fa33f9f214da32263031188c5f0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469547"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172256"
 ---
 # <a name="bluetooth-gatt-server"></a>Bluetooth GATT サーバー
 
@@ -29,8 +29,8 @@ ms.locfileid: "85469547"
 
 **重要な API**
 
-- [**Windows. デバイス. Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
-- [**Windows. Devices. GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
+- [**Windows.Devices.Bluetooth**](/uwp/api/Windows.Devices.Bluetooth)
+- [**Windows. Devices. GenericAttributeProfile**](/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
 
 ## <a name="overview"></a>概要
 
@@ -45,7 +45,7 @@ Windows は、通常、クライアントの役割で動作します。 ただ�
 各サービス、特性、記述子は、それぞれ一意の 128 ビット UUID によって定義されます。
 > すべての Windows API では GUID という用語を使用しますが、Bluetooth の標準では、これらを UUID と定義しています。 このドキュメントの説明では、これら 2 つの用語は入れ替え可能であるため、ここでは UUID という用語を使用します。 
 
-属性が標準であり、Bluetooth SIG で定義されている場合は、対応する16ビットの短い ID も使用されます (たとえば、バッテリレベル UUID は 0000**2A19**-0000-1000-8000-00805F9B34FB、短い ID は0x2A19 です)。 これらの標準的な UUID については、[GattServiceUuids](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattserviceuuids) と [GattCharacteristicUuids](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattcharacteristicuuids) に関するページをご覧ください。
+属性が標準であり、Bluetooth SIG で定義されている場合は、対応する16ビットの短い ID も使用されます (たとえば、バッテリレベル UUID は 0000**2A19**-0000-1000-8000-00805F9B34FB、短い ID は0x2A19 です)。 これらの標準的な UUID については、[GattServiceUuids](/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattserviceuuids) と [GattCharacteristicUuids](/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattcharacteristicuuids) に関するページをご覧ください。
 
 アプリで独自のカスタム サービスを実装している場合は、カスタム UUID を生成する必要があります。 これは、Visual Studio で [ツール] の [GUID の作成] を選択して簡単に作成できます ("xxxxxxxx-xxxx-...xxxx" 形式で取得するにはオプション 5 を使用します)。 この UUID を使用して、新しいローカル サービス、特性、記述子を宣言できます。
 

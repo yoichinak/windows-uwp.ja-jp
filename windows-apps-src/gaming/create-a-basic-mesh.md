@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、メッシュ、DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b5aa00b5beb7c80a903fbf17d432f73f16561a2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 360a916033a18805094336d868a09800f09c091c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368982"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173166"
 ---
 # <a name="create-and-display-a-basic-mesh"></a>基本的なメッシュの作成と表示
 
@@ -19,23 +19,23 @@ ms.locfileid: "66368982"
 
 3-D のユニバーサル Windows プラットフォーム (UWP) ゲームでは、通常は多角形を使ってゲーム内のオブジェクトやサーフェスを表現します。 そのような多角形によるオブジェクトやサーフェスの構造を構成する頂点のリストをメッシュと呼びます。 ここでは、立方体オブジェクトの基本的なメッシュを作り、シェーダー パイプラインに渡してレンダリングと表示を行います。
 
-> **重要な**   (DirectX::XMFLOAT3 DirectX::XMFLOAT4X4 など) の型と DirectXMath.h で宣言されているインライン メソッドに含まれるコードの例がここで使用します。 切り取り、このコードを貼り付ける場合\#含める&lt;DirectXMath.h&gt;プロジェクトでします。
+> **重要**   ここに示すコード例では、型 (DirectX:: XMFLOAT3、DirectX:: XMFLOAT4X4 など) と、DirectXMath. h で宣言されたインラインメソッドを使用しています。 このコードを切り取って貼り付ける場合は \# 、 &lt; プロジェクトに directxmath. h を含め &gt; ます。
 
  
 
-## <a name="what-you-need-to-know"></a>理解しておく必要があること
+## <a name="what-you-need-to-know"></a>知っておく必要がある情報
 
 
 ### <a name="technologies"></a>テクノロジ
 
--   [Direct3D](https://docs.microsoft.com/windows/desktop/getting-started-with-direct3d)
+-   [Direct3D](/windows/desktop/getting-started-with-direct3d)
 
 ### <a name="prerequisites"></a>前提条件
 
 -   線形代数と 3-D 座標系の基本的な知識
--   Visual Studio 2015 またはそれ以降の Direct3D テンプレート
+-   Visual Studio 2015 以降の Direct3D テンプレート
 
-## <a name="instructions"></a>手順
+## <a name="instructions"></a>Instructions
 
 次の手順では、基本的なメッシュ立方体を作成する方法を説明します。 
 
@@ -46,7 +46,7 @@ ms.locfileid: "66368982"
 <iframe src="https://channel9.msdn.com/Series/Introduction-to-C-and-DirectX-Game-Development/03/player#time=7m39s:paused" width="600" height="338" allowFullScreen frameBorder="0"></iframe>
 
 
-### <a name="step-1-construct-the-mesh-for-the-model"></a>手順 1:モデルのメッシュを構築します。
+### <a name="step-1-construct-the-mesh-for-the-model"></a>手順 1: モデルのメッシュを構成する
 
 ほとんどのゲームでは、ゲーム オブジェクトのメッシュは特定の頂点データが含まれるファイルからロードされます。 頂点の順序はアプリに依存していますが、通常は帯状または扇状にシリアル化されます。 頂点データは、ソフトウェア ソースからのものを使うことも、手動で作ることもできます。 頂点シェーダーが効果的に処理できる方法でデータを解釈するかどうかはゲーム次第です。
 
@@ -75,9 +75,9 @@ SimpleCubeVertex cubeVertices[] =
 
 最終的に 8 つの頂点があり、それぞれに特定の色が割り当てられています。 頂点/色の各ペアは、この例で使う頂点のフル データになっています。 頂点バッファーを指定する場合は、この具体的なレイアウトを念頭に置いておく必要があります。 この入力レイアウトを頂点シェーダーに渡して、頂点データが頂点シェーダーで理解されるようにします。
 
-### <a name="step-2-set-up-the-input-layout"></a>手順 2:入力レイアウトを設定します。
+### <a name="step-2-set-up-the-input-layout"></a>手順 2: 入力レイアウトを設定する
 
-現在、頂点はメモリ内に取り込まれています。 ただし、グラフィックス デバイスには専用のメモリがあり、このメモリにアクセスするには Direct3D を使います。 頂点データをグラフィックス デバイスに取り込んで処理するには、言ってみればその方法を明らかにしておく必要があります。グラフィックス デバイスがゲームから頂点データを受け取ったときに解釈できるように、頂点データをどのように配置するのかを宣言しておく必要があるのです。 それには、[**ID3D11InputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout) を使います。
+現在、頂点はメモリ内に取り込まれています。 ただし、グラフィックス デバイスには専用のメモリがあり、このメモリにアクセスするには Direct3D を使います。 頂点データをグラフィックス デバイスに取り込んで処理するには、言ってみればその方法を明らかにしておく必要があります。グラフィックス デバイスがゲームから頂点データを受け取ったときに解釈できるように、頂点データをどのように配置するのかを宣言しておく必要があるのです。 それには、[**ID3D11InputLayout**](/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout) を使います。
 
 頂点バッファー用に入力レイアウトを宣言し、設定します。
 
@@ -100,27 +100,27 @@ m_d3dDevice->CreateInputLayout(
 
 このコードでは、頂点のレイアウト、具体的には頂点リスト内の各要素に含まれるデータを指定します。 ここでは、**basicVertexLayoutDesc** で 2 つのデータ コンポーネントを指定します。
 
--   **位置**:これは、HLSL シェーダーに渡された位置データのセマンティックです。 このコードでは DirectX::XMFLOAT3、正確には 3D 座標 (x, y, z) に対応する 3 つの 32 ビット浮動小数点値を持つ構造です。 DXGI を指定する場合は、同種の"w"座標を指定している場合、float4 を使用することも\_形式\_R32G32B32A32\_FLOAT です。 DirectX::XMFLOAT3 と float4 のどちらを使うのかは、ゲームの特定の必要性によって異なります。 メッシュの頂点データが、使う形式に正しく対応していることを確認してください。
+-   **POSITION**: これは、シェーダーに渡される位置データの HLSL セマンティックです。 このコードでは DirectX::XMFLOAT3、正確には 3D 座標 (x, y, z) に対応する 3 つの 32 ビット浮動小数点値を持つ構造です。 同種の "w" 座標を指定する場合は、float4 を使用することもできます。その場合は、DXGI \_ FORMAT R32G32B32A32 FLOAT を指定し \_ \_ ます。 DirectX::XMFLOAT3 と float4 のどちらを使うのかは、ゲームの特定の必要性によって異なります。 メッシュの頂点データが、使う形式に正しく対応していることを確認してください。
 
     各座標値は、オブジェクトの座標空間内で -1 ～ 1 の浮動小数点値で表されます。 頂点シェーダーが完了すると、変換された頂点は統一された (視点が修正された) ビュー プロジェクション空間内にあります。
 
     「でも、列挙値は、XYZ ではなく RGB を示しています。」 ご指摘のとおりです。 さすがです! 色データと座標データの両方で、通常は 3 つか 4 つの成分値を使います。それならば両方で同じ形式を使わないのはなぜなのでしょうか。 HLSL セマンティックは形式の名前ではなく、シェーダーがデータを扱う方法を表します。
 
--   **色**:これは、色データのセマンティックを HLSL です。 **POSITION** と同様に、3 つの 32 ビット浮動小数点値 (DirectX::XMFLOAT3) で構成されます。 それぞれの値は、0 ～ 1 の浮動小数点値で表される色成分の赤 (r)、青 (b)、または緑 (g) を含みます。
+-   **COLOR**: これは、色データの HLSL セマンティックです。 **POSITION** と同様に、3 つの 32 ビット浮動小数点値 (DirectX::XMFLOAT3) で構成されます。 それぞれの値は、0 ～ 1 の浮動小数点値で表される色成分の赤 (r)、青 (b)、または緑 (g) を含みます。
 
     通常、**COLOR** の値は、シェーダー パイプラインの最後に 4 成分の RGBA 値として返されます。 この例では、すべてのピクセルについて、シェーダー パイプラインで "A" アルファ値を 1.0 (最大不透明度) に設定します。
 
-形式の完全な一覧を参照してください。 [ **DXGI\_形式**](https://docs.microsoft.com/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format)します。 HLSL セマンティックの全一覧については、「[セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)」をご覧ください。
+すべての形式の一覧については、「 [**DXGI \_ 形式**](/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format)」を参照してください。 HLSL セマンティックの全一覧については、「[セマンティクス](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)」をご覧ください。
 
-[  **ID3D11Device::CreateInputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createinputlayout) を呼び出し、Direct3D デバイスで入力レイアウトを作ります。 次に、データを実際に保持できるバッファーを作る必要があります。
+[**ID3D11Device::CreateInputLayout**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createinputlayout) を呼び出し、Direct3D デバイスで入力レイアウトを作ります。 次に、データを実際に保持できるバッファーを作る必要があります。
 
-### <a name="step-3-populate-the-vertex-buffers"></a>手順 3:頂点バッファーを設定します。
+### <a name="step-3-populate-the-vertex-buffers"></a>手順 3: 頂点バッファーを設定する
 
 頂点バッファーには、メッシュの各三角形の頂点のリストが含まれます。 各頂点は、このリストで一意である必要があります。 この例では、立方体に 8 個の頂点があります。 頂点シェーダーはグラフィックス デバイス上で実行され、頂点バッファーからデータを読み取ります。データは、前の手順で指定した入力レイアウトに基づいて解釈されます。
 
-次の例では、バッファーの説明とサブリソースを指定します。バッファーは、頂点データの物理マッピングと、グラフィックス デバイスのメモリで扱う方法を Direct3D に知らせます。 何でも格納できる汎用 [**ID3D11Buffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer) を使うため、これは必要です。 [ **D3D11\_バッファー\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_buffer_desc)と[ **D3D11\_SUBRESOURCE\_データ**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)Direct3D バッファー、頂点のリストの最大サイズと同様に、バッファーで頂点の各要素のサイズをなどの物理メモリ レイアウトを理解していることを確認する構造体が提供されます。 ここではバッファー メモリへのアクセスや走査方法も制御できますが、その説明はこのチュートリアルの範囲を少々超えています。
+次の例では、バッファーの説明とサブリソースを指定します。バッファーは、頂点データの物理マッピングと、グラフィックス デバイスのメモリで扱う方法を Direct3D に知らせます。 何でも格納できる汎用 [**ID3D11Buffer**](/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer) を使うため、これは必要です。 [**D3D11 \_ buffer \_ DESC**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_buffer_desc)と[**D3D11 \_ subresource \_ データ**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)構造体は、バッファー内の各頂点要素のサイズや頂点リストの最大サイズなど、Direct3D がバッファーの物理メモリレイアウトを認識するように指定されています。 ここではバッファー メモリへのアクセスや走査方法も制御できますが、その説明はこのチュートリアルの範囲を少々超えています。
 
-バッファーを構成したら、[**ID3D11Device::CreateBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) を呼び出して、実際にバッファーを作ります。 明らかなことですが、複数のオブジェクトがある場合は、固有のモデルごとにバッファーを作ります。
+バッファーを構成したら、[**ID3D11Device::CreateBuffer**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) を呼び出して、実際にバッファーを作ります。 明らかなことですが、複数のオブジェクトがある場合は、固有のモデルごとにバッファーを作ります。
 
 頂点バッファーを宣言して作ります。
 
@@ -147,22 +147,22 @@ m_d3dDevice->CreateBuffer(
 
 頂点がロードされます。 しかし、これらの頂点を処理する順序はどうなるのでしょうか。 順序はインデックスのリストを頂点に割り当てるときに処理されます。インデックスの順序が頂点シェーダーが頂点を処理する順序になります。
 
-### <a name="step-4-populate-the-index-buffers"></a>手順 4:インデックス バッファーを設定します。
+### <a name="step-4-populate-the-index-buffers"></a>手順 4: インデックス バッファーを設定する
 
 これから各頂点のインデックスのリストを用意します。 インデックスは頂点バッファーで頂点の位置に対応し、0 から始まります。 この様子を視覚化するために、メッシュの各頂点に ID のような固有の番号が割り当てられていると考えます。 この ID は、頂点バッファーで頂点の位置を表す整数です。
 
 ![8 個の頂点がある立方体](images/cube-mesh-1.png)
 
-この立方体の例では、8 個の頂点があります。4 個の頂点で側面を形成し、4 個セットが 6 組あります。 この 4 個セットを三角形に分割すると、8 個の頂点を使った三角形が合計で 12 個できます。 三角形 1 個あたり 3 個の頂点があるので、インデックス バッファーには 36 個のエントリがあります。 この例では、このインデックスのパターンが三角形の一覧と呼ばれ、Direct3D としてを指定する、 **D3D11\_プリミティブ\_トポロジ\_TRIANGLELIST**プリミティブ トポロジを設定するとします。
+この立方体の例では、8 個の頂点があります。4 個の頂点で側面を形成し、4 個セットが 6 組あります。 この 4 個セットを三角形に分割すると、8 個の頂点を使った三角形が合計で 12 個できます。 三角形 1 個あたり 3 個の頂点があるので、インデックス バッファーには 36 個のエントリがあります。 この例では、このインデックスパターンはトライアングルリストと呼ばれ、プリミティブトポロジを設定するときに、 **D3D11 \_ プリミティブ \_ トポロジ \_ TRIANGLELIST** として Direct3D に指定します。
 
 これはインデックスをリストする方法としてはおそらく最も非効率的でしょう。三角形が点や辺を共有すると、多くの冗長部分があります。 たとえば、三角形がひし形状に辺を共有している場合は、次のように 4 個の頂点で 6 個のインデックスをリストします。
 
 ![ひし形を構成するときのインデックスの順序](images/rhombus-surface-1.png)
 
--   三角形 1:\[0, 1, 2\]
--   三角形 2:\[0, 2, 3\]
+-   三角形 1: \[ 0、1、2\]
+-   三角形 2: \[ 0、2、3\]
 
-ストリップまたはファン トポロジでは、(、側インデックス 0 から、イメージ内のインデックス 2 にします。) などの検査中に多くの冗長な側面を排除する方法で頂点を注文します。これの大規模なメッシュでは、頂点シェーダーが実行され、パフォーマンスを大幅に向上します。 回数を大幅に削減しています。 ただし、ここではシンプルなまま、三角形リストに沿っておきます。
+帯や扇のトポロジでは、走査時に多くの冗長な辺 (この図ではインデックス 0 からインデックス 2 への辺) を取り除くようにして頂点の順序を決めます。大きなメッシュになると、これで頂点シェーダーの実行回数が劇的に少なくなり、パフォーマンスが大きく向上します。 ただし、ここではシンプルなまま、三角形リストに沿っておきます。
 
 頂点バッファーのインデックスをシンプルな三角形リスト トポロジとして宣言します。
 
@@ -187,11 +187,11 @@ unsigned short cubeIndices[] =
     0, 4, 7 };
 ```
 
-頂点がわずか 8 個しかないのにバッファーに 36 個のインデックス要素があるというのは、非常に冗長です。 特定を提供するときに、その型を指定する必要があります、冗長性の一部を排除し、ストリップまたはファンなど、さまざまな頂点リストの種類を使用する場合[ **D3D11\_プリミティブ\_トポロジ**](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/ff476189(v=vs.85))値を[ **ID3D11DeviceContext::IASetPrimitiveTopology** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology)メソッド。
+頂点がわずか 8 個しかないのにバッファーに 36 個のインデックス要素があるというのは、非常に冗長です。 冗長性の一部を除去し、ストリップやファンなどの別の頂点リストの種類を使用する場合は、[**である id3d11devicecontext:: IASetPrimitiveTopology**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology)メソッドに特定の[**D3D11 \_ プリミティブ \_ トポロジ**](/previous-versions/windows/desktop/legacy/ff476189(v=vs.85))値を指定するときに、その種類を指定する必要があります。
 
-さまざまなインデックス リストの手法について詳しくは、「[プリミティブ トポロジ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-primitive-topologies)」をご覧ください。
+さまざまなインデックス リストの手法について詳しくは、「[プリミティブ トポロジ](/windows/desktop/direct3d11/d3d10-graphics-programming-guide-primitive-topologies)」をご覧ください。
 
-### <a name="step-5-create-a-constant-buffer-for-your-transformation-matrices"></a>手順 5:定数バッファー、変換行列を作成します。
+### <a name="step-5-create-a-constant-buffer-for-your-transformation-matrices"></a>手順 5: 変換マトリックス用の定数バッファーを作る
 
 頂点の処理を開始する前に、実行時に各頂点に適用 (乗算) する変換マトリックスを指定する必要があります。 ほとんどの 3-D ゲームには、3 種類の変換マトリックスがあります。
 
@@ -205,7 +205,7 @@ unsigned short cubeIndices[] =
 
 この例では、変更することがない定数バッファーのみを用意します。3 つのマトリックスの DirectX::XMFLOAT4X4 データです。
 
-> **注**  ここに示すコード例は、列優先の行列を使用します。 行優先の行列を代わりに使用するにを使用して、**行\_メジャー** 、HLSL ソース マトリックスのデータを確実にキーワードが行優先でも。 DirectXMath が行優先の行列を使用して、定義されている HLSL 行列を使用して直接使用できます、**行\_メジャー**キーワード。
+> **メモ**   ここで紹介するコード例では、列優先のマトリックスを使用します。 HLSL で row ** \_ major** キーワードを使用し、ソースマトリックスデータも行メジャーであることを確認する代わりに、行メジャーのマトリックスを使用できます。 DirectXMath は、行優先のマトリックスを使用し、 **row \_ major** キーワードで定義された HLSL マトリックスで直接使用できます。
 
  
 
@@ -257,7 +257,7 @@ m_constantBufferData.view = DirectX::XMFLOAT4X4(
              0.00000000f, 0.00000000f,  0.00000000f,  1.00000000f);
 ```
 
-> **注**  通常ためにを宣言する projection 行列、デバイスの特定のリソースをセットアップするときにそれを使用する乗算の結果は (多くの場合、ピクセルに対応する現在の 2-d ビューポート サイズ パラメーターと一致する必要があります高さと幅の表示)。 これらのパラメーターを変更する場合は、それに合わせて x 座標と y 座標の値をスケーリングする必要があります。
+> **メモ**   通常は、デバイス固有のリソースを設定するときに射影行列を宣言します。これにより、それを使用した乗算の結果は、現在の2-d ビューポートのサイズパラメーター (多くの場合、ディスプレイのピクセルの高さと幅に対応しています) と一致する必要があるためです。 これらのパラメーターを変更する場合は、それに合わせて x 座標と y 座標の値をスケーリングする必要があります。
 
  
 
@@ -289,7 +289,7 @@ m_constantBufferData.projection = DirectX::XMFLOAT4X4(
             );
 ```
 
-ここで、[ID3D11DeviceContext](https://docs.microsoft.com/windows/desktop/direct3d11/d3d11-graphics-reference-10level9-context)で頂点バッファーとインデックス バッファー、そして使っているトポロジを設定します。
+ここで、[ID3D11DeviceContext](/windows/desktop/direct3d11/d3d11-graphics-reference-10level9-context)で頂点バッファーとインデックス バッファー、そして使っているトポロジを設定します。
 
 ```cpp
 // Set the vertex and index buffers, and specify the way they define geometry.
@@ -312,7 +312,7 @@ m_d3dDeviceContext->IASetIndexBuffer(
 
 よくできました。 入力の組み立ては完了です。 レンダリングの準備はすべて整いました。 それでは頂点シェーダーを使ってみましょう。
 
-### <a name="step-6-process-the-mesh-with-the-vertex-shader"></a>手順 6:頂点シェーダーでメッシュを処理します。
+### <a name="step-6-process-the-mesh-with-the-vertex-shader"></a>手順 6: 頂点シェーダーでメッシュを処理する
 
 メッシュを定義する頂点を格納する頂点バッファーと、頂点の処理順序を定義するインデックス バッファーができたので、これから頂点シェーダーに頂点を送信します。 頂点シェーダーのコードは、コンパイルされた上位レベル シェーダー言語として表されます。頂点バッファー内の頂点ごとに 1 回実行されるため、頂点ごとに変換を実行できます。 最終的な結果は、通常は 2-D プロジェクションになります。
 
@@ -381,9 +381,9 @@ PixelShaderInput SimpleVertexShader(VertexShaderInput input)
 
 **PixelShaderInput** は、頂点シェーダーのメインの関数から返されるデータのレイアウトを指定します。 頂点の処理が完了すると、2-D プロジェクション空間における頂点の位置と、頂点ごとの照明に使われる色を返します。 グラフィックス カードは、シェーダーによるデータ出力を使って "フラグメント" (可能性のあるピクセル) を計算します。フラグメントは、パイプラインの次の段階でピクセル シェーダーが実行されたときに色が付きます。
 
-### <a name="step-7-passing-the-mesh-through-the-pixel-shader"></a>手順 7:ピクセル シェーダーを通じてメッシュを渡す
+### <a name="step-7-passing-the-mesh-through-the-pixel-shader"></a>手順 7: ピクセル シェーダーでメッシュを渡す
 
-通常、グラフィックス パイプラインのこの段階では、オブジェクトのプロジェクションされたサーフェスの見えている部分でピクセル単位の操作を実行します  (テクスチャのような人です。)サンプルの目的で、ただしをパススルーするだけです、このステージ。
+通常、グラフィックス パイプラインのこの段階では、オブジェクトのプロジェクションされたサーフェスの見えている部分でピクセル単位の操作を実行します  (テクスチャが好まれます)。ただし、これはサンプルなので、この段階では素通りするだけにします。
 
 まず、ピクセル シェーダーのインスタンスを作りましょう。 ピクセル シェーダーは、シーンの 2-D プロジェクションの各ピクセルに対して実行され、そのピクセルに色を割り当てます。 この場合は、頂点シェーダーで返されたピクセルの色を素通りさせます。
 
@@ -410,9 +410,9 @@ float4 SimplePixelShader(PixelShaderInput input) : SV_TARGET
 
 このコードを頂点シェーダーの HLSL とは別の HLSL ファイルに配置します (たとえば SimplePixelShader.hlsl)。 このコードは、ビューポート (描画先画面の一部分のメモリ内表現) で見えているピクセルごとに 1 回実行されます。この場合のビューポートは、画面全体にマッピングされます。 これで、グラフィックス パイプラインはすべて定義されました。
 
-### <a name="step-8-rasterizing-and-displaying-the-mesh"></a>手順 8:ラスタライズし、メッシュを表示します。
+### <a name="step-8-rasterizing-and-displaying-the-mesh"></a>手順 8: メッシュのラスタライズと表示
 
-パイプラインを実行しましょう。 手順は簡単です。[**ID3D11DeviceContext::DrawIndexed**](https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawindexed) を呼び出します。
+パイプラインを実行しましょう。 手順は簡単です。[**ID3D11DeviceContext::DrawIndexed**](/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawindexed) を呼び出します。
 
 立方体を描画します。
 
@@ -436,7 +436,7 @@ m_d3dDeviceContext->DrawIndexed( ARRAYSIZE(cubeIndices), 0, 0 );
 m_swapChain->Present(1, 0);
 ```
 
-これで、終わりです。 モデルがたくさんあるシーンでは、複数の頂点バッファーとインデックス バッファーを使ってください。モデルのタイプごとにシェーダーがある場合もあります。 各モデルには専用の座標系があり、定数バッファーで定義したマトリックスを使って、座標系を共有されるワールド座標系に変換する必要があることに注意してください。
+これで完了です。 モデルがたくさんあるシーンでは、複数の頂点バッファーとインデックス バッファーを使ってください。モデルのタイプごとにシェーダーがある場合もあります。 各モデルには専用の座標系があり、定数バッファーで定義したマトリックスを使って、座標系を共有されるワールド座標系に変換する必要があることに注意してください。
 
 ## <a name="remarks"></a>注釈
 
@@ -447,12 +447,8 @@ m_swapChain->Present(1, 0);
 ## <a name="related-topics"></a>関連トピック
 
 
-* [DirectX ゲーム内のリソースを読み込む方法](load-a-game-asset.md)
+* [DirectX ゲームでリソースをロードする方法](load-a-game-asset.md)
 
  
 
  
-
-
-
-

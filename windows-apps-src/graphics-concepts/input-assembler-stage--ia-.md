@@ -7,22 +7,22 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 70957cbce10da25943b3c6347ccbbc81aafb5739
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 8b1ba0205a837383e1c646664c0550e055227412
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370770"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173066"
 ---
 # <a name="input-assembler-ia-stage"></a>入力アセンブラー (IA) ステージ
 
 
 入力アセンブラー (IA) ステージは、三角形、線、点などのパイプラインにプリミティブ データと隣接性データを提供し (セマンティクス ID など)、まだ処理されていないプリミティブの処理を減らすことでシェーダーの効率を高めます。
 
-## <a name="span-idpurpose-and-usesspanspan-idpurpose-and-usesspanspan-idpurpose-and-usesspanpurpose-and-uses"></a><span id="Purpose-and-uses"></span><span id="purpose-and-uses"></span><span id="PURPOSE-AND-USES"></span>目的と使用
+## <a name="span-idpurpose-and-usesspanspan-idpurpose-and-usesspanspan-idpurpose-and-usesspanpurpose-and-uses"></a><span id="Purpose-and-uses"></span><span id="purpose-and-uses"></span><span id="PURPOSE-AND-USES"></span>目的と用途
 
 
-入力アセンブラー (IA) ステージの目的は、ユーザーが入力したバッファーからプリミティブ データ (点、線、三角形) を読み取って、他のパイプライン ステージにより使われるプリミティブにデータをアセンブルし、[システムにより生成された値](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)をアタッチしてシェーダーの効率を高めることです。 システムにより生成された値は、セマンティクスとも呼ばれるテキスト文字列です。 プログラミング可能なシェーダー ステージは、システムにより生成された値 (プリミティブ ID、インスタンス ID、頂点 ID など) を使うコマンド シェーダー コアから作成されます。これにより、シェーダー ステージは、まだ処理されていないそれらのプリミティブ、インスタンス、または頂点のみに処理を減らすことができます。
+入力アセンブラー (IA) ステージの目的は、ユーザーが入力したバッファーからプリミティブ データ (点、線、三角形) を読み取って、他のパイプライン ステージにより使われるプリミティブにデータをアセンブルし、[システムにより生成された値](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)をアタッチしてシェーダーの効率を高めることです。 システムにより生成された値は、セマンティクスとも呼ばれるテキスト文字列です。 プログラミング可能なシェーダー ステージは、システムにより生成された値 (プリミティブ ID、インスタンス ID、頂点 ID など) を使うコマンド シェーダー コアから作成されます。これにより、シェーダー ステージは、まだ処理されていないそれらのプリミティブ、インスタンス、または頂点のみに処理を減らすことができます。
 
 IA ステージは、複数の異なる[プリミティブ型](primitive-topologies.md) (線の一覧、三角形のストリップ、隣接性を持つプリミティブなど) に頂点をアセンブルします。 隣接性を持つ三角形の一覧などのプリミティブ型と、隣接性を持つ線の一覧は、[ジオメトリ シェーダー (GS) ステージ](geometry-shader-stage--gs-.md)をサポートします。
 
@@ -30,12 +30,12 @@ IA ステージは、複数の異なる[プリミティブ型](primitive-topolog
 
 IA ステージが隣接性データを出力するよう要求された場合、入力データには隣接性データが含まれている必要があります。 これには、ダミーの頂点を提供する必要が生じることあります (縮退三角形を形成)。場合によっては、頂点が存在するかどうかに関係なく、頂点属性の 1 つフラグを付けることによってもできます。 さらに、このことはジオメトリ シェーダーにより検出されて処理される必要もあります。ただし、縮退ジオメトリのカリングはラスタライザー ステージで行われます。
 
-## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
+## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>代入
 
 
 IA ステージは、メモリ、プリミティブ データ (点、線、三角形)、ユーザーが入力したバッファーからデータを読み取ります。
 
-## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
+## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>Output
 
 
 IA ステージは、データをプリミティブにアセンブルして、システムにより生成された値をアタッチし、[頂点シェーダー (VS) ステージ](vertex-shader-stage--vs-.md)、他のパイプライン ステージの順で使われるプリミティブとして値を出力します。
@@ -60,7 +60,7 @@ IA ステージは、データをプリミティブにアセンブルして、�
 <td align="left"><p>Direct3D では、ポイントの一覧、線の一覧、三角形ストリップなどのいくつかのプリミティブ トポロジがサポートされており、パイプラインにより頂点がどのように解釈され、レンダリングされるかを定義します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="using-system-generated-values.md">システムによって生成された値を使用してください。</a></p></td>
+<td align="left"><p><a href="using-system-generated-values.md">システム生成値の使用</a></p></td>
 <td align="left"><p>システムにより生成された値は、入力アセンブラー (IA) ステージにより生成され (ユーザーが提供した入力<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics">セマンティクス</a>に基づく)、シェーダー操作で一定の効率を実現します。 インスタンス ID (<a href="vertex-shader-stage--vs-.md">頂点シェーダー (VS) ステージ</a>で参照可能)、頂点 ID (VS で参照可能)、またはプリミティブ ID (<a href="geometry-shader-stage--gs-.md">ジオメトリ シェーダー (GS) ステージ</a>/<a href="pixel-shader-stage--ps-.md">ピクセル シェーダー (PS) ステージ</a>で参照可能) などのデータをアタッチするとにより、その後のシェーダー ストレージがそれらのシステム値を探して、そのステージでの処理を最適化できるようになります。</p></td>
 </tr>
 </tbody>
@@ -76,7 +76,3 @@ IA ステージは、データをプリミティブにアセンブルして、�
  
 
  
-
-
-
-

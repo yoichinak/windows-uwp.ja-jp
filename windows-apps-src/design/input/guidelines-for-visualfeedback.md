@@ -8,26 +8,26 @@ keywords: 視覚的なフィードバック, フォーカス フィードバッ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: fcb6945c488bc1b715c339fa39949ea62bdb2a12
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 9ced83ca771f4954f8e42dc42e0882d1a5b7c6b1
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970077"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172456"
 ---
 # <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
 視覚的なフィードバックは、対話式操作が検出、解釈、処理されていることをユーザーに示すために使います。 視覚的なフィードバックは、対話式操作を促進することによってユーザーを支援します。 対話式操作の成功を示すことによって、ユーザーのコントロール感を向上させます。 また、システム状態の中継やエラーの削減も可能になります。
 
-> **重要な API**: [**Windows.Devices.Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)、[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Windows.UI.Core**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
+> **重要な API**: [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input)、[**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、[**Windows.UI.Core**](/uwp/api/Windows.UI.Core)
 
 ## <a name="recommendations"></a>Recommendations
 
 - 広範囲な変更はコントロールとアプリケーションの両方のパフォーマンスとアクセシビリティに影響を与える可能性があるため、コントロール テンプレートの変更を、設計意図に直接関連するものに制限するようにしてください。 
-    - 表示状態のプロパティなど、コントロールのプロパティのカスタマイズの詳細については、「[XAML スタイル](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-styles)」を参照してください。
-    - コントロール テンプレートに対する変更の詳細については、「[UserControl クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol)」を参照してください。
+    - 表示状態のプロパティなど、コントロールのプロパティのカスタマイズの詳細については、「[XAML スタイル](../controls-and-patterns/xaml-styles.md)」を参照してください。
+    - コントロール テンプレートに対する変更の詳細については、「[UserControl クラス](/uwp/api/windows.ui.xaml.controls.usercontrol)」を参照してください。
     - コントロール テンプレートに大幅な変更を加える必要がある場合は、独自にテンプレート化したカスタム コントロールを作成することを検討してください。 テンプレート化したカスタム コントロールの例については、「[カスタム編集コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)」を参照してください。
-- タッチの視覚エフェクトがアプリの使用を妨げる可能性がある場合は、使わないでください。 詳しくは、「[**ShowGestureFeedback**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback)」をご覧ください。
+- タッチの視覚エフェクトがアプリの使用を妨げる可能性がある場合は、使わないでください。 詳しくは、「[**ShowGestureFeedback**](/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback)」をご覧ください。
 - どうしても必要な場合以外は、フィードバックを表示しないでください。 その場所でしか意味がない場合を除き、視覚的なフィードバックを表示せずに、UI の簡潔さを維持してください。
 - Windows の組み込みジェスチャの視覚的なフィードバックの動作は大幅にカスタマイズしないでください。この動作をカスタマイズすると、ユーザー エクスペリエンスに一貫性がなくなり、混乱する可能性があります。
 
@@ -44,7 +44,7 @@ ms.locfileid: "82970077"
 
 視覚的なフィードバックは、一般に入力デバイス (タッチ、タッチバッド、マウス、ペン/スタイラス、キーボードなど) に依存します。 たとえば、マウスの組み込みフィードバックには、通常はカーソルの移動と変化が伴います。一方、タッチとペンの場合は接触の視覚エフェクトが必要です。キーボードによる入力とナビゲーションの場合は、フォーカス用の四角形と強調表示を使います。
 
-プラットフォーム ジェスチャのフィードバック動作を設定するには、[**ShowGestureFeedback**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback) を使います。
+プラットフォーム ジェスチャのフィードバック動作を設定するには、[**ShowGestureFeedback**](/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback) を使います。
 
 フィードバック UI をカスタマイズする場合は、すべての入力モードをサポートした適切なフィードバックを提供してください。
 
@@ -58,7 +58,7 @@ Windows には、次のような接触の視覚エフェクトが組み込まれ
 
 すべての Windows アプリでは、定義済みのさまざまなフォーカスの視覚効果が、アプリケーション内にある対話可能なコントロールの周囲に示されます。 新しいフォーカスの視覚効果は、すべてカスタマイズ可能であり、必要に応じて無効にすることができます。
 
-Xbox とテレビの使用で一般的な **10 フィート エクスペリエンス**では、Windows は**表示フォーカス**をサポートします。これは、ボタンなどのフォーカス可能な要素がゲームパッドやキーボードの入力でフォーカスを取得したときに、その境界線をアニメーション化する照明効果です。 詳細については、「[Xbox およびテレビ向け設計](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv#reveal-focus)」を参照してください。
+Xbox とテレビの使用で一般的な **10 フィート エクスペリエンス**では、Windows は**表示フォーカス**をサポートします。これは、ボタンなどのフォーカス可能な要素がゲームパッドやキーボードの入力でフォーカスを取得したときに、その境界線をアニメーション化する照明効果です。 詳細については、「[Xbox およびテレビ向け設計](../devices/designing-for-tv.md#reveal-focus)」を参照してください。
 
 ## <a name="color-branding--customizing"></a>色のブランド化とカスタマイズ
 
@@ -73,9 +73,9 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 ```
 ![視認性の高いフォーカスの視覚効果における余白部分の太さ](images/FocusMargin.png)
 
-余白は [**Thickness**](https://docs.microsoft.com/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下を参照![: 高い可視性フォーカスの視覚的な余白の太さ (下のみ)](images/FocusThicknessSide.png)
+余白は [**Thickness**](/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下を参照: ![ 高い可視性フォーカスの視覚的な余白の太さ (下のみ)](images/FocusThicknessSide.png)
 
-余白は、コントロールの視覚的な境界と、フォーカスビジュアルの*2 番目の境界線*の間の間隔です。 既定の余白は、コントロールの境界から離れて**1px**ます。 このマージンは、 **FocusVisualMargin**プロパティを変更することで、コントロールごとに編集できます。
+余白は、コントロールの視覚的な境界と、フォーカスビジュアルの *2 番目の境界線*の間の間隔です。 既定の余白は、コントロールの境界から離れて **1px** ます。 このマージンは、 **FocusVisualMargin** プロパティを変更することで、コントロールごとに編集できます。
 ```XAML
 <Slider Width="200" FocusVisualMargin="-5"/>
 ```
@@ -114,7 +114,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 ### <a name="for-developers"></a>開発者向け
 
-- [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
+- [カスタム ユーザー操作](../layout/index.md)
 
 ### <a name="samples"></a>サンプル
 
@@ -130,7 +130,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 - [入力: タッチのヒット テストのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
 - [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
 - [入力: 簡略化されたインクのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)
-- [入力: Windows 8 のジェスチャのサンプルに関するページ](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+- [入力: Windows 8 のジェスチャのサンプルに関するページ](/samples/browse/?redirectedfrom=MSDN-samples)
 - [入力: 操作とジェスチャのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
 - [DirectX タッチ入力のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/DirectX%20touch%20input%20sample%20(Windows%208))
  

@@ -6,12 +6,12 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: eb543e86221f8f1a37565c2e6e6bf1fe4a8d3635
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: d8ea74f7053cfdd0aeb6ef3dbe032afdb089f420
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054492"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173116"
 ---
 # <a name="input-practices-for-games"></a>ゲームの入力プラクティス
 
@@ -25,23 +25,23 @@ ms.locfileid: "89054492"
 
 ## <a name="choosing-an-input-device-class"></a>入力デバイス クラスの選択
 
-利用できる入力 API には、[ArcadeStick](https://docs.microsoft.com/uwp/api/windows.gaming.input.arcadestick)、[FlightStick](https://docs.microsoft.com/uwp/api/windows.gaming.input.flightstick)、[Gamepad](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad) など多くの種類が存在します。 ゲームに使用する API をどのように決定すればよいのでしょうか。
+利用できる入力 API には、[ArcadeStick](/uwp/api/windows.gaming.input.arcadestick)、[FlightStick](/uwp/api/windows.gaming.input.flightstick)、[Gamepad](/uwp/api/windows.gaming.input.gamepad) など多くの種類が存在します。 ゲームに使用する API をどのように決定すればよいのでしょうか。
 
 ゲームに最も適切な入力を提供する API 選択する必要があります。 たとえば、2D プラットフォームのゲームを作成する場合は、通常、**Gamepad** クラスを使用するだけで対応でき、その他のクラスで利用可能な追加機能を使用する必要はありません。 このクラスは、ゲームのサポートをゲームパッドのみに制限し、コードを追加することなく、多くの異なるゲームパッドで動作する一貫したインターフェイスを提供します。
 
-その一方で、複雑なフライトやレーシングのシミュレーションでは、すべての [RawGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller) オブジェクトを基準として列挙し、熱心なプレイヤーが所有しているあらゆるニッチ デバイス (シングル プレイヤー用の独立したペダルやスロットルなどのデバイス) を確実にサポートできます。 
+その一方で、複雑なフライトやレーシングのシミュレーションでは、すべての [RawGameController](/uwp/api/windows.gaming.input.rawgamecontroller) オブジェクトを基準として列挙し、熱心なプレイヤーが所有しているあらゆるニッチ デバイス (シングル プレイヤー用の独立したペダルやスロットルなどのデバイス) を確実にサポートできます。 
 
-そこから、入力クラスの **FromGameController** メソッド ([Gamepad.FromGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.fromgamecontroller) など) を使用して、各デバイスが整理されたビューが表示するかどうかを確認できます。 たとえば、デバイスが **Gamepad** でもある場合、それを反映するようにボタン マッピング UI を調整し、選択可能ないくつかの適切な既定のボタン マッピングを提供できます  (これは、**RawGameController** のみを使用している場合、プレイヤーがゲームパッド入力を手動で構成することが必要になるのとは対照的です)。 
+そこから、入力クラスの **FromGameController** メソッド ([Gamepad.FromGameController](/uwp/api/windows.gaming.input.gamepad.fromgamecontroller) など) を使用して、各デバイスが整理されたビューが表示するかどうかを確認できます。 たとえば、デバイスが **Gamepad** でもある場合、それを反映するようにボタン マッピング UI を調整し、選択可能ないくつかの適切な既定のボタン マッピングを提供できます  (これは、**RawGameController** のみを使用している場合、プレイヤーがゲームパッド入力を手動で構成することが必要になるのとは対照的です)。 
 
-代わりに、**RawGameController** のベンダー ID (VID) と製品 ID (PID) を参照し (それぞれ [HardwareVendorId](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller.HardwareVendorId) と [HardwareProductId](https://docs.microsoft.com/uwp/api/windows.gaming.input.rawgamecontroller.HardwareProductId) を使用)、一般的なデバイスの推奨されるボタン マッピングを提供できます。その一方で、プレイヤーが手動でマッピングすることにより将来の未知のデバイスとの互換性を維持できます。
+代わりに、**RawGameController** のベンダー ID (VID) と製品 ID (PID) を参照し (それぞれ [HardwareVendorId](/uwp/api/windows.gaming.input.rawgamecontroller.HardwareVendorId) と [HardwareProductId](/uwp/api/windows.gaming.input.rawgamecontroller.HardwareProductId) を使用)、一般的なデバイスの推奨されるボタン マッピングを提供できます。その一方で、プレイヤーが手動でマッピングすることにより将来の未知のデバイスとの互換性を維持できます。
 
 ## <a name="keeping-track-of-connected-controllers"></a>接続されているコントローラーの追跡
 
-各コントローラーの型には、接続されているコントローラーのリスト ([Gamepad.Gamepads](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.Gamepads) など) が含まれていますが、独自のコントローラーのリストを保持することをお勧めします。 詳細については、「[ゲームパッドの一覧](gamepad-and-vibration.md#the-gamepads-list)」を参照してください (各コントローラーの型には、それぞれのトピックに類似する名前のセクションがあります)。
+各コントローラーの型には、接続されているコントローラーのリスト ([Gamepad.Gamepads](/uwp/api/windows.gaming.input.gamepad.Gamepads) など) が含まれていますが、独自のコントローラーのリストを保持することをお勧めします。 詳細については、「[ゲームパッドの一覧](gamepad-and-vibration.md#the-gamepads-list)」を参照してください (各コントローラーの型には、それぞれのトピックに類似する名前のセクションがあります)。
 
 それでは、プレイヤーがコントローラーを取り外した場合や、新しいコントローラーを接続した場合は、どうなるでしょうか。 これらのイベントを処理し、リストを適宜更新する必要があります。 詳細については、「[ゲームパッドの追加と削除](gamepad-and-vibration.md#adding-and-removing-gamepads)」を参照してください (ここでも、各コントローラーの型には、それぞれのトピックに類似する名前のセクションがあります)。
 
-追加および削除のイベントは非同期的に発生するため、コントローラーの一覧を処理するときに誤った結果を取得する可能性があります。 そのため、コントローラーのリストにアクセスするときは、常に、一度に 1 つのスレッドのみがリストにアクセスできるようにその周囲にロックを配置する必要があります。 この処理は、**&lt;ppl.h&gt;** の[同時実行ランタイム](https://docs.microsoft.com/cpp/parallel/concrt/concurrency-runtime)、具体的には、[critical_section クラス](https://docs.microsoft.com/cpp/parallel/concrt/reference/critical-section-class)で行うことができます。
+追加および削除のイベントは非同期的に発生するため、コントローラーの一覧を処理するときに誤った結果を取得する可能性があります。 そのため、コントローラーのリストにアクセスするときは、常に、一度に 1 つのスレッドのみがリストにアクセスできるようにその周囲にロックを配置する必要があります。 この処理は、**&lt;ppl.h&gt;** の[同時実行ランタイム](/cpp/parallel/concrt/concurrency-runtime)、具体的には、[critical_section クラス](/cpp/parallel/concrt/reference/critical-section-class)で行うことができます。
 
 もう 1 つ考慮しなければならないのは、接続されているコントローラーのリストは最初は空であり、設定されるのに 1、2 秒かかるという点です。 start メソッドで、現在のゲームパッドを割り当てるだけでは、**null** になります。
 
@@ -166,11 +166,11 @@ void OnGamepadRemoved(Platform::Object^ sender, Gamepad^ args)
 
 ## <a name="tracking-users-and-their-devices"></a>ユーザーおよびそのデバイスの追跡
 
-ユーザーの ID をゲームプレイ、成績、設定の変更などのアクティビティにリンクできるように、すべての入力デバイスが [User](https://docs.microsoft.com/uwp/api/windows.system.user) に関連付けられます。 ユーザーは必要に応じてサインインまたはサインアウトできます。一般的には、前のユーザーがサインアウトした後、入力デバイスをシステムに接続したまま別のユーザーがサインインします。ユーザーがサインインまたはサインアウトするときに、[IGameController.UserChanged](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller.UserChanged) イベントが発生します。 このイベントのイベント ハンドラーを登録することで、プレイヤーとプレイヤーが使用中のデバイスを追跡できます。
+ユーザーの ID をゲームプレイ、成績、設定の変更などのアクティビティにリンクできるように、すべての入力デバイスが [User](/uwp/api/windows.system.user) に関連付けられます。 ユーザーは必要に応じてサインインまたはサインアウトできます。一般的には、前のユーザーがサインアウトした後、入力デバイスをシステムに接続したまま別のユーザーがサインインします。ユーザーがサインインまたはサインアウトするときに、[IGameController.UserChanged](/uwp/api/windows.gaming.input.igamecontroller.UserChanged) イベントが発生します。 このイベントのイベント ハンドラーを登録することで、プレイヤーとプレイヤーが使用中のデバイスを追跡できます。
 
 ユーザー ID は、入力デバイスを対応する [UI ナビゲーション コント ローラー](ui-navigation-controller.md)に関連付けるための方法でもあります。
 
-これらの理由から、デバイス クラス ([IGameController](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller) インターフェイスから継承) の [User](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller.User) プロパティを使用して、プレイヤーの入力が追跡され、関係付けられます。
+これらの理由から、デバイス クラス ([IGameController](/uwp/api/windows.gaming.input.igamecontroller) インターフェイスから継承) の [User](/uwp/api/windows.gaming.input.igamecontroller.User) プロパティを使用して、プレイヤーの入力が追跡され、関係付けられます。
 
 [UserGamepadPairingUWP](/samples/microsoft/xbox-atg-samples/usergamepadpairinguwp/)サンプルでは、ユーザーと、ユーザーが使用しているデバイスを追跡する方法を示します。
 
@@ -230,7 +230,7 @@ bool ButtonJustReleased(GamepadButtons selection)
 
 ## <a name="detecting-complex-button-arrangements"></a>ボタンの複雑な配置の検出
 
-入力デバイスの各ボタンは、ボタンが押されている (ダウン) か、離されている (アップ) かどうかを示すデジタルの読み取り結果を提供します。 効率を高めるため、ボタンの読み取り結果は個別のブール値としては表現しません代わりに、読み取り結果はすべて、[GamepadButtons](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons) などのデバイス固有の列挙型で表されるビットフィールドにパックされます。 特定のボタンを読み取るには、ビット単位のマスクを使用して、目的のボタンの値を切り分けます。 対応するビットが設定されているときはボタンが押されており (ダウン)、それ以外の場合はボタンが離されています (アップ)。
+入力デバイスの各ボタンは、ボタンが押されている (ダウン) か、離されている (アップ) かどうかを示すデジタルの読み取り結果を提供します。 効率を高めるため、ボタンの読み取り結果は個別のブール値としては表現しません代わりに、読み取り結果はすべて、[GamepadButtons](/uwp/api/windows.gaming.input.gamepadbuttons) などのデバイス固有の列挙型で表されるビットフィールドにパックされます。 特定のボタンを読み取るには、ビット単位のマスクを使用して、目的のボタンの値を切り分けます。 対応するビットが設定されているときはボタンが押されており (ダウン)、それ以外の場合はボタンが離されています (アップ)。
 
 次の例では、1 つのボタンが押されている状態か離されている状態かを判断する方法を示します。ここで示しているのはゲームパッドですが、アーケード スティック、レース ホイール、その他の種類の入力デバイスでも原理は同じです。
 
@@ -297,13 +297,13 @@ if (buttonArrangement == buttonSelection)
 
 ## <a name="get-the-state-of-the-battery"></a>バッテリーの状態を取得する
 
-[IGameControllerBatteryInfo](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo) インターフェイスを実装しているゲーム コントローラーの場合は、コントローラー インスタンスで [TryGetBatteryReport](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo.TryGetBatteryReport) を呼び出すことによって、コントローラーのバッテリーに関する情報を提供する [BatteryReport](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得できます。 バッテリーの充電速度 ([ChargeRateInMilliwatts](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.ChargeRateInMilliwatts))、新しいバッテリーの電力容量の見積もり ([DesignCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.DesignCapacityInMilliwattHours))、現在のバッテリーの完全に充電した場合の電力容量 ([FullChargeCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.FullChargeCapacityInMilliwattHours)) などのプロパティを取得することができます。
+[IGameControllerBatteryInfo](/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo) インターフェイスを実装しているゲーム コントローラーの場合は、コントローラー インスタンスで [TryGetBatteryReport](/uwp/api/windows.gaming.input.igamecontrollerbatteryinfo.TryGetBatteryReport) を呼び出すことによって、コントローラーのバッテリーに関する情報を提供する [BatteryReport](/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得できます。 バッテリーの充電速度 ([ChargeRateInMilliwatts](/uwp/api/windows.devices.power.batteryreport.ChargeRateInMilliwatts))、新しいバッテリーの電力容量の見積もり ([DesignCapacityInMilliwattHours](/uwp/api/windows.devices.power.batteryreport.DesignCapacityInMilliwattHours))、現在のバッテリーの完全に充電した場合の電力容量 ([FullChargeCapacityInMilliwattHours](/uwp/api/windows.devices.power.batteryreport.FullChargeCapacityInMilliwattHours)) などのプロパティを取得することができます。
 
 詳細なバッテリーのレポートをサポートするゲーム コントローラーの場合、「[バッテリー情報の取得](../devices-sensors/get-battery-info.md)」で説明されているように、この情報に加えて、バッテリーに関するさらに詳しい情報を取得できます。 ただし、ほとんどのゲーム コントローラーはこのレベルのバッテリー レポートをサポートしておらず、代わりに低コストのハードウェアを使用しています。 このようなコントローラーでは、次の考慮事項に留意する必要があります。
 
 * **ChargeRateInMilliwatts** と **DesignCapacityInMilliwattHours** は常に **NULL** になります。
 
-* [RemainingCapacityInMilliwattHours](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.RemainingCapacityInMilliwattHours)FullChargeCapacityInMilliwattHours を計算することで、バッテリの割合を取得でき  /  **FullChargeCapacityInMilliwattHours**ます。 これらのプロパティの値を無視して、計算される割合のみを処理する必要があります。
+* [RemainingCapacityInMilliwattHours](/uwp/api/windows.devices.power.batteryreport.RemainingCapacityInMilliwattHours)FullChargeCapacityInMilliwattHours を計算することで、バッテリの割合を取得でき  /  **FullChargeCapacityInMilliwattHours**ます。 これらのプロパティの値を無視して、計算される割合のみを処理する必要があります。
 
 * 前の項目の割合は、常に次のいずれかになります。
 
@@ -316,7 +316,7 @@ if (buttonArrangement == buttonSelection)
 
 ## <a name="see-also"></a>関連項目
 
-* [Windows.System.User クラス](https://docs.microsoft.com/uwp/api/windows.system.user)
-* [Windows.Gaming.Input.IGameController インターフェイス](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)
-* [Windows.Gaming.Input.GamepadButtons 列挙型](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)
+* [Windows.System.User クラス](/uwp/api/windows.system.user)
+* [Windows.Gaming.Input.IGameController インターフェイス](/uwp/api/windows.gaming.input.igamecontroller)
+* [Windows.Gaming.Input.GamepadButtons 列挙型](/uwp/api/windows.gaming.input.gamepadbuttons)
 * [UserGamepadPairingUWP サンプル](/samples/microsoft/xbox-atg-samples/usergamepadpairinguwp/)

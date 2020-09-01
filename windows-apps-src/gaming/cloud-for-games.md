@@ -6,12 +6,12 @@ ms.date: 03/27/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、クラウド サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c0cfd98a37c4822d80eded7fe69e23c54bcdc89
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: ca575975b27a71798b7cad1cac0cc83ec870d756
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054412"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173176"
 ---
 #  <a name="using-cloud-services-for-uwp-games"></a>UWP ゲーム用のクラウド サービスの使用
 
@@ -159,7 +159,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
 
 Azure のクラウド サービスをゲームに使用するためのいくつかの方法を以下に示します。 Azure は、Windows や Linux、および Ruby、Python、Java、PHP などのオープン ソース テクノロジと連携して動作します。 詳しくは、「[ゲームのための Azure](https://azure.microsoft.com/solutions/gaming/)」をご覧ください。
 
-| 要件                 | アクティビティのシナリオ                            | 提供されるサービス                      | サービスの機能                                    |
+| 必要条件                 | アクティビティのシナリオ                            | 提供されるサービス                      | サービスの機能                                    |
 |-----------------------------------|-----------------------------------------------|---------------------------------------|----------------------------------------------------|
 | クラウドでのドメインのホスティング     | 効率的に DNS クエリに応答する            | [Azure DNS](https://azure.microsoft.com/services/dns/) | 高パフォーマンスと高可用性を備えたドメインのホスティング  |
 | サインイン、本人確認      | ゲーマーがサインインし、ゲーマーの ID が認証される  | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | 多要素認証を備えた、あらゆるクラウドとオンプレミス Web アプリへのシングル サインオン            | 
@@ -170,7 +170,7 @@ Azure のクラウド サービスをゲームに使用するためのいくつ�
 | ゲーム データ用のクラウド ストレージ       | 最新のゲーム データがクラウドに格納され、クライアント デバイスに送信される | [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)| 格納できるファイルの種類に制限はない。画像、オーディオ、ビデオなどの大量の構造化されていないデータのオブジェクト ストレージ  |
 | 一時的なデータ ストレージ テーブル| ゲームのトランザクション (ゲームの状態の変化) が一時的にテーブルに格納される | [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)| ゲーム データは、ゲームでの必要性に応じて柔軟なスキーマで格納できる |
 | ゲームのトランザクションと要求のキュー| ゲームのトランザクションがキューの形式で処理される | [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/)| キューが予期しないトラフィックのバーストを吸収し、ゲーム中に要求が急激に増加してもサーバーがパンク状態になることを防止できる   |
-| スケーラブルなリレーショナル ゲーム データベース| データベースへのゲーム内のトランザクションなど、リレーショナル データの構造化されたストレージ | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)| サービスとしての SQL データベース ([VM 上の SQL との比較](https://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/))  |
+| スケーラブルなリレーショナル ゲーム データベース| データベースへのゲーム内のトランザクションなど、リレーショナル データの構造化されたストレージ | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)| サービスとしての SQL データベース ([VM 上の SQL との比較](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview))  |
 | スケーラブルで分散型の待機時間が短いゲーム データベース| 柔軟なスキーマによる、ゲーム データやプレイヤー データの高速の読み取り、書き込み、照会 | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)| 待機時間の短い、サービスとしての NoSQL ドキュメント データベース   |
 | 独自のデータ センターと Azure サービスを使用する | ゲームは独自のデータ センターから取得され、クライアント デバイスに送信される | [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) | 組織で独自のデータ センターからの Azure サービスを提供することで、より多くのことを実現できる  |
 | 大量のデータ チャンクの転送| Azure CDN により、ゲームの画像、オーディオ、ビデオなどの大きなファイルを、ユーザーに最も近いコンテンツ配信ネットワーク (CDN) の POP の場所から送信できる    | [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) | Azure CDN は、集中管理された大規模なノードの最新ネットワーク トポロジをベースに構築されており、突然のトラフィック スパイクや大きな負荷を処理することにより処理速度と可用性が大幅に向上し、ユーザー エクスペリエンスの向上につながる  |
@@ -221,7 +221,7 @@ SDK を使用して、このソリューションを、モバイル、PC、ま�
 
 ## <a name="related-links"></a>関連リンク
 
-* [Windows 10 ゲーム開発ガイド](https://docs.microsoft.com/windows/uwp/gaming/e2e)
+* [Windows 10 ゲーム開発ガイド](./e2e.md)
 * [ゲームのための Azure](https://azure.microsoft.com/solutions/gaming/)
 * [Playfab](https://playfab.com/)
 * [Microsoft for Startups](https://startups.microsoft.com)

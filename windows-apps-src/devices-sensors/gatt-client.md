@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c17351cf964ffb05dc60dbaf5c6ced1db467f78
-ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
+ms.openlocfilehash: fd5f2b76af856dd66e2dfd0ee2b3e429199e6a19
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469537"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172286"
 ---
 # <a name="bluetooth-gatt-client"></a>Bluetooth GATT クライアント
 
@@ -29,12 +29,12 @@ ms.locfileid: "85469537"
 
 > **重要な API**
 >
-> - [**Windows. デバイス. Bluetooth**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth)
-> - [**Windows. Devices. GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
+> - [**Windows.Devices.Bluetooth**](/uwp/api/Windows.Devices.Bluetooth)
+> - [**Windows. Devices. GenericAttributeProfile**](/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile)
 
 ## <a name="overview"></a>概要
 
-開発者は、[**Windows.Devices.Bluetooth.GenericAttributeProfile**](https://docs.microsoft.com/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) 名前空間の API を使って Bluetooth LE デバイスにアクセスすることができます。 Bluetooth LE デバイスは、その機能をコレクションを通じて公開します。コレクションには次の情報が含まれています。
+開発者は、[**Windows.Devices.Bluetooth.GenericAttributeProfile**](/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) 名前空間の API を使って Bluetooth LE デバイスにアクセスすることができます。 Bluetooth LE デバイスは、その機能をコレクションを通じて公開します。コレクションには次の情報が含まれています。
 
 - サービス
 - 特性
@@ -59,9 +59,9 @@ Bluetooth SIG は、利便性向上のため、[一連のプロファイル](htt
 - Windows.Devices.Enumeration の DeviceWatcher
 - Windows.Devices.Bluetooth.Advertisement の AdvertisementWatcher
 
-2 つ目のメソッドについては、[アドバタイズ](ble-beacon.md)に関するドキュメントで詳しく説明されているため、ここでは簡単に説明します。基本的な考え方は、特定の[アドバタイズ フィルター](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementwatcher.advertisementfilter)の条件を満たす、近くにあるデバイスの Bluetooth アドレスを検出するということです。 アドレスを検出したら、[BluetoothLEDevice.FromBluetoothAddressAsync](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.bluetoothledevice.frombluetoothaddressasync) を呼び出して、デバイスへの参照を取得します。
+2 つ目のメソッドについては、[アドバタイズ](ble-beacon.md)に関するドキュメントで詳しく説明されているため、ここでは簡単に説明します。基本的な考え方は、特定の[アドバタイズ フィルター](/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementwatcher.advertisementfilter)の条件を満たす、近くにあるデバイスの Bluetooth アドレスを検出するということです。 アドレスを検出したら、[BluetoothLEDevice.FromBluetoothAddressAsync](/uwp/api/windows.devices.bluetooth.bluetoothledevice.frombluetoothaddressasync) を呼び出して、デバイスへの参照を取得します。
 
-DeviceWatcher メソッドの説明に戻ります。 Bluetooth LE デバイスは、Windows の他のデバイスと同じように[列挙 API](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration) を使って照会できます。 [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher) クラスを使用して、検索するデバイスを指定するクエリ文字列を渡します。
+DeviceWatcher メソッドの説明に戻ります。 Bluetooth LE デバイスは、Windows の他のデバイスと同じように[列挙 API](/uwp/api/Windows.Devices.Enumeration) を使って照会できます。 [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher) クラスを使用して、検索するデバイスを指定するクエリ文字列を渡します。
 
 ```csharp
 // Query for extra properties you want returned
@@ -87,11 +87,11 @@ deviceWatcher.Stopped += DeviceWatcher_Stopped;
 deviceWatcher.Start();
 ```
 
-DeviceWatcher を開始すると、対象のデバイスの [Added](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher.added) イベントのハンドラーで、クエリを満たすデバイスごとに [DeviceInformation](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) を受信します。 DeviceWatcher について詳しくは、[Github](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing) にある完全なサンプルをご覧ください。
+DeviceWatcher を開始すると、対象のデバイスの [Added](/uwp/api/windows.devices.enumeration.devicewatcher.added) イベントのハンドラーで、クエリを満たすデバイスごとに [DeviceInformation](/uwp/api/Windows.Devices.Enumeration.DeviceInformation) を受信します。 DeviceWatcher について詳しくは、[Github](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing) にある完全なサンプルをご覧ください。
 
 ## <a name="connecting-to-the-device"></a>デバイスへの接続
 
-目的のデバイスが検出されたら、[DeviceInformation.Id](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id) を使用して、対象のデバイスの Bluetooth LE デバイス オブジェクトを取得します。
+目的のデバイスが検出されたら、[DeviceInformation.Id](/uwp/api/windows.devices.enumeration.deviceinformation.id) を使用して、対象のデバイスの Bluetooth LE デバイス オブジェクトを取得します。
 
 ```csharp
 async void ConnectDevice(DeviceInformation deviceInfo)
@@ -188,7 +188,7 @@ if (result == GattCommunicationStatus.Success)
 }
 ```
 
-> **ヒント**: [DataReader](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader)と[Datawriter](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter)は、多くの Bluetooth api から取得した未加工のバッファーを操作するときに不可欠されます。
+> **ヒント**: [DataReader](/uwp/api/windows.storage.streams.datareader) と [Datawriter](/uwp/api/windows.storage.streams.datawriter) は、多くの Bluetooth api から取得した未加工のバッファーを操作するときに不可欠されます。
 
 ## <a name="subscribing-for-notifications"></a>通知の受信登録
 
@@ -201,7 +201,7 @@ if (result == GattCommunicationStatus.Success)
 - Client Characteristic Configuration Descriptor (CCCD) への書き込み
 - Characteristic.ValueChanged イベントの処理
 
-CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 これを行うには、次の手順を実行します。
+CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 手順は次のとおりです。
 
 ```csharp
 GattCommunicationStatus status = await selectedCharacteristic.WriteClientCharacteristicConfigurationDescriptorAsync(

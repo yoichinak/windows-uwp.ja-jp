@@ -6,12 +6,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 685c71ca0e6ed0989932b7c9a0169088d5b83bd2
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: e5f86da29900e0ef83fb0bf41d2c8d9fe59727f2
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82558840"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172516"
 ---
 # <a name="guidelines-for-cross-slide"></a>クロススライドのガイドライン
 
@@ -20,9 +20,9 @@ ms.locfileid: "82558840"
 
 **重要な API**
 
--   [**CrossSliding**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.crosssliding)
--   [**CrossSlideThresholds**](https://docs.microsoft.com/uwp/api/windows.ui.input.gesturerecognizer.crossslidethresholds)
--   [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
+-   [**CrossSliding**](/uwp/api/windows.ui.input.gesturerecognizer.crosssliding)
+-   [**CrossSlideThresholds**](/uwp/api/windows.ui.input.gesturerecognizer.crossslidethresholds)
+-   [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)
 
 クロススライドは、スワイプ ジェスチャによる選択や、スライド ジェスチャによるドラッグ (移動) 操作をサポートするために使います。
 
@@ -33,7 +33,7 @@ ms.locfileid: "82558840"
 -   クロススライドは、タップ操作が別の目的で使われる場合に、項目を選ぶために使います。
 -   キューに項目を追加するためにクロススライドを使わないでください。
 
-## <a name="span-idadditional_usage_guidancespanspan-idadditional_usage_guidancespanspan-idadditional_usage_guidancespanadditional-usage-guidance"></a><span id="Additional_usage_guidance"></span><span id="additional_usage_guidance"></span><span id="ADDITIONAL_USAGE_GUIDANCE"></span>その他の使い方のガイダンス
+## <a name="span-idadditional_usage_guidancespanspan-idadditional_usage_guidancespanspan-idadditional_usage_guidancespanadditional-usage-guidance"></a><span id="Additional_usage_guidance"></span><span id="additional_usage_guidance"></span><span id="ADDITIONAL_USAGE_GUIDANCE"></span>使用に関するその他のガイダンス
 
 
 選択とドラッグは、1 方向 (垂直または水平) にパンできるコンテンツ領域内でだけ行うことができます。 これらの操作が機能するには、1 つのパン方向がロックされていて、ジェスチャがパン方向に対して垂直な方向に行われる必要があります。
@@ -54,9 +54,9 @@ ms.locfileid: "82558840"
 
 次に、クロススライド機能をアプリに含める際に考慮する必要がある、いくつかのガイドラインを示します。
 
-クロススライドは、単一の方向にスクロールするリストやコレクションに使います。 詳しくは、「[ListView コントロールの追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465382(v=win.10))」をご覧ください。
+クロススライドは、単一の方向にスクロールするリストやコレクションに使います。 詳しくは、「[ListView コントロールの追加](/previous-versions/windows/apps/hh465382(v=win.10))」をご覧ください。
 
-**Note**コンテンツ領域が web ブラウザーや電子閲覧者などの2方向にパンされる可能性がある場合は、画像やハイパーリンクなどのオブジェクトのコンテキストメニューを呼び出すために、プレスアンドホールドの時間指定操作を使用する必要があります。  
+**メモ**   コンテンツ領域が web ブラウザーや電子メールリーダーなどの2方向にパンされる可能性がある場合は、画像やハイパーリンクなどのオブジェクトのコンテキストメニューを呼び出すために、プレスアンドホールドの時間指定操作を使用する必要があります。
 
  
 
@@ -123,7 +123,7 @@ ms.locfileid: "82558840"
 
 ### <span id="draganddrop"></span><span id="DRAGANDDROP"></span>
 
-**抗力**
+**ドラッグ**
 
 1 つまたは複数のオブジェクトを別の場所に移動するには、ドラッグを使います。
 
@@ -145,13 +145,9 @@ ms.locfileid: "82558840"
 - [入力: タッチのヒット テストのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
 - [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
 - [入力: 簡略化されたインクのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)
-- [入力: Windows 8 のジェスチャのサンプルに関するページ](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+- [入力: Windows 8 のジェスチャのサンプルに関するページ](/samples/browse/?redirectedfrom=MSDN-samples)
 - [入力: 操作とジェスチャのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
 - [DirectX タッチ入力のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/DirectX%20touch%20input%20sample%20(Windows%208))
  
 
  
-
-
-
-

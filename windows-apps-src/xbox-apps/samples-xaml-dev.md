@@ -1,15 +1,15 @@
 ---
 title: 開発者向け XAML サンプル
-description: 開発者向け XAML サンプル
+description: このプラットフォームで実行されている場合に Xbox 1 用に最適化された、クロスプラットフォームの UWP コードサンプルにつながるリンクを見つけます。
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: 495cd9cffb17666ad3308a1ac6fa6cc20772d9ea
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 39d2853e4db3d84a945429cc8223df9da52c3fba
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631817"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172765"
 ---
 # <a name="xaml-samples-for-developers"></a>開発者向け XAML サンプル
 

@@ -6,24 +6,24 @@ ms.date: 07/03/2020
 ms.topic: article
 keywords: windows 10、uwp、印刷
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bcfc5a24ff9202840b59166de625ac619c05670
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 779965ca46efe7fb63adac46ef2568c2ecff66f1
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493397"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172196"
 ---
 # <a name="customize-the-print-workflow"></a>印刷ワークフローのカスタマイズ
 
 ## <a name="overview"></a>概要
 
-開発者は、印刷ワークフロー アプリを使用して印刷ワークフローのエクスペリエンスをカスタマイズできます。 印刷ワークフロー アプリは、[Microsoft Store デバイス アプリ (MSDA)](https://docs.microsoft.com/windows-hardware/drivers/devapps/) の機能を拡張する UWP アプリです。このアプリを使用すると、MSDA の詳細を習得する前に、MSDA の概要を理解することができます。
+開発者は、印刷ワークフロー アプリを使用して印刷ワークフローのエクスペリエンスをカスタマイズできます。 印刷ワークフロー アプリは、[Microsoft Store デバイス アプリ (MSDA)](/windows-hardware/drivers/devapps/) の機能を拡張する UWP アプリです。このアプリを使用すると、MSDA の詳細を習得する前に、MSDA の概要を理解することができます。
 
 MSDA の場合と同様に、ソース アプリケーションのユーザーが印刷の実行と印刷ダイアログのナビゲーションをする場合、システムによって、ワークフロー アプリがそのプリンターに関連付けられているかどうかが確認されます。 関連付けられている場合は、印刷ワークフロー アプリが起動します (主にバックグラウンド タスクとして起動されます。以下で詳しく説明します)。 ワークフロー アプリは、印刷チケット (現在の印刷タスク向けにプリンター デバイスの設定を構成する XML ドキュメント) と印刷される実際の XPS コンテンツの両方を変更することができます。 必要に応じて、印刷操作を行っているときに UI を起動することにより、この機能をユーザーに公開することもできます。 印刷ワークフロー アプリの処理が終了すると、印刷コンテンツと印刷チケットがドライバーに渡されます。
 
 バックグラウンド コンポーネントとフォアグラウンド コンポーネントが関連しているため、また他のアプリと機能的に組み合わされるため、印刷ワークフロー アプリは、他の種類の UWP アプリと比べると実装が複雑になる可能性があります。 このガイドをお読みになるときは、[ワークフロー アプリのサンプル](https://github.com/Microsoft/print-oem-samples)について調べることをお勧めします。これにより、さまざまな機能の実装方法ついて詳しく理解することができます。 説明を簡単にするために、このガイドでは一部の機能 (さまざまなエラー チェックや UI の管理など) が省略されています。
 
-## <a name="getting-started"></a>作業の開始
+## <a name="getting-started"></a>はじめに
 
 ワークフロー アプリでは、適切なタイミングで起動できるように、印刷システムへのエントリ ポイントを示す必要があります。 これを行うには、UWP プロジェクトの *package.appxmanifest* ファイルの `Application/Extensions` 要素にある以下の宣言を挿入します。
 
@@ -39,7 +39,7 @@ MSDA の場合と同様に、ソース アプリケーションのユーザー�
 
 ## <a name="do-background-work-on-the-print-ticket"></a>印刷チケットに対するバックグラウンド処理の実行
 
-印刷システムがワークフロー アプリを使用して実行する最初の処理は、バックグラウンド タスク (この場合は `WFBackgroundTasks` 名前空間の `WfBackgroundTask` クラス) のアクティブ化です。 バックグラウンド タスクの `Run` メソッドでは、タスクのトリガーの詳細を **[PrintWorkflowTriggerDetails](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowtriggerdetails)** インスタンスとしてキャストする必要があります。 これにより、印刷ワークフローのバックグラウンド タスク向けの特別な機能が利用できるようになります。 また、**[PrintWorkFlowBackgroundSession](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsession)** のインスタンスである **[PrintWorkflowSession](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowtriggerdetails.PrintWorkflowSession)** プロパティが公開されます。 印刷ワークフロー セッションのクラス (バックグラウンドとフォアグラウンドの両方に関するクラス) によって、印刷ワークフロー アプリの一連の手順が制御されます。
+印刷システムがワークフロー アプリを使用して実行する最初の処理は、バックグラウンド タスク (この場合は `WFBackgroundTasks` 名前空間の `WfBackgroundTask` クラス) のアクティブ化です。 バックグラウンド タスクの `Run` メソッドでは、タスクのトリガーの詳細を **[PrintWorkflowTriggerDetails](/uwp/api/windows.graphics.printing.workflow.printworkflowtriggerdetails)** インスタンスとしてキャストする必要があります。 これにより、印刷ワークフローのバックグラウンド タスク向けの特別な機能が利用できるようになります。 また、**[PrintWorkFlowBackgroundSession](/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsession)** のインスタンスである **[PrintWorkflowSession](/uwp/api/windows.graphics.printing.workflow.printworkflowtriggerdetails.PrintWorkflowSession)** プロパティが公開されます。 印刷ワークフロー セッションのクラス (バックグラウンドとフォアグラウンドの両方に関するクラス) によって、印刷ワークフロー アプリの一連の手順が制御されます。
 
 次に、このセッションのクラスで発生する 2 つのイベント用のハンドラー メソッドを登録します。 これらのメソッドの定義は、後で行います。
 
@@ -67,7 +67,7 @@ public void Run(IBackgroundTaskInstance taskInstance) {
 }
 ```
 
-`Start` メソッドが呼び出されると、まずセッション マネージャーで **[SetupRequested](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsession.SetupRequested)** イベントが発生します。 このイベントによって、印刷タスクと印刷チケットに関する一般的な情報が公開されます。 この段階では、印刷チケットをバックグラウンドで編集できます。
+`Start` メソッドが呼び出されると、まずセッション マネージャーで **[SetupRequested](/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsession.SetupRequested)** イベントが発生します。 このイベントによって、印刷タスクと印刷チケットに関する一般的な情報が公開されます。 この段階では、印刷チケットをバックグラウンドで編集できます。
 
 ```csharp
 private void OnSetupRequested(PrintWorkflowBackgroundSession sessionManager, PrintWorkflowBackgroundSetupRequestedEventArgs printTaskSetupArgs) {
@@ -104,14 +104,14 @@ setupRequestedDeferral.Complete();
 
 ## <a name="do-foreground-work-on-the-print-job-optional"></a>印刷ジョブに対するフォアグラウンド処理の実行 (オプション)
 
-**[SetRequiresUI](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsetuprequestedeventargs.SetRequiresUI)** メソッドが呼び出されると、印刷システムによってマニフェスト ファイルが検査され、フォアグラウンド アプリケーションへのエントリ ポイントが調べられます。 *package.appxmanifest* ファイルの `Application/Extensions` 要素には、以下の行が含まれている必要があります。 `EntryPoint` の値は、フォアグラウンド アプリの名前に変更してください。
+**[SetRequiresUI](/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsetuprequestedeventargs.SetRequiresUI)** メソッドが呼び出されると、印刷システムによってマニフェスト ファイルが検査され、フォアグラウンド アプリケーションへのエントリ ポイントが調べられます。 *package.appxmanifest* ファイルの `Application/Extensions` 要素には、以下の行が含まれている必要があります。 `EntryPoint` の値は、フォアグラウンド アプリの名前に変更してください。
 
 ```xml
 <uap:Extension Category="windows.printWorkflowForegroundTask"  
     EntryPoint="MyWorkFlowForegroundApp.App" />
 ```
 
-次に、印刷システムによって、指定されたアプリのエントリ ポイントで **OnActivated** メソッドが呼び出されます。 _App.xaml.cs_ ファイルの **OnActivated** メソッドでは、ワークフロー アプリはアクティブ化の種類を調べ、ワークフローのアクティブ化であることを確認する必要があります。 ワークフローのアクティブ化である場合、ワークフロー アプリではアクティブ化引数を **[PrintWorkflowUIActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowuiactivatedeventargs)** オブジェクトにキャストできます。このオブジェクトでは、**[PrintWorkflowForegroundSession](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowforegroundsession)** オブジェクトがプロパティとして公開されます。 このオブジェクトは、前のセクションのバックグラウンドに対応するもので、印刷システムで発生するイベントを含んでいます。これらのイベントには、ハンドラーを割り当てることができます この場合、イベント処理機能は `WorkflowPage` という個別のクラスに実装されます。
+次に、印刷システムによって、指定されたアプリのエントリ ポイントで **OnActivated** メソッドが呼び出されます。 _App.xaml.cs_ ファイルの **OnActivated** メソッドでは、ワークフロー アプリはアクティブ化の種類を調べ、ワークフローのアクティブ化であることを確認する必要があります。 ワークフローのアクティブ化である場合、ワークフロー アプリではアクティブ化引数を **[PrintWorkflowUIActivatedEventArgs](/uwp/api/windows.graphics.printing.workflow.printworkflowuiactivatedeventargs)** オブジェクトにキャストできます。このオブジェクトでは、**[PrintWorkflowForegroundSession](/uwp/api/windows.graphics.printing.workflow.printworkflowforegroundsession)** オブジェクトがプロパティとして公開されます。 このオブジェクトは、前のセクションのバックグラウンドに対応するもので、印刷システムで発生するイベントを含んでいます。これらのイベントには、ハンドラーを割り当てることができます この場合、イベント処理機能は `WorkflowPage` という個別のクラスに実装されます。
 
 まず、_App.xaml.cs_ ファイルの例を次に示します。
 
@@ -151,7 +151,7 @@ protected override void OnActivated(IActivatedEventArgs args){
 }
 ```
 
-UI がイベント ハンドラーをアタッチし、**OnActivated** メソッドが終了すると、UI による処理ができるように、印刷システムでは **[SetupRequested](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowforegroundsession.SetupRequested)** イベントが発生します。 このイベントでは、バックグラウンド タスクのセットアップ イベントで提供されるものと同じデータが提供されます。このデータには、印刷ジョブの情報や印刷チケットのドキュメントが含まれますが、追加の UI の起動を要求する機能は含まれていません。 _WorkflowPage.xaml.cs_ ファイルの例を次に示します。
+UI がイベント ハンドラーをアタッチし、**OnActivated** メソッドが終了すると、UI による処理ができるように、印刷システムでは **[SetupRequested](/uwp/api/windows.graphics.printing.workflow.printworkflowforegroundsession.SetupRequested)** イベントが発生します。 このイベントでは、バックグラウンド タスクのセットアップ イベントで提供されるものと同じデータが提供されます。このデータには、印刷ジョブの情報や印刷チケットのドキュメントが含まれますが、追加の UI の起動を要求する機能は含まれていません。 _WorkflowPage.xaml.cs_ ファイルの例を次に示します。
 
 ```csharp
 internal void OnSetupRequested(PrintWorkflowForegroundSession sessionManager, PrintWorkflowForegroundSetupRequestedEventArgs printTaskSetupArgs) {
@@ -185,7 +185,7 @@ internal void OnSetupRequested(PrintWorkflowForegroundSession sessionManager, Pr
 }
 ```
 
-次に、印刷システムによって、UI 用の **[XpsDataAvailable](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowforegroundsession.XpsDataAvailable)** イベントが発生します。 このイベントのハンドラーでは、ワークフロー アプリはセットアップ イベントで利用できるすべてのデータにアクセスできます。また、追加の XPS データを、未処理のバイトのストリームまたはオブジェクト モデルとして直接読み取ることもできます。 XPS データへのアクセスによって、UI では印刷プレビュー サービスを提供し、ワークフロー アプリがデータに対して実行する処理についての追加情報をユーザーに提供することができます。
+次に、印刷システムによって、UI 用の **[XpsDataAvailable](/uwp/api/windows.graphics.printing.workflow.printworkflowforegroundsession.XpsDataAvailable)** イベントが発生します。 このイベントのハンドラーでは、ワークフロー アプリはセットアップ イベントで利用できるすべてのデータにアクセスできます。また、追加の XPS データを、未処理のバイトのストリームまたはオブジェクト モデルとして直接読み取ることもできます。 XPS データへのアクセスによって、UI では印刷プレビュー サービスを提供し、ワークフロー アプリがデータに対して実行する処理についての追加情報をユーザーに提供することができます。
 
 このイベント ハンドラーの一環として、ワークフロー アプリでは、ユーザーとのやり取りを継続する場合に遅延オブジェクトを取得する必要があります。 遅延を使用しないと、印刷システムでは、**XpsDataAvailable** イベント ハンドラーが終了したとき、またはこのハンドラーで非同期メソッドが呼び出されたときに UI タスクが完了したと見なされます。 アプリがユーザーと UI とのやり取りから必要な情報をすべて収集したときに、アプリでは遅延を終了し、印刷システムが次の処理に進めるようにする必要があります。
 
@@ -216,14 +216,14 @@ internal async void OnXpsDataAvailable(PrintWorkflowForegroundSession sessionMan
 }
 ```
 
-また、イベント引数によって公開される **[PrintWorkflowSubmittedOperation](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowsubmittedoperation)** インスタンスでは、印刷ジョブを取り消したり、印刷ジョブは成功したが出力の印刷ジョブが必要ないことを指定したりするためのオプションが提供されます。 これは、**[PrintWorkflowSubmittedStatus](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowsubmittedstatus)** 値を使用して **[Complete](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowsubmittedoperation.Complete)** メソッドを呼び出すことで実行されます。
+また、イベント引数によって公開される **[PrintWorkflowSubmittedOperation](/uwp/api/windows.graphics.printing.workflow.printworkflowsubmittedoperation)** インスタンスでは、印刷ジョブを取り消したり、印刷ジョブは成功したが出力の印刷ジョブが必要ないことを指定したりするためのオプションが提供されます。 これは、**[PrintWorkflowSubmittedStatus](/uwp/api/windows.graphics.printing.workflow.printworkflowsubmittedstatus)** 値を使用して **[Complete](/uwp/api/windows.graphics.printing.workflow.printworkflowsubmittedoperation.Complete)** メソッドを呼び出すことで実行されます。
 
 > [!NOTE]
 > ワークフロー アプリで印刷ジョブを取り消す場合は、ジョブが取り消された理由を示すトースト通知を提供することを強くお勧めします。
 
 ## <a name="do-final-background-work-on-the-print-content"></a>印刷コンテンツに対する最終的なバックグラウンド処理の実行
 
-UI で **PrintTaskXpsDataAvailable** イベントの遅延が完了した場合 (または UI の手順が省略された場合)、印刷システムではバックグラウンド タスク用の **[Submitted](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsession.Submitted)** イベントが発生します。 このイベントのハンドラーでは、ワークフロー アプリは **XpsDataAvailable** イベントで提供されるものと同じすべてのデータにアクセスできます。 ただし、これまでのイベントとは異なり、**Submitted** は **[PrintWorkflowTarget](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow.printworkflowtarget)** インスタンスを使用して、最終的な印刷ジョブのコンテンツに対する*書き込み*アクセスを提供します。
+UI で **PrintTaskXpsDataAvailable** イベントの遅延が完了した場合 (または UI の手順が省略された場合)、印刷システムではバックグラウンド タスク用の **[Submitted](/uwp/api/windows.graphics.printing.workflow.printworkflowbackgroundsession.Submitted)** イベントが発生します。 このイベントのハンドラーでは、ワークフロー アプリは **XpsDataAvailable** イベントで提供されるものと同じすべてのデータにアクセスできます。 ただし、これまでのイベントとは異なり、**Submitted** は **[PrintWorkflowTarget](/uwp/api/windows.graphics.printing.workflow.printworkflowtarget)** インスタンスを使用して、最終的な印刷ジョブのコンテンツに対する*書き込み*アクセスを提供します。
 
 最終的な印刷で必要となるデータをスプールする場合に使用されるオブジェクトは、ソース データが未処理のバイトのストリームとしてアクセスされるのか、XPS オブジェクト モデルとしてアクセスされるのかによって異なります。 ワークフロー アプリがバイト ストリームを介してソース データにアクセスするときは、最終的なジョブ データを書き込むために、出力のバイト ストリームが提供されます。 ワークフロー アプリがオブジェクト モデルを介してソース データにアクセスするときは、オブジェクトを出力ジョブに書き込むために、ドキュメント ライターが提供されます。 どちらの場合も、ワークフロー アプリでは、すべてのソース データを読み取り、必要なデータを変更し、変更されたデータを出力ターゲットに書き込む必要があります。
 
@@ -233,7 +233,7 @@ UI で **PrintTaskXpsDataAvailable** イベントの遅延が完了した場合 
 
 ### <a name="register-the-print-workflow-app-to-the-printer"></a>印刷ワークフロー アプリをプリンターに登録する
 
-ワークフロー アプリは、MSDA の場合と同じ種類のメタデータ ファイル送信を使用するプリンターに関連付けられます。 実際には、1 つの UWP アプリケーションが、ワークフロー アプリと、印刷タスクの設定機能を提供する MSDA の両方として機能することができます。 関連する「[MSDA steps for creating the metadata association](https://docs.microsoft.com/windows-hardware/drivers/devapps/step-2--create-device-metadata)」(メタデータの関連付けを作成するための MSDA の手順) に従ってください。
+ワークフロー アプリは、MSDA の場合と同じ種類のメタデータ ファイル送信を使用するプリンターに関連付けられます。 実際には、1 つの UWP アプリケーションが、ワークフロー アプリと、印刷タスクの設定機能を提供する MSDA の両方として機能することができます。 関連する「[MSDA steps for creating the metadata association](/windows-hardware/drivers/devapps/step-2--create-device-metadata)」(メタデータの関連付けを作成するための MSDA の手順) に従ってください。
 
 相違点は、MSDA はユーザーに対して自動的にアクティブ化されますが (関連付けられているデバイスでユーザーが印刷を実行すると、アプリは常に起動されます)、ワークフロー アプリは自動的にはアクティブ化されないことです。 これらのアプリに対しては、それぞれ別のポリシーを設定する必要があります。
 
@@ -257,4 +257,4 @@ Set-Printer –Name "Microsoft XPS Document Writer" -WorkflowPolicy Enabled
 
 [ワークフロー アプリのサンプル](https://github.com/Microsoft/print-oem-samples)
 
-[Windows.Graphics.Printing.Workflow 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.printing.workflow)
+[Windows.Graphics.Printing.Workflow 名前空間](/uwp/api/windows.graphics.printing.workflow)

@@ -9,12 +9,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Windows 情報保護, 企業データ, エンタープライズ データ保護, EDP, 対応アプリ
 ms.assetid: 08f0cfad-f15d-46f7-ae7c-824a8b1c44ea
 ms.localizationpriority: medium
-ms.openlocfilehash: f6e3839ac2c15c1f976a9135b121ffea26174d41
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 69bab48836d7679d8bcec5f9132bca88d7607cdb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259616"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173246"
 ---
 # <a name="windows-information-protection-wip"></a>Windows 情報保護 (WIP)
 
@@ -41,9 +41,9 @@ MDM または MAM を利用すると、管理者は、組織に属している�
 
 ![WIP のライフサイクル](images/wip-lifecycle.png)
 
-> **WIP の詳細を読む** <br>
-* [Windows Information Protection の概要](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
-* [Windows Information Protection (WIP) を使用してエンタープライズデータを保護する](https://docs.microsoft.com/windows/whats-new/edp-whats-new-overview)
+> **WIP について詳しくは、以下をご覧ください。** <br>
+* [Introducing Windows Information Protection (Windows 情報保護の概要)](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/bg-p/Windows10Blog)
+* [Windows 情報保護 (WIP) を使用したエンタープライズ データの保護](/windows/whats-new/edp-whats-new-overview)
 
 アプリが許可リストに登録されている場合、アプリによって生成されたすべてのデータにはポリシーの制限が適用されます。 つまり、管理者が企業データへのユーザー アクセスを無効にすると、それらのユーザーは、アプリによって生成されたすべてのデータへアクセスできなくなります。
 
@@ -61,13 +61,13 @@ WIP API を使用してアプリを対応させてから、アプリをエンタ
 
 アプリを対応させる準備ができたら、以下のガイドのいずれかをご覧ください。
 
-**を使用してビルドするユニバーサル Windows プラットフォーム (UWP) アプリの場合C#**
+**C を使用してビルドするユニバーサル Windows プラットフォーム (UWP) アプリの場合#**
 
-[Windows 情報保護 (WIP) 開発者向けガイド](wip-dev-guide.md)。
+[Windows Information Protection (WIP) 開発者ガイド](wip-dev-guide.md)。
 
-**を使用してビルドするデスクトップアプリの場合C++**
+**C++ を使用して作成するデスクトップ アプリの場合**
 
-[Windows 情報保護 (WIP) 開発者向けガイド (C++)](https://docs.microsoft.com/previous-versions/windows/desktop/EDP/wip-developer-guide?redirectedfrom=MSDN)。
+[Windows 情報保護 (WIP) 開発者向けガイド (C++)](/previous-versions/windows/desktop/EDP/wip-developer-guide)。
 
 
 ## <a name="create-non-enlightened-enterprise-app"></a>エンタープライズ非対応アプリの作成

@@ -8,19 +8,19 @@ keywords: キーボード, テキスト, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a118a7160842154a656e0f2d29783b1b2e676755
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 7a779053f0e14317c4142158fdface4c806a02aa
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970097"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172466"
 ---
 # <a name="selecting-text-and-images"></a>テキストと画像の選択
 
 
 この記事では、テキスト、画像、コントロールの選択と操作について説明し、アプリでこれらのメカニズムを使うときに考慮する必要があるユーザー エクスペリエンスのガイドラインを示します。
 
-> **重要な API**: [**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)、[**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)
+> **重要な API**: [**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)、[**Windows.UI.Input**](/uwp/api/Windows.UI.Input)
  
 
 
@@ -78,7 +78,7 @@ Windows では、選択操作のために "編集可能" と "編集不可" の
 
 ![選択範囲内またはグリッパー上でタップ (または長押し) してコンテキスト メニューを呼び出します。](images/textselection-show-context.png)
 
-**注:**  単語のスペルが間違っている場合、これらの相互作用は多少異なります。 綴りに誤りがあるとしてマークされている単語をタップすると、単語全体が強調表示されて、スペル候補のコンテキスト メニューが呼び出されます。
+**メモ**   単語のスペルが間違っている場合、これらの相互作用は多少異なります。 綴りに誤りがあるとしてマークされている単語をタップすると、単語全体が強調表示されて、スペル候補のコンテキスト メニューが呼び出されます。
 
  
 
@@ -108,7 +108,7 @@ Windows アプリでカスタムオブジェクト操作を実装する場合、
 
 ### <a name="for-developers"></a>開発者向け
 
-- [カスタム ユーザー操作](https://docs.microsoft.com/windows/uwp/design/layout/index)
+- [カスタム ユーザー操作](../layout/index.md)
 
 ### <a name="samples"></a>サンプル
 
@@ -124,6 +124,6 @@ Windows アプリでカスタムオブジェクト操作を実装する場合、
 - [入力: タッチのヒット テストのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
 - [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
 - [入力: 簡略化されたインクのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)
-- [入力: Windows 8 のジェスチャのサンプルに関するページ](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+- [入力: Windows 8 のジェスチャのサンプルに関するページ](/samples/browse/?redirectedfrom=MSDN-samples)
 - [入力: 操作とジェスチャのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
 - [DirectX タッチ入力のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/DirectX%20touch%20input%20sample%20(Windows%208))

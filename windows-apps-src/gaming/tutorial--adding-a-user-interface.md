@@ -6,12 +6,12 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ユーザー インターフェイス, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: cbe67a50cd51f17aa628ff2e02955fd90781392f
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: eca248887985fc6d33ca6d6b552a0b61a98ce428
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942822"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173106"
 ---
 # <a name="add-a-user-interface"></a>ユーザー インターフェイスの追加
 
@@ -21,7 +21,7 @@ ms.locfileid: "88942822"
 ゲームに3D ビジュアルが配置されたので、ゲームがプレーヤーにゲームの状態に関するフィードバックを提供できるように、いくつかの2D 要素を追加することに注目します。 これは、単純なメニューオプションと、3-d グラフィックスパイプライン出力の上にヘッドアップ表示コンポーネントを追加することによって実現できます。
 
 >[!Note]
->このサンプルの最新のゲームコードをダウンロードしていない場合は、「 [Direct3D サンプルゲーム](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)」にアクセスしてください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](/windows/uwp/get-started/get-uwp-app-samples)」をご覧ください。
+>このサンプルの最新のゲームコードをダウンロードしていない場合は、「 [Direct3D サンプルゲーム](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)」にアクセスしてください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](../get-started/get-app-samples.md)」をご覧ください。
 
 ## <a name="objective"></a>目的
 
@@ -472,6 +472,6 @@ void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
 
 ゲームでは、ゲームの状態に基づいてテキスト情報をプレーヤーに伝える方法が用意されているので、ゲーム全体に表示される内容を切り替えることができます。
 
-### <a name="next-steps"></a>次のステップ
+### <a name="next-steps"></a>次の手順
 
 次のトピック「 [コントロールの追加](tutorial--adding-controls.md)」では、プレーヤーがサンプルゲームと対話する方法と、入力がゲーム状態にどのように変化するかを確認します。

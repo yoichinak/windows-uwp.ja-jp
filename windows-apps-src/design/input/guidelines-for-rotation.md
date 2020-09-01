@@ -8,19 +8,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 08d0eb18d59c9a5c19826eb7b6e8d4b65179b6fd
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 98ba886ffd74f03b4b502e1f7351c75c76646147
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970107"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172476"
 ---
 # <a name="rotation"></a>回転
 
 
 この記事では、ローテーション用の新しい Windows UI について説明します。また、この新しい対話機構を Windows アプリで使用する際に考慮する必要があるユーザーエクスペリエンスガイドラインについて説明します。
 
-> **重要な API**: [**Windows.UI.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input)
+> **重要な API**: [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)
 
 ## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
 
@@ -44,7 +44,7 @@ ms.locfileid: "82970107"
 
 ![回転がサポートされる異なる指の配置を示す図](images/ux-rotate-positions.png)
 
-**Note**わかりやすいように、ほとんどの場合、回転ポイントは2つのタッチポイントの1つです。ただし、ユーザーが連絡先ポイントに関連しない回転ポイント (たとえば、描画アプリケーションやレイアウトアプリケーションなど) を指定することはできません。   以下の図では、回転の中心点がこのような制約を受けない場合に、どのようにユーザー エクスペリエンスが低下するかについて説明します。
+**メモ**   直感的に言えば、ほとんどの場合、回転ポイントは2つのタッチポイントの1つです。ただし、ユーザーが連絡先ポイントに関連しない回転ポイント (たとえば、描画アプリケーションやレイアウトアプリケーションなど) を指定することはできません。 以下の図では、回転の中心点がこのような制約を受けない場合に、どのようにユーザー エクスペリエンスが低下するかについて説明します。
 
 1 番目の図は、最初のタッチ ポイント (親指) と 2 番目のタッチ ポイント (人差し指) を示します。人差し指は木に、親指は丸太にタッチしています。
 
@@ -88,7 +88,7 @@ Windows 10 では、3種類のローテーション (free、制約、および�
 <td align="left">複合回転</td>
 <td align="left"><p>複合回転は自由回転をサポートしますが、(<a href="guidelines-for-panning.md">パン</a>におけるレールのように) 90°単位のスナップ位置のゾーンでは制約付き回転によって強制されます。 ユーザーが各 90° のゾーンの外でオブジェクトを離した場合にはオブジェクトはその位置にとどまりますが、それ以外の場合にはオブジェクトは自動的にスナップ位置まで回転します。</p>
 <div class="alert">
-<strong>注:</strong>  ユーザーインターフェイスのレールは、ターゲットの周囲の領域が特定の値または場所への移動を制限して、その選択に影響を与える機能です。
+<strong>メモ</strong>   ユーザーインターフェイスレールは、ターゲットの周囲の領域が特定の値または場所への移動を制限して、その選択に影響を与える機能です。
 </div>
 <div>
  
@@ -113,6 +113,6 @@ Windows 10 では、3種類のローテーション (free、制約、および�
 - [入力: タッチのヒット テストのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
 - [XAML のスクロール、パン、ズームのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
 - [入力: 簡略化されたインクのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)
-- [入力: GestureRecognizer によるジェスチャと操作](https://docs.microsoft.com/samples/browse/?redirectedfrom=MSDN-samples)
+- [入力: GestureRecognizer によるジェスチャと操作](/samples/browse/?redirectedfrom=MSDN-samples)
 - [入力: 操作とジェスチャのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
 - [DirectX タッチ入力のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/DirectX%20touch%20input%20sample%20(Windows%208))

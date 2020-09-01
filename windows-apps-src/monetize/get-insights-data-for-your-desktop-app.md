@@ -1,21 +1,21 @@
 ---
-description: Microsoft Store analytics API でこのメソッドを使用すると、お客様のデスクトップ アプリケーションの insights のデータを取得できます。
+description: Microsoft Store analytics API でこのメソッドを使用して、デスクトップアプリケーションの洞察データを取得します。
 title: デスクトップ アプリケーションのインサイト データの取得
 ms.date: 07/31/2018
 ms.topic: article
-keywords: windows 10、uwp、Store services、Microsoft Store analytics API、insights
+keywords: windows 10、uwp、ストアサービス、Microsoft Store analytics API、洞察
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8f6f4b2df1cda14bc1f363a1f9100e416f26489b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: bd60425a5ec3c040417aded818c766db80eb59eb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372463"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172896"
 ---
 # <a name="get-insights-data-for-your-desktop-application"></a>デスクトップ アプリケーションのインサイト データの取得
 
-Insights データを取得するには、Microsoft Store analytics API では、このメソッドに関連する正常性メトリックを追加したデスクトップ アプリケーションを使用して、 [Windows デスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)します。 このデータも記載されて、[正常性レポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program#health-report)パートナー センターでのデスクトップ アプリケーションです。
+[Windows デスクトップアプリケーションプログラム](/windows/desktop/appxpkg/windows-desktop-application-program)に追加したデスクトップアプリケーションの正常性メトリックに関連する洞察データを取得するには、MICROSOFT STORE analytics API でこのメソッドを使用します。 このデータは、パートナーセンターのデスクトップアプリケーションの [状態レポート](/windows/desktop/appxpkg/windows-desktop-application-program#health-report) でも使用できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -24,75 +24,75 @@ Insights データを取得するには、Microsoft Store analytics API では�
 * Microsoft Store 分析 API に関するすべての[前提条件](access-analytics-data-using-windows-store-services.md#prerequisites)を満たします (前提条件がまだ満たされていない場合)。
 * このメソッドの要求ヘッダーで使う [Azure AD アクセス トークンを取得](access-analytics-data-using-windows-store-services.md#obtain-an-azure-ad-access-token)します。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れたら新しいトークンを取得できます。
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI       |
+| 認証方法 | 要求 URI       |
 |--------|----------------------|
 | GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/analytics/desktop/insights``` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                                                                 |
+| Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-| パラメーター        | 種類   |  説明      |  必須  
+| パラメーター        | Type   |  説明      |  必須  
 |---------------|--------|---------------|------|
-| applicationId | string | Insights のデータを取得するデスクトップ アプリケーションの製品の ID。 デスクトップ アプリケーションの製品 ID を取得するには、いずれかを開く[analytics は、パートナー センターでデスクトップ アプリケーションのレポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)(など、**正常性レポート**) し、URL から、製品 ID を取得します。 このパラメーターを指定しないと、応答本文は、自分のアカウントに登録されているすべてのアプリの insights のデータが含まれます。  |  X  |
-| startDate | date | 取得する insights データの日付範囲の開始日。 既定値は、現在の日付の 30 日前です。 |  X  |
-| endDate | date | 取得する insights データの日付範囲の終了日。 既定値は現在の日付です。 |  X  |
-| filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 *filter* パラメーターでは、文字列値を単一引用符で囲む必要があります。 たとえば、*フィルター = データ型 eq '買収'* します。 <p/><p/>現在このメソッドは、フィルターのみをサポート**ヘルス**します。  | X   |
+| applicationId | string | 洞察データを取得するデスクトップアプリケーションの製品 ID。 デスクトップアプリケーションの製品 ID を取得するには、パートナーセンター (**正常性レポート**など) の[デスクトップアプリケーションの分析レポート](/windows/desktop/appxpkg/windows-desktop-application-program)を開き、URL から製品 id を取得します。 このパラメーターを指定しない場合、応答本文には、アカウントに登録されているすべてのアプリの分析情報データが含まれます。  |  いいえ  |
+| startDate | 日付 | 取得するインサイトデータの日付範囲の開始日。 既定値は、現在の日付の 30 日前です。 |  いいえ  |
+| endDate | 日付 | 取得するインサイトデータの日付範囲の終了日。 既定値は現在の日付です。 |  いいえ  |
+| filter | string  | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 *filter* パラメーターでは、文字列値を単一引用符で囲む必要があります。 たとえば、 *filter = dataType eq ' 取得 '* です。 <p/><p/>現在、このメソッドはフィルターの **正常性**のみをサポートしています。  | いいえ   |
 
 ### <a name="request-example"></a>要求の例
 
-次の例では、insights データを取得するための要求を示します。 置換、 *applicationId*デスクトップ アプリケーションの適切な値を持つ値。
+次の例は、洞察データを取得するための要求を示しています。 *ApplicationId*の値を、使用するデスクトップアプリケーションの適切な値に置き換えます。
 
 ```syntax
 GET https://manage.devcenter.microsoft.com/v1.0/my/analytics/desktop/insights?applicationId=10238467886765136388&startDate=6/1/2018&endDate=6/15/2018&filter=dataType eq 'health' HTTP/1.1
 Authorization: Bearer <your access token>
 ```
 
-## <a name="response"></a>応答
+## <a name="response"></a>[応答]
 
 ### <a name="response-body"></a>応答本文
 
-| Value      | 種類   | 説明                  |
+| 値      | Type   | 説明                  |
 |------------|--------|-------------------------------------------------------|
-| Value      | array  | アプリの insights のデータを格納するオブジェクトの配列。 各オブジェクトのデータの詳細については、次を参照してください。、 [Insight 値](#insight-values)以下のセクション。                                                                                                                      |
-| TotalCount | int    | クエリの結果データ内の行の総数です。                 |
+| 値      | array  | アプリの洞察データを格納するオブジェクトの配列。 各オブジェクトのデータの詳細については、以下の「 [洞察の値](#insight-values) 」セクションを参照してください。                                                                                                                      |
+| TotalCount | INT    | クエリの結果データ内の行の総数です。                 |
 
 
-### <a name="insight-values"></a>Insight 値
+### <a name="insight-values"></a>洞察の値
 
 *Value* 配列の要素には、次の値が含まれます。
 
-| Value               | 種類   | 説明                           |
+| 値               | Type   | 説明                           |
 |---------------------|--------|-------------------------------------------|
-| applicationId       | string | Insights のデータを取得し、デスクトップ アプリケーションの製品の ID。     |
-| insightDate                | string | 日付が特定のメトリックの変化を特定しました。 この日付は、大幅な増加を検出しました週の終わりを表すと比較する前に、その週とメトリックに増減します。 |
-| データ型     | string | この情報に通知する一般的な分析の領域を指定する文字列。 現時点では、このメソッドは**ヘルス**します。    |
-| insightDetail          | array | 1 つまたは複数[InsightDetail 値](#insightdetail-values)現在インサイトの詳細を表します。    |
+| applicationId       | string | Insights データを取得したデスクトップアプリケーションの製品 ID。     |
+| insightDate                | string | 特定のメトリックの変更を特定した日付。 この日付は、メトリックがその前の週と比較して大幅に増加または減少したことが検出された週の終わりを表します。 |
+| dataType     | string | この洞察によって通知される一般的な分析領域を指定する文字列。 現在、このメソッドは **正常性**のみをサポートしています。    |
+| insightDetail          | array | 現在の洞察の詳細を表す1つ以上の [InsightDetail 値](#insightdetail-values) 。    |
 
 
-### <a name="insightdetail-values"></a>InsightDetail 値
+### <a name="insightdetail-values"></a>InsightDetail の値
 
-| Value               | 種類   | 説明                           |
+| 値               | Type   | 説明                           |
 |---------------------|--------|-------------------------------------------|
-| FactName           | string | 現在 insight または現在のディメンションについて説明するメトリックを示す文字列。 現時点では、このメソッドは、値のみをサポート**ヒット カウント**します。  |
-| SubDimensions         | array |  情報を得ることの 1 つのメトリックを記述する 1 つまたは複数のオブジェクト。   |
-| PercentChange            | string |  この割合は、全体の顧客ベースでメトリックを変更しました。  |
-| DimensionName           | string |  現在のディメンションで説明されているメトリックの名前。 例としては、 **EventType**、**市場**、 **DeviceType**、および**PackageVersion**します。   |
-| DimensionValue              | string | 現在のディメンションで説明されているメトリックの値。 たとえば場合、 **DimensionName**は**EventType**、 **DimensionValue**可能性があります**クラッシュ**または**ハング**.   |
-| FactValue     | string | 情報を得ることが検出された日付のメトリックの絶対値。  |
-| Direction | string |  変更の方向 (**正**または**負**)。   |
-| 日付              | string |  日付、現在の情報または現在のディメンションに関連する変更を特定しました。   |
+| FactName           | string | 現在の洞察または現在のディメンションによって記述されるメトリックを示す文字列。 現在、このメソッドでは値の **ヒットカウント**のみがサポートされています。  |
+| サブディメンション         | array |  洞察の1つのメトリックを記述する1つ以上のオブジェクト。   |
+| PercentChange            | string |  顧客ベース全体でメトリックが変更された割合。  |
+| DimensionName           | string |  現在のディメンションに記述されているメトリックの名前。 例として、 **EventType**、 **Market**、 **(devicetype**、 **PackageVersion**などがあります。   |
+| DimensionValue              | string | 現在のディメンションに記述されているメトリックの値。 たとえば、 **DimensionName** が **EventType**の場合、 **dimensionvalue** が **クラッシュ** または **ハング**する可能性があります。   |
+| FactValue     | string | 洞察が検出された日付のメトリックの絶対値。  |
+| 方向 | string |  変更の方向 (**正** または **負**)。   |
+| Date              | string |  現在の洞察または現在のディメンションに関連する変更を特定した日付。   |
 
 ### <a name="response-example"></a>応答の例
 
@@ -151,6 +151,6 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Windows デスクトップ アプリケーション プログラム](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program)
-* [正常性レポート](https://docs.microsoft.com/windows/desktop/appxpkg/windows-desktop-application-program#health-report)
-* [Microsoft Store サービスを使用して分析データにアクセス](access-analytics-data-using-windows-store-services.md)
+* [Windows デスクトップアプリケーションプログラム](/windows/desktop/appxpkg/windows-desktop-application-program)
+* [状態レポート](/windows/desktop/appxpkg/windows-desktop-application-program#health-report)
+* [Microsoft Store サービスを使った分析データへのアクセス](access-analytics-data-using-windows-store-services.md)

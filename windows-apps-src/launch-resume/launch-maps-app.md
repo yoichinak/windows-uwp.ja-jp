@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bf17a6b835e0e594454f433770edb598ae637a0
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: e020972a8dff0b0721fd2c5726999a7896d359c4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942832"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167906"
 ---
 # <a name="launch-the-windows-maps-app"></a>Windows マップ アプリの起動
 
@@ -51,7 +51,7 @@ URI スキームについて次に説明します。
 ## <a name="launch-a-uri-from-your-app"></a>アプリからの URI の起動
 
 
-アプリから Windows マップ アプリを起動するには、**bingmaps:**、**ms-drive-to:**、または **ms-walk-to:** URI を指定して [**LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
+アプリから Windows マップ アプリを起動するには、**bingmaps:**、**ms-drive-to:**、または **ms-walk-to:** URI を指定して [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。 次の例では、前の例と同じ URI を起動します。 URI によるアプリの起動について詳しくは、「[URI に応じた既定のアプリの起動](launch-default-app.md)」をご覧ください。
 
 ```cs
 // Center on New York City
@@ -63,7 +63,7 @@ launcherOptions.TargetApplicationPackageFamilyName = "Microsoft.WindowsMaps_8wek
 var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherOptions);
 ```
 
-この例では、Windows マップ アプリを確実に起動するために [**LauncherOptions**](https://docs.microsoft.com/uwp/api/Windows.System.LauncherOptions) クラスを使っています。
+この例では、Windows マップ アプリを確実に起動するために [**LauncherOptions**](/uwp/api/Windows.System.LauncherOptions) クラスを使っています。
 
 ## <a name="display-known-locations"></a>既知の場所の表示
 

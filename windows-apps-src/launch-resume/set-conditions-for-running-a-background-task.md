@@ -10,38 +10,38 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: 04f351a2eed5290e31a3f40c5421addf01422154
-ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
+ms.openlocfilehash: 9339472d1f7d601accdc3791644ba328211e5191
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262783"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167736"
 ---
 # <a name="set-conditions-for-running-a-background-task"></a>バックグラウンド タスクを実行するための条件の設定
 
 **重要な API**
 
-- [**SystemCondition**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemCondition)
-- [**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)
-- [**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
+- [**SystemCondition**](/uwp/api/Windows.ApplicationModel.Background.SystemCondition)
+- [**SystemConditionType**](/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)
+- [**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
 
 バックグラウンド タスクをいつ実行するかを制御する条件の設定方法について説明します。
 
-場合によっては、バックグラウンド タスクを正しく実行するために、特定の条件を満たす必要があります。 バックグラウンド タスクを登録するときに、[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType) で指定される条件を 1 つ以上指定することができます。 条件がチェックされるのは、トリガーが発生した後です。 バックグラウンド タスクは、キューに入れられますが、必要な条件がすべて満たされるまでは実行されません。
+場合によっては、バックグラウンド タスクを正しく実行するために、特定の条件を満たす必要があります。 バックグラウンド タスクを登録するときに、[**SystemConditionType**](/uwp/api/Windows.ApplicationModel.Background.SystemConditionType) で指定される条件を 1 つ以上指定することができます。 条件がチェックされるのは、トリガーが発生した後です。 バックグラウンド タスクは、キューに入れられますが、必要な条件がすべて満たされるまでは実行されません。
 
-バックグラウンド タスクに条件を設定すると、タスクが不必要に実行されなくなるため、バッテリー残量と CPU 実行時間が節約できます。 たとえば、バックグラウンド タスクがタイマーで実行され、インターネット接続が必要な場合は、タスクを登録する前に、**InternetAvailable** 条件を [**TaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) に追加します。 これにより、タイマーの設定時間が経過し、*かつ*インターネットが利用可能な場合にのみバックグラウンド タスクが実行されるため、タスクがシステム リソースやバッテリー残量を無駄に消費することはなくなります。
+バックグラウンド タスクに条件を設定すると、タスクが不必要に実行されなくなるため、バッテリー残量と CPU 実行時間が節約できます。 たとえば、バックグラウンド タスクがタイマーで実行され、インターネット接続が必要な場合は、タスクを登録する前に、**InternetAvailable** 条件を [**TaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) に追加します。 これにより、タイマーの設定時間が経過し、*かつ*インターネットが利用可能な場合にのみバックグラウンド タスクが実行されるため、タスクがシステム リソースやバッテリー残量を無駄に消費することはなくなります。
 
-また、同じ[**Taskbuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)で**addcondition**を複数回呼び出すことによって、複数の条件を組み合わせることもできます。 **UserPresent** や **UserNotPresent** など競合する条件を追加しないように注意してください。
+また、同じ[**Taskbuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)で**addcondition**を複数回呼び出すことによって、複数の条件を組み合わせることもできます。 **UserPresent** や **UserNotPresent** など競合する条件を追加しないように注意してください。
 
 ## <a name="create-a-systemcondition-object"></a>SystemCondition オブジェクトを作る
 
-ここでは、既にバックグラウンド タスクがアプリと関連付けられており、アプリでは、**taskBuilder** という [**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトを作るためのコードが記述済みであることを前提とします。  最初にバックグラウンド タスクを作成する必要がある場合は、「[インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)」または「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください。
+ここでは、既にバックグラウンド タスクがアプリと関連付けられており、アプリでは、**taskBuilder** という [**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトを作るためのコードが記述済みであることを前提とします。  最初にバックグラウンド タスクを作成する必要がある場合は、「[インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)」または「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください。
 
 このトピックの内容は、アウトプロセスで実行されるバックグラウンド タスク、およびフォアグラウンド アプリと同じプロセスで実行されるバックグラウンド タスクに適用されます。
 
-条件を追加する前に、バックグラウンド タスクを実行するために有効にする必要のある条件を表す [**SystemCondition**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemCondition) オブジェクトを作ります。 コンストラクターで、[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType) 列挙値を渡して、必要な条件を指定します。
+条件を追加する前に、バックグラウンド タスクを実行するために有効にする必要のある条件を表す [**SystemCondition**](/uwp/api/Windows.ApplicationModel.Background.SystemCondition) オブジェクトを作ります。 コンストラクターで、[**SystemConditionType**](/uwp/api/Windows.ApplicationModel.Background.SystemConditionType) 列挙値を渡して、必要な条件を指定します。
 
-次のコードでは、**InternetAvailable** 条件を指定する [**SystemCondition**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemCondition) オブジェクトを作成します。
+次のコードでは、**InternetAvailable** 条件を指定する [**SystemCondition**](/uwp/api/Windows.ApplicationModel.Background.SystemCondition) オブジェクトを作成します。
 
 ```csharp
 SystemCondition internetCondition = new SystemCondition(SystemConditionType.InternetAvailable);
@@ -58,7 +58,7 @@ SystemCondition ^ internetCondition = ref new SystemCondition(SystemConditionTyp
 
 ## <a name="add-the-systemcondition-object-to-your-background-task"></a>SystemCondition オブジェクトをバックグラウンド タスクに追加する
 
-条件を追加するには、[**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトで [**AddCondition**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.addcondition) メソッドを呼び出して、[**SystemCondition**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemCondition) オブジェクトに渡します。
+条件を追加するには、[**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトで [**AddCondition**](/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.addcondition) メソッドを呼び出して、[**SystemCondition**](/uwp/api/Windows.ApplicationModel.Background.SystemCondition) オブジェクトに渡します。
 
 次のコードは、**taskBuilder** を使用して **InternetAvailable** 条件を追加します。
 
@@ -76,7 +76,7 @@ taskBuilder->AddCondition(internetCondition);
 
 ## <a name="register-your-background-task"></a>バックグラウンド タスクを登録する
 
-これで、バックグラウンド タスクを [**Register**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register) メソッドに登録できます。このバックグラウンド タスクは、指定した条件が満たされるまで、開始されません。
+これで、バックグラウンド タスクを [**Register**](/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register) メソッドに登録できます。このバックグラウンド タスクは、指定した条件が満たされるまで、開始されません。
 
 次のコードでは、タスクを登録し、生成される BackgroundTaskRegistration オブジェクトを保存します。
 
@@ -97,7 +97,7 @@ BackgroundTaskRegistration ^ task = taskBuilder->Register();
 
 ## <a name="place-multiple-conditions-on-your-background-task"></a>バックグラウンド タスクに複数の条件を設定する
 
-複数の条件を追加するには、アプリから [**で**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.addcondition) メソッドを複数回呼び出します。 これらの呼び出しは、タスクの登録を有効にする前に行う必要があります。
+複数の条件を追加するには、アプリから [**で**](/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.addcondition) メソッドを複数回呼び出します。 これらの呼び出しは、タスクの登録を有効にする前に行う必要があります。
 
 > [!NOTE]
 > バックグラウンドタスクに競合している条件を追加しないように注意してください。
@@ -173,7 +173,7 @@ BackgroundTaskRegistration ^ task = recurringTaskBuilder->Register();
 ## <a name="remarks"></a>注釈
 
 > [!NOTE]
-> 必要なときにのみ実行されるようにバックグラウンドタスクの条件を選択します。そうしないと、実行されません。 バックグラウンド タスクの各条件については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
+> 必要なときにのみ実行されるようにバックグラウンドタスクの条件を選択します。そうしないと、実行されません。 バックグラウンド タスクの各条件については、「[**SystemConditionType**](/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -189,4 +189,4 @@ BackgroundTaskRegistration ^ task = recurringTaskBuilder->Register();
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](/previous-versions/hh974425(v=vs.110))

@@ -8,16 +8,16 @@ ms.date: 01/23/2018
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トースト送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C#、C シャープ、トースト通知、wpf、送信トースト通知 wpf、送信トースト通知 winforms、送信トースト通知 c#、送信通知 wpf、送信通知 c#、トースト通知 wpf、トースト通知 C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a339a4f2dca52a9bc04b1bba92f149a3e627878
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: 1e78e68cdd44890b50209f3f900c538278bd523c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846752"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172296"
 ---
 # <a name="send-a-local-toast-notification-from-desktop-c-apps"></a>デスクトップ C# アプリからのローカル トースト通知の送信
 
-デスクトップアプリ (パッケージ化された [Msix](https://docs.microsoft.com/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](https://docs.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、さまざまなライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
+デスクトップアプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、さまざまなライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
 > UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[デスクトップ C++ WRLに関するページ](send-local-toast-desktop-cpp-wrl.md) をご覧ください。
@@ -60,7 +60,7 @@ public class MyNotificationActivator : NotificationActivator
 
 #### <a name="msixsparse-packages"></a>[MSIX/スパースパッケージ](#tab/msix-sparse)
 
-[Msix](https://docs.microsoft.com/windows/msix/desktop/source-code-overview)または[スパースパッケージ](https://docs.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用している場合 (または、両方をサポートしている場合) は、 **package.appxmanifest**に次のように追加します。
+[Msix](/windows/msix/desktop/source-code-overview)または[スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用している場合 (または、両方をサポートしている場合) は、 **package.appxmanifest**に次のように追加します。
 
 1. **xmlns:com** のための宣言
 2. **xmlns:desktop** のための宣言
@@ -338,7 +338,7 @@ DesktopNotificationManagerCompat.History.Clear();
 
 ## <a name="step-8-deploying-and-debugging"></a>手順 8: 配置とデバッグ
 
-MSIX アプリをデプロイしてデバッグする方法については、「 [パッケージ化されたデスクトップアプリの実行、デバッグ、およびテスト](/windows/uwp/porting/desktop-to-uwp-debug)」を参照してください。
+MSIX アプリをデプロイしてデバッグする方法については、「 [パッケージ化されたデスクトップアプリの実行、デバッグ、およびテスト](/windows/msix/desktop/desktop-to-uwp-debug)」を参照してください。
 
 従来の Win32 アプリを展開およびデバッグするには、通常のデバッグ前に、アプリをインストーラー経由でインストールして、AUMID と CLSID を使用したスタート ショートカットを表示する必要があります。 スタート ショートカットが表示された後は、Visual Studio で F5 キーを使用してデバッグできます。
 
@@ -359,4 +359,3 @@ MSIX/スパースパッケージと従来の Win32 アプリの両方をイン�
 * [GitHub での完全なコード サンプル](https://github.com/WindowsNotifications/desktop-toasts)
 * [デスクトップ アプリからのトースト通知](toast-desktop-apps.md)
 * [トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)
-

@@ -6,21 +6,21 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、マップ認証キー、マップ コントロール
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f4a76edfe5772665564cb8890ffcdf56205a2f7
-ms.sourcegitcommit: d1eba7cf79cd2885b5bf8f5501bc44a569ab9864
+ms.openlocfilehash: 195c643fe10daf45ae709962a3b675162874c77b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172594"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171836"
 ---
 # <a name="request-a-maps-authentication-key"></a>マップ認証キーの要求
 
 > [!WARNING]
 > オンラインマップサービスは、以前のバージョンの Windows 10 では使用できない場合があります。 次のバージョンでは、MapControl によってマップと Api が Windows に表示されなくなる場合があります。これらの名前空間は、結果を返さない場合があります。
 > - Windows 10 バージョン1607以前のバージョン: マップサービスは、2020年10月から世界中で利用できなくなります。
-> - Windows 10 バージョン1703以前のバージョン:[中国で販売](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-mapcontrol-desktop-chinavariantwin10)されている一部のデバイスでは、マップサービスを利用できません
+> - Windows 10 バージョン1703以前のバージョン:[中国で販売](/windows-hardware/customize/desktop/unattend/microsoft-windows-mapcontrol-desktop-chinavariantwin10)されている一部のデバイスでは、マップサービスを利用できません
 
-[**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスを [ユニバーサル Windows アプリ](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide) で使うには、そのアプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 このトピックでは、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。
+[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) や [**Windows.Services.Maps**](/uwp/api/Windows.Services.Maps) 名前空間のマップ サービスを [ユニバーサル Windows アプリ](../get-started/universal-application-platform-guide.md) で使うには、そのアプリを認証する必要があります。 アプリを認証するには、マップ認証キーを指定する必要があります。 このトピックでは、[Bing Maps Developer Center](https://www.bingmapsportal.com/) にマップ認証キーを要求し、アプリに追加する方法について説明します。
 
 **ヒント** アプリで地図を使う方法について詳しくは、GitHub の [2Windows-universal-samples リポジトリ](https://github.com/Microsoft/Windows-universal-samples) から次のサンプルをダウンロードしてください。
 
@@ -50,7 +50,7 @@ ms.locfileid: "84172594"
     -   **[Application name]:** アプリケーションの名前です。
     -   **[Application URL] (アプリケーション URL) (オプション):** アプリケーションの URL です。
     -   **[Key type] (キーの種類):****[Basic] (ベーシック)** または **[Enterprise] (エンタープライズ)** を選びます。
-    -   **アプリケーションの種類:** ユニバーサル Windows アプリで使用する**Windows アプリケーション**を選択します。
+    -   **アプリケーションの種類:** ユニバーサル Windows アプリで使用する **Windows アプリケーション** を選択します。
 
     次に示すのは、フォームの例です。
 
@@ -61,11 +61,11 @@ ms.locfileid: "84172594"
 ## <a name="add-the-key-to-your-app"></a>アプリへのキーの追加
 
 
-ユニバーサル Windows アプリで [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) やマップ サービス ([**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps)) を使うには、マップ認証キーが必要になります。 必要に応じて、マップ コントロールやマップ サービスのオブジェクトにキーを追加します。
+ユニバーサル Windows アプリで [**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) やマップ サービス ([**Windows.Services.Maps**](/uwp/api/Windows.Services.Maps)) を使うには、マップ認証キーが必要になります。 必要に応じて、マップ コントロールやマップ サービスのオブジェクトにキーを追加します。
 
 ### <a name="to-add-the-key-to-a-map-control"></a>マップ コントロールにキーを追加するには
 
-[**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) を認証するには、[**MapServiceToken**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken) プロパティを認証キー値に設定します。 このプロパティは、必要に応じて、コードまたは XAML マークアップで設定できます。 **MapControl** の使用について詳しくは、「[2D、3D、Streetside ビューでの地図の表示](display-maps.md)」をご覧ください。
+[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) を認証するには、[**MapServiceToken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken) プロパティを認証キー値に設定します。 このプロパティは、必要に応じて、コードまたは XAML マークアップで設定できます。 **MapControl** の使用について詳しくは、「[2D、3D、Streetside ビューでの地図の表示](display-maps.md)」をご覧ください。
 
 -   この例では、コードで **MapServiceToken** を認証キー値に設定しています。
 
@@ -81,7 +81,7 @@ ms.locfileid: "84172594"
 
 ### <a name="to-add-the-key-to-map-services"></a>マップ サービスにキーを追加するには
 
-[**Windows.Services.Maps**](https://docs.microsoft.com/uwp/api/Windows.Services.Maps) 名前空間のサービスを使うには、[**ServiceToken**](https://docs.microsoft.com/uwp/api/windows.services.maps.mapservice.servicetoken) プロパティを認証キー値に設定します。 マップ サービスを使用する方法について詳しくは、「[ルートとルート案内の表示](routes-and-directions.md)」と「[ジオコーディングと逆ジオコーディングの実行](geocoding.md)」をご覧ください。
+[**Windows.Services.Maps**](/uwp/api/Windows.Services.Maps) 名前空間のサービスを使うには、[**ServiceToken**](/uwp/api/windows.services.maps.mapservice.servicetoken) プロパティを認証キー値に設定します。 マップ サービスを使用する方法について詳しくは、「[ルートとルート案内の表示](routes-and-directions.md)」と「[ジオコーディングと逆ジオコーディングの実行](geocoding.md)」をご覧ください。
 
 -   この例では、コードで **ServiceToken** を認証キー値に設定しています。
 
@@ -93,6 +93,6 @@ ms.locfileid: "84172594"
 
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
-* [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
+* [地図の設計ガイドライン](./display-maps.md)
 * [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)

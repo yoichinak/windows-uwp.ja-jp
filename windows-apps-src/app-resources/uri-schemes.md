@@ -6,12 +6,12 @@ ms.date: 10/16/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 8627bd7f9f405509cb1bff40d94f10552241f4ce
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 2f5bf063c12362fe26e3810e6153b857b7c1a2e4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74254597"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170526"
 ---
 # <a name="uri-schemes"></a>URI スキーム
 
@@ -41,7 +41,7 @@ hier-part   = "//" authority path-abempty
 
 このトピックで説明している URI スキームはすべて、スキームの正規化とリソース取得について一般的な URI 規則 (RFC 3986) に従っています。 これらの URI の正規化された形式では、大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます。
 
-このトピックで説明されているすべての URI スキームでは、標準では*スキーム*、*機関*、および*パス*の大文字と小文字が区別されません。それ以外でも、大文字と小文字を区別せずシステムによって処理されます。 **注** そのルールの唯一の例外は、 *の*機関`ms-resource`で、大文字と小文字が区別されます。
+このトピックで説明されているすべての URI スキームでは、標準では*スキーム*、*機関*、および*パス*の大文字と小文字が区別されません。それ以外でも、大文字と小文字を区別せずシステムによって処理されます。 **注** そのルールの唯一の例外は、`ms-resource` の*機関*で、大文字と小文字が区別されます。
 
 ## <a name="ms-appx-and-ms-appx-web"></a>ms-appx と ms-appx-web
 
@@ -221,7 +221,7 @@ ms-resource://
 
 ### <a name="authority-ms-resource"></a>機関 (ms-resource)
 
-機関は、パッケージ リソース インデックス (PRI) 内で定義された最上位のリソース マップで、通常はパッケージ マニフェストで定義されたパッケージ ID 名に対応しています。 「[アプリのパッケージ化](../packaging/index.md)」をご覧ください。 したがって、URI 形式と IRI (Internationalized Resource Identifier) 形式のどちらでも、パッケージ ID 名で許可されている文字のセットに制限されます。 パッケージ名は、現在動作しているアプリのパッケージ依存グラフ内のいずれかのパッケージの名前にする必要があります。
+機関は、パッケージ リソース インデックス (PRI) 内で定義された最上位のリソース マップで、通常はパッケージ マニフェストで定義されたパッケージ ID 名に対応しています。 「 [アプリのパッケージ化](../packaging/index.md)」を参照してください)。 したがって、URI 形式と IRI (Internationalized Resource Identifier) 形式のどちらでも、パッケージ ID 名で許可されている文字のセットに制限されます。 パッケージ名は、現在動作しているアプリのパッケージ依存グラフ内のいずれかのパッケージの名前にする必要があります。
 
 ```xml
 ms-resource://Contoso.MyApp/
@@ -249,13 +249,13 @@ ms-resource://john:password@contoso.myapp:8080/Resources/String1
 
 ### <a name="path-ms-resource"></a>パス (ms-resource)
 
-パスでは、[ResourceMap](/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceMap?branch=live) サブツリー (「[リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))」をご覧ください) とサブツリー内の [NamedResource](/uwp/api/Windows.ApplicationModel.Resources.Core.NamedResource?branch=live) の階層の場所が特定されます (「リソース管理システム」をご覧ください)。 これは通常、リソース ファイル (.resw) のファイル名 (拡張子を除く) と、ファイル内の文字列リソースの識別子に対応しています。
+パスでは、[ResourceMap](/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceMap?branch=live) サブツリー (「[リソース管理システム](/previous-versions/windows/apps/jj552947(v=win.10))」をご覧ください) とサブツリー内の [NamedResource](/uwp/api/Windows.ApplicationModel.Resources.Core.NamedResource?branch=live) の階層の場所が特定されます (「リソース管理システム」をご覧ください)。 これは通常、リソース ファイル (.resw) のファイル名 (拡張子を除く) と、ファイル内の文字列リソースの識別子に対応しています。
 
 例と詳しい情報については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)」と「[言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)」をご覧ください。
 
-パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる取得では、 *ignoreCase*が `true`に設定された[comparestringordinal](https://docs.microsoft.com/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)が使用されます。
+パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる取得では、 *ignoreCase*がに設定された[comparestringordinal](/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)が使用され `true` ます。
 
-正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 文字 "?"、"#"、"/"、"*"、および "" (二重引用符) は、ファイル名やフォルダー名などのデータを表すパスでパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、`Hello#World.resw`という名前のリソースファイルから文字列リソースを取得するには、この URI を使用します。
+正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 文字 "?"、"#"、"/"、"*"、および "" (二重引用符) は、ファイル名やフォルダー名などのデータを表すパスでパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、という名前のリソースファイルから文字列リソースを取得するには `Hello#World.resw` 、この URI を使用します。
 
 ```xml
 ms-resource:///Hello%23World/String1
@@ -269,10 +269,10 @@ ms-resource:///Hello%23World/String1
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Uniform Resource Identifier (URI): ジェネリック構文](https://www.ietf.org/rfc/rfc3986.txt)
+* [Uniform Resource Identifier (URI): 一般的な構文](https://www.ietf.org/rfc/rfc3986.txt)
 * [アプリのパッケージ化](../packaging/index.md)
-* [XAML マークアップとコードからイメージまたはその他のアセットを参照する](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)
+* [XAML マークアップとコードから画像やその他のアセットを参照する](images-tailored-for-scale-theme-contrast.md#reference-an-image-or-other-asset-from-xaml-markup-and-code)
 * [設定と他のアプリ データを保存して取得する](../design/app-settings/store-and-retrieve-app-data.md)
 * [UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)
-* [リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))
-* [言語、スケール、およびハイコントラストに対するタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)
+* [リソース管理システム](/previous-versions/windows/apps/jj552947(v=win.10))
+* [言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)

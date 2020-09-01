@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c419b494af02f20b00c0a6da67ec3e0f7310e63
-ms.sourcegitcommit: 2a1ceeacf5cdadc803bad83dc3ceb57a16ce79a3
+ms.openlocfilehash: 80b3c4f46e595eedd2c6a259a03348822c9f51bc
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067524"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172226"
 ---
 # <a name="create-an-nfc-smart-card-app"></a>NFC スマート カード アプリの作成
 
@@ -22,7 +22,7 @@ Windows Phone 8.1 では、SIM ベースのセキュア エレメントを使用
 
 ## <a name="what-you-need-to-develop-an-hce-app"></a>HCE アプリの開発に必要な要素
 
-Windows 10 Mobile 用に HCE ベースのカード エミュレーション アプリを開発するには、開発環境のセットアップが必要になります。 環境のセットアップは、Microsoft Visual Studio 2015 をインストールすることで実現できます。これには、Windows 開発者ツールや、NFC エミュレーションがサポートされている Windows 10 Mobile エミュレーターが含まれています。 セットアップの詳細については、「[準備](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)」を参照してください。
+Windows 10 Mobile 用に HCE ベースのカード エミュレーション アプリを開発するには、開発環境のセットアップが必要になります。 環境のセットアップは、Microsoft Visual Studio 2015 をインストールすることで実現できます。これには、Windows 開発者ツールや、NFC エミュレーションがサポートされている Windows 10 Mobile エミュレーターが含まれています。 セットアップの詳細については、「[準備](../get-started/get-set-up.md)」を参照してください。
 
 Windows 10 Mobile エミュレーターではなく実際の Windows 10 Mobile デバイスを使用してテストを実施するには、必要に応じて、次のアイテムを用意します。
 
@@ -94,7 +94,7 @@ NFC タップへの応答としてバックグラウンド タスクを読み込
 
 ## <a name="create-and-register-your-background-task"></a>バックグラウンド タスクの作成と登録
 
-システムによってルーティングされた APDU を処理し、これに応答するために、バックグラウンド タスクを HCE アプリに作成する必要があります。 アプリが初めて起動される際には、次のコードに示すように [**IBackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskRegistration) インターフェイスを実装する HCE バックグラウンド タスクがフォアグラウンドによって登録されます。
+システムによってルーティングされた APDU を処理し、これに応答するために、バックグラウンド タスクを HCE アプリに作成する必要があります。 アプリが初めて起動される際には、次のコードに示すように [**IBackgroundTaskRegistration**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskRegistration) インターフェイスを実装する HCE バックグラウンド タスクがフォアグラウンドによって登録されます。
 
 ```cppcx
 var taskBuilder = new BackgroundTaskBuilder();
@@ -104,16 +104,16 @@ taskBuilder.SetTrigger(new SmartCardTrigger(SmartCardTriggerType.EmulatorHostApp
 bgTask = taskBuilder.Register();
 ```
 
-タスクのトリガーが [**SmartCardTriggerType**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardTriggerType). **EmulatorHostApplicationActivated** に設定されていることに注意してください。 これは、OS で受信した SELECT AID コマンドの APDU がアプリに解決されるたびに、バックグラウンド タスクが起動されることを意味します。
+タスクのトリガーが [**SmartCardTriggerType**](/uwp/api/Windows.Devices.SmartCards.SmartCardTriggerType). **EmulatorHostApplicationActivated** に設定されていることに注意してください。 これは、OS で受信した SELECT AID コマンドの APDU がアプリに解決されるたびに、バックグラウンド タスクが起動されることを意味します。
 
 ## <a name="receive-and-respond-to-apdus"></a>APDU の受信と応答
 
-アプリをターゲットとする APDU があると、システムは、このアプリのバックグラウンド タスクを起動します。 バックグラウンド タスクは、[**SmartCardEmulatorApduReceivedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs) オブジェクトの [**CommandApdu**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardemulatorapdureceivedeventargs.commandapdu) プロパティを通じて渡された APDU を受信し、同じオブジェクトの [**TryRespondAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardemulatorapdureceivedeventargs.tryrespondwithcryptogramsasync) メソッドを使用して APDU に応答します。 パフォーマンスを考慮して、バックグラウンド タスクは軽量な操作に留めるよう検討してください。 たとえば、すべての処理が完了したら、直ちに APDU に応答し、バックグラウンド タスクを終了してください。 NFC トランザクションの性質から、ユーザーがリーダーに対してデバイスをかざす時間はきわめて短時間に限られています。 バックグラウンド タスクは、接続が無効になるまで継続的にリーダーからトラフィックを受信し、接続が無効になると [**SmartCardEmulatorConnectionDeactivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs) オブジェクトを受信します。 接続は、[**SmartCardEmulatorConnectionDeactivatedEventArgs.Reason**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardemulatorconnectiondeactivatedeventargs.reason) プロパティで示されるように次の理由で無効になります。
+アプリをターゲットとする APDU があると、システムは、このアプリのバックグラウンド タスクを起動します。 バックグラウンド タスクは、[**SmartCardEmulatorApduReceivedEventArgs**](/uwp/api/Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs) オブジェクトの [**CommandApdu**](/uwp/api/windows.devices.smartcards.smartcardemulatorapdureceivedeventargs.commandapdu) プロパティを通じて渡された APDU を受信し、同じオブジェクトの [**TryRespondAsync**](/uwp/api/windows.devices.smartcards.smartcardemulatorapdureceivedeventargs.tryrespondwithcryptogramsasync) メソッドを使用して APDU に応答します。 パフォーマンスを考慮して、バックグラウンド タスクは軽量な操作に留めるよう検討してください。 たとえば、すべての処理が完了したら、直ちに APDU に応答し、バックグラウンド タスクを終了してください。 NFC トランザクションの性質から、ユーザーがリーダーに対してデバイスをかざす時間はきわめて短時間に限られています。 バックグラウンド タスクは、接続が無効になるまで継続的にリーダーからトラフィックを受信し、接続が無効になると [**SmartCardEmulatorConnectionDeactivatedEventArgs**](/uwp/api/Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs) オブジェクトを受信します。 接続は、[**SmartCardEmulatorConnectionDeactivatedEventArgs.Reason**](/uwp/api/windows.devices.smartcards.smartcardemulatorconnectiondeactivatedeventargs.reason) プロパティで示されるように次の理由で無効になります。
 
 - **ConnectionLost** 値で接続が無効になった場合は、ユーザーがリーダーからデバイスを離したことを意味します。 アプリでユーザーが端末にタップする時間を長くする必要がある場合は、フィードバックと共にプロンプトを表示することを検討してください。 ユーザーが再度タップしたときに、直前のバックグラウンド タスクが終了するまで待機したために遅延が生じることのないよう、バックグラウンド タスクは (保留を終了することで) 直ちに終了する必要があります。
 - **ConnectionRedirected** で接続が無効になった場合は、端末によって新しい SELECT AID コマンドの APDU が送信され、別の AID に転送されたことを意味します。 この場合、別のバックグラウンド タスクが実行できるように、アプリは直ちに (保留を終了することで) バックグラウンド タスクを終了する必要があります。
 
-バックグラウンド タスクは、[**IBackgroundTaskInstance インターフェイス**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance)の [**Canceled イベント**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.canceled)にも登録し、同様に (保留を終了することで) バックグラウンド タスクを直ちに終了する必要があります。このイベントは、バックグラウンド タスクの終了時にシステムによって発生するためです。 次のコードでは、HCE アプリのバックグラウンド タスクのデモを示しています。
+バックグラウンド タスクは、[**IBackgroundTaskInstance インターフェイス**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTaskInstance)の [**Canceled イベント**](/uwp/api/windows.applicationmodel.background.ibackgroundtaskinstance.canceled)にも登録し、同様に (保留を終了することで) バックグラウンド タスクを直ちに終了する必要があります。このイベントは、バックグラウンド タスクの終了時にシステムによって発生するためです。 次のコードでは、HCE アプリのバックグラウンド タスクのデモを示しています。
 
 ```cppcx
 void BgTask::Run(
@@ -213,7 +213,7 @@ void BgTask::HandleHceActivation()
 
 ほとんどの支払い用カードは、追加の支払い用ネットワーク カード固有の AID と共に同じ AID (PPSE AID) に登録されます。 各 AID グループはカードを表し、ユーザーがそのカードを有効にすると、グループ内のすべての AID が有効になります。 同様に、ユーザーがカードを無効にすると、そのグループ内のすべての AID が無効になります。
 
-AID グループを登録するには、[**SmartCardAppletIdGroup**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardAppletIdGroup) オブジェクトを作成し、HCE ベースの支払い用カードであることが反映されるようにプロパティを設定する必要があります。 表示名は、NFC 設定メニューにもユーザー プロンプトにも使用されるため、ユーザーにわかりやすい名前にする必要があります。 HCE 支払い用カードの場合、[**SmartCardEmulationCategory**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationcategory) プロパティは **Payment** に、[**SmartCardEmulationType**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationtype) プロパティは **Host** に設定する必要があります。
+AID グループを登録するには、[**SmartCardAppletIdGroup**](/uwp/api/Windows.Devices.SmartCards.SmartCardAppletIdGroup) オブジェクトを作成し、HCE ベースの支払い用カードであることが反映されるようにプロパティを設定する必要があります。 表示名は、NFC 設定メニューにもユーザー プロンプトにも使用されるため、ユーザーにわかりやすい名前にする必要があります。 HCE 支払い用カードの場合、[**SmartCardEmulationCategory**](/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationcategory) プロパティは **Payment** に、[**SmartCardEmulationType**](/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationtype) プロパティは **Host** に設定する必要があります。
 
 ```cppcx
 public static byte[] AID_PPSE =
@@ -231,7 +231,7 @@ var appletIdGroup = new SmartCardAppletIdGroup(
                                 SmartCardEmulationType.Host);
 ```
 
-支払い用以外の HCE カードの場合、[**SmartCardEmulationCategory**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationcategory) プロパティは **Other** に、[**SmartCardEmulationType**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationtype) プロパティは **Host** に設定する必要があります。
+支払い用以外の HCE カードの場合、[**SmartCardEmulationCategory**](/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationcategory) プロパティは **Other** に、[**SmartCardEmulationType**](/uwp/api/windows.devices.smartcards.smartcardappletidgroup.smartcardemulationtype) プロパティは **Host** に設定する必要があります。
 
 ```cppcx
 public static byte[] AID_OTHER =
@@ -250,19 +250,19 @@ var appletIdGroup = new SmartCardAppletIdGroup(
 
 各 AID グループには、最大 9 個の AID (それぞれの長さは 5 ～ 16 バイト) を含めることができます。
 
-AID グループをシステムに登録するには、[**RegisterAppletIdGroupAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardemulator.registerappletidgroupasync) メソッドを使用します。このメソッドからは [**SmartCardAppletIdGroupRegistration**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) オブジェクトが返されます。 既定では、登録オブジェクトの [**ActivationPolicy**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) プロパティは **Disabled** に設定されます。 つまり、AID がシステムに登録されていても、この時点では有効になっておらず、トラフィックを受信しません。
+AID グループをシステムに登録するには、[**RegisterAppletIdGroupAsync**](/uwp/api/windows.devices.smartcards.smartcardemulator.registerappletidgroupasync) メソッドを使用します。このメソッドからは [**SmartCardAppletIdGroupRegistration**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) オブジェクトが返されます。 既定では、登録オブジェクトの [**ActivationPolicy**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) プロパティは **Disabled** に設定されます。 つまり、AID がシステムに登録されていても、この時点では有効になっておらず、トラフィックを受信しません。
 
 ```cppcx
 reg = await SmartCardEmulator.RegisterAppletIdGroupAsync(appletIdGroup);
 ```
 
-登録済みのカード (AID グループ) は、次に示されているように [**SmartCardAppletIdGroupRegistration**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) クラスの [**RequestActivationPolicyChangeAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) メソッドを使用して有効にすることができます。 システムで一度に有効にできる支払い用カードは 1 枚だけであるため、支払い AID グループの [**ActivationPolicy**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) を **Enabled** に設定することは、既定の支払い用カードを設定することと同じ意味になります。 既定の支払い用カードが既に選択されているかどうかに関係なく、このカードを既定の支払い用カードとして設定するかどうかをユーザーに確認するメッセージが表示されます。 アプリが既に既定の支払いアプリケーションであり、単に AID グループ間で変更する場合、この記述は該当しません。 アプリごとに最大で 10 の AID グループを登録することができます。
+登録済みのカード (AID グループ) は、次に示されているように [**SmartCardAppletIdGroupRegistration**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) クラスの [**RequestActivationPolicyChangeAsync**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) メソッドを使用して有効にすることができます。 システムで一度に有効にできる支払い用カードは 1 枚だけであるため、支払い AID グループの [**ActivationPolicy**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) を **Enabled** に設定することは、既定の支払い用カードを設定することと同じ意味になります。 既定の支払い用カードが既に選択されているかどうかに関係なく、このカードを既定の支払い用カードとして設定するかどうかをユーザーに確認するメッセージが表示されます。 アプリが既に既定の支払いアプリケーションであり、単に AID グループ間で変更する場合、この記述は該当しません。 アプリごとに最大で 10 の AID グループを登録することができます。
 
 ```cppcx
 reg.RequestActivationPolicyChangeAsync(AppletIdGroupActivationPolicy.Enabled);
 ```
 
-[**GetAppletIdGroupRegistrationsAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardemulator.getappletidgroupregistrationsasync) メソッドを使用すると、OS に対してアプリの登録済み AID グループを照会し、アクティブ化ポリシーを確認できます。
+[**GetAppletIdGroupRegistrationsAsync**](/uwp/api/windows.devices.smartcards.smartcardemulator.getappletidgroupregistrationsasync) メソッドを使用すると、OS に対してアプリの登録済み AID グループを照会し、アクティブ化ポリシーを確認できます。
 
 支払い用カードのアクティブ化ポリシーを **Disabled** から **Enabled** に変更する場合にユーザーに確認が求められるのは、アプリがまだ既定の支払いアプリになっていない場合のみです。 支払い用以外のカードのアクティブ化ポリシーを **Disabled** から **Enabled** に変更する場合にユーザーに確認が求められるのは、AID の競合が存在する場合のみです。
 
@@ -288,13 +288,13 @@ bgTask = taskBuilder.Register();
 
 ## <a name="foreground-override-behavior"></a>フォアグラウンドのオーバーライド動作
 
-アプリがフォアグラウンドになっている間は、ユーザーに確認することなく AID グループ登録の [**ActivationPolicy**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) を **ForegroundOverride** に変更することができます。 アプリがフォアグラウンドになっている間にユーザーがデバイスで端末をタップすると、ユーザーがいずれの支払い用カードも既定の支払い用カードとして選択していなくても、トラフィックはアプリにルーティングされます。 カードのアクティブ化ポリシーを **ForegroundOverride** に変更した場合、この変更はアプリがフォアグラウンドから移行するまでの一時的なものであり、ユーザーによって設定された現在の既定支払い用カードは変更されません。 支払い用カードまたは支払い用以外のカードの **ActivationPolicy** は、フォアグラウンド アプリから次のように変更できます。 [**RequestActivationPolicyChangeAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) メソッドを呼び出すことができるのはフォアグラウンド アプリからのみであり、バックグラウンド タスクから呼び出すことはできない点に注意してください。
+アプリがフォアグラウンドになっている間は、ユーザーに確認することなく AID グループ登録の [**ActivationPolicy**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) を **ForegroundOverride** に変更することができます。 アプリがフォアグラウンドになっている間にユーザーがデバイスで端末をタップすると、ユーザーがいずれの支払い用カードも既定の支払い用カードとして選択していなくても、トラフィックはアプリにルーティングされます。 カードのアクティブ化ポリシーを **ForegroundOverride** に変更した場合、この変更はアプリがフォアグラウンドから移行するまでの一時的なものであり、ユーザーによって設定された現在の既定支払い用カードは変更されません。 支払い用カードまたは支払い用以外のカードの **ActivationPolicy** は、フォアグラウンド アプリから次のように変更できます。 [**RequestActivationPolicyChangeAsync**](/uwp/api/windows.devices.smartcards.smartcardappletidgroupregistration) メソッドを呼び出すことができるのはフォアグラウンド アプリからのみであり、バックグラウンド タスクから呼び出すことはできない点に注意してください。
 
 ```cppcx
 reg.RequestActivationPolicyChangeAsync(AppletIdGroupActivationPolicy.ForegroundOverride);
 ```
 
-また、長さ 0 の単一 AID から成る AID グループを登録することもできます。その場合は、SELECT AID コマンドの受信前に送信されたコマンドの APDU もすべて含めて、AID に関係なくすべての APDU がルーティングされます。 ただし、このような AID グループは **ForegroundOverride** にしか設定できず、常に有効にしておくことはできないため、機能するのはアプリがフォアグラウンドになっている間のみです。 また、すべてのトラフィックを HCE バックグラウンド タスクまたは SIM カードにルーティングするために、このメカニズムは [**SmartCardEmulationType**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardEmulationType) 列挙の値が **Host** の場合と **UICC** の場合の両方に使用できます。
+また、長さ 0 の単一 AID から成る AID グループを登録することもできます。その場合は、SELECT AID コマンドの受信前に送信されたコマンドの APDU もすべて含めて、AID に関係なくすべての APDU がルーティングされます。 ただし、このような AID グループは **ForegroundOverride** にしか設定できず、常に有効にしておくことはできないため、機能するのはアプリがフォアグラウンドになっている間のみです。 また、すべてのトラフィックを HCE バックグラウンド タスクまたは SIM カードにルーティングするために、このメカニズムは [**SmartCardEmulationType**](/uwp/api/Windows.Devices.SmartCards.SmartCardEmulationType) 列挙の値が **Host** の場合と **UICC** の場合の両方に使用できます。
 
 ```cppcx
 public static byte[] AID_Foreground =
@@ -319,7 +319,7 @@ NFC スマート カード エミュレーション機能は、Windows 10 Mobile
 Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Devices.SmartCards.SmartCardEmulator");
 ```
 
-さらに、[**SmartCardEmulator.GetDefaultAsync**](https://docs.microsoft.com/uwp/api/windows.devices.smartcards.smartcardemulator.getdefaultasync) メソッドから null が返されるかどうかを確認することによって、なんらかの形でカード エミュレーションが可能な NFC ハードウェアがデバイスに存在するかどうかを確認することもできます。 null が返される場合、そのデバイスでは NFC カード エミュレーションがサポートされません。
+さらに、[**SmartCardEmulator.GetDefaultAsync**](/uwp/api/windows.devices.smartcards.smartcardemulator.getdefaultasync) メソッドから null が返されるかどうかを確認することによって、なんらかの形でカード エミュレーションが可能な NFC ハードウェアがデバイスに存在するかどうかを確認することもできます。 null が返される場合、そのデバイスでは NFC カード エミュレーションがサポートされません。
 
 ```cppcx
 var smartcardemulator = await SmartCardEmulator.GetDefaultAsync();<
@@ -335,7 +335,7 @@ Smartcardemulator.IsHostCardEmulationSupported();
 
 Windows 10 Mobile にはデバイス レベルでのカード エミュレーション設定が用意されており、通信事業者またはデバイスの製造元での設定が可能です。 既定では、"タップして支払い" のトグルがオフになっており "デバイス レベルでの有効化ポリシー" が "常時" に設定されています (通信事業者または OEM パートナーによってこれらの値が上書きされていない場合)。
 
-アプリケーションでは、デバイス レベルで [**EnablementPolicy**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy) の値を照会し、それぞれの状態で望ましいアプリの動作に基づいて、各ケースに対処することができます。
+アプリケーションでは、デバイス レベルで [**EnablementPolicy**](/uwp/api/Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy) の値を照会し、それぞれの状態で望ましいアプリの動作に基づいて、各ケースに対処することができます。
 
 ```cppcx
 SmartCardEmulator emulator = await SmartCardEmulator.GetDefaultAsync();
@@ -373,7 +373,7 @@ return "Card emulation always on";
 
 ## <a name="aid-registration-and-other-updates-for-sim-based-apps"></a>SIM ベース アプリに関する AID 登録およびその他の更新
 
-セキュア エレメントとして SIM を使用するカード エミュレーション アプリは Windows サービスに登録して、SIM でサポートされている AID を宣言できます。 この登録は、HCE ベースのアプリ登録とよく似ています。 唯一の違いは [**SmartCardEmulationType**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardEmulationType) です。SIM ベースのアプリの場合は、これを Uicc に設定する必要があります。 支払い用カードを登録した結果、カードの表示名が NFC 設定メニューに表示されます。
+セキュア エレメントとして SIM を使用するカード エミュレーション アプリは Windows サービスに登録して、SIM でサポートされている AID を宣言できます。 この登録は、HCE ベースのアプリ登録とよく似ています。 唯一の違いは [**SmartCardEmulationType**](/uwp/api/Windows.Devices.SmartCards.SmartCardEmulationType) です。SIM ベースのアプリの場合は、これを Uicc に設定する必要があります。 支払い用カードを登録した結果、カードの表示名が NFC 設定メニューに表示されます。
 
 ```cppcx
 var appletIdGroup = new SmartCardAppletIdGroup(
@@ -383,5 +383,9 @@ var appletIdGroup = new SmartCardAppletIdGroup(
                                 SmartCardEmulationType.Uicc);
 ```
 
+<<<<<<< HEAD
 > [!Important]
 > Windows Phone 8.1 での従来のバイナリ SMS インターセプト サポートは廃止され、Windows 10 Mobile ではより広範な新しい SMS サポートに置き換わっていますが、旧サポートに依存していた従来の Windows Phone 8.1 アプリは、新しい Windows 10 Mobile SMS API を使用できるように更新する必要があります。
+=======
+<b>重要</b>   Windows Phone 8.1 でのレガシバイナリ SMS インターセプトのサポートは削除され、Windows 10 Mobile での新しい SMS サポートに置き換えられましたが、これを利用するレガシ Windows Phone 8.1 アプリは、新しい Windows 10 Mobile SMS Api を使用するように更新する必要があります。
+>>>>>>> 05b1708b6...リンク: Windows UWP

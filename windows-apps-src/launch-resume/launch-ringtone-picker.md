@@ -6,28 +6,28 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 0c17e4fb-7241-4da9-b457-d6d3a7aefccb
 ms.localizationpriority: medium
-ms.openlocfilehash: 78ed118ba15f38f8914cf2046344d782cd0df71b
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a57ba895ae77eec3b2c5df2a7ae70864c6f701a1
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370790"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167876"
 ---
 # <a name="choose-and-save-tones-using-the-ms-tonepicker-uri-scheme"></a>ms-tonepicker URI スキームを使ったトーンの選択と保存
 
-このトピックでは、使用する方法を説明します、 **ms tonepicker:** URI スキーム。 この URI スキームを使って実行できる操作は次のとおりです。
+ここでは、**ms-tonepicker:** URI スキームの使い方について説明します。 この URI スキームを使って実行できる操作は次のとおりです。
 - トーンの選択コントロールがデバイスにあるかどうかを確認します。
 - トーンの選択コントロールを表示して、利用可能な着信音、システム サウンド、SMS 着信音、アラーム音の一覧を表示したり、ユーザーが選択したサウンドを表すトーン トークンを取得します。
 - サウンド ファイル トークンを入力として受け取り、デバイスに保存するトーン セーバーを表示します。 保存されたトーンは、トーンの選択コントロールから利用できるようになります。 トーンにはフレンドリ名を付けることもできます。
 - トーン トークンをフレンドリ名に変換します。
 
-## <a name="ms-tonepicker-uri-scheme-reference"></a>ms-tonepicker:URI スキームの参照
+## <a name="ms-tonepicker-uri-scheme-reference"></a>ms-tonepicker: URI スキーム リファレンス
 
-この URI スキームは、URI スキーム文字列を利用して引数を渡すことはせず、[ValueSet](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) を介して引数を渡します。 すべての文字列で、大文字と小文字が区別されます。
+この URI スキームは、URI スキーム文字列を利用して引数を渡すことはせず、[ValueSet](/uwp/api/windows.foundation.collections.valueset) を介して引数を渡します。 すべての文字列で、大文字と小文字が区別されます。
 
 以下のセクションでは、特定のタスクを実行するために渡される引数を示します。
 
-## <a name="task-determine-if-the-tone-picker-is-available-on-the-device"></a>タスク:トーン ピッカーが、デバイスで使用できるかを判断します。
+## <a name="task-determine-if-the-tone-picker-is-available-on-the-device"></a>タスク: トーンの選択コントロールがデバイスにあるかどうかを確認する
 ```cs
 var status = await Launcher.QueryUriSupportAsync(new Uri("ms-tonepicker:"),     
                                      LaunchQuerySupportType.UriForResults,
@@ -39,17 +39,17 @@ if (status != LaunchQuerySupportStatus.Available)
 }
 ```
 
-## <a name="task-display-the-tone-picker"></a>タスク:トーン ピッカーを表示します。
+## <a name="task-display-the-tone-picker"></a>タスク: トーンの選択コントロールを表示する
 
 トーンの選択コントロールを表示するために渡すことができる引数は、次のとおりです。
 
-| パラメーター | 種類 | 必須 | 設定可能な値 | 説明 |
+| パラメーター | Type | 必須 | 指定できる値 | 説明 |
 |-----------|------|----------|-------|-------------|
-| アクション | string | ○ | "PickRingtone" | トーン選択コントロールを開きます。 |
+| アクション | string | はい | "PickRingtone" | トーン選択コントロールを開きます。 |
 | CurrentToneFilePath | string | no | 既存のトーン トークン。 | トーンの選択コントロールに現在のトーンとして表示されるトーン。 この値が設定されていない場合、既定では、一覧の最初のトーンが選ばれます。<br>これは厳密にはファイル パスではありません。 トーンの選択コントロールから返された `ToneToken` の値から、`CurrenttoneFilePath` に適した値を取得できます。  |
 | TypeFilter | string | no | "Ringtones"、"Notifications"、"Alarms"、"None" | 選択コントロールに追加するトーンを選択します。 フィルターが指定されていない場合は、すべてのトーンが表示されます。 |
 
-[LaunchUriResults.Result](https://docs.microsoft.com/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
+[LaunchUriResults.Result](/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
 
 | 戻り値 | 種類 | 設定可能な値 | 説明 |
 |--------------|------|-------|-------------|
@@ -58,7 +58,7 @@ if (status != LaunchQuerySupportStatus.Available)
 | DisplayName | string | 指定したトーンのフレンドリ名。 | ユーザーに対して表示できる、選択されたトーンを表す文字列。 **Result** が 0 の場合のみ、ValueSet にパラメーターが返されます。 |
 
 
-**例:ユーザーが、トーンを選択できるように、トーン ピッカーを開きます**
+**例: ユーザーがトーンを選択できるようにトーンの選択コントロールを開く**
 
 ``` cs
 LauncherOptions options = new LauncherOptions();
@@ -86,23 +86,23 @@ if (result.Status == LaunchUriStatus.Success)
 }
 ```
 
-## <a name="task-display-the-tone-saver"></a>タスク:トーン スクリーン セーバーを表示します。
+## <a name="task-display-the-tone-saver"></a>タスク: トーン セーバーを表示する
 
 トーン セーバーを表示するために渡すことができる引数は、次のとおりです。
 
-| パラメーター | 種類 | 必須 | 設定可能な値 | 説明 |
+| パラメーター | Type | 必須 | 指定できる値 | 説明 |
 |-----------|------|----------|-------|-------------|
-| アクション | string | ○ | "SaveRingtone" | 選択コントロールを開いて着信音を保存します。 |
-| ToneFileSharingToken | string | ○ | 保存する着信音ファイルの [SharedStorageAccessManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager) ファイル共有トークン。 | 特定のサウンド ファイルを着信音として保存します。 サポートされるファイル コンテンツの種類は、MPEG オーディオと x-ms-wma オーディオです。 |
+| アクション | string | はい | "SaveRingtone" | 選択コントロールを開いて着信音を保存します。 |
+| ToneFileSharingToken | string | はい | 保存する着信音ファイルの [SharedStorageAccessManager](/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager) ファイル共有トークン。 | 特定のサウンド ファイルを着信音として保存します。 サポートされるファイル コンテンツの種類は、MPEG オーディオと x-ms-wma オーディオです。 |
 | DisplayName | string | no | 指定したトーンのフレンドリ名。 | 指定した着信音を保存するときに使用する表示名を設定します。 |
 
-[LaunchUriResults.Result](https://docs.microsoft.com/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
+[LaunchUriResults.Result](/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
 
 | 戻り値 | 種類 | 設定可能な値 | 説明 |
 |--------------|------|-------|-------------|
 | 結果 | Int32 | 0 - 成功しました。<br>1 - ユーザーによって取り消されました。<br>2 - 無効なファイルです。<br>3 - 無効なファイル コンテンツの種類です。<br>4 - ファイルが着信音の最大サイズ (Windows 10 では 1 MB) を超えています。<br>5 - ファイルが 40 秒の長さ制限を超えています。<br>6 - ファイルがデジタル著作権管理によって保護されています。<br>7 - 無効なパラメーターです。 | 選択コントロールの操作の結果。 |
 
-**例:着信音としてローカルの音楽ファイルを保存します。**
+**例: ローカルの音楽ファイルを着信音として保存する**
 
 ``` cs
 LauncherOptions options = new LauncherOptions();
@@ -150,23 +150,23 @@ if (result.Status == LaunchUriStatus.Success)
  }
 ```
 
-## <a name="task-convert-a-tone-token-to-its-friendly-name"></a>タスク:トーン トークンをそのフレンドリ名に変換します。
+## <a name="task-convert-a-tone-token-to-its-friendly-name"></a>タスク: トーン トークンをフレンドリ名に変換する
 
 トーンのフレンドリ名を取得するために渡すことができる引数は、次のとおりです。
 
-| パラメーター | 種類 | 必須 | 設定可能な値 | 説明 |
+| パラメーター | Type | 必須 | 指定できる値 | 説明 |
 |-----------|------|----------|-------|-------------|
-| アクション | string | ○ | "GetToneName" | トーンのフレンドリ名を取得することを示します。 |
-| ToneToken | string | ○ | トーンのトークン | 表示名を取得する対象となるトーン トークン。 |
+| アクション | string | はい | "GetToneName" | トーンのフレンドリ名を取得することを示します。 |
+| ToneToken | string | はい | トーンのトークン | 表示名を取得する対象となるトーン トークン。 |
 
-[LaunchUriResults.Result](https://docs.microsoft.com/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
+[LaunchUriResults.Result](/uwp/api/windows.system.launchuriresult.result) に返される値は次のとおりです。
 
-| 戻り値 | 種類 | 設定可能な値 | 説明 |
+| 戻り値 | Type | 設定可能な値 | 説明 |
 |--------------|------|-------|-------------|
 | 結果 | Int32 | 0 - 選択コントロールの操作が成功しました。<br>7 - パラメーターが正しくありません (ToneToken が指定されていないなど)。<br>9 - 指定されたトークンの名前の読み取り中にエラーが発生しました。<br>10 - 指定されたトーン トークンが見つかりません。 | 選択コントロールの操作の結果。
 | DisplayName | string | トーンのフレンドリ名。 | 指定されたトーンの表示名を返します。 **Result** が 0 の場合のみ、ValueSet にこのパラメーターが返されます。 |
 
-**例:Contact.RingToneToken からトーン トークンを取得し、連絡先カードで、わかりやすい名前を表示します。**
+**例: Contact.RingToneToken からトーン トークンを取得して、連絡先カードにそのフレンドリ名を表示する**
 
 ```cs
 using (var connection = new AppServiceConnection())

@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、デスクトップ ブリッジ、セカンダリ タイル、ピン留め、クイックスタート、コード サンプル、例、デスクトップ アプリケーション、Win32、WinForms、WPF
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ddcd96eadbb6d2edbc3a72fa58ff3cc8931a09b
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 111d66e69ddb9cff56f36a26bd8094429fe808ef
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730363"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172376"
 ---
 # <a name="pin-secondary-tiles-from-desktop-application"></a>デスクトップ アプリケーションからセカンダリ タイルをピン留めする
 
@@ -29,12 +29,12 @@ WPF または WinForms アプリケーションからのセカンダリ タイ�
 
 ## <a name="package-your-app-with-desktop-bridge"></a>デスクトップ ブリッジを使ったアプリのパッケージ化
 
-アプリをデスクトップブリッジでパッケージ化していない場合は、Windows ランタイム Api を使用する前に、まずこの設定を[行う必要があり](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root)ます。
+アプリをデスクトップブリッジでパッケージ化していない場合は、Windows ランタイム Api を使用する前に、まずこの設定を [行う必要があり](/windows/msix/desktop/source-code-overview) ます。
 
 
 ## <a name="enable-access-to-iinitializewithwindow-interface"></a>IInitializeWithWindow インターフェイスへのアクセスを有効にする
 
-アプリケーションが C# や Visual Basic などのマネージ言語で記述されている場合、次の C# の例に示すように、アプリのコードで [ComImport](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.comimportattribute) と GUID 属性を使用して IInitializeWithWindow インターフェイスを宣言します。 この例では、コード ファイルに System.Runtime.InteropServices 名前空間の using ステートメントが指定されていることを前提としています。
+アプリケーションが C# や Visual Basic などのマネージ言語で記述されている場合、次の C# の例に示すように、アプリのコードで [ComImport](/dotnet/api/system.runtime.interopservices.comimportattribute) と GUID 属性を使用して IInitializeWithWindow インターフェイスを宣言します。 この例では、コード ファイルに System.Runtime.InteropServices 名前空間の using ステートメントが指定されていることを前提としています。
 
 ```csharp
 [ComImport]
@@ -66,7 +66,7 @@ SecondaryTile tile = new SecondaryTile(
 
 ## <a name="assign-the-window-handle"></a>ウィンドウ ハンドルを割り当てる
 
-これは、デスクトップ アプリケーションにとって重要な手順です。 オブジェクトを [IInitializeWithWindow](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nn-shobjidl_core-iinitializewithwindow) オブジェクトにキャストします。 次に [IInitializeWithWindow.Initialize](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iinitializewithwindow-initialize) メソッドを呼び出し、モーダル ダイアログのオーナーにするウィンドウのハンドルを渡します。 次の C# の例は、アプリのメイン ウィンドウのハンドルをメソッドに渡す方法を示しています。
+これは、デスクトップ アプリケーションにとって重要な手順です。 オブジェクトを [IInitializeWithWindow](/windows/desktop/api/shobjidl_core/nn-shobjidl_core-iinitializewithwindow) オブジェクトにキャストします。 次に [IInitializeWithWindow.Initialize](/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iinitializewithwindow-initialize) メソッドを呼び出し、モーダル ダイアログのオーナーにするウィンドウのハンドルを渡します。 次の C# の例は、アプリのメイン ウィンドウのハンドルをメソッドに渡す方法を示しています。
 
 ```csharp
 // Assign the window handle
@@ -100,5 +100,5 @@ bool isPinned = await tile.RequestCreateAsync();
 * [完全なコード例](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/SecondaryTileSample)
 * [セカンダリ タイルの概要](secondary-tiles.md)
 * [セカンダリ タイルをピン留めする (UWP)](secondary-tiles-pinning.md)
-* [デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)
+* [Desktop Bridge](https://developer.microsoft.com/windows/bridges/desktop)
 * [デスクトップ ブリッジのコード サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)

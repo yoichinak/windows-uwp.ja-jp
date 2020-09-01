@@ -1,21 +1,21 @@
 ---
 ms.assetid: 87708690-079A-443D-807E-D2BF9F614DDF
-description: Microsoft Store 送信 API でこのメソッドを使用して、パートナー センター アカウントに登録されているアプリのパッケージのフライト データを取得します。
+description: パートナーセンターアカウントに登録されているアプリのパッケージフライトのデータを取得するには、Microsoft Store 送信 API でこのメソッドを使用します。
 title: パッケージ フライトの取得
 ms.date: 04/17/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, フライト, パッケージ フライト
 ms.localizationpriority: medium
-ms.openlocfilehash: 3a02a299682610cd516067acefc795df9512a268
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 3916328f2c48642596c6a0b11401f583957bc973
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371763"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172906"
 ---
 # <a name="get-a-package-flight"></a>パッケージ フライトの取得
 
-Microsoft Store 送信 API でこのメソッドを使用して、パートナー センター アカウントに登録されているアプリのパッケージのフライト データを取得します。
+パートナーセンターアカウントに登録されているアプリのパッケージフライトのデータを取得するには、Microsoft Store 送信 API でこのメソッドを使用します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -28,27 +28,27 @@ Microsoft Store 送信 API でこのメソッドを使用して、パートナ�
 
 このメソッドの構文は次のとおりです。 ヘッダーと要求本文の使用例と説明については、次のセクションをご覧ください。
 
-| メソッド | 要求 URI                                                      |
+| 認証方法 | 要求 URI                                                      |
 |--------|------------------------------------------------------------------|
 | GET    | `https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/flights/{flightId}` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                                                                 |
+| Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-| 名前        | 種類   | 説明                                                                 |
+| 名前        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 取得するパッケージ フライトが含まれるアプリのストア ID。 アプリの Store ID は、パートナー センターで使用できます。  |
-| flightId | string | 必須。 取得するパッケージ フライトの ID。 この ID は、[パッケージ フライトの作成](create-a-flight.md)要求と[アプリのパッケージ フライトの取得](get-flights-for-an-app.md)要求の応答データで確認できます。 パートナー センターで作成されたフライトはこの ID はパートナー センターでのフライトのページの URL で使用できるも。  |
+| applicationId | string | 必須。 取得するパッケージ フライトが含まれるアプリのストア ID。 アプリのストア ID は、パートナーセンターで入手できます。  |
+| flightId | string | 必須。 取得するパッケージ フライトの ID。 この ID は、[パッケージ フライトの作成](create-a-flight.md)要求と[アプリのパッケージ フライトの取得](get-flights-for-an-app.md)要求の応答データで確認できます。 パートナーセンターで作成されたフライトの場合、この ID は、パートナーセンターのフライトページの URL でも利用できます。  |
 
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 このメソッドでは要求本文を指定しないでください。
 
@@ -86,14 +86,14 @@ Authorization: Bearer <your access token>
 
 ### <a name="response-body"></a>応答本文
 
-| Value      | 種類   | 説明                                                                                                                                                                                                                                                                         |
+| 値      | Type   | 説明                                                                                                                                                                                                                                                                         |
 |------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| flightId            | string  | パッケージ フライトの ID。 この値は、パートナー センターによって提供されます。  |
+| flightId            | string  | パッケージ フライトの ID。 この値は、パートナーセンターによって指定されます。  |
 | friendlyName           | string  | 開発者によって指定されているパッケージ フライトの名前。   |  
-| lastPublishedFlightSubmission       | オブジェクト | パッケージ フライトの最後に公開された申請に関する情報を提供するオブジェクト。 詳しくは、以下の「[申請オブジェクト](#submission_object)」セクションをご覧ください。  |
-| pendingFlightSubmission        | オブジェクト  |  パッケージ フライトの現在保留中の申請に関する情報を提供するオブジェクト。 詳しくは、以下の「[申請オブジェクト](#submission_object)」セクションをご覧ください。  |   
-| groupIds           | array  | パッケージ フライトに関連付けられているフライト グループの ID を含む文字列の配列。 フライト グループについて詳しくは、「[パッケージ フライト](https://docs.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。   |
-| rankHigherThan           | string  | 現在のパッケージ フライトの次に低位のパッケージ フライトのフレンドリ名。 フライト グループのランク付けについて詳しくは、「[パッケージ フライト](https://docs.microsoft.com/windows/uwp/publish/package-flights)」をご覧ください。  |
+| lastPublishedFlightSubmission       | object | パッケージ フライトの最後に公開された申請に関する情報を提供するオブジェクト。 詳しくは、以下の「[申請オブジェクト](#submission_object)」セクションをご覧ください。  |
+| pendingFlightSubmission        | object  |  パッケージ フライトの現在保留中の申請に関する情報を提供するオブジェクト。 詳しくは、以下の「[申請オブジェクト](#submission_object)」セクションをご覧ください。  |   
+| groupIds           | array  | パッケージ フライトに関連付けられているフライト グループの ID を含む文字列の配列。 フライト グループについて詳しくは、「[パッケージ フライト](../publish/package-flights.md)」をご覧ください。   |
+| rankHigherThan           | string  | 現在のパッケージ フライトの次に低位のパッケージ フライトのフレンドリ名。 フライト グループのランク付けについて詳しくは、「[パッケージ フライト](../publish/package-flights.md)」をご覧ください。  |
 
 
 <span id="submission_object" />
@@ -102,7 +102,7 @@ Authorization: Bearer <your access token>
 
 応答本文の *lastPublishedFlightSubmission* と *pendingFlightSubmission* の値には、パッケージ フライトの申請に関するリソース情報を提供するオブジェクトが含まれています。 これらのオブジェクトには、次の値があります。
 
-| Value           | 種類    | 説明                                                                                                                                                                                                                          |
+| 値           | Type    | 説明                                                                                                                                                                                                                          |
 |-----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id            | string  | 申請 ID。    |
 | resourceLocation   | string  | 申請の完全なデータを取得するために基本 `https://manage.devcenter.microsoft.com/v1.0/my/` 要求 URI に付加できる相対パス。               |
@@ -116,11 +116,11 @@ Authorization: Bearer <your access token>
 |--------|---------------------  |
 | 400  | 要求が無効です。 |
 | 404  | 指定されたパッケージ フライトは見つかりませんでした。   |   
-| 409  | アプリはパートナー センター機能を使用する[現在サポートされていません、Microsoft Store 送信 API](create-and-manage-submissions-using-windows-store-services.md#not_supported)します。 |                                                                                                 
+| 409  | このアプリでは、 [Microsoft Store 送信 API で現在サポート](create-and-manage-submissions-using-windows-store-services.md#not_supported)されていないパートナーセンター機能を使用しています。 |                                                                                                 
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [作成し、Microsoft Store サービスを使用して送信の管理](create-and-manage-submissions-using-windows-store-services.md)
-* [パッケージをフライトします。](create-a-flight.md)
-* [パッケージのフライトを削除します。](delete-a-flight.md)
+* [Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
+* [パッケージ フライトの作成](create-a-flight.md)
+* [パッケージ フライトの削除](delete-a-flight.md)

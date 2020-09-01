@@ -6,12 +6,12 @@ ms.assetid: 6C469E77-F1E3-4859-A27B-C326F9616D10
 ms.date: 01/23/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0098e3d0ab31c8a3756ec7d4bf05844ace95d555
-ms.sourcegitcommit: 90fe7a9a5bfa7299ad1b78bbef289850dfbf857d
+ms.openlocfilehash: 519ff7ee7bd581ce0f19c0e4297ad1ba34380068
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2020
-ms.locfileid: "84756568"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173036"
 ---
 # <a name="windows-10-universal-windows-platform-uwp-app-lifecycle"></a>Windows 10 ユニバーサル Windows プラットフォーム (UWP) アプリのライフサイクル
 
@@ -24,7 +24,7 @@ Windows 8 より前は、アプリのライフサイクルは単純でした。 
 
 Windows 8 では、UWP アプリにより新しいアプリケーション モデルが導入されました。 大まかに言うと、新しい中断状態が追加されました。 UWP アプリは、ユーザーがアプリを最小化するか、別のアプリに切り替えた後、すぐに中断されます。 つまり、アプリのスレッドは停止し、オペレーティング システムがリソースを再利用する必要がある場合を除き、アプリはメモリ内に残ります。 ユーザーが元のアプリに切り替えると、アプリはすばやく実行中の状態に復元されます。
 
-アプリがバックグラウンドにあるときに、アプリの実行を継続する必要がある場合、さまざまな方法があります。[バックグラウンド タスク](support-your-app-with-background-tasks.md)、[延長実行](https://docs.microsoft.com/uwp/api/windows.applicationmodel.extendedexecution)、アクティビティ スポンサード実行 (たとえば、アプリが[バックグラウンドでのメディアの再生](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)を続行できるようにする **BackgroundMediaEnabled** 機能) などです。 また、バックグラウンド転送操作は、アプリが中断または終了した場合でも続行できます。 詳しくは、「[ファイルのダウンロード方法](https://docs.microsoft.com/previous-versions/windows/apps/jj152726(v=win.10))」をご覧ください。
+アプリがバックグラウンドにあるときに、アプリの実行を継続する必要がある場合、さまざまな方法があります。[バックグラウンド タスク](support-your-app-with-background-tasks.md)、[延長実行](/uwp/api/windows.applicationmodel.extendedexecution)、アクティビティ スポンサード実行 (たとえば、アプリが[バックグラウンドでのメディアの再生](../audio-video-camera/background-audio.md)を続行できるようにする **BackgroundMediaEnabled** 機能) などです。 また、バックグラウンド転送操作は、アプリが中断または終了した場合でも続行できます。 詳しくは、「[ファイルのダウンロード方法](/previous-versions/windows/apps/jj152726(v=win.10))」をご覧ください。
 
 既定では、フォアグラウンドにないアプリは中断され、その結果として、電力が節約され、現在フォアグラウンドにあるアプリが利用できるリソースが増加します。
 
@@ -38,23 +38,23 @@ Windows 10 バージョン 1607 では、もう 2 つのアプリ モデルの�
 
 ![アプリの実行状態が切り替わるようすを示す状態図](images/updated-lifecycle.png)
 
-アプリは、起動またはアクティブ化されると、バックグラウンドでの実行状態になります。 アプリを取得し、アプリがフォアグラウンドで起動したためにフォアグラウンドに移動する必要がある場合、アプリは [**LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベントを取得します。
+アプリは、起動またはアクティブ化されると、バックグラウンドでの実行状態になります。 アプリを取得し、アプリがフォアグラウンドで起動したためにフォアグラウンドに移動する必要がある場合、アプリは [**LeavingBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベントを取得します。
 
 「起動」と「アクティブ化」の用語は似ているように見えますが、オペレーティング システムがアプリを起動する際の異なる方法を示しています。 まず、アプリの起動を見てみましょう。
 
 ## <a name="app-launch"></a>アプリの起動
 
-アプリが起動されると、[**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) メソッドが呼び出されます。 このメソッドに [**LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) パラメーターが渡されます。このパラメーターは、特に、アプリに渡された引数、アプリを起動したタイルの識別子、アプリの以前の状態を提供します。
+アプリが起動されると、[**OnLaunched**](/uwp/api/windows.ui.xaml.application.onlaunched) メソッドが呼び出されます。 このメソッドに [**LaunchActivatedEventArgs**](/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) パラメーターが渡されます。このパラメーターは、特に、アプリに渡された引数、アプリを起動したタイルの識別子、アプリの以前の状態を提供します。
 
-アプリの以前の状態は、[ApplicationExecutionState](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.applicationexecutionstate) を返す [LaunchActivatedEventArgs.PreviousExecutionState](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate) から取得します。 その値とその状態に対する適切なアクションは次のとおりです。
+アプリの以前の状態は、[ApplicationExecutionState](/uwp/api/windows.applicationmodel.activation.applicationexecutionstate) を返す [LaunchActivatedEventArgs.PreviousExecutionState](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate) から取得します。 その値とその状態に対する適切なアクションは次のとおりです。
 
 | ApplicationExecutionState | 説明 | 実行するアクション |
 |-------|-------------|----------------|
 | **NotRunning** | アプリがこの状態になるのは、ユーザーが前回再起動するか、ログインしてから、アプリが起動されていないためである可能性があります。 また、アプリが実行中であったがクラッシュした場合や、ユーザーが以前にアプリを閉じたために、この状態になっている可能性もあります。| 現在のユーザー セッションで初めて実行する場合と同様に、アプリを初期化します。 |
-|**状態** | ユーザーがアプリを最小化したか、アプリを切り替えてから、数秒以内にそのアプリに戻っていません。 | アプリが中断されると、アプリの状態はメモリ内に保持されます。 必要な処理は、アプリが中断されたときに解放したファイル ハンドルやその他のリソースを再取得することだけです。 |
-| **末尾** | アプリは、以前に中断されましたが、システムがメモリを再利用する必要があったため、ある時点でシャットダウンされました。 | ユーザーがアプリを切り替えたときのアプリの状態を復元します。|
+|**中断済み** | ユーザーがアプリを最小化したか、アプリを切り替えてから、数秒以内にそのアプリに戻っていません。 | アプリが中断されると、アプリの状態はメモリ内に保持されます。 必要な処理は、アプリが中断されたときに解放したファイル ハンドルやその他のリソースを再取得することだけです。 |
+| **終了** | アプリは、以前に中断されましたが、システムがメモリを再利用する必要があったため、ある時点でシャットダウンされました。 | ユーザーがアプリを切り替えたときのアプリの状態を復元します。|
 |**ClosedByUser** | ユーザーは、タブレット モードでの閉じるジェスチャや、Alt キーを押しながら F4 キーを押すことによって、アプリを終了しました。 ユーザーがアプリを閉じた場合、アプリはまず中断され、次に終了します。 | アプリは基本的に Terminated 状態に至る手順と同じ手順に従うため、Terminated 状態と同じ方法でこれを処理します。|
-|**実行中** | ユーザーがアプリを起動しようとしたときに、アプリは既に開いていました。 | Nothing。 アプリの別のインスタンスが起動されないことに注意してください。 既に実行中のインスタンスが、単にアクティブ化されます。 |
+|**実行中** | ユーザーがアプリを起動しようとしたときに、アプリは既に開いていました。 | 何も起きない。 アプリの別のインスタンスが起動されないことに注意してください。 既に実行中のインスタンスが、単にアクティブ化されます。 |
 
 **注**  *現在のユーザー セッション*は、Windows ログオンに基づきます。 現在のユーザーがログオフ、Windows のシャットダウンや再起動を行っていない限り、現在のユーザー セッションは、ロック画面認証やユーザーの切り替えなどのイベント間で保持されます。 
 
@@ -62,7 +62,7 @@ Windows 10 バージョン 1607 では、もう 2 つのアプリ モデルの�
 
 事前起動のために、アプリの **OnLaunched()** メソッドは、ユーザーではなく、システムによって開始される可能性があります。 アプリはバックグラウンドで事前起動されるため、**OnLaunched()** で異なるアクションが必要になる可能性があります。 たとえば、アプリが起動時に音楽の再生を開始する場合、アプリはバックグラウンドで事前起動されるため、どこから音楽が再生されているのかわかりません。 アプリがバックグラウンドで事前起動されたら、続けて **Application.Suspending** を呼び出します。 その後、ユーザーがアプリを起動したときに、**OnLaunched()** メソッドと共に再開イベントが呼び出されます。 事前起動のシナリオを処理する方法について詳しくは、「[アプリの事前起動の処理](handle-app-prelaunch.md)」をご覧ください。 オプトインしているアプリだけが事前起動されます。
 
-Windows によって、アプリの起動時に、アプリのスプラッシュ画面が表示されます。 スプラッシュ画面を構成するには、「[スプラッシュ画面の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465331(v=win.10))」をご覧ください。
+Windows によって、アプリの起動時に、アプリのスプラッシュ画面が表示されます。 スプラッシュ画面を構成するには、「[スプラッシュ画面の追加](/previous-versions/windows/apps/hh465331(v=win.10))」をご覧ください。
 
 スプラッシュ画面が表示されているときに、アプリはイベント ハンドラーを登録し、最初のページに必要なカスタム UI を設定する必要があります。 アプリのコンストラクターや **OnLaunched()** で実行されるこれらのタスクが数秒以内に完了することを確認します。数秒以内に完了しない場合、システムはアプリが応答していないと判断し、アプリを終了する可能性があります。 アプリがネットワーク経由でデータを要求したり、ディスクから大量のデータを取得したりする必要がある場合、こうしたアクティビティは起動とは別に実行してください。 実行に時間がかかる操作が完了するまでの間、アプリでは、アプリ独自のカスタム読み込み UI や追加のスプラッシュ画面を使うことができます。 詳しくは、「[スプラッシュ画面の表示時間の延長](create-a-customized-splash-screen.md)」や「[スプラッシュ画面のサンプル](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/SplashScreen)」をご覧ください。
 
@@ -70,24 +70,24 @@ Windows によって、アプリの起動時に、アプリのスプラッシュ
 
 ## <a name="app-activation"></a>アプリのアクティブ化
 
-ユーザーによる起動とは対照的には、システムによってアプリをアクティブ化できます。 アプリは、共有コントラクトなどのコントラクトによってアクティブ化される可能性があります。 また、カスタム URI プロトコルや、アプリが処理するように登録されている拡張子を持つファイルを処理するためにアクティブ化される可能性があります。 アプリをアクティブ化する方法の一覧については、「 [**ActivationKind**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ActivationKind)」を参照してください。
+ユーザーによる起動とは対照的には、システムによってアプリをアクティブ化できます。 アプリは、共有コントラクトなどのコントラクトによってアクティブ化される可能性があります。 また、カスタム URI プロトコルや、アプリが処理するように登録されている拡張子を持つファイルを処理するためにアクティブ化される可能性があります。 アプリをアクティブ化する方法の一覧については、「 [**ActivationKind**](/uwp/api/Windows.ApplicationModel.Activation.ActivationKind)」を参照してください。
 
-[**Windows.UI.Xaml.Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) クラスで定義されているメソッドをオーバーライドして、アプリをアクティブ化するさまざまな方法に対応することができます。
-[**OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated) は、発生する可能性があるすべてのアクティブ化の種類を処理できます。 ただし、最も一般的なアクティブ化の種類を処理する場合は特定のメソッドを使い、あまり一般的ではないアクティブ化の種類を処理する際の代替手段としてのみ **OnActivated** を使うことが多くあります。 特定のアクティブ化については、次のような追加のメソッドがあります。
+[**Windows.UI.Xaml.Application**](/uwp/api/Windows.UI.Xaml.Application) クラスで定義されているメソッドをオーバーライドして、アプリをアクティブ化するさまざまな方法に対応することができます。
+[**OnActivated**](/uwp/api/windows.ui.xaml.application.onactivated) は、発生する可能性があるすべてのアクティブ化の種類を処理できます。 ただし、最も一般的なアクティブ化の種類を処理する場合は特定のメソッドを使い、あまり一般的ではないアクティブ化の種類を処理する際の代替手段としてのみ **OnActivated** を使うことが多くあります。 特定のアクティブ化については、次のような追加のメソッドがあります。
 
-[**OnCachedFileUpdaterActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.oncachedfileupdateractivated)  
-[**OnFileActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileactivated)  
-[**OnFileOpenPickerActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileopenpickeractivated)  [**OnFileSavePickerActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfilesavepickeractivated)  
-[**OnSearchActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onsearchactivated)  
-[**OnShareTargetActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onsharetargetactivated)
+[**OnCachedFileUpdaterActivated**](/uwp/api/windows.ui.xaml.application.oncachedfileupdateractivated)  
+[**OnFileActivated**](/uwp/api/windows.ui.xaml.application.onfileactivated)  
+[**OnFileOpenPickerActivated**](/uwp/api/windows.ui.xaml.application.onfileopenpickeractivated)  [**OnFileSavePickerActivated**](/uwp/api/windows.ui.xaml.application.onfilesavepickeractivated)  
+[**OnSearchActivated**](/uwp/api/windows.ui.xaml.application.onsearchactivated)  
+[**OnShareTargetActivated**](/uwp/api/windows.ui.xaml.application.onsharetargetactivated)
 
-これらのメソッドのイベント データには、既に説明した同じ [**PreviousExecutionState**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate) プロパティが含まれており、アプリがアクティブ化される前の状態を確認することができます。 前の「[アプリの起動](#app-launch)」セクションで説明した方法と同じ方法で、状態と対処を解釈します。
+これらのメソッドのイベント データには、既に説明した同じ [**PreviousExecutionState**](/uwp/api/windows.applicationmodel.activation.iactivatedeventargs.previousexecutionstate) プロパティが含まれており、アプリがアクティブ化される前の状態を確認することができます。 前の「[アプリの起動](#app-launch)」セクションで説明した方法と同じ方法で、状態と対処を解釈します。
 
 **メモ**  コンピューターの管理者アカウントを使用してログオンした場合、UWP アプリをアクティブ化することはできません。
 
 ## <a name="running-in-the-background"></a>バックグラウンドでの実行 ##
 
-Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と同じプロセスでバックグラウンド タスクを実行できます。 詳しくは、[シングル プロセス モデルでのバックグラウンド アクティビティに関する記事](https://blogs.windows.com/buildingapps/2016/06/07/background-activity-with-the-single-process-model/#tMmI7wUuYu5CEeRm.99)をご覧ください。 インプロセスのバックグラウンド処理については、この記事では詳しく説明しませんが、アプリのライフサイクルへの影響として、アプリをバックグラウンドで実行する場合に関連する 2 つの新しいイベントが追加されています。 [**EnteredBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) と [**LeavingBackground**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) です。
+Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と同じプロセスでバックグラウンド タスクを実行できます。 詳しくは、[シングル プロセス モデルでのバックグラウンド アクティビティに関する記事](https://blogs.windows.com/buildingapps/2016/06/07/background-activity-with-the-single-process-model/#tMmI7wUuYu5CEeRm.99)をご覧ください。 インプロセスのバックグラウンド処理については、この記事では詳しく説明しませんが、アプリのライフサイクルへの影響として、アプリをバックグラウンドで実行する場合に関連する 2 つの新しいイベントが追加されています。 [**EnteredBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) と [**LeavingBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) です。
 
 これらのイベントは、アプリの UI を表示するかどうかも反映します。
 
@@ -113,7 +113,7 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 アプリがユーザーに表示されなくなったため、これは UI のレンダリング処理とアニメーションを停止するのに最適な場所です。 **LeavingBackground** を使って、もう一度その作業を開始できます。
 
-バックグラウンドで処理を実行する場合、ここで処理を準備することができます。 [MemoryManager.AppMemoryUsageLevel](https://docs.microsoft.com/uwp/api/windows.system.memorymanager.appmemoryusagelevel) を確認し、必要に応じてバックグラウンドでの実行時のアプリのメモリ使用量を減らすことにより、システムがリソースを解放するためにアプリを終了するリスクを下げることをお勧めします。
+バックグラウンドで処理を実行する場合、ここで処理を準備することができます。 [MemoryManager.AppMemoryUsageLevel](/uwp/api/windows.system.memorymanager.appmemoryusagelevel) を確認し、必要に応じてバックグラウンドでの実行時のアプリのメモリ使用量を減らすことにより、システムがリソースを解放するためにアプリを終了するリスクを下げることをお勧めします。
 
 詳しくは、[アプリがバックグラウンドの状態に移行したときにメモリ使用量を減らす方法に関する記事](reduce-memory-usage.md)をご覧ください。
 
@@ -121,7 +121,7 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 中断イベント ハンドラーは、アプリの状態を保存するのに最適な場所です。 しかし、バックグラウンドでの処理を行う場合 (オーディオの再生、延長実行セッションの使用、インプロセス バックグラウンド タスクなど) は、**EnteredBackground** イベント ハンドラーから非同期的にデータを保存することもお勧めします。 これは、アプリがバックグラウンドにある間に優先順位が低く、アプリが終了される可能性があるためです。 また、その場合、アプリは中断状態を経ないため、データは失われます。
 
-バックグラウンド アクティビティが開始される前に、**EnteredBackground** イベント ハンドラーでデータを保存することにより、ユーザーがアプリをフォアグラウンドに戻したときに、優れたユーザー エクスペリエンスを提供できます。 アプリケーション データ API を使用して、データと設定を保存することができます。 詳細については、「[設定とその他のアプリデータの保存と取得](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)」を参照してください。
+バックグラウンド アクティビティが開始される前に、**EnteredBackground** イベント ハンドラーでデータを保存することにより、ユーザーがアプリをフォアグラウンドに戻したときに、優れたユーザー エクスペリエンスを提供できます。 アプリケーション データ API を使用して、データと設定を保存することができます。 詳細については、「 [設定とその他のアプリデータの保存と取得](../design/app-settings/store-and-retrieve-app-data.md)」を参照してください。
 
 データを保存した後、メモリ使用量の上限を超えている場合、後で再読み込みできるため、メモリからデータを解放できます。 これによりメモリが解放され、バックグラウンド アクティビティに必要なアセットで使用できます。
 
@@ -129,33 +129,33 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 ### <a name="asynchronous-work-and-deferrals"></a>非同期処理と保留
 
-ハンドラー内で非同期呼び出しを行う場合、制御はその非同期呼び出しからすぐに戻ります。 つまり、非同期呼び出しがまだ完了していない場合でも、イベント ハンドラーから制御が戻り、アプリを次の状態に移行できます。 イベント ハンドラーに渡される [**EnteredBackgroundEventArgs**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel?redirectedfrom=MSDN) オブジェクトの [**GetDeferral**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.suspendingoperation.getdeferral) メソッドを使用して、[**Windows.Foundation.Deferral**](https://docs.microsoft.com/uwp/api/windows.foundation.deferral) オブジェクトの [**Complete**](https://docs.microsoft.com/uwp/api/windows.foundation.deferral.complete) メソッドを呼び出した後まで中断を延期することができます。
+ハンドラー内で非同期呼び出しを行う場合、制御はその非同期呼び出しからすぐに戻ります。 つまり、非同期呼び出しがまだ完了していない場合でも、イベント ハンドラーから制御が戻り、アプリを次の状態に移行できます。 イベント ハンドラーに渡される [**EnteredBackgroundEventArgs**](/uwp/api/Windows.ApplicationModel) オブジェクトの [**GetDeferral**](/uwp/api/windows.applicationmodel.suspendingoperation.getdeferral) メソッドを使用して、[**Windows.Foundation.Deferral**](/uwp/api/windows.foundation.deferral) オブジェクトの [**Complete**](/uwp/api/windows.foundation.deferral.complete) メソッドを呼び出した後まで中断を延期することができます。
 
 遅延では、アプリが終了する前に、実行する必要があるコードの量を増やす必要はありません。 遅延の *Complete* メソッドが呼び出されるか、または期限になるか、*どちらか早い方*まで、終了が延期されるだけです。
 
-状態を保存するためにより多くの時間が必要な場合は、アプリがバックグラウンドの状態になる前に、段階的に状態を保存し、**EnteredBackground** イベント ハンドラーで保存する状態の情報を少なくする方法を調べます。 または、[ExtendedExecutionSession](https://msdn.microsoft.com/magazine/mt590969.aspx) を呼び出して、より多くの時間を取得します。 ただし、要求が許可される保証はないため、状態を保存するために必要な時間を最小限に抑える方法を見つけることをお勧めします。
+状態を保存するためにより多くの時間が必要な場合は、アプリがバックグラウンドの状態になる前に、段階的に状態を保存し、**EnteredBackground** イベント ハンドラーで保存する状態の情報を少なくする方法を調べます。 または、[ExtendedExecutionSession](/archive/msdn-magazine/2015/windows-10-special-issue/app-lifecycle-keep-apps-alive-with-background-tasks-and-extended-execution) を呼び出して、より多くの時間を取得します。 ただし、要求が許可される保証はないため、状態を保存するために必要な時間を最小限に抑える方法を見つけることをお勧めします。
 
 ## <a name="app-suspend"></a>アプリの中断
 
 ユーザーがアプリを最小化したとき、Windows は、ユーザーが再び元のアプリに切り替えるかどうかを確認するために数秒待機します。 ユーザーがこの時間内に再び元のアプリに切り替えることがなく、延長実行、バックグラウンド タスク、アクティビティ スポンサード実行がどれもアクティブではない場合、Windows はアプリを中断します。 アプリは、延長実行セッションなどがそのアプリでアクティブではない限り、ロック画面が表示されているときにも中断されます。
 
-アプリは、中断されると、[**Application.Suspending**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.suspending) イベントを呼び出します。 Visual Studio の UWP プロジェクト テンプレートでは、**App.xaml.cs** に **OnSuspending** と呼ばれるこのイベントのハンドラーが用意されています。 Windows 10 バージョン 1607 より前のバージョンでは、状態を保存するコードをここに記述していました。 現在は、前述のように、バックグラウンド状態に移行するときにアプリの状態を保存することをお勧めします。
+アプリは、中断されると、[**Application.Suspending**](/uwp/api/windows.ui.xaml.application.suspending) イベントを呼び出します。 Visual Studio の UWP プロジェクト テンプレートでは、**App.xaml.cs** に **OnSuspending** と呼ばれるこのイベントのハンドラーが用意されています。 Windows 10 バージョン 1607 より前のバージョンでは、状態を保存するコードをここに記述していました。 現在は、前述のように、バックグラウンド状態に移行するときにアプリの状態を保存することをお勧めします。
 
 また、排他リソースとファイル ハンドルを、自分のアプリが中断されているときに他のアプリがアクセスできるように解放することをお勧めします。 排他リソースには、カメラ、I/O デバイス、外部デバイス、ネットワーク リソースなどがあります。 排他リソースとファイル ハンドルを明示的に解放すると、自分のアプリが中断されているときに他のアプリが排他リソースとファイル ハンドルにアクセスできるようになります。 アプリが再開されるときに、排他リソースとファイル ハンドルを再取得する必要があります。
 
 ### <a name="be-aware-of-the-deadline"></a>期限に注意する
 
-高速で応答性の高いデバイスを実現するために、中断イベント ハンドラーでコードを実行する時間には制限があります。 この制限はデバイスごとに異なり、[**SuspendingOperation**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.SuspendingOperation) オブジェクトの Deadline と呼ばれるプロパティを使って制限を確認できます。
+高速で応答性の高いデバイスを実現するために、中断イベント ハンドラーでコードを実行する時間には制限があります。 この制限はデバイスごとに異なり、[**SuspendingOperation**](/uwp/api/Windows.ApplicationModel.SuspendingOperation) オブジェクトの Deadline と呼ばれるプロパティを使って制限を確認できます。
 
-**EnteredBackground** イベント ハンドラーと同様に、ハンドラーから非同期呼び出しを行う場合、制御はその非同期呼び出しからすぐに戻ります。 つまり、非同期呼び出しがまだ完了していない場合でも、イベント ハンドラーから制御が戻り、アプリを中断状態に移行できます。 返された [**SuspendingDeferral**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.SuspendingDeferral) オブジェクトに [**Complete**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.suspendingdeferral.complete) メソッドを呼び出すまで中断状態への移行を遅らせるには、[**SuspendingOperation**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.SuspendingOperation) オブジェクト (イベント引数経由で利用可能) に対して [**GetDeferral**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.suspendingoperation.getdeferral) メソッドを使います。
+**EnteredBackground** イベント ハンドラーと同様に、ハンドラーから非同期呼び出しを行う場合、制御はその非同期呼び出しからすぐに戻ります。 つまり、非同期呼び出しがまだ完了していない場合でも、イベント ハンドラーから制御が戻り、アプリを中断状態に移行できます。 返された [**SuspendingDeferral**](/uwp/api/Windows.ApplicationModel.SuspendingDeferral) オブジェクトに [**Complete**](/uwp/api/windows.applicationmodel.suspendingdeferral.complete) メソッドを呼び出すまで中断状態への移行を遅らせるには、[**SuspendingOperation**](/uwp/api/Windows.ApplicationModel.SuspendingOperation) オブジェクト (イベント引数経由で利用可能) に対して [**GetDeferral**](/uwp/api/windows.applicationmodel.suspendingoperation.getdeferral) メソッドを使います。
 
-さらに多くの時間が必要な場合は、[ExtendedExecutionSession](https://msdn.microsoft.com/magazine/mt590969.aspx) を要求することができます。 ただし、要求が許可される保証はないため、**Suspended** イベント ハンドラーで必要な時間を最小限に抑える方法を見つけることをお勧めします。
+さらに多くの時間が必要な場合は、[ExtendedExecutionSession](/archive/msdn-magazine/2015/windows-10-special-issue/app-lifecycle-keep-apps-alive-with-background-tasks-and-extended-execution) を要求することができます。 ただし、要求が許可される保証はないため、**Suspended** イベント ハンドラーで必要な時間を最小限に抑える方法を見つけることをお勧めします。
 
 ### <a name="app-terminate"></a>アプリの終了
 
 システムは、アプリの一時停止中、アプリとそのデータをメモリに保持するよう試みます。 ただし、アプリをメモリに保持するためのリソースがシステムにない場合、システムはアプリを終了します。 アプリは終了通知を受け取らないため、アプリのデータを保存するには、**OnSuspension** イベント ハンドラーで行うか、**EnteredBackground** ハンドラーで非同期的に行う必要があります。
 
-終了されたアプリをアクティブ化するとき、アプリが終了する前と同じ状態になるように、保存したアプリのデータを読み込む必要があります。 中断されてから終了されたアプリにユーザーが戻るとき、アプリは [**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) メソッドでアプリケーション データを復元する必要があります。 アプリが終了されるときは、システムはアプリに通知を送らないので、アプリは中断される前にアプリケーション データを保存し、排他リソースとファイル ハンドルを解放して、アプリが終了後アクティブ化されるときにそれらを復元する必要があります。
+終了されたアプリをアクティブ化するとき、アプリが終了する前と同じ状態になるように、保存したアプリのデータを読み込む必要があります。 中断されてから終了されたアプリにユーザーが戻るとき、アプリは [**OnLaunched**](/uwp/api/windows.ui.xaml.application.onlaunched) メソッドでアプリケーション データを復元する必要があります。 アプリが終了されるときは、システムはアプリに通知を送らないので、アプリは中断される前にアプリケーション データを保存し、排他リソースとファイル ハンドルを解放して、アプリが終了後アクティブ化されるときにそれらを復元する必要があります。
 
 **Visual Studio を使用したデバッグに関する注意事項:** Visual Studio は、デバッガーにアタッチされているアプリを Windows が中断できないようにします。 これは、アプリが実行されている間、ユーザーが Visual Studio デバッグの UI を確認できるようにするためです。 アプリのデバッグ中は、Visual Studio を使ってそのアプリに中断イベントを送信できます。 **[デバッグの場所]** ツール バーが表示されていることを確認し、**[中断]** アイコンをクリックします。
 
@@ -165,7 +165,7 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 **Suspended** 状態からアプリを再開するとき、アプリは**バックグラウンドでの実行**状態に移行し、システムはアプリを中断前の状態に復元するので、ユーザーからはアプリがバックグラウンドでずっと実行されていたように見えます。 メモリに格納されているアプリのデータは失われません。 したがって、アプリは中断されたときに解放したファイル ハンドルやデバイス ハンドルを再取得し、中断されたときに明示的に解放された状態を復元する必要はありますが、ほとんどのアプリでは再開時に状態を復元する必要はありません。
 
-アプリは、数時間から数日間中断される場合があります。 そのため、アプリのコンテンツやネットワーク接続が無効になっていると考えられる場合は、アプリの再開時にコンテンツやネットワーク接続を更新する必要があります。 アプリに [**Application.Resuming**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming) イベントのイベント ハンドラーが登録されている場合は、アプリが **Suspended** 状態から再開されるとこのイベント ハンドラーが呼び出されます。 このイベント ハンドラーでアプリのコンテンツやデータを更新できます。
+アプリは、数時間から数日間中断される場合があります。 そのため、アプリのコンテンツやネットワーク接続が無効になっていると考えられる場合は、アプリの再開時にコンテンツやネットワーク接続を更新する必要があります。 アプリに [**Application.Resuming**](/uwp/api/windows.ui.xaml.application.resuming) イベントのイベント ハンドラーが登録されている場合は、アプリが **Suspended** 状態から再開されるとこのイベント ハンドラーが呼び出されます。 このイベント ハンドラーでアプリのコンテンツやデータを更新できます。
 
 中断中のアプリがアクティブ化されてアプリ コントラクトまたは拡張機能に参加する場合は、まず **Resuming** イベントを受け取り、次に **Activated** イベントを受け取ります。
 
@@ -173,9 +173,9 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 アプリは、中断されている間、受信登録したネットワーク イベントを受け取りません。 これらのネットワーク イベントはキューに入れられず、受け取ることができません。 そのため、再開時にアプリでネットワーク ステータスをテストする必要があります。
 
-**メモ**   [**再開イベントは**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming)ui スレッドからは発生しないため、再開ハンドラーのコードが ui と通信する場合は、ディスパッチャーを使用する必要があります。 これを行う方法のコード例については、[バックグラウンド スレッドからの UI スレッドの更新に関するページ](https://github.com/Microsoft/Windows-task-snippets/blob/master/tasks/UI-thread-access-from-background-thread.md)をご覧ください。
+**メモ**   [**再開イベントは**](/uwp/api/windows.ui.xaml.application.resuming)ui スレッドからは発生しないため、再開ハンドラーのコードが ui と通信する場合は、ディスパッチャーを使用する必要があります。 これを行う方法のコード例については、[バックグラウンド スレッドからの UI スレッドの更新に関するページ](https://github.com/Microsoft/Windows-task-snippets/blob/master/tasks/UI-thread-access-from-background-thread.md)をご覧ください。
 
-一般的なガイドラインについては、[アプリの中断と再開のガイドラインに関するページ](https://docs.microsoft.com/windows/uwp/launch-resume/index)をご覧ください。
+一般的なガイドラインについては、[アプリの中断と再開のガイドラインに関するページ](./index.md)をご覧ください。
 
 ## <a name="app-close"></a>アプリを閉じる
 
@@ -183,7 +183,7 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 ユーザーがアプリを閉じたことを示すイベントはありません。 アプリがユーザーによって閉じられたとき、その状態を保存する機会を提供するために、アプリはまず中断されます。 Windows 8.1 以降では、ユーザーがアプリを閉じても、アプリは明示的に終了されるのではなく、画面と切り替えリストから消えるだけです。
 
-**終了したユーザーの動作:**   アプリが Windows によって閉じられたときとは別の方法でアプリケーションを終了する必要がある場合は、アクティベーションイベントハンドラーを使用して、アプリがユーザーによって、または Windows によって終了されたかどうかを判断できます。 [**ApplicationExecutionState**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState) 列挙体に関するリファレンスの **ClosedByUser** 状態と **Terminated** 状態の説明をご覧ください。
+**終了したユーザーの動作:**   アプリが Windows によって閉じられたときとは別の方法でアプリケーションを終了する必要がある場合は、アクティベーションイベントハンドラーを使用して、アプリがユーザーによって、または Windows によって終了されたかどうかを判断できます。 [**ApplicationExecutionState**](/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState) 列挙体に関するリファレンスの **ClosedByUser** 状態と **Terminated** 状態の説明をご覧ください。
 
 必要でない限り、アプリをプログラムで閉じないことをお勧めします。 たとえば、メモリ リークが検出された場合などは、ユーザーの個人データのセキュリティを確保するためにアプリ自体で閉じてもかまいません。
 
@@ -193,7 +193,7 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 アプリがクラッシュしたり、応答しなくなったり、例外が生成されたりすると、ユーザーの [フィードバックと診断の設定](https://support.microsoft.com/help/4468236/diagnostics-feedback-and-privacy-in-windows-10-microsoft-privacy) に従って、マイクロソフトに問題レポートが送られます。 Microsoft は、アプリの改善に役立つように、問題レポートに含まれるエラー データの一部を提供しています。 このデータは、ダッシュボードに表示されるアプリの [品質] ページで確認できます。
 
-アプリがクラッシュした後にユーザーがアプリをアクティブ化すると、アクティブ化イベント ハンドラーは [**ApplicationExecutionState**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState) の値として **NotRunning** を受け取り、アプリの最初の UI とデータを表示します。 クラッシュの後、**Suspended** に基づく **Resuming** で使ったアプリ データはそのまま使わないでください。これは、そのデータが破損している可能性があるためです。「[アプリの中断と再開のガイドライン](https://docs.microsoft.com/windows/uwp/launch-resume/index)」をご覧ください。
+アプリがクラッシュした後にユーザーがアプリをアクティブ化すると、アクティブ化イベント ハンドラーは [**ApplicationExecutionState**](/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState) の値として **NotRunning** を受け取り、アプリの最初の UI とデータを表示します。 クラッシュの後、**Suspended** に基づく **Resuming** で使ったアプリ データはそのまま使わないでください。これは、そのデータが破損している可能性があるためです。「[アプリの中断と再開のガイドライン](./index.md)」をご覧ください。
 
 ## <a name="app-removal"></a>アプリの削除
 
@@ -201,26 +201,26 @@ Windows 10 バージョン 1607 以降では、アプリは、アプリ自体と
 
 ## <a name="app-lifecycle-and-the-visual-studio-project-templates"></a>アプリのライフサイクルと Visual Studio のプロジェクト テンプレート
 
-アプリのライフサイクルに関連する基本的なコードは、Visual Studio のプロジェクト テンプレートに用意されています。 基本的なアプリでは、起動アクティブ化を処理し、アプリ データを復元するための場所を提供して、独自のコードを追加する前であってもプライマリ UI を表示します。 詳しくは、「[アプリ用の C#、VB、C++ プロジェクト テンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh768232(v=win.10))」をご覧ください。
+アプリのライフサイクルに関連する基本的なコードは、Visual Studio のプロジェクト テンプレートに用意されています。 基本的なアプリでは、起動アクティブ化を処理し、アプリ データを復元するための場所を提供して、独自のコードを追加する前であってもプライマリ UI を表示します。 詳しくは、「[アプリ用の C#、VB、C++ プロジェクト テンプレート](/previous-versions/windows/apps/hh768232(v=win.10))」をご覧ください。
 
 ## <a name="key-application-lifecycle-apis"></a>主要なアプリケーション ライフサイクル API
 
--   [**Windows.ApplicationModel**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel) 名前空間
--   [**Windows. ApplicationModel. Activation**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation)名前空間
--   [**Windows.ApplicationModel.Core**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core) 名前空間
--   [**Windows.UI.Xaml.Application**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Application) クラス (XAML)
--   [**Windows.UI.Xaml.Window**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window) クラス (XAML)
+-   [**Windows.ApplicationModel**](/uwp/api/Windows.ApplicationModel) 名前空間
+-   [**Windows. ApplicationModel. Activation**](/uwp/api/Windows.ApplicationModel.Activation) 名前空間
+-   [**Windows.ApplicationModel.Core**](/uwp/api/Windows.ApplicationModel.Core) 名前空間
+-   [**Windows.UI.Xaml.Application**](/uwp/api/Windows.UI.Xaml.Application) クラス (XAML)
+-   [**Windows.UI.Xaml.Window**](/uwp/api/Windows.UI.Xaml.Window) クラス (XAML)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [**ApplicationExecutionState**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState)
-* [アプリの中断と再開のガイドライン](https://docs.microsoft.com/windows/uwp/launch-resume/index)
+* [**ApplicationExecutionState**](/uwp/api/Windows.ApplicationModel.Activation.ApplicationExecutionState)
+* [アプリの中断と再開のガイドライン](./index.md)
 * [アプリの事前起動の処理](handle-app-prelaunch.md)
 * [アプリのアクティブ化の処理](activate-an-app.md)
 * [アプリの中断の処理](suspend-an-app.md)
 * [アプリの再開の処理](resume-an-app.md)
 * [1つのプロセスモデルを使用したバックグラウンドアクティビティ](https://blogs.windows.com/buildingapps/2016/06/07/background-activity-with-the-single-process-model/#tMmI7wUuYu5CEeRm.99)
-* [バックグラウンドでメディアを再生する](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
+* [バックグラウンドでメディアを再生する](../audio-video-camera/background-audio.md)
 
  
 

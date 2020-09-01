@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4264a9a3a75c076fc033bb98dad45ff8dc99f2ef
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: a2a61dd70915195673dacaed78510eb7b7c2f2f0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970287"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172406"
 ---
 # <a name="add-and-delete-animations"></a>追加と削除のアニメーション
 
@@ -21,7 +21,7 @@ ms.locfileid: "82970287"
 
 リスト アニメーションを使うと、写真のアルバムや検索結果の一覧などのコレクションに対して任意の数の項目を挿入または削除できます。
 
-> **重要な API**: [**AddDeleteThemeTransition クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.adddeletethemetransition)
+> **重要な API**: [**AddDeleteThemeTransition クラス**](/uwp/api/windows.ui.xaml.media.animation.adddeletethemetransition)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -38,15 +38,11 @@ ms.locfileid: "82970287"
 
 ## <a name="related-articles"></a>関連記事
 
-* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
-* [リストの追加と削除のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649430(v=win.10))
-* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
-* [**AddDeleteThemeTransition クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.animation.adddeletethemetransition)
+* [アニメーションの概要](./xaml-animation.md)
+* [リストの追加と削除のアニメーション化](/previous-versions/windows/apps/jj649430(v=win.10))
+* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](/previous-versions/windows/apps/hh452703(v=win.10))
+* [**AddDeleteThemeTransition クラス**](/uwp/api/windows.ui.xaml.media.animation.adddeletethemetransition)
 
  
 
  
-
-
-
-

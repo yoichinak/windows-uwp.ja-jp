@@ -6,31 +6,31 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ea9be48da57e260cdb3d5d1c9a9a0b564c1f4386
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 383cb37e044e7e13080526d8e8270e7fc36560ff
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370042"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172236"
 ---
 # <a name="get-battery-information"></a>バッテリー情報の取得
 
 
 ** 重要な API **
 
--   [**Windows.Devices.Power**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power)
--   [**DeviceInformation.FindAllAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.findallasync)
+-   [**Windows.Devices.Power**](/uwp/api/Windows.Devices.Power)
+-   [**DeviceInformation.FindAllAsync**](/uwp/api/windows.devices.enumeration.deviceinformation.findallasync)
 
-[  **Windows.Devices.Power**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power) 名前空間で、API を使って詳細なバッテリー情報を取得する方法について説明します。 *バッテリー レポート* ([**BatteryReport**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.BatteryReport)) は、バッテリーの充電量、容量、状態や、バッテリーの集計を示します。 このトピックでは、アプリでバッテリー レポートを取得したり、変更に関する通知を受け取ったりする方法を紹介します。 コード例は基本的なバッテリー アプリからの抜粋で、このトピックの末尾の一覧で確認できます。
+[**Windows.Devices.Power**](/uwp/api/Windows.Devices.Power) 名前空間で、API を使って詳細なバッテリー情報を取得する方法について説明します。 *バッテリー レポート* ([**BatteryReport**](/uwp/api/Windows.Devices.Power.BatteryReport)) は、バッテリーの充電量、容量、状態や、バッテリーの集計を示します。 このトピックでは、アプリでバッテリー レポートを取得したり、変更に関する通知を受け取ったりする方法を紹介します。 コード例は基本的なバッテリー アプリからの抜粋で、このトピックの末尾の一覧で確認できます。
 
 ## <a name="get-aggregate-battery-report"></a>バッテリー集計レポートの取得
 
 
-一部のデバイスにはバッテリーが複数あり、各バッテリーがデバイスの消費エネルギー全体にどのように関与しているのか明確でない場合があります。 [  **AggregateBattery**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.aggregatebattery) クラスはまさにそのような用途に使います。 *バッテリー集計*レポートはデバイスに接続されたすべてのバッテリー コントローラーを表し、1 つの全体的な [**BatteryReport**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.BatteryReport) オブジェクトを提供できます。
+一部のデバイスにはバッテリーが複数あり、各バッテリーがデバイスの消費エネルギー全体にどのように関与しているのか明確でない場合があります。 [**AggregateBattery**](/uwp/api/windows.devices.power.battery.aggregatebattery) クラスはまさにそのような用途に使います。 *バッテリー集計*レポートはデバイスに接続されたすべてのバッテリー コントローラーを表し、1 つの全体的な [**BatteryReport**](/uwp/api/Windows.Devices.Power.BatteryReport) オブジェクトを提供できます。
 
-**注**  A [**バッテリ**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.Battery)クラスは、実際には、バッテリのコント ローラーに対応します。 デバイスに応じて、コントローラーは物理的なバッテリーに接続されることもあれば、デバイス エンクロージャに接続されることもあります。 そのため、バッテリーがなくても、バッテリ オブジェクトを作ることができます。 また、バッテリ オブジェクトは **null** にすることもできます。
+**メモ**   [**バッテリ**](/uwp/api/Windows.Devices.Power.Battery)クラスは、実際にはバッテリコントローラーに対応しています。 デバイスに応じて、コントローラーは物理的なバッテリーに接続されることもあれば、デバイス エンクロージャに接続されることもあります。 そのため、バッテリーがなくても、バッテリ オブジェクトを作ることができます。 また、バッテリ オブジェクトは **null** にすることもできます。
 
-集計バッテリー オブジェクトを指定したら、[**GetReport**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.getreport) を呼び出して、対応する [**BatteryReport**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.BatteryReport) を取得します。
+集計バッテリー オブジェクトを指定したら、[**GetReport**](/uwp/api/windows.devices.power.battery.getreport) を呼び出して、対応する [**BatteryReport**](/uwp/api/Windows.Devices.Power.BatteryReport) を取得します。
 
 ```csharp
 private void RequestAggregateBatteryReport()
@@ -48,7 +48,7 @@ private void RequestAggregateBatteryReport()
 
 ## <a name="get-individual-battery-reports"></a>個々のバッテリー レポートを取得する
 
-個々のバッテリーに対する [**BatteryReport**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.BatteryReport) オブジェクトを作ることもできます。 [  **GetDeviceSelector**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.getdeviceselector) を [**FindAllAsync**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.findallasync) メソッドと共に使って、デバイスに接続されているバッテリー コントローラーがあるかどうかを表す [**DeviceInformation**](https://docs.microsoft.com/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトのコレクションを取得します。 次に、必要な **DeviceInformation** オブジェクトの **Id** プロパティを使って、[**FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.fromidasync) メソッドを使い、対応する [**Battery**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.Battery) を作ります。 最後に、[**GetReport**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.getreport) を呼び出して、各バッテリー レポートを取得します。
+個々のバッテリーに対する [**BatteryReport**](/uwp/api/Windows.Devices.Power.BatteryReport) オブジェクトを作ることもできます。 [**GetDeviceSelector**](/uwp/api/windows.devices.power.battery.getdeviceselector) を [**FindAllAsync**](/uwp/api/windows.devices.enumeration.deviceinformation.findallasync) メソッドと共に使って、デバイスに接続されているバッテリー コントローラーがあるかどうかを表す [**DeviceInformation**](/uwp/api/Windows.Devices.Enumeration.DeviceInformation) オブジェクトのコレクションを取得します。 次に、必要な **DeviceInformation** オブジェクトの **Id** プロパティを使って、[**FromIdAsync**](/uwp/api/windows.devices.power.battery.fromidasync) メソッドを使い、対応する [**Battery**](/uwp/api/Windows.Devices.Power.Battery) を作ります。 最後に、[**GetReport**](/uwp/api/windows.devices.power.battery.getreport) を呼び出して、各バッテリー レポートを取得します。
 
 次の例は、デバイスに接続されているすべてのバッテリーのバッテリー レポートを作る方法を示しています。
 
@@ -77,7 +77,7 @@ async private void RequestIndividualBatteryReports()
 
 ## <a name="access-report-details"></a>レポートの詳細にアクセスする
 
-[  **BatteryReport**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.BatteryReport) オブジェクトは、多くのバッテリー情報を提供します。 詳細については、そのプロパティの API リファレンスを参照してください。**ステータス**(、 [ **BatteryStatus** ](https://docs.microsoft.com/previous-versions/windows/dn818458(v=win.10))列挙型)、 [ **ChargeRateInMilliwatts**](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.chargerateinmilliwatts)、 [ **DesignCapacityInMilliwattHours**](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.designcapacityinmilliwatthours)、 [ **FullChargeCapacityInMilliwattHours**](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.fullchargecapacityinmilliwatthours)、および[ **RemainingCapacityInMilliwattHours**](https://docs.microsoft.com/uwp/api/windows.devices.power.batteryreport.remainingcapacityinmilliwatthours)します。 次の例は、基本的なバッテリー アプリで使用される一部のバッテリー レポート プロパティを示しています。このプロパティについては、このトピックで後ほど説明します。
+[**BatteryReport**](/uwp/api/Windows.Devices.Power.BatteryReport) オブジェクトは、多くのバッテリー情報を提供します。 詳しくは、次のプロパティの API リファレンスをご覧ください。**Status** ([**BatteryStatus**](/previous-versions/windows/dn818458(v=win.10)) 列挙体)、[**ChargeRateInMilliwatts**](/uwp/api/windows.devices.power.batteryreport.chargerateinmilliwatts)、[**DesignCapacityInMilliwattHours**](/uwp/api/windows.devices.power.batteryreport.designcapacityinmilliwatthours)、[**FullChargeCapacityInMilliwattHours**](/uwp/api/windows.devices.power.batteryreport.fullchargecapacityinmilliwatthours)、および [**RemainingCapacityInMilliwattHours**](/uwp/api/windows.devices.power.batteryreport.remainingcapacityinmilliwatthours)。 次の例は、基本的なバッテリー アプリで使用される一部のバッテリー レポート プロパティを示しています。このプロパティについては、このトピックで後ほど説明します。
 
 ```csharp
 ...
@@ -91,7 +91,7 @@ TextBlock txt6 = new TextBlock { Text = "Remaining energy capacity (mWh): " + re
 
 ## <a name="request-report-updates"></a>レポートの更新を要求する
 
-[  **Battery**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.Battery) オブジェクトは、バッテリーの充電量、容量、状態が変わると [**ReportUpdated**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.reportupdated) イベントをトリガーします。 通常、これは、ステータスの変更についてはすぐに、その他のすべての変更については定期的に発生します。 次の例は、バッテリー レポートの更新に登録する方法を示しています。
+[**Battery**](/uwp/api/Windows.Devices.Power.Battery) オブジェクトは、バッテリーの充電量、容量、状態が変わると [**ReportUpdated**](/uwp/api/windows.devices.power.battery.reportupdated) イベントをトリガーします。 通常、これは、ステータスの変更についてはすぐに、その他のすべての変更については定期的に発生します。 次の例は、バッテリー レポートの更新に登録する方法を示しています。
 
 ```csharp
 ...
@@ -101,7 +101,7 @@ Battery.AggregateBattery.ReportUpdated += AggregateBattery_ReportUpdated;
 
 ## <a name="handle-report-updates"></a>レポートの更新を処理する
 
-バッテリーの更新が発生すると、[**ReportUpdated**](https://docs.microsoft.com/uwp/api/windows.devices.power.battery.reportupdated) イベントは対応する [**Battery**](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.Battery) オブジェクトをイベント ハンドラー メソッドに渡します。 ただし、このイベント ハンドラーは、UI スレッドから呼び出されません。 次の例で示すように、[**Dispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) オブジェクトを使って任意の UI の変更を呼び出す必要があります。
+バッテリーの更新が発生すると、[**ReportUpdated**](/uwp/api/windows.devices.power.battery.reportupdated) イベントは対応する [**Battery**](/uwp/api/Windows.Devices.Power.Battery) オブジェクトをイベント ハンドラー メソッドに渡します。 ただし、このイベント ハンドラーは、UI スレッドから呼び出されません。 次の例で示すように、[**Dispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher) オブジェクトを使って任意の UI の変更を呼び出す必要があります。
 
 ```csharp
 async private void AggregateBattery_ReportUpdated(Battery sender, object args)
@@ -132,7 +132,7 @@ async private void AggregateBattery_ReportUpdated(Battery sender, object args)
 
 ## <a name="example-basic-battery-app"></a>例: 基本的なバッテリー アプリ
 
-Microsoft Visual Studio で次の基本的なバッテリー アプリをビルドすることによって、これらの API をテストします。 Visual Studio のスタート ページで **[新しいプロジェクト]** をクリックし、 **[Visual C#] &gt; [Windows] &gt; [ユニバーサル]** テンプレートで **[空のアプリケーション]** テンプレートを使って新しいアプリを作ります。
+Microsoft Visual Studio で次の基本的なバッテリー アプリをビルドすることによって、これらの API をテストします。 Visual Studio のスタート ページで **[新しいプロジェクト]** をクリックし、**[Visual C#] &gt; [Windows] &gt; [ユニバーサル]** テンプレートで **[空のアプリケーション]** テンプレートを使って新しいアプリを作ります。
 
 次に、**MainPage.xaml** ファイルを開き、次の XML をこのファイルにコピーします (元の内容を置き換えます)。
 
@@ -336,7 +336,6 @@ namespace App1
 
 最後に、この基本的なバッテリー アプリを実行します: **[デバッグ]** メニューで **[デバッグの開始]** をクリックしてソリューションをテストします。
 
-**ヒント:**   の数値の値を受信する、 [ **BatteryReport** ](https://docs.microsoft.com/uwp/api/Windows.Devices.Power.BatteryReport)オブジェクトでのアプリのデバッグ、**ローカル マシン**または外部**デバイス**(Windows Phone) など。 デバイス エミュレーターでデバッグした場合、**BatteryReport** オブジェクトは容量や消費率のプロパティに **null** を返します。
+**ヒント**   [**BatteryReport**](/uwp/api/Windows.Devices.Power.BatteryReport)オブジェクトから数値を受け取るには、**ローカルコンピューター**または外部**デバイス**(Windows Phone など) でアプリをデバッグします。 デバイス エミュレーターでデバッグした場合、**BatteryReport** オブジェクトは容量や消費率のプロパティに **null** を返します。
 
  
-

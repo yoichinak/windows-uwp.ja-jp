@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、入力、サンプル
 ms.localizationpriority: medium
-ms.openlocfilehash: f078cd721406120105efb35d1519e7fd0b36e74c
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d4c3742ed843deca9d7d8edba033addd2e4888fe
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258607"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172076"
 ---
 # <a name="adding-input-and-interactivity-to-the-marble-maze-sample"></a>Marble Maze サンプルへの入力と対話機能の追加
 
@@ -28,7 +28,7 @@ ms.locfileid: "74258607"
 
 -   可能な限り、多様な入力デバイスをサポートし、ゲーム ユーザーの好みや技量に幅広く対応します。 ゲーム コントローラーやセンサーは、必ずしも使う必要はありませんが、プレーヤーのエクスペリエンスを高めるために使用を強くお勧めします。 ゲーム コントローラーとセンサー API は、これらの入力デバイスと容易に連携できるように設計されています。
 
--   タッチを初期化するには、ポインターがアクティブ化されたとき、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを作成します。 Xbox コントローラーは初期化を必要としません。
+-   タッチを初期化するには、ポインターがアクティブ化されたとき、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを作成します。 Xbox コントローラーは初期化を必要としません。
 
 -   1 プレーヤーのゲームでは、接続されているすべての Xbox コントローラーからの入力を結合します。 このようにすることで、入力とその発生元となったコントローラーの関係をトラッキングする手間が省けます。 または、このサンプルで行っているように、最後に追加されたコントローラーからの入力のみを追跡します。
 
@@ -41,7 +41,7 @@ ms.locfileid: "74258607"
 ## <a name="input-devices-supported-by-marble-maze"></a>Marble Maze でサポートされる入力デバイス
 
 
-Marble Maze は、メニュー項目の選択に関して Xbox コントローラー、マウス、タッチをサポートし、ゲーム プレイの制御に関して Xbox コントローラー、マウス、タッチ、加速度計をサポートします。 Marble Maze は、[Windows::Gaming::Input](https://docs.microsoft.com/uwp/api/windows.gaming.input) API を使ってコントローラーの入力をポーリングします。 アプリケーションは、タッチ デバイスを通じて指先での入力をトラッキングし、応答することができます。 加速度計は、X、Y、Z 軸方向に加えられた力を測定するセンサーです。 Windows ランタイムを使うと、Windows ランタイムのイベント処理機構を通じてタッチ イベントを受け取るだけでなく、加速度計デバイスの現在の状態をポーリングすることもできます。
+Marble Maze は、メニュー項目の選択に関して Xbox コントローラー、マウス、タッチをサポートし、ゲーム プレイの制御に関して Xbox コントローラー、マウス、タッチ、加速度計をサポートします。 Marble Maze は、[Windows::Gaming::Input](/uwp/api/windows.gaming.input) API を使ってコントローラーの入力をポーリングします。 アプリケーションは、タッチ デバイスを通じて指先での入力をトラッキングし、応答することができます。 加速度計は、X、Y、Z 軸方向に加えられた力を測定するセンサーです。 Windows ランタイムを使うと、Windows ランタイムのイベント処理機構を通じてタッチ イベントを受け取るだけでなく、加速度計デバイスの現在の状態をポーリングすることもできます。
 
 > [!NOTE]
 > このドキュメントでは、タッチとマウスの両方の入力をタッチと呼び、ポインター イベントを使うすべてのデバイスをポインターと呼びます。 タッチとマウスは標準のポインター イベントを利用するため、どちらのデバイスでもメニュー項目の選択とゲーム プレイの制御を行うことができます。
@@ -56,9 +56,9 @@ Marble Maze は、メニュー項目の選択に関して Xbox コントロー�
 ## <a name="initializing-input-devices"></a>入力デバイスの初期化
 
 
-Xbox コントローラーは初期化を必要としません。 タッチを初期化するには、ポインターがアクティブになったとき (たとえばプレイヤーがマウス ボタンを押すか画面に触れたとき)、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを作成する必要があります。
+Xbox コントローラーは初期化を必要としません。 タッチを初期化するには、ポインターがアクティブになったとき (たとえばプレイヤーがマウス ボタンを押すか画面に触れたとき)、離されたとき、移動されたときなどのウィンドウ イベントを登録する必要があります。 加速度計を初期化するには、アプリケーションの初期化時に [Windows::Devices::Sensors::Accelerometer](/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを作成する必要があります。
 
-次の例は、**App::SetWindow** メソッドが [Windows::UI::Core::CoreWindow::PointerPressed](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.PointerPressed)、[Windows::UI::Core::CoreWindow::PointerReleased](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.PointerReleased)、[Windows::UI::Core::CoreWindow::PointerMoved](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.PointerMoved) の各ポインター イベントを登録する方法を示します。 これらのイベントは、アプリケーションの初期化中、ゲーム ループの前に登録されます。
+次の例は、**App::SetWindow** メソッドが [Windows::UI::Core::CoreWindow::PointerPressed](/uwp/api/windows.ui.core.corewindow.PointerPressed)、[Windows::UI::Core::CoreWindow::PointerReleased](/uwp/api/windows.ui.core.corewindow.PointerReleased)、[Windows::UI::Core::CoreWindow::PointerMoved](/uwp/api/windows.ui.core.corewindow.PointerMoved) の各ポインター イベントを登録する方法を示します。 これらのイベントは、アプリケーションの初期化中、ゲーム ループの前に登録されます。
 
 これらのイベントは、イベント ハンドラーを呼び出す別のスレッドで処理されます。
 
@@ -85,13 +85,13 @@ typedef std::map<int, XMFLOAT2> TouchMap;
 TouchMap        m_touches;
 ```
 
-**MarbleMazeMain** クラスは [Accelerometer](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを保持します。
+**MarbleMazeMain** クラスは [Accelerometer](/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトを保持します。
 
 ```cpp
 Windows::Devices::Sensors::Accelerometer^           m_accelerometer;
 ```
 
-**Accelerometer** オブジェクトは、次の例に示すように **MarbleMazeMain** のコンストラクターで初期化されます。 [Windows::Devices::Sensors::Accelerometer::GetDefault](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer.GetDefault) メソッドは既定の加速度計のインスタンスを返します。 既定の加速度計がない場合、**Accelerometer::GetDefault** は **nullptr** を返します。
+**Accelerometer** オブジェクトは、次の例に示すように **MarbleMazeMain** のコンストラクターで初期化されます。 [Windows::D evices:: センサー:: 加速度計:: GetDefault](/uwp/api/Windows.Devices.Sensors.Accelerometer.GetDefault)メソッドは、既定の加速度計のインスタンスを返します。 既定の加速度計がない場合、**Accelerometer::GetDefault** は **nullptr** を返します。
 
 ```cpp
 // Returns accelerometer ref if there is one; nullptr otherwise.
@@ -109,7 +109,7 @@ m_accelerometer = Windows::Devices::Sensors::Accelerometer::GetDefault();
 
 ###  <a name="tracking-xbox-controller-input"></a>Xbox コントローラーの入力のトラッキング
 
-デバイスに現在接続されているゲームパッドを追跡するために、**MarbleMazeMain** ではメンバー変数 **m_myGamepads** を定義します。これは、[Windows::Gaming::Input::Gamepad](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad) オブジェクトのコレクションです。 これは、次のようなコンストラクターで初期化されます。
+デバイスに現在接続されているゲームパッドを追跡するために、**MarbleMazeMain** ではメンバー変数 **m_myGamepads** を定義します。これは、[Windows::Gaming::Input::Gamepad](/uwp/api/windows.gaming.input.gamepad) オブジェクトのコレクションです。 これは、次のようなコンストラクターで初期化されます。
 
 ```cpp
 m_myGamepads = ref new Vector<Gamepad^>();
@@ -198,7 +198,7 @@ if (m_gamepad != nullptr)
 }
 ```
 
-最後のフレームで取得した入力の読み取り値は **m_oldReading** を使用して追跡し、最新の入力の読み取り値は **m_newReading** を使用して追跡します。最新の入力は [gamepad::getcurrentreading](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepad.GetCurrentReading) を呼び出すことによって取得します。 これは [GamepadReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadreading) オブジェクトを返します。このオブジェクトには、ゲームパッドの現在の状態に関する情報が含まれます。
+最後のフレームで取得した入力の読み取り値は **m_oldReading** を使用して追跡し、最新の入力の読み取り値は **m_newReading** を使用して追跡します。最新の入力は [gamepad::getcurrentreading](/uwp/api/windows.gaming.input.gamepad.GetCurrentReading) を呼び出すことによって取得します。 これは [GamepadReading](/uwp/api/windows.gaming.input.gamepadreading) オブジェクトを返します。このオブジェクトには、ゲームパッドの現在の状態に関する情報が含まれます。
 
 ボタンがたった今押されたか、離されたかを確認するために、**MarbleMazeMain::ButtonJustPressed** と **MarbleMazeMain::ButtonJustReleased** を定義しています。これは、このフレームと最後のフレームからのボタンの読み取り値を比較します。 これによって、ボタンが最初に押されたか、離されたときにのみアクションを実行し、ボタンが押されたままになっているときは実行しないようにできます。
 
@@ -222,7 +222,7 @@ bool MarbleMaze::MarbleMazeMain::ButtonJustReleased(GamepadButtons selection)
 }
 ```
 
-[説明][ボタン](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamepadbuttons)の読み取りはビットごとの演算を使用して比較され&mdash;*ビットごとの and* (&) を使用してボタンが押されているかどうかを確認します。 前回の読み取り値と新しい読み取り値を比較することによって、ボタンがたった今押されたか、離されたかを特定します。
+[GamepadButtons](/uwp/api/windows.gaming.input.gamepadbuttons) 、 &mdash; *ビットごとの and* (&) を使用してボタンが押されたかどうかを確認するビットごとの演算を使用して、説明を比較します。 前回の読み取り値と新しい読み取り値を比較することによって、ボタンがたった今押されたか、離されたかを特定します。
 
 上記の方法を使用して、特定のボタンが押されたかどうかを確認し、必要な対応するアクションを実行します。 たとえば、メニュー ボタン (**GamepadButtons::Menu**) が押されたときは、ゲームの状態がアクティブから一時停止、または一時停止からアクティブに変わります。
 
@@ -324,7 +324,7 @@ case GameState::InGamePaused:
 
 ### <a name="tracking-touch-and-mouse-input"></a>タッチとマウスによる入力のトラッキング
 
-タッチとマウスによる入力では、メニュー項目は、ユーザーがその項目をタッチまたはクリックしたときに選択されます。 次の例は、**MarbleMazeMain::Update** メソッドがポインターの入力を処理してメニュー項目を選択する方法を示します。 **M\_pointQueue**メンバー変数は、ユーザーが画面を操作またはクリックした場所を追跡します。 Marble Maze のポインター入力の収集方法については、このドキュメントの「[ポインターの入力の処理](#processing-pointer-input)」で詳しく説明します。
+タッチとマウスによる入力では、メニュー項目は、ユーザーがその項目をタッチまたはクリックしたときに選択されます。 次の例は、**MarbleMazeMain::Update** メソッドがポインターの入力を処理してメニュー項目を選択する方法を示します。 **M \_ pointqueue**メンバー変数は、ユーザーが画面を操作またはクリックした場所を追跡します。 大理石の迷路がポインター入力を収集する方法については、このドキュメントで後述する「 [ポインター入力の処理](#processing-pointer-input)」セクションで詳しく説明します。
 
 ```cpp
 // Check whether the user chose a button from the UI. 
@@ -388,7 +388,7 @@ float combinedTiltY = 0.0f;
 
 ###  <a name="processing-pointer-input"></a>ポインターの入力の処理
 
-ポインターの入力を処理するときは、[Windows::UI::Core::CoreDispatcher::ProcessEvents](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) メソッドを呼び出してウィンドウ イベントを処理します。 このメソッドは、ゲーム ループ内でシーンの更新またはレンダリングの前に呼び出します。 Marble Maze では、**App::Run** メソッドでこれを呼び出します。 
+ポインターの入力を処理するときは、[Windows::UI::Core::CoreDispatcher::ProcessEvents](/uwp/api/windows.ui.core.coredispatcher.processevents) メソッドを呼び出してウィンドウ イベントを処理します。 このメソッドは、ゲーム ループ内でシーンの更新またはレンダリングの前に呼び出します。 Marble Maze では、**App::Run** メソッドでこれを呼び出します。 
 
 ```cpp
 while (!m_windowClosed)
@@ -490,7 +490,7 @@ for (TouchMap::const_iterator iter = m_touches.cbegin();
 
 ### <a name="processing-accelerometer-input"></a>加速度計の入力の処理
 
-加速度計の入力を処理するために、**MarbleMazeMain::Update** メソッドは [Windows::Devices::Sensors::Accelerometer::GetCurrentReading](https://docs.microsoft.com/uwp/api/windows.devices.sensors.accelerometer.getcurrentreading) メソッドを呼び出します。 このメソッドは、加速度計の測定値を表す [Windows::Devices::Sensors::AccelerometerReading](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.AccelerometerReading) オブジェクトを返します。 **Windows::Devices::Sensors::AccelerometerReading::AccelerationX** プロパティと **Windows::Devices::Sensors::AccelerometerReading::AccelerationY** プロパティは、X 軸方向と Y 軸方向の重力加速度をそれぞれ保持します。
+加速度計の入力を処理するために、**MarbleMazeMain::Update** メソッドは [Windows::Devices::Sensors::Accelerometer::GetCurrentReading](/uwp/api/windows.devices.sensors.accelerometer.getcurrentreading) メソッドを呼び出します。 このメソッドは、加速度計の測定値を表す [Windows::Devices::Sensors::AccelerometerReading](/uwp/api/Windows.Devices.Sensors.AccelerometerReading) オブジェクトを返します。 **Windows::Devices::Sensors::AccelerometerReading::AccelerationX** プロパティと **Windows::Devices::Sensors::AccelerometerReading::AccelerationY** プロパティは、X 軸方向と Y 軸方向の重力加速度をそれぞれ保持します。
 
 次の例は、**MarbleMazeMain::Update** メソッドが加速度計をポーリングし、結合された入力値の更新を行う方法を示します。 デバイスを傾けると、重力によって大理石が速く移動します。
 
@@ -512,7 +512,7 @@ if (m_accelerometer != nullptr)
 }
 ```
 
-ユーザーのコンピューターに加速度計が搭載されているかどうかは不確かなため、加速度計のポーリングを行う前には必ず、有効な [Accelerometer](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトがあることを確認してください。
+ユーザーのコンピューターに加速度計が搭載されているかどうかは不確かなため、加速度計のポーリングを行う前には必ず、有効な [Accelerometer](/uwp/api/Windows.Devices.Sensors.Accelerometer) オブジェクトがあることを確認してください。
 
 ### <a name="processing-xbox-controller-input"></a>Xbox コントローラーの入力の処理
 
@@ -541,14 +541,14 @@ if ((oppositeSquared + adjacentSquared) > m_deadzoneSquared)
 
 ###  <a name="applying-input-to-the-game-state"></a>ゲームの状態への入力の適用
 
-デバイスは、さまざまな方法で入力値を報告します。 たとえば、ポインターの入力は通常、画面座標で報告されますが、コントローラーの入力の形式は、それとはまったく異なることが考えられます。 複数のデバイスからの入力を一連の入力値に結合する際の課題の 1 つに、正規化 (共通形式への値の変換) があります。 大理石の迷路は、値を \[-1.0、1.0\]の範囲に拡張することで、値を正規化します。 このセクションで既に説明した **PointToTouch** 関数は、画面座標をおよそ -1.0 ～ +1.0 の範囲内の正規化された値に変換します。
+デバイスは、さまざまな方法で入力値を報告します。 たとえば、ポインターの入力は通常、画面座標で報告されますが、コントローラーの入力の形式は、それとはまったく異なることが考えられます。 複数のデバイスからの入力を一連の入力値に結合する際の課題の 1 つに、正規化 (共通形式への値の変換) があります。 大理石の迷路は、値を-1.0、1.0 の範囲に拡張することで正規化 \[ \] します。 このセクションで既に説明した **PointToTouch** 関数は、画面座標をおよそ -1.0 ～ +1.0 の範囲内の正規化された値に変換します。
 
 > [!TIP]
 > アプリケーションで用いられる入力方法が 1 つであっても、常に入力値を正規化することをお勧めします。 そうすることで、ゲームの他のコンポーネント (物理シミュレーションなど) が入力を解釈する方法を簡略化でき、さまざまな画面解像度で動作するゲームが作成しやすくなります。
 
  
 
-入力を処理した後、**MarbleMazeMain::Update** メソッドは、大理石に対する迷路の傾きの影響を表すベクターを作成します。 次の例は、Marble Maze が [XMVector3Normalize](https://docs.microsoft.com/windows/desktop/api/directxmath/nf-directxmath-xmvector3normalize) 関数を使って正規化された重力ベクターを作成する方法を示します。 **maxTilt** 変数は迷路の傾きの量を制限し、迷路が横向きに傾けられるのを防ぎます。
+入力を処理した後、**MarbleMazeMain::Update** メソッドは、大理石に対する迷路の傾きの影響を表すベクターを作成します。 次の例は、Marble Maze が [XMVector3Normalize](/windows/desktop/api/directxmath/nf-directxmath-xmvector3normalize) 関数を使って正規化された重力ベクターを作成する方法を示します。 **Maxtilt**変数は、迷路が傾斜する量を制限し、迷路が傾ける側になるのを防ぎます。
 
 ```cpp
 const float maxTilt = 1.0f / 8.0f;
@@ -603,9 +603,9 @@ if (marblePosition.z >= resetDepth)
 }
 ```
 
-このセクションでは、物理シミュレーションのしくみについては説明しません。 詳しくは、Marble Maze のソースの **Physics.h** と **Physics.cpp** をご覧ください。
+このセクションでは、物理シミュレーションのしくみについては説明しません。 詳細については、「大理石迷路ソース」の「 **物理** 」および「 **物理 .cpp** 」を参照してください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 
 オーディオを扱う際の主な手法については、「[Marble Maze サンプルへのオーディオの追加](adding-audio-to-the-marble-maze-sample.md)」をご覧ください。 このドキュメントでは、Marble Maze が Microsoft メディア ファンデーションと XAudio2 を使ってオーディオ リソースの読み込み、ミキシング、再生を行う方法について説明しています。
@@ -613,14 +613,10 @@ if (marblePosition.z >= resetDepth)
 ## <a name="related-topics"></a>関連トピック
 
 
-* [大理石の迷路サンプルにオーディオを追加する](adding-audio-to-the-marble-maze-sample.md)
-* [大理石の迷路サンプルにビジュアルコンテンツを追加する](adding-visual-content-to-the-marble-maze-sample.md)
-* [および DirectX でのC++ UWP ゲームである大理石迷路の開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
+* [Marble Maze のサンプルへのオーディオの追加](adding-audio-to-the-marble-maze-sample.md)
+* [Marble Maze サンプルへの視覚的なコンテンツの追加](adding-visual-content-to-the-marble-maze-sample.md)
+* [Marble Maze、C++ と DirectX での UWP ゲームの開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
 
  
 
  
-
-
-
-

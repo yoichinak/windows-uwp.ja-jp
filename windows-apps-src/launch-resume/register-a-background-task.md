@@ -6,21 +6,21 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: c80419a5353386872356eee7a677f10d616a9f6a
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 06d9fdfe57ead1e5405a21658654a8992343bb95
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259425"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172966"
 ---
 # <a name="register-a-background-task"></a>バックグラウンド タスクの登録
 
 
 **重要な API**
 
--   [**BackgroundTaskRegistration クラス**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration)
--   [**BackgroundTaskBuilder クラス**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
--   [**SystemCondition クラス**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemCondition)
+-   [**BackgroundTaskRegistration クラス**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration)
+-   [**BackgroundTaskBuilder クラス**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
+-   [**SystemCondition クラス**](/uwp/api/Windows.ApplicationModel.Background.SystemCondition)
 
 ほとんどのバックグラウンド タスクを安全に登録できる再利用可能な関数の作成方法について説明します。
 
@@ -28,18 +28,18 @@ ms.locfileid: "74259425"
 
 このトピックは、バックグラウンド タスクを登録するユーティリティ関数の作り方を順に説明します。 このユーティリティ関数は、二重登録による問題を防ぐために、同じタスクが登録されていないかどうかをチェックしたうえでタスクを登録します。バックグラウンド タスクにシステムの条件を適用することができます。 ここで紹介しているユーティリティ関数は、それ自体で完結した実用的なコード例となっています。
 
-**注:**  
+**注**  
 
-ユニバーサル Windows アプリは、どの種類のバックグラウンド トリガーを登録する場合でも、先に [**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) を呼び出す必要があります。
+ユニバーサル Windows アプリは、どの種類のバックグラウンド トリガーを登録する場合でも、先に [**RequestAccessAsync**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) を呼び出す必要があります。
 
-更新プログラムのリリース後にユニバーサル Windows アプリが引き続き適切に実行されるようにするには、更新後にアプリが起動する際に、[**RemoveAccess**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.removeaccess)、[**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) の順に呼び出す必要があります。 詳しくは、「[バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)」をご覧ください。
+更新プログラムのリリース後にユニバーサル Windows アプリが引き続き適切に実行されるようにするには、更新後にアプリが起動する際に、[**RemoveAccess**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.removeaccess)、[**RequestAccessAsync**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.requestaccessasync) の順に呼び出す必要があります。 詳しくは、「[バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)」をご覧ください。
 
 ## <a name="define-the-method-signature-and-return-type"></a>メソッドのシグニチャと戻り値の型の定義
 
-このメソッドは、タスクのエントリ ポイント、タスク名、構築済みのバックグラウンド タスク トリガーのほか、(必要に応じて) バックグラウンド タスクの [**SystemCondition**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemCondition) を引数として受け取ります。 このメソッドは、[**BackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration) オブジェクトを返します。
+このメソッドは、タスクのエントリ ポイント、タスク名、構築済みのバックグラウンド タスク トリガーのほか、(必要に応じて) バックグラウンド タスクの [**SystemCondition**](/uwp/api/Windows.ApplicationModel.Background.SystemCondition) を引数として受け取ります。 このメソッドは、[**BackgroundTaskRegistration**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration) オブジェクトを返します。
 
 > [!Important]
-> `taskEntryPoint`-アウトプロセスで実行されるバックグラウンドタスクの場合は、名前空間名、'. '、およびバックグラウンドクラスを含むクラスの名前として作成する必要があります。 この文字列では、大文字と小文字を区別します。  たとえば、名前空間 "MyBackgroundTasks" と、バックグラウンド クラス コードを含むクラス "BackgroundTask1" がある場合、`taskEntryPoint` 用の文字列は "MyBackgroundTasks.BackgroundTask1" となります。
+> `taskEntryPoint` -アウトプロセスで実行されるバックグラウンドタスクの場合は、名前空間名、'. '、およびバックグラウンドクラスを含むクラスの名前として作成する必要があります。 この文字列では、大文字と小文字を区別します。  たとえば、名前空間 "MyBackgroundTasks" と、バックグラウンド クラス コードを含むクラス "BackgroundTask1" がある場合、`taskEntryPoint` 用の文字列は "MyBackgroundTasks.BackgroundTask1" となります。
 > バックグラウンド タスクをアプリと同じプロセスで実行する (インプロセスのバックグラウンド タスク) 場合、`taskEntryPoint` を設定する必要はありません。
 
 > [!div class="tabbedCodeSnippets"]
@@ -72,11 +72,11 @@ ms.locfileid: "74259425"
 
 既に登録されたタスクかどうかを確認します。 同じタスクが二重に登録されると、1 回のトリガーにつきタスクが複数回実行され、CPU が無駄に消費されるばかりか、予期しない動作を招くこともあるため、この確認は重要です。
 
-同じタスクが登録されているかどうかは、[**BackgroundTaskRegistration.AllTasks**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.alltasks) プロパティを照会し、返された結果を反復処理することで確認できます。 各インスタンスの名前を調べ、登録しようとしているタスクの名前と一致した場合、ループを抜けて、フラグ変数を設定します。このフラグに応じたコード パスが次のステップで選択されます。
+同じタスクが登録されているかどうかは、[**BackgroundTaskRegistration.AllTasks**](/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.alltasks) プロパティを照会し、返された結果を反復処理することで確認できます。 各インスタンスの名前を調べ、登録しようとしているタスクの名前と一致した場合、ループを抜けて、フラグ変数を設定します。このフラグに応じたコード パスが次のステップで選択されます。
 
-> アプリに固有のバックグラウンドタスク名を使用  **ことに注意**してください。 各バックグラウンド タスクには一意の名前が付いている必要があります。
+> **メモ**   アプリに固有のバックグラウンドタスク名を使用します。 各バックグラウンド タスクには一意の名前が付いている必要があります。
 
-次のコードは、最後の手順で作成した [**SystemTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTrigger) を使ってバックグラウンド タスクを登録します。
+次のコードは、最後の手順で作成した [**SystemTrigger**](/uwp/api/Windows.ApplicationModel.Background.SystemTrigger) を使ってバックグラウンド タスクを登録します。
 
 > [!div class="tabbedCodeSnippets"]
 > ``` csharp
@@ -145,9 +145,9 @@ ms.locfileid: "74259425"
 
 同じバックグラウンド タスクが既に登録されているかどうかを確認します。 登録されている場合は、そのタスクのインスタンスを返します。
 
-登録されていない場合は、新しい [**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトを使ってタスクを登録します。 このコードは、condition パラメーターが null かどうかを確認し、null でない場合は、その condition を登録オブジェクトに追加します。 戻り値は、[**BackgroundTaskBuilder.Register**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration) メソッドから返された [**BackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register) です。
+登録されていない場合は、新しい [**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトを使ってタスクを登録します。 このコードは、condition パラメーターが null かどうかを確認し、null でない場合は、その condition を登録オブジェクトに追加します。 戻り値は、[**BackgroundTaskBuilder.Register**](/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.register) メソッドから返された [**BackgroundTaskRegistration**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration) です。
 
->   バックグラウンドタスクの登録パラメーターが登録時に検証される**ことに注意**してください。 いずれかの登録パラメーターが有効でない場合は、エラーが返されます。 バックグラウンド タスクの登録が失敗するシナリオをアプリが適切に処理するようにします。タスクを登録しようとした後で、有効な登録オブジェクトを持っていることを前提として動作するアプリは、クラッシュする場合があります。
+> **メモ**   バックグラウンドタスクの登録パラメーターは、登録時に検証されます。 いずれかの登録パラメーターが有効でない場合は、エラーが返されます。 バックグラウンド タスクの登録が失敗するシナリオをアプリが適切に処理するようにします。タスクを登録しようとした後で、有効な登録オブジェクトを持っていることを前提として動作するアプリは、クラッシュする場合があります。
 > **注** アプリと同じプロセスで実行されるバックグラウンド タスクを登録する場合、`String.Empty` または `null` を `taskEntryPoint` パラメーターに送信します。
 
 次の例には、既にあるタスクを返すか、バックグラウンド タスクを登録するコードが追加されています。また、システムの条件 (省略可能) が指定された場合の処理も追加されています。
@@ -387,4 +387,4 @@ ms.locfileid: "74259425"
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](/previous-versions/hh974425(v=vs.110))

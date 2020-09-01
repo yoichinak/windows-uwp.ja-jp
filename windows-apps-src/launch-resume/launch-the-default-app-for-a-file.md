@@ -1,48 +1,48 @@
 ---
 title: ファイルに応じた既定のアプリの起動
-description: ファイルに応じて既定のアプリを起動する方法について説明します。
+description: Windows.System の使用方法について説明します。ランチャー API を使用して、アプリ自体を処理できないファイルの既定のハンドラーを起動します。
 ms.assetid: BB45FCAF-DF93-4C99-A8B5-59B799C7BD98
 ms.date: 07/05/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 94011a50bd339b98b6bb77ff82f5863d8c89c603
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 34aee5b2e2f04b7e5d72a7bc31d2cfafc1bcb6fb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318722"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167846"
 ---
 # <a name="launch-the-default-app-for-a-file"></a>ファイルに応じた既定のアプリの起動
 
 **重要な API**
 
--   [**Windows.System.Launcher.LaunchFileAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync)
+-   [**Windows.System.Launcher.LaunchFileAsync**](/uwp/api/windows.system.launcher.launchfileasync)
 
-ファイルに応じて既定のアプリを起動する方法について説明します。 多くのアプリでは、アプリ自体で処理できないファイルを操作する必要が生じる場合があります。 たとえば、さまざまな種類のファイルを受け取るメール アプリは、これらのファイルを既定のハンドラーで起動する手段を備えている必要があります。 以下の手順では、[**Windows.System.Launcher**](https://docs.microsoft.com/uwp/api/Windows.System.Launcher) API を使って、アプリがそれ自体で処理できないファイルの既定のハンドラーを起動する方法を示します。
+ファイルに応じて既定のアプリを起動する方法について説明します。 多くのアプリでは、アプリ自体で処理できないファイルを操作する必要が生じる場合があります。 たとえば、さまざまな種類のファイルを受け取るメール アプリは、これらのファイルを既定のハンドラーで起動する手段を備えている必要があります。 以下の手順では、[**Windows.System.Launcher**](/uwp/api/Windows.System.Launcher) API を使って、アプリがそれ自体で処理できないファイルの既定のハンドラーを起動する方法を示します。
 
 ## <a name="get-the-file-object"></a>ファイル オブジェクトを取得する
 
-最初にファイルの [**Windows.Storage.StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。
+最初にファイルの [**Windows.Storage.StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。
 
-ファイルがアプリのパッケージに含まれている場合は、[**Package.InstalledLocation**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.package.installedlocation) プロパティで [**Windows.Storage.StorageFolder**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFolder) オブジェクトを取得し、[**Windows.Storage.StorageFolder.GetFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfileasync) メソッドで [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。
+ファイルがアプリのパッケージに含まれている場合は、[**Package.InstalledLocation**](/uwp/api/windows.applicationmodel.package.installedlocation) プロパティで [**Windows.Storage.StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) オブジェクトを取得し、[**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync) メソッドで [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。
 
-ファイルが既知のフォルダー内にある場合には、[**Windows.Storage.KnownFolders**](https://docs.microsoft.com/uwp/api/Windows.Storage.KnownFolders) クラスのプロパティで [**StorageFolder**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFolder) を取得し、[**GetFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfileasync) メソッドで [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。
+ファイルが既知のフォルダー内にある場合には、[**Windows.Storage.KnownFolders**](/uwp/api/Windows.Storage.KnownFolders) クラスのプロパティで [**StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) を取得し、[**GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync) メソッドで [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。
 
 ## <a name="launch-the-file"></a>ファイルを起動する
 
 Windows には、ファイルの既定のハンドラーを起動するためのいくつかの異なるオプションが用意されています。 これらのオプションについて、次の表とセクションで説明します。
 
-| オプション | メソッド | 説明 |
+| オプション | Method | 説明 |
 |--------|--------|-------------|
-| 既定の起動 | [**LaunchFileAsync(IStorageFile)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync) | 指定されたファイルを既定のハンドラーで起動します。 |
-| [プログラムから開く] を使った起動 | [**LaunchFileAsync(IStorageFile, LauncherOptions)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) | 指定されたファイルを [プログラムから開く] ダイアログでユーザーによって選択されたハンドラーを使って起動します。 |
-| 推奨されるアプリ フォールバックを使った起動 | [**LaunchFileAsync(IStorageFile, LauncherOptions)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) | 指定されたファイルを既定のハンドラーで起動します。 ハンドラーがシステムにインストールされていない場合は、ストアにあるアプリをユーザーに勧めます。 |
-| 画面上に留まった適切なビューを使った起動 | [ **(IStorageFile、LauncherOptions) LaunchFileAsync** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) (Windows のみ) | 指定されたファイルを既定のハンドラーで起動します。 起動後も画面上に留まるように指定し、特定のウィンドウ サイズを要求します。 [**LauncherOptions.DesiredRemainingView** ](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)はモバイル デバイス ファミリでサポートされていません。 |
+| 既定の起動 | [**LaunchFileAsync(IStorageFile)**](/uwp/api/windows.system.launcher.launchfileasync) | 指定されたファイルを既定のハンドラーで起動します。 |
+| [プログラムから開く] を使った起動 | [**LaunchFileAsync(IStorageFile, LauncherOptions)**](/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) | 指定されたファイルを [プログラムから開く] ダイアログでユーザーによって選択されたハンドラーを使って起動します。 |
+| 推奨されるアプリ フォールバックを使った起動 | [**LaunchFileAsync(IStorageFile, LauncherOptions)**](/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) | 指定されたファイルを既定のハンドラーで起動します。 ハンドラーがシステムにインストールされていない場合は、ストアにあるアプリをユーザーに勧めます。 |
+| 画面上に留まった適切なビューを使った起動 | [**LaunchFileAsync(IStorageFile, LauncherOptions)**](/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) (Windows のみ) | 指定されたファイルを既定のハンドラーで起動します。 起動後も画面上に留まるように指定し、特定のウィンドウ サイズを要求します。 [**LauncherOptions.DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) はモバイル デバイス ファミリではサポートされていません。 |
 
 ### <a name="default-launch"></a>既定の起動
 
-既定のアプリを起動するには、[**Windows.System.Launcher.LaunchFileAsync(IStorageFile)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync) メソッドを呼び出します。 この例では [**Windows.Storage.StorageFolder.GetFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfileasync) メソッドを使って、このアプリ パッケージに含まれる画像ファイル test.png を起動します。
+既定のアプリを起動するには、[**Windows.System.Launcher.LaunchFileAsync(IStorageFile)**](/uwp/api/windows.system.launcher.launchfileasync) メソッドを呼び出します。 この例では [**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync) メソッドを使って、このアプリ パッケージに含まれる画像ファイル test.png を起動します。
 
 ```csharp
 async void DefaultLaunch()
@@ -155,9 +155,9 @@ void MainPage::DefaultLaunch()
 
 ### <a name="open-with-launch"></a>[プログラムから開く] を使った起動
 
-[  **LauncherOptions.DisplayApplicationPicker**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.displayapplicationpicker) を **true** に設定して [**Windows.System.Launcher.LaunchFileAsync(IStorageFile, LauncherOptions)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) メソッドを呼び出して、ユーザーが **[プログラムから開く]** ダイアログ ボックスで選んだアプリを起動します。
+[**LauncherOptions.DisplayApplicationPicker**](/uwp/api/windows.system.launcheroptions.displayapplicationpicker) を **true** に設定して [**Windows.System.Launcher.LaunchFileAsync(IStorageFile, LauncherOptions)**](/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) メソッドを呼び出して、ユーザーが **[プログラムから開く]** ダイアログ ボックスで選んだアプリを起動します。
 
-ユーザーが特定のファイルに既定以外のアプリを選ぶ場合は、 **[プログラムから開く]** ダイアログ ボックスを使うことをお勧めします。 たとえば、アプリで画像ファイルを起動できる場合、既定のハンドラーは多くの場合ビューアー アプリです。 場合によっては、ユーザーが画像の表示ではなく編集を行うこともあります。 **[プログラムから開く]** オプションを **AppBar** またはコンテキスト メニューで代替コマンドと共に使って、ユーザーが **[プログラムから開く]** ダイアログを開き、このようなシナリオでエディター アプリを選択できるようにします。
+ユーザーが特定のファイルに既定以外のアプリを選ぶ場合は、**[プログラムから開く]** ダイアログ ボックスを使うことをお勧めします。 たとえば、アプリで画像ファイルを起動できる場合、既定のハンドラーは多くの場合ビューアー アプリです。 場合によっては、ユーザーが画像の表示ではなく編集を行うこともあります。 **[プログラムから開く]** オプションを **AppBar** またはコンテキスト メニューで代替コマンドと共に使って、ユーザーが **[プログラムから開く]** ダイアログを開き、このようなシナリオでエディター アプリを選択できるようにします。
 
 ![.png ファイルの起動のための [プログラムから開く] ダイアログ。 このダイアログには、ユーザーによって選択されたアプリをすべての .png ファイルに使用するかまたはこの 1 つの .png ファイルのみに使用するかを指定するチェック ボックスがあります。 また、このダイアログには、ファイルの起動に関する 4 つのアプリ オプションと、[その他のオプション] リンクがあります。](images/checkboxopenwithdialog.png)
 
@@ -287,12 +287,12 @@ void MainPage::DefaultLaunch()
 }
 ```
 
-**フォールバックの推奨されるアプリを起動します。**
+**推奨されるアプリ フォールバックを使った起動**
 
-場合によっては、起動中のファイルを処理するためのアプリがインストールされていないこともあります。 既定では、Windows はストア上の適切なアプリを検索するリンクを表示して、これらのケースに対処します。 このシナリオで入手するアプリに関する特定の推奨事項を示す場合は、起動中のファイルと共に推奨事項を渡すことができます。 そのためには、[**LauncherOptions.PreferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname) を推奨するストア内のアプリのパッケージのファミリ名に設定して、[**Windows.System.Launcher.launchFileAsync(IStorageFile, LauncherOptions)** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) メソッドを呼び出します。 その後、[**LauncherOptions.PreferredApplicationDisplayName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationdisplayname) をそのアプリの名前に設定します。 Windows ではこの情報を使って、ストア内のアプリを検索する一般的なオプションを、ストアから推奨アプリを入手する固有のオプションに置き換えます。
+場合によっては、起動中のファイルを処理するためのアプリがインストールされていないこともあります。 既定では、Windows はストア上の適切なアプリを検索するリンクを表示して、これらのケースに対処します。 このシナリオで入手するアプリに関する特定の推奨事項を示す場合は、起動中のファイルと共に推奨事項を渡すことができます。 そのためには、[**LauncherOptions.PreferredApplicationPackageFamilyName**](/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname) を推奨するストア内のアプリのパッケージのファミリ名に設定して、[**Windows.System.Launcher.launchFileAsync(IStorageFile, LauncherOptions)**](/uwp/api/windows.system.launcher.launchfileasync#Windows_System_Launcher_LaunchFileAsync_Windows_Storage_IStorageFile_Windows_System_LauncherOptions_) メソッドを呼び出します。 その後、[**LauncherOptions.PreferredApplicationDisplayName**](/uwp/api/windows.system.launcheroptions.preferredapplicationdisplayname) をそのアプリの名前に設定します。 Windows ではこの情報を使って、ストア内のアプリを検索する一般的なオプションを、ストアから推奨アプリを入手する固有のオプションに置き換えます。
 
 > [!NOTE]
-> アプリをお勧めします。 これらのオプションの両方を設定する必要があります。 どちらか一方のみを設定した場合は、エラーになります。
+> アプリを推奨するには、これらのオプションの両方を設定する必要があります。 どちらか一方のみを設定した場合は、エラーになります。
 
 ![.contoso ファイルの起動のための [プログラムから開く] ダイアログ。 コンピューターには .contoso に対応するハンドラーがインストールされていないため、このダイアログには、ストア アイコンとストア上の適切なハンドラーをユーザーに通知するテキストを含むオプションが表示されます。 このダイアログには、[その他のオプション] リンクもあります。](images/howdoyouwanttoopen.png)
 
@@ -434,12 +434,12 @@ void MainPage::DefaultLaunch()
 
 ### <a name="launch-with-a-desired-remaining-view-windows-only"></a>画面上に留まった適切なビューを使った起動 (Windows のみ)
 
-[  **LaunchFileAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync) を呼び出すソース アプリは、ファイルの起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリとファイルを処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、ファイルの起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わってもよいことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
+[**LaunchFileAsync**](/uwp/api/windows.system.launcher.launchfileasync) を呼び出すソース アプリは、ファイルの起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリとファイルを処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、ファイルの起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わってもよいことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
 
 > [!NOTE]
-> Windows では、複数のさまざまな要素、たとえば、ソース アプリの最終的なウィンドウのサイズを決定する場合、ソース アプリの基本設定、画面、画面の向き、上のアプリの数が考慮されます。 [  **DesiredRemainingView**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
+> ソースアプリの最終的なウィンドウサイズ (ソースアプリの優先度、画面上のアプリの数、画面の向きなど) を決定するときに、Windows では複数の異なる要因が考慮されます。 [**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
 
-**モバイル デバイス ファミリ:  **[**LauncherOptions.DesiredRemainingView** ](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.desiredremainingview)はモバイル デバイス ファミリでサポートされていません。
+**モバイルデバイスファミリ:  **[**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) は、モバイルデバイスファミリではサポートされていません。
 
 ```csharp
 async void DefaultLaunch()
@@ -552,16 +552,16 @@ void MainPage::DefaultLaunch()
 
 ## <a name="related-topics"></a>関連トピック
 
-### <a name="tasks"></a>処理手順
+### <a name="tasks"></a>タスク
 
 * [URI に応じた既定のアプリの起動](launch-default-app.md)
 * [ファイルのアクティブ化の処理](handle-file-activation.md)
 
 ### <a name="guidelines"></a>ガイドライン
 
-* [ファイルの種類と Uri のガイドライン](https://docs.microsoft.com/windows/uwp/files/index)
+* [ファイルの種類と URI のガイドライン](../files/index.md)
 
-### <a name="reference"></a>リファレンス
+### <a name="reference"></a>参照先
 
-* [**Windows.Storage.StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)
-* [**Windows.System.Launcher.LaunchFileAsync**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchfileasync)
+* [**Windows.Storage.StorageFile**](/uwp/api/Windows.Storage.StorageFile)
+* [**Windows.System.Launcher.LaunchFileAsync**](/uwp/api/windows.system.launcher.launchfileasync)

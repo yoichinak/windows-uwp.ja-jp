@@ -1,23 +1,23 @@
 ---
 title: Microsoft Store アプリの起動
-description: このトピックでは、ms-windows-store URI スキームについて説明します。 アプリは、この URI スキームを使用して、Microsoft Store アプリ、ストアの特定のページを起動することができます。
+description: このトピックでは、ms-windows-store URI スキームについて説明します。 アプリはこの URI スキームを使用して、ストア内の特定のページに対して Microsoft Store アプリを起動できます。
 ms.assetid: 9A9C6576-1637-47D1-AC3B-D1A20D49E0FF
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fd0e7137f31a8f1620f7937b52efe1ca84a6b99a
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 1a31c762c002e711a87e99e2f97de6c26e2c8b48
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370782"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172986"
 ---
 # <a name="launch-the-microsoft-store-app"></a>Microsoft Store アプリの起動
 
 
 
-このトピックで説明します、 **ms-windows ストア。** URI スキーム。 アプリは、この URI スキームを使用して、使用して、ストア内の特定のページに、Microsoft Store アプリを起動する、 [ **LaunchUriAsync** ](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync)メソッド。
+ここでは、**ms-windows-store:** URI スキームについて説明します。 アプリはこの URI スキームを使用して、 [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドを使用して、ストア内の特定のページに対して Microsoft Store アプリを起動できます。
 
 この例では、Microsoft Store のゲームのページを開く方法を示します。
 
@@ -25,12 +25,12 @@ ms.locfileid: "66370782"
 bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://navigatetopage/?Id=Games"));
 ```
 
-## <a name="ms-windows-store-uri-scheme-reference"></a>ms-windows ストア:URI スキームの参照
+## <a name="ms-windows-store-uri-scheme-reference"></a>ms-windows-store: URI スキーム リファレンス
 
 <table>
 <tr><th>説明</th><th></th><th>URI スキーム</th></tr>
 <tr><td>ストアのホーム ページを起動します。</td><td /><td>ms-windows-store://home</td></tr>
-<tr><td>ストア内の最上位レベルのカテゴリを起動します。<p>注:すべてのユーザーでは、すべての業種にアクセスします。</p>
+<tr><td>ストア内の最上位レベルのカテゴリを起動します。<p>注: すべてのユーザーがすべてのカテゴリにアクセスできるわけではありません。</p>
 </td><td /><td>
 <p>ms-windows-store://navigatetopage/?Id=Apps </p>
 <p>ms-windows-store://navigatetopage/?Id=Games</p>
@@ -40,8 +40,8 @@ bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-s
 </td>
 </tr>
 <tr>
-<td rowspan="4">製品の詳細ページ (PDP) を起動します。 <p>Store ID は、Windows 10 でのお客様をお勧めし、協力してこれ以前の方法がすべての OS バージョン (例。PFN) はまだサポートされています。</p>
-<p>これらの値を確認できる<a href="https://partner.microsoft.com/dashboard">パートナー センター</a>上、<a href="https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details">アプリ id</a>  ページの各アプリのアプリの管理セクション。</p>
+<td rowspan="4">製品の詳細ページ (PDP) を起動します。 <p>ストア ID を使う方法は Windows 10 のユーザー向けに推奨される一方ですべての OS バージョンで動作しますが、以前の方法 (PFN など) も使うことができます。</p>
+<p>これらの値は、各アプリの [アプリの管理] セクションの [<a href="https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details">アプリ id</a> ] ページにある<a href="https://partner.microsoft.com/dashboard">パートナーセンター</a>にあります。</p>
 </td>
 <td>
 Store ID <p>(推奨)</p>

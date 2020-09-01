@@ -1,21 +1,21 @@
 ---
 ms.assetid: 934F2DBF-2C7E-4B77-997D-17B9B0535D51
-description: Microsoft Store 送信 API でこのメソッドを使用して、パートナー センターに新しいまたは更新されたアプリの提出をコミットします。
+description: 新しいまたは更新されたアプリの送信をパートナーセンターにコミットするには、Microsoft Store 送信 API でこのメソッドを使用します。
 title: アプリの申請のコミット
 ms.date: 04/17/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリの申請のコミット
 ms.localizationpriority: medium
-ms.openlocfilehash: 36c645303a86bc28f12fa8e31b8a83653c167664
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 83d9527b93e60af144b8c38d98a4f2e4af7852d9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371995"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171666"
 ---
 # <a name="commit-an-app-submission"></a>アプリの申請のコミット
 
-Microsoft Store 送信 API でこのメソッドを使用して、パートナー センターに新しいまたは更新されたアプリの提出をコミットします。 コミット アクション アラート パートナー センター (すべての関連するパッケージとイメージを含む) の送信データがアップロードされています。 応答では、パートナー センターは、送信データの取り込みおよび発行に変更をコミットします。 コミット操作が成功すると、パートナー センターで、送信への変更が表示されます。
+新しいまたは更新されたアプリの送信をパートナーセンターにコミットするには、Microsoft Store 送信 API でこのメソッドを使用します。 コミットアクションは、送信データがアップロードされたことをパートナーセンターに通知します (関連するパッケージやイメージを含む)。 応答として、パートナーセンターは、送信データへの変更を、インジェストおよび発行のためにコミットします。 コミット操作が成功すると、送信に対する変更がパートナーセンターに表示されます。
 
 コミット操作が Microsoft Store 申請 API を使ったアプリ申請プロセスにどのように適合するかについては、「[アプリの申請の管理](manage-app-submissions.md)」をご覧ください。
 
@@ -31,26 +31,26 @@ Microsoft Store 送信 API でこのメソッドを使用して、パートナ�
 
 このメソッドの構文は次のとおりです。 ヘッダーと要求本文の使用例と説明については、次のセクションをご覧ください。
 
-| メソッド | 要求 URI                                                      |
+| 認証方法 | 要求 URI                                                      |
 |--------|------------------------------------------------------------------|
 | POST    | `https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/submissions/{submissionId}/commit` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                                                                 |
+| Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-| 名前        | 種類   | 説明                                                                 |
+| 名前        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| applicationId | string | 必須。 コミットする申請が含まれるアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。  |
-| submissionId | string | 必須。 コミットする申請の ID です。 この ID は、[アプリの申請の作成](create-an-app-submission.md)要求に対する応答データで確認できます。 パートナー センターで作成された送信、この ID はパートナー センターでの送信 ページの URL で使用できるも。  |
+| applicationId | string | 必須。 コミットする申請が含まれるアプリのストア ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](../publish/view-app-identity-details.md)」をご覧ください。  |
+| submissionId | string | 必須。 コミットする申請の ID です。 この ID は、[アプリの申請の作成](create-an-app-submission.md)要求に対する応答データで確認できます。 パートナーセンターで作成された送信の場合、この ID はパートナーセンターの [送信] ページの URL でも利用できます。  |
 
-### <a name="request-body"></a>要求本文
+### <a name="request-body"></a>[要求本文]
 
 このメソッドでは要求本文を指定しないでください。
 
@@ -75,9 +75,9 @@ Authorization: Bearer <your access token>
 
 ### <a name="response-body"></a>応答本文
 
-| Value      | 種類   | 説明                                                                                                                                                                                                                                                                         |
+| 値      | Type   | 説明                                                                                                                                                                                                                                                                         |
 |------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| status           | string  | 申請の状態。 次のいずれかの値を使用できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>公開</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>  |
+| status           | string  | 申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>  |
 
 ## <a name="error-codes"></a>エラー コード
 
@@ -87,13 +87,13 @@ Authorization: Bearer <your access token>
 |--------|------------------|
 | 400  | 要求パラメーターが有効ではありません。 |
 | 404  | 指定した申請は見つかりませんでした。 |
-| 409  | 指定した送信が見つかりましたが、現在の状態で、コミットできなかったまたは、アプリはパートナー センター機能を使用する[現在サポートされていません、Microsoft Store 送信 API](create-and-manage-submissions-using-windows-store-services.md#not_supported)します。 |
+| 409  | 指定された送信が見つかりましたが、現在の状態ではコミットできませんでした。または、アプリは [現在 Microsoft Store 送信 API でサポート](create-and-manage-submissions-using-windows-store-services.md#not_supported)されていないパートナーセンターの機能を使用しています。 |
 
 ## <a name="related-topics"></a>関連トピック
 
-* [作成し、Microsoft Store サービスを使用して送信の管理](create-and-manage-submissions-using-windows-store-services.md)
-* [アプリの提出を取得します。](get-an-app-submission.md)
-* [アプリの提出を作成します。](create-an-app-submission.md)
-* [アプリの提出を更新します。](update-an-app-submission.md)
-* [アプリの提出を削除します。](delete-an-app-submission.md)
-* [アプリの送信の状態を取得します。](get-status-for-an-app-submission.md)
+* [Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
+* [アプリの申請の取得](get-an-app-submission.md)
+* [アプリの申請の作成](create-an-app-submission.md)
+* [アプリの申請の更新](update-an-app-submission.md)
+* [アプリの申請の削除](delete-an-app-submission.md)
+* [アプリの申請の状態の取得](get-status-for-an-app-submission.md)

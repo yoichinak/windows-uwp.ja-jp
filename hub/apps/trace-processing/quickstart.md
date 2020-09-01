@@ -5,12 +5,12 @@ author: maiak
 ms.author: maiak
 ms.date: 02/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 162646baff9b2d08f6fc0ea4862802216cff9619
-ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
+ms.openlocfilehash: 5f8671d8a1490710837908bb4df8f4aa3c99ecdd
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77629104"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172656"
 ---
 # <a name="quickstart-process-your-first-trace"></a>クイックスタート: 最初のトレースを処理する
 
@@ -28,13 +28,13 @@ Visual Studio 2019
 
 ## <a name="install-the-traceprocessing-nuget-package"></a>TraceProcessing NuGet パッケージをインストールする
 
-.NET TraceProcessing は、次のパッケージ ID を持つ[NuGet](https://www.nuget.org/packages/Microsoft.Windows.EventTracing.Processing.All)から使用できます。
+.NET TraceProcessing は、次のパッケージ ID を持つ [NuGet](https://www.nuget.org/packages/Microsoft.Windows.EventTracing.Processing.All) から使用できます。
 
 Microsoft. Windows. EventTracing. All
 
 このパッケージをコンソールアプリで使用すると、ETW トレース (.etl ファイル) に含まれているプロセスコマンドラインを一覧表示できます。
 
-1. 新しい .NET Core コンソールアプリを作成します。 Visual Studio で、[ファイル]、[新規作成]、[プロジェクト...] の順に選択し、 C#の [コンソールアプリ (.net Core)] テンプレートを選択します。
+1. 新しい .NET Core コンソールアプリを作成します。 Visual Studio で、[ファイル]、[新規作成]、[プロジェクト...] の順に選択し、C# の [コンソールアプリ (.NET Core)] テンプレートを選択します。
 
     プロジェクト名を入力し (たとえば、TraceProcessorQuickstart スタート)、[作成] を選択します。
 
@@ -79,7 +79,7 @@ Microsoft. Windows. EventTracing. All
 
     ソリューションエクスプローラーで、プロジェクトを右クリックし、[プロパティ] を選択します。 [デバッグ] タブに切り替え、[アプリケーション引数] にトレース (.etl ファイル) のパスを入力します。
 
-    まだトレースファイルがない場合は、 [Windows パフォーマンスレコーダー](https://docs.microsoft.com/windows-hardware/test/wpt/start-a-recording)を使用して作成できます。
+    まだトレースファイルがない場合は、 [Windows パフォーマンスレコーダー](/windows-hardware/test/wpt/start-a-recording) を使用して作成できます。
 
 3. アプリケーションを実行します。
 
@@ -121,7 +121,7 @@ Microsoft. Windows. EventTracing. All
     }
     ```
 
-2. アプリケーションを再実行します。
+2. アプリケーションをもう一度実行する
 
     このとき、トレースの記録中に実行されていたすべてのプロセスからのリストコマンドラインが表示されます。
 
@@ -131,4 +131,4 @@ Microsoft. Windows. EventTracing. All
 
 プロセス情報は、アプリケーションがアクセスできる ETW トレースに格納されているさまざまな種類のデータのうちの1つにすぎません。
 
-次の手順では、TraceProcessor とそれがアクセスできるその他のデータソースについて[詳しく見ていき](tutorial.md)ます。
+次の手順では、TraceProcessor とそれがアクセスできるその他のデータソースについて [詳しく見ていき](tutorial.md) ます。

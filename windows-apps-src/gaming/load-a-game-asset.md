@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、DirectX、リソースの読み込み
 ms.localizationpriority: medium
-ms.openlocfilehash: 56eaebfeb6d644c4c15f14f0613b1e3b1781f637
-ms.sourcegitcommit: 22ed0d4edad5e6bab352e641cf86cf455cf83825
+ms.openlocfilehash: fae4906c93dc1016933b4fade0b0da447c8a0e20
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85133995"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172026"
 ---
 # <a name="load-resources-in-your-directx-game"></a>DirectX ゲームでのリソースの読み込み
 
@@ -81,7 +81,7 @@ ms.locfileid: "85133995"
 
 タスクは、**.then()** 構文を使って連結できます。したがって、ある操作の完了後、その操作の結果に依存する別の非同期操作を実行できます。 このように、プレイヤーにはほぼ見えない方法で、個別のスレッドで複雑なアセットの読み込み、変換、管理を行うことができます。
 
-詳しくは、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+詳しくは、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 それでは、非同期ファイル読み込みメソッド **ReadDataAsync** の宣言と作成の基本構造を見てみましょう。
 
@@ -112,7 +112,7 @@ task<Platform::Array<byte>^> BasicReaderWriter::ReadDataAsync(
 }
 ```
 
-このコードでは、上で定義された **ReadDataAsync** メソッドを呼び出すと、ファイル システムのバッファーを読み取るタスクが作成されます。 このタスクが完了すると、連結されたタスクがバッファーを受け取り、静的な [**DataReader**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) 型を使ってバッファーから配列にバイトをストリームします。
+このコードでは、上で定義された **ReadDataAsync** メソッドを呼び出すと、ファイル システムのバッファーを読み取るタスクが作成されます。 このタスクが完了すると、連結されたタスクがバッファーを受け取り、静的な [**DataReader**](/uwp/api/Windows.Storage.Streams.DataReader) 型を使ってバッファーから配列にバイトをストリームします。
 
 ```cpp
 m_basicReaderWriter = ref new BasicReaderWriter();
@@ -126,7 +126,7 @@ return m_basicReaderWriter->ReadDataAsync(filename).then([=](const Platform::Arr
 
 **ReadDataAsync** の呼び出しはこのとおりです。 これが完了すると、提供されたファイルから読み取ったバイトの配列が渡されます。 **ReadDataAsync** 自体はタスクとして定義されているため、バイト配列が返されたときにラムダを使って特定の操作 (対応可能な DirectX 関数にバイト データを渡すなど) を実行することができます。
 
-非常にシンプルなゲームの場合は、ユーザーがゲームを開始したときに、このようなメソッドを使ってリソースを読み込みます。 これを実行できるのは、[**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) 実装の呼び出しシーケンスにおけるあるポイントからメインのゲーム ループを開始する前です。 ゲームを速く開始できるように、またプレイヤーが初期段階の対話式操作を行う前に読み込みが完了するまで待機することがないように、もう一度、非同期的にリソース読み込みメソッドを呼び出します。
+非常にシンプルなゲームの場合は、ユーザーがゲームを開始したときに、このようなメソッドを使ってリソースを読み込みます。 これを実行できるのは、[**IFrameworkView::Run**](/uwp/api/windows.applicationmodel.core.iframeworkview.run) 実装の呼び出しシーケンスにおけるあるポイントからメインのゲーム ループを開始する前です。 ゲームを速く開始できるように、またプレイヤーが初期段階の対話式操作を行う前に読み込みが完了するまで待機することがないように、もう一度、非同期的にリソース読み込みメソッドを呼び出します。
 
 しかし、すべての非同期読み込みが完了するまではゲーム本体を開始したくありません。 そこで、読み込みが完了したら通知するメソッド (特定のフィールドなど) を作成し、読み込みメソッドでラムダを使って、完了時に通知を設定します。 この読み込まれたリソースを使うコンポーネントを開始する前に、変数を確認します。
 
@@ -239,7 +239,7 @@ task<void> BasicLoader::LoadMeshAsync(
 }
 ```
 
-**CreateMesh**は、ファイルから読み込まれたバイトデータを解釈し、頂点とインデックスのリストをそれぞれ[**ID3D11Device:: createbuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer)に渡し、D3D11 \_ bind の \_ 頂点 \_ バッファーまたは D3D11 \_ bind \_ インデックスバッファーのいずれかを指定することによって、メッシュの頂点バッファーとインデックスバッファーを作成し \_ ます。 **BasicLoader** で使われるコードは次のとおりです。
+**CreateMesh** は、ファイルから読み込まれたバイトデータを解釈し、頂点とインデックスのリストをそれぞれ [**ID3D11Device:: createbuffer**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) に渡し、D3D11 \_ bind の \_ 頂点 \_ バッファーまたは D3D11 \_ bind \_ インデックスバッファーのいずれかを指定することによって、メッシュの頂点バッファーとインデックスバッファーを作成し \_ ます。 **BasicLoader** で使われるコードは次のとおりです。
 
 ```cpp
 void BasicLoader::CreateMesh(
@@ -302,7 +302,7 @@ void BasicLoader::CreateMesh(
 
 通常は、ゲームで使うメッシュごとに、頂点バッファーとインデックス バッファーのペアを作成します。 メッシュをいつ、どこに読み込むかは任意です。 メッシュが多数存在する場合は、ゲームの特定のポイント (定義済みの特定の読み込み状態のときなど) でディスクから一部のメッシュを読み込むことをお勧めします。 地形データのような大きなメッシュの場合は、キャッシュから頂点をストリームすることもできますが、手順はより複雑になります (このトピックでは扱いません)。
 
-繰り返しになりますが、頂点データの形式を把握する必要があります。 モデルの作成に使われるツールで頂点データを表す方法は数多くあります。 また、三角形リストや三角形ストリップなど、Direct3D に対して頂点データの入力レイアウトを示す方法もさまざまです。 頂点データについて詳しくは、「[Direct3D 11 のバッファーについて](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」と「[プリミティブ](https://docs.microsoft.com/windows/desktop/direct3d9/primitives)」をご覧ください。
+繰り返しになりますが、頂点データの形式を把握する必要があります。 モデルの作成に使われるツールで頂点データを表す方法は数多くあります。 また、三角形リストや三角形ストリップなど、Direct3D に対して頂点データの入力レイアウトを示す方法もさまざまです。 頂点データについて詳しくは、「[Direct3D 11 のバッファーについて](/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」と「[プリミティブ](/windows/desktop/direct3d9/primitives)」をご覧ください。
 
 次に、テクスチャの読み込みについて見てみましょう。
 
@@ -310,7 +310,7 @@ void BasicLoader::CreateMesh(
 
 ゲームで最も一般的なアセット、そしてディスク上とメモリ内のファイルの大部分を構成するアセットはテクスチャです。 メッシュと同様、テクスチャにもさまざまな形式があるため、テクスチャの読み込み時に Direct3D で使うことができる形式に変換します。 また、テクスチャにはさまざまなタイプがあり、種々の効果を作成するのに使われます。 テクスチャの MIP レベルを使えば、距離オブジェクトの外観とパフォーマンスを向上させることができます。ダート マップとライト マップは、基本テクスチャの上に効果や詳細を重ねるのに使われます。標準マップは、ピクセルあたりの照明の計算で使われます。 最新のゲームでは、標準シーンにそれぞれ異なる何千ものテクスチャが存在する可能性があるため、そのすべてをコードで効果的に管理する必要があります。
 
-また、メッシュと同様、メモリ使用を効率化するのに使われる特殊な形式も数多く存在します。 テクスチャは、GPU (およびシステム) のメモリの大部分をすぐに消費するため、ほとんどの場合何らかの方法で圧縮されています。 ゲームのテクスチャで圧縮を使う必要はありません。認識できる形式のデータを Direct3D シェーダーに提供する限り、必要な圧縮アルゴリズムと圧縮解除アルゴリズムを使うことができます ([**Texture2D**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d) ビットマップと同様)。
+また、メッシュと同様、メモリ使用を効率化するのに使われる特殊な形式も数多く存在します。 テクスチャは、GPU (およびシステム) のメモリの大部分をすぐに消費するため、ほとんどの場合何らかの方法で圧縮されています。 ゲームのテクスチャで圧縮を使う必要はありません。認識できる形式のデータを Direct3D シェーダーに提供する限り、必要な圧縮アルゴリズムと圧縮解除アルゴリズムを使うことができます ([**Texture2D**](/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d) ビットマップと同様)。
 
 Direct3D は、DXT テクスチャ圧縮アルゴリズムをサポートしています。ただし、プレイヤーのグラフィックス ハードウェアではサポートされない DXT 形式が存在する可能性もあります。 DDS ファイルには DXT テクスチャ (および他のテクスチャ圧縮形式) が含まれています。DDS ファイルの名前は .dds で終わります。
 
@@ -320,14 +320,14 @@ DDS ファイルは、次の情報が含まれるバイナリ ファイルです
 
 -   ファイル内のデータの説明。
 
-    データは、 [**dds \_ ヘッダー**](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-header)を使用したヘッダーの説明で記述されます。ピクセル形式は、 [**dds ピクセル \_ 形式**](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-pixelformat)を使用して定義されます。 **Dds \_ ヘッダー**と**dds \_ ピクセル形式**の構造体は、非推奨の DDSURFACEDESC2、DDSCAPS2、および ddピクセル形式の DirectDraw 7 構造を置き換えます。 **DDS \_HEADER**は、DDSURFACEDESC2 および DDSCAPS2 に相当するバイナリです。 **DDS \_ピクセル形式**は、DDピクセル形式に相当するバイナリです。
+    データは、 [**dds \_ ヘッダー**](/windows/desktop/direct3ddds/dds-header)を使用したヘッダーの説明で記述されます。ピクセル形式は、 [**dds ピクセル \_ 形式**](/windows/desktop/direct3ddds/dds-pixelformat)を使用して定義されます。 **Dds \_ ヘッダー**と**dds \_ ピクセル形式**の構造体は、非推奨の DDSURFACEDESC2、DDSCAPS2、および ddピクセル形式の DirectDraw 7 構造を置き換えます。 **DDS \_HEADER** は、DDSURFACEDESC2 および DDSCAPS2 に相当するバイナリです。 **DDS \_ピクセル形式** は、DDピクセル形式に相当するバイナリです。
 
     ```cpp
     DWORD               dwMagic;
     DDS_HEADER          header;
     ```
 
-    [ [**Dds \_ ピクセル形式**](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-pixelformat)の**dwFlags** ] の値が [ddpf FOURCC] に設定され、dwfourcc が "DX10" に設定されている場合、 \_ 追加の[**dds \_ ヘッダー \_ DXT10**](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-header-dxt10)構造は、浮動小数点形式や sRGB 形式などの RGB ピクセル形式として表現できないテクスチャ配列または DXGI 形式**dwFourCC**に対応するために存在します。**DDS \_ ヘッダー \_ DXT10**構造体が存在する場合、データ記述全体は次のようになります。
+    [ [**Dds \_ ピクセル形式**](/windows/desktop/direct3ddds/dds-pixelformat)の**dwFlags** ] の値が [ddpf FOURCC] に設定され、dwfourcc が "DX10" に設定されている場合、 \_ 追加の[**dds \_ ヘッダー \_ DXT10**](/windows/desktop/direct3ddds/dds-header-dxt10)構造は、浮動小数点形式や sRGB 形式などの RGB ピクセル形式として表現できないテクスチャ配列または DXGI 形式**dwFourCC**に対応するために存在します。**DDS \_ ヘッダー \_ DXT10**構造体が存在する場合、データ記述全体は次のようになります。
 
     ```cpp
     DWORD               dwMagic;
@@ -340,13 +340,13 @@ DDS ファイルは、次の情報が含まれるバイナリ ファイルです
     BYTE bdata[]
     ```
 
--   残りのサーフェス (ミップマップ レベル、キューブ マップの面、ボリューム テクスチャの深度など) を含むバイトの配列へのポインター。 [テクスチャ](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-file-layout-for-textures)、[キューブ マップ](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-file-layout-for-cubic-environment-maps)、または[ボリューム テクスチャ](https://docs.microsoft.com/windows/desktop/direct3ddds/dds-file-layout-for-volume-textures)の DDS ファイル レイアウトについて詳しくは、ここに挙げたリンク先をご覧ください。
+-   残りのサーフェス (ミップマップ レベル、キューブ マップの面、ボリューム テクスチャの深度など) を含むバイトの配列へのポインター。 [テクスチャ](/windows/desktop/direct3ddds/dds-file-layout-for-textures)、[キューブ マップ](/windows/desktop/direct3ddds/dds-file-layout-for-cubic-environment-maps)、または[ボリューム テクスチャ](/windows/desktop/direct3ddds/dds-file-layout-for-volume-textures)の DDS ファイル レイアウトについて詳しくは、ここに挙げたリンク先をご覧ください。
 
     ```cpp
     BYTE bdata2[]
     ```
 
-DDS 形式へのエクスポートは、多くのツールで実行可能です。 テクスチャを DDS 形式にエクスポートできるツールがない場合は、作成することを検討してください。 DDS 形式について、また DDS 形式をコードで使う方法について詳しくは、「[DDS 用プログラミング ガイド](https://docs.microsoft.com/windows/desktop/direct3ddds/dx-graphics-dds-pguide)」をご覧ください。 この例では DDS を使います。
+DDS 形式へのエクスポートは、多くのツールで実行可能です。 テクスチャを DDS 形式にエクスポートできるツールがない場合は、作成することを検討してください。 DDS 形式について、また DDS 形式をコードで使う方法について詳しくは、「[DDS 用プログラミング ガイド](/windows/desktop/direct3ddds/dx-graphics-dds-pguide)」をご覧ください。 この例では DDS を使います。
 
 他の種類のリソースと同様に、バイトのストリームとしてファイルからデータを読み取ります。 読み込みタスクが完了すると、ラムダ呼び出しがコード (**CreateTexture** メソッド) を実行し、バイトのストリームを処理して Direct3D で使用できる形式にします。
 
@@ -371,7 +371,7 @@ task<void> BasicLoader::LoadTextureAsync(
 }
 ```
 
-上記のスニペットでは、ファイル名に拡張子の "dds" が含まれているかどうかラムダでチェックしています。 この拡張子が含まれていれば、DDS テクスチャであると判断できます。 含まれていない場合は、Windows Imaging Component (WIC) API を使って形式を検出し、データをビットマップとしてデコードします。 いずれにしても、結果は [**Texture2D**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d) ビットマップ (またはエラー) になります。
+上記のスニペットでは、ファイル名に拡張子の "dds" が含まれているかどうかラムダでチェックしています。 この拡張子が含まれていれば、DDS テクスチャであると判断できます。 含まれていない場合は、Windows Imaging Component (WIC) API を使って形式を検出し、データをビットマップとしてデコードします。 いずれにしても、結果は [**Texture2D**](/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d) ビットマップ (またはエラー) になります。
 
 ```cpp
 void BasicLoader::CreateTexture(
@@ -511,7 +511,7 @@ void BasicLoader::CreateTexture(
 }
 ```
 
-このコードが完了すると、イメージ ファイルから読み込まれた [**Texture2D**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d) がメモリ内に格納されます。 メッシュと同様に、ゲームにも特定のシーンにもおそらく多数のテクスチャが含まれています。 ゲームまたはレベルの開始時にすべてのテクスチャを読み込むのではなく、シーンごとまたはレベルごとに何度もアクセスされるテクスチャについては、そのためのキャッシュを作成することを検討します。
+このコードが完了すると、イメージ ファイルから読み込まれた [**Texture2D**](/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d) がメモリ内に格納されます。 メッシュと同様に、ゲームにも特定のシーンにもおそらく多数のテクスチャが含まれています。 ゲームまたはレベルの開始時にすべてのテクスチャを読み込むのではなく、シーンごとまたはレベルごとに何度もアクセスされるテクスチャについては、そのためのキャッシュを作成することを検討します。
 
 (上記のサンプルで呼び出された **CreateDDSTextureFromMemory** メソッドの全コードについては、「[DDSTextureLoader のコード一式](complete-code-for-ddstextureloader.md)」をご覧ください。)
 
@@ -551,7 +551,7 @@ task<void> BasicLoader::LoadShaderAsync(
 
 ```
 
-この例では、 **basicreaderwriter**インスタンス (**m \_ basicreaderwriter**) を使用して、指定されたコンパイル済みシェーダーオブジェクト (cso) ファイルをバイトストリームとして読み取ります。 このタスクが完了すると、ラムダは、ファイルから読み込まれたバイト データを使って [**ID3D11Device::CreatePixelShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createpixelshader) を呼び出します。 また、コールバックによって、読み込みの成功を示すフラグを設定する必要があります。コードでは、シェーダーの実行前にこのフラグを確認する必要があります。
+この例では、 **basicreaderwriter** インスタンス (**m \_ basicreaderwriter**) を使用して、指定されたコンパイル済みシェーダーオブジェクト (cso) ファイルをバイトストリームとして読み取ります。 このタスクが完了すると、ラムダは、ファイルから読み込まれたバイト データを使って [**ID3D11Device::CreatePixelShader**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createpixelshader) を呼び出します。 また、コールバックによって、読み込みの成功を示すフラグを設定する必要があります。コードでは、シェーダーの実行前にこのフラグを確認する必要があります。
 
 頂点シェーダーはもう少し複雑になります。 頂点シェーダーの場合は、頂点データを定義する別個の入力レイアウトも読み込みます。 次のコードを使うことで、頂点シェーダーと一緒にカスタムの頂点入力レイアウトを非同期的に読み込むことができます。 メッシュから読み込まれた頂点情報は、この入力レイアウトによって適切に表せるようになります。
 
@@ -601,7 +601,7 @@ void BasicLoader::CreateInputLayout(
 -   頂点の標準ベクター。これも 3 つの 32 ビット浮動小数点値で表されます。
 -   変換された 2D テクスチャの座標値 (u, v)。2 つの 32 ビット浮動小数点値で表されます。
 
-頂点ごとのこれらの入力要素は [HLSL セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)と呼ばれます。これらの入力要素は、コンパイル済みシェーダー オブジェクトとのデータの受け渡しに使われる定義済みレジスタのセットです。 読み込んだメッシュの頂点ごとに 1 回、パイプラインが頂点シェーダーを実行します。 このセマンティクスは、実行時の頂点シェーダーへの入力 (および頂点シェーダーからの出力) を定義し、シェーダーの HLSL コードでの頂点ごとの計算にこのデータを提供します。
+頂点ごとのこれらの入力要素は [HLSL セマンティクス](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)と呼ばれます。これらの入力要素は、コンパイル済みシェーダー オブジェクトとのデータの受け渡しに使われる定義済みレジスタのセットです。 読み込んだメッシュの頂点ごとに 1 回、パイプラインが頂点シェーダーを実行します。 このセマンティクスは、実行時の頂点シェーダーへの入力 (および頂点シェーダーからの出力) を定義し、シェーダーの HLSL コードでの頂点ごとの計算にこのデータを提供します。
 
 次に、頂点シェーダー オブジェクトを読み込みます。
 
@@ -687,7 +687,7 @@ task<void> BasicLoader::LoadShaderAsync(
 }
 ```
 
-このコードでは、頂点シェーダーの CSO ファイルのバイト データを読み取ってから、[**ID3D11Device::CreateVertexShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createvertexshader) を呼び出して頂点シェーダーを作成しています。 その後で、同じラムダでシェーダーの入力レイアウトを作成しています。
+このコードでは、頂点シェーダーの CSO ファイルのバイト データを読み取ってから、[**ID3D11Device::CreateVertexShader**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createvertexshader) を呼び出して頂点シェーダーを作成しています。 その後で、同じラムダでシェーダーの入力レイアウトを作成しています。
 
 ハル シェーダーやジオメトリ シェーダーなどの他の種類のシェーダーでは、特別な構成が必要になる場合もあります。 さまざまなシェーダー読み込みメソッドのコード一式については、「[BasicLoader のコード一式](complete-code-for-basicloader.md)」と [Direct3D リソース読み込みのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/Direct3D%20resource%20loading%20sample%20(Windows%208)/C%2B%2B)をご覧ください。
 
@@ -705,7 +705,3 @@ task<void> BasicLoader::LoadShaderAsync(
  
 
  
-
-
-
-

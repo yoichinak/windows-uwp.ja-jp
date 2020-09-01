@@ -7,16 +7,16 @@ ms.date: 03/07/2018
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トーストの送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C++、cpp、cplusplus、WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e103c41de7bf169629085fd259e23e17804360d
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: e1aae390cf9047c8c93b4d24084c87bc90af8d80
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234666"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172306"
 ---
 # <a name="send-a-local-toast-notification-from-desktop-c-wrl-apps"></a>デスクトップ C++ WRL アプリからのローカル トースト通知の送信
 
-デスクトップアプリ (パッケージ化された[Msix](https://docs.microsoft.com/windows/msix/desktop/source-code-overview)アプリ、[スパースパッケージ](https://docs.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、異なるライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合は、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
+デスクトップアプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、異なるライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合は、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
 > UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[Desktop C# に関するページ](send-local-toast-desktop.md) をご覧ください。
@@ -94,7 +94,7 @@ CoCreatableClass(NotificationActivator);
 
 ### <a name="msixsparse-package"></a>MSIX/スパースパッケージ
 
-[Msix](https://docs.microsoft.com/windows/msix/desktop/source-code-overview)または[スパースパッケージ](https://docs.microsoft.com/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用している場合 (または、両方をサポートしている場合) は、 **package.appxmanifest**に次のように追加します。
+[Msix](/windows/msix/desktop/source-code-overview)または[スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用している場合 (または、両方をサポートしている場合) は、 **package.appxmanifest**に次のように追加します。
 
 1. **xmlns:com** のための宣言
 2. **xmlns:desktop** のための宣言
@@ -395,7 +395,7 @@ if (SUCCEEDED(hr))
 
 ## <a name="step-10-deploying-and-debugging"></a>手順 10: 展開とデバッグ
 
-MSIX/スパースパッケージアプリをデプロイしてデバッグする方法については、「[パッケージ化されたデスクトップアプリの実行、デバッグ、およびテスト](/windows/uwp/porting/desktop-to-uwp-debug)」を参照してください。
+MSIX/スパースパッケージアプリをデプロイしてデバッグする方法については、「 [パッケージ化されたデスクトップアプリの実行、デバッグ、およびテスト](/windows/msix/desktop/desktop-to-uwp-debug)」を参照してください。
 
 従来の Win32 アプリを展開およびデバッグするには、通常のデバッグ前に、アプリをインストーラー経由でインストールして、AUMID と CLSID を使用したスタート ショートカットを表示する必要があります。 スタート ショートカットが表示された後は、Visual Studio で F5 キーを使用してデバッグできます。
 
@@ -416,13 +416,13 @@ MSIX/スパースパッケージと従来の Win32 アプリの両方をイン�
 
 Windows 8.1 以下をサポートする場合は、実行時に Windows 10 を実行しているかどうかを確認した後、**DesktopNotificationManagerCompat** API の呼び出しや、ToastGeneric トースト通知の送信を行います。
 
-トースト通知は Windows 8 で導入されましたが、ToastText01 などの[レガシ トースト テンプレート](https://docs.microsoft.com/previous-versions/windows/apps/hh761494(v=win.10))が使用されていました。 トーストは短時間のポップアップにすぎず、継続的に表示されるものではなかったため、**ToastNotification** クラスのインメモリ **Activated** イベントによって処理されていました。 Windows 10 では、[対話型の ToastGeneric トースト](adaptive-interactive-toasts.md) が導入され、さらに通知が数日間継続して表示されるアクション センターが導入されました。 アクション センターの導入には、トーストが作成から数日後もアクティブ化できるように、COM アクティベーターの導入が必須でした。
+トースト通知は Windows 8 で導入されましたが、ToastText01 などの[レガシ トースト テンプレート](/previous-versions/windows/apps/hh761494(v=win.10))が使用されていました。 トーストは短時間のポップアップにすぎず、継続的に表示されるものではなかったため、**ToastNotification** クラスのインメモリ **Activated** イベントによって処理されていました。 Windows 10 では、[対話型の ToastGeneric トースト](adaptive-interactive-toasts.md) が導入され、さらに通知が数日間継続して表示されるアクション センターが導入されました。 アクション センターの導入には、トーストが作成から数日後もアクティブ化できるように、COM アクティベーターの導入が必須でした。
 
 | OS | ToastGeneric | COM アクティベーター | レガシ トースト テンプレート |
 | -- | ------------ | ------------- | ---------------------- |
-| Windows 10 | サポートされています | サポートされています | サポート対象 (ただし COM サーバーをアクティブ化しない) |
-| Windows 8.1 / 8 | 該当なし | 該当なし | サポート |
-| Windows 7 以下 | 該当なし | 該当なし | 該当なし |
+| Windows 10 | サポート | サポート | サポート対象 (ただし COM サーバーをアクティブ化しない) |
+| Windows 8.1 / 8 | N/A | 該当なし | サポート |
+| Windows 7 以下 | N/A | N/A | N/A |
 
 Windows 10 で実行しているかどうかを確認するには、`<VersionHelpers.h>` ヘッダーをインクルードし、**IsWindows10OrGreater** メソッドを確認します。 これが true を返す場合は、続いてこのドキュメントで説明されているすべてのメソッドを呼び出してください。 
 

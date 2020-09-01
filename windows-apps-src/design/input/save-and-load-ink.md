@@ -8,12 +8,12 @@ keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkC
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 819358fb775444d62cbad414668a779fc5c305ca
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 72076ffb27046a5c5e804cf30e8cb6c78b88cd69
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970247"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173336"
 ---
 # <a name="store-and-retrieve-windows-ink-stroke-data"></a>Windows Ink ストローク データの保存と取得
 
@@ -23,17 +23,17 @@ Windows Ink をサポートする windows アプリでは、インクストロ�
 > [!NOTE]
 > ISF は、最もコンパクトなインクの永続表現です。 バイナリ ドキュメント形式 (GIF ファイルなど) に埋め込むことも、クリップボードに直接配置することもできます。
 
-> **重要な API**: [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、[**Windows.UI.Input.Inking**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
+> **重要な API**: [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、[**Windows.UI.Input.Inking**](/uwp/api/Windows.UI.Input.Inking)
 
 ## <a name="save-ink-strokes-to-a-file"></a>インク ストロークをファイルに保存する
 
-ここでは、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールに描画されたインク ストロークの保存方法を説明します。
+ここでは、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールに描画されたインク ストロークの保存方法を説明します。
 
 **このサンプルは、インク[シリアル化形式 (ISF) ファイルからのインクストロークの保存と読み込みからダウンロードして](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-store.zip)ください**
 
 1.  まず、UI を設定します。
 
-    UI には [Save]、[Load]、[Clear] の各ボタンと、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が含まれています。
+    UI には [Save]、[Load]、[Clear] の各ボタンと、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が含まれています。
 ```    XAML
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -63,7 +63,7 @@ Windows Ink をサポートする windows アプリでは、インクストロ�
 
 2.  次に、基本的なインク入力の動作をいくつか設定します。
 
-    [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。各ボタンのイベントに対するリスナーも宣言します。
+    [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。各ボタンのイベントに対するリスナーも宣言します。
 ```csharp
 public MainPage()
     {
@@ -85,11 +85,11 @@ public MainPage()
 
 3.  最後に、**[Save]** ボタンのクリック イベント ハンドラーで、インクを保存します。
 
-    [**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使用すると、インク データの保存先としてファイルと場所の両方をユーザーが選択できます。
+    [**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使用すると、インク データの保存先としてファイルと場所の両方をユーザーが選択できます。
 
-    ファイルが選択されたら、[**ReadWrite**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileAccessMode) に設定された [**IRandomAccessStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IRandomAccessStream) ストリームを開きます。
+    ファイルが選択されたら、[**ReadWrite**](/uwp/api/Windows.Storage.FileAccessMode) に設定された [**IRandomAccessStream**](/uwp/api/Windows.Storage.Streams.IRandomAccessStream) ストリームを開きます。
 
-    次に [**SaveAsync**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.iinkstrokecontainer.saveasync) を呼び出して、[**InkStrokeContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) によって管理されているインク ストロークをストリームにシリアル化します。
+    次に [**SaveAsync**](/uwp/api/windows.ui.input.inking.iinkstrokecontainer.saveasync) を呼び出して、[**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) によって管理されているインク ストロークをストリームにシリアル化します。
 
 ```csharp
 // Save ink data to a file.
@@ -155,17 +155,17 @@ public MainPage()
 ```
 
 > [!NOTE]
-> インク データの保存用にサポートされるファイル形式は GIF のみです。 ただし、[**LoadAsync**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkmanager.loadasync) メソッド (次のセクションで説明します) では、下位互換性のためにその他の形式もサポートされています。
+> インク データの保存用にサポートされるファイル形式は GIF のみです。 ただし、[**LoadAsync**](/uwp/api/windows.ui.input.inking.inkmanager.loadasync) メソッド (次のセクションで説明します) では、下位互換性のためにその他の形式もサポートされています。
 
 ## <a name="load-ink-strokes-from-a-file"></a>インク ストロークをファイルから読み込む
 
-ここでは、ファイルからインク ストロークを読み込んで [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールにレンダリングする方法を示します。
+ここでは、ファイルからインク ストロークを読み込んで [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールにレンダリングする方法を示します。
 
 **このサンプルは、インク[シリアル化形式 (ISF) ファイルからのインクストロークの保存と読み込みからダウンロードして](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-ink-store.zip)ください**
 
 1.  まず、UI を設定します。
 
-    UI には [Save]、[Load]、[Clear] の各ボタンと、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が含まれています。
+    UI には [Save]、[Load]、[Clear] の各ボタンと、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が含まれています。
 ```    XAML
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -195,7 +195,7 @@ public MainPage()
 
 2.  次に、基本的なインク入力の動作をいくつか設定します。
 
-    [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。各ボタンのイベントに対するリスナーも宣言します。
+    [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。各ボタンのイベントに対するリスナーも宣言します。
 ```csharp
 public MainPage()
     {
@@ -217,11 +217,11 @@ public MainPage()
 
 3.  最後に、**[Load]** ボタンのクリック イベント ハンドラーで、インクを読み込みます。
 
-    [**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使用すると、保存済みインク データを取得するためのファイルと場所の両方をユーザーが選択できます。
+    [**FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使用すると、保存済みインク データを取得するためのファイルと場所の両方をユーザーが選択できます。
 
-    ファイルが選択されたら、[**Read**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileAccessMode) に設定された [**IRandomAccessStream**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IRandomAccessStream) ストリームを開きます。
+    ファイルが選択されたら、[**Read**](/uwp/api/Windows.Storage.FileAccessMode) に設定された [**IRandomAccessStream**](/uwp/api/Windows.Storage.Streams.IRandomAccessStream) ストリームを開きます。
 
-    次に [**LoadAsync**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkmanager.loadasync) を呼び出して、保存済みのインク ストロークの読み取りと逆シリアル化を行い、[**InkStrokeContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) に読み込みます。 ストロークを **InkStrokeContainer** に読み込むと、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は直ちにストロークを [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングします。
+    次に [**LoadAsync**](/uwp/api/windows.ui.input.inking.inkmanager.loadasync) を呼び出して、保存済みのインク ストロークの読み取りと逆シリアル化を行い、[**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) に読み込みます。 ストロークを **InkStrokeContainer** に読み込むと、[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は直ちにストロークを [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングします。
 
     > [!NOTE]
     > 新しいストロークが読み込まれる前には、InkStrokeContainer 内の既存のストロークがすべて消去されます。
@@ -260,7 +260,7 @@ private async void btnLoad_Click(object sender, RoutedEventArgs e)
 ```
 
 > [!NOTE]
-> インク データの保存用にサポートされるファイル形式は GIF のみです。 ただし、[**LoadAsync**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkmanager.loadasync) メソッドでは、下位互換性のために次の形式もサポートされています。
+> インク データの保存用にサポートされるファイル形式は GIF のみです。 ただし、[**LoadAsync**](/uwp/api/windows.ui.input.inking.inkmanager.loadasync) メソッドでは、下位互換性のために次の形式もサポートされています。
 
 | Format                    | 説明 |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -273,7 +273,7 @@ private async void btnLoad_Click(object sender, RoutedEventArgs e)
 
 ここでは、クリップボードを使って、アプリ間でインク ストロークを転送する方法について説明します。
 
-クリップボード機能をサポートするために、組み込みの [**InkStrokeContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) の切り取り/コピー コマンドでは、1 つまたは複数のインク ストロークの選択が求められます。
+クリップボード機能をサポートするために、組み込みの [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) の切り取り/コピー コマンドでは、1 つまたは複数のインク ストロークの選択が求められます。
 
 次の例では、ペン バレル ボタン (またはマウスの右ボタン) で入力が変更された場合にストロークを選べるようにする手順を示しています。 ストローク選択の実装方法を示す詳しい例については、「[ペン操作とスタイラス操作](pen-and-stylus-interactions.md)」の「高度な処理のための入力のパススルー」をご覧ください。
 
@@ -281,7 +281,7 @@ private async void btnLoad_Click(object sender, RoutedEventArgs e)
 
 1.  まず、UI を設定します。
 
-    UI には、[Cut]、[Copy]、[Paste]、[Clear] の各ボタン、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、選択キャンバスが含まれています。
+    UI には、[Cut]、[Copy]、[Paste]、[Clear] の各ボタン、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、選択キャンバスが含まれています。
 ```    XAML
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -317,7 +317,7 @@ private async void btnLoad_Click(object sender, RoutedEventArgs e)
 
 2.  次に、基本的なインク入力の動作をいくつか設定します。
 
-    [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 ここでは、ボタンのクリック イベント、選択機能のポインター イベントおよびストローク イベントに対するリスナーも宣言されています。
+    [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 ここでは、ボタンのクリック イベント、選択機能のポインター イベントおよびストローク イベントに対するリスナーも宣言されています。
 
     ストローク選択の実装方法を示す詳しい例については、「[ペン操作とスタイラス操作](pen-and-stylus-interactions.md)」の「高度な処理のための入力のパススルー」をご覧ください。
 ```csharp
@@ -367,9 +367,9 @@ public MainPage()
 
 3.  最後に、ストローク選択サポートを追加した後で、**[Cut]** ボタン、**[Copy]** ボタン、**[Paste]** ボタンのクリック イベント ハンドラーにクリップボード機能を実装します。
 
-    切り取りの場合は、まず [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) の [**InkStrokeContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) で [**CopySelectedToClipboard**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.copyselectedtoclipboard) を呼び出します。
+    切り取りの場合は、まず [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) の [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) で [**CopySelectedToClipboard**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.copyselectedtoclipboard) を呼び出します。
 
-    次に [**DeleteSelected**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.deleteselected) を呼び出して、インク キャンバスからストロークを削除します。
+    次に [**DeleteSelected**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.deleteselected) を呼び出して、インク キャンバスからストロークを削除します。
 
     最後に、選択キャンバスからすべてのストローク選択を削除します。
     
@@ -403,7 +403,7 @@ private void btnCut_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-コピーの場合は、[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) の [**InkStrokeContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) で [**CopySelectedToClipboard**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.copyselectedtoclipboard) を呼び出すだけです。
+コピーの場合は、[**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) の [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) で [**CopySelectedToClipboard**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.copyselectedtoclipboard) を呼び出すだけです。
 
 
 ```csharp
@@ -413,9 +413,9 @@ private void btnCopy_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-貼り付けの場合は、クリップボードのコンテンツをインク キャンバスに貼り付けることができるように、[**CanPasteFromClipboard**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.canpastefromclipboard) を呼び出します。
+貼り付けの場合は、クリップボードのコンテンツをインク キャンバスに貼り付けることができるように、[**CanPasteFromClipboard**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.canpastefromclipboard) を呼び出します。
 
-その場合は、[**PasteFromClipboard**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokecontainer.pastefromclipboard) を呼び出して、クリップボード内のインク ストロークを [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) の [**InkStrokeContainer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) に挿入します。これにより、ストロークがインク キャンバスにレンダリングされます。
+その場合は、[**PasteFromClipboard**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.pastefromclipboard) を呼び出して、クリップボード内のインク ストロークを [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) の [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) に挿入します。これにより、ストロークがインク キャンバスにレンダリングされます。
 
 ```csharp
 private void btnPaste_Click(object sender, RoutedEventArgs e)
@@ -447,6 +447,3 @@ private void btnPaste_Click(object sender, RoutedEventArgs e)
 * [入門チュートリアル: Windows アプリでインクをサポートする](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-Ink)
 * [塗り絵帳のサンプル](https://github.com/Microsoft/Windows-appsample-coloringbook)
 * [Family Notes のサンプル](https://github.com/Microsoft/Windows-appsample-familynotes)
-
-
-

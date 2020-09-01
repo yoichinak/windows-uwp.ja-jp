@@ -1,21 +1,21 @@
 ---
 ms.assetid: 5BD650D2-AA26-4DE9-8243-374FDB7D932B
-description: Microsoft Store 送信 API でこのメソッドを使用すると、PartnerCenter アカウントに登録されているアプリ用のアドオンを作成できます。
+description: Microsoft Store 送信 API でこのメソッドを使用して、PartnerCenter アカウントに登録されているアプリのアドオンを作成します。
 title: アドオンの作成
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオンの作成, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 00eb1a865631ce51cfa065d27ed00b44c66a6757
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a54ad4bcdb0c6fd652d56c767aa8362073b07875
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371265"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167726"
 ---
 # <a name="create-an-add-on"></a>アドオンの作成
 
-Microsoft Store 送信 API でこのメソッドを使用すると、パートナー センター アカウントに登録されているアプリ用のアドオン (とも呼ばれるアプリ内製品または IAP) を作成できます。
+Microsoft Store 送信 API でこのメソッドを使用して、パートナーセンターアカウントに登録されているアプリのアドオン (アプリ内製品または IAP とも呼ばれます) を作成します。
 
 > [!NOTE]
 > このメソッドは、申請なしでアドオンを作成します。 アドオンの申請を作成する方法については、「[アドオンの申請の管理](manage-add-on-submissions.md)」のメソッドをご覧ください。
@@ -31,27 +31,27 @@ Microsoft Store 送信 API でこのメソッドを使用すると、パート�
 
 このメソッドの構文は次のとおりです。 ヘッダーと要求本文の使用例と説明については、次のセクションをご覧ください。
 
-| メソッド | 要求 URI                                                      |
+| 認証方法 | 要求 URI                                                      |
 |--------|------------------------------------------------------------------|
 | POST    | `https://manage.devcenter.microsoft.com/v1.0/my/inappproducts` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                                                                 |
+| Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 ベアラートークン形式の Azure AD アクセストークン**Bearer** &lt; *token* &gt; 。 |
 
 
 ### <a name="request-body"></a>要求本文
 
 要求本文には次のパラメーターがあります。
 
-|  パラメーター  |  種類  |  説明  |  必須  |
+|  パラメーター  |  Type  |  説明  |  必須  |
 |------|------|------|------|
-|  applicationIds  |  array  |  このアドオンが関連付けられるアプリのストア ID を含む配列です。 この配列でサポートされる項目は 1 つのみです。   |  〇  |
-|  productId  |  string  |  アドオンの製品 ID です。 これは、アドオンを参照する、コード内で使用できる識別子です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://docs.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。  |  〇  |
-|  productType  |  string  |  アドオンの製品の種類です。 次の値がサポートされています。**持続性のある**と**消耗**します。  |  〇  |
+|  applicationIds  |  array  |  このアドオンが関連付けられるアプリのストア ID を含む配列です。 この配列でサポートされる項目は 1 つのみです。   |  はい  |
+|  productId  |  string  |  アドオンの製品 ID です。 これは、アドオンを参照する、コード内で使用できる識別子です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](../publish/set-your-add-on-product-id.md)」をご覧ください。  |  はい  |
+|  productType  |  string  |  アドオンの製品の種類です。 値 **Durable** と **Consumable** がサポートされています。  |  はい  |
 
 
 ### <a name="request-example"></a>要求の例
@@ -97,13 +97,13 @@ Content-Type: application/json
 | エラー コード |  説明                                                                                                                                                                           |
 |--------|------------------|
 | 400  | 要求が無効です。 |
-| 409  | 現在の状態のため、アドオンを作成できませんでしたまたはアドオンであるパートナー センター機能を使用する[いない現在 Microsoft Store 送信 API ではサポートされて](create-and-manage-submissions-using-windows-store-services.md#not_supported)します。 |   
+| 409  | 現在の状態によりアドオンを作成できませんでした。またはアドオンが、 [現在 Microsoft Store 送信 API でサポート](create-and-manage-submissions-using-windows-store-services.md#not_supported)されていないパートナーセンターの機能を使用しています。 |   
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [作成し、Microsoft Store サービスを使用して送信の管理](create-and-manage-submissions-using-windows-store-services.md)
-* [アドオンの送信を管理します。](manage-add-on-submissions.md)
-* [すべてのアドオンを入手します。](get-all-add-ons.md)
-* [アドオンを入手します。](get-an-add-on.md)
-* [アドオンを削除します。](delete-an-add-on.md)
+* [Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)
+* [アドオンの申請の管理](manage-add-on-submissions.md)
+* [すべてのアドオンの入手](get-all-add-ons.md)
+* [アドオンの入手](get-an-add-on.md)
+* [アドオンの削除](delete-an-add-on.md)

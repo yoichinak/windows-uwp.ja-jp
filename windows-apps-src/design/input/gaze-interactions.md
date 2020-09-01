@@ -11,12 +11,12 @@ dev-contact: Austin Hodges
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 4cfd84d54ecd1425b3b7e66c54c96fbd78c2dd46
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: c91de7eb0200780b04bad1853cb49caf41a22bc0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970127"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172506"
 ---
 # <a name="gaze-interactions-and-eye-tracking-in-windows-apps"></a>Windows アプリでの対話と視線の追跡
 
@@ -25,9 +25,9 @@ ms.locfileid: "82970127"
 ユーザーの視線、注意、および場所とユーザーの目の動きに基づくプレゼンスを追跡するためのサポートを提供します。
 
 > [!NOTE]
-> [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) での視線入力については、「[視線](https://docs.microsoft.com/windows/mixed-reality/gaze)」を参照してください。
+> [Windows Mixed Reality](/windows/mixed-reality/) での視線入力については、「[視線](/windows/mixed-reality/gaze)」を参照してください。
 
-**重要な API**: [Windows.Devices.Input.Preview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview)、[GazeDevicePreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicepreview)、[GazePointPreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazepointpreview)、[GazeInputSourcePreview](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeinputsourcepreview)
+**重要な API**: [Windows.Devices.Input.Preview](/uwp/api/windows.devices.input.preview)、[GazeDevicePreview](/uwp/api/windows.devices.input.preview.gazedevicepreview)、[GazePointPreview](/uwp/api/windows.devices.input.preview.gazepointpreview)、[GazeInputSourcePreview](/uwp/api/windows.devices.input.preview.gazeinputsourcepreview)
 
 ## <a name="overview"></a>概要
 
@@ -36,13 +36,13 @@ Neuro を使用すると、Windows アプリケーションを操作して使用
 さらに、視線入力は、ゲーム (ターゲット把握や追跡を含む) や従来の生産性向上アプリケーション、キオスクだけでなく、従来の入力デバイス (キーボード、マウス、タッチ) が使用できないか、ユーザーの両手を他のタスク (買い袋を持つなど) のために開放することが便利である可能性のあるその他の対話型シナリオで、同様に魅力的な機会をもたらします。
 
 > [!NOTE]
-> 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。 視線追跡ハードウェアと対話できるアプリケーションを構築するための一連の Windows ランタイム Api ([windows](https://docs.microsoft.com/uwp/api/windows.devices.input.preview)) は、 **Windows 10 April 2018 Update (バージョン1803、ビルド 17134)** 以降で使用できます。
+> 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。 視線追跡ハードウェアと対話できるアプリケーションを構築するための一連の Windows ランタイム Api ([windows](/uwp/api/windows.devices.input.preview)) は、 **Windows 10 April 2018 Update (バージョン1803、ビルド 17134)** 以降で使用できます。
 
 ## <a name="privacy"></a>プライバシー
 
-視線追跡デバイスによって収集された機密性の高い個人データにより、アプリケーション`gazeInput`のアプリマニフェストで機能を宣言する必要があります (次の**セットアップ**セクションを参照してください)。 宣言すると、アプリが最初に実行されたときに Windows によって自動的にユーザーに同意ダイアログ ボックスが表示されます。ここでは、ユーザーはアプリが視線追跡デバイスと通信して、このデータにアクセスできるようにアクセス許可を付与する必要があります。
+視線追跡デバイスによって収集された機密性の高い個人データにより、 `gazeInput` アプリケーションのアプリマニフェストで機能を宣言する必要があります (次の **セットアップ** セクションを参照してください)。 宣言すると、アプリが最初に実行されたときに Windows によって自動的にユーザーに同意ダイアログ ボックスが表示されます。ここでは、ユーザーはアプリが視線追跡デバイスと通信して、このデータにアクセスできるようにアクセス許可を付与する必要があります。
 
-さらに、アプリが視線追跡データを収集、保存、転送する場合は、アプリのプライバシーに関する声明でこれを宣言し、[Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)と[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)の**個人情報**のその他すべての要件に従う必要があります。
+さらに、アプリが視線追跡データを収集、保存、転送する場合は、アプリのプライバシーに関する声明でこれを宣言し、[Microsoft Store ポリシー](/legal/windows/agreements/store-policies)と[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)の**個人情報**のその他すべての要件に従う必要があります。
 
 ## <a name="setup"></a>セットアップ
 
@@ -66,7 +66,7 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
 
 この例では、Windows アプリ内でユーザーの宝石を追跡し、タイミング関数と基本的なヒットテストを使用して、特定の要素に対してどの程度のフォーカスを維持できるかを示す方法を示します。
 
-小さな楕円を使用して視線のポイントがアプリケーションのビューポート内のどこにあるかを示しますが、[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/communitytoolkit/)の [RadialProgressBar](https://docs.microsoft.com/windows/communitytoolkit/controls/radialprogressbar) はキャンバス上でランダムに配置されます。 進行状況バーで注視フォーカスが検出されると、タイマーが開始し、進行状況バーが 100% に達したときに、キャンバスで、進行状況バーがランダムに移動します。
+小さな楕円を使用して視線のポイントがアプリケーションのビューポート内のどこにあるかを示しますが、[Windows コミュニティ ツールキット](/windows/communitytoolkit/)の [RadialProgressBar](/windows/communitytoolkit/controls/radialprogressbar) はキャンバス上でランダムに配置されます。 進行状況バーで注視フォーカスが検出されると、タイマーが開始し、進行状況バーが 100% に達したときに、キャンバスで、進行状況バーがランダムに移動します。
 
 ![タイマーのサンプルを使用した視線追跡](images/gaze/gaze-input-timed2.gif)
 
@@ -154,7 +154,7 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
 
 2. 次に、アプリを初期化します。
 
-    このスニペットでは、グローバル オブジェクトを宣言し、[OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) ページ イベントを上書きして[視線デバイス ウォッチャー](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview)を開始し、[OnNavigatedFrom](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedfrom) ページ イベントを上書きして[視線デバイス ウォッチャー](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview)を停止します。
+    このスニペットでは、グローバル オブジェクトを宣言し、[OnNavigatedTo](/uwp/api/windows.ui.xaml.controls.page.onnavigatedto) ページ イベントを上書きして[視線デバイス ウォッチャー](/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview)を開始し、[OnNavigatedFrom](/uwp/api/windows.ui.xaml.controls.page.onnavigatedfrom) ページ イベントを上書きして[視線デバイス ウォッチャー](/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview)を停止します。
 
     ```csharp
     using System;
@@ -233,7 +233,7 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
 
 3. 次に、視線デバイス ウォッチャーのメソッドを追加します。 
     
-    `StartGazeDeviceWatcher` で、[CreateWatcher](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeinputsourcepreview.createwatcher) を呼び出し、視線追跡デバイスのイベント リスナー ([DeviceAdded](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview.added)、[DeviceUpdated](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview.updated)、[DeviceRemoved](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview.removed)) を宣言します。
+    `StartGazeDeviceWatcher` で、[CreateWatcher](/uwp/api/windows.devices.input.preview.gazeinputsourcepreview.createwatcher) を呼び出し、視線追跡デバイスのイベント リスナー ([DeviceAdded](/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview.added)、[DeviceUpdated](/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview.updated)、[DeviceRemoved](/uwp/api/windows.devices.input.preview.gazedevicewatcherpreview.removed)) を宣言します。
 
     `DeviceAdded` で、視線追跡デバイスの状態を確認します。 実行可能なデバイスで、デバイス カウントをインクリメントし、視線追跡を有効にします。 詳細については、次の手順を参照してください。
 
@@ -330,10 +330,10 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
 
 4. ここでは、デバイスが `IsSupportedDevice` で実行可能であるかどうかを確認し、実行可能であれば、`TryEnableGazeTrackingAsync` で視線追跡を有効にすることを試みます。
 
-    `TryEnableGazeTrackingAsync` では、視線のイベント ハンドラーを宣言し、[GazeInputSourcePreview.GetForCurrentView()](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeinputsourcepreview.getforcurrentview) を呼び出して入力ソースへの参照を取得します (これは UI スレッドで呼び出す必要があります。「[UI スレッドの応答性の確保](https://docs.microsoft.com/windows/uwp/debug-test-perf/keep-the-ui-thread-responsive)」を参照してください)。
+    `TryEnableGazeTrackingAsync` では、視線のイベント ハンドラーを宣言し、[GazeInputSourcePreview.GetForCurrentView()](/uwp/api/windows.devices.input.preview.gazeinputsourcepreview.getforcurrentview) を呼び出して入力ソースへの参照を取得します (これは UI スレッドで呼び出す必要があります。「[UI スレッドの応答性の確保](../../debug-test-perf/keep-the-ui-thread-responsive.md)」を参照してください)。
 
     > [!NOTE]
-    > [GazeInputSourcePreview.GetForCurrentView()](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeinputsourcepreview.getforcurrentview) は、互換性のある視線追跡デバイスが接続され、アプリケーションで必要な場合にのみ呼び出す必要があります。 それ以外の場合、同意ダイアログ ボックスは不要です。
+    > [GazeInputSourcePreview.GetForCurrentView()](/uwp/api/windows.devices.input.preview.gazeinputsourcepreview.getforcurrentview) は、互換性のある視線追跡デバイスが接続され、アプリケーションで必要な場合にのみ呼び出す必要があります。 それ以外の場合、同意ダイアログ ボックスは不要です。
 
 ```csharp
     /// <summary>
@@ -405,7 +405,7 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
 
     視線追跡の楕円を `GazeEntered` で表示し、`GazeExited` で非表示にします。
 
-    `GazeMoved` では、[GazeEnteredPreviewEventArgs](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs) の [CurrentPoint](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs.currentpoint) で提供される [EyeGazePosition](https://docs.microsoft.com/uwp/api/windows.devices.input.preview.gazepointpreview.eyegazeposition) に基づいて視線追跡の楕円を移動します。 また、[RadialProgressBar](https://docs.microsoft.com/windows/communitytoolkit/controls/radialprogressbar) で視線フォーカスのタイマーを管理します。これにより進行状況バーの位置変更がトリガーされます。 詳細については、次の手順を参照してください。
+    `GazeMoved` では、[GazeEnteredPreviewEventArgs](/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs) の [CurrentPoint](/uwp/api/windows.devices.input.preview.gazeenteredprevieweventargs.currentpoint) で提供される [EyeGazePosition](/uwp/api/windows.devices.input.preview.gazepointpreview.eyegazeposition) に基づいて視線追跡の楕円を移動します。 また、[RadialProgressBar](/windows/communitytoolkit/controls/radialprogressbar) で視線フォーカスのタイマーを管理します。これにより進行状況バーの位置変更がトリガーされます。 詳細については、次の手順を参照してください。
 
     ```csharp
     /// <summary>
@@ -499,9 +499,9 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
     ```
 6. 最後に、このアプリの視線フォーカス タイマーを管理するために使用する方法を示します。
 
-    `DoesElementContainPoint`見つめポインターがプログレスバーの上にあるかどうかを確認します。 超えている場合は、視線タイマーを開始し、それぞれの視線タイマー ティックで進行状況バーをインクリメントします。
+    `DoesElementContainPoint` 見つめポインターがプログレスバーの上にあるかどうかを確認します。 超えている場合は、視線タイマーを開始し、それぞれの視線タイマー ティックで進行状況バーをインクリメントします。
 
-    `SetGazeTargetLocation`進行状況バーの初期位置を設定します。進行状況バーが完了した場合は、進行状況バーがランダムな場所に移動します。
+    `SetGazeTargetLocation` 進行状況バーの初期位置を設定します。進行状況バーが完了した場合は、進行状況バーがランダムな場所に移動します。
 
     ```csharp
     /// <summary>
@@ -600,7 +600,7 @@ Windows アプリで宝石入力 Api を使用するには、次のことを行�
 
 ### <a name="resources"></a>リソース
 
-- [Windows コミュニティ ツールキットの視線ライブラリ](https://docs.microsoft.com/windows/communitytoolkit/gaze/gazeinteractionlibrary)
+- [Windows コミュニティ ツールキットの視線ライブラリ](/windows/communitytoolkit/gaze/gazeinteractionlibrary)
 
 ### <a name="topic-samples"></a>トピックのサンプル
 

@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a68623b0a61672426c9b6eef85cb7d1ddc990a19
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: b021fc47eee6063761635422a780bb5f9f341f4d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370991"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89171916"
 ---
 # <a name="mappings-are-into-a-tile-pool"></a>タイル プールにマッピングされます
 
@@ -31,13 +31,13 @@ ms.locfileid: "66370991"
 
 各ページ テーブルのエントリが 64 ビットであるとします。
 
-最悪のページの表に、ヒット、ストリーミングでリソースが作成、128 ビット要素ごとの形式 (たとえば、RGBA float)、そのため 64 KB のタイルと direct3d11 でのリソース制限を指定された 1 つの画面のサイズには 4096 のみピクセルが含まれます。 サポートされている最大[ **Texture2DArray** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) 16384 サイズ\*16384\*完全に設定されている場合、2048 (が 1 つの mipmap のみ) が約 1 GB ページ テーブル内のストレージを必要とは(含まない mipmap) 64 ビットのテーブルのエントリを使用します。 ミップマップを追加すると、完全にマッピングされた (最悪のケース) ページ テーブル ストレージが約 3 分の 1 増加し、約 1.3 GB になります。
+単一サーフェスにおける最悪のケースのページ テーブル サイズ ヒットの場合、Direct3D 11 のリソース制限を考慮して、ストリーミング リソースが 128 ビット/要素の形式で作成されると仮定できるため (たとえば、RGBA の浮動小数点など)、64KB のタイルに含まれるのは 4096 ピクセルのみです。 16384 16384 2048 の最大サポートされている [**Texture2DArray**](/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サイズ \* \* (ただし、mipmap が1つのみの場合) では、64ビットテーブルエントリを使用して完全に (mipmap を含まない) データを設定すると、ページテーブルに約 1 gb のストレージが必要になります。 ミップマップを追加すると、完全にマッピングされた (最悪のケース) ページ テーブル ストレージが約 3 分の 1 増加し、約 1.3 GB になります。
 
 このケースでは、約 10.6 TB のアドレス可能メモリにアクセスできます。 ただし、アドレス可能メモリの量に制限が存在することがあり、その場合これらの量は 1 TB 前後の範囲に減少する可能性があります。
 
-考慮すべきもう 1 つのケースは、1 つ[ **Texture2D** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) 16384 のリソースをストリーミング\*16384 mipmap を含む、32 ビット要素ごとの形式。 完全に書き込まれたページ テーブルに必要な領域は、64 ビットのテーブル エントリで約 170 KB です。
+考慮すべきもう1つのケースは、16384 16384 の単一の [**Texture2D**](/windows/desktop/direct3dhlsl/sm5-object-texture2d) streaming リソースで、 \* mipmap を含む、要素ごとの32ビット形式を使用することです。 完全に書き込まれたページ テーブルに必要な領域は、64 ビットのテーブル エントリで約 170 KB です。
 
-最後に、BC 形式を使った例について考えます。たとえば、128 ビット/タイルが 4x4 ピクセル存在する BC7 であるとします。 これは、ピクセルあたり 1 バイトです。 A [ **Texture2DArray** ](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) 16384\*16384\*2048 mipmap を含む必要約 85 MB を完全にページの表に、このメモリを設定します。 1 つのストリーミング リソースが 550 ギガピクセル (この場合は 512 GB のメモリ) に対応できることを考えると、これは悪くありません。
+最後に、BC 形式を使った例について考えます。たとえば、128 ビット/タイルが 4x4 ピクセル存在する BC7 であるとします。 これは、ピクセルあたり 1 バイトです。 Mipmap を含む 16384 16384 2048 の [**Texture2DArray**](/windows/desktop/direct3dhlsl/sm5-object-texture2darray) では、 \* \* ページテーブルにこのメモリを完全に設定するには、約85mb が必要です。 1 つのストリーミング リソースが 550 ギガピクセル (この場合は 512 GB のメモリ) に対応できることを考えると、これは悪くありません。
 
 実際には、これほどの量を一度にマッピングしたり参照したりできる量の物理メモリが存在することはないため、このようなほぼフル マッピングは定義されません。 しかし、タイル プールでは、アプリケーションがタイルの再利用を選択することがあり (シンプルな例としては、イメージ内の大きい黒色の領域に "黒" のカラー タイルを再利用)、事実上タイル プール (つまり、ページ テーブル マッピング) をメモリ圧縮のツールとして使っていることになります。
 
@@ -59,15 +59,15 @@ ms.locfileid: "66370991"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="tile-pool-creation.md">タイルのプールの作成</a></p></td>
-<td align="left"><p>アプリケーションは、Direct3D デバイスごとに 1 つ以上のタイル プールを作成できます。 各タイルのプールの合計サイズは、GPU の RAM の 4 分の 1 では約 direct3d11 のリソース サイズ制限に制限されます。</p></td>
+<td align="left"><p><a href="tile-pool-creation.md">タイル プールの作成</a></p></td>
+<td align="left"><p>アプリケーションは、Direct3D デバイスごとに 1 つ以上のタイル プールを作成できます。 各タイル プールの合計サイズは、Direct3D 11 のリソース サイズ制限 (GPU RAM の約 1/4) に制限されます。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="tile-pool-resizing.md">プールのサイズを並べて表示します。</a></p></td>
+<td align="left"><p><a href="tile-pool-resizing.md">タイル プールのサイズ変更</a></p></td>
 <td align="left"><p>アプリケーションに、ストリーミング リソースのマッピング先のワーキング セットがさらに必要になった場合にタイル プールを拡大したり、必要な容量が少なくなった場合にタイル プールを縮小したりするためにタイル プールのサイズを変更します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="hazard-tracking-versus-tile-pool-resources.md">タイルのプールのリソースと追跡の危険</a></p></td>
+<td align="left"><p><a href="hazard-tracking-versus-tile-pool-resources.md">ハザード追跡対タイル プール リソース</a></p></td>
 <td align="left"><p>非ストリーミング リソースの場合、Direct3D はレンダリング時に特定のハザード条件を防止できますが、ハザード追跡はストリーミング リソースのタイル レベルで行われるため、ストリーミング リソースのレンダリング時のハザード追跡にはかなりコストがかかる可能性があります。</p></td>
 </tr>
 </tbody>
@@ -78,12 +78,8 @@ ms.locfileid: "66370991"
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[ストリーミングのリソースを作成します。](creating-streaming-resources.md)
+[ストリーミング リソースの作成](creating-streaming-resources.md)
 
  
 
  
-
-
-
-

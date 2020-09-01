@@ -1,25 +1,25 @@
 ---
 title: メディア キャプチャ API のリファレンス
-description: メディア キャプチャ API にプログラムでアクセスする方法について説明します。
+description: Xbox デバイスポータル REST API を使用して、現在の画面の PNG 表現をキャプチャする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 3f92c8fd-4096-4972-97da-01ae5db6423c
 ms.localizationpriority: medium
-ms.openlocfilehash: 7dcd4c6c39a983ab11bfacd391bfa78942601258
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: ee1ccba3fe2a3f83a95c3538cb267730f7770c4c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244058"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172736"
 ---
 # <a name="media-capture-api-reference"></a>メディア キャプチャ API のリファレンス #
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 次の要求形式を使用して、現在の画面の PNG 画像を取得できます。
 
-| メソッド        | 要求 URI     | 
+| Method        | 要求 URI     | 
 | ------------- |-----------------|
 | GET           | /ext/screenshot |
 
@@ -43,7 +43,7 @@ ms.locfileid: "59244058"
 
 ## <a name="response"></a>応答
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 

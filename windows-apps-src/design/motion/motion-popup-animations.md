@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 78adc32dccc66b98e413796d9cfe20b2a158261e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: f21e529d519913e5b7fd2b19bd63f40c5a3d2009
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970537"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172386"
 ---
 # <a name="pop-up-ui-animations"></a>ポップアップ UI のアニメーション
 
@@ -21,7 +21,7 @@ ms.locfileid: "82970537"
 
 ポップアップ アニメーションを使って、ポップアップ UI やカスタム ポップアップ UI 要素の表示と非表示を切り替えます。 ポップアップ要素とは、アプリのコンテンツの上に表示されるコンテナーのことで、ユーザーがポップアップ要素の外部をタップまたはクリックすると消えます。
 
-> **重要な API**: [**PopInThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation)、[**PopupThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopupThemeTransition)
+> **重要な API**: [**PopInThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation)、[**PopupThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PopupThemeTransition)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -33,17 +33,13 @@ ms.locfileid: "82970537"
 
 ## <a name="related-articles"></a>関連記事
 
-* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
-* [ポップアップ UI のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649433(v=win.10))
-* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
-* [**PopInThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation)
-* [**PopOutThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation)
-* [**PopupThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PopupThemeTransition)
+* [アニメーションの概要](./xaml-animation.md)
+* [ポップアップ UI のアニメーション化](/previous-versions/windows/apps/jj649433(v=win.10))
+* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](/previous-versions/windows/apps/hh452703(v=win.10))
+* [**PopInThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PopInThemeAnimation)
+* [**PopOutThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation)
+* [**PopupThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PopupThemeTransition)
 
  
 
  
-
-
-
-

@@ -6,21 +6,21 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 7cf4cfa4b87842cd7113b36220cdfdff69449a3a
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: 69e60d8ef919a05493f47f086ee992afe8bfeb4c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846792"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172836"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
-この記事では、 **[AccountsSettingsPane](https://docs.microsoft.com/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を使用して、Windows 10 Web アカウントマネージャー api を使用して、ユニバーサル WINDOWS プラットフォーム (UWP) アプリを Microsoft や Facebook などの外部 id プロバイダーに接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
+この記事では、 **[AccountsSettingsPane](/uwp/api/Windows.UI.ApplicationSettings.AccountsSettingsPane)** を使用して、Windows 10 Web アカウントマネージャー api を使用して、ユニバーサル WINDOWS プラットフォーム (UWP) アプリを Microsoft や Facebook などの外部 id プロバイダーに接続する方法について説明します。 ユーザーの Microsoft アカウントを使用するためにユーザーの許可を求める方法、アクセス トークンを取得する方法、アクセス トークンを使って基本的な操作 (プロファイル データの取得や OneDrive アカウントへのファイルのアップロードなど) を実行する方法を学習してください。 この手順は、ユーザーの許可を得て、Web アカウント マネージャーをサポートする ID プロバイダーにアクセスするための手順と似ています。
 
 > [!NOTE]
 > 完全なコード サンプルについては、[GitHub の WebAccountManagement サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/WebAccountManagement)をご覧ください。
 
-## <a name="get-set-up"></a>事前準備する
+## <a name="get-set-up"></a>準備
 
 まず、Visual Studio で新しい空白のアプリを作成します。 
 
@@ -76,7 +76,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 システムは UI シェルのみを提供するため、このウィンドウは空になっています。開発者がこのウィンドウに ID プロバイダーをプログラムで入力します。 
 
 > [!TIP]
-> 必要に応じて、 **[Show](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** ではなく**[ShowAddAccountAsync](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** を使用して、操作の状態を照会する**[iasyncaction](https://docs.microsoft.com/uwp/api/Windows.Foundation.IAsyncAction)** を返します。 
+> 必要に応じて、 **[Show](/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** ではなく**[ShowAddAccountAsync](/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** を使用して、操作の状態を照会する**[iasyncaction](/uwp/api/Windows.Foundation.IAsyncAction)** を返します。 
 
 ## <a name="register-for-accountcommandsrequested"></a>AccountCommandsRequested への登録
 
@@ -133,7 +133,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 
 文字列 "consumers" をオプションの *authority* パラメーターに渡すことにも注意してください。 これは、Microsoft は "消費者 (consumers)" 向けの Microsoft アカウント (MSA) と、"組織 (organizations)" 向けの Azure Active Directory (AAD) という、2 種類の認証を提供しているためです。 "consumers" 権限は、MSA オプションを必要としていることを示します。 企業向けのアプリを開発している場合は、代わりに文字列 "organizations" を使います。
 
-最後に、次のように新しい**[Webaccountprovidercommand](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、プロバイダーを**AccountsSettingsPane**に追加します。 
+最後に、次のように新しい**[Webaccountprovidercommand](/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、プロバイダーを**AccountsSettingsPane**に追加します。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -178,7 +178,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 * OneDrive のスコープについては、「[OneDrive の認証とサインイン](https://dev.onedrive.com/auth/msa_oauth.htm#authentication-scopes)」をご覧ください。 
 
 > [!TIP]
-> 必要に応じて、アプリでログインヒント (既定の電子メールアドレスをユーザーフィールドに設定するため) またはサインインエクスペリエンスに関連するその他の特殊なプロパティを使用する場合は、 **[Webtokenrequest. AppProperties](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core.webtokenrequest.appproperties#Windows_Security_Authentication_Web_Core_WebTokenRequest_AppProperties)** プロパティに一覧表示します。 これにより、システムは web アカウントをキャッシュするときにプロパティを無視するため、キャッシュ内のアカウントの不一致を防ぐことができます。
+> 必要に応じて、アプリでログインヒント (既定の電子メールアドレスをユーザーフィールドに設定するため) またはサインインエクスペリエンスに関連するその他の特殊なプロパティを使用する場合は、 **[Webtokenrequest. AppProperties](/uwp/api/windows.security.authentication.web.core.webtokenrequest.appproperties#Windows_Security_Authentication_Web_Core_WebTokenRequest_AppProperties)** プロパティに一覧表示します。 これにより、システムは web アカウントをキャッシュするときにプロパティを無視するため、キャッシュ内のアカウントの不一致を防ぐことができます。
 
 企業向けのアプリを開発している場合は、Azure Active Directory (AAD) インスタンスに接続し、通常の MSA サービスではなく Microsoft Graph API を使用します。 このシナリオでは、次のコードを代わりに使います。 
 
@@ -214,7 +214,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 > [!NOTE]
 > トークンを要求したときにエラーが発生した場合、最初の手順で説明したように、アプリを Microsoft Store に関連付けたかどうかを確認してください。 この手順を省略すると、アプリでトークンを取得することはできません。 
 
-トークンを取得したら、プロバイダーの API を呼び出すためにトークンを使うことができます。 次のコードでは、[ユーザー情報のための Microsoft Live API](https://docs.microsoft.com/office/) を呼び出してユーザーに関する基本情報を取得し、UI に表示します。 ただし、ほとんどの場合、取得したトークンは保存してから、別のメソッドで使用することをお勧めします。
+トークンを取得したら、プロバイダーの API を呼び出すためにトークンを使うことができます。 次のコードでは、[ユーザー情報のための Microsoft Live API](/office/) を呼び出してユーザーに関する基本情報を取得し、UI に表示します。 ただし、ほとんどの場合、取得したトークンは保存してから、別のメソッドで使用することをお勧めします。
 
 ```csharp
 private async void GetMsaTokenAsync(WebAccountProviderCommand command)
@@ -250,7 +250,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 
 トークンはユーザーに関する情報を直ちに取得する場合に便利ですが、通常はさまざまな有効期限を持ちます。たとえば、MSA トークンは数時間のみ有効です。 ただし、トークンの有効期限が切れるたびに **AccountsSettingsPane** を再表示する必要はありません。 ユーザーが一度アプリを承認すると、将来使うためにユーザーのアカウント情報を保存できます。 
 
-これを行うには、 **[WebAccount](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount)** クラスを使用します。 **WebAccount** は、トークンの要求で使ったメソッドと同じメソッドによって返されます。
+これを行うには、 **[WebAccount](/uwp/api/windows.security.credentials.webaccount)** クラスを使用します。 **WebAccount** は、トークンの要求で使ったメソッドと同じメソッドによって返されます。
 
 ```csharp
 private async void GetMsaTokenAsync(WebAccountProviderCommand command)
@@ -265,7 +265,7 @@ private async void GetMsaTokenAsync(WebAccountProviderCommand command)
 }
 ```
 
-**WebAccount** インスタンスを取得すると、これを簡単に保存することができます。 次の例では、LocalSettings を使います。 LocalSettings やユーザー データを保存するための他のメソッドの使用方法について詳しくは、「[Store and retrieve app settings and data](https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data)」(アプリの設定とデータを保存して取得する) をご覧ください。
+**WebAccount** インスタンスを取得すると、これを簡単に保存することができます。 次の例では、LocalSettings を使います。 LocalSettings やユーザー データを保存するための他のメソッドの使用方法について詳しくは、「[Store and retrieve app settings and data](../design/app-settings/store-and-retrieve-app-data.md)」(アプリの設定とデータを保存して取得する) をご覧ください。
 
 ```csharp
 private async void StoreWebAccount(WebAccount account)
@@ -338,7 +338,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="remove-a-stored-account"></a>保存されたアカウントの削除
 
-Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 こうすることで、アプリを効果的に "ログアウト" できます。アカウント情報は、起動時に自動的に読み込まれなくなります。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、**[SignOutAsync](https://docs.microsoft.com/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
+Web アカウントを保持するとき、場合によっては、ユーザーが自分のアカウントとアプリの関連付けを解除できるようにする必要があります。 こうすることで、アプリを効果的に "ログアウト" できます。アカウント情報は、起動時に自動的に読み込まれなくなります。 これを行うには、まず保存されたアカウントとプロバイダーの情報を記憶域から削除します。 次に、**[SignOutAsync](/uwp/api/windows.security.credentials.webaccount.SignOutAsync)** を呼び出してキャッシュをクリアし、アプリが保持している可能性がある既存のトークンをすべて無効にします。 
 
 ```csharp
 private async Task SignOutAccountAsync(WebAccount account)
@@ -422,11 +422,11 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 ## <a name="see-also"></a>関連項目
 
-[Windows.Security.Authentication.Web.Core 名前空間](https://docs.microsoft.com/uwp/api/windows.security.authentication.web.core)
+[Windows.Security.Authentication.Web.Core 名前空間](/uwp/api/windows.security.authentication.web.core)
 
-[Windows.Security.Credentials 名前空間](https://docs.microsoft.com/uwp/api/windows.security.credentials)
+[Windows.Security.Credentials 名前空間](/uwp/api/windows.security.credentials)
 
-[AccountsSettingsPane クラス](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings.accountssettingspane)
+[AccountsSettingsPane クラス](/uwp/api/windows.ui.applicationsettings.accountssettingspane)
 
 [Web 認証ブローカー](web-authentication-broker.md)
 

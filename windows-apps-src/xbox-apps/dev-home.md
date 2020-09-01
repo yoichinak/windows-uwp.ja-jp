@@ -1,18 +1,18 @@
 ---
 ms.assetid: a56156e4-7adb-bf37-527b-fc3243e04b46
 title: コンソールにおける開発者ホーム (Dev Home)
-description: Xbox One 用の Dev Home アプリに関する情報を提供します。
+description: Xbox One コンソール開発キットの Dev Home ツールエクスペリエンスが開発者の生産性を向上させる方法について説明します。
 ms.date: 08/09/2017
 ms.topic: article
 keywords: windows 10, uwp
 permalink: en-us/docs/xdk/dev-home.html
 ms.localizationpriority: medium
-ms.openlocfilehash: 4113df37446d93883cf395e7c1e86b1de6c1b328
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 40100adb1bd9337d933b8ebd155847bde71e341a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57620847"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172816"
 ---
 # <a name="developer-home-on-the-console-dev-home"></a>コンソールにおける開発者ホーム (Dev Home)
    
@@ -27,7 +27,7 @@ Microsoft では、Dev Home についてのフィードバックや、お客様�
  
    1. [ホーム] で左に移動するか、Nexus ボタンをダブルクリックしてガイドを開く  
    1. **[設定]** (歯車アイコン) まで下に移動する   
-   1. **[すべての設定]** を選ぶ  
+   1. **すべての設定**を選択する  
    1. 既定の **[開発者]** ページで、**[開発者ホーム]** (ホーム アイコン) を選ぶ   
 
  ![](images/dev_home_icons.png)   
@@ -43,20 +43,20 @@ Microsoft では、Dev Home についてのフィードバックや、お客様�
   
 Dev Home のユーザー インターフェイスのヘッダーには、開発に関する次の重要な "概要" 情報が含まれています。   
  
-   *  **コンソールの IP:** コンソールの現在の IP アドレス。   
+   *  **コンソール IP:** コンソールの現在の IP アドレス。   
    *  **コンソール名:** コンソールの現在のホスト名。  
-   *  **サンド ボックス:** コンソールがサンド ボックスの名前。  
-   *  **OS のバージョン:** コンソールで実行されている現在の復旧バージョン。
+   *  **サンドボックス:** コンソールが存在するサンドボックスの名前。  
+   *  **OS バージョン:** コンソールで実行されている現在の回復バージョン。
    *  現在のシステム時刻。   
 
    
   
 Dev Home の UI の残りの部分は、以下のページに分かれています。 これらのページのツールについて詳しくは、個々のトピックをご覧ください。   
  
-   *  [ホーム](devhome-home.md)  
+   *  [Home](devhome-home.md)  
    *  [Xbox Live](devhome-live.md)  
    *  [設定](devhome-settings.md)  
-   *  [メディアをキャプチャします。](devhome-capture.md)  
+   *  [メディアキャプチャ](devhome-capture.md)  
    *  [ネットワーク](devhome-networking.md)  
    *  [パフォーマンス](devhome-performance.md)  
 
@@ -101,7 +101,7 @@ Dev Home は、カスタマイズして個人用に設定できるように設�
 ### <a name="resizing-and-reordering-tools"></a>ツールのサイズ変更と並べ替え  
    
   
-ツールのサイズや位置を変更するには、タイトルにフォーカスがあるときに、コンテキスト メニュー ボタン (コントローラー上の [ビュー] ボタン) を使用します。 コンテキスト メニューで **[移動]** または **[サイズ変更]**  を選択します。   
+ツールのサイズや位置を変更するには、タイトルにフォーカスがあるときに、コンテキスト メニュー ボタン (コントローラー上の [ビュー] ボタン) を使用します。 コンテキスト メニューで **[移動]** または **[サイズ変更] ** を選択します。   
  ![](images/dev_home_6.png)  
 <a id="ID4EEG"></a>
 
@@ -145,38 +145,38 @@ Dev Home は、カスタマイズして個人用に設定できるように設�
 
 ## <a name="in-this-section"></a>このセクションの内容  
   
-[ホーム ページ (Dev ホーム)](devhome-home.md)  
+[[ホーム] ページ (Dev Home)](devhome-home.md)  
 
 
-&nbsp;&nbsp;日常的に開発コンソール上で実行されるタスクにすばやくアクセスできます。 
+&nbsp;&nbsp;開発コンソールで定期的に実行されるタスクにすばやくアクセスできるようにします。 
   
   
-[Xbox Live (Dev ホーム) ページ](devhome-live.md)  
+[[Xbox Live] ページ (Dev Home)](devhome-live.md)  
 
 
-&nbsp;&nbsp;マルチ プレーヤーの情報をキャプチャし、Xbox Live サービスの現在の状態を表示します。 
+&nbsp;&nbsp;マルチプレイヤー情報を収集し、Xbox Live サービスの現在の状態を表示します。 
   
   
-[設定 ページ (Dev ホーム)](devhome-settings.md)  
+[[設定] ページ (Dev Home)](devhome-settings.md)  
 
 
-&nbsp;&nbsp;開発コンソールのさまざまな設定にアクセスをできます。 
+&nbsp;&nbsp;開発コンソールのさまざまな設定にアクセスできるようにします。 
   
   
-[メディアのキャプチャ (Dev ホーム) ページ](devhome-capture.md)  
+[[メディアのキャプチャ] ページ (Dev Home)](devhome-capture.md)  
 
 
-&nbsp;&nbsp;**メディアのキャプチャ**の開発のホーム ページは、コンソールで現在実行されているタイトルのビデオをキャプチャします。 
+&nbsp;&nbsp;Dev ホームの **メディアキャプチャ** ページでは、コンソールで現在実行されているタイトルのビデオがキャプチャされます。 
   
   
-[[ネットワーク] ページ (Dev ホーム)](devhome-networking.md)  
+[[ネットワーキング] ページ (Dev Home)](devhome-networking.md)  
 
 
-&nbsp;&nbsp;トラブルシューティングのためのさまざまなネットワーク条件をシミュレートします。 
+&nbsp;&nbsp;トラブルシューティング目的でさまざまなネットワークの状態をシミュレートします。 
   
   
-[[パフォーマンス] ページ (Dev ホーム)](devhome-performance.md)  
+[[パフォーマンス] ページ (Dev Home)](devhome-performance.md)  
 
 
-&nbsp;&nbsp;さまざまなディスク利用状況とトラブルシューティングの目的で CPU の使用条件をシミュレートします。 
+&nbsp;&nbsp;トラブルシューティング目的でさまざまなディスクのアクティビティや CPU 使用率の状態をシミュレートします。 
  
