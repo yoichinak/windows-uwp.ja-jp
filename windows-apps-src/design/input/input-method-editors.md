@@ -7,12 +7,12 @@ keywords: ime、Input Method Editor、入力、対話
 ms.date: 07/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 438c53a0f3fbec1fdac0206bde3584c738759de4
-ms.sourcegitcommit: 86ce67a03e87fa1282849b2fcb4f89d1cf23a091
+ms.openlocfilehash: 8e7782dea8cd634fd9fe3bac4a3e4c870cd680e9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87840023"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159946"
 ---
 # <a name="input-method-editors-ime"></a>入力方式エディター (IME)
 
@@ -40,8 +40,8 @@ IME (Input Method Editor) は、標準の QWERTY キーボードでは簡単に�
 サードパーティの IME は、次の要件を満たしている必要があります。
 
 - デジタル署名が必要
-- 適切な IME フラグが正しく設定されている場合は、[テキストサービスフレームワーク (TSF)](/windows/win32/tsf/text-services-framework)を認識している必要があります。
-- 「 [Input Method Editor (IME) の要件](input-method-editor-requirements.md)」に記載されているガイドラインに従って、 [Windows アプリの設計とコーディング](/windows/uwp/design/)を行う必要があります。
+- 適切な IME フラグが正しく設定されている場合は、 [テキストサービスフレームワーク (TSF)](/windows/win32/tsf/text-services-framework) を認識している必要があります。
+- 「 [Input Method Editor (IME) の要件](input-method-editor-requirements.md)」に記載されているガイドラインに従って、 [Windows アプリの設計とコーディング](../index.md)を行う必要があります。
 
 これらの要件を満たしていないサードパーティの IME は、実行がブロックされます。
 
@@ -52,7 +52,7 @@ IME (Input Method Editor) は、標準の QWERTY キーボードでは簡単に�
 
 ## <a name="design-guidelines-for-imes"></a>Ime の設計ガイドライン
 
-Ime のベストプラクティスと設計ガイドラインの詳細については、「 [ime (Input Method Editor) の要件](input-method-editor-requirements.md)」を参照してください。 一般に、すべての IME Ui で次のことを行う必要があります。
+Ime のベストプラクティスと設計ガイドラインの詳細については、「 [ime (Input Method Editor) の要件](input-method-editor-requirements.md) 」を参照してください。 一般に、すべての IME Ui で次のことを行う必要があります。
 
 - Windows ランタイムアプリの UX ガイドラインに従う
 - モーダルエクスペリエンスを回避し、必要なときにのみ IME ウィンドウを表示する

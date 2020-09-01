@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Windows 10, UWP, ゲーム, マウス, 入力
 ms.assetid: 08c35e05-2822-4a01-85b8-44edb9b6898f
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d36d81aa3f4e0124f79cf8c736b715eb91590d0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 155fed8e4bc1cb12196fcaaca4b7232b84c19032
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368192"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159256"
 ---
 # <a name="relative-mouse-movement-and-corewindow"></a>相対マウス移動と CoreWindow
 
@@ -31,7 +31,7 @@ ms.locfileid: "66368192"
 - 相対マウス処理を無効にする。 
 - マウス カーソルを null 以外の値に設定する (表示状態にする)。
 
-> **注:**  
+> **注**  
 このパターンでは、カーソルを使わない相対モードに移行したときに、絶対マウス カーソルの位置を保存します。 カーソルは、相対マウス移動モードが有効になる前と同じ画面座標位置に再び表示されます。
 
  
@@ -39,7 +39,7 @@ ms.locfileid: "66368192"
 ## <a name="handling-relative-mouse-movement"></a>相対マウス移動の処理
 
 
-マウスの相対デルタ値にアクセスするには、次のように [MouseDevice::MouseMoved](https://docs.microsoft.com/uwp/api/windows.devices.input.mousedevice.mousemoved) イベントに対して登録を行います。
+マウスの相対デルタ値にアクセスするには、次のように [MouseDevice::MouseMoved](/uwp/api/windows.devices.input.mousedevice.mousemoved) イベントに対して登録を行います。
 
 
 ```cpp
@@ -85,18 +85,18 @@ void MoveLookController::OnMouseMoved(
 
 ```
 
-このコード例では、**OnMouseMoved** というイベント ハンドラーで、マウスの移動に応じた表示をレンダリングしています。 ハンドラーには、マウス ポインターの位置が、[MouseEventArgs](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.MouseEventArgs) オブジェクトとして渡されます。 
+このコード例では、**OnMouseMoved** というイベント ハンドラーで、マウスの移動に応じた表示をレンダリングしています。 ハンドラーには、マウス ポインターの位置が、[MouseEventArgs](/uwp/api/Windows.Devices.Input.MouseEventArgs) オブジェクトとして渡されます。 
 
-マウスの相対移動の値を処理している間は、[CoreWindow::PointerMoved](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointermoved) イベントからの絶対マウス データの処理はスキップします。 ただし、この入力をスキップするのは、(タッチ入力の結果としてではなく) マウス入力の結果として **CoreWindow::PointerMoved** イベントが発生した場合だけです。 カーソルを非表示にするには、[CoreWindow::PointerCursor](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointercursor) を **nullptr** に設定します。 
+マウスの相対移動の値を処理している間は、[CoreWindow::PointerMoved](/uwp/api/windows.ui.core.corewindow.pointermoved) イベントからの絶対マウス データの処理はスキップします。 ただし、この入力をスキップするのは、(タッチ入力の結果としてではなく) マウス入力の結果として **CoreWindow::PointerMoved** イベントが発生した場合だけです。 カーソルを非表示にするには、[CoreWindow::PointerCursor](/uwp/api/windows.ui.core.corewindow.pointercursor) を **nullptr** に設定します。 
 
 ## <a name="returning-to-absolute-mouse-movement"></a>絶対マウス移動への復帰
 
-アプリが 3D オブジェクト/シーン操作モードから抜け、相対マウス移動が使われなくなったら (メニュー画面に戻ったときなど)、絶対マウス移動の通常の処理に戻す必要があります。 この時点で、相対マウス データの読み取りを中止し、標準的なマウス (とポインター) イベントの処理を再開して、[CoreWindow::PointerCursor](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointercursor) を null 以外の値に設定します。 
+アプリが 3D オブジェクト/シーン操作モードから抜け、相対マウス移動が使われなくなったら (メニュー画面に戻ったときなど)、絶対マウス移動の通常の処理に戻す必要があります。 この時点で、相対マウス データの読み取りを中止し、標準的なマウス (とポインター) イベントの処理を再開して、[CoreWindow::PointerCursor](/uwp/api/windows.ui.core.corewindow.pointercursor) を null 以外の値に設定します。 
 
-> **注:**  
+> **注**  
 アプリが 3D オブジェクト/シーン操作モードのとき (カーソルをオフにした状態で相対マウス移動を処理しているとき)、マウスは、チャーム、バック スタック、アプリ バーなどのエッジ UI を呼び出すことができません。 したがって、この特殊なモードから抜けるための機構を実装することが重要となります。たとえば、一般には **Esc** キーが使われています。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ゲームの移動検索コントロール](tutorial--adding-move-look-controls-to-your-directx-game.md) 
-* [ゲームをタッチ コントロール](tutorial--adding-touch-controls-to-your-directx-game.md)
+* [ゲームのムーブ/ルック コントロール](tutorial--adding-move-look-controls-to-your-directx-game.md) 
+* [ゲームのタッチ コントロール](tutorial--adding-touch-controls-to-your-directx-game.md)

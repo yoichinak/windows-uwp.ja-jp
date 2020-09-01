@@ -6,14 +6,14 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, シャドウ ボリューム, 深度バッファー, DirectX 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 2ce0cbd310ea89c5fa7b5c68033402f559768a24
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e2b54f179d61a9479bdb921ef0a68b4c1772c20c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368509"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159386"
 ---
-# <a name="walkthrough-implement-shadow-volumes-using-depth-buffers-in-direct3d-11"></a>チュートリアル: Direct3d11 の深度バッファーを使用してボリュームをシャドウの実装します。
+# <a name="walkthrough-implement-shadow-volumes-using-depth-buffers-in-direct3d-11"></a>チュートリアル: Direct3D 11 の深度バッファーを使ったシャドウ ボリュームの実装
 
 
 
@@ -32,19 +32,19 @@ ms.locfileid: "66368509"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="create-depth-buffer-resource--view--and-sampler-state.md">深度バッファー デバイス リソースを作成します。</a></p></td>
+<td align="left"><p><a href="create-depth-buffer-resource--view--and-sampler-state.md">深度バッファーのデバイス リソースの作成</a></p></td>
 <td align="left"><p>シャドウ ボリュームの深度のテストをサポートするために必要な Direct3D デバイス リソースを作成する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="render-the-shadow-map-to-the-depth-buffer.md">深度バッファーにシャドウ マップを表示します。</a></p></td>
+<td align="left"><p><a href="render-the-shadow-map-to-the-depth-buffer.md">深度バッファーへのシャドウ マップのレンダリング</a></p></td>
 <td align="left"><p>ライトの視点からレンダリングして、シャドウ ボリュームを表す 2 次元の深度マップを作成します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="render-the-scene-with-depth-testing.md">深度テストとシーンをレンダリングします。</a></p></td>
+<td align="left"><p><a href="render-the-scene-with-depth-testing.md">深度のテストを使ったシーンのレンダリング</a></p></td>
 <td align="left"><p>シャドウ効果を作成するには、頂点 (またはジオメトリ) シェーダーとピクセル シェーダーに深度のテストを追加します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="target-a-range-of-hardware.md">さまざまなハードウェアでシャドウ マップをサポートします。</a></p></td>
+<td align="left"><p><a href="target-a-range-of-hardware.md">ハードウェアの範囲でのシャドウ マップのサポート</a></p></td>
 <td align="left"><p>より高速なデバイスでは高品質なシャドウを、性能が低いデバイスではよりすばやいシャドウをレンダリングします。</p></td>
 </tr>
 </tbody>
@@ -55,7 +55,7 @@ ms.locfileid: "66368509"
 ## <a name="shadow-mapping-application-to-direct3d-9-desktop-porting"></a>Direct3D 9 デスクトップに対するシャドウ マップの適用の移植
 
 
-Windows 8 adde 9 の機能レベルを比較機能を d 深さ\_1 から 9\_3。 シャドウ ボリュームを含むレンダリング コードを DirectX 11 に移行できるようになりました。Direct3D 11 レンダラーは機能レベル 9 のデバイスと下位互換性を持ちます。 このチュートリアルでは、Direct3D 11 のアプリやゲームで深度のテストを使って従来のシャドウ ボリュームを実装する方法を説明します。 コードは次のプロセスに対応しています。
+Windows 8 の他 d の深さの比較機能を機能レベル 9 \_ 1 および 9 3 に比較 \_ します。 シャドウ ボリュームを含むレンダリング コードを DirectX 11 に移行できるようになりました。Direct3D 11 レンダラーは機能レベル 9 のデバイスと下位互換性を持ちます。 このチュートリアルでは、Direct3D 11 のアプリやゲームで深度のテストを使って従来のシャドウ ボリュームを実装する方法を説明します。 コードは次のプロセスに対応しています。
 
 1.  シャドウ マッピング用の Direct3D デバイス リソースを作成する。
 2.  レンダリング パスを追加して深度マップを作成する。
@@ -63,30 +63,26 @@ Windows 8 adde 9 の機能レベルを比較機能を d 深さ\_1 から 9\_3。
 4.  必要なシェーダー コードを実行する。
 5.  下位レベル ハードウェアでのレンダリングを高速化するためのオプション。
 
-このチュートリアルを完了すると、9 の機能レベルと互換性がある direct3d11 の基本的な互換性のあるシャドウ ボリュームの手法を実装する方法を理解しておく必要がありますあります\_1 以上です。
+このチュートリアルを完了するには、機能レベル 9 1 以上と互換性のある Direct3D 11 の基本的な互換性のあるシャドウボリューム手法を実装する方法について理解しておく必要があり \_ ます。
 
 ## <a name="prerequisites"></a>前提条件
 
 
-[ユニバーサル Windows プラットフォーム (UWP) DirectX ゲームの開発環境を準備する](prepare-your-dev-environment-for-windows-store-directx-game-development.md)必要があります。 テンプレートは、まだ必要はありませんが、このチュートリアルのコード サンプルをビルドする、Microsoft Visual Studio 2015 が必要があります。
+[ユニバーサル Windows プラットフォーム (UWP) DirectX ゲームの開発環境を準備する](prepare-your-dev-environment-for-windows-store-directx-game-development.md)必要があります。 テンプレートはまだ必要ありませんが、このチュートリアルのコード サンプルをビルドするために Microsoft Visual Studio 2015 が必要です。
 
 ## <a name="related-topics"></a>関連トピック
 
 
 **Direct3D**
 
-* [Direct3D 9 での HLSL シェーダーの記述](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-writing-shaders-9)
-* [UWP の DirectX 11 の新しいプロジェクトを作成します。](user-interface.md)
+* [Direct3D 9 での HLSL シェーダーの記述](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-writing-shaders-9)
+* [テンプレートからの DirectX ゲーム プロジェクトの作成](user-interface.md)
 
-**シャドウの技術情報のマッピング**
+**シャドウ マッピングに関する技術記事**
 
-* [影の深さのマップを向上させるために一般的な手法](https://docs.microsoft.com/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps)
-* [カスケード シャドウ マップ](https://docs.microsoft.com/windows/desktop/DxTechArts/cascaded-shadow-maps)
-
- 
+* [シャドウ深度マップを向上させるための一般的な方法](/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps)
+* [カスケードされたシャドウ マップ](/windows/desktop/DxTechArts/cascaded-shadow-maps)
 
  
 
-
-
-
+ 

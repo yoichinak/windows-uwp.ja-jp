@@ -6,20 +6,20 @@ ms.date: 06/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c7fadaf902b4aa543234bc8d43fbc1595a54219
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 143d83a0c1257cf662fb686a5e0620db5cc6fb68
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369685"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159526"
 ---
 # <a name="use-the-compass"></a>コンパスの使用
 
 
 **重要な API**
 
--   [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
--   [**Compass**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Compass)
+-   [**Windows.Devices.Sensors**](/uwp/api/Windows.Devices.Sensors)
+-   [**コンパス**](/uwp/api/Windows.Devices.Sensors.Compass)
 
 **サンプル**
 
@@ -31,7 +31,7 @@ ms.locfileid: "66369685"
 
 ## <a name="prerequisites"></a>前提条件
 
-Extensible Application Markup Language (XAML)、Microsoft Visual 知っておくべきC#、およびイベント。
+Extensible Application Markup Language (XAML)、Microsoft Visual C#、イベントについて理解している必要があります。
 
 使うデバイスやエミュレーターがコンパスをサポートしている必要があります。
 
@@ -39,7 +39,7 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
 
 このセクションは、次の 2 つのサブセクションに分かれています。 最初のサブセクションでは、シンプルなコンパス アプリケーションを最初から作成するために必要な手順を示します。 次のサブセクションでは、作成したアプリについて説明します。
 
-### <a name="instructions"></a>手順
+### <a name="instructions"></a>Instructions
 
 -   **[Visual C#]** プロジェクト テンプレートから **[空白のアプリ (ユニバーサル Windows]** を選んで、新しいプロジェクトを作成します。
 
@@ -134,11 +134,11 @@ You'll need to rename the namespace in the previous snippet with the name you ga
 
 元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **CompassCS** だとすると、`x:Class="App1.MainPage"` を `x:Class="CompassCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:CompassCS"` に置き換える必要があります。
 
--   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの開始]** の順にクリックします。
+-   F5 キーを押すか **、[デバッグ**] [デバッグの開始] を選択してアプリを  >  **Start Debugging**ビルド、デプロイ、実行します。
 
 アプリを実行した後、デバイスを移動するか、エミュレーター ツールを使うことによって、コンパスの値を変更できます。
 
--   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの停止]** の順にクリックします。
+-   Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、[**デバッグ**] [  >  **デバッグの停止**] を選択してアプリを停止し、アプリを停止します。
 
 ### <a name="explanation"></a>説明
 

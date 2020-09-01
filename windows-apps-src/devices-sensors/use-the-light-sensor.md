@@ -6,20 +6,20 @@ ms.date: 06/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 04d75d4c854a407fd733c6ecdfb3cabac84faef6
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: ae31e1dc26a5836285a438d3bff9c742f94b7177
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66369604"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159496"
 ---
 # <a name="use-the-light-sensor"></a>光センサーの使用
 
 
 **重要な API**
 
--   [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
--   [**LightSensor**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.LightSensor)
+-   [**Windows.Devices.Sensors**](/uwp/api/Windows.Devices.Sensors)
+-   [**LightSensor**](/uwp/api/Windows.Devices.Sensors.LightSensor)
 
 **サンプル**
 
@@ -31,7 +31,7 @@ ms.locfileid: "66369604"
 
 ## <a name="prerequisites"></a>前提条件
 
-Extensible Application Markup Language (XAML)、Microsoft Visual 知っておくべきC#、およびイベント。
+Extensible Application Markup Language (XAML)、Microsoft Visual C#、イベントについて理解している必要があります。
 
 使うデバイスやエミュレーターが環境光センサーをサポートしている必要があります。
 
@@ -39,7 +39,7 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
 
 このセクションは、次の 2 つのサブセクションに分かれています。 最初のサブセクションでは、シンプルな光センサー アプリケーションを最初から作成するために必要な手順を示します。 次のサブセクションでは、作成したアプリについて説明します。
 
-###  <a name="instructions"></a>手順
+###  <a name="instructions"></a>Instructions
 
 -   **[Visual C#]** プロジェクト テンプレートから **[空白のアプリ (ユニバーサル Windows]** を選んで、新しいプロジェクトを作成します。
 
@@ -135,11 +135,11 @@ Extensible Application Markup Language (XAML)、Microsoft Visual 知っておく
 
 元のスニペットのクラス名の最初の部分を、自分のアプリの名前空間に置き換える必要があります。 たとえば、作成したプロジェクトの名前が **LightingCS** だとすると、`x:Class="App1.MainPage"` を `x:Class="LightingCS.MainPage"` に置き換えます。 また、`xmlns:local="using:App1"` を `xmlns:local="using:LightingCS"` に置き換える必要があります。
 
--   アプリをビルド、展開、実行するには、F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの開始]** の順にクリックします。
+-   F5 キーを押すか **、[デバッグ**] [デバッグの開始] を選択してアプリを  >  **Start Debugging**ビルド、デプロイ、実行します。
 
 アプリを実行した後、センサーに当てる光を変更するか、エミュレーター ツールを使うことによって、光センサーの値を変更できます。
 
--   アプリを停止するには、Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、 **[デバッグ]**  >  **[デバッグの停止]** の順にクリックします。
+-   Visual Studio に戻り、Shift キーを押しながら F5 キーを押すか、[**デバッグ**] [  >  **デバッグの停止**] を選択してアプリを停止し、アプリを停止します。
 
 ###  <a name="explanation"></a>説明
 

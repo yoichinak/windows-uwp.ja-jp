@@ -8,30 +8,30 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b94c946222f510c7f1b1f7619b67ee83e6c2256
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: b48564469fd77f3c670739a7095124ed7399a1fe
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258004"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160076"
 ---
 # <a name="define-custom-recognition-constraints"></a>カスタム認識の制約の定義
 
 音声認識のカスタム制約を定義して使う方法について説明します。
 
-> **重要な API**: [**SpeechRecognitionTopicConstraint**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint)、[**SpeechRecognitionListConstraint**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint)、[**SpeechRecognitionGrammarFileConstraint**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint)
+> **重要な API**: [**SpeechRecognitionTopicConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint)、[**SpeechRecognitionListConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint)、[**SpeechRecognitionGrammarFileConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint)
 
 音声認識では、少なくとも 1 つの制約を使って、認識できるボキャブラリを定義する必要があります。 制約が指定されていない場合、ユニバーサル Windows アプリで定義済みのディクテーション文法が使われます。 「[音声認識](speech-recognition.md)」をご覧ください。
 
-## <a name="add-constraints"></a>制約の追加
+## <a name="add-constraints"></a>制約を追加する
 
-[  **SpeechRecognizer.Constraints**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.constraints) プロパティを使って、音声認識エンジンに制約を追加します。
+[**SpeechRecognizer.Constraints**](/uwp/api/windows.media.speechrecognition.speechrecognizer.constraints) プロパティを使って、音声認識エンジンに制約を追加します。
 
-ここでは、アプリ内から使われる 3 種類の音声認識制約について取り上げます。 (Cortana voice コマンドの制約については、「 [cortana で音声コマンドを使用してフォアグラウンドアプリを起動する](https://docs.microsoft.com/cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana)」を参照してください)。
+ここでは、アプリ内から使われる 3 種類の音声認識制約について取り上げます。 (Cortana voice コマンドの制約については、「 [cortana で音声コマンドを使用してフォアグラウンドアプリを起動する](/cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana)」を参照してください)。
 
-- [**SpeechRecognitionTopicConstraint**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint)—定義済みの文法 (ディクテーションまたは web 検索) に基づく制約です。
-- [**SpeechRecognitionListConstraint**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint)-単語または語句のリストに基づく制約です。
-- [**SpeechRecognitionGrammarFileConstraint**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint)-音声認識文法仕様 (SRGS) ファイルで定義されている制約。
+- [**SpeechRecognitionTopicConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint)—定義済みの文法に基づく制約 (ディクテーションまたは Web 検索)。
+- [**SpeechRecognitionListConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint)—単語や語句の一覧に基づく制約。
+- [**SpeechRecognitionGrammarFileConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint)—音声認識文法仕様 (SRGS) ファイルで定義された制約。
 
 音声認識エンジンはそれぞれ 1 つの制約コレクションを保持できます。 制約は次の組み合わせのみが有効です。
 
@@ -40,14 +40,14 @@ ms.locfileid: "74258004"
 - 一覧の制約または文法ファイルの制約の組み合わせ。
 
 > [!Important]
-> 認識プロセスを開始する前に制約をコンパイルするには、 **[SpeechRecognizer.CompileConstraintsAsync](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync)** メソッドを呼び出します。
+> 認識プロセスを開始する前に制約をコンパイルするには、**[SpeechRecognizer.CompileConstraintsAsync](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync)** メソッドを呼び出します。
 
-## <a name="specify-a-web-search-grammar-speechrecognitiontopicconstraint"></a>Web 検索文法の指定 (SpeechRecognitionTopicConstraint)
+## <a name="specify-a-web-search-grammar-speechrecognitiontopicconstraint"></a>Web 検索文法の指定 (SpeechRecognitionTopicConstraint) 
 
 トピック制約 (ディクテーションまたは Web 検索文法) は音声認識エンジンの制約コレクションに追加する必要があります。
 
 > [!NOTE]
-> [SpeechRecognitionListConstraint](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint) を [SpeechRecognitionTopicConstraint](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint) と共に使い、ディクテーション中に使うと予想されるドメイン固有の一連のキーワードを指定することにより、ディクテーションの精度を上げることができます。
+> [SpeechRecognitionListConstraint](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint) を [SpeechRecognitionTopicConstraint](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint) と共に使い、ディクテーション中に使うと予想されるドメイン固有の一連のキーワードを指定することにより、ディクテーションの精度を上げることができます。
 
 以下では、制約コレクションに Web 検索文法を追加しています。
 
@@ -137,14 +137,14 @@ SRGS 文法は、アプリの複雑な音声操作を構築するときに役立
 - セマンティクスを使って、音声認識がアプリにもたらす意味を定義します。
 - 文法内で、または用語集へのリンクを通じて発音を指定する
 
-SRGS の要素と属性について詳しくは、[XML 文法の SRGS リファレンス](https://msdn.microsoft.com/library/hh361653)に関するページをご覧ください。 SRGS 文法の作成を開始するには、[基本的な XML 文法の作成方法](https://msdn.microsoft.com/library/hh361658)に関するページをご覧ください。
+SRGS の要素と属性について詳しくは、[XML 文法の SRGS リファレンス](/previous-versions/office/developer/speech-technologies/hh361653(v=office.14))に関するページをご覧ください。 SRGS 文法の作成を開始するには、「 [基本的な XML 文法を作成する方法](/previous-versions/office/developer/speech-technologies/hh361658(v=office.14))」を参照してください。
 
 次の点に留意してください。
 
 - 制約コレクションには、複数の文法ファイルの制約を追加できます。
 - SRGS 規則に準拠した XML ベースの文法ドキュメントには .grxml ファイル拡張子を使います。
 
-この例では、srgs.grxml という名前のファイル (後述) に定義された SRGS 文法を使います。 ファイルのプロパティで、 **[パッケージ アクション]** が **[コンテンツ]** に設定され、 **[出力ディレクトリにコピー]** が **[常にコピーする]** に設定されています。
+この例では、srgs.grxml という名前のファイル (後述) に定義された SRGS 文法を使います。 ファイルのプロパティで、**[パッケージ アクション]** が **[コンテンツ]** に設定され、**[出力ディレクトリにコピー]** が **[常にコピーする]** に設定されています。
 
 ```CSharp
 private async void Colors_Click(object sender, RoutedEventArgs e)
@@ -171,7 +171,7 @@ private async void Colors_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-この SRGS ファイル (srgs.grxml) は、解釈タグを含みます。 これらのタグは、文法に合致するデータをアプリに返すしくみです。 文法は、 [音声認識 (SISR) 1.0 仕様の](https://www.w3.org/TR/semantic-interpretation/)WORLD WIDE WEB コンソーシアム (W3C) セマンティック解釈に準拠している必要があります。
+この SRGS ファイル (srgs.grxml) は、解釈タグを含みます。 これらのタグは、文法に合致するデータをアプリに返すしくみです。 文法は、 [音声認識 (SISR) 1.0 仕様の](https://www.w3.org/TR/semantic-interpretation/) WORLD WIDE WEB コンソーシアム (W3C) セマンティック解釈に準拠している必要があります。
 
 以下では、"yes" と "no" のバリエーションをリッスンします。
 
@@ -212,15 +212,15 @@ private async void Colors_Click(object sender, RoutedEventArgs e)
 
 ## <a name="manage-constraints"></a>制約の管理
 
-制約コレクションが認識のために読み込まれると、アプリでは制約の [**IsEnabled**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.ispeechrecognitionconstraint.isenabled) プロパティを **true** または **false** に設定して、認識操作でどの制約を有効にするかを管理できます。 既定の設定は **true** です。
+制約コレクションが認識のために読み込まれると、アプリでは制約の [**IsEnabled**](/uwp/api/windows.media.speechrecognition.ispeechrecognitionconstraint.isenabled) プロパティを **true** または **false** に設定して、認識操作でどの制約を有効にするかを管理できます。 既定の設定は **true**です。
 
-通常は、認識操作ごとに制約を読み込んでアンロードしコンパイルするよりも、いったん読み込んでから必要に応じて有効または無効にする方が効率的です。 必要に応じて [**IsEnabled**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.ispeechrecognitionconstraint.isenabled) プロパティを使います。
+通常は、認識操作ごとに制約を読み込んでアンロードしコンパイルするよりも、いったん読み込んでから必要に応じて有効または無効にする方が効率的です。 必要に応じて [**IsEnabled**](/uwp/api/windows.media.speechrecognition.ispeechrecognitionconstraint.isenabled) プロパティを使います。
 
 制約の数を制限すると、音声認識エンジンが音声入力の一致を探すときに必要となるデータ量を制限できます。 これにより、音声認識のパフォーマンスと精度の両方が向上します。
 
 現在の認識操作のコンテキストでアプリが想定できる語句に基づいて、有効にする制約を決定します。 たとえば、現在のアプリのコンテキストが色を表示することである場合、おそらく動物の名前を認識する制約を有効にする必要はありません。
 
-発声できる内容をユーザーに伝えるには、[**SpeechRecognizer.UIOptions**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizeruioptions.audibleprompt) プロパティを使って設定できる、[**SpeechRecognizerUIOptions.AudiblePrompt**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizeruioptions.exampletext) プロパティと [**SpeechRecognizerUIOptions.ExampleText**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.uioptions) プロパティを使います。 音声認識の操作時に何を発声できるか準備しておくことによって、アクティブな制約に一致する語句をユーザーが発声する可能性が高まります。
+発声できる内容をユーザーに伝えるには、[**SpeechRecognizer.UIOptions**](/uwp/api/windows.media.speechrecognition.speechrecognizer.uioptions) プロパティを使って設定できる、[**SpeechRecognizerUIOptions.AudiblePrompt**](/uwp/api/windows.media.speechrecognition.speechrecognizeruioptions.audibleprompt) プロパティと [**SpeechRecognizerUIOptions.ExampleText**](/uwp/api/windows.media.speechrecognition.speechrecognizeruioptions.exampletext) プロパティを使います。 音声認識の操作時に何を発声できるか準備しておくことによって、アクティブな制約に一致する語句をユーザーが発声する可能性が高まります。
 
 ## <a name="related-articles"></a>関連記事
 

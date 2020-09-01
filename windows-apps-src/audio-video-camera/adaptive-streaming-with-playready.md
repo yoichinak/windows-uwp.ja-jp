@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e0f6ef206dc836e48bfc904767ff8c8c7bdca9db
-ms.sourcegitcommit: a20457776064c95a74804f519993f36b87df911e
+ms.openlocfilehash: 3bef1e1061948c4327426485621b9f611fc51f21
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340044"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161246"
 ---
 # <a name="adaptive-streaming-with-playready"></a>PlayReady を使ったアダプティブ ストリーミング
 
@@ -26,7 +26,7 @@ Smooth Streaming も、現在、ネイティブではサポートされていま
 
 この記事では、アダプティブ ストリーミングの PlayReady 固有の側面についてのみ扱います。 アダプティブ ストリーミングの実装に関する全般的な情報については、「[アダプティブ ストリーミング](adaptive-streaming.md)」をご覧ください。
 
-この記事では、GitHub の Microsoft の **Windows-universal-samples** リポジトリにある[アダプティブ ストリーミングのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)のコードを使っています。 PlayReady を使ったアダプティブ ストリーミングはシナリオ 4 で取り上げられています。 リポジトリを含む ZIP ファイルをダウンロードするには、リポジトリのルート レベルに移動して、 **[Download ZIP]** ボタンを選びます。
+この記事では、GitHub の Microsoft の **Windows-universal-samples** リポジトリにある[アダプティブ ストリーミングのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)のコードを使っています。 PlayReady を使ったアダプティブ ストリーミングはシナリオ 4 で取り上げられています。 リポジトリを含む ZIP ファイルをダウンロードするには、リポジトリのルート レベルに移動して、**[Download ZIP]** ボタンを選びます。
 
 次の **using** ステートメントが必要です。
 
@@ -63,9 +63,9 @@ private const uint MSPR_E_CONTENT_ENABLING_ACTION_REQUIRED = 0x8004B895;
 
 ## <a name="setting-up-the-mediaprotectionmanager"></a>MediaProtectionManager の設定
 
-PlayReady コンテンツ保護を UWP アプリに追加するには、[MediaProtectionManager](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.MediaProtectionManager) オブジェクトを設定する必要があります。 これは、[**AdaptiveMediaSource**](https://docs.microsoft.com/uwp/api/Windows.Media.Streaming.Adaptive.AdaptiveMediaSource) オブジェクトを初期化するときに行います。
+PlayReady コンテンツ保護を UWP アプリに追加するには、[MediaProtectionManager](/uwp/api/Windows.Media.Protection.MediaProtectionManager) オブジェクトを設定する必要があります。 これは、[**AdaptiveMediaSource**](/uwp/api/Windows.Media.Streaming.Adaptive.AdaptiveMediaSource) オブジェクトを初期化するときに行います。
 
-次のコードは、[MediaProtectionManager](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.MediaProtectionManager) をセットアップします。
+次のコードは、[MediaProtectionManager](/uwp/api/Windows.Media.Protection.MediaProtectionManager) をセットアップします。
 
 ```csharp
 private void SetUpProtectionManager(ref MediaElement mediaElement)
@@ -100,7 +100,7 @@ private void SetUpProtectionManager(ref MediaElement mediaElement)
 
 コンテンツ保護の設定は必須のため、このコードはそのままアプリにコピーできます。
 
-バイナリ データの読み込みに失敗すると、[ComponentLoadFailed](https://docs.microsoft.com/uwp/api/windows.media.protection.mediaprotectionmanager.componentloadfailed) イベントが発生します。 これを処理するにはイベント ハンドラーを追加して、読み込みが完了していないことを通知する必要があります。
+バイナリ データの読み込みに失敗すると、[ComponentLoadFailed](/uwp/api/windows.media.protection.mediaprotectionmanager.componentloadfailed) イベントが発生します。 これを処理するにはイベント ハンドラーを追加して、読み込みが完了していないことを通知する必要があります。
 
 ```csharp
 private void ProtectionManager_ComponentLoadFailed(
@@ -111,7 +111,7 @@ private void ProtectionManager_ComponentLoadFailed(
 }
 ```
 
-同様に、サービスが要求されたときに発生する [ServiceRequested](https://docs.microsoft.com/uwp/api/windows.media.protection.mediaprotectionmanager.servicerequested) イベントのイベント ハンドラーを追加する必要があります。 このコードは、要求の種類を確認し、それに応じて応答します。
+同様に、サービスが要求されたときに発生する [ServiceRequested](/uwp/api/windows.media.protection.mediaprotectionmanager.servicerequested) イベントのイベント ハンドラーを追加する必要があります。 このコードは、要求の種類を確認し、それに応じて応答します。
 
 ```csharp
 private async void ProtectionManager_ServiceRequested(
@@ -192,7 +192,7 @@ async void ProActiveIndivRequest()
 
 ## <a name="license-acquisition-service-requests"></a>ライセンス取得サービス要求
 
-代わりに、要求が [PlayReadyLicenseAcquisitionServiceRequest](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest) であった場合、次の関数を呼び出して PlayReady ライセンスを要求および取得します。 要求が成功したかどうかを、渡した **MediaProtectionServiceCompletion** オブジェクトに通知し、要求を完了します。
+代わりに、要求が [PlayReadyLicenseAcquisitionServiceRequest](/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest) であった場合、次の関数を呼び出して PlayReady ライセンスを要求および取得します。 要求が成功したかどうかにかかわらず、 **MediaProtectionServiceCompletion** オブジェクトに渡されたことを通知し、要求を完了します。
 
 ```csharp
 async void LicenseAcquisitionRequest(
@@ -274,7 +274,7 @@ async void LicenseAcquisitionRequest(
 
 ## <a name="initializing-the-adaptivemediasource"></a>AdaptiveMediaSource の初期化
 
-最後に、特定の [Uri](https://docs.microsoft.com/dotnet/api/system.uri) と [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) から作成された [AdaptiveMediaSource](https://docs.microsoft.com/uwp/api/Windows.Media.Streaming.Adaptive.AdaptiveMediaSource) を初期化するための関数が必要になります。 **Uri** は、メディア ファイル (HLS または DASH) へのリンクです。**MediaElement** は、XAML で定義されます。
+最後に、特定の [Uri](/dotnet/api/system.uri) と [MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) から作成された [AdaptiveMediaSource](/uwp/api/Windows.Media.Streaming.Adaptive.AdaptiveMediaSource) を初期化するための関数が必要になります。 **Uri** は、メディア ファイル (HLS または DASH) へのリンクです。**MediaElement** は、XAML で定義されます。
 
 ```csharp
 async private void InitializeAdaptiveMediaSource(System.Uri uri, MediaElement m)
@@ -297,7 +297,3 @@ async private void InitializeAdaptiveMediaSource(System.Uri uri, MediaElement m)
 
 ## <a name="see-also"></a>関連項目
 - [PlayReady DRM](playready-client-sdk.md)
-
-
-
-

@@ -7,12 +7,12 @@ keywords: ime、Input Method Editor、入力、対話
 ms.date: 07/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ecf150973defb0a431fc7248181ddf648576ac77
-ms.sourcegitcommit: 86ce67a03e87fa1282849b2fcb4f89d1cf23a091
+ms.openlocfilehash: 5a34c15826bff757b7c4277b87cc5fed53a6f109
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87840080"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160006"
 ---
 # <a name="custom-input-method-editor-ime-requirements"></a>IME (カスタム入力方式エディター) の要件
 
@@ -39,7 +39,7 @@ Ime の概要については、「 [Input Method Editor (ime)](input-method-edit
 
 ### <a name="ime-must-be-compatible-with-windows-apps"></a>IME は Windows アプリと互換性がある必要があります
 
-[テキストサービスフレームワーク (TSF)](/windows/win32/tsf/text-services-framework)を使用して、ime を実装します。 以前は、入力サービスに対して[入力方式マネージャー (IMM32)](/windows/win32/intl/input-method-manager)を使用するオプションがありました。 これで、入力方式マネージャー (IMM32) を使用して実装された Ime がシステムによってブロックされるようになりました。
+[テキストサービスフレームワーク (TSF)](/windows/win32/tsf/text-services-framework)を使用して、ime を実装します。 以前は、入力サービスに対して [入力方式マネージャー (IMM32)](/windows/win32/intl/input-method-manager) を使用するオプションがありました。 これで、入力方式マネージャー (IMM32) を使用して実装された Ime がシステムによってブロックされるようになりました。
 
 アプリが起動すると、TSF は、ユーザーが現在選択している IME の IME DLL を読み込みます。 IME が読み込まれると、アプリと同じアプリコンテナーの制限が適用されます。 たとえば、アプリがマニフェストでインターネットアクセスを要求していない場合、IME はインターネットにアクセスできません。 この動作により、Ime がセキュリティコントラクトに違反しないようにします。
 
@@ -47,7 +47,7 @@ TSF は、アプリと IME の仲介です。 TSF は入力イベントを IME �
 
 この動作は、以前のバージョンの Windows と同じですが、Windows アプリに読み込まれると、IME の機能に影響します。
 
-IME が Windows アプリとデスクトップアプリ間で異なる機能または UI を提供する必要がある場合は、TSF によって読み込まれる DLL が、読み込まれているアプリの種類を確認するようにしてください。 IME で[Itfthreadmグリーン x:: GetActiveFlags](/windows/win32/api/msctf/nf-msctf-itfthreadmgrex-getactiveflags)メソッドを呼び出し、TF_TMF_IMMERSIVEMODE フラグをチェックします。これにより、結果に応じて、ime で異なるアプリケーションロジックがトリガーされます。
+IME が Windows アプリとデスクトップアプリ間で異なる機能または UI を提供する必要がある場合は、TSF によって読み込まれる DLL が、読み込まれているアプリの種類を確認するようにしてください。 IME で [Itfthreadmグリーン x:: GetActiveFlags](/windows/win32/api/msctf/nf-msctf-itfthreadmgrex-getactiveflags) メソッドを呼び出し、TF_TMF_IMMERSIVEMODE フラグをチェックします。これにより、結果に応じて、ime で異なるアプリケーションロジックがトリガーされます。
 
 Windows アプリでは、表テキストサービス (TTS) の Ime はサポートされていません。
 
@@ -78,17 +78,17 @@ IME モードアイコンを UAC の入力インジケーター (セキュリテ
 
 一部の IME 関数は、アプリコンテナーで影響を受けます。
 
-- **Dictionary ファイル**-多くの場合、ime には、ユーザー入力を特定の文字にマップするための読み取り専用の辞書ファイルがあります。 アプリコンテナー内からこれらのファイルにアクセスするには、プログラムファイルまたは Windows ディレクトリの下に IME を配置する必要があります。 既定では、これらのディレクトリはアプリコンテナーから読み取ることができるため、これらの場所に格納されているディクショナリファイルには、Ime がアクセスできます。 IME で辞書ファイルを別の場所に保存する必要がある場合は、辞書ファイルの[Access Control リスト (ACL)](/windows/win32/secauthz/access-control-lists)を明示的に操作して、アプリコンテナーからのアクセスを許可する必要があります。
-- **インターネット更新**-IME でインターネットからのデータを使用してディクショナリを更新する必要がある場合、インターネットアクセスは常に許可されていないため、アプリコンテナー内では信頼できません。 代わりに、IME は、インターネットからのデータで辞書ファイルを更新する独立したデスクトッププロセスを実行する必要があります。
-- **オンザフライの学習**-Ime がインターネットにアクセス可能なアプリコンテナーで実行されている場合、ime が通信できるエンドポイントに制限はありません。 この場合、IME はクラウドサーバーを使用して、オンザフライのラーニングサービスを提供できます。 一部の Ime は、ユーザーが入力している間にユーザー入力をダウンロードしてアップロードします。 インターネットアクセスはアプリコンテナーでは保証されないため、常に許可されるとは限りません。
-- **プロセス間**での情報の共有-ime は、異なるアプリコンテナー内のアプリ間で、ユーザーの入力設定に関するデータを共有する必要がある場合があります。 Web サービスを使用して、アプリ間でデータを共有します。
+- **Dictionary ファイル** -多くの場合、ime には、ユーザー入力を特定の文字にマップするための読み取り専用の辞書ファイルがあります。 アプリコンテナー内からこれらのファイルにアクセスするには、プログラムファイルまたは Windows ディレクトリの下に IME を配置する必要があります。 既定では、これらのディレクトリはアプリコンテナーから読み取ることができるため、これらの場所に格納されているディクショナリファイルには、Ime がアクセスできます。 IME で辞書ファイルを別の場所に保存する必要がある場合は、辞書ファイルの [Access Control リスト (ACL)](/windows/win32/secauthz/access-control-lists) を明示的に操作して、アプリコンテナーからのアクセスを許可する必要があります。
+- **インターネット更新** -IME でインターネットからのデータを使用してディクショナリを更新する必要がある場合、インターネットアクセスは常に許可されていないため、アプリコンテナー内では信頼できません。 代わりに、IME は、インターネットからのデータで辞書ファイルを更新する独立したデスクトッププロセスを実行する必要があります。
+- **オンザフライの学習** -Ime がインターネットにアクセス可能なアプリコンテナーで実行されている場合、ime が通信できるエンドポイントに制限はありません。 この場合、IME はクラウドサーバーを使用して、オンザフライのラーニングサービスを提供できます。 一部の Ime は、ユーザーが入力している間にユーザー入力をダウンロードしてアップロードします。 インターネットアクセスはアプリコンテナーでは保証されないため、常に許可されるとは限りません。
+- **プロセス間** での情報の共有-ime は、異なるアプリコンテナー内のアプリ間で、ユーザーの入力設定に関するデータを共有する必要がある場合があります。 Web サービスを使用して、アプリ間でデータを共有します。
 
 > [!Important]
 > アプリコンテナーのセキュリティ規則を回避しようとすると、IME はマルウェアとして扱われ、ブロックされる可能性があります。
 
 ## <a name="ime-and-touch-keyboard"></a>IME とタッチキーボード
 
-IME は、候補ウィンドウの UI とその他の UI 要素がタッチキーボードの下に描画されないようにする必要があります。 タッチキーボードは、すべてのアプリよりも高い z オーダーバンドで表示され、IME UI は、アクティブになっているアプリと同じ z オーダーバンドで表示されます。 その結果、タッチキーボードは、IME UI を重複したり非表示にしたりすることができます。 ほとんどの場合、タッチキーボードを考慮して、アプリのウィンドウのサイズを変更する必要があります。 アプリのサイズが変更されない場合でも、IME は[Inputpane](/windows/win32/api/shobjidl_core/nn-shobjidl_core-iframeworkinputpane) API を使用してタッチキーボードの位置を取得できます。 IME は、 [Location](/windows/win32/api/shobjidl_core/nf-shobjidl_core-iframeworkinputpane-location)プロパティを照会するか、タッチキーボードの Show イベントと Hide イベントのハンドラーを登録します。 Show イベントは、現在タッチキーボードが表示されている場合でも、ユーザーが編集フィールドをタップするたびに発生します。 Ime は、この API を使用して、タッチキーボードで使用される画面領域を取得します。これにより、IME は、候補 (または他の) UI を描画したり、タッチキーボードの下に描画しないように Ime UI をリフローしたりします。
+IME は、候補ウィンドウの UI とその他の UI 要素がタッチキーボードの下に描画されないようにする必要があります。 タッチキーボードは、すべてのアプリよりも高い z オーダーバンドで表示され、IME UI は、アクティブになっているアプリと同じ z オーダーバンドで表示されます。 その結果、タッチキーボードは、IME UI を重複したり非表示にしたりすることができます。 ほとんどの場合、タッチキーボードを考慮して、アプリのウィンドウのサイズを変更する必要があります。 アプリのサイズが変更されない場合でも、IME は [Inputpane](/windows/win32/api/shobjidl_core/nn-shobjidl_core-iframeworkinputpane) API を使用してタッチキーボードの位置を取得できます。 IME は、 [Location](/windows/win32/api/shobjidl_core/nf-shobjidl_core-iframeworkinputpane-location) プロパティを照会するか、タッチキーボードの Show イベントと Hide イベントのハンドラーを登録します。 Show イベントは、現在タッチキーボードが表示されている場合でも、ユーザーが編集フィールドをタップするたびに発生します。 Ime は、この API を使用して、タッチキーボードで使用される画面領域を取得します。これにより、IME は、候補 (または他の) UI を描画したり、タッチキーボードの下に描画しないように Ime UI をリフローしたりします。
 
 ### <a name="specifying-the-preferred-touch-keyboard-layout"></a>優先するタッチキーボードレイアウトの指定
 
@@ -104,7 +104,7 @@ IME は、使用するタッチキーボードレイアウトを指定でき、I
 
 従来のレイアウトに加えて、韓国語、日本語、簡体字中国語、および繁体字中国語の各入力言語に対して、タッチに最適化されたレイアウトが1つあります。
 
-この機能を使用するには、IME で[ITfFnGetPreferredTouchKeyboardLayout](/windows/win32/api/ctffunc/nn-ctffunc-itffngetpreferredtouchkeyboardlayout)インターフェイスを実装する必要があります。これは、テキストサービスフレームワーク[Itff tionprovider](/windows/win32/api/msctf/nn-msctf-itffunctionprovider) API を使用して ime によってエクスポートされます。
+この機能を使用するには、IME で [ITfFnGetPreferredTouchKeyboardLayout](/windows/win32/api/ctffunc/nn-ctffunc-itffngetpreferredtouchkeyboardlayout) インターフェイスを実装する必要があります。これは、テキストサービスフレームワーク [Itff tionprovider](/windows/win32/api/msctf/nn-msctf-itffunctionprovider) API を使用して ime によってエクスポートされます。
 
 IME で ITfFnGetPreferredTouchKeyboardLayout インターフェイスがサポートされていない場合、IME を使用すると、タッチキーボードによって表示される言語の既定のクラシックレイアウトが生成されます。
 
@@ -116,14 +116,14 @@ IME で、いずれかのクラシックレイアウトを優先レイアウト�
 
 日本語、簡体字中国語、および繁体字中国語入力言語のタッチに最適化されたキーボードには、候補ページ間を移動するために IME が使用するキー (キー) が含まれています。 日本語および簡体字中国語の場合、タッチに最適化されたレイアウトで候補ページキーが表示されます。 繁体字中国語の場合は、前の候補ページと次の候補ページに個別のキーがあります。
 
-これらのキーが押されると、タッチキーボードは[SendInput](/windows/win32/api/winuser/nf-winuser-sendinput)関数を呼び出して、次の Unicode プライベート使用領域文字をフォーカスされたアプリケーションに送信します。これは、IME がインターセプトして操作できます。
+これらのキーが押されると、タッチキーボードは [SendInput](/windows/win32/api/winuser/nf-winuser-sendinput) 関数を呼び出して、次の Unicode プライベート使用領域文字をフォーカスされたアプリケーションに送信します。これは、IME がインターセプトして操作できます。
 
 - **次のページ (0xF003)** -候補ページキーが、日本語と簡体字中国語のタッチ最適化キーボードで押されたとき、または、繁体字中国語用タッチ最適化キーボードで次のページキーが押されたときに送信されます。
 - **前のページ (0xF004)** -[候補ページ] キーが、日本語と簡体字中国語のタッチ最適化キーボードの Shift キーと同時に押されたとき、または前のページキーが繁体字中国語のタッチ最適化キーボードで押されたときに送信されます。
 
 これらの文字は、Unicode 入力として送信されます。 次の段落では、テキストサービスフレームワーク IME によって受信される主要なイベントシンク通知中に文字情報を抽出する方法について詳しく説明します。 これらの文字値は、どのヘッダーファイルでも定義されていないため、コードで定義する必要があります。
 
-キーボード入力を受け取るには、IME がキーイベントシンクとして登録されている必要があります。 SendInput 関数を使用して生成された Unicode 入力の場合、 [ITfKeyEventSink](/windows/win32/api/msctf/nn-msctf-itfkeyeventsink)コールバックの WPARAM パラメーター (OnKeyDown、OnKeyUp、OnTestKeyDown、Ontestkeydown) は常に仮想キー VK_PACKET を含み、文字を直接識別しません。
+キーボード入力を受け取るには、IME がキーイベントシンクとして登録されている必要があります。 SendInput 関数を使用して生成された Unicode 入力の場合、 [ITfKeyEventSink](/windows/win32/api/msctf/nn-msctf-itfkeyeventsink) コールバックの WPARAM パラメーター (OnKeyDown、OnKeyUp、OnTestKeyDown、Ontestkeydown) は常に仮想キー VK_PACKET を含み、文字を直接識別しません。
 
 文字にアクセスするには、次の呼び出しシーケンスを実装します。
 
@@ -161,7 +161,7 @@ IME は、次の条件を満たしている場合、統合された検索エク�
 
 - Windows スタイルシェルと互換性があります。
 - TSF UILess mode Api を実装します。 詳細については、「 [UILess モードの概要](/windows/win32/tsf/uiless-mode-overview)」を参照してください。
-- TSF 検索統合 Api、 [ITfFnSearchCandidateProvider](/windows/win32/api/ctffunc/nn-ctffunc-itffnsearchcandidateprovider) 、および[ITfIntegratableCandidateListUIElement](/windows/win32/api/ctffunc/nn-ctffunc-itfintegratablecandidatelistuielement)を実装します。
+- TSF 検索統合 Api、 [ITfFnSearchCandidateProvider](/windows/win32/api/ctffunc/nn-ctffunc-itffnsearchcandidateprovider) 、および [ITfIntegratableCandidateListUIElement](/windows/win32/api/ctffunc/nn-ctffunc-itfintegratablecandidatelistuielement)を実装します。
 
 検索ウィンドウでアクティブ化すると、互換性のある IME は UIless モードで配置され、UI を表示できません。 代わりに、前のスクリーンショットに示したように、変換候補を Windows に送信して、インライン候補リストコントロールに表示します。
 
@@ -181,7 +181,7 @@ IME は、次の条件を満たしている場合、統合された検索エク�
 
 ## <a name="ui-design-guidelines"></a>UI デザインのガイドライン
 
-すべての Ime は、「 [Windows アプリの設計とコーディング](/windows/uwp/design/)」で説明されているユーザーエクスペリエンスガイドラインに従う必要があります。
+すべての Ime は、「 [Windows アプリの設計とコーディング](../index.md)」で説明されているユーザーエクスペリエンスガイドラインに従う必要があります。
 
 ### <a name="dont-use-sticky-windows"></a>固定ウィンドウを使用しない
 
@@ -214,7 +214,7 @@ IME モードのアイコンは、50% の不透明度で黒で1ピクセルの�
 
 ### <a name="owned-window"></a>所有ウィンドウ
 
-候補となる UI を表示するには、IME がウィンドウを所有ウィンドウに設定する必要があります。これにより、現在実行中のアプリで表示できるようになります。 [Itfcontextview:: GetWnd](/windows/win32/api/msctf/nf-msctf-itfcontextview-getwnd)メソッドを使用して、所有するウィンドウを取得します。 GetWnd がエラーまたは NULLHWND を返した場合は、 [GetFocus](/windows/win32/api/msctf/nf-msctf-itfthreadmgr-getfocus)関数を呼び出します。
+候補となる UI を表示するには、IME がウィンドウを所有ウィンドウに設定する必要があります。これにより、現在実行中のアプリで表示できるようになります。 [Itfcontextview:: GetWnd](/windows/win32/api/msctf/nf-msctf-itfcontextview-getwnd)メソッドを使用して、所有するウィンドウを取得します。 GetWnd がエラーまたは NULLHWND を返した場合は、 [GetFocus](/windows/win32/api/msctf/nf-msctf-itfthreadmgr-getfocus) 関数を呼び出します。
 
 `if (FAILED(pView->GetWnd(&parentWndHandle)) || (parentWndHandle == nullptr)) { parentWndHandle = GetFocus(); }`
 
@@ -222,7 +222,7 @@ IME モードのアイコンは、50% の不透明度で黒で1ピクセルの�
 
 ポップアップウィンドウの無視モデルは、ユーザーが簡単にこのようなウィンドウを閉じることができるため、"ライトの破棄" と呼ばれます。 Ime を Windows 相互作用モデルで適切に機能させるには、IME ウィンドウを明るい破棄モデルに含める必要があります。
 
-ライトの破棄モデルに参加するには、 [Notifywinevent](/windows/win32/api/winuser/nf-winuser-notifywinevent)関数または同様の関数を使用して、3つの新しい Windows イベントを IME で発生させる必要があります。 これらの新しいイベントは次のとおりです。
+ライトの破棄モデルに参加するには、 [Notifywinevent](/windows/win32/api/winuser/nf-winuser-notifywinevent) 関数または同様の関数を使用して、3つの新しい Windows イベントを IME で発生させる必要があります。 これらの新しいイベントは次のとおりです。
 
 - **EVENT_OBJECT_IME_SHOW** -IME が表示されたときに、このイベントを発生させます。
 - **EVENT_OBJECT_IME_HIDE** -IME が非表示のときにこのイベントを発生させます。
@@ -247,7 +247,7 @@ IME は各アプリケーションのプロセスのコンテキストで実行�
 > [!NOTE]
 > 新しいデスクトップアプリケーションとの同等性を確保するために、IME はモニターごとの DPI 認識をサポートする必要がありますが、認識のレベルを宣言しないでください。 各シナリオで、システムによって適切なスケーリング要件が決定されます。
 
-デスクトップアプリケーションの DPI スケーリングサポート要件の詳細については、「[高 dpi](/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows)」を参照してください。
+デスクトップアプリケーションの DPI スケーリングサポート要件の詳細については、「 [高 dpi](/windows/win32/hidpi/high-dpi-desktop-application-development-on-windows)」を参照してください。
 
 ## <a name="ime-installation"></a>IME のインストール
 
@@ -257,27 +257,27 @@ Microsoft Visual Studio を使用して IME を構築する場合は、Flexera S
 
 - Visual Studio をインストールします。
 - Visual Studio を起動します。
-- [**ファイル**] メニューの [**新規作成**] をポイントし、[**プロジェクト**] をクリックします。 [**新しいプロジェクト**] ダイアログボックスが開きます。
-- 左側のウィンドウで、[**テンプレート] > 他のプロジェクトの種類 > セットアップと配置**] に移動し、[ **InstallShield の制限付きエディションを有効に**する] をクリックして、[ **OK**] をクリックします。 インストール手順に従います。
+- [ **ファイル** ] メニューの [ **新規作成** ] をポイントし、[ **プロジェクト**] をクリックします。 [ **新しいプロジェクト** ] ダイアログボックスが開きます。
+- 左側のウィンドウで、[ **テンプレート] > 他のプロジェクトの種類 > セットアップと配置**] に移動し、[ **InstallShield の制限付きエディションを有効に**する] をクリックして、[ **OK**] をクリックします。 インストール手順に従います。
 - Visual Studio を再起動します。
 - IME ソリューション (.sln) ファイルを開きます。
-- ソリューションエクスプローラーで、ソリューションを右クリックして [**追加**] をポイントし、[**新しいプロジェクト**] をクリックします。 [**新しいプロジェクトの追加**] ダイアログボックスが表示されます。
-- 左側のツリービューコントロールで、[**テンプレート] > その他のプロジェクトの種類 > [InstallShield 限定版**] の順に移動します。
+- ソリューションエクスプローラーで、ソリューションを右クリックして [ **追加**] をポイントし、[ **新しいプロジェクト**] をクリックします。 [ **新しいプロジェクトの追加** ] ダイアログボックスが表示されます。
+- 左側のツリービューコントロールで、[ **テンプレート] > その他のプロジェクトの種類 > [InstallShield 限定版**] の順に移動します。
 - 中央のウィンドウで、[ **InstallShield の制限付きエディションプロジェクト**] をクリックします。
-- [**名前**] テキストボックスに「setupime」と入力し、[ **OK]** をクリックします。
-- [ **Project Assistant** ] ダイアログボックスで、[**アプリケーション情報**] をクリックします。
+- [ **名前** ] テキストボックスに「setupime」と入力し、[ **OK]** をクリックします。
+- [ **Project Assistant** ] ダイアログボックスで、[ **アプリケーション情報**] をクリックします。
 - 会社名とその他のフィールドを入力します。
-- [**アプリケーションファイル**] をクリックします。
-- 左側のウィンドウで、 **[INSTALLDIR]** フォルダーを右クリックし、[**新しいフォルダー**] を選択します。 フォルダーに "プラグイン" という名前を指定します。
-- [**ファイルの追加**] をクリックします。 IME DLL に移動し、[**プラグイン**] フォルダーに追加します。 IME 辞書に対してこの手順を繰り返します。
-- IME DLL を右クリックし、[**プロパティ**] を選択します。 [**プロパティ**] ダイアログボックスが表示されます。
-- [**プロパティ**] ダイアログボックスで、[ **COM & .net の設定**] タブをクリックします。
-- [**登録の種類**] で [**自己登録**] を選択し、[ **OK**] をクリックします。
+- [ **アプリケーションファイル**] をクリックします。
+- 左側のウィンドウで、 **[INSTALLDIR]** フォルダーを右クリックし、[ **新しいフォルダー**] を選択します。 フォルダーに "プラグイン" という名前を指定します。
+- [ **ファイルの追加**] をクリックします。 IME DLL に移動し、[ **プラグイン** ] フォルダーに追加します。 IME 辞書に対してこの手順を繰り返します。
+- IME DLL を右クリックし、[ **プロパティ**] を選択します。 [ **プロパティ** ] ダイアログボックスが表示されます。
+- [ **プロパティ** ] ダイアログボックスで、[ **COM & .net の設定** ] タブをクリックします。
+- [ **登録の種類**] で [ **自己登録** ] を選択し、[ **OK**] をクリックします。
 - ソリューションをビルドします。 IME DLL が構築され、InstallShield によって、ユーザーが Windows に IME をインストールできるようにする setup.exe ファイルが作成されます。
 
-独自のインストールエクスペリエンスを作成するには、 [Itfinputprocessorprofilemgr:: RegisterProfile](/windows/win32/api/msctf/nf-msctf-itfinputprocessorprofilemgr-registerprofile)メソッドを呼び出して、インストール時に IME を登録します。 レジストリエントリを直接記述しないでください。
+独自のインストールエクスペリエンスを作成するには、 [Itfinputprocessorprofilemgr:: RegisterProfile](/windows/win32/api/msctf/nf-msctf-itfinputprocessorprofilemgr-registerprofile) メソッドを呼び出して、インストール時に IME を登録します。 レジストリエントリを直接記述しないでください。
 
-インストール後すぐに IME を使用する必要がある場合は、 [InstallLayoutOrTip](/windows/win32/tsf/installlayoutortip)を呼び出して、psz パラメーターに次の形式を使用し、ユーザーが有効にした入力方法に ime を追加します。
+インストール後すぐに IME を使用する必要がある場合は、 [InstallLayoutOrTip](/windows/win32/tsf/installlayoutortip) を呼び出して、psz パラメーターに次の形式を使用し、ユーザーが有効にした入力方法に ime を追加します。
 
 `<LangID 1>:{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}`
 
@@ -285,10 +285,10 @@ Microsoft Visual Studio を使用して IME を構築する場合は、Flexera S
 
 Ime がアクセシビリティ要件に準拠し、ナレーターを操作できるようにするには、次の規則を実装します。 候補リストをアクセス可能にするには、Ime がこの規則に従う必要があります。
 
-- 候補リストには、変換候補の一覧または予測候補の一覧の "IME_Prediction_Window" の**UIA_AutomationIdPropertyId**が "IME_Candidate_Window" と同じである必要があります。
-- 候補リストが表示され、表示されなくなると、型**UIA_MenuOpenedEventId**と**UIA_MenuClosedEventId**のイベントがそれぞれ生成されます。
-- 現在選択されている候補が変更されると、候補リストによって**UIA_SelectionItem_ElementSelectedEventId**が発生します。 選択した要素には、 **TRUE**に等しい**UIA_SelectionItemIsSelectedPropertyId**プロパティが設定されている必要があります。
-- 候補リストの各項目の**UIA_NamePropertyId**は、候補の名前である必要があります。 必要に応じて、 **UIA_HelpTextPropertyId**を通じて候補を明確にするための追加情報を提供できます。
+- 候補リストには、変換候補の一覧または予測候補の一覧の "IME_Prediction_Window" の **UIA_AutomationIdPropertyId** が "IME_Candidate_Window" と同じである必要があります。
+- 候補リストが表示され、表示されなくなると、型 **UIA_MenuOpenedEventId** と **UIA_MenuClosedEventId**のイベントがそれぞれ生成されます。
+- 現在選択されている候補が変更されると、候補リストによって **UIA_SelectionItem_ElementSelectedEventId**が発生します。 選択した要素には、 **TRUE**に等しい**UIA_SelectionItemIsSelectedPropertyId**プロパティが設定されている必要があります。
+- 候補リストの各項目の **UIA_NamePropertyId** は、候補の名前である必要があります。 必要に応じて、 **UIA_HelpTextPropertyId**を通じて候補を明確にするための追加情報を提供できます。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -301,4 +301,4 @@ Ime がアクセシビリティ要件に準拠し、ナレーターを操作で�
 - [ITfFnSearchCandidateProvider](/windows/win32/api/ctffunc/nn-ctffunc-itffnsearchcandidateprovider)
 - [ITfIntegratableCandidateListUIElement](/windows/win32/api/ctffunc/nn-ctffunc-itfintegratablecandidatelistuielement)
 - [SendInput](/windows/win32/api/winuser/nf-winuser-sendinput)
-- [アクセシビリティ](/windows/uwp/design/accessibility/accessibility)
+- [アクセシビリティ](../accessibility/accessibility.md)

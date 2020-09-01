@@ -6,19 +6,19 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: ff10bbc0-03a7-492c-b5fe-c5b9ce8ca32e
 ms.localizationpriority: medium
-ms.openlocfilehash: 2300871292e08588b0c2124c67a379d403ae53b3
-ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
+ms.openlocfilehash: 319038f8922aac2686dab6836f94ead5018effdf
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469527"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159746"
 ---
 # <a name="bluetooth-le-advertisements"></a>Bluetooth LE アドバタイズ
 
 
 **重要な API**
 
--   [**Windows.Devices.Bluetooth.Advertisement**](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement)
+-   [**Windows.Devices.Bluetooth.Advertisement**](/uwp/api/windows.devices.bluetooth.advertisement)
 
 この記事では、ユニバーサル Windows プラットフォーム (UWP) アプリ向けの Bluetooth 低エネルギー (LE) アドバタイズ ビーコンの概要を示します。  
 
@@ -31,8 +31,8 @@ ms.locfileid: "85469527"
 
 開発者が LE アドバタイズ API を使って実行できる機能には、主に次の 2 つがあります。
 
--   [アドバタイズ ウォッチャー](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementwatcher): 近くのビーコンをリッスンし、ペイロードまたは近接度に基づいてフィルター処理します。  
--   [アドバタイズ パブリッシャー](https://docs.microsoft.com/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementpublisher): 開発者に代わって、Windows のペイロードを定義してアドバタイズします。  
+-   [アドバタイズ ウォッチャー](/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementwatcher): 近くのビーコンをリッスンし、ペイロードまたは近接度に基づいてフィルター処理します。  
+-   [アドバタイズ パブリッシャー](/uwp/api/windows.devices.bluetooth.advertisement.bluetoothleadvertisementpublisher): 開発者に代わって、Windows のペイロードを定義してアドバタイズします。  
 
 完全なサンプル コードについては、GitHub の [Bluetooth アドバタイズ サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BluetoothAdvertisement)をご覧ください。
 
@@ -48,7 +48,7 @@ ms.locfileid: "85469527"
 
 Bluetooth LE アドバタイズでは、デバイスから特定のペイロードを常時ビーコンできます。これをアドバタイズと呼びます。 近接範囲内にあり、この特定のアドバタイズをリッスンするように設定されたすべての Bluetooth LE 対応デバイスは、このアドバタイズを認識できます。
 
-> **注**: ユーザーのプライバシーを確保するために、提供情報の有効期間はアプリの有効期間に関連付けられています。 BluetoothLEAdvertisementPublisher を作成し、バックグラウンド タスクで Start を呼び出して、バックグラウンドでアドバタイズを発行できます。 バックグラウンド タスクについて詳しくは、「[起動、再開、バックグラウンド タスク](https://docs.microsoft.com/windows/uwp/launch-resume/index)」をご覧ください。
+> **注**: ユーザーのプライバシーを確保するために、提供情報の有効期間はアプリの有効期間に関連付けられています。 BluetoothLEAdvertisementPublisher を作成し、バックグラウンド タスクで Start を呼び出して、バックグラウンドでアドバタイズを発行できます。 バックグラウンド タスクについて詳しくは、「[起動、再開、バックグラウンド タスク](../launch-resume/index.md)」をご覧ください。
 
 ### <a name="basic-publishing"></a>基本的なパブリッシュ
 

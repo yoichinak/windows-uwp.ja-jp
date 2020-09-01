@@ -6,16 +6,16 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d6af9d532ecabe517983e8b56cdf8e1b2a2d812
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 3678d525fa00df07408b9d85af34a3dd825b4fcf
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74254522"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161336"
 ---
 # <a name="tailor-your-resources-for-language-scale-high-contrast-and-other-qualifiers"></a>言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する
 
-このトピックでは、リソース修飾子の一般概念、使用方法、各修飾子名の目的について説明します。 使用可能な修飾子の値を網羅したリファレンス テーブルについては、「[**ResourceContext.QualifierValues**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)」を参照してください。
+このトピックでは、リソース修飾子の一般概念、使用方法、各修飾子名の目的について説明します。 すべての使用可能な修飾子値の参照テーブルについては、「 [**QualifierValues**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues) 」を参照してください。
 
 アプリでは、表示言語、ハイ コントラスト設定、[表示倍率](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)などのランタイム コンテキストに合わせて調整されたアセットやリソースを読み込むことができます。 これを行うには、リソースのフォルダーまたはファイルの名前を、これらのコンテキストに対応した修飾子の名前と値に一致させます。 たとえば、ハイ コントラスト モードでは別のセットのイメージ アセットをアプリに読み込む、ということもできます。
 
@@ -25,11 +25,11 @@ ms.locfileid: "74254522"
 
 修飾子名は、一連の修飾子の値にマップされるキーです。 修飾子の名前と修飾子の値を次に示します。
 
-| コンテキスト | 修飾子名 | 修飾子の値 |
+| Context | 修飾子名 | 修飾子の値 |
 | :--------------- | :--------------- | :--------------- |
 | ハイ コントラスト設定 | contrast | standard、high、black、white |
 
-修飾子は、修飾子名と修飾子の値を組み合わせて作成します。 `<qualifier name>-<qualifier value>` は、修飾子の形式です。 修飾子の例としては、`contrast-standard` があります。
+修飾子は、修飾子名と修飾子の値を組み合わせて作成します。 `<qualifier name>-<qualifier value>` 修飾子の形式を指定します。 `contrast-standard` 修飾子の例を次に示します。
 
 ハイ コントラストの場合、修飾子のセットは `contrast-standard`、`contrast-high`、`contrast-black`、`contrast-white` になります。 修飾子名と修飾子の値では、大文字と小文字が区別されません。 たとえば、`contrast-standard` と `Contrast-Standard` は同じ修飾子であると見なされます。
 
@@ -71,7 +71,7 @@ ms.locfileid: "74254522"
 \Assets\Images\logo.png
 ```
 
-最初のファイル名には、`contrast-high` 修飾子が含まれています。 ハイ コントラストが *[オン]* になっている場合、この修飾子は、あらゆるハイ コントラスト設定に対する*実際の*一致です。 言い換えると、これは近似一致であり、優先されます。 この場合のように、*実際*の一致は、修飾子に*実際*の値が含まれている場合にのみ発生します。 この場合、`high` が  *に対する*実際`contrast`の値です。
+最初のファイル名には、`contrast-high` 修飾子が含まれています。 ハイ コントラストが *[オン]* になっている場合、この修飾子は、あらゆるハイ コントラスト設定に対する*実際の*一致です。 言い換えると、これは近似一致であり、優先されます。 この場合のように、*実際*の一致は、修飾子に*実際*の値が含まれている場合にのみ発生します。 この場合、`high` が `contrast` に対する*実際*の値です。
 
 `logo.png` というファイル名には、contrast 修飾子がまったく含まれていません。 修飾子がない値は、*中立的*です。 優先される一致が見つからない場合、中立値はフォールバックの一致として使用されます。 この例では、ハイ コントラストが*オフ*になっている場合、実際の一致はありません。 見つかるベスト マッチが*中立的*な一致であるため、`logo.png` というアセットが読み込まれます。
 
@@ -88,7 +88,7 @@ ms.locfileid: "74254522"
 
 ## <a name="multiple-qualifiers"></a>複数の修飾子
 
-修飾子は、フォルダー名とファイル名で組み合わせることができます。 たとえば、ハイ コントラスト モードがオンであり表示倍率が 400 のときに、イメージ アセットをアプリに読み込むとします。 これを行う方法の 1 つは、入れ子になったフォルダーの使用です。
+修飾子は、フォルダー名とファイル名で組み合わせることができます。 たとえば、ハイ コントラスト モードがオンであり** 表示倍率が 400 のときに、イメージ アセットをアプリに読み込むとします。 これを行う方法の 1 つは、入れ子になったフォルダーの使用です。
 
 ```console
 \Assets\Images\contrast-high\scale-400\<logo.png, and other image files>
@@ -102,7 +102,7 @@ ms.locfileid: "74254522"
 \Assets\Images\contrast-high_scale-400\<logo.png, and other image files>
 ```
 
-フォルダー名として、複数の修飾子をアンダー スコアで結合します。 `<qualifier1>[_<qualifier2>...]` は形式です。
+フォルダー名として、複数の修飾子をアンダー スコアで結合します。 `<qualifier1>[_<qualifier2>...]` の形式はです。
 
 同じ形式で、複数の修飾子を結合して 1 つのファイル名にすることもできます。
 
@@ -114,9 +114,9 @@ ms.locfileid: "74254522"
 
 ## <a name="alternateform"></a>AlternateForm
 
-特別な目的でリソースの代替フォームを提供するには、`alternateform` 修飾子を使います。 通常、日本のアプリ開発者によってふりがな文字列を提供する目的のみで使用されます。そのために、`msft-phonetic` という値が予約されています (「[ローカライズの準備をする方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))」の「並べ替えることができる日本語文字列のふりがなのサポート」をご覧ください)。
+特別な目的でリソースの代替フォームを提供するには、`alternateform` 修飾子を使います。 通常、日本のアプリ開発者によってふりがな文字列を提供する目的のみで使用されます。そのために、`msft-phonetic` という値が予約されています (「[ローカライズの準備をする方法](/previous-versions/windows/apps/hh967762(v=win.10))」の「並べ替えることができる日本語文字列のふりがなのサポート」をご覧ください)。
 
-ターゲット システムとアプリのうちいずれかが、`alternateform` 修飾子と一致する値を提供する必要があります。 カスタムの `msft-` 修飾子の値に `alternateform` プレフィックスを使用しないでください。
+ターゲット システムとアプリのうちいずれかが、`alternateform` 修飾子と一致する値を提供する必要があります。 カスタムの `alternateform` 修飾子の値に `msft-` プレフィックスを使用しないでください。
 
 ## <a name="configuration"></a>構成
 
@@ -124,13 +124,13 @@ ms.locfileid: "74254522"
 
 `configuration` 修飾子は、`MS_CONFIGURATION_ATTRIBUTE_VALUE` 環境変数の値と最も一致するリソースを読み込むために使用します。 このため、この変数は、関連するリソースに割り当てられた文字列値 (`designer` や `test` など) に設定することができます。
 
-## <a name="contrast"></a>Contrast
+## <a name="contrast"></a>この例を、
 
 `contrast` 修飾子は、ハイ コントラスト設定と最も一致するリソースを提供するために使用します。
 
 ## <a name="custom"></a>カスタム
 
-アプリで `custom` 修飾子の値を設定すると、その値に最も一致するリソースが読み込まれます。 たとえば、アプリのライセンスに基づいてリソースを読み込む必要があるとします。 アプリは、起動するとライセンスを確認し、`custom`SetGlobalQualifierValue[ を呼び出すことによって、ライセンスを ](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue) 修飾子の値として使用します。コード例をご覧ください。
+アプリで `custom` 修飾子の値を設定すると、その値に最も一致するリソースが読み込まれます。 たとえば、アプリのライセンスに基づいてリソースを読み込む必要があるとします。 アプリは、起動するとライセンスを確認し、[SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue) を呼び出すことによって、ライセンスを `custom` 修飾子の値として使用します。コード例をご覧ください。
 
 ```csharp
 public void SetLicenseLevel(BrandID brand)
@@ -154,7 +154,7 @@ public void SetLicenseLevel(BrandID brand)
 
 ## <a name="devicefamily"></a>DeviceFamily
 
-`devicefamily` 修飾子名が必要になる可能性は高くありません。 他にもっと便利で強力な修飾子を使う手法があるため、この修飾子名の使用はできる限り避けてください。 このような手法については、「[アプリが実行されているプラットフォームの検出](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)」および「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」を参照してください。
+`devicefamily` 修飾子名が必要になる可能性は高くありません。 他にもっと便利で強力な修飾子を使う手法があるため、この修飾子名の使用はできる限り避けてください。 このような手法については、「[アプリが実行されているプラットフォームの検出](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)」および「[バージョン アダプティブ コード](../debug-test-perf/version-adaptive-code.md)」を参照してください。
 
 ただし他に方法がなければ、XAML ビュー (XAML ビューは、UI レイアウトとコントロールを含む XAML ファイル) を格納するフォルダーの名前として devicefamily という修飾子を使用することもできます。
 
@@ -193,7 +193,7 @@ public void SetLicenseLevel(BrandID brand)
 
 `homeregion` 修飾子は、国または地域のユーザー設定に対応します。 ユーザーが住んでいる地域の場所を表します。 値には、有効な [BCP-47 region タグ](https://tools.ietf.org/html/bcp47)が含まれます。 つまり、**ISO 3166-1 alpha-2** の 2 文字の地域番号に、構成地域用の **ISO 3166-1 numeric** の 3 桁の地域番号のセットを加えた値となります ([国連統計部 M49 地域番号構成に関するページ](https://unstats.un.org/unsd/methods/m49/m49regin.htm)をご覧ください)。 "Selected economic and other groupings" の番号は有効ではありません。
 
-## <a name="language"></a>言語
+## <a name="language"></a>Language
 
 `language` 修飾子は、表示言語設定に対応します。 値には、有効な [BCP 47 language タグ](https://tools.ietf.org/html/bcp47)が含まれます。 言語の一覧については、[IANA 言語サブタグ レジストリに関するページ](https://www.iana.org/assignments/language-subtag-registry)をご覧ください。
 
@@ -206,7 +206,7 @@ public void SetLicenseLevel(BrandID brand)
 \Strings\language-ja\Resources.resw
 ```
 
-`language-` 修飾子の `language` の部分 (修飾子名) は省略することができます。 これは他の種類の修飾子には適用されません。また、適用できるのはフォルダー名の場合のみです。
+`language` 修飾子の `language-` の部分 (修飾子名) は省略することができます。 これは他の種類の修飾子には適用されません。また、適用できるのはフォルダー名の場合のみです。
 
 ```console
 \Strings\en\Resources.resw
@@ -226,7 +226,7 @@ public void SetLicenseLevel(BrandID brand)
 
 `layoutdirection` 修飾子は、表示言語設定のレイアウト方向に対応します。 たとえば、アラビア語やヘブライ語などの右から左に記述する言語では、イメージの反転が必要になる場合があります。 UI のレイアウト パネルとイメージは、[FlowDirection](/uwp/api/Windows.UI.Xaml.FrameworkElement.FlowDirection) プロパティを設定すると、レイアウト方向が正しく反映されます (「[レイアウトやフォントの調整と RTL のサポート](../design/globalizing/adjust-layout-and-fonts--and-support-rtl.md)」をご覧ください)。 `layoutdirection` 修飾子は、単純な反転だけでは十分でないケースを想定し、特定の読み取り順序の辞書やテキスト配置にも、より一般的な方法で対応することができます。
 
-## <a name="scale"></a>Scale
+## <a name="scale"></a>スケール
 
 Windows では、ディスプレイの DPI (1 インチあたりのドット数) と、デバイスの視聴距離に基づいて各ディスプレイの倍率が自動的に選択されます。 「[有効ピクセルと倍率](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)」をご覧ください。 Windows で最適なサイズを選択したり、最も近いサイズを使用して拡大または縮小したりできるように、いくつかの推奨されるサイズ (少なくとも、100、200、400) で画像を作成する必要があります。 Windows で表示倍率に対して正確なサイズの画像を含む物理ファイルを識別できるように、`scale` 修飾子を使用します。 リソースのスケールは、[DisplayInformation.ResolutionScale](/uwp/api/windows.graphics.display.displayinformation.ResolutionScale) の値、または次に大きい拡大リソースに一致します。
 
@@ -250,13 +250,13 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 ## <a name="targetsize"></a>TargetSize
 
-`targetsize` 修飾子は主に、エクスプローラーに表示される[ファイルの種類の関連付け](https://docs.microsoft.com/windows/desktop/shell/how-to-assign-a-custom-icon-to-a-file-type)アイコンまたは[プロトコル アイコン](https://docs.microsoft.com/windows/desktop/search/-search-3x-wds-ph-ui-extensions)の指定に使用されます。 この修飾子の値は、正方形のイメージの辺の長さを RAW (物理) ピクセル単位で表します。 エクスプローラーの表示設定に値が一致するリソースが読み込まれます。正確に一致する対象が存在しない場合は、次に大きな値のリソースが読み込まれます。
+`targetsize` 修飾子は主に、エクスプローラーに表示される[ファイルの種類の関連付け](/windows/desktop/shell/how-to-assign-a-custom-icon-to-a-file-type)アイコンまたは[プロトコル アイコン](/windows/desktop/search/-search-3x-wds-ph-ui-extensions)の指定に使用されます。 この修飾子の値は、正方形のイメージの辺の長さを RAW (物理) ピクセル単位で表します。 エクスプローラーの表示設定に値が一致するリソースが読み込まれます。正確に一致する対象が存在しない場合は、次に大きな値のリソースが読み込まれます。
 
-アプリ パッケージ マニフェスト デザイナーの [ビジュアル資産] タブで、複数サイズのアプリ アイコン (`targetsize`) に対応する `/Assets/Square44x44Logo.png` 修飾子の値を表すアセットを定義できます。
+アプリ パッケージ マニフェスト デザイナーの [ビジュアル資産] タブで、複数サイズのアプリ アイコン (`/Assets/Square44x44Logo.png`) に対応する `targetsize` 修飾子の値を表すアセットを定義できます。
 
 `scale` と `targetsize` でリソースを修飾する方法については、「[targetsize で画像リソースを修飾する](images-tailored-for-scale-theme-contrast.md#qualify-an-image-resource-for-targetsize)」をご覧ください。
 
-## <a name="theme"></a>Theme
+## <a name="theme"></a>テーマ
 
 `theme` 修飾子は、既定のアプリ モード設定に最も一致するリソースか、[Application.RequestedTheme](/uwp/api/windows.ui.xaml.application.requestedtheme) を使用してアプリのオーバーライドを提供するために使用されます。
 
@@ -265,10 +265,10 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 *Windows 10 2019 年5月の更新プログラム*では、windows シェルの新しい "ライト" テーマが導入されました。 その結果、以前は暗い背景に表示されていた一部のアプリケーションアセットが明るい背景に表示されるようになりました。 タスクバーとウィンドウにプレートなしアセットを提供したアプリ (Alt + Tab、タスクビューなど) では、明るい背景で使用できるコントラストがあるかどうかを確認する必要があります。
 
 ### <a name="providing-light-theme-specific-assets"></a>ライトテーマ固有のアセットを提供する
-シェルライトテーマ用に調整されたリソースを提供するアプリでは、新しい代替フォームリソース修飾子である `altform-lightunplated`を使用できます。 この修飾子は、既存の altform-プレートなし修飾子を反映します。 
+シェルライトテーマ用に調整されたリソースを提供するアプリでは、新しい代替フォームリソース修飾子であるを使用できます。 `altform-lightunplated` この修飾子は、既存の altform-プレートなし修飾子を反映します。 
 
 ### <a name="downlevel-considerations"></a>ダウンレベルの考慮事項
-アプリでは、`altform-unplated` 修飾子と共に `theme-light` 修飾子を使用しないでください。 これにより、タスクバーのリソースが読み込まれる方法によって、RS5 以前のバージョンの Windows で予期しない動作が発生します。 以前のバージョンの windows では、テーマライトのバージョンが正しく使用されない場合があります。 `altform-lightunplated` 修飾子は、この問題を回避します。 
+アプリでは、修飾子で修飾子を使用しないでください `theme-light` `altform-unplated` 。 これにより、タスクバーのリソースが読み込まれる方法によって、RS5 以前のバージョンの Windows で予期しない動作が発生します。 以前のバージョンの windows では、テーマライトのバージョンが正しく使用されない場合があります。 `altform-lightunplated`この修飾子は、この問題を回避します。 
 
 ### <a name="compatibility-behavior"></a>互換性の動作
 旧バージョンとの互換性を維持するために、Windows には、モノクロのアイコンを検出し、意図した背景と比較するかどうかを確認するロジックが含まれています。 アイコンがコントラストの要件を満たすことができない場合、Windows は、コントラストが白のアセットを検索します。 使用できない場合は、plated バージョンの資産を使用するように Windows が切り替えられます。
@@ -277,18 +277,18 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 
 ## <a name="important-apis"></a>重要な API
 
-* [ResourceContext. QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
+* [ResourceContext.QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)
 * [SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [有効なピクセルとスケールファクター](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
+* [有効ピクセルと倍率](../design/layout/screen-sizes-and-breakpoints-for-responsive-design.md#effective-pixels-and-scale-factor)
 * [リソース管理システム](resource-management-system.md)
-* [ローカライズを準備する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh967762(v=win.10))
-* [アプリが実行されているプラットフォームを検出しています](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
-* [デバイスファミリの概要](https://docs.microsoft.com/uwp/extension-sdks/device-families-overview)
-* [UI 文字列をローカライズする](localize-strings-ui-manifest.md)
+* [ローカライズの準備をする方法](/previous-versions/windows/apps/hh967762(v=win.10))
+* [アプリが実行されているプラットフォームの検出](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
+* [デバイス ファミリの概要](/uwp/extension-sdks/device-families-overview)
+* [UI 文字列のローカライズ](localize-strings-ui-manifest.md)
 * [BCP-47](https://tools.ietf.org/html/bcp47)
-* [地域コードの国ごとの統計部 M49 の構成](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
-* [IANA 言語サブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)
+* [国連統計部 M49 地域番号構成](https://unstats.un.org/unsd/methods/m49/m49regin.htm)
+* [IANA 言語サブタグ レジストリ](https://www.iana.org/assignments/language-subtag-registry)
 * [レイアウトやフォントの調整と RTL のサポート](../design/globalizing/adjust-layout-and-fonts--and-support-rtl.md)

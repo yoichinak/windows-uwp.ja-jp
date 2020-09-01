@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、レンダリング、シーン、深度のテスト、Direct3D、シャドウ
 ms.localizationpriority: medium
-ms.openlocfilehash: d1c2c4e5d45b28c318085f4ce257b587f23f1426
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: fd38378e0a1f4cbdf4f9ded246b4b94ed3a705eb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368106"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159246"
 ---
 # <a name="render-the-scene-with-depth-testing"></a>深度のテストを使ったシーンのレンダリング
 
 
 
 
-シャドウ効果を作成するには、頂点 (またはジオメトリ) シェーダーとピクセル シェーダーに深度のテストを追加します。 パート 3 の[チュートリアル。Direct3d11 の深度バッファーを使用してボリュームをシャドウ実装](implementing-depth-buffers-for-shadow-mapping.md)します。
+シャドウ効果を作成するには、頂点 (またはジオメトリ) シェーダーとピクセル シェーダーに深度のテストを追加します。 「[チュートリアル: Direct3D 11 の深度バッファーを使ったシャドウ ボリュームの実装](implementing-depth-buffers-for-shadow-mapping.md)」のパート 3 です。
 
 ## <a name="include-transformation-for-light-frustum"></a>ライトの視錐台の変換の追加
 
@@ -67,7 +67,7 @@ PixelShaderInput main(VertexShaderInput input)
 ## <a name="test-whether-the-position-is-in-the-light-frustum"></a>位置がライトの視錐台内かどうかのテスト
 
 
-最初に、X 座標と Y 座標を正規化して、ピクセルがライトの視錐台内かどうかをチェックします。 場合は、範囲内でどちらも\[0, 1\]でシャドウするピクセルの可能性があります。 それ以外の場合は、深度のテストをスキップできます。 シェーダーでは、[Saturate](https://docs.microsoft.com/windows/desktop/direct3dhlsl/saturate) を呼び出し、結果を元の値と比較することで、これをすばやくテストできます。
+最初に、X 座標と Y 座標を正規化して、ピクセルがライトの視錐台内かどうかをチェックします。 両方が 0 ~ 1 の範囲内にある場合は、 \[ \] ピクセルが影に含まれる可能性があります。 それ以外の場合は、深度のテストをスキップできます。 シェーダーでは、[Saturate](/windows/desktop/direct3dhlsl/saturate) を呼び出し、結果を元の値と比較することで、これをすばやくテストできます。
 
 ```cpp
 // Compute texture coordinates for the current point's location on the shadow map.
@@ -89,7 +89,7 @@ if ((saturate(shadowTexCoords.x) == shadowTexCoords.x) &&
 ## <a name="depth-test-against-the-shadow-map"></a>シャドウ マップに対する深度のテスト
 
 
-サンプル比較関数 ([SampleCmp](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmp) または [SampleCmpLevelZero](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmplevelzero)) を使って、深度マップに対するライト空間内のピクセルの深度をテストします。 正規化されたライト空間の深度値 (`z / w`) を計算し、その値を比較関数に渡します。 サンプラーでは LessOrEqual 比較テストを使うため、比較テストに合格すると組み込みメソッドの関数は 0 を返します。これは、そのピクセルがシャドウの内側にあることを示しています。
+サンプル比較関数 ([SampleCmp](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmp) または [SampleCmpLevelZero](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmplevelzero)) を使って、深度マップに対するライト空間内のピクセルの深度をテストします。 正規化されたライト空間の深度値 (`z / w`) を計算し、その値を比較関数に渡します。 サンプラーでは LessOrEqual 比較テストを使うため、比較テストに合格すると組み込みメソッドの関数は 0 を返します。これは、そのピクセルがシャドウの内側にあることを示しています。
 
 ```cpp
 // Use an offset value to mitigate shadow artifacts due to imprecise 
@@ -161,7 +161,3 @@ return float4(input.color * ambient, 1.f);
  
 
  
-
-
-
-

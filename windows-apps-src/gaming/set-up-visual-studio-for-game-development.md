@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, UWP, ゲーム, Visual Studio, ツール, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: c97c24eca55cf43559b9f518eaf2fbc4656aa374
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: 250450b2174ce249d1ec5afaf4c5188df9266f5e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942811"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159266"
 ---
 # <a name="visual-studio-tools-for-game-programming"></a>ゲーム プログラミング用の Visual Studio ツール
 
@@ -43,7 +43,7 @@ Visual Studio Ultimate を使って、DirectX アプリを開発する場合は�
 
 ビルド時にこれらを .dds ファイルに変換するには、[ビルド カスタマイズ ファイル](#build-customizations-for-3d-assets)を作成します。
 
-詳しくは、「[テクスチャおよびイメージの使用](https://docs.microsoft.com/visualstudio/designers/working-with-textures-and-images?view=vs-2015)」をご覧ください。
+詳しくは、「[テクスチャおよびイメージの使用](/visualstudio/designers/working-with-textures-and-images?view=vs-2015)」をご覧ください。
 
 > **メモ**   イメージエディターは、完全な機能イメージ編集アプリに代わるものではありませんが、多くの単純な表示と編集のシナリオに適しています。
 
@@ -62,7 +62,7 @@ Visual Studio Ultimate を使って、DirectX アプリを開発する場合は�
 
 ![ティーポット](images/modeleditor.png)
 
-詳しくは、「[3-D モデルの操作](https://docs.microsoft.com/visualstudio/designers/working-with-3-d-models?view=vs-2015)」をご覧ください。
+詳しくは、「[3-D モデルの操作](/visualstudio/designers/working-with-3-d-models?view=vs-2015)」をご覧ください。
 
 > **メモ**   モデルエディターは、完全な機能モデルの編集アプリに代わるものではありませんが、多くの単純な表示と編集のシナリオに適しています。
 
@@ -109,7 +109,7 @@ float3 LambertLighting(
 }
 ```
 
-詳しくは、「[シェーダーの操作](https://docs.microsoft.com/visualstudio/designers/working-with-shaders?view=vs-2015)」をご覧ください。
+詳しくは、「[シェーダーの操作](/visualstudio/designers/working-with-shaders?view=vs-2015)」をご覧ください。
 
 ## <a name="build-customizations-for-3d-assets"></a>3D アセットのビルドのカスタマイズ
 
@@ -122,7 +122,7 @@ float3 LambertLighting(
 -   メッシュ ファイル (.fbx など) を受け取り、.cmo メッシュ ファイルを出力するメッシュ コンテンツ パイプライン。
 -   Visual Studio シェーダー エディターで作成した視覚シェーダー グラフ (.dgsl) を受け取り、コンパイル済みシェーダー出力 (.cso) ファイルを出力するシェーダー コンテンツ パイプライン。
 
-詳しくは、「[ゲームまたはアプリケーションでの 3-D アセットの使用](https://docs.microsoft.com/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)」をご覧ください。
+詳しくは、「[ゲームまたはアプリケーションでの 3-D アセットの使用](/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)」をご覧ください。
 
 ## <a name="debugging-directx-graphics"></a>DirectX グラフィックスのデバッグ
 
@@ -139,7 +139,7 @@ Visual Studio には、グラフィックス固有のデバッグ ツールが�
 -   制限されている Direct2D のサポート。
 -   オペレーティング システムと SDK の要件。
 
-詳しくは、「[DirectX グラフィックスのデバッグ](https://docs.microsoft.com/visualstudio/debugger/visual-studio-graphics-diagnostics?view=vs-2015)」をご覧ください。
+詳しくは、「[DirectX グラフィックスのデバッグ](/visualstudio/debugger/visual-studio-graphics-diagnostics?view=vs-2015)」をご覧ください。
 
 
  
@@ -147,7 +147,3 @@ Visual Studio には、グラフィックス固有のデバッグ ツールが�
  
 
  
-
-
-
-

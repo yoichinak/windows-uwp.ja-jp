@@ -6,21 +6,21 @@ ms.date: 07/03/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b61b7bcd18419ec9be719b5f565e5503953be7c3
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 8836753778b1dd5dcbc8856b0df5ec1f11d8e753
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493473"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159806"
 ---
 # <a name="sensor-orientation"></a>センサーの向き
 
-[**加速度計**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Accelerometer)、[**ジャイロ**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Gyrometer)、[**コンパス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Compass)、 [**Inclinometer**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Inclinometer)、 [**OrientationSensor**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.OrientationSensor)の各クラスのセンサーデータは、その参照軸によって定義されます。 これらの軸はデバイスの参照フレームで定義され、ユーザーがデバイスの向きを変えると、デバイスと共に回転します。 アプリが自動回転をサポートしており、ユーザーがデバイスを回転させたときに連動して向きが変わる場合、センサー データを使う前に回転に合わせて調整する必要があります。
+[**加速度計**](/uwp/api/Windows.Devices.Sensors.Accelerometer)、[**ジャイロ**](/uwp/api/Windows.Devices.Sensors.Gyrometer)、[**コンパス**](/uwp/api/Windows.Devices.Sensors.Compass)、 [**Inclinometer**](/uwp/api/Windows.Devices.Sensors.Inclinometer)、 [**OrientationSensor**](/uwp/api/Windows.Devices.Sensors.OrientationSensor)の各クラスのセンサーデータは、その参照軸によって定義されます。 これらの軸はデバイスの参照フレームで定義され、ユーザーがデバイスの向きを変えると、デバイスと共に回転します。 アプリが自動回転をサポートしており、ユーザーがデバイスを回転させたときに連動して向きが変わる場合、センサー データを使う前に回転に合わせて調整する必要があります。
 
 ### <a name="important-apis"></a>重要な API
 
-- [**Windows.Devices.Sensors**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors)
-- [**Windows. デバイス... カスタム**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.Custom)
+- [**Windows.Devices.Sensors**](/uwp/api/Windows.Devices.Sensors)
+- [**Windows. デバイス... カスタム**](/uwp/api/Windows.Devices.Sensors.Custom)
 
 ## <a name="display-orientation-vs-device-orientation"></a>表示の向きとデバイスの向き
 
@@ -30,22 +30,22 @@ ms.locfileid: "86493473"
 > 正の z 軸は、次の図に示すように、デバイス画面から拡張されます。
 > :::image type="content" source="images/sensor-orientation-zaxis-1-small.png" alt-text="ラップトップの Z 軸":::
 
-次の図では、デバイスと画面の向きの両方が[横向き](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayOrientations)になっています (表示されるセンサー軸は横向きに固有です)。
+次の図では、デバイスと画面の向きの両方が [横向き](/uwp/api/Windows.Graphics.Display.DisplayOrientations) になっています (表示されるセンサー軸は横向きに固有です)。
 
 
-この図は、表示とデバイスの向きを[横向き](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayOrientations)で示しています。
+この図は、表示とデバイスの向きを [横向き](/uwp/api/Windows.Graphics.Display.DisplayOrientations)で示しています。
 
 :::image type="content" source="images/sensor-orientation-a-small.jpg" alt-text="画面とデバイスの向きが横向き":::
 
-次の図は、 [LandscapeFlipped](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayOrientations)の表示とデバイスの向きの両方を示しています。
+次の図は、 [LandscapeFlipped](/uwp/api/Windows.Graphics.Display.DisplayOrientations)の表示とデバイスの向きの両方を示しています。
 
 :::image type="content" source="images/sensor-orientation-b-small.jpg" alt-text="画面とデバイスの向きが LandscapeFlipped":::
 
-この最後の図は、デバイスの向きは[LandscapeFlipped](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayOrientations)ですが、横方向の画面の向きを示しています。
+この最後の図は、デバイスの向きは [LandscapeFlipped](/uwp/api/Windows.Graphics.Display.DisplayOrientations)ですが、横方向の画面の向きを示しています。
 
 :::image type="content" source="images/sensor-orientation-c-small.jpg" alt-text="画面の向きが Landscape、デバイスの向きが LandscapeFlipped です。":::
 
-向きの値は、[**DisplayInformation**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayInformation) クラスの [**GetForCurrentView**](https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation.getforcurrentview) メソッドと [**CurrentOrientation**](https://docs.microsoft.com/uwp/api/windows.graphics.display.displayinformation.currentorientation) プロパティを使って照会することができます。 次に、[**DisplayOrientations**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Display.DisplayOrientations) 列挙値と比較することによってロジックを作成できます。 サポートするすべての向きについて、その向きへの基準軸の変換をサポートする必要があることに注意してください。
+向きの値は、[**DisplayInformation**](/uwp/api/Windows.Graphics.Display.DisplayInformation) クラスの [**GetForCurrentView**](/uwp/api/windows.graphics.display.displayinformation.getforcurrentview) メソッドと [**CurrentOrientation**](/uwp/api/windows.graphics.display.displayinformation.currentorientation) プロパティを使って照会することができます。 次に、[**DisplayOrientations**](/uwp/api/Windows.Graphics.Display.DisplayOrientations) 列挙値と比較することによってロジックを作成できます。 サポートするすべての向きについて、その向きへの基準軸の変換をサポートする必要があることに注意してください。
 
 ## <a name="landscape-first-vs-portrait-first-devices"></a>横向き優先デバイスと縦向き優先デバイス
 
@@ -70,10 +70,10 @@ ms.locfileid: "86493473"
 
 | 表示の向き | コンパスの方位の基準軸 | 北を向いている場合の API によるコンパスの方位 (横向き優先) | 北を向いている場合の API によるコンパスの方位 (縦向き優先) |コンパスの方位の補正 (横向き優先) | コンパスの方位の補正 (縦向き優先) |
 |---------------------|------------------------------------|---------------------------------------------------------|--------------------------------------------------------|------------------------------------------------|-----------------------------------------------|
-| 横           | -Z | 0   | 270 | 見出し               | (方位 + 90) % 360  |
-| 縦            |  Y | 90  | 0   | (方位 + 270) % 360 |  見出し              |
+| 横           | -Z | 0   | 270 | [Heading] (方向)               | (方位 + 90) % 360  |
+| 縦            |  ○ | 90  | 0   | (方位 + 270) % 360 |  [Heading] (方向)              |
 | LandscapeFlipped    |  Z | 180 | 90  | (方位 + 180) % 360 | (方位 + 270) % 360 |
-| PortraitFlipped     |  Y | 270 | 180 | (方位 + 90) % 360  | (方位 + 180) % 360 |
+| PortraitFlipped     |  ○ | 270 | 180 | (方位 + 90) % 360  | (方位 + 180) % 360 |
 
 正確に方位を表示するために、表に示されているようにコンパスの方位を修正します。 次のコード スニペットは、この方法を示しています。
 
@@ -116,7 +116,7 @@ private void ReadingChanged(object sender, CompassReadingChangedEventArgs e)
 | 基準軸        |  X |  Y | Z |
 |-----------------------|----|----|---|
 | **横**         |  X |  Y | Z |
-| **縦**          |  Y | -X | Z |
+| **縦**          |  ○ | -X | Z |
 | **LandscapeFlipped**  | -X | -y | Z |
 | **PortraitFlipped**   | -y |  X | Z |
 
@@ -164,7 +164,7 @@ private void ReadingChanged(object sender, GyrometerReadingChangedEventArgs e)
 
 ## <a name="display-orientation-and-device-orientation"></a>表示の向きとデバイスの向き
 
-[**OrientationSensor**](https://docs.microsoft.com/uwp/api/Windows.Devices.Sensors.OrientationSensor) データは別の方法で変更する必要があります。 これらのさまざまな向きを反時計回りに回転させて z 軸にするため、回転を反転してユーザーの向きを戻す必要があります。 四元数データの場合、オイラーの公式を使って、基準四元数により回転を定義できます。また、基準回転マトリックスを使うこともできます。
+[**OrientationSensor**](/uwp/api/Windows.Devices.Sensors.OrientationSensor) データは別の方法で変更する必要があります。 これらのさまざまな向きを反時計回りに回転させて z 軸にするため、回転を反転してユーザーの向きを戻す必要があります。 四元数データの場合、オイラーの公式を使って、基準四元数により回転を定義できます。また、基準回転マトリックスを使うこともできます。
 
 :::image type="content" source="images/eulers-formula.png" alt-text="オイラーの公式":::
 
@@ -183,4 +183,4 @@ private void ReadingChanged(object sender, GyrometerReadingChangedEventArgs e)
 
 ## <a name="see-also"></a>関連項目
 
-[モーション センサーと方位センサーの統合](https://docs.microsoft.com/windows-hardware/design/whitepapers/integrating-motion-and-orientation-sensors)
+[モーション センサーと方位センサーの統合](/windows-hardware/design/whitepapers/integrating-motion-and-orientation-sensors)
