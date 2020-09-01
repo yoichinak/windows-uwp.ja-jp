@@ -1,17 +1,17 @@
 ---
 title: スケーリングを無効にする方法
-description: 既定の倍率を無効にする方法を説明します。
+description: 既定のスケールファクターをオフにして、アプリケーションで実際の 1910 x 1080 ピクセルデバイスディメンションを使用する方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 6e68c1fc-a407-4c0b-b0f4-e445ccb72ff3
 ms.localizationpriority: medium
-ms.openlocfilehash: 44688ff40792ba2ee72cbd1d96bae1ac59834efa
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 404bdd9a4b25254c1941928dbfb0b548492f03a5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57604747"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174706"
 ---
 # <a name="how-to-turn-off-scaling"></a>スケーリングを無効にする方法   
 アプリケーションは既定で、XAML アプリの場合は 200% に、HTML アプリの場合は 150% に拡大されます。 また、既定の倍率を無効にすることもできます。 これにより、アプリケーションをデバイスの実際のピクセル サイズ (1910 x 1080 ピクセル) で使うことができるようになります。   

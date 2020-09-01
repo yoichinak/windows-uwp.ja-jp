@@ -8,29 +8,29 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 6281165d64b8e6e3f77807dbafd6bfff1dd0704f
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: bbbe9a887afa4637aaf8e6576e14979a92aa6b8f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258327"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173396"
 ---
 # <a name="manage-issues-with-audio-input"></a>音声入力の問題の管理
 
 
 オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。
 
-> **重要な API**: [**SpeechRecognizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer)、[**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading)、[**SpeechRecognitionAudioProblem**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem)
+> **重要な API**: [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer)、[**RecognitionQualityDegrading**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading)、[**SpeechRecognitionAudioProblem**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem)
 
 
 ## <a name="assess-audio-input-quality"></a>オーディオ入力の品質を評価する
 
 
-音声認識がアクティブな場合は、音声認識エンジンの [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベントを使用して、1 つ以上のオーディオの問題によって音声入力が妨げられている可能性があるかどうかを判断します。 イベント引数 ([**SpeechRecognitionQualityDegradingEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs)) には、[**Problem**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) プロパティがあり、オーディオ入力で検出された問題の説明が含まれています。
+音声認識がアクティブな場合は、音声認識エンジンの [**RecognitionQualityDegrading**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベントを使用して、1 つ以上のオーディオの問題によって音声入力が妨げられている可能性があるかどうかを判断します。 イベント引数 ([**SpeechRecognitionQualityDegradingEventArgs**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs)) には、[**Problem**](/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) プロパティがあり、オーディオ入力で検出された問題の説明が含まれています。
 
 認識は、多すぎる背景の雑音、ミュートされたマイク、およびスピーカーのボリュームや速度の影響を受ける場合があります。
 
-ここでは、音声認識エンジンを構成し、[**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベントのリッスンを開始します。
+ここでは、音声認識エンジンを構成し、[**RecognitionQualityDegrading**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベントのリッスンを開始します。
 
 ```CSharp
 private async void WeatherSearch_Click(object sender, RoutedEventArgs e)
@@ -65,9 +65,9 @@ private async void WeatherSearch_Click(object sender, RoutedEventArgs e)
 ## <a name="manage-the-speech-recognition-experience"></a>音声認識エクスペリエンスを管理する
 
 
-[  **Problem**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) プロパティにある説明を使用して、ユーザーが認識の状態を改善できるようにします。
+[**Problem**](/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) プロパティにある説明を使用して、ユーザーが認識の状態を改善できるようにします。
 
-ここでは、低い音量レベルをチェックする [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベント用のハンドラーを作成します。 次に、[**SpeechSynthesizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechSynthesis.SpeechSynthesizer) オブジェクトを使って、より大きな声で話すことをユーザーに提示します。
+ここでは、低い音量レベルをチェックする [**RecognitionQualityDegrading**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベント用のハンドラーを作成します。 次に、[**SpeechSynthesizer**](/uwp/api/Windows.Media.SpeechSynthesis.SpeechSynthesizer) オブジェクトを使って、より大きな声で話すことをユーザーに提示します。
 
 ```CSharp
 private async void speechRecognizer_RecognitionQualityDegrading(
@@ -112,7 +112,3 @@ private async void speechRecognizer_RecognitionQualityDegrading(
  
 
  
-
-
-
-

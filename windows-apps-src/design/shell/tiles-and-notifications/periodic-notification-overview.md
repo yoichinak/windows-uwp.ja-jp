@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 241d59d096775646a5da1301bdd4b44f67c6abf1
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 9936fd6b7210298bdce042b7848a75be8e044040
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493417"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175506"
 ---
 # <a name="periodic-notification-overview"></a>定期的な通知の概要
  
@@ -34,25 +34,25 @@ ms.locfileid: "86493417"
 
 定期的な通知では、アプリでクラウド サービスをホストする必要があります。 このサービスは、アプリをインストールしているすべてのユーザーによって定期的にポーリングされます。 Windows では、ポーリング間隔 (1 時間に 1 回など) に従って URI に HTTP GET 要求を送り、この要求に対する応答として提供される要求したタイルまたはバッジのコンテンツ (XML 形式) をダウンロードして、アプリのタイルにそのコンテンツを表示します。
 
-定期的な更新をトースト通知で使うことはできません。 トーストの配信には、[スケジュールされた通知](https://docs.microsoft.com/previous-versions/windows/apps/hh465417(v=win.10))または[プッシュ通知](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))が適しています。
+定期的な更新をトースト通知で使うことはできません。 トーストの配信には、[スケジュールされた通知](/previous-versions/windows/apps/hh465417(v=win.10))または[プッシュ通知](/previous-versions/windows/apps/hh868252(v=win.10))が適しています。
 
 ## <a name="uri-location-and-xml-content"></a>URI の場所と XML コンテンツ
 
 
 ポーリングする URI には、HTTP や HTTPS の有効な Web アドレスを使うことができます。
 
-クラウド サーバーからの応答には、ダウンロードされたコンテンツが含まれます。 URI から返されるコンテンツは、[タイル](adaptive-tiles-schema.md)または[バッジ](https://docs.microsoft.com/uwp/schemas/tiles/badgeschema/schema-root)の XML スキーマの仕様に準拠し、UTF-8 の形式でエンコードされている必要があります。 仕様で規定されている HTTP ヘッダーを使うと、通知の[有効期限](#expiration-of-tile-and-badge-notifications)やタグを指定することができます。
+クラウド サーバーからの応答には、ダウンロードされたコンテンツが含まれます。 URI から返されるコンテンツは、[タイル](adaptive-tiles-schema.md)または[バッジ](/uwp/schemas/tiles/badgeschema/schema-root)の XML スキーマの仕様に準拠し、UTF-8 の形式でエンコードされている必要があります。 仕様で規定されている HTTP ヘッダーを使うと、通知の[有効期限](#expiration-of-tile-and-badge-notifications)やタグを指定することができます。
 
 ## <a name="polling-behavior"></a>ポーリングの動作
 
 
 ポーリングを開始するには次のメソッドのいずれかを呼び出します。
 
--   [**StartPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (タイル)
--   [**StartPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.BadgeUpdater#Windows_UI_Notifications_BadgeUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (バッジ)
--   [**StartPeriodicUpdateBatch**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (タイル)
+-   [**StartPeriodicUpdate**](/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (タイル)
+-   [**StartPeriodicUpdate**](/uwp/api/Windows.UI.Notifications.BadgeUpdater#Windows_UI_Notifications_BadgeUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (バッジ)
+-   [**StartPeriodicUpdateBatch**](/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_) (タイル)
 
-これらのいずれかのメソッドを呼び出すと、URI がすぐにポーリングされて、受け取ったコンテンツでタイルやバッジが更新されます。 この最初のポーリングの後は、要求した間隔で更新が提供されます。 ポーリングは、明示的に停止するか ([**TileUpdater.StopPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater.StopPeriodicUpdate) を使用)、アプリをアンインストールするか、(セカンダリ タイルの場合は) タイルを削除するまで続けられます。 それまでの間は、アプリが起動されなくても、タイルやバッジの更新がないかどうかを調べるために継続的にポーリングが行われます。
+これらのいずれかのメソッドを呼び出すと、URI がすぐにポーリングされて、受け取ったコンテンツでタイルやバッジが更新されます。 この最初のポーリングの後は、要求した間隔で更新が提供されます。 ポーリングは、明示的に停止するか ([**TileUpdater.StopPeriodicUpdate**](/uwp/api/Windows.UI.Notifications.TileUpdater.StopPeriodicUpdate) を使用)、アプリをアンインストールするか、(セカンダリ タイルの場合は) タイルを削除するまで続けられます。 それまでの間は、アプリが起動されなくても、タイルやバッジの更新がないかどうかを調べるために継続的にポーリングが行われます。
 
 ### <a name="the-recurrence-interval"></a>繰り返し間隔
 
@@ -77,33 +77,33 @@ URI がポーリングされるのは、デバイスがオンラインになっ�
 
 既定では、定期的なタイル通知とバッジ通知は、ダウンロードされたときから 3 日後に有効期限切れになります。 通知の有効期限が切れると、バッジ、タイル、キューからコンテンツが削除され、ユーザーに表示されなくなります。 すべての定期的なタイル通知とバッジ通知には、アプリや通知に適した時間を使って有効期限を明示的に設定し、コンテンツの意味がなくなっても保持されないようにすることをお勧めします。 明示的な有効期限は、コンテンツの存続期間が決まっている場合に重要です。 また、クラウド サービスにアクセスできなくなった場合や、ユーザーがネットワークに長時間接続していない場合に、古いコンテンツが確実に削除されます。
 
-クラウド サービスでは、応答のペイロードに X-WNS-Expires HTTP ヘッダーを含めることによって、通知の有効期限の日時が明示的に設定されます。 X-WNS-Expires HTTP ヘッダーは、[HTTP-date 形式](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)に準拠します。 詳しくは、「[**StartPeriodicUpdate**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_)」または「[**StartPeriodicUpdateBatch**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_)」をご覧ください。
+クラウド サービスでは、応答のペイロードに X-WNS-Expires HTTP ヘッダーを含めることによって、通知の有効期限の日時が明示的に設定されます。 X-WNS-Expires HTTP ヘッダーは、[HTTP-date 形式](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)に準拠します。 詳しくは、「[**StartPeriodicUpdate**](/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdate_Windows_Foundation_Uri_Windows_Foundation_DateTime_Windows_UI_Notifications_PeriodicUpdateRecurrence_)」または「[**StartPeriodicUpdateBatch**](/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_)」をご覧ください。
 
 たとえば、株式市場の取引が活発な日は、株価の更新の有効期限をポーリング間隔の有効期限の 2 倍に設定することをお勧めします (ポーリング間隔が 30 分の場合は有効期限を受け取り後 1 時間にするなど)。 また、ニュース アプリの場合、毎日のニュースを表示するタイルの更新の有効期限は 1 日が適しています。
 
 ## <a name="periodic-notifications-in-the-notification-queue"></a>通知キューでの定期的な通知
 
 
-定期的なタイルの更新は[通知の循環](https://docs.microsoft.com/previous-versions/windows/apps/hh781199(v=win.10))と併用できます。 既定では、スタート画面のタイルには、新しい通知によって置き換えられるまで、1 つの通知のコンテンツが表示されます。 循環を有効にすると、最大で 5 つの通知がキューに入れられ、タイルに循環して表示されます。
+定期的なタイルの更新は[通知の循環](/previous-versions/windows/apps/hh781199(v=win.10))と併用できます。 既定では、スタート画面のタイルには、新しい通知によって置き換えられるまで、1 つの通知のコンテンツが表示されます。 循環を有効にすると、最大で 5 つの通知がキューに入れられ、タイルに循環して表示されます。
 
-キューの通知の数が限度の 5 個になると、次の新しい通知によってキューの最も古い通知が置き換えられます。 ただし、通知にタグを設定することで、キューの置き換えポリシーを操作できます。 タグは大文字と小文字が区別されないアプリ固有の文字列 (最大 16 文字の英数字) で、応答のペイロードの [X-WNS-Tag](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10)) HTTP ヘッダーで指定されます。 着信した通知のタグは、既にキューにあるすべての通知のタグと比較され、 一致するものが見つかると、キューにある同じタグを持つ通知が新しい通知に置き換えられます。 一致するものが見つからない場合は、既定の置き換え規則が適用され、キューの最も古い通知が新しい通知に置き換えられます。
+キューの通知の数が限度の 5 個になると、次の新しい通知によってキューの最も古い通知が置き換えられます。 ただし、通知にタグを設定することで、キューの置き換えポリシーを操作できます。 タグは大文字と小文字が区別されないアプリ固有の文字列 (最大 16 文字の英数字) で、応答のペイロードの [X-WNS-Tag](/previous-versions/windows/apps/hh465435(v=win.10)) HTTP ヘッダーで指定されます。 着信した通知のタグは、既にキューにあるすべての通知のタグと比較され、 一致するものが見つかると、キューにある同じタグを持つ通知が新しい通知に置き換えられます。 一致するものが見つからない場合は、既定の置き換え規則が適用され、キューの最も古い通知が新しい通知に置き換えられます。
 
 通知のキューとタグを使うと、充実した通知シナリオを実装できます。 たとえば、株価アプリでは、それぞれの銘柄名をタグに使って異なる 5 銘柄の通知を送ることができます。 このようにすると、同じ銘柄の複数の通知がキューに入れられて、有効期限が切れた古い通知が表示されるようなことがなくなります。
 
-詳細については、「[通知キューの使用](https://docs.microsoft.com/previous-versions/windows/apps/hh781199(v=win.10))」を参照してください。
+詳細については、「 [通知キューの使用](/previous-versions/windows/apps/hh781199(v=win.10))」を参照してください。
 
 ### <a name="enabling-the-notification-queue"></a>通知キューの有効化
 
-通知キューを実装するには、最初に、タイルに対してキューを有効にする必要があります (「[ローカル通知で通知キューを使用する方法](https://blogs.msdn.microsoft.com/tiles_and_toasts/2016/01/05/quickstart-how-to-use-the-tile-notification-queue-with-local-notifications/)」を参照)。 キューを有効にする呼び出しはアプリの存続期間で 1 回だけ実行する必要がありますが、アプリが起動されるたびに呼び出しても問題はありません。
+通知キューを実装するには、最初に、タイルに対してキューを有効にする必要があります (「[ローカル通知で通知キューを使用する方法](/archive/blogs/tiles_and_toasts/quickstart-how-to-use-the-tile-notification-queue-with-local-notifications)」を参照)。 キューを有効にする呼び出しはアプリの存続期間で 1 回だけ実行する必要がありますが、アプリが起動されるたびに呼び出しても問題はありません。
 
 ### <a name="polling-for-more-than-one-notification-at-a-time"></a>一度に複数の通知をポーリングする
 
-Windows でダウンロードを行うタイルの通知ごとに、一意の URI を指定する必要があります。 [**StartPeriodicUpdateBatch**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_) メソッドを使うと、通知キューで使う URI を一度に 5 つまで指定できます。 各 URI がポーリングされ、ほぼ同じ時間にそれぞれ 1 つの通知ペイロードが返されます。 ポーリングされる各 URI からは、それぞれ固有の有効期限とタグ値を返すこともできます。
+Windows でダウンロードを行うタイルの通知ごとに、一意の URI を指定する必要があります。 [**StartPeriodicUpdateBatch**](/uwp/api/Windows.UI.Notifications.TileUpdater#Windows_UI_Notifications_TileUpdater_StartPeriodicUpdateBatch_Windows_Foundation_Collections_IIterable_1_Windows_UI_Notifications_PeriodicUpdateRecurrence_) メソッドを使うと、通知キューで使う URI を一度に 5 つまで指定できます。 各 URI がポーリングされ、ほぼ同じ時間にそれぞれ 1 つの通知ペイロードが返されます。 ポーリングされる各 URI からは、それぞれ固有の有効期限とタグ値を返すこともできます。
 
 ## <a name="related-topics"></a>関連トピック
 
 
-* [定期的な通知のガイドライン](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-periodic-notification-overview)
-* [バッジの定期的な通知を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
-* [タイルの定期的な通知を設定する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh761476(v=win.10))
+* [定期的な通知のガイドライン]()
+* [バッジの定期的な通知を設定する方法](/previous-versions/windows/apps/hh761476(v=win.10))
+* [タイルの定期的な通知を設定する方法](/previous-versions/windows/apps/hh761476(v=win.10))
  

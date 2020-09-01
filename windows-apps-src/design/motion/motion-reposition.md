@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f469ab07794014b77ea08087ada793cb83133cc8
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: dac1af8a14ede535d2087469cb559d7038f22032
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970527"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175536"
 ---
 # <a name="reposition-animations"></a>位置変更アニメーション
 
@@ -21,7 +21,7 @@ ms.locfileid: "82970527"
 
 位置変更アニメーションを使って、1 つまたは複数の要素を新しい位置に移動します。
 
-> **重要な API**: [**RepositionThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)、[**RepositionThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
+> **重要な API**: [**RepositionThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)、[**RepositionThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -31,15 +31,11 @@ ms.locfileid: "82970527"
 
 ## <a name="related-articles"></a>関連記事
 
-* [アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
-* [位置変更のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649434(v=win.10))
-* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))
-* [**RepositionThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)
-* [**RepositionThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
+* [アニメーションの概要](./xaml-animation.md)
+* [位置変更のアニメーション化](/previous-versions/windows/apps/jj649434(v=win.10))
+* [クイック スタート: ライブラリのアニメーションを使った UI のアニメーション化](/previous-versions/windows/apps/hh452703(v=win.10))
+* [**RepositionThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)
+* [**RepositionThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
 
 
  
-
-
-
-

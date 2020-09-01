@@ -1,19 +1,19 @@
 ---
-title: ヘッドセット
+title: Headset
 description: Windows.Gaming.Input ヘッドセット API を使用して、ヘッドセットの検出、プレイヤーの音声のキャプチャ、オーディオの再生を行います。
 ms.assetid: 021CCA26-D339-4C8B-B084-0D499BD83ABE
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ヘッドセット
 ms.localizationpriority: medium
-ms.openlocfilehash: 73815fb3f1b732537e9f08932639a1eccd7ed1b0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 5e5b0894dbab03490cb74bdae8c231b57d397cb4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368624"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175296"
 ---
-# <a name="headset"></a>ヘッドセット
+# <a name="headset"></a>Headset
 
 このページでは、[Windows.Gaming.Input.Headset][headset] とユニバーサル Windows プラットフォーム (UWP) 用の関連 API を使った、ヘッドセットを対象にしたプログラミングの基礎について説明します。
 
@@ -65,12 +65,12 @@ inputDevice.HeadsetDisconnected += ref new TypedEventHandler<IGameController^, H
 
 [Headset][] クラスは、XAudio エンドポイント ID を表す 2 つの文字列で構成されています。1 つはオーディオ キャプチャ (ヘッドセット マイクからの録音) 用の文字列で、もう 1 つはオーディオ レンダリング (ヘッドセットのイヤホンを使用した再生) 用の文字列です。
 
-ここでは XAudio の使用の詳細については説明しませんが、詳しくは、[XAudio2 プログラミング ガイド](https://docs.microsoft.com/windows/desktop/xaudio2/programming-guide)や [XAudio2 API リファレンス](https://docs.microsoft.com/windows/desktop/xaudio2/programming-reference)をご覧ください。
+ここでは XAudio の使用の詳細については説明しませんが、詳しくは、[XAudio2 プログラミング ガイド](/windows/desktop/xaudio2/programming-guide)や [XAudio2 API リファレンス](/windows/desktop/xaudio2/programming-reference)をご覧ください。
 
 
-[Windows.Gaming.Input]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.aspx
-[igamecontroller]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.aspx
-[igamecontroller.headset]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.headset.aspx
-[igamecontroller.headsetconnected]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.headsetconnected.aspx
-[igamecontroller.headsetdisconnected]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.headsetdisconnected.aspx
-[headset]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.headset.aspx
+[Windows. ゲーム. 入力]: /uwp/api/Windows.Gaming.Input
+[igamecontroller]: /uwp/api/Windows.Gaming.Input.IGameController
+[igamecontroller.headset]: /uwp/api/Windows.Gaming.Input.IGameController
+[igamecontroller.headsetconnected]: /uwp/api/Windows.Gaming.Input.IGameController
+[igamecontroller.headsetdisconnected]: /uwp/api/Windows.Gaming.Input.IGameController
+[ヘッドフォン]: /uwp/api/Windows.Gaming.Input.Headset

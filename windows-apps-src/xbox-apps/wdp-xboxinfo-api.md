@@ -1,27 +1,27 @@
 ---
 title: デバイス ポータル Xbox 情報 API リファレンス
-description: Xbox デバイス情報にアクセスする方法について説明します。
+description: Xbox デバイスポータル REST API の GET メソッドを使用して Xbox One デバイス情報にアクセスする方法について説明します。
 ms.date: 04/18/2019
 ms.topic: article
-keywords: windows 10、uwp、xbox、デバイス ポータル
+keywords: windows 10、uwp、xbox、デバイスポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: c6a8e595be9a0846df2af81ea0b7fc1605f62e5f
-ms.sourcegitcommit: 139717a79af648a9231821bdfcaf69d8a1e6e894
+ms.openlocfilehash: c2a4cecaf3340818b3679dfd3f64b9759ea46752
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67714076"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174656"
 ---
 # <a name="xbox-info-api-reference"></a>Xbox 情報 API リファレンス   
 この API を使うと、Xbox One デバイス情報にアクセスすることができます。
 
 ## <a name="get-xbox-one-device-information"></a>Xbox One デバイス情報を取得する
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 Xbox One に関するデバイス情報を取得できます。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
 GET | /ext/xbox/info
 
@@ -49,7 +49,7 @@ GET | /ext/xbox/info
 * ConsoleType - (文字列) コンソールの種類 ("Xbox One" や "Xbox One S" など)。
 * DevkitCertificateExpirationTime - (数値) コンソールの開発者キット証明書の有効期限が切れる UTC 時刻 (秒単位)。
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
@@ -59,6 +59,6 @@ HTTP 状態コード      | 説明
 4XX | エラー コード
 5XX | エラー コード
 
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Xbox

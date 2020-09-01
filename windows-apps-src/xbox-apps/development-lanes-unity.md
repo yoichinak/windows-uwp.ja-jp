@@ -1,17 +1,17 @@
 ---
 title: Xbox の UWP への Unity ゲームの移行
-description: Xbox での Unity UWP 開発。
+description: ユニバーサル Windows プラットフォーム (UWP) Visual Studio ソリューションから Xbox One に Unity ゲームを構築してデプロイする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: fca3267a-0c0f-4872-8017-90384fb34215
 ms.localizationpriority: medium
-ms.openlocfilehash: 64a686aea24d23b5e999780eaa0eda661af3637f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5b985372c52711dd7b6b4f865ab5164e25c88e0c
+ms.sourcegitcommit: e273e5901bfa6596dfef4cc741bb1c42614c25ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57611687"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89238327"
 ---
 # <a name="bringing-unity-games-to-uwp-on-xbox"></a>Xbox の UWP への Unity ゲームの移行
 
@@ -22,13 +22,13 @@ ms.locfileid: "57611687"
 
 Unity UWP プロジェクトのバージョン管理については、 「[UWP プロジェクトのバージョン管理](development-lanes-unity-versioning.md)」をご覧ください
 
-## <a name="step-0-ensure-unity-is-installed-correctly"></a>手順 0:Unity が正しくインストールされていることを確認します。
+## <a name="step-0-ensure-unity-is-installed-correctly"></a>手順 0: Unity が正しくインストールされていることを確認する
 
 Unity をインストールするときに、以下のコンポーネントを選択する必要があります。
 
 ![Unity のインストール コンポーネント](images/unity-install-components.png)
 
-## <a name="step-1-building-the-uwp-solution"></a>手順 1:UWP のソリューションの構築
+## <a name="step-1-building-the-uwp-solution"></a>手順 1: UWP ソリューションを構築する
 
 Unity ゲーム プロジェクトで、**[File] -> [Build Settings]** から **[Build Settings]** ウィンドウを開き、Microsoft Store オプション メニューに移動します。
 
@@ -42,7 +42,7 @@ Unity で新しい Visual Studio ソリューションを作成できたので�
 
 ![UWP VS ソリューション](images/uwp-vs-solution.png)
 
-## <a name="step-2-deploying-your-game"></a>手順 2:ゲームを展開します。
+## <a name="step-2-deploying-your-game"></a>手順 2: ゲームを展開する
 
 **[UWP]** フォルダーに新しく作成されたソリューションを開き、ターゲット プラットフォームを **[x64]** に変更します。
 
@@ -50,7 +50,7 @@ Unity で新しい Visual Studio ソリューションを作成できたので�
 
 これで、ゲームの UWP Visual Studio ソリューションの準備ができました。[こちらの手順に従うことによって](getting-started.md)、ゲームを製品版の Xbox One に正常に展開できます。
 
-## <a name="step-3-modify-and-rebuild"></a>手順 3:変更および再構築
+## <a name="step-3-modify-and-rebuild"></a>手順 3: 変更とリビルド
 
 スクリプトではないものに変更を行った場合、これらの変更がゲームの UWP ビルドに表示されるようにするために、(__手順 1__ の説明に従って) エディター内からプロジェクトをリビルドする必要があります。
 

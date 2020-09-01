@@ -8,12 +8,12 @@ ms.date: 11/20/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: bda62b76973adb7b6cfe068cdd9ca33b1a54454c
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 97dd16d712dca3de69a98c608b7c8947ebbddfea
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970927"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173366"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -22,10 +22,10 @@ ms.locfileid: "82970927"
 > **重要な API**: [UWP Community Toolkit Notifications NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
 
 > [!NOTE]
-> Windows 8.1 や Windows Phone 8.1 の従来のテンプレートについては、「[トースト テンプレート カタログ (Windows ランタイム アプリ)](https://docs.microsoft.com/previous-versions/windows/apps/hh761494(v=win.10))」をご覧ください。
+> Windows 8.1 や Windows Phone 8.1 の従来のテンプレートについては、「[トースト テンプレート カタログ (Windows ランタイム アプリ)](/previous-versions/windows/apps/hh761494(v=win.10))」をご覧ください。
 
 
-## <a name="getting-started"></a>作業の開始
+## <a name="getting-started"></a>はじめに
 
 **Notifications ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で示している C# のサンプルでは、NuGet パッケージの Version 1.0.0 を使っています。
 
@@ -148,7 +148,7 @@ new ToastBindingGeneric()
 
 <img alt="Toast with app logo override" src="images/toast-applogooverride.jpg" width="364"/>
 
-**HintCrop** プロパティを使って、画像のトリミングを変更できます。 たとえば、**円**は円でトリミングされたイメージになります。 その他の場合、画像は正方形です。 画像サイズは 100% のスケーリングで 48x48 ピクセルです。
+**HintCrop** プロパティを使って、画像のトリミングを変更できます。 たとえば、 **円** は円でトリミングされたイメージになります。 その他の場合、画像は正方形です。 画像サイズは 100% のスケーリングで 48x48 ピクセルです。
 
 ```csharp
 new ToastBindingGeneric()
@@ -318,12 +318,12 @@ ToastContent toastContent = new ToastContent()
 
 この追加コンテンツは Adaptive を使って指定されます。詳しくは、[アダプティブ タイルのドキュメント](create-adaptive-tiles.md)をご覧ください。
 
-すべてのアダプティブ コンテンツは [**AdaptiveGroup**](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-schema#adaptivegroup) 内に含める必要があることに注意してください。 それ以外の場合、Adaptive を使ってレンダリングされません。
+すべてのアダプティブ コンテンツは [**AdaptiveGroup**](./toast-schema.md#adaptivegroup) 内に含める必要があることに注意してください。 それ以外の場合、Adaptive を使ってレンダリングされません。
 
 
 ### <a name="columns-and-text-elements"></a>列とテキスト要素
 
-列といくつかの詳細なアダプティブ テキスト要素が使われている例を次に示します。 テキスト要素は**AdaptiveGroup**内にあるため、すべてのリッチアダプティブスタイルプロパティをサポートしています。
+列といくつかの詳細なアダプティブ テキスト要素が使われている例を次に示します。 テキスト要素は **AdaptiveGroup**内にあるため、すべてのリッチアダプティブスタイルプロパティをサポートしています。
 
 <img alt="Toast with additional text" src="images/toast-additionaltext.jpg" width="364"/>
 

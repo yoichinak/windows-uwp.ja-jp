@@ -1,21 +1,21 @@
 ---
-Description: UTF-8 文字エンコードを使用して、web アプリとその他の \*nix ベースのプラットフォーム (Unix、Linux、およびバリアント) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
+Description: UTF-8 文字エンコードを使用して、web アプリとその他の \* nix ベースプラットフォーム (Unix、Linux、およびバリアント) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
 title: Windows UTF-8 コードページを使用する
 template: detail.hbs
 ms.date: 06/12/2019
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 4b4050dfea1589fbe79db08061bcc56e392173f1
-ms.sourcegitcommit: 13ce25364201223e21e2e5e89f99bc7aa4d93f56
+ms.openlocfilehash: 72e422ee3e1a911658b2fe4957967aeba116c353
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847596"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173466"
 ---
 # <a name="use-the-utf-8-code-page"></a>UTF-8 コード ページの使用
 
-[Utf-8](http://www.utf-8.com/)文字エンコードを使用して、web アプリとその他の \*nix ベースのプラットフォーム (Unix、Linux、およびバリアント) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
+[Utf-8](http://www.utf-8.com/)文字エンコードを使用して、web アプリとその他の \* nix ベースプラットフォーム (Unix、Linux、およびバリアント) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
 
 UTF-8 は国際化のためのユニバーサルコードページであり、Unicode 文字セット全体をエンコードできます。 これは web で pervasively に使用され、* nix ベースのプラットフォームの既定値です。
 
@@ -26,9 +26,9 @@ UTF-8 は国際化のためのユニバーサルコードページであり、Un
   
 Win32 Api は、多くの場合、-A と-W の両方のバリアントをサポートします。
 
--A バリアントは、システム上で構成された ANSI コードページを認識し、`char*`をサポートします。また、-W バリアントは UTF-16 で動作し、`WCHAR`をサポートします。
+-バリアントは、システムおよびサポートに構成されている ANSI コードページを認識し `char*` 、-W バリアントは utf-16 およびサポートで動作 `WCHAR` します。
 
-最近まで、Windows では "Unicode" -W のバリアントを -A API よりも強調してきました。 ただし、最近のリリースでは、アプリに UTF-8 のサポートを導入する手段として ANSI コードページと-Api が使用されています。 ANSI コードページが UTF-8 用に構成されている場合、Api は UTF-8 で動作します。 このモデルには、コードを変更することなく、-A Api でビルドされた既存のコードをサポートするという利点があります。
+最近までは、Windows は "Unicode"-W のバリエーションを Api 経由で強調してきました。 ただし、最近のリリースでは、アプリに UTF-8 のサポートを導入する手段として ANSI コードページと-Api が使用されています。 ANSI コードページが UTF-8 用に構成されている場合、Api は UTF-8 で動作します。 このモデルには、コードを変更することなく、-A Api でビルドされた既存のコードをサポートするという利点があります。
 
 ## <a name="set-a-process-code-page-to-utf-8"></a>プロセスコードページを UTF-8 に設定する
 
@@ -74,19 +74,19 @@ Windows バージョン 1903 (2019 更新プログラム) では、パッケー�
 ```
 
 > [!NOTE]
-> コマンドラインから既存の実行可能ファイルにマニフェストを追加 `mt.exe -manifest <MANIFEST> -outputresource:<EXE>;#1`
+> コマンドラインから既存の実行可能ファイルにマニフェストを追加します。 `mt.exe -manifest <MANIFEST> -outputresource:<EXE>;#1`
 
 ## <a name="code-page-conversion"></a>コードページの変換
 
-Windows が UTF-16 (`WCHAR`) でネイティブに動作するため、Windows Api と相互運用するには、UTF-8 データを UTF-16 (またはその逆) に変換する必要がある場合があります。
+Windows が UTF-16 () でネイティブに動作するため `WCHAR` 、Windows api と相互運用するには、utf-8 データを utf-16 (またはその逆) に変換する必要がある場合があります。
 
-[MultiByteToWideChar](https://docs.microsoft.com/windows/desktop/api/stringapiset/nf-stringapiset-multibytetowidechar)と[WideCharToMultiByte](https://docs.microsoft.com/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte)を使用すると、utf-8 と utf-16 (`WCHAR`) (およびその他のコードページ) 間で変換を行うことができます。 これは、レガシ Win32 API が `WCHAR`を理解する必要がある場合に特に便利です。 これらの関数を使用すると、UTF-8 入力を `WCHAR` に変換して-W API に渡し、必要に応じて結果を変換できます。
-これらの関数を `CodePage` を `CP_UTF8`に設定して使用する場合は、`0` または `MB_ERR_INVALID_CHARS`の `dwFlags` を使用します。それ以外の場合は、`ERROR_INVALID_FLAGS` が発生します。
+[MultiByteToWideChar](/windows/desktop/api/stringapiset/nf-stringapiset-multibytetowidechar) と [WideCharToMultiByte](/windows/desktop/api/stringapiset/nf-stringapiset-widechartomultibyte) を使用すると、utf-8 と utf-16 ( `WCHAR` ) (およびその他のコードページ) 間で変換を行うことができます。 これは、レガシ Win32 API が理解するだけの場合に特に便利です `WCHAR` 。 これらの関数を使用すると、UTF-8 入力をに変換し `WCHAR` て-W API に渡し、必要に応じて結果を変換できます。
+をに設定してこれらの関数を使用する場合 `CodePage` `CP_UTF8` は、 `dwFlags` またはのいずれかを使用し `0` ます。それ以外の場合は、 `MB_ERR_INVALID_CHARS` `ERROR_INVALID_FLAGS` が発生します。
 
 > [!NOTE]
-> `CP_ACP` は、Windows バージョン 1903 (2019 更新プログラム) 以降で実行されていて、上記の ActiveCodePage プロパティが UTF-8 に設定されている場合にのみ `CP_UTF8` に相当します。 それ以外の場合は、従来のシステムコードページが受け入れられます。 `CP_UTF8` を明示的に使用することをお勧めします。
+> `CP_ACP` は、 `CP_UTF8` Windows バージョン 1903 (2019 更新プログラム) 以降で実行されていて、上で説明した ActiveCodePage プロパティが utf-8 に設定されている場合にのみとなります。 それ以外の場合は、従来のシステムコードページが受け入れられます。 を明示的に使用することをお勧めし `CP_UTF8` ます。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [コードページ](https://docs.microsoft.com/windows/desktop/Intl/code-pages)
-- [コードページ識別子](https://docs.microsoft.com/windows/desktop/Intl/code-page-identifiers)
+- [コード ページ](/windows/desktop/Intl/code-pages)
+- [コードページ識別子](/windows/desktop/Intl/code-page-identifiers)

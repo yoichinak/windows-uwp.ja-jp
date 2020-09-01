@@ -1,7 +1,7 @@
 ---
 Description: アプリのグローバライズとローカライズの利点、およびこれらの用語の意味について説明します。
 Search.SourceType: Video
-title: グローバリゼーションとローカライズ
+title: グローバリゼーションとローカリゼーション
 ms.assetid: c0791eec-5bb8-4a13-8977-61d7d98e35ce
 label: Intro
 template: detail.hbs
@@ -9,16 +9,16 @@ ms.date: 12/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: d60f0e825cefec0ba6ad5bcdd6a705f0992019b4
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 479b5d21e40b998fac9380d34be1a50d7d87e9e0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967917"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173476"
 ---
 # <a name="globalization-and-localization"></a>グローバリゼーションとローカライズ
 
-Windows は世界中で利用されており、言語、地域、文化の異なる多様なユーザーを対象としています。 アプリはさまざまな言語を使用するユーザーによって、さまざまな国や地域で使用されます。 中には複数の言語を話すユーザーもいます。 そのため、言語、地域、文化のシステム設定の多くの組み合わせを含む構成でアプリが実行されます。 アプリの潜在的な市場を増やすには、*グローバリゼーション*と*ローカリゼーション*を使用して、アプリを簡単に適応性を高めるように設計します。
+Windows は世界中で利用されており、言語、地域、文化の異なる多様なユーザーを対象としています。 アプリはさまざまな言語を使用するユーザーによって、さまざまな国や地域で使用されます。 中には複数の言語を話すユーザーもいます。 そのため、言語、地域、文化のシステム設定の多くの組み合わせを含む構成でアプリが実行されます。 アプリの潜在的な市場を増やすには、 *グローバリゼーション* と *ローカリゼーション*を使用して、アプリを簡単に適応性を高めるように設計します。
 
 ビデオ「[アプリのグローバリゼーションとローカライズの概略](https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-globalization-and-localization)」では、世界に向けてアプリを準備する方法の概略を説明します。
 
@@ -38,7 +38,7 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 - 並べ替え規則
 
 >[!NOTE]
-> Windows オペレーティングシステムのバージョン別のサポートされているロケール名の一覧については、「[付録 a:](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c) [Windows 言語コード識別子 (LCID) リファレンス](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f)」の表の「言語タグ」列を参照してください。
+> Windows オペレーティングシステムのバージョン別のサポートされているロケール名の一覧については、「 [付録 a:](/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c) [Windows 言語コード識別子 (LCID) リファレンス](/openspecs/windows_protocols/ms-lcid/70feba9f-294e-491e-b6eb-56532684c37f)」の表の「言語タグ」列を参照してください。
 
 **ローカライズの可否**は、ローカライズ用にグローバル化したアプリを準備し、そのアプリがローカライズできる状態であることを検証するプロセスです。 適切にアプリをローカライズ可能にすることは、後続のローカライズ プロセスでアプリの機能上の欠陥が発生しないことを意味します。 ローカライズ可能なアプリの最も重要な特性は、その実行可能コードが、アプリのローカライズ可能なリソースから明確に区別されていることです。
 
@@ -55,7 +55,7 @@ Windows は世界中で利用されており、言語、地域、文化の異な
 
 ほとんどのローカライズ チームは、プロセスを支援するために特別なツールを使用します。 たとえば、繰り返し出現する文字列の翻訳を再使用します。
 
-| アーティクル | 説明 |
+| [アーティクル] | 説明 |
 |---------|-------------|
 | [グローバリゼーションのガイドライン](guidelines-and-checklist-for-globalizing-your-app.md) | 言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。 |
 | [ユーザー プロファイルの言語とアプリ マニフェストの言語について](manage-language-and-region.md) | このトピックでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。 |

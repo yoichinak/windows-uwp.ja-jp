@@ -1,19 +1,19 @@
 ---
-title: スプラッシュ スクリーン
+title: スプラッシュ画面
 description: このセクションでは、アプリのスプラッシュ画面を設定および構成する方法について説明します。
 ms.assetid: 6b954bb3-e5b0-46d1-8afc-fb805536cf6d
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 09eadb8467725cbf40f3fb54d32741960fc89321
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 490f5f70efcd21fe2be5c909bcc409daf1feeeea
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371860"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175126"
 ---
-# <a name="splash-screens"></a>スプラッシュ スクリーン
+# <a name="splash-screens"></a>スプラッシュ画面
 
 すべての UWP アプリにはスプラッシュ画面が必要です。スプラッシュ画面は、画像と背景色を合成したもので、どちらもカスタマイズすることができます。
 
@@ -27,7 +27,7 @@ ms.locfileid: "66371860"
 
 背景色とシンプルな画像の組み合わせは、どのデバイスでアプリを実行する場合にも適切に表示されます。 背景のサイズだけがさまざまな画面サイズに合わせて変更されます。 画像のサイズは常に変わりません。
 
-また、[**SplashScreen**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) クラスを使うと、アプリの起動エクスペリエンスをカスタマイズできます。 アプリ UI の準備やネットワーク操作の完了などの追加のタスクをアプリが実行する時間を作るために、追加のスプラッシュ画面を作成して配置できます。 さらに、**SplashScreen** クラスを使うと、スプラッシュ画面が消えるときに通知を受け取って、導入アニメーションを開始できます。
+また、[**SplashScreen**](/uwp/api/Windows.ApplicationModel.Activation.SplashScreen) クラスを使うと、アプリの起動エクスペリエンスをカスタマイズできます。 アプリ UI の準備やネットワーク操作の完了などの追加のタスクをアプリが実行する時間を作るために、追加のスプラッシュ画面を作成して配置できます。 さらに、**SplashScreen** クラスを使うと、スプラッシュ画面が消えるときに通知を受け取って、導入アニメーションを開始できます。
 
 | トピック | 説明 |
 |-------|-------------|

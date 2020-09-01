@@ -5,12 +5,12 @@ ms.date: 07/07/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 502395d1daa698e1b05e40f355e65f074219e9a5
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 166abeb792e86fc44568a5ee29263262214657cf
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970857"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173826"
 ---
 # <a name="choosing-the-right-push-notification-channel-type"></a>適切なプッシュ通知チャネルの種類を選択する
 
@@ -20,13 +20,13 @@ ms.locfileid: "82970857"
 
 ## <a name="types-of-push-channels"></a>プッシュ チャネルの種類 
 
-Windows アプリに通知を送信するために使用できるプッシュチャネルには、次の3種類があります。 これらは次のとおりです。 
+Windows アプリに通知を送信するために使用できるプッシュチャネルには、次の3種類があります。 それらは次のとおりです。 
 
-[プライマリ チャネル](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_) - "従来型" のプッシュ チャネルです。 は、ストア内のどのアプリでも、トースト、タイル、未加工、バッジ通知を送信するために使用できます。 [詳細については、こちら](windows-push-notification-services--wns--overview.md)をご覧ください。
+[プライマリ チャネル](/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_) - "従来型" のプッシュ チャネルです。 は、ストア内のどのアプリでも、トースト、タイル、未加工、バッジ通知を送信するために使用できます。 [こちら](windows-push-notification-services--wns--overview.md)を参照してください。
 
-[セカンダリタイルチャネル](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_)-タイルの更新をセカンダリタイルにプッシュするために使用されます。 ユーザーのスタート画面にピン留めされているセカンダリ タイルに、タイルやバッジ通知を送信するためのみに使用できます。
+[セカンダリタイルチャネル](/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_) -タイルの更新をセカンダリタイルにプッシュするために使用されます。 ユーザーのスタート画面にピン留めされているセカンダリ タイルに、タイルやバッジ通知を送信するためのみに使用できます。
 
-[代替チャネル](https://docs.microsoft.com/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_) - Creators Update で追加された新しい種類のチャネルです。 これにより、ストアに登録されていないものも含め、任意の Windows アプリに生の通知を送信できます。 
+[代替チャネル](/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_) - Creators Update で追加された新しい種類のチャネルです。 これにより、ストアに登録されていないものも含め、任意の Windows アプリに生の通知を送信できます。 
 
 > [!NOTE]
 > どのプッシュ チャネルを使用する場合でも、アプリがデバイスで実行されると、ローカルのトースト、タイル、バッジ通知をいつでも送信することができます。 アプリは、フォア グラウンド アプリ プロセスまたはバックグラウンド タスクから、ローカル通知を送信できます。 
@@ -120,7 +120,7 @@ PushNotificationChannel webChannel =
 
 
 <tr class="odd">
-<td align="left">1 次式</td>
+<td align="left">プライマリ</td>
 <td align="left">はい</td>
 <td align="left">〇 - プライマリ タイルのみ</td>
 <td align="left">はい</td>
@@ -167,11 +167,11 @@ PushNotificationChannel webChannel =
 
 * [ローカル タイル通知の送信](../tiles-and-notifications/sending-a-local-tile-notification.md)
 * [アダプティブ トースト通知と対話型トースト通知](../tiles-and-notifications/adaptive-interactive-toasts.md)
-* [クイック スタート: プッシュ通知の送信](https://docs.microsoft.com/previous-versions/windows/apps/hh868252(v=win.10))
-* [プッシュ通知を使用してバッジを更新する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465450(v=win.10))
-* [通知チャネルを要求、作成、保存する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465412(v=win.10))
-* [実行中のアプリの通知を中断する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465450(v=win.10))
-* [Windows プッシュ通知サービス (WNS) に対して認証する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh465407(v=win.10))
-* [プッシュ通知サービスの要求ヘッダーと応答ヘッダー](https://docs.microsoft.com/previous-versions/windows/apps/hh465435(v=win.10))
-* [プッシュ通知のガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)
+* [クイック スタート: プッシュ通知の送信](/previous-versions/windows/apps/hh868252(v=win.10))
+* [プッシュ通知を使用してバッジを更新する方法](/previous-versions/windows/apps/hh465450(v=win.10))
+* [通知チャネルを要求、作成、保存する方法](/previous-versions/windows/apps/hh465412(v=win.10))
+* [実行中のアプリの通知を中断する方法](/previous-versions/windows/apps/hh465450(v=win.10))
+* [Windows プッシュ通知サービス (WNS) に対して認証する方法](/previous-versions/windows/apps/hh465407(v=win.10))
+* [プッシュ通知サービスの要求ヘッダーと応答ヘッダー](/previous-versions/windows/apps/hh465435(v=win.10))
+* [プッシュ通知のガイドラインとチェック リスト](./windows-push-notification-services--wns--overview.md)
 * [直接通知](raw-notification-overview.md)

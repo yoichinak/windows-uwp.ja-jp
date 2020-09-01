@@ -6,29 +6,29 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, AdControl, トラブルシューティング, HTML, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: e9427218bc2ee6e7de7d5cb367da21d7b4bbfe30
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: 53c2d18c56626d4a71b4326b1ab7e292a2267dca
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77507096"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174986"
 ---
 # <a name="html-and-javascript-troubleshooting-guide"></a>HTML と JavaScript のトラブルシューティング ガイド
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 このトピックでは、JavaScript/HTML アプリの Microsoft Advertising ライブラリに関する、開発上の一般的な問題に対する解決策について説明します。
 
-* [形式](#html)
+* [HTML](#html)
   * [AdControl が表示されない](#html-notappearing)
-  * [黒いボックスが点滅して消えます](#html-blackboxblinksdisappears)
-  * [更新されない広告](#html-adsnotrefreshing)
+  * [ブラック ボックスが点滅し、表示されなくなる](#html-blackboxblinksdisappears)
+  * [広告が更新されない](#html-adsnotrefreshing)
 
-* [Java](#js)
+* [JavaScript](#js)
   * [AdControl が表示されない](#js-adcontrolnotappearing)
-  * [黒いボックスが点滅して消えます](#js-blackboxblinksdisappears)
-  * [更新されない広告](#js-adsnotrefreshing)
+  * [ブラック ボックスが点滅し、表示されなくなる](#js-blackboxblinksdisappears)
+  * [広告が更新されない](#js-adsnotrefreshing)
 
 ## <a name="html"></a>HTML
 
@@ -61,7 +61,7 @@ ms.locfileid: "77507096"
     </div>
     ```
 
-4.  **height** プロパティと **width** プロパティを確認します。 これらのプロパティは、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに設定する必要があります。
+4.  **height** プロパティと **width** プロパティを確認します。 これらは、 [バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに設定する必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` html
@@ -73,7 +73,7 @@ ms.locfileid: "77507096"
     </div>
     ```
 
-5.  要素の配置を確認します。 [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) は表示可能領域の内部にある必要があります。
+5.  要素の配置を確認します。 [AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol) は表示可能領域の内部にある必要があります。
 
 6.  **visibility** プロパティを確認します。 このプロパティは、collapsed または hidden に設定しないでください。 (次のように) インラインで設定できるほか、外部スタイル シートで設定できます。
 
@@ -139,7 +139,7 @@ ms.locfileid: "77507096"
 
 11. **AdControl** がビューポートから隠れていないことを確認します。 **AdControl** は、広告が正常に表示されるように、見える必要があります。
 
-12. [ApplicationId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) と [AdUnitId](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
+12. [ApplicationId](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.applicationid) と [AdUnitId](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.adunitid) の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
 
 <span id="html-blackboxblinksdisappears"/>
 
@@ -172,7 +172,7 @@ ms.locfileid: "77507096"
 
 ### <a name="ads-not-refreshing"></a>広告が更新されない
 
-1.  **isAutoRefreshEnabled** プロパティを確認します。 既定では、この省略可能なプロパティは true に設定されています。 false に設定すると、他の広告を取得するために **refresh** メソッドを使う必要があります。
+1.  **IsAutoRefreshEnabled**プロパティを確認します。 既定では、この省略可能なプロパティは true に設定されています。 False に設定すると、 **refresh** メソッドを使用して別の ad を取得する必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` html
@@ -263,7 +263,7 @@ ms.locfileid: "77507096"
     }
     ```
 
-3.  親要素を確認します。 親の **&lt;div&gt;** は、正しく割り当てられ、アクティブな状態で表示されている必要があります。
+3.  親要素を確認します。 親の** &lt; div &gt; **は、正しく割り当てられ、アクティブで、表示されている必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` javascript
@@ -286,7 +286,7 @@ ms.locfileid: "77507096"
 
 5.  **AdControl** の親要素を確認します。 親はアクティブな状態で表示されている必要があります。
 
-6.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
+6.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
 
 <span id="js-blackboxblinksdisappears"/>
 
@@ -341,9 +341,9 @@ ms.locfileid: "77507096"
 
 ### <a name="ads-not-refreshing"></a>広告が更新されない
 
-1.  [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) の **IsAutoRefreshEnabled** プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **false** に設定すると、他の広告を取得するために **Refresh** メソッドを使う必要があります。
+1.  **AdControl** の [IsAutoRefreshEnabled](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **False**に設定すると、 **Refresh**メソッドを使用して別の ad を取得する必要があります。
 
-2.  [Refresh](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh.aspx) メソッドの呼び出しを確認します。 自動更新 (**IsAutoRefreshEnabled** が **true**) の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新 (**IsAutoRefreshEnabled** が **false**) の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
+2.  [Refresh](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh.aspx)メソッドの呼び出しを確認します。 自動更新 (**IsAutoRefreshEnabled** が **true**) の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新 (**IsAutoRefreshEnabled** が **false**) の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
 
     次の例は、**AdControl** の **div** を作成する方法を示しています。
 

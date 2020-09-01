@@ -6,26 +6,26 @@ ms.date: 11/14/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: d7a63c44ac8cb6f6b17951cf6515fad33fb83ee9
-ms.sourcegitcommit: ae9c1646398bb5a4a888437628eca09ae06e6076
+ms.openlocfilehash: b975dcf88ecd26dc5a24d602c117b779fa2aada6
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74734947"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174526"
 ---
 # <a name="build-resources-into-your-app-package-instead-of-into-a-resource-pack"></a>リソースをリソース パックではなくアプリ パッケージに組み込む
 
 一部の種類のアプリ (多言語の辞書、翻訳ツールなど) は、アプリ バンドルの既定の動作をオーバーライドし、別のリソース パッケージ (またはリソース パック) ではなくアプリ パッケージにリソースを組み込む必要があります。 このトピックでは、その方法について説明します。
 
-既定では、[アプリ バンドル (.appxbundle)](/windows/msix/package/packaging-uwp-apps) の作成時に、言語、スケール、DirectX 機能レベルに応じた既定のリソースのみがアプリ パッケージに組み込まれます。 変換されたリソース&mdash;、既定以外のスケールや DirectX の機能&mdash;レベルに合わせて調整されたリソースは、リソースパッケージに組み込まれています。また、これらの機能は、それらを必要とするデバイスにのみダウンロードされます。 ユーザーが言語の優先順位がスペイン語に設定されたデバイスを使用して Microsoft Store からアプリを購入する場合、アプリとスペイン語のリソース パッケージのみがダウンロードおよびインストールされます。 同じユーザーが後から **[設定]** で言語の優先順位をフランス語に変更した場合は、アプリのフランス語のリソース パッケージがダウンロードおよびインストールされます。 スケールおよび DirectX 機能レベルに対して修飾されたリソースでも同様のことが行われます。 ほとんどのアプリで、この動作は有益な効率性をもたらします。これはまさに開発者とユーザーが*必要としている*ことです。
+既定では、[アプリ バンドル (.appxbundle)](/windows/msix/package/packaging-uwp-apps) の作成時に、言語、スケール、DirectX 機能レベルに応じた既定のリソースのみがアプリ パッケージに組み込まれます。 変換され &mdash; たリソースと、既定以外のスケールや DirectX の機能レベルに合わせて調整 &mdash; されたリソースは、リソースパッケージに組み込まれており、それらを必要とするデバイスにのみダウンロードされます。 ユーザーが言語の優先順位がスペイン語に設定されたデバイスを使用して Microsoft Store からアプリを購入する場合、アプリとスペイン語のリソース パッケージのみがダウンロードおよびインストールされます。 同じユーザーが後から **[設定]** で言語の優先順位をフランス語に変更した場合は、アプリのフランス語のリソース パッケージがダウンロードおよびインストールされます。 スケールおよび DirectX 機能レベルに対して修飾されたリソースでも同様のことが行われます。 ほとんどのアプリで、この動作は有益な効率性をもたらします。これはまさに開発者とユーザーが*必要としている*ことです。
 
-ただし、( **[設定]** からではなく) アプリ内ですぐにユーザーが言語を変更できるようにしている場合、その既定の動作は適切ではありません。 実際にはすべての言語リソースがアプリと一緒に一度に無条件にダウンロードおよびインストールされ、デバイスに残る必要があります。 別のリソース パッケージではなく、アプリ パッケージにこれらのリソースをすべて組み込む必要があります。
+ただし、(**[設定]** からではなく) アプリ内ですぐにユーザーが言語を変更できるようにしている場合、その既定の動作は適切ではありません。 実際にはすべての言語リソースがアプリと一緒に一度に無条件にダウンロードおよびインストールされ、デバイスに残る必要があります。 別のリソース パッケージではなく、アプリ パッケージにこれらのリソースをすべて組み込む必要があります。
 
 **メモ** アプリ パッケージにリソースを含めると、基本的にアプリのサイズが増加します。 そのため、アプリの特性によりそれが必要とされる場合にのみ実行する価値があります。 それ以外の場合は、通常のアプリ バンドルを通常どおりにビルドする以外は何も処理を行う必要はありません。
 
 Visual Studio を構成して、2 つの方法のいずれかでアプリ パッケージにリソースを組み込むことができます。 構成ファイルをプロジェクトに追加するか、またはプロジェクト ファイルを直接編集することができます。 これらのうち使いやすいオプション、またはビルド システムで最適に機能するオプションを使用してください。
 
-## <a name="option-1-use-priconfigpackagingxml-to-build-resources-into-your-app-package"></a>オプション 1. priconfig.packaging.xml を使用して、アプリ パッケージにリソースを組み込む
+## <a name="option-1-use-priconfigpackagingxml-to-build-resources-into-your-app-package"></a>方法 1. priconfig.packaging.xml を使用して、アプリ パッケージにリソースを組み込む
 
 1. Visual Studio で、新しい項目をプロジェクトに追加します。 XML ファイルを選択し、ファイルに `priconfig.packaging.xml` という名前を付けます。
 2. ソリューション エクスプ ローラーで、`priconfig.packaging.xml` を選択し、[プロパティ] ウィンドウを確認します。 ファイルの [ビルド アクション] を [なし] に設定し、[出力ディレクトリにコピー] を [コピーしない] に設定します。
@@ -71,7 +71,7 @@ Visual Studio を構成して、2 つの方法のいずれかでアプリ パッ
 
 `FILE-PATH-AND-NAME` をファイルのパスおよび名前に置き換えます。
 
-## <a name="option-2-use-your-project-file-to-build-resources-into-your-app-package"></a>オプション 2. プロジェクト ファイルを使用して、アプリ パッケージにリソースを組み込む
+## <a name="option-2-use-your-project-file-to-build-resources-into-your-app-package"></a>方法 2. プロジェクト ファイルを使用して、アプリ パッケージにリソースを組み込む
 
 これは、オプション 1 に代わる方法です。 オプション 1 のしくみを理解したら、オプション 2 の方が開発またはビルドのワークフローに最適である場合、オプション 2 を代わりに選択することができます。
 
@@ -97,6 +97,6 @@ Visual Studio を構成して、2 つの方法のいずれかでアプリ パッ
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Visual Studio で UWP アプリをパッケージ化する](../packaging/packaging-uwp-apps.md)
+* [Visual Studio で UWP アプリをパッケージ化する](/windows/msix/package/packaging-uwp-apps)
 * [MakePri.exe を使用して手動でリソースをコンパイルする](compile-resources-manually-with-makepri.md)
 * [アプリで使用する既定のリソースを指定する](specify-default-resources-installed.md)

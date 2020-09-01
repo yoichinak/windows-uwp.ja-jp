@@ -6,12 +6,12 @@ ms.date: 09/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、サンプル、DirectX、グラフィックス
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e00842a03eecb91e22cedf987830b28e960efd0
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: ca7eb8e22c6fc90873715aa2177ea171e04f6339
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258550"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175386"
 ---
 # <a name="adding-visual-content-to-the-marble-maze-sample"></a>Marble Maze サンプルへの視覚的なコンテンツの追加
 
@@ -50,27 +50,27 @@ Marble Maze の視覚的側面は、次のような基本の手順に従って�
 ## <a name="getting-started-with-directx-graphics"></a>DirectX グラフィックスの概要
 
 
-大理石迷路ユニバーサル Windows プラットフォーム (UWP) ゲームを計画した場合、レンダリングC++と高パフォーマンスを最大限に制御する必要がある3d ゲームを作成するための優れた選択肢として、Direct3D 11.1 を選択しました。 DirectX 11.1 は DirectX 9 から DirectX 11 までのハードウェアをサポートするため、より多くの顧客に効率よく製品を届けることができます。以前の各 DirectX バージョン用にコードを書き直す必要がないためです。
+大理石迷路ユニバーサル Windows プラットフォーム (UWP) ゲームを計画した場合、レンダリングと高パフォーマンスを最大限に制御する必要がある3D ゲームを作成するための優れた選択肢であるため、C++ と Direct3D 11.1 を選択しました。 DirectX 11.1 は DirectX 9 から DirectX 11 までのハードウェアをサポートするため、より多くの顧客に効率よく製品を届けることができます。以前の各 DirectX バージョン用にコードを書き直す必要がないためです。
 
 大理石迷路は、Direct3D 11.1 を使用して3D ゲームアセット (つまり、大理石と迷路) をレンダリングします。 また、Direct2D、DirectWrite、および Windows Imaging Component (WIC) を使用して、メニューやタイマーなどの2D ゲームアセットを描画します。
 
-ゲームを開発するには計画が必要です。 DirectX グラフィックスを初めて使用する場合は、「 [directx: はじめ](directx-getting-started.md)に」を読み、UWP directx ゲームを作成するための基本的な概念について理解しておくことをお勧めします。 このドキュメントを読んで、大理石の迷路ソースコードを操作するときに、DirectX グラフィックスの詳細については、次のリソースを参照してください。
+ゲームを開発するには計画が必要です。 DirectX グラフィックスを初めて使用する場合は、「 [directx: はじめ](directx-getting-started.md) に」を読み、UWP directx ゲームを作成するための基本的な概念について理解しておくことをお勧めします。 このドキュメントを読んで、大理石の迷路ソースコードを操作するときに、DirectX グラフィックスの詳細については、次のリソースを参照してください。
 
--   [Direct3d 11 Graphics](https://docs.microsoft.com/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11): Windows プラットフォームで3d ジオメトリをレンダリングするための強力なハードウェアアクセラレータの3D グラフィックス API である direct3d 11 について説明します。
--   [Direct2D](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-portal): 2d ジオメトリ、ビットマップ、テキストの高パフォーマンスと高品質のレンダリングを実現する、ハードウェアアクセラの2D グラフィックス API である Direct2D について説明します。
--   [DirectWrite](https://docs.microsoft.com/windows/desktop/DirectWrite/direct-write-portal): DirectWrite について説明します。これは、高品質のテキストレンダリングをサポートします。
--   [Windows イメージングコンポーネント](https://docs.microsoft.com/windows/desktop/wic/-wic-lh): デジタルイメージ用の低レベル API を提供する、拡張可能なプラットフォームである WIC について説明します。
+-   [Direct3d 11 Graphics](/windows/desktop/direct3d11/atoc-dx-graphics-direct3d-11): Windows プラットフォームで3d ジオメトリをレンダリングするための強力なハードウェアアクセラレータの3D グラフィックス API である direct3d 11 について説明します。
+-   [Direct2D](/windows/desktop/Direct2D/direct2d-portal): 2d ジオメトリ、ビットマップ、テキストの高パフォーマンスと高品質のレンダリングを実現する、ハードウェアアクセラの2D グラフィックス API である Direct2D について説明します。
+-   [DirectWrite](/windows/desktop/DirectWrite/direct-write-portal): DirectWrite について説明します。これは、高品質のテキストレンダリングをサポートします。
+-   [Windows イメージングコンポーネント](/windows/desktop/wic/-wic-lh): デジタルイメージ用の低レベル API を提供する、拡張可能なプラットフォームである WIC について説明します。
 
 ### <a name="feature-levels"></a>機能レベル
 
-Direct3D 11 では、*特徴レベル*というパラダイムが導入されています。 機能レベルは、明確に定義された GPU 機能のセットです。 機能レベルを使って、Direct3D ハードウェアの以前のバージョンで実行できるようにゲームのターゲットを設定します。 Marble Maze では機能レベル 9.1 がサポートされます。高いレベルの高度な機能は必要ないためです。 所有するコンピューターがハイエンドかローエンドかにかかわらず、すべての顧客に対して優れたユーザー エクスペリエンスを実現できるように、できるだけ幅広いハードウェアをサポートし、ゲーム コンテンツをそれに合わせることをお勧めします。 機能レベルについて詳しくは、「[下位レベル ハードウェアでの Direct3D 11](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel)」をご覧ください。
+Direct3D 11 では、 *特徴レベル*というパラダイムが導入されています。 機能レベルは、明確に定義された GPU 機能のセットです。 機能レベルを使って、Direct3D ハードウェアの以前のバージョンで実行できるようにゲームのターゲットを設定します。 Marble Maze では機能レベル 9.1 がサポートされます。高いレベルの高度な機能は必要ないためです。 所有するコンピューターがハイエンドかローエンドかにかかわらず、すべての顧客に対して優れたユーザー エクスペリエンスを実現できるように、できるだけ幅広いハードウェアをサポートし、ゲーム コンテンツをそれに合わせることをお勧めします。 機能レベルについて詳しくは、「[下位レベル ハードウェアでの Direct3D 11](/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel)」をご覧ください。
 
 ## <a name="initializing-direct3d-and-direct2d"></a>Direct3D と Direct2D の初期化
 
 
 デバイスはディスプレイ アダプターを表します。 Direct3D デバイスと Direct2D デバイスの UWP アプリでの作成は、従来の Windows デスクトップ アプリでの作成とほぼ同じです。 主な違いは、Direct3D スワップ チェーンをウィンドウ システムに関連付ける方法です。
 
-**DeviceResources** クラスは、Direct3D と Direct2D を管理する基盤です。 このクラスは、ゲーム固有のアセットではなく、一般的なインフラストラクチャを処理します。 大理石迷路は、 **MarbleMazeMain**クラスを定義してゲーム固有のアセットを処理します。これには、Direct3D と Direct2D へのアクセスを提供する**DeviceResources**オブジェクトへの参照が含まれています。
+**DeviceResources** クラスは、Direct3D と Direct2D を管理する基盤です。 このクラスは、ゲーム固有のアセットではなく、一般的なインフラストラクチャを処理します。 大理石迷路は、 **MarbleMazeMain** クラスを定義してゲーム固有のアセットを処理します。これには、Direct3D と Direct2D へのアクセスを提供する **DeviceResources** オブジェクトへの参照が含まれています。
 
 **DeviceResources**コンストラクターは、初期化中に、デバイスに依存しないリソースと、Direct3D および Direct2D デバイスを作成します。
 
@@ -96,7 +96,7 @@ DX::DeviceResources::DeviceResources() :
 
 ###  <a name="initializing-the-direct2d-directwrite-and-wic-factories"></a>Direct2D、DirectWrite、WIC ファクトリの初期化
 
-**DeviceResources::CreateDeviceIndependentResources** メソッドは、Direct2D、DirectWrite、WIC のファクトリを作成します。 DirectX グラフィックスにおいて、ファクトリは、グラフィックス リソースを作成するための開始点です。 大理石迷路では、メインスレッドですべての描画を実行するため、 **D2D1\_FACTORY\_型\_シングル\_スレッド**として指定されています。
+**DeviceResources::CreateDeviceIndependentResources** メソッドは、Direct2D、DirectWrite、WIC のファクトリを作成します。 DirectX グラフィックスにおいて、ファクトリは、グラフィックス リソースを作成するための開始点です。 大理石迷路は、メインスレッドですべての描画を実行するため、 **D2D1 \_ FACTORY の種類を \_ \_ シングル \_ スレッド** で指定します。
 
 ```cpp
 // These are the resources required independent of hardware. 
@@ -144,7 +144,7 @@ void DX::DeviceResources::CreateDeviceIndependentResources()
 
 ###  <a name="creating-the-direct3d-and-direct2d-devices"></a>Direct3D デバイスと Direct2D デバイスの作成
 
-**DeviceResources:: CreateDeviceResources**メソッドは、 [D3D11CreateDevice](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice)を呼び出して、Direct3D ディスプレイアダプターを表すデバイスオブジェクトを作成します。 大理石の迷路では、機能レベル9.1 以上がサポートされているため、 **DeviceResources:: CreateDeviceResources**メソッドは**featurelevels**配列のレベル9.1 から11.1 を指定します。 Direct3D はリストを順に確かめ、使用可能な最初の機能レベルをアプリに提供します。 したがって、 **D3D\_機能\_レベル**配列のエントリは、最高から最低の順に一覧表示されるので、アプリは最高の機能レベルを利用できるようになります。 **DeviceResources::CreateDeviceResources** メソッドは、**D3D11CreateDevice** から返される Direct3D 11 デバイスを照会することによって Direct3D 11.1 デバイスを取得します。
+**DeviceResources::CreateDeviceResources** メソッドは、[D3D11CreateDevice](/windows/desktop/api/d3d11/nf-d3d11-d3d11createdevice) を呼び出して、Direct3D ディスプレイ アダプターを表すデバイス オブジェクトを作成します。 大理石の迷路では、機能レベル9.1 以上がサポートされているため、 **DeviceResources:: CreateDeviceResources** メソッドは **featurelevels** 配列のレベル9.1 から11.1 を指定します。 Direct3D はリストを順に確かめ、使用可能な最初の機能レベルをアプリに提供します。 したがって、 **D3D \_ 機能 \_ レベル** の配列エントリは上位から下位に一覧表示されるので、アプリは最高の機能レベルを取得できます。 **DeviceResources::CreateDeviceResources** メソッドは、**D3D11CreateDevice** から返される Direct3D 11 デバイスを照会することによって Direct3D 11.1 デバイスを取得します。
 
 ```cpp
 // This flag adds support for surfaces with a different color channel ordering
@@ -244,11 +244,11 @@ DX::ThrowIfFailed(
     );
 ```
 
-DXGI や Direct2D と Direct3D の相互運用について詳しくは、「[DXGI の概要](https://docs.microsoft.com/windows/desktop/direct3ddxgi/d3d10-graphics-programming-guide-dxgi)」と「[Direct2D と Direct3D の相互運用性の概要](https://docs.microsoft.com/windows/desktop/Direct2D/direct2d-and-direct3d-interoperation-overview)」をご覧ください。
+DXGI や Direct2D と Direct3D の相互運用について詳しくは、「[DXGI の概要](/windows/desktop/direct3ddxgi/d3d10-graphics-programming-guide-dxgi)」と「[Direct2D と Direct3D の相互運用性の概要](/windows/desktop/Direct2D/direct2d-and-direct3d-interoperation-overview)」をご覧ください。
 
 ### <a name="associating-direct3d-with-the-view"></a>Direct3D とビューの関連付け
 
-**DeviceResources::CreateWindowSizeDependentResources** メソッドは、スワップ チェーン、Direct3D と Direct2D のレンダー ターゲットなど、所定のウィンドウ サイズによって異なるグラフィックス リソースを作成します。 DirectX UWP アプリとデスクトップ アプリとの大きな違いは、スワップ チェーンが出力ウィンドウと関連付けられる方法です。 スワップ チェーンは、デバイスがモニターにレンダリングするバッファーを表示します。 [大理石迷路アプリケーション構造](marble-maze-application-structure.md)は、UWP アプリのウィンドウシステムがデスクトップアプリとどのように異なるかを説明します。 UWP アプリは[HWND](https://docs.microsoft.com/windows/desktop/WinProg/windows-data-types)オブジェクトでは機能しないため、大理石迷路は[IDXGIFactory2:: CreateSwapChainForCoreWindow](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow)メソッドを使用して、デバイスの出力をビューに関連付ける必要があります。 次の例に、スワップ チェーンを作成する **DeviceResources::CreateWindowSizeDependentResources** メソッドの一部を示します。
+**DeviceResources::CreateWindowSizeDependentResources** メソッドは、スワップ チェーン、Direct3D と Direct2D のレンダー ターゲットなど、所定のウィンドウ サイズによって異なるグラフィックス リソースを作成します。 DirectX UWP アプリとデスクトップ アプリとの大きな違いは、スワップ チェーンが出力ウィンドウと関連付けられる方法です。 スワップ チェーンは、デバイスがモニターにレンダリングするバッファーを表示します。 [大理石迷路アプリケーション構造](marble-maze-application-structure.md) は、UWP アプリのウィンドウシステムがデスクトップアプリとどのように異なるかを説明します。 UWP アプリは [HWND](/windows/desktop/WinProg/windows-data-types) オブジェクトでは機能しないため、大理石迷路は [IDXGIFactory2:: CreateSwapChainForCoreWindow](/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow) メソッドを使用して、デバイスの出力をビューに関連付ける必要があります。 次の例に、スワップ チェーンを作成する **DeviceResources::CreateWindowSizeDependentResources** メソッドの一部を示します。
 
 ```cpp
 // Obtain the final swap chain for this window from the DXGI factory.
@@ -263,7 +263,7 @@ DX::ThrowIfFailed(
     );
 ```
 
-ラップトップやタブレットなどのバッテリ駆動型デバイスで実行することが重要な電力消費を最小限に抑えるには、 **DeviceResources:: CreateWindowSizeDependentResources**メソッドを呼び出し[て、ゲーム](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgidevice1-setmaximumframelatency)が垂直方向の空白の後にのみレンダリングされるようにします。 垂直方向の空白との同期については、このドキュメントの「[シーンを](#presenting-the-scene)表示する」セクションで詳しく説明します。
+電力消費を最小限に抑えるため (ノート PC やタブレットのようなバッテリ駆動デバイスで重要)、**DeviceResources::CreateWindowSizeDependentResources** メソッドは [IDXGIDevice1::SetMaximumFrameLatency](/windows/desktop/api/dxgi/nf-dxgi-idxgidevice1-setmaximumframelatency) メソッドを呼び出して、垂直ブランクの後でのみゲームがレンダリングされるようにします。 垂直方向の空白との同期については、このドキュメントの「 [シーンを](#presenting-the-scene) 表示する」セクションで詳しく説明します。
 
 ```cpp
 // Ensure that DXGI does not queue more than one frame at a time. This both 
@@ -277,24 +277,24 @@ DX::ThrowIfFailed(
 **DeviceResources::CreateWindowSizeDependentResources** メソッドは、多くのゲームに対応する方法でグラフィックス リソースを初期化します。
 
 > [!NOTE]
-> 用語*ビュー*は、Direct3D の場合とは異なる意味で Windows ランタイムです。 Windows ランタイムでは、ビューは、アプリのユーザー インターフェイス設定のコレクション (表示領域、入力動作、処理に使うスレッドなどを含む) を指します。 ビューを作成するときは、必要な構成と設定を指定します。 アプリのビューを設定するプロセスについては、「[Marble Maze のアプリケーション構造](marble-maze-application-structure.md)」で説明します。
-> Direct3D では、ビューという用語には複数の意味があります。 リソースビューは、リソースがアクセスできるサブリソースを定義します。 たとえば、テクスチャ オブジェクトがシェーダー リソース ビューに関連付けられている場合、そのシェーダーは後でテクスチャにアクセスできます。 リソース ビューの 1 つの長所は、レンダリング パイプラインの段階ごとに異なる方法でデータを解釈できることです。 リソースビューの詳細については、「[リソースビュー](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-intro)」を参照してください。
-> ビュー変換またはビュー変換マトリックスのコンテキストで使われた場合、ビューは、カメラの位置と向きを表します。 ビュー変換は、カメラの位置と向きを基準として、ワールド内でオブジェクトを再配置します。 ビュー変換について詳しくは、「[ビュー変換 (Direct3D 9)](https://docs.microsoft.com/windows/desktop/direct3d9/view-transform)」をご覧ください。 Marble Maze でリソース ビューやマトリックス ビューをどのように使っているかについて、このトピックで詳しく説明しています。
+> 用語 *ビュー* は、Direct3D の場合とは異なる意味で Windows ランタイムです。 Windows ランタイムでは、ビューは、アプリのユーザー インターフェイス設定のコレクション (表示領域、入力動作、処理に使うスレッドなどを含む) を指します。 ビューを作成するときは、必要な構成と設定を指定します。 アプリのビューを設定するプロセスについては、「[Marble Maze のアプリケーション構造](marble-maze-application-structure.md)」で説明します。
+> Direct3D では、ビューという用語には複数の意味があります。 リソースビューは、リソースがアクセスできるサブリソースを定義します。 たとえば、テクスチャ オブジェクトがシェーダー リソース ビューに関連付けられている場合、そのシェーダーは後でテクスチャにアクセスできます。 リソース ビューの 1 つの長所は、レンダリング パイプラインの段階ごとに異なる方法でデータを解釈できることです。 リソースビューの詳細については、「 [リソースビュー](/windows/desktop/direct3d11/overviews-direct3d-11-resources-intro)」を参照してください。
+> ビュー変換またはビュー変換マトリックスのコンテキストで使われた場合、ビューは、カメラの位置と向きを表します。 ビュー変換は、カメラの位置と向きを基準として、ワールド内でオブジェクトを再配置します。 ビュー変換について詳しくは、「[ビュー変換 (Direct3D 9)](/windows/desktop/direct3d9/view-transform)」をご覧ください。 Marble Maze でリソース ビューやマトリックス ビューをどのように使っているかについて、このトピックで詳しく説明しています。
 
  
 
 ## <a name="loading-scene-resources"></a>シーン リソースの読み込み
 
 
-大理石迷路は、basicloader **. h**で宣言されている**basicloader**クラスを使用して、テクスチャとシェーダーを読み込みます。 大理石迷路は、 **SDKMesh**クラスを使用して、迷路と大理石の3d メッシュを読み込みます。
+大理石迷路は、basicloader **. h**で宣言されている**basicloader**クラスを使用して、テクスチャとシェーダーを読み込みます。 大理石迷路は、 **SDKMesh** クラスを使用して、迷路と大理石の3d メッシュを読み込みます。
 
 Marble Maze では、応答性を保持するために、非同期的に (つまりバックグラウンドで) シーン リソースを読み込みます。 バックグラウンドでのアセットの読み込み中、ゲームはウィンドウ イベントに応答できます。 このプロセスについては、このガイドの「[バックグラウンドでのゲーム アセットの読み込み](marble-maze-application-structure.md#loading-game-assets-in-the-background)」で詳しく説明しています。
 
 ###  <a name="loading-the-2d-overlay-and-user-interface"></a>2D オーバーレイとユーザーインターフェイスの読み込み
 
-Marble Maze では、オーバーレイは、画面の一番上に表示される画像です。 オーバーレイは、常にシーンの前面に表示されます。 大理石迷路では、オーバーレイに Windows ロゴとテキスト文字列**DirectX 大理石迷路ゲームサンプル**が含まれています。 オーバーレイの管理は**sampleoverlay**クラスによって実行されます。このクラスは、 **sampleoverlay. h**で定義されています。 Direct3D サンプルの一部としてオーバーレイを使いますが、このコードを利用すると、シーンの前面に任意の画像を表示することができます。
+Marble Maze では、オーバーレイは、画面の一番上に表示される画像です。 オーバーレイは、常にシーンの前面に表示されます。 大理石迷路では、オーバーレイに Windows ロゴとテキスト文字列 **DirectX 大理石迷路ゲームサンプル**が含まれています。 オーバーレイの管理は **sampleoverlay** クラスによって実行されます。このクラスは、 **sampleoverlay. h**で定義されています。 Direct3D サンプルの一部としてオーバーレイを使いますが、このコードを利用すると、シーンの前面に任意の画像を表示することができます。
 
-オーバーレイの重要な側面の1つは、その内容が変更されないため、 **Sampleoverlay**クラスは初期化時にその内容を[ID2D1Bitmap1](https://docs.microsoft.com/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1bitmap1)オブジェクトに描画またはキャッシュすることです。 描画時に **SampleOverlay** クラスが行う必要があるのは、画面にビットマップを描画することだけです。 このように、テキスト描画などコストの高いルーチンを、すべてのフレームで実行する必要はありません。
+オーバーレイの重要な点の 1 つは、コンテンツが変化しないため、**SampleOverlay** クラスが初期化中にコンテンツを [ID2D1Bitmap1](/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1bitmap1) オブジェクトに描画またはキャッシュすることです。 描画時に **SampleOverlay** クラスが行う必要があるのは、画面にビットマップを描画することだけです。 このように、テキスト描画などコストの高いルーチンを、すべてのフレームで実行する必要はありません。
 
 ユーザーインターフェイス (UI) は、シーンの前に表示されるメニューやヘッドアップディスプレイ (といった) などの2D コンポーネントで構成されています。 Marble Maze では、次の UI 要素を定義しています。
 
@@ -302,7 +302,7 @@ Marble Maze では、オーバーレイは、画面の一番上に表示され�
 -   プレイ開始までの 3 秒をカウント ダウンするタイマー。
 -   経過したプレイ時間を追跡するタイマー。
 -   最速記録を表示する表。
--   ゲームが一時停止したときに**一時停止**したテキスト。
+-   ゲームが一時停止したときに **一時停止** したテキスト。
 
 大理石迷路は、 **UserInterface**でゲーム固有の UI 要素を定義します。 Marble Maze では、**ElementBase** クラスをすべての UI 要素の基本型として定義しています。 **ElementBase** クラスは、UI 要素のサイズ、位置、配置、可視性などの属性を定義します。 さらに、要素の更新方法やレンダリング方法も制御します。
 
@@ -345,13 +345,13 @@ UI 要素の共通基底クラスを提供することで、ユーザー イン�
 
 Marble Maze では、**BasicLoader::LoadShader** メソッドを使ってファイルからシェーダーを読み込みます。
 
-シェーダーは、現在のゲームの GPU プログラミングの基本単位です。 ほとんどすべての3D グラフィックス処理はシェーダーによって行われます。これは、モデル変換とシーンライティングのほか、文字のスキニングからテセレーションへの、より複雑なジオメトリ処理であるかどうかによって決まります。 シェーダーのプログラミング モデルについて詳しくは、「[HLSL](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl)」をご覧ください。
+シェーダーは、現在のゲームの GPU プログラミングの基本単位です。 ほとんどすべての3D グラフィックス処理はシェーダーによって行われます。これは、モデル変換とシーンライティングのほか、文字のスキニングからテセレーションへの、より複雑なジオメトリ処理であるかどうかによって決まります。 シェーダーのプログラミング モデルについて詳しくは、「[HLSL](/windows/desktop/direct3dhlsl/dx-graphics-hlsl)」をご覧ください。
 
 Marble Maze では、頂点シェーダーとピクセル シェーダーを使っています。 頂点シェーダーは、常に、入力された 1 つの頂点を処理し、出力として 1 つの頂点を生成します。 ピクセル シェーダーは、数値、テクスチャ データ、補間された頂点単位の値、その他のデータを受け取り、出力としてピクセル色を生成します。 1 つのシェーダーは一度に 1 つの要素を変換するため、複数のシェーダー パイプラインを提供するグラフィックス ハードウェアは要素のセットを並列処理できます。 GPU で使用できる並列パイプラインの数は、CPU で使用可能な数を大きく上回る可能性があります。 したがって、基本的なシェーダーでさえスループットを大幅に向上することができます。
 
-**MarbleMazeMain:: LoadDeferredResources**メソッドは、オーバーレイを読み込んだ後、1つの頂点シェーダーと1つのピクセルシェーダーを読み込みます。 これらのシェーダーのデザイン時バージョンは、それぞれ、 **Basicvertexshader. hlsl**と**BasicPixelShader**に定義されています。 Marble Maze では、レンダリング フェーズでこれらのシェーダーをボールと迷路の両方に適用します。
+**MarbleMazeMain:: LoadDeferredResources**メソッドは、オーバーレイを読み込んだ後、1つの頂点シェーダーと1つのピクセルシェーダーを読み込みます。 これらのシェーダーのデザイン時バージョンは、それぞれ、 **Basicvertexshader. hlsl** と **BasicPixelShader**に定義されています。 Marble Maze では、レンダリング フェーズでこれらのシェーダーをボールと迷路の両方に適用します。
 
-Marble Maze プロジェクトには、シェーダー ファイルの .hlsl バージョン (設計時の形式) と .cso バージョン (実行時形式) の両方が含まれています。 ビルド時に Visual Studio が fxc.exe エフェクト コンパイラを使って .hlsl ソース ファイルを .cso バイナリ シェーダーにコンパイルします。 エフェクト コンパイラ ツールについて詳しくは、「[エフェクト コンパイラ ツール](https://docs.microsoft.com/windows/desktop/direct3dtools/fxc)」をご覧ください。
+Marble Maze プロジェクトには、シェーダー ファイルの .hlsl バージョン (設計時の形式) と .cso バージョン (実行時形式) の両方が含まれています。 ビルド時に Visual Studio が fxc.exe エフェクト コンパイラを使って .hlsl ソース ファイルを .cso バイナリ シェーダーにコンパイルします。 エフェクト コンパイラ ツールについて詳しくは、「[エフェクト コンパイラ ツール](/windows/desktop/direct3dtools/fxc)」をご覧ください。
 
 頂点シェーダーは、指定されたモデル マトリックス、ビュー マトリックス、プロジェクション マトリックスを使って、入力ジオメトリを変換します。 入力ジオメトリの位置データは変換されて、2 回出力されます。まずレンダリングのために必要な画面空間内に出力され、ピクセル シェーダーが照明計算を実行できるように再びワールド空間内に出力されます。 サーフェスの標準ベクターはワールド空間に変換されます。これも、これもピクセル シェーダーが照明のために使います。 テクスチャ座標は、変更されずにピクセル シェーダーに渡されます。
 
@@ -414,7 +414,7 @@ float4 main(sPSInput input) : SV_TARGET
 
  
 
-**MarbleMazeMain:: LoadDeferredResources**メソッドは、 **Basicloader:: loadshader**メソッドを使用してシェーダーを読み込みます。 次の例では、頂点シェーダーを読み込みます。 このシェーダーのランタイムフォーマットは、 **Basicvertexshader. cso**です。 **M\_vertexShader**メンバー変数は[ID3D11VertexShader](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11vertexshader)オブジェクトです。
+**MarbleMazeMain:: LoadDeferredResources**メソッドは、 **Basicloader:: loadshader**メソッドを使用してシェーダーを読み込みます。 次の例では、頂点シェーダーを読み込みます。 このシェーダーのランタイムフォーマットは、 **Basicvertexshader. cso**です。 **M \_ vertexshader**メンバー変数は[ID3D11VertexShader](/windows/desktop/api/d3d11/nn-d3d11-id3d11vertexshader)オブジェクトです。
 
 ```cpp
 BasicLoader^ loader = ref new BasicLoader(m_deviceResources->GetD3DDevice());
@@ -438,9 +438,9 @@ loader->LoadShader(
     );
 ```
 
-**M\_inputlayout**メンバー変数は[ID3D11InputLayout](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout)オブジェクトです。 入力レイアウト オブジェクトは、入力アセンブラー (IA) ステージの入力状態をカプセル化します。 IA ステージの 1 つの仕事は、シェーダーの効率を向上することです。システム生成値 (*セマンティクス*) を使って、まだ処理されていないプリミティブまたは頂点のみを処理します。
+**M \_ inputlayout**メンバー変数は[ID3D11InputLayout](/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout)オブジェクトです。 入力レイアウト オブジェクトは、入力アセンブラー (IA) ステージの入力状態をカプセル化します。 IA ステージの 1 つの仕事は、シェーダーの効率を向上することです。システム生成値 (*セマンティクス*) を使って、まだ処理されていないプリミティブまたは頂点のみを処理します。
 
-[ID3D11Device:: CreateInputLayout](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createinputlayout)メソッドを使用して、入力要素の説明の配列から入力レイアウトを作成します。 配列には 1 つまたは複数の入力要素が含まれます。各入力要素は、1 つの頂点バッファーの 1 つの頂点データ要素を記述します。 入力要素の記述のセット全体によって、IA ステージにバインドされているすべての頂点バッファーのすべての頂点データ要素を記述します。 
+[ID3D11Device::CreateInputLayout](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createinputlayout) メソッドを使って、入力要素の説明の配列から入力レイアウトを作成します。 配列には 1 つまたは複数の入力要素が含まれます。各入力要素は、1 つの頂点バッファーの 1 つの頂点データ要素を記述します。 入力要素の記述のセット全体によって、IA ステージにバインドされているすべての頂点バッファーのすべての頂点データ要素を記述します。 
 
 上記のコードスニペットの**Layoutdesc**は、大理石の迷路が使用するレイアウトの説明を示しています。 このレイアウトの記述には、4 つの頂点データ要素を含む頂点バッファーが記述されています。 配列の各エントリの重要な部分は、セマンティック名、データ形式、バイト オフセットです。 たとえば、**POSITION** 要素は、オブジェクト空間での頂点の位置を指定します。 これは、バイト オフセット 0 で開始し、3 つの浮動小数点コンポーネントを含みます (合計 12 バイト)。 **NORMAL** 要素は、標準ベクターを指定します。 これはバイト オフセット 12 で開始します。レイアウトで、12 バイトを必要とする **POSITION** の後にあるためです。 **NORMAL** 要素は、4 つの要素で構成される 32 ビット符号なし整数を含みます。
 
@@ -477,14 +477,14 @@ sPSInput main(sVSInput input)
 }
 ```
 
-「[セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)」では、使用できるセマンティクスのそれぞれについてさらに詳しく説明しています。
+「[セマンティクス](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)」では、使用できるセマンティクスのそれぞれについてさらに詳しく説明しています。
 
 > [!NOTE]
-> レイアウトでは、複数のシェーダーで同じレイアウトを共有するために使用されない追加のコンポーネントを指定できます。 たとえば、**TANGENT** 要素はシェーダーでは使われません。 法線マッピングなどの手法を使う場合は、**TANGENT** 要素を使うことができます。 法線マッピング (バンプ マッピング) を使うと、オブジェクトのサーフェスに対してバンプ エフェクトを作成できます。 バンプ マッピングについて詳しくは、「[バンプ マッピング (Direct3D 9)](https://docs.microsoft.com/windows/desktop/direct3d9/bump-mapping)」をご覧ください。
+> レイアウトでは、複数のシェーダーで同じレイアウトを共有するために使用されない追加のコンポーネントを指定できます。 たとえば、**TANGENT** 要素はシェーダーでは使われません。 法線マッピングなどの手法を使う場合は、**TANGENT** 要素を使うことができます。 法線マッピング (バンプ マッピング) を使うと、オブジェクトのサーフェスに対してバンプ エフェクトを作成できます。 バンプ マッピングについて詳しくは、「[バンプ マッピング (Direct3D 9)](/windows/desktop/direct3d9/bump-mapping)」をご覧ください。
 
  
 
-入力アセンブリステージの詳細については、「入力アセンブラーステージ」と「[はじめに](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage-getting-started)」を参照[してください](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage)。
+入力アセンブリステージの詳細については、「入力アセンブラーステージ」と「[はじめに](/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage-getting-started)」を参照[してください](/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage)。
 
 頂点シェーダーとピクセル シェーダーを使ってシーンをレンダリングするプロセスについては、このドキュメントの「[シーンのレンダリング](#rendering-the-scene)」で説明しています。
 
@@ -492,7 +492,7 @@ sPSInput main(sVSInput input)
 
 Direct3D バッファーは、データのコレクションをグループ化します。 定数バッファーは、シェーダーにデータを渡すために使うことができるバッファーの種類の 1 つです。 Marble Maze では、定数バッファーを使って、モデル (またはワールド) ビューと、アクティブなシーン オブジェクトのためのプロジェクション マトリックスを保持します。
 
-次の例では、 **MarbleMazeMain:: LoadDeferredResources**メソッドが、後でマトリックスデータを保持する定数バッファーを作成する方法を示します。 この例では、 **D3D11\_BIND\_定数\_buffer**フラグを使用して、定数バッファーとして使用法を指定する、 **D3D11\_BUFFER\_DESC**構造体を作成します。 この例では、その構造体を[ID3D11Device:: CreateBuffer](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer)メソッドに渡します。 **M\_constantBuffer**変数は[ID3D11Buffer](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer)オブジェクトです。
+次の例では、 **MarbleMazeMain:: LoadDeferredResources** メソッドが、後でマトリックスデータを保持する定数バッファーを作成する方法を示します。 この例では、 **D3D11 \_ BIND \_ 定数 \_ buffer**フラグを使用して、定数バッファーとして使用法を指定する**D3D11 \_ BUFFER \_ DESC**構造体を作成します。 この例では、次にこの構造体を [ID3D11Device::CreateBuffer](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) メソッドに渡します。 **M \_ constantBuffer**変数は、 [ID3D11Buffer](/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer)オブジェクトです。
 
 ```cpp
 // Create the constant buffer for updating model and camera data.
@@ -550,7 +550,7 @@ cbuffer ConstantBuffer : register(b0)
 
 **ConstantBuffer** 構造体のレイアウトは、**cbuffer** オブジェクトと一致します。 **cbuffer** 変数は、レジスタ b0 を指定します。つまり、定数バッファー データがレジスタ 0 に格納されます。 **MarbleMazeMain:: Render**メソッドは、定数バッファーをアクティブにするときにレジスタ0を指定します。 このプロセスについては、このドキュメントの後の方で詳しく説明します。
 
-定数バッファーについて詳しくは、「[Direct3D 11 のバッファーについて](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」をご覧ください。 Register キーワードの詳細については、「 [register](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-variable-register)」を参照してください。
+定数バッファーについて詳しくは、「[Direct3D 11 のバッファーについて](/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」をご覧ください。 register キーワードについて詳しくは、「[register](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-variable-register)」をご覧ください。
 
 ###  <a name="loading-meshes"></a>メッシュの読み込み
 
@@ -561,11 +561,11 @@ Marble Maze では、実行時の形式として SDK メッシュを使います
 Marble Maze では、**SDKMesh** クラスを使ってメッシュを管理します。 このクラスは、 **SDKMesh**で宣言されています。 **SDKMesh** は、メッシュ データを読み込み、レンダリングし、破棄するためのメソッドを提供します。
 
 > [!IMPORTANT]
-> 大理石迷路は、SDK メッシュ形式を使用し、 **SDKMesh**クラスを例示するためだけに提供します。 SDK メッシュ形式は学習用やプロトタイプの作成用に役立ちますが、ごく基本的な形式であるため、多くのゲーム開発の要件を満たさない可能性があります。 ゲーム固有の要件を満たすメッシュ形式を使うことをお勧めします。
+> 大理石迷路は、SDK メッシュ形式を使用し、 **SDKMesh** クラスを例示するためだけに提供します。 SDK メッシュ形式は学習用やプロトタイプの作成用に役立ちますが、ごく基本的な形式であるため、多くのゲーム開発の要件を満たさない可能性があります。 ゲーム固有の要件を満たすメッシュ形式を使うことをお勧めします。
 
  
 
-次の例は、 **MarbleMazeMain:: LoadDeferredResources**メソッドで**SDKMesh:: Create**メソッドを使用して、迷路と球のメッシュデータを読み込む方法を示しています。
+次の例は、 **MarbleMazeMain:: LoadDeferredResources** メソッドで **SDKMesh:: Create** メソッドを使用して、迷路と球のメッシュデータを読み込む方法を示しています。
 
 ```cpp
 // Load the meshes.
@@ -621,14 +621,14 @@ float radius = m_marbleMesh.GetMeshBoundingBoxExtents(0).x / 2;
 m_physics.SetRadius(radius);
 ```
 
-競合データを読み込む方法は、使用する実行時の形式によって大きく異なります。 大理石の迷路が SDK メッシュファイルから衝突ジオメトリを読み込む方法の詳細については、ソースコードの**MarbleMazeMain:: ExtractTrianglesFromMesh**メソッドを参照してください。
+競合データを読み込む方法は、使用する実行時の形式によって大きく異なります。 大理石の迷路が SDK メッシュファイルから衝突ジオメトリを読み込む方法の詳細については、ソースコードの **MarbleMazeMain:: ExtractTrianglesFromMesh** メソッドを参照してください。
 
 ## <a name="updating-game-state"></a>ゲームの状態の更新
 
 
 Marble Maze では、まずすべてのシーン オブジェクトを更新してからレンダリングすることによって、ゲーム ロジックとレンダリング ロジックを分離しています。
 
-[大理石迷路アプリケーション構造](marble-maze-application-structure.md)は、メインのゲームループについて説明します。 ゲーム ループの一部であるシーンの更新は、Windows イベントの後の入力が処理された後で、シーンがレンダリングされる前に行います。 **MarbleMazeMain:: update**メソッドは、UI とゲームの更新を処理します。
+[大理石迷路アプリケーション構造](marble-maze-application-structure.md) は、メインのゲームループについて説明します。 ゲーム ループの一部であるシーンの更新は、Windows イベントの後の入力が処理された後で、シーンがレンダリングされる前に行います。 **MarbleMazeMain:: update**メソッドは、UI とゲームの更新を処理します。
 
 ### <a name="updating-the-user-interface"></a>ユーザー インターフェイスの更新
 
@@ -674,7 +674,7 @@ void StopwatchTimer::Update(float timeTotal, float timeDelta)
 
 **MarbleMazeMain:: Update**メソッドは、ステートマシンの現在の状態 ( **m_gameState**に格納されている**状態**) に基づいてゲームを更新します。 ゲームがアクティブな状態 ("game**state:: InGameActive**") の場合、大理石迷路はカメラを更新して大理石に従い、定数バッファーのビューマトリックス部分を更新し、物理シミュレーションを更新します。
 
-次の例は、 **MarbleMazeMain:: Update**メソッドがカメラの位置を更新する方法を示しています。 大理石の迷路は、 **m\_resetCamera**変数を使用して、カメラを再設定する必要があることをマークします。 カメラがリセットされるのは、ゲームが開始するときか大理石が迷路を通り抜けたときです。 メイン メニューまたはハイスコア表示画面がアクティブな場合、カメラは定位置に設定されます。 それ以外の場合、Marble Maze では、*timeDelta* パラメーターを使って、カメラの位置を現在位置と目標位置の間で補間します。 目標位置は大理石の斜め前方です。 経過フレーム時間を使うと、カメラが大理石を少しずつ追いかける、つまり追跡することができます。
+次の例は、 **MarbleMazeMain:: Update** メソッドがカメラの位置を更新する方法を示しています。 大理石の迷路は、 **m \_ resetcamera** 変数を使用して、カメラを再設定する必要があることをマークします。 カメラがリセットされるのは、ゲームが開始するときか大理石が迷路を通り抜けたときです。 メイン メニューまたはハイスコア表示画面がアクティブな場合、カメラは定位置に設定されます。 それ以外の場合、Marble Maze では、*timeDelta* パラメーターを使って、カメラの位置を現在位置と目標位置の間で補間します。 目標位置は大理石の斜め前方です。 経過フレーム時間を使うと、カメラが大理石を少しずつ追いかける、つまり追跡することができます。
 
 ```cpp
 static float eyeDistance = 200.0f;
@@ -721,7 +721,7 @@ else
 }
 ```
 
-次の例は、 **MarbleMazeMain:: Update**メソッドが大理石と迷路の定数バッファーを更新する方法を示しています。 迷路のモデル (ワールド) マトリックスは、常に単位マトリックスです。 要素がすべて 1 のメイン対角線を除き、単位マトリックスは、0 で構成される正方形マトリックスです。 大理石のモデル マトリックスは、位置マトリックスと回転マトリックスを掛けた値に基づいています。
+次の例は、 **MarbleMazeMain:: Update** メソッドが大理石と迷路の定数バッファーを更新する方法を示しています。 迷路のモデル (ワールド) マトリックスは、常に単位マトリックスです。 要素がすべて 1 のメイン対角線を除き、単位マトリックスは、0 で構成される正方形マトリックスです。 大理石のモデル マトリックスは、位置マトリックスと回転マトリックスを掛けた値に基づいています。
 
 ```cpp
 // Update the model matrices based on the simulation.
@@ -764,7 +764,7 @@ m_marbleConstantBufferData.view = view;
 
 シーンをレンダリングする前に、現在のレンダー ターゲットの深度ステンシル バッファーを設定する必要があります。 シーンが画面のすべてのピクセルに描画される保証がない場合は、レンダー ビューとステンシル ビューもクリアします。 Marble Maze では、すべてのフレームのレンダー ビューとステンシル ビューをクリアして、前のフレームに由来して表示されるアーティファクトがないことを確かめます。
 
-次の例は、 **MarbleMazeMain:: render**メソッドが[である id3d11devicecontext:: OMSetRenderTargets](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets)メソッドを呼び出して、レンダーターゲットと深度ステンシルバッファーを現在のバッファーとして設定する方法を示しています。
+次の例は、 **MarbleMazeMain:: render** メソッドが [である id3d11devicecontext:: OMSetRenderTargets](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) メソッドを呼び出して、レンダーターゲットと深度ステンシルバッファーを現在のバッファーとして設定する方法を示しています。
 
 ```cpp
 auto context = m_deviceResources->GetD3DDeviceContext();
@@ -791,7 +791,7 @@ context->ClearDepthStencilView(
     0);
 ```
 
-[ID3D11RenderTargetView](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview)インターフェイスと[ID3D11DepthStencilView](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilview)インターフェイスでは、Direct3D 10 以降で提供されるテクスチャビューメカニズムがサポートされています。 テクスチャ ビューについて詳しくは、「[テクスチャ ビュー (Direct3D 10)](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-programming-guide-resources-access-views)」をご覧ください。 [OMSetRenderTargets](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets)メソッドは、Direct3D パイプラインの出力マージステージを準備します。 出力マージャー ステージについて詳しくは、「[出力マージャー ステージ](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-output-merger-stage)」をご覧ください。
+[ID3D11RenderTargetView](/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview) インターフェイスと [ID3D11DepthStencilView](/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilview) インターフェイスは、Direct3D 10 以降で提供されるテクスチャ ビュー機構をサポートします。 テクスチャ ビューについて詳しくは、「[テクスチャ ビュー (Direct3D 10)](/windows/desktop/direct3d10/d3d10-graphics-programming-guide-resources-access-views)」をご覧ください。 [OMSetRenderTargets](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) メソッドは、Direct3D パイプラインの出力マージャー ステージを準備します。 出力マージャー ステージについて詳しくは、「[出力マージャー ステージ](/windows/desktop/direct3d11/d3d10-graphics-programming-guide-output-merger-stage)」をご覧ください。
 
 ### <a name="preparing-the-vertex-and-pixel-shaders"></a>頂点シェーダーとピクセル シェーダーの準備
 
@@ -806,13 +806,13 @@ context->ClearDepthStencilView(
 
  
 
-このドキュメントの「[シェーダーの読み込み](#loading-shaders)」では、頂点シェーダーが作成されるときに入力レイアウトがどのように作成されるかについて説明しています。 次の例は、 **MarbleMazeMain:: Render**メソッドが[である id3d11devicecontext:: IASetInputLayout](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout)メソッドを使用して、このレイアウトを現在のレイアウトとして設定する方法を示しています。
+このドキュメントの「[シェーダーの読み込み](#loading-shaders)」では、頂点シェーダーが作成されるときに入力レイアウトがどのように作成されるかについて説明しています。 次の例は、 **MarbleMazeMain:: Render** メソッドが [である id3d11devicecontext:: IASetInputLayout](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) メソッドを使用して、このレイアウトを現在のレイアウトとして設定する方法を示しています。
 
 ```cpp
 m_deviceResources->GetD3DDeviceContext()->IASetInputLayout(m_inputLayout.Get());
 ```
 
-次の例は、 **MarbleMazeMain:: Render**メソッドで[である id3d11devicecontext:: Vssetshader](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader)メソッドと[である id3d11devicecontext::P ssetshader](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader)メソッドを使用して、頂点シェーダーとピクセルシェーダーをそれぞれ現在のシェーダーとして設定する方法を示しています。
+次の例は、 **MarbleMazeMain:: Render** メソッドで [である id3d11devicecontext:: Vssetshader](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader) メソッドと [である id3d11devicecontext::P ssetshader](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) メソッドを使用して、頂点シェーダーとピクセルシェーダーをそれぞれ現在のシェーダーとして設定する方法を示しています。
 
 ```cpp
 // Set the vertex shader stage state.
@@ -832,7 +832,7 @@ m_deviceResources->GetD3DDeviceContext()->PSSetSamplers(
     m_sampler.GetAddressOf());  // to use this sampler
 ```
 
-**MarbleMazeMain:: Render**によってシェーダーとその入力レイアウトが設定された後、[である id3d11devicecontext:: UpdateSubresource](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-updatesubresource)メソッドを使用して、迷路のモデル、ビュー、および投影マトリックスで定数バッファーを更新します。 **UpdateSubresource** メソッドは、CPU メモリから GPU メモリにマトリックス データをコピーします。 **ConstantBuffer**構造体のモデルおよびビューコンポーネントが**MarbleMazeMain:: Update**メソッドで更新されていることを思い出してください。 次に、 **MarbleMazeMain:: Render**メソッドは、[である id3d11devicecontext:: VSSetConstantBuffers](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetconstantbuffers)メソッドと[である id3d11devicecontext::P ssetconstantbuffers](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetconstantbuffers)メソッドを呼び出して、この定数バッファーを現在のバッファーとして設定します。
+**MarbleMazeMain:: Render**によってシェーダーとその入力レイアウトが設定された後、[である id3d11devicecontext:: UpdateSubresource](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-updatesubresource)メソッドを使用して、迷路のモデル、ビュー、および投影マトリックスで定数バッファーを更新します。 **UpdateSubresource** メソッドは、CPU メモリから GPU メモリにマトリックス データをコピーします。 **ConstantBuffer**構造体のモデルおよびビューコンポーネントが**MarbleMazeMain:: Update**メソッドで更新されていることを思い出してください。 次に、 **MarbleMazeMain:: Render** メソッドは、 [である id3d11devicecontext:: VSSetConstantBuffers](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetconstantbuffers) メソッドと [である id3d11devicecontext::P ssetconstantbuffers](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetconstantbuffers) メソッドを呼び出して、この定数バッファーを現在のバッファーとして設定します。
 
 ```cpp
 // Update the constant buffer with the new data.
@@ -871,7 +871,7 @@ m_mazeMesh.Render(
 
 **MarbleMazeMain:: Render**メソッドは、同様の手順を実行して大理石をレンダリングします。
 
-このドキュメントで前に説明したように、**SDKMesh** クラスはデモンストレーション用に提供していますが、本番品質のゲームでの使用はお勧めしません。 ただし、 **SDKMesh:: Render**によって呼び出される**SDKMesh:: rendermesh**メソッドは、[である id3d11devicecontext:: IASetVertexBuffers](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers)メソッドと[である id3d11devicecontext:: IASetIndexBuffer](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer)メソッドを使用して、メッシュを定義する現在の頂点とインデックスバッファーを設定し、[である id3d11devicecontext::D rawindexed](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexedinstanced)メソッドを使用してバッファーを描画します。 頂点バッファーとインデックス バッファーの操作方法について詳しくは、「[Direct3D 11 のバッファーについて](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」をご覧ください。
+このドキュメントで前に説明したように、**SDKMesh** クラスはデモンストレーション用に提供していますが、本番品質のゲームでの使用はお勧めしません。 ただし、**SDKMesh::Render** によって呼び出される **SDKMesh::RenderMesh** メソッドは、[ID3D11DeviceContext::IASetVertexBuffers](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers) メソッドと [ID3D11DeviceContext::IASetIndexBuffer](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer) メソッドを使ってメッシュを定義する現在の頂点バッファーとインデックス バッファーを設定し、[ID3D11DeviceContext::DrawIndexed](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexedinstanced) メソッドを使ってバッファーを描画することに注目してください。 頂点バッファーとインデックス バッファーの操作方法について詳しくは、「[Direct3D 11 のバッファーについて](/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-intro)」をご覧ください。
 
 ### <a name="drawing-the-user-interface-and-overlay"></a>ユーザー インターフェイスとオーバーレイの描画
 
@@ -888,7 +888,7 @@ m_sampleOverlay->Render();
 m_deviceResources->GetD3DDeviceContext()->EndEvent();
 ```
 
-**UserInterface:: Render**メソッドは、 [ID2D1DeviceContext](https://docs.microsoft.com/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1devicecontext)オブジェクトを使用して UI 要素を描画します。 このメソッドは、描画の状態を設定し、すべてのアクティブな UI 要素を描画してから、前の描画の状態を復元します。
+**UserInterface::Render** メソッドは、[ID2D1DeviceContext](/windows/desktop/api/d2d1_1/nn-d2d1_1-id2d1devicecontext) オブジェクトを使って、UI 要素を描画します。 このメソッドは、描画の状態を設定し、すべてのアクティブな UI 要素を描画してから、前の描画の状態を復元します。
 
 ```cpp
 void UserInterface::Render(D2D1::Matrix3x2F orientation2D)
@@ -923,7 +923,7 @@ void UserInterface::Render(D2D1::Matrix3x2F orientation2D)
 
 すべての2D および3D シーンオブジェクトを描画した後、描画されたイメージをモニターに表示します。 描画を垂直ブランクに同期して、実際にディスプレイに表示されないフレームの描画に時間が費やされないようにします。 Marble Maze では、シーンを表示するときにデバイスの変更も処理します。
 
-**MarbleMazeMain:: Render**メソッドが返された後、game ループは**DX::D eviceresources::P**再送信メソッドを呼び出して、レンダリングされたイメージをモニターまたはディスプレイに送信します。 **DX::D eviceresources::P**再送信メソッドは、次の例に示すように、現在の操作を実行するために再送信[:P](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present)を呼び出します。
+**MarbleMazeMain:: Render**メソッドが返された後、game ループは**DX::D eviceresources::P**再送信メソッドを呼び出して、レンダリングされたイメージをモニターまたはディスプレイに送信します。 **DX::D eviceresources::P**再送信メソッドは、次の例に示すように、現在の操作を実行するために再送信[:P](/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present)を呼び出します。
 
 ```cpp
 // The first argument instructs DXGI to block until VSync, putting the application
@@ -932,11 +932,11 @@ void UserInterface::Render(D2D1::Matrix3x2F orientation2D)
 HRESULT hr = m_swapChain->Present(1, 0);
 ```
 
-この例では、 **m\_swapChain**は[IDXGISwapChain1](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiswapchain1)オブジェクトです。 このオブジェクトの初期化については、このドキュメントの「[Direct3D と Direct2D の初期化](#initializing-direct3d-and-direct2d)」で説明しています。
+この例では、 **m \_ Swapchain** は [IDXGISwapChain1](/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiswapchain1) オブジェクトです。 このオブジェクトの初期化については、このドキュメントの「[Direct3D と Direct2D の初期化](#initializing-direct3d-and-direct2d)」で説明しています。
 
-最初のパラメーター [IDXGISwapChain::P](https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1)再送信、 *syncinterval*は、フレームを表示する前に待機する垂直空白の数を指定します。 Marble Maze では 1 を指定して、次の垂直ブランクまで待機することを指定しています。
+最初のパラメーター [IDXGISwapChain::P](/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1)再送信、 *syncinterval*は、フレームを表示する前に待機する垂直空白の数を指定します。 Marble Maze では 1 を指定して、次の垂直ブランクまで待機することを指定しています。
 
-[IDXGISwapChain::P](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present)再送信メソッドは、デバイスが削除されたか、または失敗したことを示すエラーコードを返します。 この場合、Marble Maze は、デバイスを再初期化します。
+[IDXGISwapChain::P](/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present)再送信メソッドは、デバイスが削除されたか、または失敗したことを示すエラーコードを返します。 この場合、Marble Maze は、デバイスを再初期化します。
 
 ```cpp
 // If the device was removed either by a disconnection or a driver upgrade, we
@@ -951,7 +951,7 @@ else
 }
 ```
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 
 入力デバイスを操作する際の重要な手順については、「[Marble Maze サンプルへの入力と対話機能の追加](adding-input-and-interactivity-to-the-marble-maze-sample.md)」をご覧ください。 このドキュメントでは、大理石の迷路がタッチ、加速度計、Xbox コントローラー、およびマウス入力をサポートする方法について説明します。
@@ -959,14 +959,10 @@ else
 ## <a name="related-topics"></a>関連トピック
 
 
-* [大理石の迷路サンプルに入力とインタラクティビティを追加する](adding-input-and-interactivity-to-the-marble-maze-sample.md)
-* [大理石迷路アプリケーション構造](marble-maze-application-structure.md)
-* [および DirectX でのC++ UWP ゲームである大理石迷路の開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
+* [Marble Maze サンプルへの入力と対話機能の追加](adding-input-and-interactivity-to-the-marble-maze-sample.md)
+* [Marble Maze のアプリケーション構造](marble-maze-application-structure.md)
+* [Marble Maze、C++ と DirectX での UWP ゲームの開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
 
  
 
  
-
-
-
-

@@ -5,20 +5,20 @@ author: maiak
 ms.author: maiak
 ms.date: 02/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 170a8c3084e180714a319d67dca2b6a5756ea474
-ms.sourcegitcommit: 4fdab7be28aca18cb3879fc205eb49edc4f9a96b
+ms.openlocfilehash: ef4d3df6e5a5dd93dbcb2caadc8e3f299aad581c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77629113"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173696"
 ---
 # <a name="access-trace-data"></a>トレースデータへのアクセス
 
-.NET TraceProcessing は、次のパッケージ ID を持つ[NuGet](https://www.nuget.org/packages/Microsoft.Windows.EventTracing.Processing.All)から使用できます。
+.NET TraceProcessing は、次のパッケージ ID を持つ [NuGet](https://www.nuget.org/packages/Microsoft.Windows.EventTracing.Processing.All) から使用できます。
 
 Microsoft. Windows. EventTracing. All
 
-このパッケージを使用すると、トレースファイル内のデータにアクセスできます。 まだトレースファイルがない場合は、 [Windows パフォーマンスレコーダー](https://docs.microsoft.com/windows-hardware/test/wpt/start-a-recording)を使用して作成できます。
+このパッケージを使用すると、トレースファイル内のデータにアクセスできます。 まだトレースファイルがない場合は、 [Windows パフォーマンスレコーダー](/windows-hardware/test/wpt/start-a-recording) を使用して作成できます。
 
 次のコンソールアプリの例は、トレースに含まれるすべてのプロセスのコマンドラインにアクセスする方法を示しています。
 
@@ -56,13 +56,13 @@ class Program
 
 ## <a name="using-traceprocessor"></a>TraceProcessor の使用
 
-トレースを処理するには、 [Traceprocessor. Create](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.traceprocessor.create)を呼び出します。 コアインターフェイスは[ITraceProcessor](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.itraceprocessor)であり、このインターフェイスを使用すると、次のようなパターンがあります。
+トレースを処理するには、 [Traceprocessor. Create](/dotnet/api/microsoft.windows.eventtracing.traceprocessor.create)を呼び出します。 コアインターフェイスは [ITraceProcessor](/dotnet/api/microsoft.windows.eventtracing.itraceprocessor)であり、このインターフェイスを使用すると、次のようなパターンがあります。
 
 1. 最初に、トレースから使用するデータをプロセッサに伝えます。
 2. 次に、トレースを処理します。そして
 3. 最後に、結果にアクセスします。
 
-プロセッサに対して、必要なデータの種類を指定することで、すべての種類のトレースデータを大量に処理するのに時間を費やす必要がなくなります。 代わりに、 [Traceprocessor](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.traceprocessor)は、要求した特定の種類のデータを提供するために必要な作業のみを実行します。
+プロセッサに対して、必要なデータの種類を指定することで、すべての種類のトレースデータを大量に処理するのに時間を費やす必要がなくなります。 代わりに、 [Traceprocessor](/dotnet/api/microsoft.windows.eventtracing.traceprocessor) は、要求した特定の種類のデータを提供するために必要な作業のみを実行します。
 
 ## <a name="recommended-project-settings"></a>推奨されるプロジェクト設定
 
@@ -70,15 +70,15 @@ TraceProcessor では、次の2つのプロジェクト設定を使用するこ�
 
 1. Exe は64ビットとして実行することをお勧めします。
 
-    新しいC# .NET Framework コンソールアプリケーションの Visual Studio の既定の設定では、32ビットの優先がオンになっている任意の CPU が使用されます。 .NET Core の既定値には、既に推奨設定が含まれている場合があります。
+    新しい C# .NET Framework コンソールアプリケーションの Visual Studio の既定では、32ビットの優先がオンになっている任意の CPU が使用されています。 .NET Core の既定値には、既に推奨設定が含まれている場合があります。
 
     トレース処理は、特に大規模なトレースでメモリを集中的に使用することができます。また、TraceProcessor を使用する exe で、プラットフォームターゲットを x64 に変更する (または、32ビットを優先する) ことをお勧めします。 これらの設定を変更するには、プロジェクトの [プロパティ] の [ビルド] タブを参照してください。 すべての構成に対してこれらの設定を変更するには、[構成] ドロップダウンが、現在の構成の既定値ではなく、[すべての構成] に設定されていることを確認します。
 
-2. 古いパッケージの .config モードではなく、新しいスタイルの PackageReference モードで NuGet を使用することをお勧めします。
+2. 古い packages.config モードではなく、新しいスタイルの PackageReference モードで NuGet を使用することをお勧めします。
 
     新しいプロジェクトの既定値を変更するには、「ツール」、「NuGet パッケージマネージャー」、「パッケージマネージャーの設定」、Package Management 「既定のパッケージ管理形式」を参照してください。
 
-## <a name="built-in-data-sources"></a>組み込みデータソース
+## <a name="built-in-data-sources"></a>組み込みデータ ソース
 
 .Etl ファイルは、トレース内のさまざまな種類のデータをキャプチャできます。 .Etl ファイルに含まれるデータは、トレースのキャプチャ時に有効にされたプロバイダーによって異なります。 次の一覧は、TraceProcessor から使用できるトレースデータの種類を示しています。
 
@@ -130,7 +130,7 @@ TraceProcessor では、次の2つのプロジェクト設定を使用するこ�
 | トレース.UseStackTags ()                      | トレースのスタックを XML 構成ファイルで指定されているスタックタグにグループ化するマッパーを提供します。               | スタックタグやスタック (フレームタグ) などの列                     |
 | トレース.UseSymbols()                        | トレースのシンボルを読み込む機能を提供します。                                                                          | シンボルパスを構成します。シンボルの読み込み                                 |
 | トレース.UseSyscalls()                       | トレース中に発生した syscall に関するデータを提供します。                                                                 | Syscall テーブル                                                       |
-| トレース.UseSystemMetadata()                 | トレースから、システム全体にわたる一般的なメタデータを提供します。                                                                       | システムの構成                                                 |
+| トレース.UseSystemMetadata()                 | トレースから、システム全体にわたる一般的なメタデータを提供します。                                                                       | システム構成                                                 |
 | トレース.UseSystemPowerSourceData()          | アクティブなシステム電源 (AC および DC) に関するトレースのデータを提供します。                                                | システムの電源コードテーブル                                            |
 | トレース.UseSystemSleepData()                | システム全体の電源状態に関するトレースのデータを提供します。                                                               | 電源切り替えテーブル                                               |
 | トレース.UseTargetCpuIdleStates()            | ターゲット CPU C 状態に関するトレースのデータを提供します。                                                                      | CPU アイドル状態テーブル (種類がターゲットの場合)                          |
@@ -143,10 +143,10 @@ TraceProcessor では、次の2つのプロジェクト設定を使用するこ�
 | トレース.UseWinINetData ()                    | Windows インターネット (WinINet) を介したインターネットアクティビティに関するトレースのデータを提供します。                                         | 詳細テーブルのダウンロード                                               |
 | トレース.UseWorkingSetData()                 | 各プロセスまたはカーネルカテゴリのワーキングセットに含まれていた仮想メモリのページに関するトレースのデータを提供します。 | 仮想メモリスナップショットテーブル                                       |
 
-使用可能なすべてのトレースデータに対する[Itracesource](https://docs.microsoft.com/dotnet/api/microsoft.windows.eventtracing.itracesource)の拡張メソッドを参照するか、"trace" から使用可能なメソッドを確認してください。 IntelliSense によって表示されます。
+使用可能なすべてのトレースデータに対する [Itracesource](/dotnet/api/microsoft.windows.eventtracing.itracesource) の拡張メソッドを参照するか、"trace" から使用可能なメソッドを確認してください。 IntelliSense によって表示されます。
 
 ## <a name="next-steps"></a>次の手順
 
 この概要では、TraceProcessor とそれがアクセスできる組み込みのデータソースを使用して、トレースデータにアクセスする方法を学習しました。
 
-次の手順では、traceprocessor を[拡張](extensibility.md)してカスタムトレースデータにアクセスする方法を学習します。
+次の手順では、traceprocessor を [拡張](extensibility.md) してカスタムトレースデータにアクセスする方法を学習します。

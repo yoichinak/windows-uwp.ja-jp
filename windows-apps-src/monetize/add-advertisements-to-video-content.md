@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ビデオ, スケジューラ, Javascript
 ms.localizationpriority: medium
-ms.openlocfilehash: b42c917a0532a015a789c8b4ac57d59c65804ce1
-ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
+ms.openlocfilehash: 6baf26b083cce08557a9b09f2ba95d5ad889f4a4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88970200"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175106"
 ---
 # <a name="show-ads-in-video-content"></a>ビデオ コンテンツに広告を表示する
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 このチュートリアルでは、JavaScript と HTML を使って作成されたユニバーサル Windows プラットフォーム (UWP) アプリのビデオ コンテンツに、**AdScheduler** クラスを使って広告を表示する方法について説明します。
 
@@ -73,7 +73,7 @@ ms.locfileid: "88970200"
     > [!NOTE]
     > この行は、`<head>` セクションの main.js のインクルードの後に配置する必要があります。そうでない場合、プロジェクトのビルド時にエラーが発生します。
 
-6.  プロジェクトの main.js ファイルで、新しい **AdScheduler** オブジェクトを作成するコードを追加します。 ビデオ コンテンツをホストする **MediaPlayer** を渡します。 このコードは、[WinJS.UI.processAll](https://docs.microsoft.com/previous-versions/windows/apps/hh440975) の後に実行されるように配置する必要があります。
+6.  プロジェクトの main.js ファイルで、新しい **AdScheduler** オブジェクトを作成するコードを追加します。 ビデオ コンテンツをホストする **MediaPlayer** を渡します。 このコードは、[WinJS.UI.processAll](/previous-versions/windows/apps/hh440975) の後に実行されるように配置する必要があります。
 
     [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet2)]
 
@@ -81,7 +81,7 @@ ms.locfileid: "88970200"
 
     * Microsoft 広告サーバーに対して広告スケジュールを要求することを許可されている Microsoft パートナーは、**requestSchedule** を使用して、Microsoft の担当者が提供するアプリケーション ID と広告ユニット ID を指定します。
 
-        このメソッドでは、非同期コンストラクトである [Promise](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-universal-windows-platform-apps#asynchronous-patterns-in-uwp-using-javascript) の形式を使い、2 つの関数ポインターを渡します。2 つとは、promise の正常完了時に呼び出される **onComplete** 関数へのポインターと、エラーが発生した場合に呼び出される **onError** 関数へのポインターです。 **onComplete** 関数で、ビデオ コンテンツの再生を開始します。 スケジュールされた時間に広告の再生が始まります。 **onError** 関数では、エラーを処理してからビデオの再生を開始します。 ビデオ コンテンツは広告なしで再生されます。 **onError** 関数の引数は、次のメンバーを含むオブジェクトです。
+        このメソッドでは、非同期コンストラクトである [Promise](../threading-async/asynchronous-programming-universal-windows-platform-apps.md#asynchronous-patterns-in-uwp-using-javascript) の形式を使い、2 つの関数ポインターを渡します。2 つとは、promise の正常完了時に呼び出される **onComplete** 関数へのポインターと、エラーが発生した場合に呼び出される **onError** 関数へのポインターです。 **onComplete** 関数で、ビデオ コンテンツの再生を開始します。 スケジュールされた時間に広告の再生が始まります。 **onError** 関数では、エラーを処理してからビデオの再生を開始します。 ビデオ コンテンツは広告なしで再生されます。 **onError** 関数の引数は、次のメンバーを含むオブジェクトです。
 
         [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet3)]
 
@@ -165,7 +165,7 @@ ms.locfileid: "88970200"
 
 ### <a name="onerroroccurred"></a>onErrorOccurred  
 
-このイベントは、**AdScheduler** でエラーが発生したときに生成されます。 エラー コードの値について詳しくは、「[ErrorCode](https://docs.microsoft.com/uwp/api/microsoft.advertising.errorcode)」をご覧ください。
+このイベントは、**AdScheduler** でエラーが発生したときに生成されます。 エラー コードの値について詳しくは、「[ErrorCode](/uwp/api/microsoft.advertising.errorcode)」をご覧ください。
 
 ### <a name="onpodcountdown"></a>onPodCountdown
 

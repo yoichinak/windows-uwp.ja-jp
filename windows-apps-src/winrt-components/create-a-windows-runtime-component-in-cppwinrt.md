@@ -1,41 +1,41 @@
 ---
-title: C++/WinRT を使用したコンポーネントの Windows ランタイム
-description: このトピックでは、 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用し &mdash; て、任意の Windows ランタイム言語を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを、Windows ランタイムコンポーネントを作成および使用する方法について説明します。
+title: C++/WinRT を使用した Windows ランタイム コンポーネント
+description: このトピックでは、 [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用し &mdash; て、任意の Windows ランタイム言語を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを、Windows ランタイムコンポーネントを作成および使用する方法について説明します。
 ms.date: 07/06/2020
 ms.topic: article
 keywords: windows 10、uwp、windows、runtime、component、components、Windows ランタイム Component、WRC、C++/WinRT
 ms.localizationpriority: medium
-ms.openlocfilehash: e47175579fcfc5544587ff36baaaa653003c4c63
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 1f84158311ef789851c268e9e21dbf5317063370
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494151"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174316"
 ---
-# <a name="windows-runtime-components-with-cwinrt"></a>C++/WinRT を使用したコンポーネントの Windows ランタイム
+# <a name="windows-runtime-components-with-cwinrt"></a>C++/WinRT を使用した Windows ランタイム コンポーネント
 
-このトピックでは、 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)を使用し &mdash; て、任意の Windows ランタイム言語を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを、Windows ランタイムコンポーネントを作成および使用する方法について説明します。
+このトピックでは、 [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用し &mdash; て、任意の Windows ランタイム言語を使用して構築されたユニバーサル Windows アプリから呼び出すことができるコンポーネントを、Windows ランタイムコンポーネントを作成および使用する方法について説明します。
 
 C++/winrtで Windows ランタイムコンポーネントを構築するには、いくつかの理由があります。
 - C++ のパフォーマンス上の利点を、複雑な操作や計算量の多い操作で利用できます。
 - 既に記述およびテストされている標準 C++ コードを再利用する場合。
 - C# など、で記述されたユニバーサル Windows プラットフォーム (UWP) アプリに Win32 機能を公開すること。
 
-一般に、C++/WinRT コンポーネントを作成する場合は、標準 C++ ライブラリの型と組み込み型を使用できます。ただし、別のパッケージのコードとの間でデータをやり取りしているアプリケーションバイナリインターフェイス (ABI) の境界は除き `.winmd` ます。 ABI では Windows ランタイム型を使用します。 さらに、C++/WinRT コードでは、デリゲートやイベントなどの型を使用して、コンポーネントから発生させ、別の言語で処理できるイベントを実装します。 C++/winrtの詳細については、「 [c++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) 」を参照してください。
+一般に、C++/WinRT コンポーネントを作成する場合は、標準 C++ ライブラリの型と組み込み型を使用できます。ただし、別のパッケージのコードとの間でデータをやり取りしているアプリケーションバイナリインターフェイス (ABI) の境界は除き `.winmd` ます。 ABI では Windows ランタイム型を使用します。 さらに、C++/WinRT コードでは、デリゲートやイベントなどの型を使用して、コンポーネントから発生させ、別の言語で処理できるイベントを実装します。 C++/winrtの詳細については、「 [c++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) 」を参照してください。
 
 このトピックの残りの部分では、C++/WinRT で Windows ランタイムコンポーネントを作成する方法と、それをアプリケーションから使用する方法について説明します。
 
 このトピックで作成する Windows ランタイムコンポーネントには、銀行口座を表すランタイムクラスが含まれています。 また、このトピックでは、bank account runtime クラスを使用して、残高を調整する関数を呼び出すコアアプリについても説明します。
 
 > [!NOTE]
-> [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+> [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 > [!IMPORTANT]
-> C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](/windows/uwp/cpp-and-winrt-apis/consume-apis)」と「[C++/WinRT での作成者 API](/windows/uwp/cpp-and-winrt-apis/author-apis)」を参照してください。
+> C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](../cpp-and-winrt-apis/consume-apis.md)」と「[C++/WinRT での作成者 API](../cpp-and-winrt-apis/author-apis.md)」を参照してください。
 
 ## <a name="create-a-windows-runtime-component-bankaccountwrc"></a>Windows ランタイム コンポーネントの作成 (BankAccountWRC)
 
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトを作成し、("銀行口座 Windows ランタイム コンポーネント" 用に) *BankAccountWRC* と名前を付けます。 [**ソリューションとプロジェクトを同じディレクトリに配置**する] がオフになっていることを確認します。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。 プロジェクトに *BankAccountWRC* という名前を付けると、このトピックの残りの手順が非常に簡単になります。 
+まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトを作成し、("銀行口座 Windows ランタイム コンポーネント" 用に) *BankAccountWRC* と名前を付けます。 **[ソリューションとプロジェクトを同じディレクトリに配置する]** がオフになっていることを確認します。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。 プロジェクトに *BankAccountWRC* という名前を付けると、このトピックの残りの手順が非常に簡単になります。 
 
 プロジェクトはまだビルドしないでください。
 
@@ -78,7 +78,7 @@ namespace winrt::BankAccountWRC::implementation
 ...
 ```
 
-で `BankAccount.cpp` 、次の一覧に示すように**AdjustBalance**メソッドを実装します。
+で `BankAccount.cpp` 、次の一覧に示すように **AdjustBalance** メソッドを実装します。
 
 ```cppwinrt
 // BankAccount.cpp
@@ -116,7 +116,7 @@ namespace winrt::BankAccountWRC::implementation
 ...
 ```
 
-また `App.cpp` 、次のコードを追加して、 **BankAccount**オブジェクトをインスタンス化し (射影された型の既定のコンストラクターを使用)、銀行口座オブジェクトのメソッドを呼び出します。
+また `App.cpp` 、次のコードを追加して、 **BankAccount** オブジェクトをインスタンス化し (射影された型の既定のコンストラクターを使用)、銀行口座オブジェクトのメソッドを呼び出します。
 
 ```cppwinrt
 struct App : implements<App, IFrameworkViewSource, IFrameworkView>
@@ -139,4 +139,4 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 
 C++/WinRT Windows ランタイムコンポーネントにさらに多くの機能または新しい Windows ランタイムの種類を追加するには、上に示したのと同じパターンに従うことができます。 まず、IDL を使用して、公開する機能を定義します。 次に、Visual Studio でプロジェクトをビルドして、スタブ実装を生成します。 次に、必要に応じて実装を完了します。 IDL で定義したメソッド、プロパティ、およびイベントは、Windows ランタイムコンポーネントを使用するアプリケーションから参照できます。 IDL の詳細については、「 [Microsoft インターフェイス定義言語3.0 の概要](/uwp/midl-3/intro)」を参照してください。
 
-Windows ランタイムコンポーネントにイベントを追加する方法の例については、「 [C++/WinRT でイベントを作成](/windows/uwp/cpp-and-winrt-apis/author-events)する」を参照してください。
+Windows ランタイムコンポーネントにイベントを追加する方法の例については、「 [C++/WinRT でイベントを作成](../cpp-and-winrt-apis/author-events.md)する」を参照してください。

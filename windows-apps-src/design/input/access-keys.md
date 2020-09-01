@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c0d5808c462beb72341fd83c6fc4c1cfc0178b2f
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: ca8c21729f27e30e7703291c04a940301a3feb26
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970977"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173896"
 ---
 # <a name="access-keys"></a>アクセス キー
 
@@ -25,7 +25,7 @@ ms.locfileid: "82970977"
 キーボード ショートカットを使って Windows アプリケーションの一般的な操作を呼び出す方法について詳しくは、「[アクセラレータ キー](keyboard-accelerators.md)」のトピックをご覧ください。 
 
 > [!NOTE]
-> キーボードは、特定の障碍を持つユーザーにとっては不可欠であり ([キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)をご覧ください)、アプリをより効率的に操作することを望むユーザーにとって重要なツールでもあります。
+> キーボードは、特定の障碍を持つユーザーにとっては不可欠であり ([キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)をご覧ください)、アプリをより効率的に操作することを望むユーザーにとって重要なツールでもあります。
 
 Windows アプリは、キーヒントと呼ばれる視覚的な手掛かりを通じて、キーボードベースのアクセスキーと関連付けられた UI フィードバックの両方のプラットフォームコントロールに対して、組み込みのサポートを提供します。
 
@@ -72,11 +72,11 @@ UI に適切な場合は必ずアクセス キーを指定し、すべてのカ�
 
 次の図は、Word における 2 つのアクセス キー スコープを示しています。 最初の図は、ユーザーがタブとその他の最上位レベルのコマンドを選択できるようにするプライマリ アクセス キーを示しています。2 つ目の図は、[ホーム] タブのセカンダリ アクセス キーを示しています。
 
-![Microsoft word](images/accesskeys/primary-access-keys-word.png)
-_のプライマリアクセスキー_ microsoft word のプライマリアクセスキー
+![Microsoft word ](images/accesskeys/primary-access-keys-word.png)
+ _のプライマリアクセスキー_ microsoft word のプライマリアクセスキー
 
-![Microsoft word](images/accesskeys/secondary-access-keys-word.png)
-_の_セカンダリアクセスキー microsoft word のセカンダリアクセスキー
+![Microsoft word のセカンダリアクセスキー microsoft word のセカンダリアクセスキー ](images/accesskeys/secondary-access-keys-word.png)
+ _Secondary access keys in Microsoft Word_
 
 アクセス キーは、異なるスコープの要素用に複製することができます。 前の例では、"2" はプライマリ スコープにおける [元に戻す] のアクセス キーであり、セカンダリ スコープにおける "斜体" のアクセス キーでもあります。
 
@@ -241,7 +241,7 @@ _英語およびスペイン語のリソース文字列フォルダー_
 
 _resources.resw ファイルで指定された AccessKey プロパティを指定する_
 
-詳しくは、「[UI リソースの翻訳](https://docs.microsoft.com/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。
+詳しくは、「[UI リソースの翻訳](/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。
 
 ## <a name="key-tip-positioning"></a>キーのヒントを配置する
 
@@ -353,14 +353,12 @@ _キーのヒントのカスタマイズ オプション_
 
 XAML フレームワークには、UI オートメーション クライアントがユーザー インターフェイス内の要素に関する情報を検出できるようにするオートメーション プロパティが表示されます。
 
-UIElement または TextElement コントロールで AccessKey プロパティを指定する場合、[AutomationProperties.AccessKey](https://docs.microsoft.com/dotnet/api/system.windows.automation.automationproperties.accesskey) プロパティを使ってこの値を取得できます。 ナレーターなどのアクセシビリティ クライアントは、要素がフォーカスを取得するたびにこのプロパティの値を読み取ります。
+UIElement または TextElement コントロールで AccessKey プロパティを指定する場合、[AutomationProperties.AccessKey](/dotnet/api/system.windows.automation.automationproperties.accesskey) プロパティを使ってこの値を取得できます。 ナレーターなどのアクセシビリティ クライアントは、要素がフォーカスを取得するたびにこのプロパティの値を読み取ります。
 
 ## <a name="related-articles"></a>関連記事
 
 * [キーボード操作](keyboard-interactions.md)
-* [キーボードアクセラレータ](keyboard-accelerators.md)
+* [キーボード アクセラレータ](keyboard-accelerators.md)
 
 **サンプル**
 * [XAML コントロールギャラリー (XamlUiBasics 基本)](https://github.com/Microsoft/Windows-universal-samples/tree/c2aeaa588d9b134466bbd2cc387c8ff4018f151e/Samples/XamlUIBasics)
-
-

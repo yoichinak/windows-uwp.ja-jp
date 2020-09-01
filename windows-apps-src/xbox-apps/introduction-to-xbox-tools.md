@@ -1,17 +1,17 @@
 ---
 title: Xbox One ツールの概要
-description: Windows デバイス ポータルを使った、Xbox One 固有のツールである Dev Home
+description: Xbox One Development Kit で Dev Home アプリを使用して、Xbox One デバイスポータルにアクセスする方法について説明します。
 ms.date: 10/04/2017
 ms.topic: article
 keywords: windows 10, uwp, xbox one, ツール
 ms.assetid: 6eaf376f-0d7c-49de-ad78-38e689b43658
 ms.localizationpriority: medium
-ms.openlocfilehash: ed106095d83ed0c6e055d22a1a0cf229380cff71
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ed9df02ba929d170eca5b37e4376220e93e4902f
+ms.sourcegitcommit: e273e5901bfa6596dfef4cc741bb1c42614c25ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57609327"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89238317"
 ---
 # <a name="introduction-to-xbox-one-tools"></a>Xbox One ツールの概要
 
@@ -30,7 +30,7 @@ Xbox Device Portal は、ブラウザー ベースのデバイス管理ツール
 
 Xbox One 本体で Xbox Device Portal を有効にするには、次のようにします。
 
-1. ホーム画面で、**Dev Home** タイルを選びます。
+1. ホーム画面で [ **Dev ホーム** ] タイルを選択します。
 
   ![Dev Home タイルの選択](images/introduction-to-xbox-one-tools-1.png)
 
@@ -56,6 +56,6 @@ Xbox One 本体で Xbox Device Portal を有効にするには、次のように
 Xbox 開発者モード コンパニオンは、PC から離れずに本体を操作できるツールです。 このアプリを使うと、本体の画面を表示し、入力を本体に送ることができます。 詳しくは、「[Xbox 開発者モード コンパニオン](xbox-dev-mode-companion.md)」をご覧ください。
 
 ## <a name="see-also"></a>関連項目
-- [UWP を開発するときに、Xbox One を Fiddler を使用する方法](uwp-fiddler.md)
+- [UWP を開発するときに、Xbox One で Fiddler を使用する方法](uwp-fiddler.md)
 - [Windows Device Portal の概要](../debug-test-perf/device-portal.md)
 - [Xbox One の UWP](index.md)

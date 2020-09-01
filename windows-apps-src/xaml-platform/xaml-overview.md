@@ -11,12 +11,12 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: 6d45e70afa5b0dc6e903dbd253c09042bb2046c2
-ms.sourcegitcommit: f7ef7e894d7b7fc24483b4485605686abf8f2e93
+ms.openlocfilehash: 792712256e36b40cd376f0e378bb110ab33bc0fb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679211"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173736"
 ---
 # <a name="xaml-overview"></a>XAML の概要
 
@@ -26,7 +26,7 @@ ms.locfileid: "71679211"
 
 XAML (Extensible Application Markup Language) は宣言型言語の一種です。 具体的には、XAML では、複数のオブジェクト間の階層関係を示す言語構造を使用してオブジェクトを初期化したり、オブジェクトのプロパティを設定したりできます。また、型の拡張をサポートするバッキング型の規則を使用することもできます。 表示される UI 要素を宣言型 XAML マークアップで作成できます。 さらに、各 XAML ファイルに別のコード ビハインド ファイルを関連付けて、イベントに応答することも、XAML で宣言したオブジェクトを操作することもできます。
 
-XAML 言語は、開発プロセスにおけるさまざまなツールとロール間のソースの交換をサポートします。たとえば、デザインツールと対話型開発環境 (IDE) の間、または主要な開発者とローカリゼーションの間で XAML ソースを交換します。開発者. 交換形式として XAML を使うことで、デザイナーと開発者の役割を分離または結合して、それぞれがアプリの制作中に反復的な作業を行うことができます。
+XAML 言語では、開発プロセスにおけるさまざまなツールとロール間のソースの交換をサポートしています。たとえば、デザインツールと対話型開発環境 (IDE) 間、または主要開発者とローカリゼーション開発者の間で XAML ソースを交換します。 交換形式として XAML を使うことで、デザイナーと開発者の役割を分離または結合して、それぞれがアプリの制作中に反復的な作業を行うことができます。
 
 Windows ランタイム アプリ プロジェクトの一部としてみた場合、XAML ファイルは .xaml というファイル名拡張子を持つ XML ファイルです。
 
@@ -36,7 +36,7 @@ XAML には、XML に基づく基本的な構文があります。 定義上、�
 
 ## <a name="xaml-and-visual-studio"></a>XAML と Visual Studio
 
-Microsoft Visual Studio では、XAML テキスト エディターでも、もっとグラフィカル指向の XAML デザイン サーフェイスでも、有効な XAML 構文の生成を支援する機能を使うことができます。 Visual Studio を使用してアプリの XAML を作成する場合は、各キーストロークの構文についてあまり気にしないようにしてください。 IDE では、オートコンプリートヒントを提供し、Microsoft IntelliSense のリストとドロップダウンに提案を表示し、**ツールボックス**ウィンドウに UI 要素ライブラリを表示する、またはその他の手法を指定することで、有効な XAML 構文を推奨しています。 XAML を初めて使用する場合は、構文規則と特に、参照やその他のトピックで XAML 構文を記述するときに制限事項や選択肢の説明に使用される用語についても理解しておくと役に立つかもしれません。 XAML 構文の詳細については、「 [xaml 構文ガイド](xaml-syntax-guide.md)」を参照してください。
+Microsoft Visual Studio では、XAML テキスト エディターでも、もっとグラフィカル指向の XAML デザイン サーフェイスでも、有効な XAML 構文の生成を支援する機能を使うことができます。 Visual Studio を使用してアプリの XAML を作成する場合は、各キーストロークの構文についてあまり気にしないようにしてください。 IDE では、オートコンプリートヒントを提供し、Microsoft IntelliSense のリストとドロップダウンに提案を表示し、 **ツールボックス** ウィンドウに UI 要素ライブラリを表示する、またはその他の手法を指定することで、有効な XAML 構文を推奨しています。 XAML を初めて使用する場合は、構文規則と特に、参照やその他のトピックで XAML 構文を記述するときに制限事項や選択肢の説明に使用される用語についても理解しておくと役に立つかもしれません。 XAML 構文の詳細については、「 [xaml 構文ガイド](xaml-syntax-guide.md)」を参照してください。
 
 ## <a name="xaml-namespaces"></a>XAML 名前空間
 
@@ -50,7 +50,7 @@ Microsoft Visual Studio では、XAML テキスト エディターでも、も�
 
 ほとんどの場合、XAML ファイルでは、既定の XAML 名前空間をルート要素で宣言します。 既定の XAML 名前空間は、プレフィックスで修飾することなく宣言できる要素を定義します。 一般的な Windows ランタイム アプリ プロジェクトの場合、この既定の名前空間には、UI 定義で使われる Windows ランタイムの組み込み XAML ボキャブラリがすべて含まれます。これは既定のコントロール、テキスト要素、XAML グラフィックス、アニメーション、データバインド、スタイル サポートの種類などを含みます。 こうして、Windows ランタイム アプリ用に作成する XAML の大半は、一般的な UI 要素を参照するときに XAML の名前空間とプレフィックスを使うことを避けられます。
 
-次のスニペットは、アプリの初期ページのテンプレート作成 <xref:Windows.UI.Xaml.Controls.Page> ルートを示しています (開始タグのみを表示し、簡略化されています)。 これは既定の名前空間を宣言し、**x** 名前空間 (次に説明) も宣言しています。
+テンプレートによって作成された <xref:Windows.UI.Xaml.Controls.Page> アプリの最初のページのルート (開始タグのみを表示し、簡略化されたもの) を次に示します。 これは既定の名前空間を宣言し、**x** 名前空間 (次に説明) も宣言しています。
 
 ```xml
 <Page
@@ -66,13 +66,13 @@ Microsoft Visual Studio では、XAML テキスト エディターでも、も�
 
 "x" プレフィックス/XAML 言語の XAML 名前空間には、XAML でよく使われるプログラミング構成要素がいくつか存在します。 代表的なコントロールをいくつか次に示します。
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| [x:Key](x-key-attribute.md) | XAML <xref:Windows.UI.Xaml.ResourceDictionary>内の各リソースに対して一意のユーザー定義キーを設定します。 このキー トークンの文字列は、**StaticResource** マークアップ拡張の引数であり、後でこのキーを使って、アプリの XAML のどこかで使われた別の XAML の XAML リソースを取得することができます。 |
-| [x:Class](x-class-attribute.md) | XAML ページのコード ビハインドを提供するクラスのコード名前空間とコード クラス名を指定します。 これによって、アプリのビルド時にビルド アクションによって作成または結合されたクラスの名前が付けられます。 これらのビルド アクションは、XAML マークアップ コンパイラをサポートし、アプリがコンパイルされるときにマークアップとコード ビハインドを組み合わせます。 XAML ページのコード ビハインドをサポートするには、このようなクラスが必要です。 既定の Windows ランタイムアクティブ化モデルの <xref:Windows.UI.Xaml.Window.Content%2A?displayProperty=nameWithType> ます。 |
-| [x:Name](x-name-attribute.md) | XAML で定義されたオブジェクト要素が処理された後のランタイム コードに存在するインスタンスのランタイム オブジェクト名を指定します。 XAML で **x:Name** を設定することは、コードで名前付き変数を宣言するようなものと考えることができます。 後でわかるように、これは、まさに Windows ランタイム アプリのコンポーネントとして XAML を読み込むときに起こることです。 <br/><div class="alert">**<xref:Windows.UI.Xaml.FrameworkElement.Name%2A> は**フレームワークの似たプロパティですが、すべての要素でサポートされているわけではありません。 **FrameworkElement.Name**がその要素の型でサポートされていない場合は常に、要素の識別に**x:Name**を使用します。 |
+| [x:Key](x-key-attribute.md) | XAML のリソースごとに一意のユーザー定義キーを設定 <xref:Windows.UI.Xaml.ResourceDictionary> します。 このキー トークンの文字列は、**StaticResource** マークアップ拡張の引数であり、後でこのキーを使って、アプリの XAML のどこかで使われた別の XAML の XAML リソースを取得することができます。 |
+| [x:Class](x-class-attribute.md) | XAML ページのコード ビハインドを提供するクラスのコード名前空間とコード クラス名を指定します。 これによって、アプリのビルド時にビルド アクションによって作成または結合されたクラスの名前が付けられます。 これらのビルド アクションは、XAML マークアップ コンパイラをサポートし、アプリがコンパイルされるときにマークアップとコード ビハインドを組み合わせます。 XAML ページのコード ビハインドをサポートするには、このようなクラスが必要です。 <xref:Windows.UI.Xaml.Window.Content%2A?displayProperty=nameWithType> 既定の Windows ランタイムアクティブ化モデルの場合。 |
+| [x:Name](x-name-attribute.md) | XAML で定義されたオブジェクト要素が処理された後のランタイム コードに存在するインスタンスのランタイム オブジェクト名を指定します。 XAML で **x:Name** を設定することは、コードで名前付き変数を宣言するようなものと考えることができます。 後でわかるように、これは、まさに Windows ランタイム アプリのコンポーネントとして XAML を読み込むときに起こることです。 <br/><div class="alert">**メモ** <xref:Windows.UI.Xaml.FrameworkElement.Name%2A> はフレームワークの同様のプロパティですが、すべての要素でサポートされるわけではありません。 **FrameworkElement.Name**がその要素の型でサポートされていない場合は常に、要素の識別に**x:Name**を使用します。 |
 | [x:Uid](x-uid-directive.md) | 一部のプロパティ値にローカライズされたリソースを使う必要がある要素を識別します。 **x:Uid** の使い方について詳しくは、「[クイック スタート: UI リソースの翻訳](/previous-versions/windows/apps/hh965329(v=win.10))」をご覧ください。 |
-| [XAML 固有のデータ型](xaml-intrinsic-data-types.md) | これらの型では、属性やリソースで必要となるときに、単純な値型の値を指定できます。 この本質的な型は、各プログラミング言語に固有の定義の一部として一般的に定義される単純な値型に対応しています。 たとえば、<xref:Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames> storyboarded の表示状態で使用する**true**ブール値を表すオブジェクトが必要になる場合があります。 この値を XAML で使用する場合は、次のように**x:Boolean**組み込み型を object 要素として使用し <code>&lt;x:Boolean&gt;True&lt;/x:Boolean&gt;</code> ます。 |
+| [XAML 固有のデータ型](xaml-intrinsic-data-types.md) | これらの型では、属性やリソースで必要となるときに、単純な値型の値を指定できます。 この本質的な型は、各プログラミング言語に固有の定義の一部として一般的に定義される単純な値型に対応しています。 たとえば、storyboarded の表示状態で使用する **true** ブール値を表すオブジェクトが必要になる場合があり <xref:Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames> ます。 XAML でのその値の場合、**x:Boolean** 固有の型を次のようにオブジェクト要素として使います。 <code>&lt;x:Boolean&gt;True&lt;/x:Boolean&gt;</code> |
 
 XAML 言語の XAML 名前空間には、その他のプログラミング構成要素もありますが、あまり一般的ではありません。
 
@@ -94,7 +94,7 @@ Visual C++ コンポーネント拡張機能 (C++/CX) に関する特別な考�
 
 プレフィックス "d" (デザイナー名前空間を示す) や、プレフィックス "mc" (マークアップ互換性を示す) を定義している XAML ファイルもよく使われます。 一般に、これらは、インフラストラクチャのサポート、またはデザイン時ツールでシナリオを有効にするためのものです。 詳しくは、[「XAML 名前空間」トピックの「その他の XAML 名前空間」セクション](xaml-namespaces-and-namespace-mapping.md#other-XAML-namespaces)をご覧ください。
 
-## <a name="markup-extensions"></a>マークアップ拡張
+## <a name="markup-extensions"></a>マークアップ拡張機能
 
 マークアップ拡張は、XAML 言語の概念であり、Windows ランタイム XAML 実装でよく使われています。 マークアップ拡張は、しばしば、単純にバッキング型に基づいて要素を宣言するのとは違って、値または挙動に XAML ファイルでアクセスできる、ある種の "ショートカット" を表します。 マークアップ拡張によっては、構文の合理化、または、異なる XAML ファイル間での整理を目標として、プレーン文字列や入れ子になった追加要素を使ってプロパティを設定できます。
 
@@ -104,21 +104,21 @@ Windows ランタイム XAML は、既定の XAML 名前空間で定義され、
 
 - [{x:Bind}](x-bind-markup-extension.md): データバインディングをサポートしています。これは、コンパイル時に生成される特殊な目的のコードを実行して、実行時までプロパティ評価を延期します。 このマークアップ拡張は、さまざまな引数をサポートしています。
 - [{Binding}](binding-markup-extension.md): 汎用的なランタイム オブジェクト検査を実行することで、プロパティの評価が実行時まで遅延されるデータ バインディングをサポートします。 このマークアップ拡張は、さまざまな引数をサポートしています。
-- [{StaticResource}](staticresource-markup-extension.md): <xref:Windows.UI.Xaml.ResourceDictionary>で定義されているリソース値の参照をサポートします。 これらのリソースは、異なる XAML ファイルに存在していてもかまいませんが、最終的には読み込み時に XAML パーサーによって検出できる必要があります。 `{StaticResource}` 使用法の引数は、<xref:Windows.UI.Xaml.ResourceDictionary>内のキー付きリソースのキー (名前) を識別します。
+- [{StaticResource}](staticresource-markup-extension.md): で定義されているリソース値の参照をサポート <xref:Windows.UI.Xaml.ResourceDictionary> します。 これらのリソースは、異なる XAML ファイルに存在していてもかまいませんが、最終的には読み込み時に XAML パーサーによって検出できる必要があります。 使用法の引数は `{StaticResource}` 、内のキー付きリソースのキー (名前) を識別し <xref:Windows.UI.Xaml.ResourceDictionary> ます。
 - [{{ThemeResource}}](themeresource-markup-extension.md): [{{StaticResource}}](staticresource-markup-extension.md) と似ていますが、実行時のテーマ変更に応答できます。 {ThemeResource} は、Windows ランタイムの既定の XAML テンプレートによく出現します。これらのテンプレートのほとんどは、アプリの実行中にユーザーがテーマを切り替えた場合に対応できるように設計されているためです。
 - [{{TemplateBinding}}](templatebinding-markup-extension.md): [{{Binding}}](binding-markup-extension.md) の特殊なケースであり、XAML のコントロール テンプレートとその実行時の最終的な使用をサポートします。
 - [{RelativeSource}](relativesource-markup-extension.md): テンプレート化された親に値が由来する特定の形式のテンプレート バインディングを有効にします。
 - [{CustomResource}](customresource-markup-extension.md): 高度なリソース検索のシナリオで使います。
 
-Windows ランタイムは、[{x:Null} マークアップ拡張](x-null-markup-extension.md)もサポートしています。 これは、XAML で [**Nullable**](/dotnet/api/system.nullable-1) 値を **null** に設定するために使われます。 たとえば、これを <xref:Windows.UI.Xaml.Controls.CheckBox>のコントロールテンプレートで使用することができます。この場合、 **null**は不確定なチェック状態として解釈されます ("不確定" ビジュアル状態がトリガーされます)。
+Windows ランタイムは、[{x:Null} マークアップ拡張](x-null-markup-extension.md)もサポートしています。 これは、XAML で [**Nullable**](/dotnet/api/system.nullable-1) 値を **null** に設定するために使われます。 たとえば、これをのコントロールテンプレートで使用できます。これは、 <xref:Windows.UI.Xaml.Controls.CheckBox> 不確定なチェック状態 ("不確定" の表示状態をトリガー) として **null** を解釈します。
 
 通常、マークアップ拡張機能は、アプリのオブジェクトグラフの他の部分から既存のインスタンスを返すか、または値を実行時に延期します。 マークアップ拡張は属性値として使うことができ、それが一般的な使用方法であるため、マークアップ拡張は多くの場合、マークアップ拡張を使用しなければプロパティ要素構文が必要である参照型のプロパティの値を設定するために使用されます。
 
-たとえば、<xref:Windows.UI.Xaml.ResourceDictionary>: `<Button Style="{StaticResource SearchButtonStyle}"/>`から再利用可能な <xref:Windows.UI.Xaml.Style> を参照するための構文を次に示します。 <xref:Windows.UI.Xaml.Style> は単純な値ではなく、参照型であるため、`{StaticResource}` 使用しない場合は、`<Button.Style>` property 要素と、その中に `<Style>` 定義を使用して、<xref:Windows.UI.Xaml.FrameworkElement.Style%2A?displayProperty=nameWithType> プロパティを設定する必要があります。
+たとえば、から再利用可能なを参照するための構文を次に示し <xref:Windows.UI.Xaml.Style> <xref:Windows.UI.Xaml.ResourceDictionary> `<Button Style="{StaticResource SearchButtonStyle}"/>` ます。 は、単純な値ではなく、参照型であるため、プロパティを <xref:Windows.UI.Xaml.Style> `{StaticResource}` `<Button.Style>` 設定するには、プロパティ要素と `<Style>` その中に定義を使用する必要がありました <xref:Windows.UI.Xaml.FrameworkElement.Style%2A?displayProperty=nameWithType> 。
 
 マークアップ拡張を使うと、XAML で設定可能なすべてのプロパティを属性構文で設定できるようになる可能性があります。 属性構文でオブジェクトを直接インスタンス化できないプロパティでも、属性構文を使って、プロパティの参照値を指定できます。 つまり、XAML のプロパティに値型または新しく作成した参照型を設定するという通常の要件を延期する特殊な動作を有効にすることができます。
 
-例として、次の XAML の例では、属性構文を使用して、<xref:Windows.UI.Xaml.Controls.Border> の <xref:Windows.UI.Xaml.FrameworkElement.Style%2A?displayProperty=nameWithType> プロパティの値を設定しています。 <xref:Windows.UI.Xaml.FrameworkElement.Style%2A?displayProperty=nameWithType> プロパティは、<xref:Windows.UI.Xaml.Style?displayProperty=nameWithType> クラスのインスタンスを受け取ります。既定では、属性構文文字列を使用して作成できなかった参照型です。 しかし、この例では、属性が [StaticResource](staticresource-markup-extension.md) のマークアップ拡張機能を参照しています。 このマークアップ拡張が処理されると、リソース ディクショナリ内のキーを持つリソースとして既に定義されている **Style** 要素への参照が返されます。
+例として、次の XAML の例で <xref:Windows.UI.Xaml.FrameworkElement.Style%2A?displayProperty=nameWithType> は、属性構文を使用して、のプロパティの値を設定して <xref:Windows.UI.Xaml.Controls.Border> います。 プロパティは、 <xref:Windows.UI.Xaml.FrameworkElement.Style%2A?displayProperty=nameWithType> クラスのインスタンスを取得し <xref:Windows.UI.Xaml.Style?displayProperty=nameWithType> ます。既定では、属性構文文字列を使用して作成できなかった参照型です。 しかし、この例では、属性が [StaticResource](staticresource-markup-extension.md) のマークアップ拡張機能を参照しています。 このマークアップ拡張が処理されると、リソース ディクショナリ内のキーを持つリソースとして既に定義されている **Style** 要素への参照が返されます。
 
 ```xml
 <Canvas.Resources>
@@ -133,21 +133,21 @@ Windows ランタイムは、[{x:Null} マークアップ拡張](x-null-markup-e
 </Border>
 ```
 
-マークアップ拡張は、入れ子にすることもできます。 一番内側のマークアップ拡張が最初に評価されます。
+マークアップ拡張は、入れ子にすることもできます。 最も内側のマークアップ拡張機能が最初に評価されます。
 
 マークアップ拡張のため、属性内のリテラル "{{" 値には特別な構文が必要です。 詳しくは、「[XAML 構文のガイド](xaml-syntax-guide.md)」をご覧ください。
 
-## <a name="events"></a>イベント
+## <a name="events"></a>events
 
 XAML は、オブジェクトとそのプロパティを記述するための宣言型言語ですが、マークアップ内のオブジェクトにイベント ハンドラーをアタッチするための構文も備えています。 XAML イベント構文では、Windows ランタイム プログラミング モデルを利用して、XAML で宣言されたイベントを統合できます。 イベントの名前は、そのイベントが処理されるオブジェクトの属性名として指定します。 属性値には、コードで定義するイベント ハンドラー関数の名前を指定します。 XAML プロセッサはこの名前を使って、読み込まれたオブジェクト ツリーにデリゲート表現を作成し、指定されたハンドラーを内部ハンドラー リストに追加します。 Windows ランタイム アプリの大半は、マークアップ ソースとコード ビハインド ソースの両方によって定義されます。
 
-次に単純な例を示します。 <xref:Windows.UI.Xaml.Controls.Button> クラスは、<xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click>という名前のイベントをサポートしています。 ユーザーが **Button** をクリックすると呼び出されるコードを実行する **Click** のハンドラーを作成できます。 XAML では、**Click** を **Button** の属性として指定します。 属性値には、ハンドラーのメソッド名である文字列を指定します。
+次に単純な例を示します。 クラスは、 <xref:Windows.UI.Xaml.Controls.Button> という名前のイベントをサポートして <xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click> います。 ユーザーが **Button** をクリックすると呼び出されるコードを実行する **Click** のハンドラーを作成できます。 XAML では、**Click** を **Button** の属性として指定します。 属性値には、ハンドラーのメソッド名である文字列を指定します。
 
 ```xml
 <Button Click="showUpdatesButton_Click">Show updates</Button>
 ```
 
-コンパイルの際に、`showUpdatesButton_Click` という名前のメソッドが、コード ビハインド ファイルと、XAML ページの [x:Class](x-class-attribute.md) 値に宣言された名前空間に定義されていることが前提となります。 また、このメソッドは、<xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click> イベントのデリゲートコントラクトを満たす必要があります。 次に、例を示します。
+コンパイルの際に、`showUpdatesButton_Click` という名前のメソッドが、コード ビハインド ファイルと、XAML ページの [x:Class](x-class-attribute.md) 値に宣言された名前空間に定義されていることが前提となります。 また、そのメソッドは、イベントのデリゲートコントラクトを満たす必要があり <xref:Windows.UI.Xaml.Controls.Primitives.ButtonBase.Click> ます。 次に例を示します。
 
 ```csharp
 namespace App1
@@ -196,14 +196,14 @@ namespace App1
 }
 ```
 
-1 つのプロジェクトの中で、XAML を使って .xaml ファイルが作成され、任意の言語 (C#、Visual Basic、C++/CX) を使って分離コード ファイルが作成されます。 名前空間とクラスを XAML ページのルート要素の [x:Class](x-class-attribute.md) 属性として指定すると、プロジェクトのビルド アクションの一環として XAML ファイルがマークアップ コンパイルされるときに、各 XAML ページの XAML コード ビハインド ファイルの場所が特定されます。 これらの機構がどのように XAML で動作し、プログラミングとアプリケーション モデルにどのように関連するかについての詳しい情報は、「[イベントとルーティング イベントの概要](events-and-routed-events-overview.md)」をご覧ください。
+1 つのプロジェクトの中で、XAML を使って .xaml ファイルが作成され、任意の言語 (C#、Visual Basic、C++/CX) を使って分離コード ファイルが作成されます。 名前空間とクラスを XAML ページのルート要素の [x:Class](x-class-attribute.md) 属性として指定すると、プロジェクトのビルド アクションの一環として XAML ファイルがマークアップ コンパイルされるときに、各 XAML ページの XAML コード ビハインド ファイルの場所が特定されます。 これらのメカニズムが XAML でどのように機能するか、およびプログラミングモデルとアプリケーションモデルにどのように関連するかについては、「 [イベントとルーティングイベントの概要](events-and-routed-events-overview.md)」を参照してください。
 
 > [!NOTE]
-> /Cx C++には、2つの分離コードファイルがあります。1つはヘッダー (.xaml .h) で、もう1つは実装 (.xaml. .cpp) です。 実装は、ヘッダーを参照し、コード ビハインド接続用のエントリ ポイントを表す技術的なヘッダーです。
+> C++/CX では、2つの分離コードファイルがあります。1つはヘッダー (.xaml .h) で、もう1つは実装 (.xaml) です。 実装は、ヘッダーを参照し、コード ビハインド接続用のエントリ ポイントを表す技術的なヘッダーです。
 
 ## <a name="resource-dictionaries"></a>リソース ディクショナリ
 
-<xref:Windows.UI.Xaml.ResourceDictionary> の作成は、通常、XAML ページまたは個別の XAML ファイルの領域としてリソースディクショナリを作成することによって実現される一般的なタスクです。 リソース ディクショナリとその使用方法は、概念的に広い範囲にわたるので、このトピックでは扱いません。 詳しくは、「[ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」をご覧ください。
+の作成 <xref:Windows.UI.Xaml.ResourceDictionary> は、通常、xaml ページまたは個別の xaml ファイルの領域としてリソースディクショナリを作成することによって実現される一般的なタスクです。 リソース ディクショナリとその使用方法は、概念的に広い範囲にわたるので、このトピックでは扱いません。 詳しくは、「[ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」をご覧ください。
 
 ## <a name="xaml-and-xml"></a>XAML と XML
 
@@ -215,7 +215,7 @@ XAML は、大文字と小文字を区別します。 XAML は XML を基にし�
 
 ## <a name="xaml-namescopes"></a>XAML 名前スコープ
 
-XAML 言語では、XAML 名前スコープという概念が定義されています。 XAML 名前スコープの概念は、XAML 要素に適用された **x:Name** や **Name** の値が XAML プロセッサによってどのように扱われるか (特に名前を一意の識別子として使うスコープ) に影響します。 XAML 名前スコープについては、別のトピックで詳しく説明します。「[XAML 名前スコープ](xaml-namescopes.md)」をご覧ください。
+XAML 言語では、XAML 名前スコープという概念が定義されています。 XAML 名前スコープの概念は、XAML 要素に適用された **x:Name** や **Name** の値が XAML プロセッサによってどのように扱われるか (特に名前を一意の識別子として使うスコープ) に影響します。 XAML 名前スコープの詳細については、別のトピックで説明します。「 [XAML 名前スコープ](xaml-namescopes.md)」を参照してください。
 
 ## <a name="the-role-of-xaml-in-the-development-process"></a>開発プロセスでの XAML の役割
 
@@ -223,7 +223,7 @@ XAML は、アプリ開発プロセスにおいて重要な役割を果たしま
 
 - XAML は、C#、Visual Basic、または C++/CX を使ったプログラミングでアプリの UI と UI 内の要素を宣言するための基本形式です。 一般的には、プロジェクトの 1 つ以上の XAML ファイルが、アプリの初期表示される UI のページ メタファを表します。 また、別の XAML ファイルで、ナビゲーション用 UI のための追加のページを宣言できます。 それ以外の XAML ファイルでは、リソース (テンプレート、スタイルなど) を宣言できます。
 - XAML 形式は、アプリのコントロールや UI に適用されるスタイルとテンプレートを宣言するために使われます。
-- 既存のコントロールをテンプレート化する場合や、コントロール パッケージの一部として既定のテンプレートを提供するコントロールを定義する場合などに、スタイルとテンプレートを使います。 このメソッドを使用してスタイルとテンプレートを定義すると、関連する XAML は多くの場合、<xref:Windows.UI.Xaml.ResourceDictionary> ルートを持つ個別の XAML ファイルとして宣言されます。
+- 既存のコントロールをテンプレート化する場合や、コントロール パッケージの一部として既定のテンプレートを提供するコントロールを定義する場合などに、スタイルとテンプレートを使います。 これを使用してスタイルとテンプレートを定義すると、関連する XAML は多くの場合、ルートを持つ個別の XAML ファイルとして宣言され <xref:Windows.UI.Xaml.ResourceDictionary> ます。
 - XAML は、アプリの UI を作成し異なるデザイナー アプリ間で UI 設計を交換することを可能にするデザイナー サポートの共通形式です。 たとえば、アプリの XAML を異なる XAML デザイン ツール (またはツール内のデザイン ウィンドウ) の間で交換することができます。
 - XAML で基本的な UI を定義するテクノロジは他にもあります。 Windows ランタイムの XAML は、Windows Presentation Foundation (WPF) XAML や Microsoft Silverlight XAML と関連があり、共有される既定の XAML 名前空間用に同じ URI を使っています。 また、Windows ランタイムの XAML ボキャブラリの多くは、Silverlight や (Silverlight ほどではありませんが) WPF でも使われている XAML-for-UI ボキャブラリと共通しています。 そのため、XAML を使う先行技術のために定義された UI を効率的に移行することができます。
 - XAML で UI の外観を定義し、関連付けられたコード ビハインド ファイルでロジックを定義します。 UI 設計は、コード ビハインドのロジックに変更を加えることなく調整できます。 XAML は、デザイナーと開発者との間のワークフローを単純化します。
@@ -235,13 +235,13 @@ XAML は、アプリ開発プロセスにおいて重要な役割を果たしま
 
 パフォーマンスを向上させるためのベスト プラクティスを使って XAML で UI 要素を定義するためのヒントを次に示します。 これらのヒントの多くは XAML リソースの使用に関するものですが、便宜上、一般的な XAML の概要を示すこのトピックにおいても紹介します。 XAML リソースについて詳しくは、「[ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」をご覧ください。 パフォーマンス向上のヒントについて詳しくは、パフォーマンスに悪影響を及ぼすため避ける必要のある XAML の実例も含めて、「[XAML マークアップの最適化](../debug-test-perf/optimize-xaml-loading.md)」をご覧ください。
 
-- XAML で同じカラーブラシを頻繁に使用する場合は、名前付きの色を毎回属性値として使用するのではなく、<xref:Windows.UI.Xaml.Media.SolidColorBrush> をリソースとして定義します。
-- 複数の UI ページで同じリソースを使用する場合は、各ページではなく <xref:Windows.UI.Xaml.Application.Resources%2A> で定義することを検討してください。 逆に、1 つのページのみでリソースを使う場合は、リソースを **Application.Resources** に定義する代わりに、必要なページだけに定義します。 これは、アプリ設計時の XAML ファクタリングと、XAML 構文解析時のパフォーマンスの両方に有効です。
+- XAML で同じカラーブラシを頻繁に使用する場合は、 <xref:Windows.UI.Xaml.Media.SolidColorBrush> 名前付きの色を毎回属性値として使用するのではなく、をリソースとして定義します。
+- 複数の UI ページで同じリソースを使用する場合は、 <xref:Windows.UI.Xaml.Application.Resources%2A> 各ページではなくで定義することを検討してください。 逆に、1 つのページのみでリソースを使う場合は、リソースを **Application.Resources** に定義する代わりに、必要なページだけに定義します。 これは、アプリ設計時の XAML ファクタリングと、XAML 構文解析時のパフォーマンスの両方に有効です。
 - アプリでパッケージ化するリソースについては、使われていないリソース (キーを持つ一方でそれを使うアプリ内に [StaticResource](staticresource-markup-extension.md) 参照がないリソース) がないかどうかを調べます。 これらは、アプリをリリースする前に、XAML から削除します。
-- デザインリソース (<xref:Windows.UI.Xaml.ResourceDictionary.MergedDictionaries%2A>) を提供する個別の XAML ファイルを使用している場合は、これらのファイルから未使用のリソースをコメント化または削除することを検討してください。 複数のアプリで使っている共有 XAML や、すべてのアプリに共通するリソースを提供する共有 XAML がある場合でも、毎回 XAML リソースをパッケージ化するのはアプリであり、そのたびに XAML リソースを読み込む可能性があります。
+- デザインリソース () を提供する個別の XAML ファイルを使用している場合 <xref:Windows.UI.Xaml.ResourceDictionary.MergedDictionaries%2A> は、これらのファイルから未使用のリソースをコメント化または削除することを検討してください。 複数のアプリで使っている共有 XAML や、すべてのアプリに共通するリソースを提供する共有 XAML がある場合でも、毎回 XAML リソースをパッケージ化するのはアプリであり、そのたびに XAML リソースを読み込む可能性があります。
 - 構成に必要ない UI 要素は定義しないでください。可能な限り、既定のコントロール テンプレートを使ってください (既定のテンプレートは読み込み時のパフォーマンスが既にテストされ確認されています)。
-- UI 要素を意図的に描画するのではなく、<xref:Windows.UI.Xaml.Controls.Border> などのコンテナーを使用します。 基本的に、同じピクセルを複数回描画しないでください。 オーバードローとそのテスト方法の詳細については、「<xref:Windows.UI.Xaml.DebugSettings.IsOverdrawHeatMapEnabled?displayProperty=nameWithType>」を参照してください。
-- <xref:Windows.UI.Xaml.Controls.ListView> または <xref:Windows.UI.Xaml.Controls.GridView>の既定の項目テンプレートを使用します。これには、多数のリスト項目のビジュアルツリーを構築するときにパフォーマンスの問題を解決する特別な**プレゼンター**ロジックが用意されています。
+- <xref:Windows.UI.Xaml.Controls.Border>UI 要素を意図的に描画するのではなく、などのコンテナーを使用します。 基本的に、同じピクセルを複数回描画しないでください。 オーバードローとテスト方法の詳細については、「」を参照してください <xref:Windows.UI.Xaml.DebugSettings.IsOverdrawHeatMapEnabled?displayProperty=nameWithType> 。
+- またはの既定の項目テンプレートを使用し <xref:Windows.UI.Xaml.Controls.ListView> ます。これには、 <xref:Windows.UI.Xaml.Controls.GridView> 多数のリスト項目のビジュアルツリーを構築するときにパフォーマンスの問題を解決する特別な **プレゼンター** ロジックが用意されています。
 
 ## <a name="debug-xaml"></a>XAML のデバッグ
 
@@ -251,9 +251,9 @@ XAML ファイルに問題がある場合、一般的な結果として、一部
 
 XAML は、Visual Studio などの IDE や XAML デザイン サーフェイスのいずれかで編集されることがあります。 Visual Studio では、編集しているときに XAML ソースに対する設計時検証やエラー チェックを行うことができます。 たとえば、誤った属性値を入力したときに、XAML テキスト エディターで "波線" が表示される場合があります。UI 定義の問題を確認するために、XAML コンパイル パスを待機する必要はありません。
 
-アプリを実際に実行したとき、XAML 解析エラーが設計時に検出されていないと、共通言語ランタイム (CLR) によって、[**XamlParseException**](https://docs.microsoft.com/dotnet/api/Windows.UI.Xaml.markup.xamlparseexception?view=dotnet-uwp-10.0) として報告されます。 実行時の **XamlParseException** に関する操作について詳しくは、「[C# または Visual Basic での Windows ランタイム アプリの例外処理](https://docs.microsoft.com/previous-versions/windows/apps/dn532194(v=win.10))」をご覧ください。
+アプリを実際に実行したとき、XAML 解析エラーが設計時に検出されていないと、共通言語ランタイム (CLR) によって、[**XamlParseException**](/dotnet/api/Windows.UI.Xaml.markup.xamlparseexception?view=dotnet-uwp-10.0) として報告されます。 実行時の **XamlParseException** に関する操作について詳しくは、「[C# または Visual Basic での Windows ランタイム アプリの例外処理](/previous-versions/windows/apps/dn532194(v=win.10))」をご覧ください。
 
 > [!NOTE]
-> コードに/Cx C++を使用するアプリでは、特定の[**xamlparseexception**](https://docs.microsoft.com/dotnet/api/Windows.UI.Xaml.markup.xamlparseexception?view=dotnet-uwp-10.0)は取得されません。 ただし、例外のメッセージによって、エラーの原因が XAML 関連であることが明らかになります。このメッセージには、**XamlParseException** と同様に、XAML ファイル内の行番号などのコンテキスト情報も含まれています。
+> コードに C++/CX を使用するアプリでは、特定の [**Xamlparseexception**](/dotnet/api/Windows.UI.Xaml.markup.xamlparseexception?view=dotnet-uwp-10.0)は取得されません。 ただし、例外のメッセージによって、エラーの原因が XAML 関連であることが明らかになります。このメッセージには、**XamlParseException** と同様に、XAML ファイル内の行番号などのコンテキスト情報も含まれています。
 
-Windows ランタイム アプリのデバッグについて詳しくは、「[デバッグ セッションの開始](/visualstudio/debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml?view=vs-2015)」をご覧ください。
+Windows ランタイムアプリのデバッグの詳細については、「 [デバッグセッションを開始する](/visualstudio/debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml?view=vs-2015)」を参照してください。

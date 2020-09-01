@@ -1,19 +1,19 @@
 ---
 ms.assetid: 9347AD7C-3A90-4073-BFF4-9E8237398343
 description: この記事では、UWP アプリ用のオーディオとビデオのコーデックおよび形式のサポートを示します。
-title: サポートされているコーデック
+title: サポートされるコーデック
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4b122aa6436e55c80276cdd684b7c10cc3c47d28
-ms.sourcegitcommit: 49a34e957433966ac8d4822b5822f21087aa61c3
+ms.openlocfilehash: bf61935459d8b842a3d26fcfe546995427d98d3f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153713"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175696"
 ---
-# <a name="supported-codecs"></a>サポートされているコーデック
+# <a name="supported-codecs"></a>サポートされるコーデック
 
 この記事では、各デバイス ファミリの既定で、UWP アプリで利用可能なオーディオ、ビデオ、イメージのコーデックと形式を示します。 これらの表では、指定のデバイス ファミリの Windows 10 のインストールに含まれているコーデックを示していることに注意してください。 ユーザーやアプリが、利用可能な追加のコーデックをインストールする場合があります。 実行時に、特定のデバイスで現在利用可能なコーデックのセットを照会できます。 詳しくは、「[デバイスにインストールされているコーデックの照会](codec-query.md)」をご覧ください。
 
@@ -28,7 +28,7 @@ ms.locfileid: "74153713"
 
  
 
-### <a name="desktop"></a>Desktop
+### <a name="desktop"></a>デスクトップ
 
 <table>
 <colgroup>
@@ -1593,7 +1593,7 @@ ms.locfileid: "74153713"
 
  
 
-### <a name="desktop"></a>Desktop
+### <a name="desktop"></a>デスクトップ
 
 <table>
 <colgroup>
@@ -2697,7 +2697,7 @@ ms.locfileid: "74153713"
 <thead>
 <tr class="header">
 <th align="left">コーデック</th>
-<th align="left">Desktop</th>
+<th align="left">デスクトップ</th>
 <th align="left">他のデバイス ファミリ</th>
 </tr>
 </thead>
@@ -2749,12 +2749,12 @@ ms.locfileid: "74153713"
 <tr class="even">
 <td align="left">RAW 形式のカメラ</td>
 <td align="left">D<sup>3</sup></td>
-<td align="left">必須ではない</td>
+<td align="left">いいえ</td>
 </tr>
 </table>
 
-<sup>1</sup> BC5 圧縮による BC1 を使用した DDS イメージがサポートされています。  
-<sup>2</sup> 非 RAW 形式の埋め込みプレビューを含む DNG イメージがサポートされています。  
-<sup>3</sup> 特定のカメラの RAW 形式のみがサポートされています。  
+<sup>1</sup> BC5 圧縮による BC1 を使用する DDS イメージはサポートされています。  
+<sup>2</sup> 非未加工の埋め込みプレビューのある dng イメージがサポートされています。  
+<sup>3</sup> 特定のカメラの未加工の形式のみがサポートされています。  
 
-イメージ コーデックの詳細については、「[ネイティブ WIC コーデック](https://docs.microsoft.com/windows/desktop/wic/native-wic-codecs)」をご覧ください。
+イメージ コーデックの詳細については、「[ネイティブ WIC コーデック](/windows/desktop/wic/native-wic-codecs)」をご覧ください。

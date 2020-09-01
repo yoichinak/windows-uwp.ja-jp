@@ -6,22 +6,22 @@ ms.date: 10/24/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サウンド
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e624c750bfce0633bc91d440fd883341b831836
-ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
+ms.openlocfilehash: 04a9ea70914be3c60826df8753eca2ad1c30f19d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85409651"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175186"
 ---
 # <a name="add-sound"></a>サウンドの追加
 
 > [!NOTE]
-> このトピックは、「DirectX チュートリアルシリーズ[を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
+> このトピックは、「DirectX チュートリアルシリーズ [を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md) 」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
 
 このトピックでは、 [XAudio2](/windows/desktop/xaudio2/xaudio2-introduction) api を使用して単純なサウンドエンジンを作成します。 __XAudio2__を初めて使用する場合は、[オーディオの概念](#audio-concepts)に関する簡単な概要が記載されています。
 
 >[!Note]
->このサンプルの最新のゲームコードをダウンロードしていない場合は、「 [Direct3D サンプルゲーム](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)」にアクセスしてください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](/windows/uwp/get-started/get-uwp-app-samples)」をご覧ください。
+>このサンプルの最新のゲームコードをダウンロードしていない場合は、「 [Direct3D サンプルゲーム](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameDX)」にアクセスしてください。 このサンプルは、UWP 機能のサンプルの大規模なコレクションの一部です。 サンプルをダウンロードする手順については、「[GitHub から UWP のサンプルを取得する](../get-started/get-app-samples.md)」をご覧ください。
 
 ## <a name="objective"></a>目的
 
@@ -43,27 +43,27 @@ ms.locfileid: "85409651"
 2. [オーディオファイルの読み込み](#load-audio-file)
 3. [サウンドをオブジェクトに関連付ける](#associate-sound-to-object)
 
-これらはすべて、 [Simple3DGame:: Initialize](#simple3dgameinitialize-method)メソッドで定義されています。 まず、このメソッドを調べて、各セクションの詳細について説明します。
+これらはすべて、 [Simple3DGame:: Initialize](#simple3dgameinitialize-method) メソッドで定義されています。 まず、このメソッドを調べて、各セクションの詳細について説明します。
 
-設定後、サウンド効果をトリガーして再生する方法について説明します。 詳細については、「[サウンドを再生](#play-the-sound)する」を参照してください。
+設定後、サウンド効果をトリガーして再生する方法について説明します。 詳細については、「 [サウンドを再生](#play-the-sound)する」を参照してください。
 
 ### <a name="simple3dgameinitialize-method"></a>Simple3DGame:: Initialize メソッド
 
 __Simple3DGame:: Initialize__では、 __m \_ コントローラー__と__m \_ レンダラー__も初期化されます。オーディオエンジンを設定し、サウンドを再生できるようにします。
 
  * [オーディオ](#audioh)クラスのインスタンスである__m \_ audiocontroller__を作成します。
- * [Audio:: CreateDeviceIndependentResources](#audiocreatedeviceindependentresources-method)メソッドを使用して必要なオーディオリソースを作成します。 ここでは、2つの__XAudio2__オブジェクトに &mdash; ミュージックエンジンオブジェクトとサウンドエンジンオブジェクトを作成し、それぞれに対してマスタリング音声を作成しました。 ミュージックエンジンオブジェクトを使用して、ゲームの背景音楽を再生できます。 サウンドエンジンを使用して、ゲームのサウンド効果を再生できます。 詳細については、「[オーディオリソースの作成と初期化](#create-and-initialize-the-audio-resources)」を参照してください。
+ * [Audio:: CreateDeviceIndependentResources](#audiocreatedeviceindependentresources-method)メソッドを使用して必要なオーディオリソースを作成します。 ここでは、2つの __XAudio2__ オブジェクトに &mdash; ミュージックエンジンオブジェクトとサウンドエンジンオブジェクトを作成し、それぞれに対してマスタリング音声を作成しました。 ミュージックエンジンオブジェクトを使用して、ゲームの背景音楽を再生できます。 サウンドエンジンを使用して、ゲームのサウンド効果を再生できます。 詳細については、「 [オーディオリソースの作成と初期化](#create-and-initialize-the-audio-resources)」を参照してください。
  * Mediareader[クラスの](#mediareaderh)インスタンスである__mediareader__を作成します。 [SoundEffect](#soundeffecth)クラスのヘルパークラスである[mediareader](#mediareaderh)は、ファイルの場所から同期的に小さいオーディオファイルを読み取り、音声データをバイト配列として返します。
- * [Mediareader:: LoadMedia](#mediareaderloadmedia-method)を使用して、サウンドファイルの場所からサウンドファイルを読み込み、読み込まれた .wav サウンドデータを保持するために__targethitsound__変数を作成します。 詳細については、「[オーディオファイルの読み込み](#load-audio-file)」を参照してください。 
+ * [Mediareader:: LoadMedia](#mediareaderloadmedia-method)を使用して、サウンドファイルの場所からサウンドファイルを読み込み、読み込まれた .wav サウンドデータを保持するために__targethitsound__変数を作成します。 詳細については、「 [オーディオファイルの読み込み](#load-audio-file)」を参照してください。 
 
 サウンド効果は、game オブジェクトに関連付けられています。 そのため、その game オブジェクトで競合が発生すると、再生されるサウンド効果がトリガーされます。 このサンプルゲームでは、ammo (ターゲットのの撮影に使用されるもの) とターゲットのサウンド効果があります。 
     
-* このオブジェクト__クラスには、__ サウンド効果をオブジェクトに関連付けるために使用される__ヒット音__のプロパティがあります。
+* このオブジェクト __クラスには、__ サウンド効果をオブジェクトに関連付けるために使用される __ヒット音__ のプロパティがあります。
 * [SoundEffect](#soundeffecth)クラスの新しいインスタンスを作成し、初期化します。 初期化中に、サウンド効果のソース音声が作成されます。 
-* このクラスは、 [Audio](#audioh)クラスによって提供されるマスタリング音声を使用してサウンドを再生します。 サウンドデータは、 [Mediareader](#mediareaderh)クラスを使用してファイルの場所から読み取られます。 詳細については、「[オブジェクトへのサウンドの関連付け](#associate-sound-to-object)」を参照してください。
+* このクラスは、 [Audio](#audioh) クラスによって提供されるマスタリング音声を使用してサウンドを再生します。 サウンドデータは、 [Mediareader](#mediareaderh) クラスを使用してファイルの場所から読み取られます。 詳細については、「 [オブジェクトへのサウンドの関連付け](#associate-sound-to-object)」を参照してください。
 
 >[!Note]
->サウンドを再生する実際のトリガーは、これらのゲームオブジェクトの動きと衝突によって決まります。 そのため、これらのサウンドを実際に再生する呼び出しは、 [Simple3DGame:: UpdateDynamics](#simple3dgameupdatedynamics-method)メソッドで定義されています。 詳細については、「[サウンドを再生](#play-the-sound)する」を参照してください。
+>サウンドを再生する実際のトリガーは、これらのゲームオブジェクトの動きと衝突によって決まります。 そのため、これらのサウンドを実際に再生する呼び出しは、 [Simple3DGame:: UpdateDynamics](#simple3dgameupdatedynamics-method) メソッドで定義されています。 詳細については、「 [サウンドを再生](#play-the-sound)する」を参照してください。
 
 ```cppwinrt
 void Simple3DGame::Initialize(
@@ -134,8 +134,8 @@ void Simple3DGame::Initialize(
 
 ## <a name="create-and-initialize-the-audio-resources"></a>オーディオリソースを作成して初期化する
 
-* [XAudio2Create](/windows/desktop/api/xaudio2/nf-xaudio2-xaudio2create)(XAudio2 API) を使用して、音楽とサウンド効果エンジンを定義する2つの新しい XAudio2 オブジェクトを作成します。 このメソッドは、すべてのオーディオエンジンの状態、オーディオ処理スレッド、音声グラフなどを管理するオブジェクトの[IXAudio2](/windows/desktop/api/xaudio2/nn-xaudio2-ixaudio2)インターフェイスへのポインターを返します。
-* エンジンがインスタンス化されたら、 [IXAudio2:: CreateMasteringVoice](/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2-createmasteringvoice)を使用して、各サウンドエンジンオブジェクトのマスター音声を作成します。
+* [XAudio2Create](/windows/desktop/api/xaudio2/nf-xaudio2-xaudio2create)(XAudio2 API) を使用して、音楽とサウンド効果エンジンを定義する2つの新しい XAudio2 オブジェクトを作成します。 このメソッドは、すべてのオーディオエンジンの状態、オーディオ処理スレッド、音声グラフなどを管理するオブジェクトの [IXAudio2](/windows/desktop/api/xaudio2/nn-xaudio2-ixaudio2) インターフェイスへのポインターを返します。
+* エンジンがインスタンス化されたら、 [IXAudio2:: CreateMasteringVoice](/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2-createmasteringvoice) を使用して、各サウンドエンジンオブジェクトのマスター音声を作成します。
 
 詳細については、「 [How to: Initialize XAudio2](/windows/desktop/xaudio2/how-to--initialize-xaudio2)」を参照してください。
 
@@ -185,7 +185,7 @@ void Audio::CreateDeviceIndependentResources()
 3. _MediaType_のデコードされた出力が、 __XAudio2__が使用できるオーディオの種類である PCM audio であることを指定します。
 4. [IMFSourceReader:: SetCurrentMediaType](/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-setcurrentmediatype)を呼び出すことによって、ソースリーダーに対してデコードされた出力メディアの種類を設定します。
 
-ソースリーダーを使用する理由の詳細については、「[ソースリーダー](/windows/desktop/medfound/source-reader)」を参照してください。
+ソースリーダーを使用する理由の詳細については、「 [ソースリーダー](/windows/desktop/medfound/source-reader)」を参照してください。
 
 #### <a name="describe-the-data-format-of-the-audio-stream"></a>オーディオストリームのデータ形式の記述
 
@@ -197,7 +197,7 @@ __WAVEFORMATEX__形式は、PCM バッファーの記述に使用できます。
 #### <a name="read-the-audio-stream"></a>オーディオストリームの読み取り
 
 1.  [IMFSourceReader:: Getプレゼンテーション属性](/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-getpresentationattribute)を呼び出して、オーディオストリームの期間 (秒単位) を取得し、その期間をバイトに変換します。
-2.  [IMFSourceReader:: ReadSample](/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-readsample)を呼び出して、のオーディオファイルをストリームとして読み取ります。 __Readsample__は、メディアソースから次のサンプルを読み取ります。
+2.  [IMFSourceReader:: ReadSample](/windows/desktop/api/mfreadwrite/nf-mfreadwrite-imfsourcereader-readsample)を呼び出して、のオーディオファイルをストリームとして読み取ります。 __Readsample__ は、メディアソースから次のサンプルを読み取ります。
 3.  [Imfsample:: ConvertToContiguousBuffer](/windows/desktop/api/mfobjects/nf-mfobjects-imfsample-converttocontiguousbuffer)を使用して、オーディオサンプルバッファー (_サンプル_) の内容を配列 (_mediaBuffer_) にコピーします。
 
 ```cppwinrt
@@ -303,10 +303,10 @@ std::vector<byte> MediaReader::LoadMedia(_In_ winrt::hstring const& filename)
 [Simple3DGame:: Initialize](#simple3dgameinitialize-method)メソッドでは、ゲームの初期化時に、オブジェクトへのサウンドの関連付けが行われます。
 
 要約: 
-* このオブジェクト__クラスには、__ サウンド効果をオブジェクトに関連付けるために使用される__ヒット音__のプロパティがあります。
-* [SoundEffect](#soundeffecth) class オブジェクトの新しいインスタンスを作成し、game オブジェクトに関連付けます。 このクラスは、 __XAudio2__ api を使用してサウンドを再生します。  [オーディオ](#audioh)クラスによって提供されるマスタリング音声を使用します。 サウンドデータは、 [Mediareader](#mediareaderh)クラスを使用してファイルの場所から読み取ることができます。
+* このオブジェクト __クラスには、__ サウンド効果をオブジェクトに関連付けるために使用される __ヒット音__ のプロパティがあります。
+* [SoundEffect](#soundeffecth) class オブジェクトの新しいインスタンスを作成し、game オブジェクトに関連付けます。 このクラスは、 __XAudio2__ api を使用してサウンドを再生します。  [オーディオ](#audioh)クラスによって提供されるマスタリング音声を使用します。 サウンドデータは、 [Mediareader](#mediareaderh) クラスを使用してファイルの場所から読み取ることができます。
 
-[SoundEffect:: Initialize](#soundeffectinitialize-method)は、次の入力パラメーターで__SoundEffect__インスタンスを初期化するために使用します。サウンドエンジンオブジェクトへのポインター ( [Audio:: CreateDeviceIndependentResources](#audiocreatedeviceindependentresources-method)メソッドで作成された IXAudio2 オブジェクト)、 __mediareader:: GetOutputWaveFormatEx__を使用して .wav ファイルの形式へのポインター、および[mediareader:: loadmedia](#mediareaderloadmedia-method)メソッドを使用して読み込まれたサウンドデータ。 初期化中に、サウンド効果のソース音声も作成されます。
+[SoundEffect:: Initialize](#soundeffectinitialize-method) は、次の入力パラメーターで __SoundEffect__ インスタンスを初期化するために使用します。サウンドエンジンオブジェクトへのポインター ( [Audio:: CreateDeviceIndependentResources](#audiocreatedeviceindependentresources-method) メソッドで作成された IXAudio2 オブジェクト)、 __mediareader:: GetOutputWaveFormatEx__を使用して .wav ファイルの形式へのポインター、および [mediareader:: loadmedia](#mediareaderloadmedia-method) メソッドを使用して読み込まれたサウンドデータ。 初期化中に、サウンド効果のソース音声も作成されます。
 
 ### <a name="soundeffectinitialize-method"></a>SoundEffect:: Initialize メソッド
 
@@ -338,16 +338,16 @@ void SoundEffect::Initialize(
 
 ## <a name="play-the-sound"></a>サウンドを再生する
 
-サウンド効果を再生するトリガーは、 [Simple3DGame:: UpdateDynamics](#simple3dgameupdatedynamics-method)メソッドで定義されています。これは、オブジェクトの移動が更新され、オブジェクト間の競合が特定されるためです。
+サウンド効果を再生するトリガーは、 [Simple3DGame:: UpdateDynamics](#simple3dgameupdatedynamics-method) メソッドで定義されています。これは、オブジェクトの移動が更新され、オブジェクト間の競合が特定されるためです。
 
-オブジェクト間の相互作用は大きく異なるため、ゲームによってはゲームオブジェクトのダイナミクスについては説明しません。 実装について理解を深めたい場合は、 [Simple3DGame:: UpdateDynamics](#simple3dgameupdatedynamics-method)メソッドにアクセスしてください。
+オブジェクト間の相互作用は大きく異なるため、ゲームによってはゲームオブジェクトのダイナミクスについては説明しません。 実装について理解を深めたい場合は、 [Simple3DGame:: UpdateDynamics](#simple3dgameupdatedynamics-method) メソッドにアクセスしてください。
 
 原則として、競合が発生すると、 **SoundEffect::P**を呼び出すことによってサウンド効果が再生されるようになります。 このメソッドは、現在再生中のすべてのサウンド効果を停止し、必要なサウンドデータを使用してメモリ内バッファーをキューに格納します。 ソース音声を使用してボリュームを設定し、サウンドデータを送信して、再生を開始します。
 
 ### <a name="soundeffectplaysound-method"></a>SoundEffect::P $ Sound メソッド
 
 * ソース音声オブジェクト**m \_ sourceVoice**を使用して、サウンドデータバッファー **m \_ sounddata**の再生を開始します
-* サウンドデータバッファーへの参照を提供する[XAUDIO2 \_ バッファー](/windows/desktop/api/xaudio2/ns-xaudio2-xaudio2_buffer)を作成し、 [IXAudio2SourceVoice:: submitsourcebuffer](/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2sourcevoice-submitsourcebuffer)への呼び出しを使用して送信します。 
+* サウンドデータバッファーへの参照を提供する [XAUDIO2 \_ バッファー](/windows/desktop/api/xaudio2/ns-xaudio2-xaudio2_buffer)を作成し、 [IXAudio2SourceVoice:: submitsourcebuffer](/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2sourcevoice-submitsourcebuffer)への呼び出しを使用して送信します。 
 * サウンド データがキューに入ると、**SoundEffect::PlaySound** は、[IXAudio2SourceVoice::Start](/windows/desktop/api/xaudio2/nf-xaudio2-ixaudio2sourcevoice-start) を呼び出して再生を開始します。
 
 ```cppwinrt
@@ -458,15 +458,15 @@ if (m_ammoCount > 1)
 }
 ```
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-Windows 10 ゲームの UWP フレームワーク、グラフィックス、コントロール、ユーザーインターフェイス、オーディオについて説明しました。 このチュートリアルの次のパート「[サンプルゲームの拡張](tutorial-resources.md)」では、ゲーム開発時に使用できるその他のオプションについて説明します。
+Windows 10 ゲームの UWP フレームワーク、グラフィックス、コントロール、ユーザーインターフェイス、オーディオについて説明しました。 このチュートリアルの次のパート「 [サンプルゲームの拡張](tutorial-resources.md)」では、ゲーム開発時に使用できるその他のオプションについて説明します。
 
 ## <a name="audio-concepts"></a>オーディオの概念
 
 Windows 10 ゲーム開発の場合は、XAudio2 バージョン2.9 を使用します。 このバージョンは、Windows 10 に付属しています。 詳細については、 [XAudio2 のバージョン](/windows/desktop/xaudio2/xaudio2-versions)を参照してください。
 
-__AudioX2__は、信号処理と混合の基盤を提供する低レベルの API です。 詳細については、「 [XAudio2 Key 概念](/windows/desktop/xaudio2/xaudio2-key-concepts)」を参照してください。
+__AudioX2__ は、信号処理と混合の基盤を提供する低レベルの API です。 詳細については、「 [XAudio2 Key 概念](/windows/desktop/xaudio2/xaudio2-key-concepts)」を参照してください。
 
 ### <a name="xaudio2-voices"></a>XAudio2 の声
 
@@ -480,9 +480,9 @@ XAudio2 voice オブジェクトには、ソース、サブミックス、マス
 
 ### <a name="audio-graph"></a>オーディオグラフ
 
-Audio graph は、XAudio2 の[音声](/windows/desktop/xaudio2/xaudio2-voices)のコレクションです。 オーディオは、ソース音声でオーディオグラフの片側から開始され、必要に応じて1つ以上のサブミックス音声を通過し、マスタリング音声で終了します。 オーディオグラフには、現在再生中の各サウンド、0個以上のサブミックス音声、およびマスタリング音声が1つずつ含まれます。 最も単純なオーディオグラフと、XAudio2 でノイズを作成するために必要な最小値は、単一のソース音声によってマスタリング音声に直接出力されます。 詳細については、[オーディオグラフ](/windows/desktop/xaudio2/audio-graphs)に関するページを参照してください。
+Audio graph は、XAudio2 の [音声](/windows/desktop/xaudio2/xaudio2-voices)のコレクションです。 オーディオは、ソース音声でオーディオグラフの片側から開始され、必要に応じて1つ以上のサブミックス音声を通過し、マスタリング音声で終了します。 オーディオグラフには、現在再生中の各サウンド、0個以上のサブミックス音声、およびマスタリング音声が1つずつ含まれます。 最も単純なオーディオグラフと、XAudio2 でノイズを作成するために必要な最小値は、単一のソース音声によってマスタリング音声に直接出力されます。 詳細については、 [オーディオグラフ](/windows/desktop/xaudio2/audio-graphs)に関するページを参照してください。
 
-### <a name="additional-reading"></a>その他の参考資料
+### <a name="additional-reading"></a>その他の情報
 
 * [方法: XAudio2 の初期化](/windows/desktop/xaudio2/how-to--initialize-xaudio2)
 * [方法: XAudio2 でのオーディオ データ ファイルの読み込み](/windows/desktop/xaudio2/how-to--load-audio-data-files-in-xaudio2)

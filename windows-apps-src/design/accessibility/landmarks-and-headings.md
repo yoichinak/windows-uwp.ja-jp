@@ -8,12 +8,12 @@ ms.date: 01/24/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 942c24e8f5c7c521502ee5a9f9eb7175bf04b94f
-ms.sourcegitcommit: 2a1ceeacf5cdadc803bad83dc3ceb57a16ce79a3
+ms.openlocfilehash: 4c05f39c0497a2e2ef369abd04ed437f8387e60f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067514"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173996"
 ---
 # <a name="landmarks-and-headings"></a>ランドマークと見出し
 
@@ -33,14 +33,14 @@ Windows 設定アプリに、**[簡単操作]** ページを含めることを�
 
 ランドマークや見出しがなくても設定アプリにアクセスできますが、これらがある方がより使いやすくなります。 スクリーン リーダー ユーザーは、必要なグループ (ランドマーク) に迅速かつ簡単にアクセスでき、サブ グループ (見出し) にも同様にアクセスできます。
 
-[AutomationProperties.LandmarkTypeProperty](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.LandmarkTypeProperty) を使用して、目的の[ランドマークの種類](https://docs.microsoft.com/windows/desktop/WinAuto/landmark-type-identifiers)として UI 要素を設定します。 このランドマーク UI 要素は、そのランドマークに応じた他のすべての UI 要素をカプセル化します。
+[AutomationProperties.LandmarkTypeProperty](/uwp/api/windows.ui.xaml.automation.automationproperties.LandmarkTypeProperty) を使用して、目的の[ランドマークの種類](/windows/desktop/WinAuto/landmark-type-identifiers)として UI 要素を設定します。 このランドマーク UI 要素は、そのランドマークに応じた他のすべての UI 要素をカプセル化します。
 
-[AutomationProperties.LocalizedLandmarkTypeProperty](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.LocalizedLandmarkTypeProperty) を使用して、ランドマークに具体的に名前を付けます。 メインやナビゲーションなど、定義済みのランドマークの種類を選択した場合は、それらの名前がランドマーク名に使用されます。 しかし、ランドマークの種類をカスタムに設定した場合は、このプロパティを使用してランドマークに具体的に名前を付ける必要があります。 このプロパティを使用して、カスタムでないランドマークの種類から設定される既定の名前を上書きすることもできます。
+[AutomationProperties.LocalizedLandmarkTypeProperty](/uwp/api/windows.ui.xaml.automation.automationproperties.LocalizedLandmarkTypeProperty) を使用して、ランドマークに具体的に名前を付けます。 メインやナビゲーションなど、定義済みのランドマークの種類を選択した場合は、それらの名前がランドマーク名に使用されます。 しかし、ランドマークの種類をカスタムに設定した場合は、このプロパティを使用してランドマークに具体的に名前を付ける必要があります。 このプロパティを使用して、カスタムでないランドマークの種類から設定される既定の名前を上書きすることもできます。
 
-[AutomationProperties.HeadingLevel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties.headinglevelproperty) を使用して、UI 要素を *Level1* ～ *Level9* の特定のレベルの見出しとして設定します。
+[AutomationProperties.HeadingLevel](/uwp/api/windows.ui.xaml.automation.automationproperties.headinglevelproperty) を使用して、UI 要素を *Level1* ～ *Level9* の特定のレベルの見出しとして設定します。
 
 ## <a name="examples"></a>例
 
-Windows デスクトップアプリでプログラムによるアクセシビリティに関する一般的な問題の多くを解決する方法を示す多数のコードサンプルについては、「 [windows デスクトップアプリでプログラムによるアクセシビリティに関する一般的な問題を解決するためのコードサンプル](https://docs.microsoft.com/accessibility-tools-docs/)」を参照してください。
+Windows デスクトップアプリでプログラムによるアクセシビリティに関する一般的な問題の多くを解決する方法を示す多数のコードサンプルについては、「 [windows デスクトップアプリでプログラムによるアクセシビリティに関する一般的な問題を解決するためのコードサンプル](/accessibility-tools-docs/)」を参照してください。
 
 これらのコードサンプルは、[ Microsoft アクセシビリティ Insights For Windows](https://github.com/microsoft/accessibility-insights-windows)によって直接参照されています。これは、UI でのアクセシビリティに関する多くの問題をスポットライトするのに役立ちます。

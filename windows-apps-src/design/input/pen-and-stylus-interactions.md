@@ -1,6 +1,6 @@
 ---
 Description: ペンやスタイラスデバイス (自然な書き込みと描画のためのデジタルインクなど) からのカスタム対話をサポートする Windows アプリを構築します。
-title: Windows アプリでのペン操作と Windows インク
+title: Windows アプリでのペン操作と Windows Ink
 ms.assetid: 3DA4F2D2-5405-42A1-9ED9-3A87BCD84C43
 label: Pen interactions and Windows Ink in Windows apps
 template: detail.hbs
@@ -8,21 +8,21 @@ keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkC
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c9986ee6d4dacc929a8c2d243becf7d5c9d973e
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 3733c98c81a23fbc5b369297b45f1c1e5183c198
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234905"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173386"
 ---
-# <a name="pen-interactions-and-windows-ink-in-windows-apps"></a>Windows アプリでのペン操作と Windows インク
+# <a name="pen-interactions-and-windows-ink-in-windows-apps"></a>Windows アプリでのペン操作と Windows Ink
 
 ![Surface ペン](images/ink/hero-small.png)  
 *Surface ペン* ([Microsoft ストア](https://www.microsoft.com/p/surface-pen/8zl5c82qmg6b)で購入できます)。
 
 ## <a name="overview"></a>概要
 
-Windows アプリをペン入力用に最適化して、標準の[**ポインターデバイス**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input.PointerDevice)機能とユーザーに最適な windows インクエクスペリエンスの両方を提供します。
+Windows アプリをペン入力用に最適化して、標準の [**ポインターデバイス**](/uwp/api/Windows.Devices.Input.PointerDevice) 機能とユーザーに最適な windows インクエクスペリエンスの両方を提供します。
 
 > [!NOTE]
 > ここでは主に、Windows Ink プラットフォームについて説明します。 ポインター入力処理 (マウス、タッチ、タッチパッドに類似) の概要については、「[ポインター入力の処理](handle-pointer-input.md)」をご覧ください。
@@ -47,24 +47,24 @@ Windows Ink UX のガイドラインについては、「[手描き入力コン�
 
 | コンポーネント | 説明 |
 | --- | --- |
-| [**System.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) | 既定でペンからのすべての入力を受け取ってインク ストロークか消去ストロークとして表示する XAML UI プラットフォーム コントロールです。<br/>InkCanvas の使用方法について詳しくは、「[Windows インク ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
-| [**System.windows.controls.inkpresenter>**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) | [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化される分離コード オブジェクトです ([**InkCanvas.InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティによって公開されます)。 **InkCanvas** によって公開される既定の手描き入力機能のすべてと、追加のカスタマイズや個人用設定のための包括的な API のセットを提供します。<br/>InkPresenter の使用方法について詳しくは、「[Windows Ink ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
-| [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) | 関連付けられた [**InkCanvas**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) のインク関連機能をアクティブ化する、カスタマイズと拡張が可能なボタンのコレクションが含まれている XAML UI プラットフォーム コントロールです。<br/>InkToolbar の使用方法の詳細については、「 [Windows アプリインクアプリに InkToolbar を追加する](ink-toolbar.md)」を参照してください。 |
-| [**IInkD2DRenderer**](https://docs.microsoft.com/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer) | 既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりに、ユニバーサル Windows アプリが指定した Direct2D デバイス コンテキストにインク ストロークをレンダリングできます。 これにより、手描き入力エクスペリエンスの全面的なカスタマイズが実現されます。<br/>詳しくは、「[複雑なインクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)」をご覧ください。 |
+| [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) | 既定でペンからのすべての入力を受け取ってインク ストロークか消去ストロークとして表示する XAML UI プラットフォーム コントロールです。<br/>InkCanvas の使用方法について詳しくは、「[Windows インク ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
+| [**System.windows.controls.inkpresenter>**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) | [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化される分離コード オブジェクトです ([**InkCanvas.InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティによって公開されます)。 **InkCanvas** によって公開される既定の手描き入力機能のすべてと、追加のカスタマイズや個人用設定のための包括的な API のセットを提供します。<br/>InkPresenter の使用方法について詳しくは、「[Windows Ink ストロークのテキスト認識](convert-ink-to-text.md)」と「[Windows Ink ストローク データの保存と取得](save-and-load-ink.md)」をご覧ください。 |
+| [**InkToolbar**](/uwp/api/windows.ui.xaml.controls.inktoolbar) | 関連付けられた [**InkCanvas**](/uwp/api/windows.ui.xaml.controls.inkcanvas) のインク関連機能をアクティブ化する、カスタマイズと拡張が可能なボタンのコレクションが含まれている XAML UI プラットフォーム コントロールです。<br/>InkToolbar の使用方法の詳細については、「 [Windows アプリインクアプリに InkToolbar を追加する](ink-toolbar.md)」を参照してください。 |
+| [**IInkD2DRenderer**](/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer) | 既定の [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりに、ユニバーサル Windows アプリが指定した Direct2D デバイス コンテキストにインク ストロークをレンダリングできます。 これにより、手描き入力エクスペリエンスの全面的なカスタマイズが実現されます。<br/>詳しくは、「[複雑なインクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)」をご覧ください。 |
 
 ## <a name="basic-inking-with-inkcanvas"></a>InkCanvas による基本的な手描き入力
 
-基本的な手描き機能を追加するには、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) UWP プラットフォーム コントロールをアプリの適切なページに配置します。
+基本的な手描き機能を追加するには、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) UWP プラットフォーム コントロールをアプリの適切なページに配置します。
 
-既定では、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) はペンからの手描き入力のみをサポートしています。 入力は、色と太さの既定の設定 (太さ 2 ピクセルの黒のボールペン) を使ってインク ストロークとしてレンダリングされるか、ストロークの消しゴムとして扱われます (ペンの消しゴムからの入力か、消しゴム ボタンで変更されたペン先からの入力の場合)。
+既定では、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) はペンからの手描き入力のみをサポートしています。 入力は、色と太さの既定の設定 (太さ 2 ピクセルの黒のボールペン) を使ってインク ストロークとしてレンダリングされるか、ストロークの消しゴムとして扱われます (ペンの消しゴムからの入力か、消しゴム ボタンで変更されたペン先からの入力の場合)。
 
 > [!NOTE]
 > ペンの消しゴムまたは消しゴム ボタンがない場合は、ペン先からの入力を消去ストロークとして処理するように InkCanvas を構成できます。
 
-次の例では、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) を背景画像にオーバーレイしています。
+次の例では、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) を背景画像にオーバーレイしています。
 
 > [!NOTE]
-> System.windows.controls.inkcanvas> の[**Height**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Height)プロパティと[**Width**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Width)プロパティの既定値は0です。ただし、 [StackPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel)や[Grid](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid)コントロールなど、子要素のサイズを自動的に設定する要素の子である場合は除きます。
+> System.windows.controls.inkcanvas> の [**Height**](/uwp/api/windows.ui.xaml.frameworkelement.Height) プロパティと [**Width**](/uwp/api/windows.ui.xaml.frameworkelement.Width) プロパティの既定値は0です。ただし、 [StackPanel](/uwp/api/windows.ui.xaml.controls.stackpanel) や [Grid](/uwp/api/windows.ui.xaml.controls.grid) コントロールなど、子要素のサイズを自動的に設定する要素の子である場合は除きます。
 
 ```xaml
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -85,31 +85,31 @@ Windows Ink UX のガイドラインについては、「[手描き入力コン�
 </Grid>
 ```
 
-次の一連の画像は、この [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールによってペン入力がどのようにレンダリングされるかを示しています。
+次の一連の画像は、この [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールによってペン入力がどのようにレンダリングされるかを示しています。
 
 | ![空の InkCanvas と背景画像](images/ink_basic_1_small.png) | ![インク ストロークを含む InkCanvas](images/ink_basic_2_small.png) | ![1 つのストロークが消去された InkCanvas](images/ink_basic_3_small.png) |
 | --- | --- | ---|
-| 背景画像を含む空白の[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | インクストロークを含む[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | ストロークの一部が削除された [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)  (削除が部分ではなく全体にどのように影響するかに注意してください)。 |
+| 背景画像を含む空白の [**system.windows.controls.inkcanvas>**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | インクストロークを含む [**system.windows.controls.inkcanvas>**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | ストロークの一部が削除された [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)  (削除が部分ではなく全体にどのように影響するかに注意してください)。 |
 
-[**System.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)コントロールでサポートされるインク機能は、 [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter)と呼ばれる分離コードオブジェクトによって提供されます。
+[**System.windows.controls.inkcanvas>**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)コントロールでサポートされるインク機能は、 [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter)と呼ばれる分離コードオブジェクトによって提供されます。
 
-基本的な手書き入力では [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) のことを気にする必要はありませんが、 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の手書き入力動作をカスタマイズしたり構成したりするには、対応する **InkPresenter** オブジェクトにアクセスする必要があります。
+基本的な手書き入力では [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) のことを気にする必要はありませんが、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の手書き入力動作をカスタマイズしたり構成したりするには、対応する **InkPresenter** オブジェクトにアクセスする必要があります。
 
 ## <a name="basic-customization-with-inkpresenter"></a>InkPresenter による基本的なカスタマイズ
 
-[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) オブジェクトは、各 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化されます。
+[**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) オブジェクトは、各 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化されます。
 
 > [!NOTE]
-> [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) を直接インスタンス化することはできません。 代わりに、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティを通じてアクセスします。 
+> [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) を直接インスタンス化することはできません。 代わりに、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティを通じてアクセスします。 
 
-[**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) には、対応する [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの既定の手書き入力動作のすべてに加えて、ストロークの追加のカスタマイズのための包括的な API のセット、および手描き入力 (標準および変更) の細かい管理を提供します。 たとえば、ストロークのプロパティ、サポートされている入力デバイスの種類、入力をオブジェクトで処理するかアプリに渡して処理するかなどを指定できます。
+[**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) には、対応する [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの既定の手書き入力動作のすべてに加えて、ストロークの追加のカスタマイズのための包括的な API のセット、および手描き入力 (標準および変更) の細かい管理を提供します。 たとえば、ストロークのプロパティ、サポートされている入力デバイスの種類、入力をオブジェクトで処理するかアプリに渡して処理するかなどを指定できます。
 
 > [!NOTE]
 > 標準のインク入力 (ペン先または消しゴムの先端やボタン) は、セカンダリ ハードウェア アフォーダンス (ペン バレル ボタン、マウスの右ボタン、または類似のメカニズムなど) で変更されません。 
 
-既定では、インクはペン入力のみをサポートします。 次の例では、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成しています。 [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性も設定しています。
+既定では、インクはペン入力のみをサポートします。 次の例では、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成しています。 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性も設定しています。
 
-マウスとタッチによる手描き入力を有効化するには、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter) の [**InputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.InputDeviceTypes) プロパティを、必要な [**CoreInputDeviceTypes**](https://docs.microsoft.com/uwp/api/windows.ui.core.coreinputdevicetypes) 値の組み合わせに設定します。
+マウスとタッチによる手描き入力を有効化するには、[**InkPresenter**](/uwp/api/windows.ui.input.inking.inkpresenter) の [**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.InputDeviceTypes) プロパティを、必要な [**CoreInputDeviceTypes**](/uwp/api/windows.ui.core.coreinputdevicetypes) 値の組み合わせに設定します。
 
 ```csharp
 public MainPage()
@@ -196,21 +196,21 @@ private void OnPenColorChanged(object sender, SelectionChangedEventArgs e)
 }
 ```
 
-これらの画像は、ペン入力が[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によってどのように処理およびカスタマイズされるかを示しています。
+これらの画像は、ペン入力が [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によってどのように処理およびカスタマイズされるかを示しています。
 
 | ![既定の黒のインク ストロークを含む InkCanvas](images/ink-basic-custom-1-small.png) | ![ユーザーが選択した赤のインク ストロークを含む InkCanvas](images/ink-basic-custom-2-small.png) |
 | --- | --- |
-| 既定の黒のインク ストロークを含む [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | ユーザーが赤のインクストロークを選択した[**system.windows.controls.inkcanvas>**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | 
+| 既定の黒のインク ストロークを含む [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | ユーザーが赤のインクストロークを選択した [**system.windows.controls.inkcanvas>**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | 
 
-手書き入力と消去以外の機能 (ストロークの選択など) を提供するには、アプリで処理するために [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) では未処理のままパススルーする入力をアプリで識別する必要があります。
+手書き入力と消去以外の機能 (ストロークの選択など) を提供するには、アプリで処理するために [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) では未処理のままパススルーする入力をアプリで識別する必要があります。
 
 ## <a name="pass-through-input-for-advanced-processing"></a>高度な処理のための入力のパススルー
 
-既定では、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によって、すべての入力がインク ストロークまたは消去ストロークとして処理されます。こうした入力には、セカンダリ ハードウェア アフォーダンス (ペン バレル ボタン、マウスの右ボタンなど) によって変更された入力も含まれます。 ただし、ユーザーは通常、これらのセカンダリ アフォーダンスを使うときに、追加機能や動作の変更を期待します。
+既定では、[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によって、すべての入力がインク ストロークまたは消去ストロークとして処理されます。こうした入力には、セカンダリ ハードウェア アフォーダンス (ペン バレル ボタン、マウスの右ボタンなど) によって変更された入力も含まれます。 ただし、ユーザーは通常、これらのセカンダリ アフォーダンスを使うときに、追加機能や動作の変更を期待します。
 
 場合によっては、アプリの UI でユーザーが選択した内容に基づいて、セカンダリ アフォーダンス (通常はペン先に関連付けられていない機能) を持たないペンのための追加機能、その他の入力デバイスの種類、または変更された動作を公開することも必要になります。
 
-そのような場合のために、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、特定の入力を処理しないように構成することができます。 この未処理の入力は、アプリにパススルーされて処理されます。
+そのような場合のために、[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、特定の入力を処理しないように構成することができます。 この未処理の入力は、アプリにパススルーされて処理されます。
 
 ### <a name="example---use-unprocessed-input-to-implement-stroke-selection"></a>例 - 未処理の入力を使って、ストロークの選択を実装する 
 
@@ -220,7 +220,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 1.  まず、MainPage.xaml で UI を設定します。
 
-    ここでは、選択ストロークを描画するためのキャンバスを ([**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の下に) 追加しています。 別のレイヤーを使って選択ストロークを描画すると、**InkCanvas** とそのコンテンツに影響を与えずに済みます。
+    ここでは、選択ストロークを描画するためのキャンバスを ([**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の下に) 追加しています。 別のレイヤーを使って選択ストロークを描画すると、**InkCanvas** とそのコンテンツに影響を与えずに済みます。
 
     ![下に選択キャンバスがある空の InkCanvas](images/ink-unprocessed-1-small.png)
 
@@ -255,13 +255,13 @@ Windows Ink プラットフォームには、変更された入力を必要と�
         private Rect boundingRect;
       ```
 
-3.  次に、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成し、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性をいくつか設定します。
+3.  次に、ペンとマウスの両方の入力データをインク ストロークとして解釈するように [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) を構成し、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) へのストロークのレンダリングに使うインク ストロークの最初の属性をいくつか設定します。
 
-    ここで最も重要なのは、[InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**InputProcessingConfiguration**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.inputprocessingconfiguration) プロパティを使って、変更された入力はアプリで処理するように指定することです。 **InputProcessingConfiguration.RightDragAction** に [**InkInputRightDragAction.LeaveUnprocessed**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkInputRightDragAction) という値を割り当てて、変更された入力を指定します。 この値が設定されると、[InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によって [InkUnprocessedInput](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput) クラス (ユーザーが処理できるポインター イベントのセット) にパススルーされます。
+    ここで最も重要なのは、[InkPresenter](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**InputProcessingConfiguration**](/uwp/api/windows.ui.input.inking.inkpresenter.inputprocessingconfiguration) プロパティを使って、変更された入力はアプリで処理するように指定することです。 **InputProcessingConfiguration.RightDragAction** に [**InkInputRightDragAction.LeaveUnprocessed**](/uwp/api/Windows.UI.Input.Inking.InkInputRightDragAction) という値を割り当てて、変更された入力を指定します。 この値が設定されると、[InkPresenter](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によって [InkUnprocessedInput](/uwp/api/windows.ui.input.inking.inkunprocessedinput) クラス (ユーザーが処理できるポインター イベントのセット) にパススルーされます。
 
-    [**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってパススルーされる [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、[**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased) の各未処理イベントのリスナーが割り当てられます。 選択機能はすべてこれらのイベントのハンドラーに実装します。
+    [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってパススルーされる [**PointerPressed**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**PointerMoved**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、[**PointerReleased**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased) の各未処理イベントのリスナーが割り当てられます。 選択機能はすべてこれらのイベントのハンドラーに実装します。
 
-    最後に、[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**StrokeStarted**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted) イベントと [**StrokesErased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.strokeserased) イベントのリスナーを割り当てます。 これらのイベントのハンドラーを使って、新しいストロークが開始された場合や既にあるストロークが消去された場合に選択 UI をクリーンアップします。
+    最後に、[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の [**StrokeStarted**](/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted) イベントと [**StrokesErased**](/uwp/api/windows.ui.input.inking.inkpresenter.strokeserased) イベントのリスナーを割り当てます。 これらのイベントのハンドラーを使って、新しいストロークが開始された場合や既にあるストロークが消去された場合に選択 UI をクリーンアップします。
 
     ![既定の黒のインク ストロークを含む InkCanvas](images/ink-unprocessed-2-small.png)
 
@@ -308,7 +308,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
         }
       ```
 
-4.  次に、選択された未処理の[**ポインター**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**ポインターの移動**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、および[**InkPresenter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によって渡された[**ポインター解放**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased)イベントのハンドラーを定義します。
+4.  次に、選択された未処理の[**ポインター**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**ポインターの移動**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、および[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によって渡された[**ポインター解放**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased)イベントのハンドラーを定義します。
 
     なげなわストロークと境界の四角形を含むすべての選択機能をこれらのハンドラーに実装します。
 
@@ -393,7 +393,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
           }
       ```
 
-6.  最後に、InkPresenter の [**StrokeStarted**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted) イベントと [**StrokesErased**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.strokeserased) イベントのハンドラーを定義します。
+6.  最後に、InkPresenter の [**StrokeStarted**](/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted) イベントと [**StrokesErased**](/uwp/api/windows.ui.input.inking.inkpresenter.strokeserased) イベントのハンドラーを定義します。
 
     これらは両方とも同じクリーンアップ関数を呼び出します。これにより、新しいストロークが検出されるたびに現在の選択がクリアされます。
 
@@ -438,7 +438,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 ## <a name="custom-ink-rendering"></a>カスタム インク レンダリング
 
-既定では、手書き入力は待機時間が短いバックグラウンド スレッドで処理され、描画と同時にレンダリングが実行中となります ("ウェット" レンダリングが実行されます)。 ストロークが完了すると (ペンまたは指が画面を離れるか、マウスのボタンが離されると)、UI スレッドでストロークが処理されて、[**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) レイヤーへの "ドライ" レンダリングが行われます (アプリケーション コンテンツの上にレンダリングされてウェット インクが置き換えられます)。
+既定では、手書き入力は待機時間が短いバックグラウンド スレッドで処理され、描画と同時にレンダリングが実行中となります ("ウェット" レンダリングが実行されます)。 ストロークが完了すると (ペンまたは指が画面を離れるか、マウスのボタンが離されると)、UI スレッドでストロークが処理されて、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) レイヤーへの "ドライ" レンダリングが行われます (アプリケーション コンテンツの上にレンダリングされてウェット インクが置き換えられます)。
 
 ウェット インク ストロークを "カスタム ドライ レンダリング" することによって、この既定の動作を上書きし、手描き入力エクスペリエンスを完全に制御することができます。 ほとんどのアプリケーションでは、通常、既定の動作で十分ですが、場合によっては、カスタム ドライ レンダリングが必要になります。次に例を示します。
 - 大きく複雑なインク ストロークのコレクションをより効率的に管理する場合
@@ -446,19 +446,19 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 - Z オーダーを維持しながら、インクや他のオブジェクト (図形やテキストなど) をインターリーブする場合 
 - ドライ レンダリングを行い、インクを DirectX 図形に同期的に変換する場合 (たとえば、ラスタライズされ、アプリケーション コンテンツに (個別の **InkCanvas** レイヤーとしてではなく) 統合される直線や図形など)。
 
-カスタム ドライ レンダリングでは、手書き入力を管理して、既定の [**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりにユニバーサル Windows アプリの Direct2D デバイス コンテキストにレンダリングするための [**IInkD2DRenderer**](https://docs.microsoft.com/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer) オブジェクトが必要です。
+カスタム ドライ レンダリングでは、手書き入力を管理して、既定の [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの代わりにユニバーサル Windows アプリの Direct2D デバイス コンテキストにレンダリングするための [**IInkD2DRenderer**](/windows/desktop/api/inkrenderer/nn-inkrenderer-iinkd2drenderer) オブジェクトが必要です。
 
-[**ActivateCustomDrying**](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter.activatecustomdrying) を ([**InkCanvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が読み込まれる前に) 呼び出すと、[**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) または [**VirtualSurfaceImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) へのインク ストロークのドライ レンダリングの方法をカスタマイズするための [**InkSynchronizer**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkSynchronizer) オブジェクトが作成されます。 
+[**ActivateCustomDrying**](/uwp/api/windows.ui.input.inking.inkpresenter.activatecustomdrying) を ([**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) が読み込まれる前に) 呼び出すと、[**SurfaceImageSource**](/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) または [**VirtualSurfaceImageSource**](/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) へのインク ストロークのドライ レンダリングの方法をカスタマイズするための [**InkSynchronizer**](/uwp/api/Windows.UI.Input.Inking.InkSynchronizer) オブジェクトが作成されます。 
 
-[**SurfaceImageSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) と [**VirtualSurfaceImageSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) はどちらも、アプリがアプリケーションのコンテンツに描画し、組み込むための DirectX 共有サーフェスを提供します。ただし VSIS は、効率的なパンやズームのために、画面よりも大きい仮想サーフェスを提供します。 これらのサーフェスの表示更新は XAML の UI スレッドと同期されるため、インクをいずれかにレンダリングしたとき、同時にウェット インクが InkCanvas から取り除かれる場合があります。 
+[**SurfaceImageSource**](/uwp/api/Windows.UI.Xaml.Media.Imaging.SurfaceImageSource) と [**VirtualSurfaceImageSource**](/uwp/api/windows.ui.xaml.media.imaging.virtualsurfaceimagesource) はどちらも、アプリがアプリケーションのコンテンツに描画し、組み込むための DirectX 共有サーフェスを提供します。ただし VSIS は、効率的なパンやズームのために、画面よりも大きい仮想サーフェスを提供します。 これらのサーフェスの表示更新は XAML の UI スレッドと同期されるため、インクをいずれかにレンダリングしたとき、同時にウェット インクが InkCanvas から取り除かれる場合があります。 
 
-ドライ インクを [SwapChainPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.swapchainpanel) 用にカスタマイズすることもできますが、UI スレッドとの同期は保証されません。インクを SwapChainPanel にレンダリングしたタイミングと、インクが InkCanvas から取り除かれるタイミングの間にずれが生じる可能性があります。
+ドライ インクを [SwapChainPanel](/uwp/api/windows.ui.xaml.controls.swapchainpanel) 用にカスタマイズすることもできますが、UI スレッドとの同期は保証されません。インクを SwapChainPanel にレンダリングしたタイミングと、インクが InkCanvas から取り除かれるタイミングの間にずれが生じる可能性があります。
 
 この機能の完全な例については、「[複雑なインクのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ComplexInk)」をご覧ください。
 
 > [!NOTE]
-> カスタム ドライ レンダリングと [**InkToolbar**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)  
-> カスタム ドライの実装によって、アプリが [**InkPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.InkPresenter) の既定のインク レンダリング動作を上書きすると、レンダリングされたインク ストロークが InkToolbar で利用できなくなり、InkToolbar の組み込みの消去コマンドが正常に機能しなくなります。 消去機能を提供するには、すべてのポインター イベントを処理し、ストロークごとにヒット テストを実行すると共に、組み込みの [すべてのインクのデータを消去] コマンドをオーバーライドする必要があります。
+> カスタム ドライ レンダリングと [**InkToolbar**](/uwp/api/windows.ui.xaml.controls.inktoolbar)  
+> カスタム ドライの実装によって、アプリが [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) の既定のインク レンダリング動作を上書きすると、レンダリングされたインク ストロークが InkToolbar で利用できなくなり、InkToolbar の組み込みの消去コマンドが正常に機能しなくなります。 消去機能を提供するには、すべてのポインター イベントを処理し、ストロークごとにヒット テストを実行すると共に、組み込みの [すべてのインクのデータを消去] コマンドをオーバーライドする必要があります。
 
 ## <a name="other-articles-in-this-section"></a>このセクションの他の記事
 
@@ -470,15 +470,15 @@ Windows Ink プラットフォームには、変更された入力を必要と�
 
 ## <a name="related-articles"></a>関連記事
 
-- [はじめに: Windows アプリでインクをサポートする](../../get-started/ink-walkthrough.md)
+- [はじめに: Windows アプリでインクをサポートする](./ink-walkthrough.md)
 - [ポインター入力の処理](handle-pointer-input.md)
 - [入力デバイスの識別](identify-input-devices.md)
 
 ### <a name="apis"></a>API
 
-- [**Windows. Devices. Input**](https://docs.microsoft.com/uwp/api/Windows.Devices.Input)
-- [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
-- [**Windows. UI. 入力**](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking.Core)
+- [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input)
+- [**Windows.UI.Input.Inking**](/uwp/api/Windows.UI.Input.Inking)
+- [**Windows. UI. 入力**](/uwp/api/Windows.UI.Input.Inking.Core)
 
 ### <a name="samples"></a>サンプル
 

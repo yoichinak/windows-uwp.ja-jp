@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 入力待ち時間
 ms.localizationpriority: medium
-ms.openlocfilehash: a74e2e24810dee058aa166800091af91d55cdef4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f0f95e7bdc523751e0d9eea5ffdd1ef5b889ddfc
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368457"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175266"
 ---
 #  <a name="optimize-input-latency-for-universal-windows-platform-uwp-directx-games"></a>ユニバーサル Windows プラットフォーム (UWP) DirectX ゲームの入力待ち時間の最適化
 
@@ -60,12 +60,12 @@ DirectX ゲームのコンテンツがレンダリングされて画面に表示
 
 ここでは、単純なジグソー パズル ゲームで反復処理を行うことで、ゲーム ループの実装方法を上記のシナリオごとに説明します。 各実装で説明する決定ポイント、利点、妥協点は、アプリを最適化して入力待ち時間を短縮して電源効率を上げる際のガイドとなります。
 
-## <a name="scenario-1-render-on-demand"></a>シナリオ 1:オンデマンドのレンダリングします。
+## <a name="scenario-1-render-on-demand"></a>シナリオ 1: オンデマンドでレンダリングする
 
 
 ジグソー パズル ゲームの最初の反復処理では、ユーザーがパズルのピースを移動した場合にのみ画面を更新します。 ユーザーは、パズルのピースをドラッグして動かしたり、ピースを選んで適切な移動先をタッチすることではめ込む可能性があります。 2 番目のケースでは、パズルのピースはアニメーションやエフェクトなしで移動先にジャンプします。
 
-コードには、**CoreProcessEventsOption::ProcessOneAndAllPending** を使う [**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッド内にシングル スレッドのゲーム ループがあります。 このオプションを使うと、現在キューに入っているすべてのイベントがディスパッチされます。 保留中のイベントがない場合、ゲーム ループはイベントが発生するまで待機します。
+コードには、**CoreProcessEventsOption::ProcessOneAndAllPending** を使う [**IFrameworkView::Run**](/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッド内にシングル スレッドのゲーム ループがあります。 このオプションを使うと、現在キューに入っているすべてのイベントがディスパッチされます。 保留中のイベントがない場合、ゲーム ループはイベントが発生するまで待機します。
 
 ``` syntax
 void App::Run()
@@ -91,12 +91,12 @@ void App::Run()
 }
 ```
 
-## <a name="scenario-2-render-on-demand-with-transient-animations"></a>例 2:オンデマンドで一時的なアニメーションをレンダリングします。
+## <a name="scenario-2-render-on-demand-with-transient-animations"></a>シナリオ 2: 必要に応じてレンダリングし、一時的なアニメーションも表示する
 
 
 2 番目の反復処理では、ユーザーがパズルのピースを選んでそのピースの適切な移動先をタッチする際、移動先に到達するまで画面にアニメーションが表示されるようにゲームが変更されます。
 
-前のケースと同様、コードには **ProcessOneAndAllPending** を使ってキュー内の入力イベントをディスパッチするシングル スレッドのゲーム ループがあります。 ここで異なるのは、アニメーション時、ループが新しい入力イベントを待機しないように **CoreProcessEventsOption::ProcessAllIfPresent** を使うように変更される点です。 保留中のイベントがない場合、すぐに [**ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) が返され、アプリがアニメーションで次のフレームを表示できるようになります。 アニメーションが完了したら、ループはもう一度 **ProcessOneAndAllPending** に切り替えられた画面の更新が制限されます。
+前のケースと同様、コードには **ProcessOneAndAllPending** を使ってキュー内の入力イベントをディスパッチするシングル スレッドのゲーム ループがあります。 ここで異なるのは、アニメーション時、ループが新しい入力イベントを待機しないように **CoreProcessEventsOption::ProcessAllIfPresent** を使うように変更される点です。 保留中のイベントがない場合、すぐに [**ProcessEvents**](/uwp/api/windows.ui.core.coredispatcher.processevents) が返され、アプリがアニメーションで次のフレームを表示できるようになります。 アニメーションが完了したら、ループはもう一度 **ProcessOneAndAllPending** に切り替えられた画面の更新が制限されます。
 
 ``` syntax
 void App::Run()
@@ -139,7 +139,7 @@ void App::Run()
 
 **ProcessOneAndAllPending** と **ProcessAllIfPresent** の切り替えをサポートするため、アプリは状態を追跡してアニメーション中かどうかを認識する必要があります。 ジグソー パズルのアプリでは、GameState クラスでのゲーム ループ中に呼び出すことができる新しいメソッドを追加することでこれを行います。 ゲーム ループのアニメーション ブランチは、GameState の新しい Update メソッドを呼び出してアニメーションの状態を更新します。
 
-## <a name="scenario-3-render-60-frames-per-second"></a>例 3:1 秒あたり 60 フレームをレンダリングします。
+## <a name="scenario-3-render-60-frames-per-second"></a>シナリオ 3: 1 秒あたり 60 フレームをレンダリングする
 
 
 3 番目の反復処理では、ユーザーがパズルに取り組んだ時間の長さを示すタイマーがアプリに表示されます。 ミリ秒まで経過時間が表示されるため、表示を最新の状態に維持するには 1 秒あたりの 60 フレームをレンダリングする必要があります。
@@ -177,12 +177,12 @@ void App::Run()
 
 ただし、簡単に開発できる代わりにコストが高くなります。 1 秒あたり 60 フレームのレンダリングには、必要に応じたレンダリングより多くの電力が使われます。 ゲームによりフレームごとに表示内容が変更される場合は、**ProcessAllIfPresent** を使うのが最適です。 さらに、**ProcessEvents** ではなくディスプレイの同期間隔でゲーム ループがブロックされるようになるため、入力待ち時間が最大 16.7 ミリ秒長くなります。 キューがフレームごとに 1 回しか処理されない (60 Hz) ため、一部の入力イベントが破棄される可能性があります。
 
-## <a name="scenario-4-render-60-frames-per-second-and-achieve-the-lowest-possible-input-latency"></a>シナリオ 4:1 秒あたり 60 フレームをレンダリングし、最下位の可能な入力の待機時間を実現
+## <a name="scenario-4-render-60-frames-per-second-and-achieve-the-lowest-possible-input-latency"></a>シナリオ 4: 1 秒あたり 60 フレームをレンダリングし、入力待ち時間を最小限に抑える
 
 
 ゲームによっては、シナリオ 3 で見られる入力待ち時間を無視するか、相殺することができます。 ただし、ゲームのエクスペリエンスとプレーヤー フィードバックの感覚にとって短い入力待ち時間が重要な場合、1 秒あたり 60 フレームをレンダリングするゲームは別個のスレッドで入力を処理する必要があります。
 
-ジグソー パズル ゲームの 4 番目の反復処理は、ゲーム ループにより入力処理とグラフィック レンダリングを別個のスレッドに分割することで、シナリオ 3 をベースに構築されています。 それぞれ別個のスレッドを用意することで、グラフィック出力により入力が遅延することはなくなりますが、その結果、コードの複雑さが増します。 シナリオ 4 では、[**CoreProcessEventsOption::ProcessUntilQuit**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreProcessEventsOption) を使って [**ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) を呼び出します。これは、新しいイベントを待機し、利用できるすべてのイベントをディスパッチします。 この動作は、ウィンドウが閉じられるか、ゲームが [**CoreWindow::Close**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.close) を呼び出すまで継続します。
+ジグソー パズル ゲームの 4 番目の反復処理は、ゲーム ループにより入力処理とグラフィック レンダリングを別個のスレッドに分割することで、シナリオ 3 をベースに構築されています。 それぞれ別個のスレッドを用意することで、グラフィック出力により入力が遅延することはなくなりますが、その結果、コードの複雑さが増します。 シナリオ 4 では、[**CoreProcessEventsOption::ProcessUntilQuit**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) を使って [**ProcessEvents**](/uwp/api/windows.ui.core.coredispatcher.processevents) を呼び出します。これは、新しいイベントを待機し、利用できるすべてのイベントをディスパッチします。 この動作は、ウィンドウが閉じられるか、ゲームが [**CoreWindow::Close**](/uwp/api/windows.ui.core.corewindow.close) を呼び出すまで継続します。
 
 ``` syntax
 void App::Run()
@@ -233,7 +233,7 @@ void JigsawPuzzleMain::StartRenderThread()
 }
 ```
 
-**DirectX 11 および XAML アプリ (ユニバーサル Windows)** Microsoft Visual Studio 2015 でのテンプレートが同様の方法で複数のスレッドにゲーム ループを分割します。 [  **Windows::UI::Core::CoreIndependentInputSource**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreIndependentInputSource) オブジェクトを使って、入力処理専用のスレッドが開始され、XAML UI スレッドとは独立したレンダリング スレッドも作成されます。 これらのテンプレートについて詳しくは、「[テンプレートからのユニバーサル Windows プラットフォームおよび DirectX ゲーム プロジェクトの作成](user-interface.md)」をご覧ください。
+Microsoft Visual Studio 2015 の **DirectX 11 および XAML アプリ (ユニバーサル Windows)** テンプレートを使うと、ゲーム ループが同じような方法で複数のスレッドに分割されます。 [**Windows::UI::Core::CoreIndependentInputSource**](/uwp/api/Windows.UI.Core.CoreIndependentInputSource) オブジェクトを使って、入力処理専用のスレッドが開始され、XAML UI スレッドとは独立したレンダリング スレッドも作成されます。 これらのテンプレートについて詳しくは、「[テンプレートからのユニバーサル Windows プラットフォームおよび DirectX ゲーム プロジェクトの作成](user-interface.md)」をご覧ください。
 
 ## <a name="additional-ways-to-reduce-input-latency"></a>入力待ち時間を短縮する他の方法
 
@@ -246,7 +246,7 @@ DirectX ゲームは、画面上に見える内容を更新することでユー
 
 ![図 1 Directx における入力待ち時間 ](images/input-latency1.png)
 
-Windows 8.1、DXGI 導入、 **DXGI\_スワップ\_チェーン\_フラグ\_フレーム\_待機時間\_WAITABLE\_オブジェクト**スワップのフラグチェーンは、アプリを簡単に存在するキュー空のままにするためのヒューリスティックを実装する必要がないこの待機時間を短縮します。 このフラグによって作成されたスワップ チェーンは、waitable スワップ チェーンと呼ばれます。 図 2 は、waitable スワップ チェーンを使った場合のおおよそのライフサイクルと入力イベントに対する応答を示しています。
+Windows 8.1 では、DXGI は、スワップチェーンに対して、 **dxgi \_ スワップ \_ チェーン \_ フラグ \_ フレーム \_ 待機時間を \_ 待機する \_ オブジェクト** フラグを導入しました。これにより、アプリケーションは、現在のキューを空のままにするヒューリスティックを実装する必要なく、この待機時間を簡単に短縮できます。 このフラグによって作成されたスワップ チェーンは、waitable スワップ チェーンと呼ばれます。 図 2 は、waitable スワップ チェーンを使った場合のおおよそのライフサイクルと入力イベントに対する応答を示しています。
 
 図 2
 
@@ -257,7 +257,3 @@ Windows 8.1、DXGI 導入、 **DXGI\_スワップ\_チェーン\_フラグ\_フ�
  
 
  
-
-
-
-

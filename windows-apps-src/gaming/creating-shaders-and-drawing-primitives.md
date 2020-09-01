@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、シェーダー、プリミティブ、DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: fecce6237d08f9ffa89bc7503412a357b17c641d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: e900767b594b195ac5e1dd1d5777cfab16c2ece4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368957"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175366"
 ---
 # <a name="create-shaders-and-drawing-primitives"></a>シェーダーの作成とプリミティブの描画
 
@@ -21,7 +21,7 @@ ms.locfileid: "66368957"
 
 頂点シェーダーとピクセル シェーダーを使って、黄色の三角形を作成し描画します。 Direct3D デバイス、スワップ チェーン、レンダー ターゲット ビューを作成した後、ディスク上のバイナリ シェーダー オブジェクト ファイルからデータを読み取ります。
 
-**目標:** シェーダーを作成してには、、プリミティブを描画するには。
+**目標:** シェーダーを作成し、プリミティブを描画する。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -30,13 +30,13 @@ C++ に習熟していることを前提としています。 また、グラフ
 
 また、「[クイック スタート: DirectX リソースの設定と画像の表示](setting-up-directx-resources.md)」にひととおり目を通しておく必要があります。
 
-**所要時間:** 20 分
+**完了までの時間:** 20 分。
 
-## <a name="instructions"></a>手順
+## <a name="instructions"></a>Instructions
 
-### <a name="1-compiling-hlsl-source-files"></a>1. HLSL ソース ファイルをコンパイルします。
+### <a name="1-compiling-hlsl-source-files"></a>1. HLSL ソース ファイルのコンパイル
 
-Microsoft Visual Studio は [fxc.exe](https://docs.microsoft.com/windows/desktop/direct3dtools/fxc) HLSL コード コンパイラを使って .hlsl ソース ファイル (SimpleVertexShader.hlsl と SimplePixelShader.hlsl) を .cso バイナリ シェーダー オブジェクト ファイル (SimpleVertexShader.cso と SimplePixelShader.cso) にコンパイルします。 HLSL コード コンパイラについて詳しくは、「エフェクト コンパイラ ツール」をご覧ください。 シェーダー コードのコンパイルについて詳しくは、「[シェーダーのコンパイル](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-part1)」をご覧ください。
+Microsoft Visual Studio は [fxc.exe](/windows/desktop/direct3dtools/fxc) HLSL コード コンパイラを使って .hlsl ソース ファイル (SimpleVertexShader.hlsl と SimplePixelShader.hlsl) を .cso バイナリ シェーダー オブジェクト ファイル (SimpleVertexShader.cso と SimplePixelShader.cso) にコンパイルします。 HLSL コード コンパイラについて詳しくは、「エフェクト コンパイラ ツール」をご覧ください。 シェーダー コードのコンパイルについて詳しくは、「[シェーダーのコンパイル](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-part1)」をご覧ください。
 
 以下に示したのは、SimpleVertexShader.hlsl のコードです。
 
@@ -77,15 +77,15 @@ float4 SimplePixelShader(PixelShaderInput input) : SV_TARGET
 }
 ```
 
-### <a name="2-reading-data-from-disk"></a>2. ディスクからデータを読み取る
+### <a name="2-reading-data-from-disk"></a>2. ディスクからのデータの読み取り
 
 DirectX 11 アプリ (ユニバーサル Windows) テンプレート内の DirectXHelper.h から DX::ReadDataAsync 関数を使って、ディスク上のファイルからデータを非同期的に読み取ります。
 
-### <a name="3-creating-vertex-and-pixel-shaders"></a>3.頂点とピクセル シェーダーを作成します。
+### <a name="3-creating-vertex-and-pixel-shaders"></a>3. 頂点シェーダーとピクセル シェーダーの作成
 
-SimpleVertexShader.cso ファイルからデータを読み取り、そのデータを *vertexShaderBytecode* バイト配列に割り当てます。 このバイト配列を使って [**ID3D11Device::CreateVertexShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createvertexshader) を呼び出し、頂点シェーダー ([**ID3D11VertexShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11vertexshader)) を作成します。 三角形が確実に描画されるように、SimpleVertexShader.hlsl ソースで頂点の深度値を 0.5 に設定します。 配列を設定します[ **D3D11\_入力\_要素\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)構造体、頂点シェーダー コードのレイアウトを記述し、呼び出す[**ID3D11Device::CreateInputLayout** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createinputlayout)レイアウトを作成します。 配列には頂点の位置を定義するレイアウト要素が 1 つあります。 SimplePixelShader.cso ファイルからデータを読み取り、そのデータを *pixelShaderBytecode* バイト配列に割り当てます。 このバイト配列を使って [**ID3D11Device::CreatePixelShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createpixelshader) を呼び出し、ピクセル シェーダー ([**ID3D11PixelShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11pixelshader)) を作成します。 三角形を黄色にするために、SimplePixelShader.hlsl ソースでピクセル値を (1,1,1,1) に設定します。 この値を変更することで色を変えることができます。
+SimpleVertexShader.cso ファイルからデータを読み取り、そのデータを *vertexShaderBytecode* バイト配列に割り当てます。 このバイト配列を使って [**ID3D11Device::CreateVertexShader**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createvertexshader) を呼び出し、頂点シェーダー ([**ID3D11VertexShader**](/windows/desktop/api/d3d11/nn-d3d11-id3d11vertexshader)) を作成します。 三角形が確実に描画されるように、SimpleVertexShader.hlsl ソースで頂点の深度値を 0.5 に設定します。 [**D3D11 \_ INPUT \_ 要素の \_ DESC**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)構造体の配列に頂点シェーダーコードのレイアウトを記述し、 [**ID3D11Device:: createinputlayout**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createinputlayout)を呼び出してレイアウトを作成します。 配列には頂点の位置を定義するレイアウト要素が 1 つあります。 SimplePixelShader.cso ファイルからデータを読み取り、そのデータを *pixelShaderBytecode* バイト配列に割り当てます。 このバイト配列を使って [**ID3D11Device::CreatePixelShader**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createpixelshader) を呼び出し、ピクセル シェーダー ([**ID3D11PixelShader**](/windows/desktop/api/d3d11/nn-d3d11-id3d11pixelshader)) を作成します。 三角形を黄色にするために、SimplePixelShader.hlsl ソースでピクセル値を (1,1,1,1) に設定します。 この値を変更することで色を変えることができます。
 
-単純な三角形を定義する頂点バッファーとインデックス バッファーを作成します。 これを行うには、まずを定義、三角形の頂点とインデックス バッファーを次に説明します ([**D3D11\_バッファー\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_buffer_desc)と[ **D3D11\_SUBRESOURCE\_データ**](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)) 三角形の定義を使用して、最後に呼び出す[ **ID3D11Device::CreateBuffer** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer)各バッファーに 1 回です。
+単純な三角形を定義する頂点バッファーとインデックス バッファーを作成します。 これを行うには、まず三角形を定義し、次に三角形定義を使用して頂点バッファーとインデックスバッファー ([**D3D11 \_ BUFFER \_ DESC**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_buffer_desc) と [**D3D11 \_ subresource \_ DATA**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_subresource_data)) について説明し、最後に、各バッファーに対して [**ID3D11Device:: createbuffer**](/windows/desktop/api/d3d11/nf-d3d11-id3d11device-createbuffer) を1回呼び出します。
 
 ```cpp
         auto loadVSTask = DX::ReadDataAsync(L"SimpleVertexShader.cso");
@@ -200,21 +200,21 @@ SimpleVertexShader.cso ファイルからデータを読み取り、そのデー
 
 頂点シェーダー、ピクセル シェーダー、頂点シェーダー レイアウト、頂点バッファー、インデックス バッファーを使って、黄色の三角形を描画します。
 
-### <a name="4-drawing-the-triangle-and-presenting-the-rendered-image"></a>4。三角形を描画し、描画された画像を表示します。
+### <a name="4-drawing-the-triangle-and-presenting-the-rendered-image"></a>4. 三角形の描画とレンダリングされた画像の表示
 
-シーンをレンダリングして表示し続けるために、無限ループを使います。 [  **ID3D11DeviceContext::OMSetRenderTargets**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) を呼び出して、レンダー ターゲットを出力ターゲットとして指定します。 [  **ID3D11DeviceContext::ClearRenderTargetView**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-clearrendertargetview) の呼び出しに { 0.071f, 0.04f, 0.561f, 1.0f } を渡して、レンダー ターゲットを無地の青色にクリアします。
+シーンをレンダリングして表示し続けるために、無限ループを使います。 [**ID3D11DeviceContext::OMSetRenderTargets**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-omsetrendertargets) を呼び出して、レンダー ターゲットを出力ターゲットとして指定します。 [**ID3D11DeviceContext::ClearRenderTargetView**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-clearrendertargetview) の呼び出しに { 0.071f, 0.04f, 0.561f, 1.0f } を渡して、レンダー ターゲットを無地の青色にクリアします。
 
 無限ループで、黄色の三角形を青色のサーフェス上に描画します。
 
 **黄色の三角形を描画するには**
 
-1.  まず、頂点バッファーから入力アセンブラー ステージへのデータの流れを定義するために、[**ID3D11DeviceContext::IASetInputLayout**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) を呼び出します。
-2.  次に、[**ID3D11DeviceContext::IASetVertexBuffers**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers) と [**ID3D11DeviceContext::IASetIndexBuffer**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer) を呼び出して、頂点バッファーとインデックス バッファーを入力アセンブラー ステージにバインドします。
-3.  次に、呼び出して[ **ID3D11DeviceContext::IASetPrimitiveTopology** ](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology)で、 [ **D3D11\_プリミティブ\_トポロジ\_TRIANGLESTRIP** ](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/ff476189(v=vs.85))入力アセンブラー ステージを三角形ストリップとして頂点データの解釈を指定する値。
-4.  次に、[**ID3D11DeviceContext::VSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader) を呼び出して頂点シェーダー ステージを頂点シェーダー コードで初期化し、さらに、[**ID3D11DeviceContext::PSSetShader**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) を呼び出してピクセル シェーダー ステージをピクセル シェーダー コードで初期化します。
-5.  最後に、[**ID3D11DeviceContext::DrawIndexed**](https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed) を呼び出して三角形を描画し、レンダリング パイプラインに送ります。
+1.  まず、頂点バッファーから入力アセンブラー ステージへのデータの流れを定義するために、[**ID3D11DeviceContext::IASetInputLayout**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetinputlayout) を呼び出します。
+2.  次に、[**ID3D11DeviceContext::IASetVertexBuffers**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetvertexbuffers) と [**ID3D11DeviceContext::IASetIndexBuffer**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetindexbuffer) を呼び出して、頂点バッファーとインデックス バッファーを入力アセンブラー ステージにバインドします。
+3.  次に、 [**D3D11 \_ プリミティブ \_ トポロジ \_ TRIANGLESTRIP**](/previous-versions/windows/desktop/legacy/ff476189(v=vs.85))値を指定して[**である id3d11devicecontext:: IASetPrimitiveTopology**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-iasetprimitivetopology)を呼び出し、頂点データを三角形ストリップとして解釈するように入力アセンブラーステージを指定します。
+4.  次に、[**ID3D11DeviceContext::VSSetShader**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-vssetshader) を呼び出して頂点シェーダー ステージを頂点シェーダー コードで初期化し、さらに、[**ID3D11DeviceContext::PSSetShader**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-pssetshader) を呼び出してピクセル シェーダー ステージをピクセル シェーダー コードで初期化します。
+5.  最後に、[**ID3D11DeviceContext::DrawIndexed**](/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed) を呼び出して三角形を描画し、レンダリング パイプラインに送ります。
 
-レンダリングされた画像をウィンドウに表示するために、[**IDXGISwapChain::Present**](https://docs.microsoft.com/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present) を呼び出しています。
+レンダリングされた画像をウィンドウに表示するために、[**IDXGISwapChain::Present**](/windows/desktop/api/dxgi/nf-dxgi-idxgiswapchain-present) を呼び出しています。
 
 ```cpp
             // Specify the render target we created as the output target.
@@ -280,19 +280,15 @@ SimpleVertexShader.cso ファイルからデータを読み取り、そのデー
                 );
 ```
 
-## <a name="summary-and-next-steps"></a>要約と次のステップ
+## <a name="summary-and-next-steps"></a>まとめと次のステップ
 
 
 ここでは、頂点シェーダーとピクセル シェーダーを使って、黄色の三角形を作成し描画しました。
 
 次に、周回する 3D 立方体を作成し、そこに照明効果を適用します。
 
-[深さとプリミティブの効果を使用してください。](using-depth-and-effects-on-primitives.md)
+[プリミティブに対する深度と各種効果の使用](using-depth-and-effects-on-primitives.md)
 
  
 
  
-
-
-
-

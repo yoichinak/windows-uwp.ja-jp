@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: 24414ba36e2ee1af8f391eec38b04d9e17bb7237
-ms.sourcegitcommit: 2e597438dafedde3bde24424ef005bb4c24ba3bf
+ms.openlocfilehash: cf1566b804caaf39def783d95752a389536daa3b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84800328"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175336"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -34,7 +34,7 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
 ドキュメントから、開発者向けのプログラム、フォーラム、ブログ、サンプルまで、ゲーム開発に役立つ多くのリソースが用意されています。 ここでは、Windows 10 ゲームの開発を始めるにあたって役立つリソースをまとめています。
 
 > [!Note]
-> 一部の機能は、さまざまなプログラムで管理されています。 このガイドでは幅広いリソースを取り上げているため、参加しているプログラムや特定の開発の役割によっては、一部のリソースにアクセスできない場合があります。 developer.xboxlive.com、forums.xboxlive.com、xdi.xboxlive.com、Game Developer Network (GDN) に解決されるリンクなどです。 Microsoft とのパートナーシップの詳細については、「[開発者プログラム](#developer-programs)」を参照してください。
+> 一部の機能は、さまざまなプログラムで管理されています。 このガイドでは幅広いリソースを取り上げているため、参加しているプログラムや特定の開発の役割によっては、一部のリソースにアクセスできない場合があります。 developer.xboxlive.com、forums.xboxlive.com、xdi.xboxlive.com、Game Developer Network (GDN) に解決されるリンクなどです。 Microsoft とのパートナーシップの詳細については、「 [開発者プログラム](#developer-programs)」を参照してください。
 
 ### <a name="game-development-documentation"></a>ゲーム開発に関するドキュメント
 
@@ -101,19 +101,19 @@ Windows または Xbox で初めてゲームを開発する場合は、最初に
 
 ### <a name="partner-center"></a>パートナー センター
 
-[パートナーセンターに開発者アカウントを登録する](https://developer.microsoft.com/store/register)ことは、Windows ゲームの発行に向けた最初の手順です。 開発者アカウントでは、ゲームの名前を予約することや、すべての Windows デバイスに対応する無料ゲームと有料ゲームを Microsoft Store に提出することができます。 開発者アカウントを使って、ゲームとゲーム内製品を管理したり、詳細な分析を取得したり、世界中のプレイヤーに優れたエクスペリエンスを提供するサービスを実現することができます。 
+[パートナーセンターに開発者アカウントを登録する](https://developer.microsoft.com/store/register) ことは、Windows ゲームの発行に向けた最初の手順です。 開発者アカウントでは、ゲームの名前を予約することや、すべての Windows デバイスに対応する無料ゲームと有料ゲームを Microsoft Store に提出することができます。 開発者アカウントを使って、ゲームとゲーム内製品を管理したり、詳細な分析を取得したり、世界中のプレイヤーに優れたエクスペリエンスを提供するサービスを実現することができます。 
 
 さらにマイクロソフトでは、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 パートナーセンターアカウントに登録する前に、適切な権限があるかどうかを確認することをお勧めします。 詳しくは、「[開発者プログラム](#developer-programs)」をご覧ください。
 
 ### <a name="developer-programs"></a>開発者プログラム
 
-Microsoft では、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 Xbox One のゲームを開発し、Xbox Live の機能をゲームに統合する場合には、開発者プログラムへの参加を検討してください。 Microsoft Store でゲームを発行するには、[パートナーセンター](https://partner.microsoft.com/dashboard)で開発者アカウントを作成する必要もあります。
+Microsoft では、Windows ゲームの開発と公開に役立ついくつかの開発者向けプログラムを提供しています。 Xbox One のゲームを開発し、Xbox Live の機能をゲームに統合する場合には、開発者プログラムへの参加を検討してください。 Microsoft Store でゲームを発行するには、 [パートナーセンター](https://partner.microsoft.com/dashboard) で開発者アカウントを作成する必要もあります。
 
 #### <a name="xbox-live-creators-program"></a>Xbox Live 作成者のプログラム
 
-Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live を自分のタイトルに統合して、Xbox One や Windows 10 に公開することができます。 認定プロセスが簡素化され、標準的な [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)以外に概念の承認はありません。
+Xbox Live クリエーターズ プログラムでは、だれでも Xbox Live を自分のタイトルに統合して、Xbox One や Windows 10 に公開することができます。 認定プロセスが簡素化され、標準的な [Microsoft Store ポリシー](/legal/windows/agreements/store-policies)以外に概念の承認はありません。
 
-専用の開発キットがなくても、製品版ハードウェアのみを使用して、クリエーターズ プログラムでゲームを展開、設計、公開することができます。 作業を始めるには、Xbox One で[開発者モードのアクティブ化用アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/devkit-activation)をダウンロードします。
+専用の開発キットがなくても、製品版ハードウェアのみを使用して、クリエーターズ プログラムでゲームを展開、設計、公開することができます。 作業を始めるには、Xbox One で[開発者モードのアクティブ化用アプリ](../xbox-apps/devkit-activation.md)をダウンロードします。
 
 さらに多くの Xbox Live 機能、専用のマーケティングおよび開発サポート、およびメインの Xbox One ストアでおすすめとなる機会を、プログラムに適用し [ID@Xbox](https://www.xbox.com/Developers/id) ます。
 
@@ -463,7 +463,7 @@ XAML は、アニメーション、ストーリーボード、データ バイ�
     </tr>
 </table>
  
-####プレゼンテーションテクノロジの組み合わせ
+#### プレゼンテーションテクノロジの組み合わせ
 
 Microsoft DirectX Graphic Infrastructure (DXGI) には、複数のグラフィックス テクノロジにおける相互運用性と互換性が備わっています。 高パフォーマンスのグラフィックスを実現するため、メニューや他のシンプルな UI には XAML を使い、複雑な 2D および 3D シーンのレンダリングには DirectX を使うことで、XAML と DirectX を組み合わせることができます。 DXGI には、Direct2D、Direct3D、DirectWrite、DirectCompute、Microsoft メディア ファンデーション間の互換性も備わっています。
 
@@ -478,7 +478,7 @@ Microsoft DirectX Graphic Infrastructure (DXGI) には、複数のグラフィ�
     </tr>
     <tr>
         <td>DirectX と XAML の組み合わせ</td>
-        <td><a href="directx-and-xaml-interop.md">DirectX と XAML 相互運用</a></td>
+        <td><a href="directx-and-xaml-interop.md">DirectX と XAML の相互運用機能</a></td>
     </tr>
 </table>
  
@@ -516,7 +516,7 @@ C# ("シー シャープ" と発音) は、タイプ セーフかつオブジェ
     </tr>
 </table>
  
-####Java
+#### Java
 
 JavaScript は、最新の Web アプリケーションやリッチ クライアント アプリケーションに広く使用されている動的なスクリプト言語です。
 
@@ -616,7 +616,7 @@ Microsoft ファミリの一部となった PlayFab は、ライブ ゲームの
         <td><a href="https://playfab.com/">ツールとサービスの概要</a></td>
     </tr>
     <tr>
-        <td>作業の開始</td>
+        <td>はじめに</td>
         <td><a href="https://api.playfab.com/docs/general-getting-started">一般的なファースト ステップ ガイド</a></td>
     </tr>
     <tr>
@@ -674,7 +674,7 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </tr>
     <tr>
         <td>Mixer の対話機能を使用して、ゲームに対話機能を追加する方法</td>
-        <td><a href="https://github.com/mixer/interactive-unity-plugin/wiki/Getting-started">ファースト ステップ ガイド</a></td>
+        <td><a href="https://github.com/mixer/interactive-unity-plugin/wiki/Getting-started">ファーストステップガイド</a></td>
     </tr>
     <tr>
         <td>Unity 向け Mixer SDK</td>
@@ -706,7 +706,7 @@ Unity 5.4 以降では、Unity は Direct3D 12 の開発をサポートします
     </tr>
 </table>
  
-####[べきです]
+#### [べきです]
 
 Havok のモジュール化された一連のツールとテクノロジによって、ゲーム クリエーターは新しいレベルの対話式操作と没入感を提供できます。 Havok により、非常にリアルな物理的効果、対話型のシミュレーション、魅力的な映像を実現できます。 Version 2015.1 以上では、x86、64 ビット、ARM 上の Visual Studio 2015 で UWP を正式にサポートします。
 
@@ -729,7 +729,7 @@ Havok のモジュール化された一連のツールとテクノロジによ�
     </tr>
 </table>
  
-####MonoGame
+#### MonoGame
 
 MonoGame は、オープン ソース、クロスプラット フォームのゲーム開発フレームワークで、当初は Microsoft の XNA Framework 4.0 に基づいていました。 現在、Monogame は、Windows、Windows Phone、Xbox と共に、Linux、macOS、iOS、Android、その他のいくつかのプラットフォームをサポートしています。
 
@@ -909,7 +909,7 @@ Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が�
     </tr>
 </table>
  
-###UWP 開発の概要
+### UWP 開発の概要
 
 ユニバーサル Windows プラットフォーム アプリを開発するための準備は非常に簡単です。 以下のガイドでは、プロセスの詳しい手順を説明しています。
 
@@ -997,7 +997,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
 </table>
  
-###プロセスの有効期間の管理
+### プロセスの有効期間の管理
 
 プロセス ライフタイム管理、つまりアプリのライフ サイクルは、ユニバーサル Windows プラットフォーム アプリが取り得るさまざまなアクティブ化状態を表します。 ゲームは、アクティブ化、中断、再開、または終了することができ、さまざまな方法でこれらの状態を移行できます。
 
@@ -1016,7 +1016,7 @@ Windows デスクトップ ゲームを UWP に移行する際に役立つリン
     </tr>
 </table>
  
-###Game UX の設計
+### Game UX の設計
 
 優れたゲームはすばらしいデザインから始まります。
 
@@ -1047,7 +1047,7 @@ UX デザインとは別に、レベルのデザイン、ペース配分、世�
     </tr>   
 </table>
  
-####色のガイドラインとパレット
+#### 色のガイドラインとパレット
 
 ゲームで一貫した色のガイドラインに従うと、美しさやナビゲーションの操作性が向上し、メニューや HUD の機能がプレーヤーに伝わりやすくなります。 警告、ダメージ、XP、成績などのゲーム要素の色が一貫していると、UI がわかりやすくなるため、ラベルによって説明する必要性が減ります。
 
@@ -1201,7 +1201,7 @@ Direct3D 12 での変更点、および Direct3D 12 を使ってプログラミ�
     </tr>
 </table>
  
-####DirectX ツールキットおよびライブラリ
+#### DirectX ツールキットおよびライブラリ
 
 DirectX ツール キット、DirectX テクスチャ処理ライブラリ、DirectXMesh ジオメトリ処理ライブラリ、UVAtlas ライブラリ、DirectXMath ライブラリは、DirectX 開発用のテクスチャ、メッシュ、スプライト、その他のユーティリティ機能とヘルパー クラスを提供します。 これらのライブラリは、開発にかかる時間と労力を減らすのに役立ちます。
 
@@ -1337,11 +1337,11 @@ DirectX ツール キット、DirectX テクスチャ処理ライブラリ、Dir
     </tr>
 </table>
  
-###デバッグ、パフォーマンスの最適化、および監視
+### デバッグ、パフォーマンスの最適化、および監視
 
 パフォーマンスを最適化するには、Windows 10 のゲーム モードを活用し、ハードウェアの機能を最大限に活用して、ゲーマーに可能な限りのゲーム エクスペリエンスを提供します。
 
-Windows Performance Toolkit (WPT) は、Windows オペレーティング システムやアプリケーションの詳しいパフォーマンス プロファイルを生成するための一連のパフォーマンス監視ツールです。 これは、メモリ使用量を監視し、ゲームのパフォーマンスを向上させるために特に便利です。 Windows Performance Toolkit は、Windows 10 SDK と Windows ADK に含まれています。 このツールキットは、2 つの独立したツールで構成されています。Windows Performance Recorder (WPR) と Windows Performance Analyzer (WPA) です。 [Windows Sysinternals](https://technet.microsoft.com/sysinternals/default) に含まれる ProcDump は、コマンドライン ユーティリティであり、CPU 使用量の急上昇を監視し、ゲームのクラッシュ時にダンプ ファイルを生成します。 
+Windows Performance Toolkit (WPT) は、Windows オペレーティング システムやアプリケーションの詳しいパフォーマンス プロファイルを生成するための一連のパフォーマンス監視ツールです。 これは、メモリ使用量を監視し、ゲームのパフォーマンスを向上させるために特に便利です。 Windows Performance Toolkit は、Windows 10 SDK と Windows ADK に含まれています。 このツールキットは、2 つの独立したツールで構成されています。Windows Performance Recorder (WPR) と Windows Performance Analyzer (WPA) です。 [Windows Sysinternals](/sysinternals/) に含まれる ProcDump は、コマンドライン ユーティリティであり、CPU 使用量の急上昇を監視し、ゲームのクラッシュ時にダンプ ファイルを生成します。 
 
 <table>
     <colgroup>
@@ -1421,7 +1421,7 @@ DirectX の開発には微妙で複雑な部分があります。 運用環境�
     </tr>
     <tr>
         <td>DirectX と XAML の組み合わせ</td>
-        <td><a href="directx-and-xaml-interop.md">DirectX と XAML 相互運用</a></td>
+        <td><a href="directx-and-xaml-interop.md">DirectX と XAML の相互運用機能</a></td>
     </tr>
 </table>
 
@@ -1610,7 +1610,7 @@ Windows プラットフォーム用の多言語対応ゲームを開発し、Mic
     </tr>
 </table>
  
-###Visual Studio Application Insights
+### Visual Studio Application Insights
 
 Visual Studio Application Insights は、公開されたゲームのパフォーマンス、利用統計情報、および使用状況の分析を提供します。 Application Insights は、リリース後のゲームの問題の検出と解決、使用状況の継続的な監視と向上、プレイヤーがゲームを操作する方法の把握に役立ちます。 Application Insights は SDK をアプリに追加することで動作し、テレメトリを [Azure ポータル](https://portal.azure.com/)に送信します。
 
@@ -1686,7 +1686,7 @@ Visual Studio Application Insights は、公開されたゲームのパフォー
 Xbox Live は、世界中の何百万ものゲーマーを結びつける最高のゲーミング ネットワークです。 開発者は、Xbox Live プレゼンス、ランキング、クラウド保存、ゲーム ハブ、クラブ、パーティー チャット、ゲーム DVR など、ゲームの対象ユーザーを組織的に拡大できる Xbox Live の機能にアクセスできます。
 
 > [!Note]
-> Xbox Live 対応のタイトルを開発する場合、いくつかのオプションを利用できます。 さまざまなプログラムについて詳しくは、「[開発者プログラムの概要](https://docs.microsoft.com/gaming/xbox-live/developer-program-overview)」をご覧ください。
+> Xbox Live 対応のタイトルを開発する場合、いくつかのオプションを利用できます。 さまざまなプログラムについて詳しくは、「[開発者プログラムの概要](/gaming/xbox-live/developer-program-overview)」をご覧ください。
 
 <table>
     <colgroup>

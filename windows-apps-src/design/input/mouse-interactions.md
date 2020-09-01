@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d6ddf03541e94f89d0950a4f4c03eebaa0e396e
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 242f7c30260956bc84478153f39b0da4d8461e12
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234477"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173406"
 ---
 # <a name="mouse-interactions"></a>マウス操作
 
@@ -38,7 +38,7 @@ ms.locfileid: "83234477"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">用語</th>
+<th align="left">期間</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -86,46 +86,46 @@ ms.locfileid: "83234477"
 
 ## <a name="mouse-input-events"></a>マウス入力イベント
 
-ほとんどのマウス入力は、すべての[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 これには以下が含まれます。
+ほとんどのマウス入力は、すべての [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 次の設定があります。
 
-- [**Bring@ View要求**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
-- [**受信した文字**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.characterreceived)
-- [**ContextCanceled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextcanceled)
-- [**ContextRequested**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextrequested)
-- [**DoubleTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.doubletapped)
-- [**DragEnter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragenter)
-- [**DragLeave**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragleave)
-- [**DragOver**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragover)
-- [**DragStarting**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dragstarting)
-- [**」**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.drop)
-- [**DropCompleted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.dropcompleted)
-- [**GettingFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.gettingfocus)
-- [**GotFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.gotfocus)
-- [**Holding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.holding)
-- [**KeyDown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keydown)
-- [**KeyUp**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.keyup)
-- [**LosingFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.losingfocus)
-- [**LostFocus**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.lostfocus)
-- [**ManipulationCompleted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationcompleted)
-- [**ManipulationDelta**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationdelta)
-- [**ManipulationInertiaStarting**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationinertiastarting)
-- [**ManipulationStarted**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarted)
-- [**ManipulationStarting**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.manipulationstarting)
-- [**NoFocusCandidateFound**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.nofocuscandidatefound)
-- [**PointerCanceled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercanceled)
-- [**PointerCaptureLost**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercapturelost)
-- [**PointerEntered**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered)
-- [**PointerExited**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited)
-- [**PointerMoved**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointermoved)
-- [**PointerPressed**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed)
-- [**PointerReleased**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased)
-- [**PointerWheelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)
-- [**プレビューの Keydown**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeydown)
-- [**プレビューの Keyup**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.previewkeyup)
-- [**RightTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.righttapped)
-- [**Tapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.tapped)
+- [**Bring@ View要求**](/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
+- [**受信した文字**](/uwp/api/windows.ui.xaml.uielement.characterreceived)
+- [**ContextCanceled**](/uwp/api/windows.ui.xaml.uielement.contextcanceled)
+- [**ContextRequested**](/uwp/api/windows.ui.xaml.uielement.contextrequested)
+- [**DoubleTapped**](/uwp/api/windows.ui.xaml.uielement.doubletapped)
+- [**DragEnter**](/uwp/api/windows.ui.xaml.uielement.dragenter)
+- [**DragLeave**](/uwp/api/windows.ui.xaml.uielement.dragleave)
+- [**DragOver**](/uwp/api/windows.ui.xaml.uielement.dragover)
+- [**DragStarting**](/uwp/api/windows.ui.xaml.uielement.dragstarting)
+- [**」**](/uwp/api/windows.ui.xaml.uielement.drop)
+- [**DropCompleted**](/uwp/api/windows.ui.xaml.uielement.dropcompleted)
+- [**GettingFocus**](/uwp/api/windows.ui.xaml.uielement.gettingfocus)
+- [**GotFocus**](/uwp/api/windows.ui.xaml.uielement.gotfocus)
+- [**株式公開状況**](/uwp/api/windows.ui.xaml.uielement.holding)
+- [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown)
+- [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup)
+- [**LosingFocus**](/uwp/api/windows.ui.xaml.uielement.losingfocus)
+- [**LostFocus**](/uwp/api/windows.ui.xaml.uielement.lostfocus)
+- [**ManipulationCompleted**](/uwp/api/windows.ui.xaml.uielement.manipulationcompleted)
+- [**ManipulationDelta**](/uwp/api/windows.ui.xaml.uielement.manipulationdelta)
+- [**ManipulationInertiaStarting**](/uwp/api/windows.ui.xaml.uielement.manipulationinertiastarting)
+- [**ManipulationStarted**](/uwp/api/windows.ui.xaml.uielement.manipulationstarted)
+- [**ManipulationStarting**](/uwp/api/windows.ui.xaml.uielement.manipulationstarting)
+- [**NoFocusCandidateFound**](/uwp/api/windows.ui.xaml.uielement.nofocuscandidatefound)
+- [**PointerCanceled**](/uwp/api/windows.ui.xaml.uielement.pointercanceled)
+- [**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost)
+- [**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered)
+- [**PointerExited**](/uwp/api/windows.ui.xaml.uielement.pointerexited)
+- [**PointerMoved**](/uwp/api/windows.ui.xaml.uielement.pointermoved)
+- [**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed)
+- [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased)
+- [**PointerWheelChanged**](/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged)
+- [**プレビューの Keydown**](/uwp/api/windows.ui.xaml.uielement.previewkeydown)
+- [**プレビューの Keyup**](/uwp/api/windows.ui.xaml.uielement.previewkeyup)
+- [**RightTapped**](/uwp/api/windows.ui.xaml.uielement.righttapped)
+- [**Tapped**](/uwp/api/windows.ui.xaml.uielement.tapped)
 
-ただし、ポインター、ジェスチャ、および[Windows](https://docs.microsoft.com/uwp/api/windows.ui.input)の操作イベントを使用して、各デバイス (マウスホイールイベントなど) の特定の機能を利用できます。
+ただし、ポインター、ジェスチャ、および [Windows](/uwp/api/windows.ui.input)の操作イベントを使用して、各デバイス (マウスホイールイベントなど) の特定の機能を利用できます。
 
 **サンプル:** については、 [Basicinput サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)を参照してください。
 
@@ -144,7 +144,7 @@ ms.locfileid: "83234477"
 
 マウス ポインターとして利用できる標準のカーソル セットが用意されています。 これらが要素のプライマリ操作を示すために使われます。
 
-標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 カーソル画像は、[**PointerCursor**](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使って指定します。
+標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 カーソル画像は、[**PointerCursor**](/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使って指定します。
 
 マウス カーソルをカスタマイズする必要がある場合は、以下のガイドラインに従ってください。
 
@@ -158,7 +158,7 @@ ms.locfileid: "83234477"
 
 - [ポインター入力の処理](handle-pointer-input.md)
 - [入力デバイスの識別](identify-input-devices.md)
-- [イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)
+- [イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)
 
 ### <a name="samples"></a>サンプル
 

@@ -1,17 +1,17 @@
 ---
 ms.assetid: 3569C505-8D8C-4D85-B383-4839F13B2466
-description: Microsoft Store のキーを更新するには、以下のメソッドを使います。
+description: Microsoft Store コレクションと購入 Api の更新メソッドを使用して、期限切れの Microsoft Store ID キーを更新する方法について説明します。
 title: Microsoft Store ID キーの更新
 ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store コレクション API, Microsoft Store 購入 API, Microsoft Store ID キー, 更新
 ms.localizationpriority: medium
-ms.openlocfilehash: fd4d7ce26e12f7ff939ced8d456390b97d0c8a0d
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: fe19b446f88e16b87ff40288f5d4480f9230469e
+ms.sourcegitcommit: e273e5901bfa6596dfef4cc741bb1c42614c25ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57620487"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89238257"
 ---
 # <a name="renew-a-microsoft-store-id-key"></a>Microsoft Store ID キーの更新
 
@@ -28,31 +28,31 @@ Microsoft Store のキーを更新するには、以下のメソッドを使い�
 
 詳しくは、「[サービスによる製品の権利の管理](view-and-grant-products-from-a-service.md)」をご覧ください。
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 ### <a name="request-syntax"></a>要求の構文
 
-| キーの種類    | メソッド | 要求 URI                                              |
+| キーの種類    | Method | 要求 URI                                              |
 |-------------|--------|----------------------------------------------------------|
 | コレクション | POST   | ```https://collections.mp.microsoft.com/v6.0/b2b/keys/renew``` |
-| 購入    | POST   | ```https://purchase.mp.microsoft.com/v6.0/b2b/keys/renew```    |
+| Purchase    | POST   | ```https://purchase.mp.microsoft.com/v6.0/b2b/keys/renew```    |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header         | 種類   | 説明                                                                                           |
+| Header         | Type   | 説明                                                                                           |
 |----------------|--------|-------------------------------------------------------------------------------------------------------|
 | Host           | string | **collections.mp.microsoft.com** または **purchase.mp.microsoft.com** の値に設定する必要があります。           |
-| Content-Length | number | 要求の本文の長さ。                                                                       |
+| Content-Length | number | 要求本文の長さです。                                                                       |
 | Content-Type   | string | 要求と応答の種類を指定します。 現時点では、サポートされている唯一の値は **application/json** です。 |
 
 
 ### <a name="request-body"></a>要求本文
 
-| パラメーター     | 種類   | 説明                       | 必須 |
+| パラメーター     | Type   | 説明                       | 必須 |
 |---------------|--------|-----------------------------------|----------|
-| serviceTicket | string | Azure AD アクセス トークン。        | 〇      |
-| key           | string | 有効期限が切れた Microsoft Store ID キー。 | 〇       |
+| serviceTicket | string | Azure AD アクセス トークン。        | はい      |
+| key           | string | 有効期限が切れた Microsoft Store ID キー。 | はい       |
 
 
 ### <a name="request-example"></a>要求の例
@@ -69,12 +69,12 @@ Host: collections.mp.microsoft.com
 }
 ```
 
-## <a name="response"></a>応答
+## <a name="response"></a>[応答]
 
 
 ### <a name="response-body"></a>応答本文
 
-| パラメーター | 種類   | 説明                                                                                                            |
+| パラメーター | Type   | 説明                                                                                                            |
 |-----------|--------|------------------------------------------------------------------------------------------------------------------------|
 | key       | string | 以降の Microsoft Store コレクション API または Microsoft Store 購入 API の呼び出しで使用できる、更新された Microsoft Store のキー。 |
 
@@ -108,7 +108,7 @@ Date: Tue, 13 Sep 2015 07:31:12 GMT
 ## <a name="related-topics"></a>関連トピック
 
 
-* [サービスからの製品の利用資格を管理します。](view-and-grant-products-from-a-service.md)
-* [製品のクエリ](query-for-products.md)
-* [Fulfilled コンシューマブル製品をレポートします。](report-consumable-products-as-fulfilled.md)
-* [無料の製品を付与します。](grant-free-products.md)
+* [サービスによる製品の権利の管理](view-and-grant-products-from-a-service.md)
+* [製品の照会](query-for-products.md)
+* [コンシューマブルな製品をフルフィルメント完了として報告する](report-consumable-products-as-fulfilled.md)
+* [無料の製品の付与](grant-free-products.md)

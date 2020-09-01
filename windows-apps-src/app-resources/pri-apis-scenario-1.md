@@ -6,15 +6,15 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: a63cf64fec32be5439838618e534617d1f4a9afc
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 81ad50f5a23bbb660ba44709e0ba828cff2ae5ee
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66359357"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174066"
 ---
-# <a name="scenario-1-generate-a-pri-file-from-string-resources-and-asset-files"></a>シナリオ 1:文字列リソースと資産ファイルからの PRI ファイルを生成します。
-このシナリオでは、[パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference) を使用してカスタム ビルド システムを表す新しいアプリを作成します。 このカスタム ビルド システムの目的は、対象の UWP アプリの PRI ファイルを作成することです。 そのため、このチュートリアルの一部として、その対象とする UWP アプリのリソースを表す、(文字列、およびその他の種類のリソースを含む) サンプルのリソース ファイルを作成します。
+# <a name="scenario-1-generate-a-pri-file-from-string-resources-and-asset-files"></a>シナリオ 1: 文字列リソースとアセット ファイルから PRI ファイルを生成する
+このシナリオでは、[パッケージ リソース インデックス (PRI) API](/windows/desktop/menurc/pri-indexing-reference) を使用してカスタム ビルド システムを表す新しいアプリを作成します。 このカスタム ビルド システムの目的は、対象の UWP アプリの PRI ファイルを作成することです。 そのため、このチュートリアルの一部として、その対象とする UWP アプリのリソースを表す、(文字列、およびその他の種類のリソースを含む) サンプルのリソース ファイルを作成します。
 
 ## <a name="new-project"></a>新しいプロジェクト
 まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Visual C++ Windows コンソール アプリケーション** プロジェクトを作成し、*CBSConsoleApp* ("カスタム ビルド システムのコンソール アプリ" を表す) という名前を付けます。
@@ -30,7 +30,7 @@ PRI API は、MrmResourceIndexer.h ヘッダー ファイル (`%ProgramFiles(x86
 #include <MrmResourceIndexer.h>
 ```
 
-API は MrmSupport.dll に実装されています。MrmSupport.dll には、静的ライブラリ MrmSupport.lib にリンクすることでアクセスします。 プロジェクトの **[プロパティ]** を開き、 **[リンカー]**  >  **[入力]** の順にクリックし、**AdditionalDependencies** を編集して `MrmSupport.lib` を追加します。
+API は MrmSupport.dll に実装されています。MrmSupport.dll には、静的ライブラリ MrmSupport.lib にリンクすることでアクセスします。 プロジェクトの **[プロパティ]** を開き、**[リンカー]** > **[入力]** の順にクリックし、**AdditionalDependencies** を編集して `MrmSupport.lib` を追加します。
 
 ソリューションをビルドし、`MrmSupport.dll` を `C:\Program Files (x86)\Windows Kits\10\bin\<WindowsTargetPlatformVersion>\x64\` からビルドの出力フォルダー (`C:\Users\%USERNAME%\source\repos\CBSConsoleApp\x64\Debug\` など) にコピーします。
 
@@ -139,7 +139,7 @@ MrmResourceIndexerHandle indexer;
 - 既定のリソース修飾子の一覧です。
 - 関数で設定できるようにするための、リソース インデクサー ハンドルへのポインターです。
 
-次の手順では、先ほど作成したリソース インデクサーにリソースを追加します。 `resources.resw` ターゲットの UWP アプリのニュートラル文字列を含むリソース ファイル (.resw) です。 その内容を表示する場合は、(このトピック内で) 上方向にスクロールします。 `de-DE\resources.resw` ドイツ語の文字列を格納および`en-US\resources.resw`英語の文字列。 リソース ファイル内の文字列リソースをリソース インデクサーに追加するには、[**MrmIndexResourceContainerAutoQualifiers**](/windows/desktop/menurc/mrmindexresourcecontainerautoqualifiers) を呼び出します。 3 番目に、[**MrmIndexFile**](/windows/desktop/menurc/mrmindexfile) 関数を呼び出して、中立的なイメージ リソースを含むファイルをリソース インデクサーに追加します。
+次の手順では、先ほど作成したリソース インデクサーにリソースを追加します。 `resources.resw` は、ターゲットの UWP アプリのニュートラル文字列を含むリソースファイル (resw) です。 その内容を表示する場合は、(このトピック内で) 上方向にスクロールします。 `de-DE\resources.resw` ドイツ語の文字列と英語の文字列が含まれてい `en-US\resources.resw` ます。 リソース ファイル内の文字列リソースをリソース インデクサーに追加するには、[**MrmIndexResourceContainerAutoQualifiers**](/windows/desktop/menurc/mrmindexresourcecontainerautoqualifiers) を呼び出します。 3 番目に、[**MrmIndexFile**](/windows/desktop/menurc/mrmindexfile) 関数を呼び出して、中立的なイメージ リソースを含むファイルをリソース インデクサーに追加します。
 
 ```cppwinrt
 ::ThrowIfFailed(::MrmIndexResourceContainerAutoQualifiers(indexer, L"resources.resw"));
@@ -162,7 +162,7 @@ MrmResourceIndexerHandle indexer;
 ::ThrowIfFailed(::MrmDestroyIndexerAndMessages(indexer));
 ```
 
-PRI ファイルはバイナリであるため、バイナリ PRI ファイルをそれに対応する XML にダンプすると、先ほど生成したものを表示するのが簡単になります。 呼び出し[ **MrmDumpPriFile** ](/windows/desktop/menurc/mrmdumpprifile)のみを実行します。
+PRI ファイルはバイナリであるため、バイナリ PRI ファイルをそれに対応する XML にダンプすると、先ほど生成したものを表示するのが簡単になります。 [**MrmDumpPriFile**](/windows/desktop/menurc/mrmdumpprifile)を呼び出すと、それだけが行われます。
 
 ```cppwinrt
 ::ThrowIfFailed(::MrmDumpPriFile(filePathPRI.c_str(), nullptr, MrmDumpType::MrmDumpType_Basic, filePathPRIDumpBasic.c_str()));
@@ -227,11 +227,11 @@ PRI ファイルはバイナリであるため、バイナリ PRI ファイル�
 
 最初の文字列リソースは、`en-US\resources.resw` の *EnOnlyString* で候補が 1 つだけあります (その候補は *language-en-US* 修飾子に一致します)。 次のリソースは、`resources.resw` および `en-US\resources.resw` の *LocalizedString1* です。 そのため、*language-en-US* に一致する候補と、任意のコンテキストに一致するフォールバックの中立の候補の 2 つの候補があります。 同様に、*LocalizedString2* には、*language-de-DE* と中立の 2 つの候補があります。 最後に、*NeutralOnlyString* は中立の形式だけに存在します。 その名前を指定して、そのリソースがローカライズされるものではないということを明確にしています。
 
-## <a name="summary"></a>概要
-このシナリオでは、[パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference) を使用してリソース インデクサーを作成する方法を示しました。 文字列リソースとアセット ファイルをリソース インデクサーに追加しました。 次に、リソース インデクサーを使用して、バイナリ PRI ファイルを生成しました。 最後に、期待した情報が含まれていることを確認できるように、XML の形式でバイナリ PRI ファイルをダンプしました。
+## <a name="summary"></a>まとめ
+このシナリオでは、[パッケージ リソース インデックス (PRI) API](/windows/desktop/menurc/pri-indexing-reference) を使用してリソース インデクサーを作成する方法を示しました。 文字列リソースとアセット ファイルをリソース インデクサーに追加しました。 次に、リソース インデクサーを使用して、バイナリ PRI ファイルを生成しました。 最後に、期待した情報が含まれていることを確認できるように、XML の形式でバイナリ PRI ファイルをダンプしました。
 
 ## <a name="important-apis"></a>重要な API
-* [パッケージのリソース インデックス (PRI) の参照](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference)
+* [パッケージ リソース インデックス (PRI) リファレンス](/windows/desktop/menurc/pri-indexing-reference)
 
 ## <a name="related-topics"></a>関連トピック
 * [パッケージ リソース インデックス (PRI) API とカスタム ビルド システム](pri-apis-custom-build-systems.md)

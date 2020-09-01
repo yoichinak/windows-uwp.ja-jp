@@ -6,12 +6,12 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store コレクション API, フルフィルメント, コンシューマブル
 ms.localizationpriority: medium
-ms.openlocfilehash: 994113abc34a0a5f7905bff00aa77c6785409927
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 88ff4f9bd2c490c8fae4deb2cfa4cbf5c74956c8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372771"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174946"
 ---
 # <a name="report-consumable-products-as-fulfilled"></a>コンシューマブルな製品をフルフィルメント完了として報告する
 
@@ -32,44 +32,44 @@ ms.locfileid: "66372771"
 
 詳しくは、「[サービスによる製品の権利の管理](view-and-grant-products-from-a-service.md)」をご覧ください。
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI                                                   |
+| 認証方法 | 要求 URI                                                   |
 |--------|---------------------------------------------------------------|
 | POST   | ```https://collections.mp.microsoft.com/v6.0/collections/consume``` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header         | 種類   | 説明                                                                                           |
+| Header         | Type   | 説明                                                                                           |
 |----------------|--------|-------------------------------------------------------------------------------------------------------|
-| Authorization  | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。                           |
+| 承認  | string | 必須。 ベアラートークン形式の Azure AD アクセストークン**Bearer** &lt; *token* &gt; 。                           |
 | Host           | string | 値 **collections.mp.microsoft.com** に設定する必要があります。                                            |
-| Content-Length | number | 要求の本文の長さ。                                                                       |
+| Content-Length | number | 要求本文の長さです。                                                                       |
 | Content-Type   | string | 要求と応答の種類を指定します。 現時点では、サポートされている唯一の値は **application/json** です。 |
 
 
 ### <a name="request-body"></a>要求本文
 
-| パラメーター     | 種類         | 説明         | 必須 |
+| パラメーター     | Type         | 説明         | 必須 |
 |---------------|--------------|---------------------|----------|
-| beneficiary   | UserIdentity | この項目が使用されているユーザー。 詳細については、次の表を参照してください。        | 〇      |
-| itemId        | string       | [製品の照会](query-for-products.md)で返される *itemId* 値。 このパラメーターは *trackingId* と共に使用します。      | X       |
-| trackingId    | guid         | 開発者により指定される一意の追跡 ID。 このパラメーターは *itemId* と共に使用します。         | X       |
-| productId     | string       | [製品の照会](query-for-products.md)で返される *productId* 値。 このパラメーターは *transactionId* と共に使用します。   | X       |
-| transactionId | guid         | 次のいずれかのソースから取得されるトランザクション ID 値。 このパラメーターは *productId* と共に使用します。<ul><li>[PurchaseResults](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Store.PurchaseResults) クラスの [TransactionID](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.purchaseresults.transactionid) プロパティ。</li><li>[RequestProductPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync)、[RequestAppPurchaseAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.requestapppurchaseasync)、または [GetAppReceiptAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.store.currentapp.getappreceiptasync) から返されるアプリまたは製品の通知。</li><li>[製品の照会](query-for-products.md)で返される *transactionId* パラメーター。</li></ul>   | X       |
+| beneficiary   | UserIdentity | この項目が使用されているユーザー。 詳細については、後の表を参照してください。        | はい      |
+| itemId        | string       | [製品のクエリ](query-for-products.md)によって返される*itemId*値。 *TrackingId*でこのパラメーターを使用します。      | いいえ       |
+| trackingId    | guid         | 開発者により指定される一意の追跡 ID。 このパラメーターは *itemId* と共に使用します。         | いいえ       |
+| productId     | string       | [製品のクエリ](query-for-products.md)によって返される*productId*値。 このパラメーターを*Transactionid*と共に使用します。   | いいえ       |
+| transactionId | guid         | 次のいずれかのソースから取得されるトランザクション ID 値。 このパラメーターは *productId* と共に使用します。<ul><li>[PurchaseResults](/uwp/api/Windows.ApplicationModel.Store.PurchaseResults) クラスの [TransactionID](/uwp/api/windows.applicationmodel.store.purchaseresults.transactionid) プロパティ。</li><li>[RequestProductPurchaseAsync](/uwp/api/windows.applicationmodel.store.currentapp.requestproductpurchaseasync)、[RequestAppPurchaseAsync](/uwp/api/windows.applicationmodel.store.currentapp.requestapppurchaseasync)、または [GetAppReceiptAsync](/uwp/api/windows.applicationmodel.store.currentapp.getappreceiptasync) から返されるアプリまたは製品の通知。</li><li>[製品のクエリ](query-for-products.md)によって返される*transactionid*パラメーター。</li></ul>   | いいえ       |
 
 
 UserIdentity オブジェクトには以下のパラメーターが含まれています。
 
-| パラメーター            | 種類   | 説明       | 必須 |
+| パラメーター            | Type   | 説明       | 必須 |
 |----------------------|--------|-------------------|----------|
-| identityType         | string | 文字列値 **b2b** を指定します。    | 〇      |
-| identityValue        | string | コンシューマブルな製品をフルフィルメント完了として報告するユーザーの ID を表す [Microsoft Store ID キー](view-and-grant-products-from-a-service.md#step-4)。      | 〇      |
-| localTicketReference | string | 返された応答で必要な識別子。 同じ値を使用することをお勧め、 *userId*[要求](view-and-grant-products-from-a-service.md#claims-in-a-microsoft-store-id-key)Microsoft Store の ID キー。 | 〇      |
+| identityType         | string | 文字列値 **b2b** を指定します。    | はい      |
+| identityValue        | string | コンシューマブルな製品をフルフィルメント完了として報告するユーザーの ID を表す [Microsoft Store ID キー](view-and-grant-products-from-a-service.md#step-4)。      | はい      |
+| localTicketReference | string | 返された応答で必要な識別子。 Microsoft Store ID キーの *userId*  [要求](view-and-grant-products-from-a-service.md#claims-in-a-microsoft-store-id-key)と同じ値を使用することをお勧めします。 | はい      |
 
 
 ### <a name="request-examples"></a>要求の例
@@ -144,7 +144,7 @@ Date: Tue, 22 Sep 2015 20:40:55 GMT
 
 ## <a name="related-topics"></a>関連トピック
 
-* [サービスからの製品の利用資格を管理します。](view-and-grant-products-from-a-service.md)
-* [製品のクエリ](query-for-products.md)
-* [無料の製品を付与します。](grant-free-products.md)
-* [Microsoft Store の ID キーを更新します。](renew-a-windows-store-id-key.md)
+* [サービスによる製品の権利の管理](view-and-grant-products-from-a-service.md)
+* [製品の照会](query-for-products.md)
+* [無料の製品の付与](grant-free-products.md)
+* [Microsoft Store ID キーの更新](renew-a-windows-store-id-key.md)

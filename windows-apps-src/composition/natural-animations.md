@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 7fde0cbf5335b4f5c3da2f21f692fc2c23455776
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 02c76991a60205042642f57fed475755db8c8071
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630377"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174086"
 ---
 # <a name="natural-motion-animations"></a>自然な動作のアニメーション
 
@@ -22,28 +22,28 @@ ms.locfileid: "57630377"
 
 モーションを利用してこの関係を構築するための 1 つの方法として、ユーザーにとって親しみやすい外観を提供するエクスペリエンスの作成があります。 ユーザーは、モーションが実生活での経験にどの程度基づいているかということを無意識に想定しています。 物体が床を横切って移動する動作、テーブルから落ちる動作、物体同士が跳ね返る動作、ばねによる振動などは、多くの人が理解し、想定できる動作です。 実際の物理法則に基づいて、こうした動作の想定を活用するモーションは、目で見たときに自然な感じがします。 モーションはより自然で対話的になりますが、さらに重要なことは、エクスペリエンス全体が覚えやすく、魅力的になるということです。
 
-![モーション アニメーションを使用せずにスケール](images/animation/scale-no-animation.gif)
-![3 次ベジエでモーションをスケール](images/animation/scale-cubic-bezier.gif)
-![spring アニメーションでモーションをスケール](images/animation/scale-spring.gif)
+![](images/animation/scale-no-animation.gif)
+ ![ ](images/animation/scale-cubic-bezier.gif)
+ ![ スプリングアニメーションによる3次ベジエスケールモーションを使用したアニメーションスケールモーションを使用しないスケールモーション](images/animation/scale-spring.gif)
 
 最終的には、アプリに対するユーザー エンゲージメントとユーザーの維持率が高まります。
 
 ## <a name="balancing-control-and-dynamism"></a>制御とダイナミズムのバランス
 
-従来の UI では、[KeyFrameAnimation](https://docs.microsoft.com/uwp/api/windows.ui.composition.keyframeanimation) がモーションを記述するための主要な方法となっています。 KeyFrame を使用すると、設計者や開発者は、開始、終了、補間の定義を完全に制御することができます。 多くの場合、KeyFrame は非常に便利な方法ですが、KeyFrame アニメーションは動的な表現が弱いアニメーションです。また、モーションはアダプティブではなく、どのような状況でも同じように見えてしまいます。
+従来の UI では、[KeyFrameAnimation](/uwp/api/windows.ui.composition.keyframeanimation) がモーションを記述するための主要な方法となっています。 KeyFrame を使用すると、設計者や開発者は、開始、終了、補間の定義を完全に制御することができます。 多くの場合、KeyFrame は非常に便利な方法ですが、KeyFrame アニメーションは動的な表現が弱いアニメーションです。また、モーションはアダプティブではなく、どのような状況でも同じように見えてしまいます。
 
 これとは対照的に、ゲームや物理エンジンでよく見られるシミュレーションがあります。 多くの場合、これらのエクスペリエンスでは、ユーザーが操作するときに非常にリアルで動きのある表現が実現されます。ユーザーが現実世界で感じる雰囲気や偶然性の感覚が作り出されるのです。 モーションはよりアクティブで動的なものとなりますが、設計者や開発者は制御できる要素が少なくなり、従来の UI に統合するのが難しくなります。
 
 ![制御の程度を示す図](images/animation/natural-motion-diagram.png)
 
-[NaturalMotionAnimation](https://docs.microsoft.com/uwp/api/windows.ui.composition.naturalmotionanimation) は、このギャップを橋渡しすることができます。アニメーションの重要な要素 (開始/終了など) に対する制御のバランスを取りながら、自然で動的な表現を実現するモーションを維持することができます。
+[NaturalMotionAnimation](/uwp/api/windows.ui.composition.naturalmotionanimation) は、このギャップを橋渡しすることができます。アニメーションの重要な要素 (開始/終了など) に対する制御のバランスを取りながら、自然で動的な表現を実現するモーションを維持することができます。
 
 > [!NOTE]
 > NaturalMotionAnimations は KeyFrame アニメーションに置き換わるものではありません。Fluent Design 言語では、KeyFrame が推奨される状況がまだあります。 NaturalMotionAnimations は、モーションは必要であるが、KeyFrame アニメーションでは動的な表現をするのに十分ではない場合に使用されることを目的としています。
 
 ## <a name="using-naturalmotionanimations"></a>NaturalMotionAnimations の使用
 
-Fall Creators Update 以降、新しいモーション エクスペリエンスである "**ばねアニメーション**" にアクセスできます。 ばねのモーションに関する詳しいチュートリアルについては、「[ばねアニメーション](spring-animations.md)」をご覧ください。
+秋の作成者の更新プログラムから、新しいモーションエクスペリエンス ( **spring アニメーション**) にアクセスできるようになりました。 ばねのモーションに関する詳しいチュートリアルについては、「[ばねアニメーション](spring-animations.md)」をご覧ください。
 
 このモーションの種類は、新しい NaturalMotionAnimation を使用して実行できます。 NaturalMotionAnimation は新しい種類のアニメーションで、制御とダイナミズムのバランスを取りながら、開発者が見慣れた自然なモーションを UI に組み込むことができるようにすることを重視しています。 次のような機能を備えています。
 

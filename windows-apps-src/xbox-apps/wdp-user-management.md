@@ -1,24 +1,24 @@
 ---
 title: Xbox Live テスト ユーザー管理 API のリファレンス
-description: ユーザー管理 API にプログラムでアクセスする方法について説明します。
+description: Xbox デバイスポータル REST API を使用して、コンソールでユーザーの一覧を取得または更新する方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.assetid: 70876ab6-8222-4940-b4fb-65b581a77d6a
-ms.openlocfilehash: 52f333af73084ed14982b9d09b6770c8294980f7
-ms.sourcegitcommit: 6169660ea437915265165c4631d9702587e4793d
+ms.openlocfilehash: 0f05bc84469585fc10bfff6a7f0d0f0976a0080d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74902527"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174676"
 ---
 # <a name="xbox-live-user-management"></a>Xbox Live ユーザー管理
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 本体のユーザーの一覧を取得したり、一覧を更新したりできます。更新では、既存のユーザーの追加、削除、サインイン、サインアウト、または変更を行うことができます。
 
-| メソッド        | 要求 URI     | 
+| Method        | 要求 URI     | 
 | ------------- |-----------------|
 | GET           | /ext/user |
 | PUT           | /ext/user |
@@ -36,7 +36,7 @@ ms.locfileid: "74902527"
 
 PUT メソッドの呼び出しには、次の構造の JSON 配列を含める必要があります。
 
-* Users
+* ユーザー
   * AutoSignIn (省略可能): EmailAddress や UserId で指定されたアカウントの自動サインインを無効または有効にするブール値。
   * EmailAddress (省略可能。ただし、スポンサー ユーザーにサインインしている場合を除き、UserId が指定されていない場合は必須): 変更、追加、削除を行うユーザーを指定するメール アドレス。
   * Password (省略可能。ただし、ユーザーが現在本体にサインインしていない場合は必須): 新しいユーザーを本体に追加するために使うパスワード。
@@ -51,7 +51,7 @@ PUT メソッドの呼び出しには、次の構造の JSON 配列を含める�
 
 GET メソッドの呼び出しでは、次のプロパティが指定された JSON 配列を返します。
 
-* Users
+* ユーザー
   * AutoSignIn (省略可能)
   * EmailAddress (省略可能)
   * Gamertag
@@ -60,7 +60,7 @@ GET メソッドの呼び出しでは、次のプロパティが指定された 
   * XboxUserId
   * SponsoredUser (省略可能)
   
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 

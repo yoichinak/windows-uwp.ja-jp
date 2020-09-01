@@ -1,17 +1,17 @@
 ---
 ms.assetid: 646977ed-1705-4ea7-a3db-a6b9aac70703
-description: JavaScript/HTML. を使ってスポット広告を起動する方法について説明します。
+description: JavaScript および HTML で記述されたユニバーサル Windows プラットフォーム (UWP) アプリを使用してスポット ad を起動する方法について説明します。
 title: JavaScript を使ったスポット広告のサンプル コード
 ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, UWP, 広告, Advertising, スポット, JavaScript, サンプルコード
 ms.localizationpriority: medium
-ms.openlocfilehash: b9aaf24ac4471c9873035afa91294dabd0487a4c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 764d5dd3f48afa7c446c51ff88090cba88654eba
+ms.sourcegitcommit: e273e5901bfa6596dfef4cc741bb1c42614c25ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164586"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89238267"
 ---
 # <a name="interstitial-ad-sample-code-in-javascript"></a>JavaScript を使ったスポット広告のサンプル コード
 

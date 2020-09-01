@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, OpenGL, Direct3D 11, 移植
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c17e0b8ceb5938b7ca224f4a67198929a37a7f4
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cdd5bc20d9cceff992cc23ae4863f952ea719877
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368358"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175216"
 ---
 # <a name="port-a-simple-opengl-es-20-renderer-to-direct3d-11"></a>簡単な OpenGL ES 2.0 レンダラーの Direct3D 11 への移植
 
@@ -25,9 +25,9 @@ ms.locfileid: "66368358"
 -   Direct3D のシェーダー開発で基本的な HLSL セマンティクスを使う方法
 -   非常に簡単な GLSL を HLSL に移植する方法
 
-このトピックは、新しい DirectX 11 プロジェクトを作成したところから始まります。 新しい DirectX 11 プロジェクトを作成する方法については、「[テンプレートからの DirectX ゲーム プロジェクトの作成](user-interface.md)」をご覧ください。
+このトピックは、新しい DirectX 11 プロジェクトを作成したところから始まります。 新しい DirectX 11 プロジェクトを作成する方法については、「 [ユニバーサル Windows プラットフォーム用の新しい directx 11 プロジェクトの作成 (UWP)](user-interface.md)」を参照してください。
 
-これらのリンクのどちらかから作成されたプロジェクトには [Direct3D](https://docs.microsoft.com/windows/desktop/direct3d11/dx-graphics-overviews) インフラストラクチャ用のコードがすべて用意されているため、OpenGL ES 2.0 から Direct3D 11 にレンダラーを移植するプロセスをすぐに始めることができます。
+これらのリンクのどちらかから作成されたプロジェクトには [Direct3D](/windows/desktop/direct3d11/dx-graphics-overviews) インフラストラクチャ用のコードがすべて用意されているため、OpenGL ES 2.0 から Direct3D 11 にレンダラーを移植するプロセスをすぐに始めることができます。
 
 このトピックでは、2 つのコード パスについて説明します。どちらも同じ基本的なグラフィックス タスクを実行します。頂点シェーディングされた回転する立方体をウィンドウに表示するというものです。 どちらの場合も、コードは次のプロセスに対応しています。
 
@@ -80,23 +80,23 @@ typedef struct
 
 この構造体には、インスタンスが 1 つあり、頂点シェーディングされた非常に簡単なメッシュをレンダリングするために必要なコンポーネントがすべて含まれています。
 
-> **注**  Any OpenGL ES 2.0 コードでは、このトピックでは、Khronos グループによって提供される Windows API の実装に基づいており、Windows C のプログラミング構文を使用します。
+> **メモ**   このトピックの OpenGL ES 2.0 コードは、Khronos グループによって提供される Windows API の実装に基づいており、Windows C プログラミング構文を使用します。
 
  
 
-## <a name="what-you-need-to-know"></a>理解しておく必要があること
+## <a name="what-you-need-to-know"></a>知っておく必要がある情報
 
 
 ### <a name="technologies"></a>テクノロジ
 
--   [Microsoft Visual C](https://docs.microsoft.com/previous-versions/60k1461a(v=vs.140))
+-   [Microsoft Visual C++](/previous-versions/60k1461a(v=vs.140))
 -   OpenGL ES 2.0
 
 ### <a name="prerequisites"></a>前提条件
 
--   (省略可能)。 「[DXGI と Direct3D の EGL コードの比較](moving-from-egl-to-dxgi.md)」をご覧ください。 このトピックを読むと、DirectX によって提供されるグラフィックス インターフェイスについて理解を深めることができます。
+-   任意。 「[DXGI と Direct3D の EGL コードの比較](moving-from-egl-to-dxgi.md)」をご覧ください。 このトピックを読むと、DirectX によって提供されるグラフィックス インターフェイスについて理解を深めることができます。
 
-## <a name="span-idkeylinksstepsheadingspansteps"></a><span id="keylinks_steps_heading"></span>手順
+## <a name="span-idkeylinks_steps_headingspansteps"></a><span id="keylinks_steps_heading"></span>ステップ
 
 
 <table>
@@ -132,17 +132,13 @@ typedef struct
 
  
 
-## <a name="span-idadditionalresourcesspanadditional-resources"></a><span id="additional_resources"></span>その他のリソース
+## <a name="span-idadditional_resourcesspanadditional-resources"></a><span id="additional_resources"></span>その他の情報
 
 
--   [UWP の DirectX ゲーム開発の開発環境を準備します。](prepare-your-dev-environment-for-windows-store-directx-game-development.md)
--   [UWP の DirectX 11 の新しいプロジェクトを作成します。](user-interface.md)
--   [Direct3d11 に OpenGL ES 2.0 の概念とインフラストラクチャをマップします。](map-concepts-and-infrastructure.md)
-
- 
+-   [UWP DirectX ゲーム プログラミング環境の準備](prepare-your-dev-environment-for-windows-store-directx-game-development.md)
+-   [テンプレートからの DirectX ゲーム プロジェクトの作成](user-interface.md)
+-   [Direct3D 11 への OpenGL ES 2.0 のマッピング](map-concepts-and-infrastructure.md)
 
  
 
-
-
-
+ 

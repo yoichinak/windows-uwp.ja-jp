@@ -12,12 +12,12 @@ design-contact: conrwi
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ded09e2de6e3aafa0108d3f7ef66808cb02bfd8
-ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.openlocfilehash: 5eac1b5d95dff4887258278f9ff700adaf663194
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89043574"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175546"
 ---
 # <a name="parallax"></a>視差
 
@@ -56,14 +56,14 @@ UI では、UI のスクロールやパンを行うときに、さまざまな�
  
 ## <a name="using-the-parallaxview-control-to-create-a-parallax-effect"></a>ParallaxView コントロールを使用して視差効果を作成する
 
-視差効果を作成するには、[ParallaxView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) コントロールを使用します。 このコントロールによって、前景要素 (リストなど) のスクロール位置が背景要素 (画像など) に関連付けられます。 前景要素をスクロールすると、背景要素がアニメーション化され、視差効果が発生します。 
+視差効果を作成するには、[ParallaxView](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) コントロールを使用します。 このコントロールによって、前景要素 (リストなど) のスクロール位置が背景要素 (画像など) に関連付けられます。 前景要素をスクロールすると、背景要素がアニメーション化され、視差効果が発生します。 
 
-ParallaxView コントロールを使用するには、ソース要素と背景要素を用意し、[VerticalShift](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.VerticalShift) プロパティ (垂直スクロール用) や [HorizontalShift](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.HorizontalShift) プロパティ (水平スクロール用) を 0 より大きい値に設定します。 
-* Source プロパティは、前景要素への参照を受け取ります。 視差効果を発生させるには、前景が [ScrollViewer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) であるか、前景が ScrollViewer を含んでいる要素 ([ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) や [RichTextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) など) であることがj必要です。 
+ParallaxView コントロールを使用するには、ソース要素と背景要素を用意し、[VerticalShift](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.VerticalShift) プロパティ (垂直スクロール用) や [HorizontalShift](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview.HorizontalShift) プロパティ (水平スクロール用) を 0 より大きい値に設定します。 
+* Source プロパティは、前景要素への参照を受け取ります。 視差効果を発生させるには、前景が [ScrollViewer](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) であるか、前景が ScrollViewer を含んでいる要素 ([ListView](/uwp/api/windows.ui.xaml.controls.listview) や [RichTextBox](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) など) であることがj必要です。 
 
-* 背景要素を設定するには、その要素を ParallaxView コントロールの子として追加します。 背景要素には、[Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) など、どのような [UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) でも使用できます。また、追加の UI 要素を含んでいるパネルも使用できます。 
+* 背景要素を設定するには、その要素を ParallaxView コントロールの子として追加します。 背景要素には、[Image](/uwp/api/Windows.UI.Xaml.Controls.Image) など、どのような [UIElement](/uwp/api/windows.ui.xaml.uielement) でも使用できます。また、追加の UI 要素を含んでいるパネルも使用できます。 
 
-視差効果を作成するには、ParallaxView が背景要素を介して動作するようにする必要があります。 [Grid](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid) パネルや [Canvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.canvas) パネルを使用すると、項目を相互に重ねることができ、それらの項目は ParallaxView コントロールで適切に動作します。  
+視差効果を作成するには、ParallaxView が背景要素を介して動作するようにする必要があります。 [Grid](/uwp/api/windows.ui.xaml.controls.grid) パネルや [Canvas](/uwp/api/windows.ui.xaml.controls.canvas) パネルを使用すると、項目を相互に重ねることができ、それらの項目は ParallaxView コントロールで適切に動作します。  
 
 次の例では、リストの視差効果を作成します。
  
@@ -123,6 +123,6 @@ VerticalShift プロパティと HorizontalShift プロパティでは、視差�
 
 ## <a name="related-articles"></a>関連記事
 
-- [ParallaxView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) 
+- [ParallaxView クラス](/uwp/api/Windows.UI.Xaml.Controls.Parallaxview) 
 - [UWP 用 Fluent Design](/windows/apps/fluent-design-system)
 - [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)

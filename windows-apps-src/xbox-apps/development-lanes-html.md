@@ -1,17 +1,17 @@
 ---
 title: Xbox での HTML ゲーム開発
-description: Xbox での HTML UWP ゲーム開発です。
+description: パッケージ化された Web アプリとホストされる Web アプリの構築方法など、Xbox でのユニバーサル Windows プラットフォーム (UWP) の HTML 5 ゲーム開発について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: edd40cc4-2604-4bc6-bd81-f671389a70fa
 ms.localizationpriority: medium
-ms.openlocfilehash: afebfd089b80b7402929bd85ea482b86aca0e694
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 7533332392a9f2a5a04fa23903d311eeab80a98f
+ms.sourcegitcommit: e273e5901bfa6596dfef4cc741bb1c42614c25ab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67320217"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89238247"
 ---
 # <a name="bringing-html-games-to-uwp-on-xbox"></a>HTML ゲームの Xbox での UWP への移行
 Xbox One は HTML 5 ゲーム用の優れたプラットフォームです。 HTML 5 ゲームは、[Microsoft Edge](https://developer.microsoft.com/microsoft-edge) ブラウザー エンジンで実行されます。 Microsoft Edge は高速で、WebGL やキャンバスなど、HTML 5 と CSS 3 の機能を完全にサポートしています。

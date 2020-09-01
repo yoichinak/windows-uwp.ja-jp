@@ -1,16 +1,16 @@
 ---
-Description: デスクトップアプリケーションと UWP アプリの間でコードを共有する
-title: デスクトップアプリケーションと UWP アプリの間でコードを共有する
+Description: デスクトップ アプリケーションと UWP アプリでのコードの共有
+title: デスクトップ アプリケーションと UWP アプリでのコードの共有
 ms.date: 10/03/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c07a3bbff4b29d2b59ef7d6d8a5912ce3675a4e
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 2e13c656f02531d500a72aa74b2d3c5d6cc29aa4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730351"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174936"
 ---
 # <a name="move-from-a-desktop-application-to-uwp"></a>デスクトップアプリケーションから UWP への移行
 
@@ -20,7 +20,7 @@ ms.locfileid: "82730351"
 
 デスクトップアプリケーションを MSIX パッケージにパッケージ化して、さらに多くの Windows 10 機能にアクセスできます。 MSIX は、UWP、WPF、Windows フォーム、Win32 アプリを含む、あらゆる Windows アプリ用のユニバーサル パッケージ化エクスペリエンスを提供するモダンな Windows アプリ パッケージ形式です。 MSIX パッケージにデスクトップ Windows アプリをパッケージ化することで、堅牢なインストール、更新エクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルにアクセスできます。 ソースコードがあるかどうか、または既存のインストーラーファイル (MSI や App-v インストーラーなど) があるかどうかにかかわらず、アプリケーションをパッケージ化することができます。 アプリケーションをパッケージ化した後、パッケージ拡張機能やその他の UWP コンポーネントなどの UWP 機能を統合できます。
 
-詳細については、「[パッケージデスクトップアプリケーション (デスクトップブリッジ)](/windows/msix/desktop/desktop-to-uwp-root) 」および「[パッケージ id を必要とする機能](/windows/apps/desktop/modernize/modernize-packaged-apps)」を参照してください。
+詳細については、「 [パッケージデスクトップアプリケーション (デスクトップブリッジ)](/windows/msix/desktop/desktop-to-uwp-root) 」および「 [パッケージ id を必要とする機能](/windows/apps/desktop/modernize/modernize-packaged-apps)」を参照してください。
 
 ## <a name="use-windows-runtime-apis"></a>Windows ランタイム Api を使用する
 
@@ -70,7 +70,7 @@ ms.locfileid: "82730351"
 &nbsp;
 > [!VIDEO https://www.youtube-nocookie.com/embed/rzs_FGPyAlY?list=PLRAdsfhKI4OWx321A_pr-7HhRNk7wOLLY&amp;ecver=2]
 
-コードに標準との互換性がない場合は、そのコードを実装するための他の方法を検討してください。 まず [.NET API ブラウザー](https://docs.microsoft.com/dotnet/api/?view=netstandard-2.0)を開きます。 このブラウザーを使用して、.NET Standard 2.0 に含まれている API を確認します。 一覧の範囲として .NET Standard 2.0 を指定してください。
+コードに標準との互換性がない場合は、そのコードを実装するための他の方法を検討してください。 まず [.NET API ブラウザー](/dotnet/api/?view=netstandard-2.0)を開きます。 このブラウザーを使用して、.NET Standard 2.0 に含まれている API を確認します。 一覧の範囲として .NET Standard 2.0 を指定してください。
 
 ![.NET オプション](images/desktop-to-uwp/dot-net-option.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "82730351"
 
 ![Windows フォーム アプリ](images/desktop-to-uwp/win-forms-app.png)
 
-このプロジェクトには、.NET Standard 2.0 クラス ライブラリおよび **Northwind** という静的クラスが含まれています。 このコードを**Northwind**クラスに移動すると、、 ``SQLConnection`` ``SqlCommand``、および``SqlDataReader``の各クラス、および .NET Standard 2.0 では使用できないクラスが使用されるため、コンパイルされません。
+このプロジェクトには、.NET Standard 2.0 クラス ライブラリおよび **Northwind** という静的クラスが含まれています。 このコードを **Northwind** クラスに移動する ``SQLConnection`` と、、 ``SqlCommand`` 、およびの各クラス、および ``SqlDataReader`` .NET Standard 2.0 では使用できないクラスが使用されるため、コンパイルされません。
 
 ```csharp
 public static ArrayList GetCustomerNames()
@@ -112,7 +112,7 @@ public static ArrayList GetCustomerNames()
 }
 
 ```
-ただし、[.NET API ブラウザー](https://docs.microsoft.com/dotnet/api/?view=netstandard-2.0)を使用して代わりのクラスを見つけることができます。 ``DbConnection``、``DbCommand``、``DbDataReader`` の各クラスはすべて .NET Standard 2.0 で利用可能であるため、それらを代わりに使用することができます。  
+ただし、[.NET API ブラウザー](/dotnet/api/?view=netstandard-2.0)を使用して代わりのクラスを見つけることができます。 ``DbConnection``、``DbCommand``、``DbDataReader`` の各クラスはすべて .NET Standard 2.0 で利用可能であるため、それらを代わりに使用することができます。  
 
 この改訂バージョンではこれらのクラスを使用して顧客の一覧を取得しますが、``DbConnection`` クラスを作成するには、クライアント アプリケーションで作成するファクトリ オブジェクトを渡す必要があります。
 
@@ -216,7 +216,7 @@ public sealed partial class MainPage : Page
 }
 ```
 
-UWP を使い始めるには、「[UWP アプリとは](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)」をご覧ください。
+UWP を使い始めるには、「[UWP アプリとは](../get-started/universal-application-platform-guide.md)」をご覧ください。
 
 ### <a name="reach-ios-and-android-devices"></a>iOS および Android デバイスへのリーチ
 
@@ -239,7 +239,7 @@ UWP の場合と同様、.NET Standard 2.0 クラス ライブラリに用意さ
 ![Xamarin アプリ](images/desktop-to-uwp/xamarin-projects.png)
 
 >[!NOTE]
->クロスプラット フォーム プロジェクトは、プラットフォーム固有の機能がほとんどないアプリに最適です。 これらを使用して、iOS、Android、および Windows で実行されるネイティブの XAML ベース UI を 1 つ構築できます。 [こちら](https://docs.microsoft.com/xamarin/xamarin-forms/)をご覧ください。
+>クロスプラット フォーム プロジェクトは、プラットフォーム固有の機能がほとんどないアプリに最適です。 これらを使用して、iOS、Android、および Windows で実行されるネイティブの XAML ベース UI を 1 つ構築できます。 [こちら](/xamarin/xamarin-forms/)をご覧ください。
 
 次に、Android、iOS、またはクロスプラットフォーム プロジェクトから、クラス ライブラリ プロジェクトの参照を追加します。
 
@@ -278,13 +278,13 @@ public class MainActivity : ListActivity
 }
 ```
 
-Android プロジェクト、iOS プロジェクト、およびクロスプラットフォーム プロジェクトの概要については、[Xamarin 開発者ポータル](https://docs.microsoft.com/xamarin)をご覧ください。
+Android プロジェクト、iOS プロジェクト、およびクロスプラットフォーム プロジェクトの概要については、[Xamarin 開発者ポータル](/xamarin)をご覧ください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 **質問に対する回答を見つける**
 
-ご不明な点がありますか? Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
 
 **フィードバックの提供または機能の提案を行う**
 

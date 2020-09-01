@@ -11,24 +11,24 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: d7f26e7a4ae05aaf3e197843e18273cb765754a0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d7898dd727ffb4c9255b66725ea69d2005e8d650
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371458"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175146"
 ---
 # <a name="handle-app-resume"></a>アプリの再開の処理
 
 **重要な API**
 
-- [**再開**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming)
+- [**再開中**](/uwp/api/windows.ui.xaml.application.resuming)
 
-システムがアプリを再開するときに、どこで UI を更新するかについて説明します。 このトピックの例では、[**Resuming**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming) イベントのイベント ハンドラーを登録します。
+システムがアプリを再開するときに、どこで UI を更新するかについて説明します。 このトピックの例では、[**Resuming**](/uwp/api/windows.ui.xaml.application.resuming) イベントのイベント ハンドラーを登録します。
 
 ## <a name="register-the-resuming-event-handler"></a>Resuming イベント ハンドラーに登録する
 
-[  **Resuming**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming) イベントを処理するために登録します。このイベントは、ユーザーがアプリを切り替えてから、アプリに戻ったことを示します。
+[**Resuming**](/uwp/api/windows.ui.xaml.application.resuming) イベントを処理するために登録します。このイベントは、ユーザーがアプリを切り替えてから、アプリに戻ったことを示します。
 
 ```csharp
 partial class MainPage
@@ -73,7 +73,7 @@ MainPage::MainPage()
 
 ユーザーが別のアプリまたはデスクトップに切り替えると、数秒後にシステムがアプリを中断します。 ユーザーが元のアプリに戻すと、システムはアプリを再開します。 システムがアプリを再開した時点で、変数とデータ構造の内容は、システムがアプリを一時停止する前の状態と同じです。 システムは、アプリを中断前の状態に復元します。 ユーザーには、アプリがバックグラウンドで実行されていたかのように見えます。
 
-アプリが [**Resuming**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming) イベントを処理した時点で、アプリの中断時間が数時間 (あるいは数日間) に及んでいる可能性もあります。 アプリが中断されている間に古くなった可能性があるコンテンツは、すべて更新されます (ニュース フィードやユーザーの所在地など)。
+アプリが [**Resuming**](/uwp/api/windows.ui.xaml.application.resuming) イベントを処理した時点で、アプリの中断時間が数時間 (あるいは数日間) に及んでいる可能性もあります。 アプリが中断されている間に古くなった可能性があるコンテンツは、すべて更新されます (ニュース フィードやユーザーの所在地など)。
 
 これは、アプリが中断されたときにリリースした排他リソース (ファイル ハンドル、カメラ、I/O デバイス、外部デバイス、およびネットワーク リソースなど) を復元する良い機会でもあります。
 
@@ -116,13 +116,13 @@ void MainPage::App_Resuming(Object^ sender, Object^ e)
 ```
 
 > [!NOTE]
-> [**再開中**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming)イベントが UI スレッドから発生しませんが、ディスパッチャーは、UI への呼び出しをディスパッチするハンドラーで使用する必要があります。
+> [**再開**](/uwp/api/windows.ui.xaml.application.resuming)イベントは ui スレッドからは発生しないため、ui の呼び出しをディスパッチするには、ディスパッチャーをハンドラーで使用する必要があります。
 
 ## <a name="remarks"></a>注釈
 
-アプリが Visual Studio のデバッガーにアタッチされている場合、アプリは中断されません。 ただし、アプリをデバッガーから中断した後、アプリに **Resume** イベントを送信してコードをデバッグすることは可能です。 **[デバッグの場所] ツール バー**が表示されていることを確認し、 **[中断]** アイコンの横のドロップダウンをクリックします。 次に、 **[再開]** をクリックします。
+アプリが Visual Studio のデバッガーにアタッチされている場合、アプリは中断されません。 ただし、アプリをデバッガーから中断した後、アプリに **Resume** イベントを送信してコードをデバッグすることは可能です。 **[デバッグの場所] ツール バー**が表示されていることを確認し、**[中断]** アイコンの横のドロップダウンをクリックします。 次に、**[再開]** をクリックします。
 
-Windows Phone ストア アプリでは、アプリが現在一時停止中で、ユーザーがプライマリ タイルまたはアプリの一覧からアプリを再起動した場合でも、[**Resuming**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.resuming) イベントの後に、[**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) イベントが常に発生します。 現在のウィンドウにコンテンツ セットが既にある場合、アプリは初期化をスキップすることがあります。 [  **LaunchActivatedEventArgs.TileId**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileid) プロパティをチェックすると、アプリがプライマリ タイルとセカンダリ タイルのどちらから起動されたかを調べ、その情報に基づいて新しいアプリ エクスペリエンスを表示するか、アプリ エクスペリエンスを再開するかを判断できます。
+Windows Phone ストア アプリでは、アプリが現在一時停止中で、ユーザーがプライマリ タイルまたはアプリの一覧からアプリを再起動した場合でも、[**Resuming**](/uwp/api/windows.ui.xaml.application.resuming) イベントの後に、[**OnLaunched**](/uwp/api/windows.ui.xaml.application.onlaunched) イベントが常に発生します。 現在のウィンドウにコンテンツ セットが既にある場合、アプリは初期化をスキップすることがあります。 [**LaunchActivatedEventArgs.TileId**](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.tileid) プロパティをチェックすると、アプリがプライマリ タイルとセカンダリ タイルのどちらから起動されたかを調べ、その情報に基づいて新しいアプリ エクスペリエンスを表示するか、アプリ エクスペリエンスを再開するかを判断できます。
 
 ## <a name="related-topics"></a>関連トピック
 

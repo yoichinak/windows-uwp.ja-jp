@@ -1,15 +1,15 @@
 ---
 title: Unity - UWP プロジェクトのバージョン管理
-description: UWP プロジェクトをバージョン管理します。
+description: ユニバーサル Windows プラットフォーム (UWP) を使用して、Xbox 用 Unity ゲームでバージョン管理を使用する方法について説明します。
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: b98fba394fb326d60451f07938504e99a92d764d
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.openlocfilehash: 3e4d98892b9bd738eca788d166ef79f81ea1b047
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089488"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173746"
 ---
 # <a name="unity-version-control-your-uwp-project"></a>Unity: UWP プロジェクトのバージョン管理
 
@@ -49,21 +49,21 @@ ms.locfileid: "77089488"
 
 ![UWP ビルド ディレクトリ](images/uwp-build-directory.png)  
 
-## <a name="folders"></a>フォルダ  
+## <a name="folders"></a>Folders  
 
-`Assets` | を***含める***|Microsoft Store イメージを含む  
-`Data`   | ***無視***|Unity はプロジェクトを (シーン、シェーダー、スクリプト、Prefabs など) にコンパイルします。  
-`Dependencies` | を***含める***|このフォルダーは、すべての UWP 依存関係を保持するために作成したものです (たとえば、XboxLiveSDK)。  
-`Properties` | を***含める***|開発者が変更できる詳細設定が含まれています  
-`Unprocessed` | ***無視***|Unity `.dll` と `.pdb` ファイルが含まれています  
+`Assets` | ***Include*** |Microsoft Store イメージを含む  
+`Data`   | ***無視*** |Unity はプロジェクトを (シーン、シェーダー、スクリプト、Prefabs など) にコンパイルします。  
+`Dependencies` | ***Include*** |このフォルダーは、すべての UWP 依存関係を保持するために作成したものです (たとえば、XboxLiveSDK.dll)。  
+`Properties` | ***Include*** |開発者が変更できる詳細設定が含まれています  
+`Unprocessed` | ***無視*** |Unity `.dll` と `.pdb` ファイルが含まれています  
 
 ## <a name="files"></a>ファイル  
 
-`App.cs` | を***含める***|UWP アプリケーションのエントリポイントです。これは、他のソースファイルで変更および拡張できます。  
-`Package.appxmanifest` | を***含める***|. Msix または .appx パッケージのアプリケーションパッケージマニフェストソースファイル  
-`project.json` | を***含める***|`*.csproj` が依存する NuGet パッケージについて説明します  
-`ScrapyardPhoenix.csproj` | を***含める***|UWP ビルドターゲットについて説明します。UWP プロジェクトに依存関係を追加すると、この `*.csproj` ファイルにその情報が含まれます。  
-`ScrapyardPhoenix.csproj.user` | ***無視***|このファイルにはローカルユーザー情報が含まれています
+`App.cs` | ***Include*** |UWP アプリケーションのエントリポイントです。これは、他のソースファイルで変更および拡張できます。  
+`Package.appxmanifest` | ***Include*** |. Msix または .appx パッケージのアプリケーションパッケージマニフェストソースファイル  
+`project.json` | ***Include*** |が依存する NuGet パッケージについて説明します。 `*.csproj`  
+`ScrapyardPhoenix.csproj` | ***Include*** |UWP ビルドターゲットについて説明します。UWP プロジェクトに依存関係を追加すると、この `*.csproj` ファイルにはその情報が含まれます。  
+`ScrapyardPhoenix.csproj.user` | ***無視*** |このファイルにはローカルユーザー情報が含まれています
 
 ## <a name="resulting-gitignore"></a>結果として得られる .gitignore
 
@@ -99,6 +99,6 @@ UWP フォルダーのバージョン管理については、[これらの例](h
 
 ***ScrapyardPhoenix (ユニバーサル Windows)*** が、Xbox Live SDK などへの参照を追加する対象のプロジェクトです。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 - [既存のゲームの Xbox への移行](development-lanes-landing.md)
 - [Xbox One の UWP](index.md)

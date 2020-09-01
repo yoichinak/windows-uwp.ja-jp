@@ -6,27 +6,27 @@ ms.date: 07/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b5b5678ad1a0666e6f008a2ec69ba63c35441edf
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: b44e4ba86ab96474d4770c32024b8edc5641c396
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493517"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174286"
 ---
 # <a name="raising-events-in-windows-runtime-components"></a>Windows ランタイム コンポーネントでイベントを生成する
 
 > [!NOTE]
-> [C++/winrt](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) Windows ランタイムコンポーネントでのイベントの発生の詳細については、「 [c++/winrt でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)」を参照してください。
+> [C++/winrt](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) Windows ランタイムコンポーネントでのイベントの発生の詳細については、「 [c++/winrt でのイベントの作成](../cpp-and-winrt-apis/author-events.md)」を参照してください。
 
 Windows ランタイムコンポーネントがバックグラウンドスレッド (ワーカースレッド) でユーザー定義デリゲート型のイベントを発生させ、JavaScript がイベントを受け取ることができるようにする場合は、次のいずれかの方法で実装したり、そのイベントを発生させたりすることができます。
 
--   (オプション 1)[**CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher)を使用してイベントを発生させ、イベントを JavaScript スレッドコンテキストにマーシャリングします。 通常はこれが最適な方法ですが、シナリオによっては最速のパフォーマンスを実現できない場合があります。
+-   (オプション 1) [**CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher) を使用してイベントを発生させ、イベントを JavaScript スレッドコンテキストにマーシャリングします。 通常はこれが最適な方法ですが、シナリオによっては最速のパフォーマンスを実現できない場合があります。
 -   (オプション 2)** [Windows Foundation. EventHandler](/uwp/api/windows.foundation.eventhandler-1) \<Object\> **を使用します (ただし、イベントの種類の情報は失われます)。 オプション1が実現できない場合、またはパフォーマンスが十分でない場合は、型情報の損失が許容される2番目の選択肢として適しています。 C# Windows ランタイムコンポーネント** \<Object\> **を作成している場合、その型は使用できません。代わりに、その型を使用して、その型を使用する必要があり[**ます。その**](/dotnet/api/system.eventhandler)場合は、代わりにを使用する必要があります。
 -   (オプション 3) コンポーネントに対し、独自のプロキシとスタブを作成します。 このオプションは実装が最も難しいですが、型情報も保持され、要求が厳しいシナリオの場合に、オプション 1 よりパフォーマンスが高くなる可能性があります。
 
 これらのオプションをいずれも使用せずに、バックグラウンド スレッドでイベントを生成すると、JavaScript クライアントはイベントを受け取りません。
 
-## <a name="background"></a>バックグラウンド
+## <a name="background"></a>背景
 
 すべての Windows ランタイム コンポーネントとアプリは、どの言語を使用して作成しても、基本的に COM オブジェクトです。 Windows API では、ほとんどのコンポーネントはアジャイル COM オブジェクトで、バックグラウンド スレッドと UI スレッドで同じようにオブジェクトと通信できます。 COM オブジェクトをアジャイルにできない場合は、UI スレッドとバックグラウンド スレッドの境界を越えて他の COM オブジェクトと通信できるように、プロキシおよびスタブと呼ばれるヘルパー オブジェクトが必要になります。 (COM の用語では、これをスレッド アパートメント間の通信と呼びます。)
 
@@ -136,9 +136,9 @@ toastCompletedEventHandler: function (event) {
 
 ## <a name="to-create-the-windows-runtime-component"></a>Windows ランタイム コンポーネントを作成するには
 
-Visual Studio のメニューバーで、[ファイル] **[ &gt; 新規作成**] [プロジェクト] の順に選択します。 [**新しいプロジェクト**] ダイアログボックスで、[ **JavaScript &gt; ユニバーサル Windows** ] を展開し、[**空のアプリ**] を選択します。 プロジェクトに、「ToasterApplication」という名前を付け、 **[OK]** ボタンをクリックします。
+Visual Studio のメニューバーで、[ファイル] **[ &gt; 新規作成**] [プロジェクト] の順に選択します。 [ **新しいプロジェクト** ] ダイアログボックスで、[ **JavaScript &gt; ユニバーサル Windows** ] を展開し、[ **空のアプリ**] を選択します。 プロジェクトに、「ToasterApplication」という名前を付け、 **[OK]** ボタンをクリックします。
 
-C# Windows ランタイムコンポーネントをソリューションに追加する: ソリューションエクスプローラーで、ソリューションのショートカットメニューを開き、[ ** &gt; 新しいプロジェクトの追加**] を選択します。 [ **Visual C# &gt; Microsoft Store**を展開し、[ **Windows ランタイムコンポーネント**] を選択します。 プロジェクトに、「ToasterComponent」という名前を付け、 **[OK]** ボタンをクリックします。 ToasterComponent は、後の手順で作成するコンポーネントのルート名前空間になります。
+C# Windows ランタイムコンポーネントをソリューションに追加する: ソリューションエクスプローラーで、ソリューションのショートカットメニューを開き、[ ** &gt; 新しいプロジェクトの追加**] を選択します。 [ **Visual C# &gt; Microsoft Store** を展開し、[ **Windows ランタイムコンポーネント**] を選択します。 プロジェクトに、「ToasterComponent」という名前を付け、 **[OK]** ボタンをクリックします。 ToasterComponent は、後の手順で作成するコンポーネントのルート名前空間になります。
 
 ソリューション エクスプローラーでソリューションのショートカット メニューを開き、**[プロパティ]** をクリックします。 **[プロパティ ページ]** ダイアログ ボックスの左側のウィンドウで、**[構成プロパティ]** を選択して、ダイアログ ボックスの上部の **[構成]** を **[デバッグ]** に、**[プラットフォーム]** を [x86]、[x64]、または [ARM] に設定します。 **[OK]** を選択します。
 
@@ -341,7 +341,7 @@ ToasterComponent プロジェクト ディレクトリ内で ToasterComponent.h�
 
 ## <a name="to-compile-the-proxy-and-stub-code-into-a-dll"></a>プロキシおよびスタブのコードをコンパイルして DLL を生成するには
 
-これで、必要なファイルがそろったので、ファイルをコンパイルして、C++ ファイルの DLL を生成できます。 できる限り作業を簡単に行うために、プロキシのビルドをサポートする新しいプロジェクトを追加します。 ToasterApplication ソリューションのショートカット メニューを開き、**[追加]、[新しいプロジェクト]** の順にクリックします。 [**新しいプロジェクト**] ダイアログボックスの左ペインで、[ **Visual C++ &gt; windows &gt; ユニバーサル windows**] を展開し、中央のウィンドウで [ **DLL (UWP アプリ)**] を選択します。 (これは C++ Windows ランタイム コンポーネント プロジェクトではないことに注意してください)。プロジェクトの名前に「Proxies」を指定して、**[OK]** を選択します。 これらのファイルは、C# クラスで変更が発生したときに、ビルド後のイベントで更新されます。
+これで、必要なファイルがそろったので、ファイルをコンパイルして、C++ ファイルの DLL を生成できます。 できる限り作業を簡単に行うために、プロキシのビルドをサポートする新しいプロジェクトを追加します。 ToasterApplication ソリューションのショートカット メニューを開き、**[追加]、[新しいプロジェクト]** の順にクリックします。 [ **新しいプロジェクト** ] ダイアログボックスの左ペインで、[ **Visual C++ &gt; windows &gt; ユニバーサル windows**] を展開し、中央のウィンドウで [ **DLL (UWP アプリ)**] を選択します。 (これは C++ Windows ランタイム コンポーネント プロジェクトではないことに注意してください)。プロジェクトの名前に「Proxies」を指定して、**[OK]** を選択します。 これらのファイルは、C# クラスで変更が発生したときに、ビルド後のイベントで更新されます。
 
 Proxies プロジェクトは既定で、ヘッダーの .h ファイルと C++ の .cpp ファイルを生成します。 DLL は MIDL から生成されたファイルでビルドされるため、.h ファイルと .cpp ファイルは必要ありません。 ソリューション エクスプローラーでこれらのショートカット メニューを開き、**[削除]** をクリックして、メッセージが表示されたら削除を確定します。
 

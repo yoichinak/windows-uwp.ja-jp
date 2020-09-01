@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 082736c8-2ac3-41b3-b246-e705edc23f34
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f8afe892b7b8e91e72c1be7c655c8bc00998dd4
-ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
+ms.openlocfilehash: 0591b32671c7e1e74b47a41448f3b77b915a7dc7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89094619"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174906"
 ---
 # <a name="windows-apps-concept-mapping-for-android-and-ios-developers"></a>Android と iOS 開発者向けの Windows アプリ概念マッピング
 
@@ -354,7 +354,7 @@ ms.locfileid: "89094619"
 <td align="left"><strong>リストビューの最適化。</strong> <br><br>大量のデータを表示する必要がある場合にパフォーマンスを低下させることが多い、データの一覧の最適化を支援する組み込みのパターン</td>
 <td align="left"><strong>ViewHolder</strong> デザイン パターンを使って複数のビュー参照を避け、再利用可能な UI 要素を使うことができます。</td>
 <td align="left"><strong>UITableView</strong> のパフォーマンスを向上させるさまざまな最適化を行うことができます。組み込まれているものはありません。</td>
-<td align="left">既定で <strong>UI の仮想化</strong> を提供する <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview">ListView</a> と <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview">GridView</a> の各コントロールを使うと、スムーズなパンやスクロール、起動時間の短縮を実現できます。 <a href="https://docs.microsoft.com/dotnet/api/system.collections.ilist">IList</a> と <a href="https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged">INotifyCollectionChanged</a> をデータ ソースに実装し、<strong>データ仮想化</strong>を行ってパフォーマンスをさらに改善することもできます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview">ListView と GridView の UI の最適化</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization">ListView と GridView のデータ仮想化</a></td>
+<td align="left">既定で <strong>UI の仮想化</strong> を提供する <a href="/uwp/api/windows.ui.xaml.controls.listview">ListView</a> と <a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview">GridView</a> の各コントロールを使うと、スムーズなパンやスクロール、起動時間の短縮を実現できます。 <a href="/dotnet/api/system.collections.ilist">IList</a> と <a href="https://docs.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged">INotifyCollectionChanged</a> をデータ ソースに実装し、<strong>データ仮想化</strong>を行ってパフォーマンスをさらに改善することもできます。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-gridview-and-listview">ListView と GridView の UI の最適化</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/debug-test-perf/listview-and-gridview-data-optimization">ListView と GridView のデータ仮想化</a></td>
 </tr>
 </tbody>
 </table>
@@ -482,7 +482,7 @@ ms.locfileid: "89094619"
 <tr class="odd" style="background-color: #f2f2f2">
 <td align="left"><strong>ローカル通知をスケジュールします。</strong> <br><br>スケジュールされた時刻にアプリから送信されるローカル通知。</td>
 <td align="left">通知とアクションは、 <strong>Notificationcompat</strong> を使用して定義され、 <strong>AlarmManager</strong> と <strong>BroadcastReceiver</strong>を使用して、アプリ内でスケジュールおよび処理することができます。</td>
-<td align="left">ローカル通知は <strong>UILocalNotification</strong> を使って作成し、<b>UILocalNotification.scheduleLocalNotification<strong> でスケジュール設定できます。 | トースト通知は </strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ScheduledToastNotification">ScheduledToastNotification</a><strong> を使ってスケジュール設定できます。タイル通知をアプリから送信するには </strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileNotification">TileNotification クラス</a><strong>を使い、タイル通知をスケジュール設定するには <a href="https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ScheduledTileNotification">ScheduledTileNotification</a> を使います。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts">アダプティブ トースト通知と対話型トースト通知</a><br/><br/><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-sending-a-local-tile-notification">ローカルタイルの通知を送信する</a> | | </strong>プッシュ通知を送信しています。</b> プッシュ通知のサーバーから送信され、必要に応じてアプリで処理される通知。</td>
+<td align="left">ローカル通知は <strong>UILocalNotification</strong> を使って作成し、<b>UILocalNotification.scheduleLocalNotification<strong> でスケジュール設定できます。 | トースト通知は </strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ScheduledToastNotification">ScheduledToastNotification</a><strong> を使ってスケジュール設定できます。タイル通知をアプリから送信するには </strong><a href="https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileNotification">TileNotification クラス</a><strong>を使い、タイル通知をスケジュール設定するには <a href="https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.ScheduledTileNotification">ScheduledTileNotification</a> を使います。<br/><br/><a href="https://docs.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-adaptive-interactive-toasts">アダプティブ トースト通知と対話型トースト通知</a><br/><br/><a href="/windows/uwp/controls-and-patterns/tiles-and-notifications-sending-a-local-tile-notification">ローカルタイルの通知を送信する</a> | | </strong>プッシュ通知を送信しています。</b> プッシュ通知のサーバーから送信され、必要に応じてアプリで処理される通知。</td>
 <td align="left"><strong>Google Cloud Messaging</strong> は、Android のプッシュ通知をサポートしています。</td>
 </tr>
 </tbody>

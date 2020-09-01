@@ -1,17 +1,17 @@
 ---
 ms.assetid: bf0a8b01-79f1-4944-9d78-9741e235dbe9
 title: Xbox 用 Device Portal
-description: Xbox One のデバイスポータルを有効にして、開発用 Xbox にリモートアクセスできるようにする方法について説明します。
+description: Xbox One 用 xbox デバイスポータルを有効にする方法について説明します。これにより、開発用 Xbox にリモートアクセスできるようになります。
 ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 485cd9dc5a7ecb437cacf4a2c9c6eee57c3717f1
-ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.openlocfilehash: ed490b0474b919d4439e5b74b676d5974a3c6a30
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89043484"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174786"
 ---
 # <a name="device-portal-for-xbox"></a>Xbox 用 Device Portal
 
@@ -43,17 +43,17 @@ ms.locfileid: "89043484"
 
 Xbox Device Portal では、Windows Device Portal で入手可能なものと同様の一連の標準的なページと共に、いくつかの固有のページが提供されます。 標準的なページについて詳しくは、「[Windows Device Portal の概要](../debug-test-perf/device-portal.md)」をご覧ください。 以下のセクションでは、Xbox Device Portal に固有のページについて説明します。
 
-### <a name="home"></a>ホーム
+### <a name="home"></a>Home
 
 Windows Device Portal の **[アプリ マネージャー]** ページと同様に、Xbox Device Portal の **[ホーム]** ページでは、**[マイ コレクション]** の下にインストールされているゲームとアプリの一覧が表示されます。 ゲームまたはアプリの名前をクリックして、その詳細を表示できます (**[パッケージ ファミリ名]** など)。 **[操作]** ドロップダウンで、ゲームまたはアプリに対して **[起動]** などの操作を行うことができます。
 
 **[Xbox Live テスト アカウント]** で、お使いの Xbox に関連付けられているアカウントを管理することができます。 ユーザーとゲスト アカウントの追加、新しいユーザーの作成、ユーザーのサインインとサインアウト、アカウントの削除を行うことができます。
 
-![ホーム](images/device-portal-xbox-16.png)
+![Home](images/device-portal-xbox-16.png)
 
 ### <a name="xbox-live-game-saves"></a>Xbox Live (セーブ データ)
 
-Windows Device Portal と Xbox Device Portal のいずれにも **[Xbox Live]** ページがあります。 ただし、Xbox Device Portal には独自のセクション、**[Xbox Live セーブ データ]** があります。このセクションで、Xbox にインストールされているゲームのデータを保存することができます。 タイトルとセーブ データに関連付けられた **[サービス構成 ID (SCID)]** (詳しくは、「[Xbox Live サービス構成](https://docs.microsoft.com/gaming/xbox-live/xbox-live-service-configuration.md#get-your-ids)」を参照)、**[メンバー名 (MSA)]**、および **[パッケージ ファミリ名 (PFN)]** を入力し、**[入力ファイル (.json または .xml)]** を参照して、セーブ データを操作するためにいずれかのボタン (**[リセット]**、**[インポート]**、**[エクスポート]**、**[削除]**) を選択します。
+Windows Device Portal と Xbox Device Portal のいずれにも **[Xbox Live]** ページがあります。 ただし、Xbox Device Portal には独自のセクション、**[Xbox Live セーブ データ]** があります。このセクションで、Xbox にインストールされているゲームのデータを保存することができます。 タイトルとセーブ データに関連付けられた **[サービス構成 ID (SCID)]** (詳しくは、「[Xbox Live サービス構成](/gaming/xbox-live/xbox-live-service-configuration.md#get-your-ids)」を参照)、**[メンバー名 (MSA)]**、および **[パッケージ ファミリ名 (PFN)]** を入力し、**[入力ファイル (.json または .xml)]** を参照して、セーブ データを操作するためにいずれかのボタン (**[リセット]**、**[インポート]**、**[エクスポート]**、**[削除]**) を選択します。
 
 **[生成]** セクションで、ダミー データを生成し、指定した入力ファイルに保存できます。 **[コンテナー (既定値は 2)]**、**[BLOB (既定値は 3)]**、および **[BLOB サイズ (既定値は 1024)]** を入力し、**[生成]** を選択するだけです。
 
@@ -83,15 +83,15 @@ Xbox Device Portal の **[ネットワーク]** ページは Windows Device Port
 
 ![メディアのキャプチャ](images/device-portal-xbox-12.png)
 
-### <a name="settings"></a>設定
+### <a name="settings"></a>Settings
 
 **[設定]** ページで、Xbox One のいくつかの設定を表示および編集することができます。 上部で、**[インポート]** を選択してファイルから設定をインポートし、**[エクスポート]** を選択して現在の設定を .txt ファイルにエクスポートすることができます。 設定をインポートすると、一括編集が簡単になり、特に複数の本体を構成するときに役に立ちます。 インポートする設定ファイルを作成するには、必要に応じて設定を変更してから、設定をエクスポートします。 その後、このファイルを使用して、他の本体用に設定を迅速かつ簡単にインポートすることができます。
 
 さまざまな設定があり、表示/編集するためのセクションがいくつかあります。これらについて以下で説明します。
 
-![設定](images/device-portal-xbox-20.png)
+![Settings](images/device-portal-xbox-20.png)
 
-![設定](images/device-portal-xbox-21.png)
+![Settings](images/device-portal-xbox-21.png)
 
 #### <a name="device-information"></a>デバイス情報
 
@@ -202,4 +202,4 @@ Xbox Device Portal の **[ネットワーク]** ページは Windows Device Port
 ## <a name="see-also"></a>関連項目
 
 * [Windows Device Portal の概要](../debug-test-perf/device-portal.md)
-* [デバイス ポータル コア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)
+* [デバイス ポータル コア API リファレンス](../debug-test-perf/device-portal-api-core.md)

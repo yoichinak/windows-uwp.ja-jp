@@ -8,12 +8,12 @@ ms.date: 06/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, 追跡可能なタイル, ライブ タイル, 追跡可能なタイル通知
 ms.localizationpriority: medium
-ms.openlocfilehash: 6e27dec0e7256cfc035ecc3150bd976f69743fe3
-ms.sourcegitcommit: f15cf141c299bde9cb19965d8be5198d7f85adf8
+ms.openlocfilehash: a10e68f2926761338a95d5d2c649c84468efada8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58358617"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173816"
 ---
 # <a name="chaseable-tile-notifications"></a>追跡可能なタイル通知
 
@@ -21,13 +21,13 @@ ms.locfileid: "58358617"
 たとえば、新しいアプリでこの機能を使用して、ユーザーがライブ タイルを起動したときにそのタイルに表示される新しいストーリーを特定することができます。これにより、ユーザーが見つけることができるように、ストーリーを目立たせて表示することができます。 
 
 > [!IMPORTANT]
-> **Anniversary Update が必要です**:使用した chaseable タイル通知を使用するC#、C++、または VB ベースの UWP アプリ、14393 SDK をターゲットする必要があり、実行しているビルド 14393 またはそれ以降。 JavaScript ベースの UWP アプリの場合は、SDK 17134 以降をターゲットとし、ビルド 17134 以降を実行している必要があります。 
+> **Anniversary Update が必要**: C#、C++、または VB ベースの UWP アプリで追跡可能なタイル通知を使用するには、SDK 14393 以降をターゲットとし、ビルド 14393 以降を実行している必要があります。 JavaScript ベースの UWP アプリの場合は、SDK 17134 以降をターゲットとし、ビルド 17134 以降を実行している必要があります。 
 
 
-> **重要な API**:[LaunchActivatedEventArgs.TileActivatedInfo プロパティ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.TileActivatedInfo)、 [TileActivatedInfo クラス](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)
+> **重要な API**: [LaunchActivatedEventArgs.TileActivatedInfo プロパティ](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.TileActivatedInfo)、[TileActivatedInfo クラス](/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)
 
 
-## <a name="how-it-works"></a>方法
+## <a name="how-it-works"></a>しくみ
 
 追跡可能なタイル通知を有効にするには、タイル通知ペイロードで **Arguments** プロパティ (トースト通知ペイロードの起動プロパティに類似) を使用して、タイル通知のコンテンツに関する情報を埋め込みます。
 
@@ -40,7 +40,7 @@ ms.locfileid: "58358617"
 
 ## <a name="what-to-do-with-a-chaseable-tile-notifications"></a>追跡可能なタイル通知で実行できること
 
-注意が必要な最も重要なことは、ほとんどのシナリオでは、ユーザーがクリックしたときにタイルに表示されていた**特定の通知に直接移動しない**ということです。 ライブ タイルは、アプリケーションへのエントリ ポイントとして使用されます。 ユーザーは、ライブ タイルをクリックした 2 つのシナリオがあります。(通常、アプリを起動したいと 1)、またはライブ タイルには、特定の通知の詳細についてを参照してください (2) するつもりでした。 必要な動作をユーザーが明示的に指定する方法がないため、理想的なエクスペリエンスは、**ユーザーに表示されていた通知を簡単に検出できるようにしながら、アプリを通常どおりに起動する**というものになります。
+注意が必要な最も重要なことは、ほとんどのシナリオでは、ユーザーがクリックしたときにタイルに表示されていた**特定の通知に直接移動しない**ということです。 ライブ タイルは、アプリケーションへのエントリ ポイントとして使用されます。 ユーザーがライブ タイルをクリックする場合は、次の 2 つのシナリオが考えられます。(1) アプリを通常どおりに起動する場合、(2) ライブ タイルに表示されていた特定の通知についてさらに詳しい情報を表示する場合。 必要な動作をユーザーが明示的に指定する方法がないため、理想的なエクスペリエンスは、**ユーザーに表示されていた通知を簡単に検出できるようにしながら、アプリを通常どおりに起動する**というものになります。
 
 たとえば、MSN ニュース アプリのライブ タイルをクリックしてアプリを通常どおりに起動したときに、ホーム ページを表示するか、またはユーザーが前に読んでいたいずれかの記事を表示するようにします。 ただしホーム ページを表示した場合は、アプリでライブ タイルのストーリーを簡単に検出できるようにします。 これにより、両方のシナリオ (単純にアプリを起動/再開するシナリオと特定のストーリーを表示するシナリオ) がサポートされます。
 
@@ -105,13 +105,13 @@ TileContent content = new TileContent()
 
 ## <a name="how-to-check-for-the-arguments-property-when-your-app-launches"></a>アプリの起動時に引数プロパティを確認する方法
 
-ほとんどのアプリは App.xaml.cs を保持しており、このファイルには [OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application#Windows_UI_Xaml_Application_OnLaunched_Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_) メソッドのオーバーライドが含まれています。 その名前が示すように、アプリは起動時にこのメソッドを呼び出します。 使用される引数は 1 つだけで、それは [LaunchActivatedEventArgs](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクトです。
+ほとんどのアプリは App.xaml.cs を保持しており、このファイルには [OnLaunched](/uwp/api/windows.ui.xaml.application#Windows_UI_Xaml_Application_OnLaunched_Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_) メソッドのオーバーライドが含まれています。 その名前が示すように、アプリは起動時にこのメソッドを呼び出します。 使用される引数は 1 つだけで、それは [LaunchActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクトです。
 
-LaunchActivatedEventArgs オブジェクトには、追跡可能な通知を有効にするプロパティがあります。そのプロパティは、[TileActivatedInfo プロパティ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.TileActivatedInfo)で、[TileActivatedInfo オブジェクト](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)へのアクセスを可能にします。 ユーザーがタイルからアプリを起動すると (アプリ一覧、検索、または他のエントリ ポイントから起動するのではありません)、アプリはこのプロパティを初期化します。
+LaunchActivatedEventArgs オブジェクトには、追跡可能な通知を有効にするプロパティがあります。そのプロパティは、[TileActivatedInfo プロパティ](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.TileActivatedInfo)で、[TileActivatedInfo オブジェクト](/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)へのアクセスを可能にします。 ユーザーがタイルからアプリを起動すると (アプリ一覧、検索、または他のエントリ ポイントから起動するのではありません)、アプリはこのプロパティを初期化します。
 
-[TileActivatedInfo オブジェクト](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)には [RecentlyShownNotifications](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo.RecentlyShownNotifications) と呼ばれるプロパティが含まれています。このプロパティは、過去 15 分以内にタイルに表示されていた通知の一覧を保持しています。 一覧の最初の項目はタイルの現在の通知を表しており、それ以降の項目は現在の通知よりも前に表示されていた通知を表しています。 タイルがクリアされた場合、この一覧は空になります。
+[TileActivatedInfo オブジェクト](/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)には [RecentlyShownNotifications](/uwp/api/windows.applicationmodel.activation.tileactivatedinfo.RecentlyShownNotifications) と呼ばれるプロパティが含まれています。このプロパティは、過去 15 分以内にタイルに表示されていた通知の一覧を保持しています。 一覧の最初の項目はタイルの現在の通知を表しており、それ以降の項目は現在の通知よりも前に表示されていた通知を表しています。 タイルがクリアされた場合、この一覧は空になります。
 
-各 ShownTileNotification では、引数プロパティがあります。 Arguments プロパティは、ペイロードには、引数文字列が含まれていなかった場合、タイル通知のペイロードまたは null の引数文字列で初期化されます。
+各 ShownTileNotification には Arguments プロパティがあります。 Arguments プロパティは、タイル通知ペイロードからの引数文字列で初期化されます。ペイロードに引数文字列が含まれていない場合は、null になります。
 
 ```csharp
 protected override void OnLaunched(LaunchActivatedEventArgs args)
@@ -140,14 +140,14 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 ```
 
 
-### <a name="accessing-onlaunched-from-desktop-applications"></a>デスクトップ アプリケーションから OnLaunched へのアクセス
+### <a name="accessing-onlaunched-from-desktop-applications"></a>デスクトップアプリケーションから開始された OnLaunched へのアクセス
 
-デスクトップ アプリ (Win32 と WPF では、同様になど) を使用して、[デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)、chaseable タイルにも使用できます。 唯一の違いは、OnLaunched 引数にアクセスします。 まず必要なメモ[デスクトップ ブリッジを使用してアプリをパッケージ化](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-root)します。
+デスクトップ [ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用したデスクトップアプリ (WIN32、WPF など) では、chaseable 可能なタイルも使用できます。 唯一の違いは、OnLaunched 上げ引数にアクセスすることです。 最初に [デスクトップブリッジを使用してアプリをパッケージ化](/windows/msix/desktop/source-code-overview)する必要があることに注意してください。
 
 > [!IMPORTANT]
-> **2018 の年 10 月の更新プログラムが必要**:使用する、 `AppInstance.GetActivatedEventArgs()` API、SDK 17763 をターゲットする必要があり、17763 またはそれ以降、ビルドを実行します。
+> **2018 年10月の更新プログラムが必要**: API を使用するには、 `AppInstance.GetActivatedEventArgs()` SDK 17763 を対象とし、ビルド17763以降を実行する必要があります。
 
-デスクトップ アプリケーションは、起動引数にアクセスするには次の操作.
+デスクトップアプリケーションの場合、起動引数にアクセスするには、次の手順を実行します。
 
 ```csharp
 
@@ -221,5 +221,5 @@ Notifications ライブラリではなく生の XML を使用する場合、XML 
 
 ## <a name="related-articles"></a>関連記事
 
-- [LaunchActivatedEventArgs.TileActivatedInfo プロパティ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs#Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_TileActivatedInfo_)
-- [TileActivatedInfo クラス](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)
+- [LaunchActivatedEventArgs.TileActivatedInfo プロパティ](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs#Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_TileActivatedInfo_)
+- [TileActivatedInfo クラス](/uwp/api/windows.applicationmodel.activation.tileactivatedinfo)

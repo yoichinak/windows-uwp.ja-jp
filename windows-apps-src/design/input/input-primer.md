@@ -8,12 +8,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ef3adfd192acbef45ee341b133e4133e1f1ff586
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: dc220d1b5489faf96653472880dc06124c10b047
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968158"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173446"
 ---
 # <a name="interaction-primer"></a>操作の基本情報
 
@@ -32,12 +32,12 @@ UWP は、"スマートな" コンテキスト相互作用システムを使用�
 > [!NOTE]
 > 視線追跡ハードウェアのサポートは、**Windows 10 Fall Creators Update** で[視線制御](https://support.microsoft.com/help/4043921/windows-10-get-started-eye-control)と共に導入されました。視線制御は、ユーザーが目を使用して画面上のポインターを制御し、スクリーン キーボードで入力し、音声合成を使用して人々とやり取りすることができる組み込み機能です。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 - Tablet
 - PC とノート PC
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 ユーザーの視線、注意、および場所とユーザーの目の動きに基づくプレゼンスを追跡します。 Windows アプリを使用して対話するための強力な新しい方法は、neuro muscular 病名 (ALS など) や、障害のある筋肉またはの機能を伴うその他の障碍を持つユーザー向けの支援技術として特に役立ちます。 また、視線入力は、ゲーム (ターゲット把握や追跡を含む) や従来の生産性向上アプリケーション、キオスクだけでなく、従来の入力デバイス (キーボード、マウス、タッチ) が使用できないか、ユーザーの両手を他のタスク (買い袋を持つなど) のために開放することが便利である可能性のあるその他の対話型シナリオで、魅力的な機会をもたらします。
 
@@ -49,12 +49,12 @@ UWP は、"スマートな" コンテキスト相互作用システムを使用�
 
 **Windows 10 Anniversary Update** で、Windows Wheel カテゴリの入力デバイスを導入しました。 Surface Dial は、このクラスのデバイスの中で最初のものです。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 - Tablet
 - PC とノート PC
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 回転動作 (またはジェスチャ) に基づくフォームファクタを持つ Surface Dial は、プライマリ デバイスからの入力を補完または変更する、セカンダリのマルチ モーダル入力デバイスとして設計されています。 このデバイスは多くの場合、ユーザーが優先的な手でタスクを実行している間に (たとえばペンでインク操作をするときなど)、従属的な手で操作されます。
 
@@ -66,7 +66,7 @@ UWP は、"スマートな" コンテキスト相互作用システムを使用�
 
 Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの音声コマンドを処理し、アプリケーションを起動して、単一のアクションを実行することができます。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -78,18 +78,18 @@ Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの
 
 ![Cortana](images/input-interactions/icons-cortana01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 音声コマンドは、1 つの言葉を声に出すことであり、音声コマンド定義 (VCD) ファイルで定義されています。**Cortana** を通じてインストール済みアプリに指示が伝えられます。 アプリは、操作のレベルと複雑さに応じて、フォアグラウンドまたはバックグラウンドで起動することができます。 たとえば、追加のコンテキストやユーザー入力が必要な音声コマンドはフォアグラウンドで処理するのが最適ですが、基本的なコマンドはバックグラウンドで処理できます。
 
-アプリの基本的な機能を統合して、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、**Cortana** はアプリとユーザーの仲介役となります。 多くの場合、これによってユーザーの時間と労力を大幅に減らすことができます。 詳しくは、「[Cortana の設計ガイドライン](https://docs.microsoft.com/cortana/skills/cortana-design-guidelines)」をご覧ください。
+アプリの基本的な機能を統合して、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、**Cortana** はアプリとユーザーの仲介役となります。 多くの場合、これによってユーザーの時間と労力を大幅に減らすことができます。 詳しくは、「[Cortana の設計ガイドライン](/cortana/skills/cortana-design-guidelines)」をご覧ください。
 
 ### <a name="more-info"></a>詳細情報
 
-[Cortana のデザインガイドライン](https://docs.microsoft.com/cortana/skills/cortana-design-guidelines)
+[Cortana のデザインガイドライン](/cortana/skills/cortana-design-guidelines)
  
 
-## <a name="speech"></a>Speech
+## <a name="speech"></a>音声
 
 音声認識により、アプリケーションを効果的かつ自然に操作できます。 また、音声認識により、アプリケーションを正確かつ容易に操作し、さまざまな状況で生産性を高め、いつでも新しい情報を入手することができます。
 
@@ -97,7 +97,7 @@ Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの
 
 ユーザーへの通知や指示には、音声合成 (TTS とも呼ばれます) が使用されています。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -109,7 +109,7 @@ Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの
 
 ![音声認識](images/input-interactions/icons-speech01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 音声操作には 3 つのモードがあります。
 
@@ -121,7 +121,7 @@ Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの
 
 自然言語は最も高度な音声操作で、**Cortana** によって実装および公開できます。
 
-**コマンドとコントロール**
+**コマンドと制御**
 
 音声コマンドを使うと、ボタンのクリック、メニューの選択などのコントロールと機能を音声でアクティブ化できます。
 
@@ -135,20 +135,20 @@ Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの
 
 ### <a name="more-info"></a>詳細情報
 
-[音声認識のデザイン ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/speech-interactions)
+[音声認識のデザイン ガイドライン](./speech-interactions.md)
  
 
 ## <a name="pen"></a>ペン
 
 ペン (スタイラス) は、マウス同様ピクセル単位のポインティング デバイスとして動作し、デジタル インク入力には最適なデバイスです。
 
-**Note**  ペンデバイスには、アクティブとパッシブの2種類があります。
+**メモ**   ペンデバイスには、アクティブとパッシブの2種類があります。
   -   電気的な回路が組み込まれていないパッシブなペンは、1 本の指からのタッチ入力を効果的にエミュレートします。 このペンには、接触の圧力に基づいて入力を認識する基本的なデバイス ディスプレイが必要です。 ユーザーは入力サーフェスに手を置きながら書き込むことがよくあるため、パーム リジェクションの失敗が原因で入力データが汚染されることがあります。
   -   アクティブなペンには電気的な回路が組み込まれています。このペンは複雑なデバイス ディスプレイで動作して、より広範な入力データ (ホバー、近接通信データを含む) をシステムやアプリに提供できます。 パーム リジェクションは、はるかに堅牢です。
 
 ここでペン デバイスと言う場合、高度な入力データを提供し、主に正確なインク操作やポイント操作に使われるアクティブなペンを指します。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -158,7 +158,7 @@ Windows 10 では、**Cortana** の機能拡張を利用して、ユーザーの
 
 ![ペン](images/input-interactions/icons-pen01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 Windows のインク プラットフォームでペンを使うと、自然な形で手書きのノート、描画、コメントを作成できます。 このプラットフォームは、デジタイザー入力からのインク データのキャプチャ、インク データの生成、出力デバイスへのひと筆としてのデータのレンダリング、インク データの管理、手書き認識の実行をサポートします。 ユーザーが書いたり描画したりするときのペンの空間移動のキャプチャに加えて、アプリで筆圧、形状、色、不透明度などの情報を収集して、紙の上でペン、鉛筆、ブラシを使っているときに近いユーザー エクスペリエンスを実現することもできます。
 
@@ -168,14 +168,14 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 
 ### <a name="more-info"></a>詳細情報
 
-[ペンの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/pen-and-stylus-interactions)
+[ペンの設計ガイドライン](./pen-and-stylus-interactions.md)
  
 
 ## <a name="touch"></a>Touch
 
 タッチ操作では、(マウスやペンのように) 代替の入力方法として、または相補的な入力方法として (汚れ、ペンで描くひと筆などの他の入力を変更)、UI 要素の直接的な操作 (パン、回転、サイズ変更、移動など) をエミュレートするために、1 つまたは複数の指から物理的なジェスチャを使用できます。 このような触覚的なエクスペリエンスは、ユーザーが画面の要素を操作するときに、より自然で現実的で感覚を提供します。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -185,7 +185,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 
 ![タッチ](images/input-interactions/icons-touch01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 タッチ入力のサポートは、デバイスによって大きく異なることがあります。
 
@@ -203,21 +203,21 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 ### <a name="more-info"></a>詳細情報
 
-[タッチの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/guidelines-for-user-interaction)
+[タッチの設計ガイドライン](./touch-interactions.md)
  
 
 ## <a name="touchpad"></a>Touchpad
 
 タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリのより小さいターゲットにも適しています。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   PC とノート PC
 -   IoT
 
 ![タッチパッド](images/input-interactions/icons-touchpad01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 通常、タッチパッドは、オブジェクトと UI の直接的な操作に使われるタッチと同様のサポートを実現する、一連のタッチ ジェスチャをサポートします。
 
@@ -227,16 +227,16 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 ### <a name="more-info"></a>詳細情報
 
-[タッチパッドの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/touch-interactions)
+[タッチパッドの設計ガイドライン](./touch-interactions.md)
  
 
 ## <a name="keyboard"></a>キーボード
 
 キーボードはテキスト用の主要な入力デバイスであり、多くの場合、特定の障碍のあるユーザーや、キーボードを使った方がアプリをすばやく効率よく操作できると考えるユーザーにとって欠かせません。
 
-互換性のある Windows 10 Mobile デバイスの新しいエクスペリエンスである[電話用 Continuum](https://docs.microsoft.com/windows-hardware/design/device-experiences/continuum-phone?redirectedfrom=MSDN) を利用すると、ユーザーは電話をマウスやキーボードに接続して、その電話をノート PC のように使うことができます。
+互換性のある Windows 10 Mobile デバイスの新しいエクスペリエンスである[電話用 Continuum](/windows-hardware/design/device-experiences/continuum-phone) を利用すると、ユーザーは電話をマウスやキーボードに接続して、その電話をノート PC のように使うことができます。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -248,7 +248,7 @@ Surface Hub デバイスは、100 か所の独自の同時タッチ接触を認�
 
 ![キーボード](images/input-interactions/icons-keyboard01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 ユーザーはハードウェア キーボードと 2 つのソフトウェア キーボード (スクリーン キーボード (OSK) およびタッチ キーボード) を通じて、ユニバーサル Windows アプリを操作できます。
 
@@ -256,7 +256,7 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 タッチ キーボードは、タッチ入力でのテキスト入力に使われる、視覚的なソフトウェア キーボードです。 タッチ キーボードはテキスト入力専用であり (ハードウェア キーボードをエミュレートしません)、テキスト フィールドや編集可能なテキスト コントロールにフォーカスがあるときにだけ表示されるので、OSK の代わりになるものではありません。 タッチ キーボードは、アプリ コマンドやシステム コマンドをサポートしていません。
 
-**[Osk**] はタッチキーボードより優先されます。これは、osk が存在する場合は表示されません。  
+**メモ**   OSK はタッチキーボードより優先されます。これは、OSK が存在する場合には表示されません。
 
 一般的にキーボードには、次のような特徴があります。
 
@@ -267,14 +267,14 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ### <a name="more-info"></a>詳細情報
 
-[キーボードの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/keyboard-interactions)
+[キーボードの設計ガイドライン](./keyboard-interactions.md)
  
 
 ## <a name="mouse"></a>マウス
 
 マウスは、ユーザー操作でターゲット設定とコマンド実行にピクセルレベルの精度を必要とする、生産性アプリや高密度 UI に最適です。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -284,7 +284,7 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ![マウス](images/input-interactions/icons-mouse01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 マウス入力は、キーボードのさまざまなキー (Ctrl、Shift、Alt キーなど) を追加して変更できます。 これらのキーは、マウスの左ボタンや右ボタン、ホイール ボタン、X ボタンと組み合わせて、マウスに最適化した拡張コマンド セットを作成できます  (一部の Microsoft マウス デバイスでは、追加のボタン (X ボタン) は通常、Web ブラウザーで前後のページに移動するために使います)。
 
@@ -294,14 +294,14 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ### <a name="more-info"></a>詳細情報
 
-[マウスの設計ガイドライン](https://docs.microsoft.com/windows/uwp/input-and-devices/mouse-interactions)
+[マウスの設計ガイドライン](./mouse-interactions.md)
  
 
 ## <a name="gesture"></a>ジェスチャ
 
 ジェスチャは、アプリケーションを制御または操作するための入力として認識される、なんらかの形式のユーザーの動きです。 ジェスチャには、手を使って画面上の何かをターゲットにするだけの単純なものから、特定の学習されたパターンの動きをターゲットにしたり、体全体を使った連続的な動きの長いストレッチまで、さまざまな形式があります。 カスタム ジェスチャを設計するときは、その意味がロケールやカルチャによって異なる場合があるため、注意が必要です。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   PC とノート PC
 -   IoT
@@ -310,7 +310,7 @@ OSK は、物理的なキーボードの代わりに使うことができる視�
 
 ![ジェスチャ](images/input-interactions/icons-gesture01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 静的ジェスチャ イベントは、対話式操作が完了した後に発生します。
 
@@ -329,15 +329,15 @@ Windows でサポートされている対話式操作のエクスペリエンス
 
 ゲームパッド/コントローラーは、通常はゲーム専用の高度に専門化されたデバイスです。 ただし、基本的なキーボード入力をエミュレートするためにも使われ、キーボードとよく似た UI ナビゲーション エクスペリエンスを提供します。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   PC とノート PC
 -   IoT
 -   Xbox
 
-![controller](images/input-interactions/icons-controller01.png)
+![コントローラー](images/input-interactions/icons-controller01.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 ゲームをプレイしたり、特殊なコンソールを操作したりします。
 
@@ -346,7 +346,7 @@ Windows でサポートされている対話式操作のエクスペリエンス
 
 できるだけ多くのユーザーやデバイスに対応し、可能な限り多くの入力の種類 (ジェスチャ、音声、タッチ、タッチパッド、マウス、キーボード) と連携するようにアプリを設計すると、最大の柔軟性、操作性、ユーザー補助が得られます。
 
-### <a name="device-support"></a>デバイスのサポート
+### <a name="device-support"></a>デバイス サポート
 
 -   電話とファブレット
 -   Tablet
@@ -358,7 +358,7 @@ Windows でサポートされている対話式操作のエクスペリエンス
 
 ![複数の入力](images/input-interactions/icons-inputdevices03-vertical.png)
 
-### <a name="typical-usage"></a>一般的な使い方
+### <a name="typical-usage"></a>一般的な用途
 
 人がお互いにコミュニケーションをとる際に音声とジェスチャを組み合わせて使うように、アプリの操作では、複数の種類とモードの入力を使うと便利な場合があります。 ただし、これら複合的な操作は混乱を招くこともあるため、できる限り直感的で自然である必要があります。
 

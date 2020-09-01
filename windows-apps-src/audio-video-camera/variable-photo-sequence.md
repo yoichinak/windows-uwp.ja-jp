@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 506ea5f7fe199c3df0b6089da73a108d53d98ef3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a453aba0c8992e0df348e54620add5d65fce4403
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66361376"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175636"
 ---
 # <a name="variable-photo-sequence"></a>可変の写真シーケンス
 
@@ -19,7 +19,7 @@ ms.locfileid: "66361376"
 
 この記事では、可変の写真シーケンスをキャプチャする方法について説明します。これによって、画像を複数のフレームとして次々とキャプチャし、各フレームに別々のフォーカス、フラッシュ、ISO、露出、露出補正の設定を適用することができます。 この機能により、ハイ ダイナミック レンジ (HDR) 画像を作成するなどのシナリオが実現できます。
 
-HDR 画像をキャプチャするときに、独自の処理アルゴリズムを実装しない場合は、[**AdvancedPhotoCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.AdvancedPhotoCapture) API を使って、Windows に組み込まれた HDR 機能を利用できます。 詳しくは、「[ハイ ダイナミック レンジ (HDR) 写真のキャプチャ](high-dynamic-range-hdr-photo-capture.md)」をご覧ください。
+HDR 画像をキャプチャするときに、独自の処理アルゴリズムを実装しない場合は、[**AdvancedPhotoCapture**](/uwp/api/Windows.Media.Capture.AdvancedPhotoCapture) API を使って、Windows に組み込まれた HDR 機能を利用できます。 詳細については、「 [高ダイナミックレンジ (HDR) の写真キャプチャ](high-dynamic-range-hdr-photo-capture.md)」を参照してください。
 
 > [!NOTE] 
 > この記事の内容は、写真やビデオの基本的なキャプチャ機能を実装するための手順を紹介した「[MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)」で取り上げた概念やコードに基づいています。 そちらの記事で基本的なメディア キャプチャのパターンを把握してから、高度なキャプチャ シナリオに進むことをお勧めします。 この記事で紹介しているコードは、MediaCapture のインスタンスが既に作成され、適切に初期化されていることを前提としています。
@@ -30,75 +30,71 @@ HDR 画像をキャプチャするときに、独自の処理アルゴリズム�
 
 [!code-cs[VPSUsing](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetVPSUsing)]
 
-写真シーケンス キャプチャを開始するために使用される [**VariablePhotoSequenceCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Core.VariablePhotoSequenceCapture) オブジェクトを格納するためのメンバー変数を宣言します。 シーケンス内でキャプチャされた各画像を格納するための [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) オブジェクトの配列を宣言します。 また、各フレームの [**CapturedFrameControlValues**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.CapturedFrameControlValues) オブジェクトを格納するための配列も宣言します。 この配列は、画像処理アルゴリズムで、各フレームのキャプチャにどのような設定が使用されたかを確認するために使うことができます。 最後に、シーケンス内で現在キャプチャされているのがどの画像かを追跡するために使用される、インデックスを宣言します。
+写真シーケンス キャプチャを開始するために使用される [**VariablePhotoSequenceCapture**](/uwp/api/Windows.Media.Capture.Core.VariablePhotoSequenceCapture) オブジェクトを格納するためのメンバー変数を宣言します。 シーケンス内でキャプチャされた各画像を格納するための [**SoftwareBitmap**](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) オブジェクトの配列を宣言します。 また、各フレームの [**CapturedFrameControlValues**](/uwp/api/Windows.Media.Capture.CapturedFrameControlValues) オブジェクトを格納するための配列も宣言します。 この配列は、画像処理アルゴリズムで、各フレームのキャプチャにどのような設定が使用されたかを確認するために使うことができます。 最後に、シーケンス内で現在キャプチャされているのがどの画像かを追跡するために使用される、インデックスを宣言します。
 
 [!code-cs[VPSMemberVariables](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetVPSMemberVariables)]
 
 ## <a name="prepare-the-variable-photo-sequence-capture"></a>可変の写真シーケンス キャプチャを準備する
 
-[MediaCapture](capture-photos-and-video-with-mediacapture.md) を初期化した後は、可変の写真シーケンスが現在のデバイスでサポートされていることを確認します。そのためには、[**VariablePhotoSequenceController**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.Core.VariablePhotoSequenceController) のインスタンスをメディア キャプチャの [**VideoDeviceController**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.VideoDeviceController) から取得し、[**Supported**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.supported) プロパティを調べます。
+[MediaCapture](./index.md) を初期化した後は、可変の写真シーケンスが現在のデバイスでサポートされていることを確認します。そのためには、[**VariablePhotoSequenceController**](/uwp/api/Windows.Media.Devices.Core.VariablePhotoSequenceController) のインスタンスをメディア キャプチャの [**VideoDeviceController**](/uwp/api/Windows.Media.Devices.VideoDeviceController) から取得し、[**Supported**](/uwp/api/windows.media.devices.core.variablephotosequencecontroller.supported) プロパティを調べます。
 
 [!code-cs[IsVPSSupported](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetIsVPSSupported)]
 
-可変の写真シーケンスのコントローラーから [**FrameControlCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.Core.FrameControlCapabilities) オブジェクトを取得します。 このオブジェクトには、写真シーケンスのフレームごとに構成できるすべての設定のプロパティが含まれています。 次のようなクラスがあります。
+可変の写真シーケンスのコントローラーから [**FrameControlCapabilities**](/uwp/api/Windows.Media.Devices.Core.FrameControlCapabilities) オブジェクトを取得します。 このオブジェクトには、写真シーケンスのフレームごとに構成できるすべての設定のプロパティが含まれています。 次の設定があります。
 
--   [**公開**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.exposure)
--   [**ExposureCompensation**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.exposurecompensation)
--   [**フラッシュ**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.flash)
--   [**フォーカス**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.focus)
--   [**IsoSpeed**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.isospeed)
--   [**PhotoConfirmation**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.framecontrolcapabilities.photoconfirmationsupported)
+-   [**見る**](/uwp/api/windows.media.devices.core.framecontrolcapabilities.exposure)
+-   [**ExposureCompensation**](/uwp/api/windows.media.devices.core.framecontrolcapabilities.exposurecompensation)
+-   [**点滅**](/uwp/api/windows.media.devices.core.framecontrolcapabilities.flash)
+-   [**対象**](/uwp/api/windows.media.devices.core.framecontrolcapabilities.focus)
+-   [**IsoSpeed**](/uwp/api/windows.media.devices.core.framecontrolcapabilities.isospeed)
+-   [**PhotoConfirmation**](/uwp/api/windows.media.devices.core.framecontrolcapabilities.photoconfirmationsupported)
 
-この例では、フレームごとに異なる露出補正の値を設定します。 現在のデバイスの写真シーケンスで露出補正がサポートされているかどうかを確認するには、**ExposureCompensation** プロパティからアクセスできる [**FrameExposureCompensationCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.Core.FrameExposureCompensationCapabilities) オブジェクトの [**Supported**](https://docs.microsoft.com/uwp/api/windows.media.devices.exposurecompensationcontrol.supported) プロパティを調べます。
+この例では、フレームごとに異なる露出補正の値を設定します。 現在のデバイスの写真シーケンスで露出補正がサポートされているかどうかを確認するには、**ExposureCompensation** プロパティからアクセスできる [**FrameExposureCompensationCapabilities**](/uwp/api/Windows.Media.Devices.Core.FrameExposureCompensationCapabilities) オブジェクトの [**Supported**](/uwp/api/windows.media.devices.exposurecompensationcontrol.supported) プロパティを調べます。
 
 [!code-cs[IsExposureCompensationSupported](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetIsExposureCompensationSupported)]
 
-キャプチャする各フレームに対して新しい [**FrameController**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.Core.FrameController) オブジェクトを作成します。 この例では、3 つのフレームをキャプチャします。 フレームごとに変更するコントロールの値を設定します。 次に、**VariablePhotoSequenceController** の [**DesiredFrameControllers**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.desiredframecontrollers) コレクションをクリアし、コレクションに各フレーム コントローラーを追加します。
+キャプチャする各フレームに対して新しい [**FrameController**](/uwp/api/Windows.Media.Devices.Core.FrameController) オブジェクトを作成します。 この例では、3 つのフレームをキャプチャします。 フレームごとに変更するコントロールの値を設定します。 次に、**VariablePhotoSequenceController** の [**DesiredFrameControllers**](/uwp/api/windows.media.devices.core.variablephotosequencecontroller.desiredframecontrollers) コレクションをクリアし、コレクションに各フレーム コントローラーを追加します。
 
 [!code-cs[InitFrameControllers](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetInitFrameControllers)]
 
-キャプチャした画像に対して使用するエンコードを設定するための [**ImageEncodingProperties**](https://docs.microsoft.com/uwp/api/Windows.Media.MediaProperties.ImageEncodingProperties) オブジェクトを作成します。 静的メソッド [**MediaCapture.PrepareVariablePhotoSequenceCaptureAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture.preparevariablephotosequencecaptureasync) を呼び出し、エンコード プロパティを渡します。 このメソッドは、[**VariablePhotoSequenceCapture**](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Core.VariablePhotoSequenceCapture) オブジェクトを返します。 最後に、[**PhotoCaptured**](https://docs.microsoft.com/uwp/api/windows.media.capture.core.variablephotosequencecapture.photocaptured) イベントと [**Stopped**](https://docs.microsoft.com/uwp/api/windows.media.capture.core.variablephotosequencecapture.stopped) イベントのイベント ハンドラーを登録します。
+キャプチャした画像に対して使用するエンコードを設定するための [**ImageEncodingProperties**](/uwp/api/Windows.Media.MediaProperties.ImageEncodingProperties) オブジェクトを作成します。 静的メソッド [**MediaCapture.PrepareVariablePhotoSequenceCaptureAsync**](/uwp/api/windows.media.capture.mediacapture.preparevariablephotosequencecaptureasync) を呼び出し、エンコード プロパティを渡します。 このメソッドは、[**VariablePhotoSequenceCapture**](/uwp/api/Windows.Media.Capture.Core.VariablePhotoSequenceCapture) オブジェクトを返します。 最後に、[**PhotoCaptured**](/uwp/api/windows.media.capture.core.variablephotosequencecapture.photocaptured) イベントと [**Stopped**](/uwp/api/windows.media.capture.core.variablephotosequencecapture.stopped) イベントのイベント ハンドラーを登録します。
 
 [!code-cs[PrepareVPS](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetPrepareVPS)]
 
 ## <a name="start-the-variable-photo-sequence-capture"></a>可変の写真シーケンス キャプチャを開始する
 
-可変の写真シーケンスのキャプチャを開始するには、[**VariablePhotoSequenceCapture.StartAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.core.variablephotosequencecapture.startasync) を呼び出します。 必ず、キャプチャした画像とフレーム コントロールの値を格納するための配列を初期化し、現在のインデックスを 0 に設定してください。 アプリの記録状態の変数を設定し、このキャプチャの進行中は別のキャプチャを開始できないように UI を更新します。
+可変の写真シーケンスのキャプチャを開始するには、[**VariablePhotoSequenceCapture.StartAsync**](/uwp/api/windows.media.capture.core.variablephotosequencecapture.startasync) を呼び出します。 必ず、キャプチャした画像とフレーム コントロールの値を格納するための配列を初期化し、現在のインデックスを 0 に設定してください。 アプリの記録状態の変数を設定し、このキャプチャの進行中は別のキャプチャを開始できないように UI を更新します。
 
 [!code-cs[StartVPSCapture](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetStartVPSCapture)]
 
 ## <a name="receive-the-captured-frames"></a>キャプチャされたフレームを受け取る
 
-[  **PhotoCaptured**](https://docs.microsoft.com/uwp/api/windows.media.capture.core.variablephotosequencecapture.photocaptured) イベントは、キャプチャされたフレームごとに発生します。 フレーム コントロールの値とフレームのキャプチャされた画像を保存してから、現在のフレームのインデックスを増分します。 次の例は、各フレームの [**SoftwareBitmap**](https://docs.microsoft.com/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) 表現を取得する方法を示しています。 **SoftwareBitmap** の使用方法について詳しくは、「[イメージング](imaging.md)」をご覧ください。
+[**PhotoCaptured**](/uwp/api/windows.media.capture.core.variablephotosequencecapture.photocaptured) イベントは、キャプチャされたフレームごとに発生します。 フレーム コントロールの値とフレームのキャプチャされた画像を保存してから、現在のフレームのインデックスを増分します。 次の例は、各フレームの [**SoftwareBitmap**](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) 表現を取得する方法を示しています。 **SoftwareBitmap** の使用方法について詳しくは、「[イメージング](imaging.md)」をご覧ください。
 
 [!code-cs[OnPhotoCaptured](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetOnPhotoCaptured)]
 
 ## <a name="handle-the-completion-of-the-variable-photo-sequence-capture"></a>可変の写真シーケンスのキャプチャの完了を処理する
 
-[  **Stopped**](https://docs.microsoft.com/uwp/api/windows.media.capture.core.variablephotosequencecapture.stopped) イベントは、シーケンス内のすべてのフレームがキャプチャされると発生します。 アプリの記録状態を更新し、ユーザーが新しいキャプチャを開始できるように UI を更新します。 この時点で、キャプチャされた画像とフレーム コントロールの値を画像処理コードに渡すことができます。
+[**Stopped**](/uwp/api/windows.media.capture.core.variablephotosequencecapture.stopped) イベントは、シーケンス内のすべてのフレームがキャプチャされると発生します。 アプリの記録状態を更新し、ユーザーが新しいキャプチャを開始できるように UI を更新します。 この時点で、キャプチャされた画像とフレーム コントロールの値を画像処理コードに渡すことができます。
 
 [!code-cs[OnStopped](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetOnStopped)]
 
 ## <a name="update-frame-controllers"></a>フレーム コントローラーを更新する
 
-フレームごとの設定を変更して、可変の写真シーケンス キャプチャを新たに実行する場合、**VariablePhotoSequenceCapture** を完全に再初期化する必要はありません。 [  **DesiredFrameControllers**](https://docs.microsoft.com/uwp/api/windows.media.devices.core.variablephotosequencecontroller.desiredframecontrollers) コレクションをクリアして新しいフレーム コントローラーを追加するか、または既存のフレーム コントローラーの値を変更できます。 次の例では、[**FrameFlashCapabilities**](https://docs.microsoft.com/uwp/api/Windows.Media.Devices.Core.FrameFlashCapabilities) オブジェクトを調べて、現在のデバイスが可変の写真シーケンス フレームに対してフラッシュとフラッシュの電源をサポートしているかどうかを確認します。 サポートしている場合は、100% の電力でフラッシュを有効にするよう各フレームが更新されます。 各フレームに対して前の手順で設定した露出補正の値は、引き続き有効です。
+フレームごとの設定を変更して、可変の写真シーケンス キャプチャを新たに実行する場合、**VariablePhotoSequenceCapture** を完全に再初期化する必要はありません。 [**DesiredFrameControllers**](/uwp/api/windows.media.devices.core.variablephotosequencecontroller.desiredframecontrollers) コレクションをクリアして新しいフレーム コントローラーを追加するか、または既存のフレーム コントローラーの値を変更できます。 次の例では、[**FrameFlashCapabilities**](/uwp/api/Windows.Media.Devices.Core.FrameFlashCapabilities) オブジェクトを調べて、現在のデバイスが可変の写真シーケンス フレームに対してフラッシュとフラッシュの電源をサポートしているかどうかを確認します。 サポートしている場合は、100% の電力でフラッシュを有効にするよう各フレームが更新されます。 各フレームに対して前の手順で設定した露出補正の値は、引き続き有効です。
 
 [!code-cs[UpdateFrameControllers](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetUpdateFrameControllers)]
 
 ## <a name="clean-up-the-variable-photo-sequence-capture"></a>可変の写真シーケンス キャプチャをクリーンアップする
 
-可変の写真シーケンスのキャプチャが完了するか、アプリが中断された場合は、[**FinishAsync**](https://docs.microsoft.com/uwp/api/windows.media.capture.core.variablephotosequencecapture.finishasync) を呼び出して、可変の写真シーケンスのオブジェクトをクリーンアップします。 オブジェクトのイベント ハンドラーの登録を解除し、null に設定します。
+可変の写真シーケンスのキャプチャが完了するか、アプリが中断された場合は、[**FinishAsync**](/uwp/api/windows.media.capture.core.variablephotosequencecapture.finishasync) を呼び出して、可変の写真シーケンスのオブジェクトをクリーンアップします。 オブジェクトのイベント ハンドラーの登録を解除し、null に設定します。
 
 [!code-cs[CleanUpVPS](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetCleanUpVPS)]
 
 ## <a name="related-topics"></a>関連トピック
 
 * [カメラ](camera.md)
-* [MediaCapture で基本的な写真、ビデオ、およびオーディオのキャプチャします。](basic-photo-video-and-audio-capture-with-MediaCapture.md)
+* [MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
  
 
  
-
-
-
-

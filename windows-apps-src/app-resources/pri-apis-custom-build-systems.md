@@ -6,15 +6,15 @@ ms.date: 05/07/2018
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 860455eceef2c61ef0a591fcd791506d9b290af9
-ms.sourcegitcommit: 963316e065cf36c17b6360c3f89fba93a1a94827
+ms.openlocfilehash: 43162f13afd9a658c58d47d83ab71f49bdcfb70e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868886"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174076"
 ---
 # <a name="package-resource-indexing-pri-apis-and-custom-build-systems"></a>パッケージ リソース インデックス (PRI) API とカスタム ビルド システム
-[パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference) を使用すると、UWP アプリのリソース用にカスタム ビルド システムを開発することができます。 ビルド システムでは、UWP アプリが必要とする複雑さのレベルにかかわらず、パッケージ リソース インデックス (PRI) ファイルを (XML として) 作成、バージョン管理、ダンプすることができます。 現在 MakePri.exe コマンド ライン ツールを使用しているカスタム ビルド システムがある場合 (「[MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)」を参照)、パフォーマンスと制御を向上させるために、MakePri.exe の呼び出しではなく、PRI API の呼び出しに切り替えることをお勧めします。
+[パッケージ リソース インデックス (PRI) API](/windows/desktop/menurc/pri-indexing-reference) を使用すると、UWP アプリのリソース用にカスタム ビルド システムを開発することができます。 ビルド システムでは、UWP アプリが必要とする複雑さのレベルにかかわらず、パッケージ リソース インデックス (PRI) ファイルを (XML として) 作成、バージョン管理、ダンプすることができます。 現在 MakePri.exe コマンド ライン ツールを使用しているカスタム ビルド システムがある場合 (「[MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)」を参照)、パフォーマンスと制御を向上させるために、MakePri.exe の呼び出しではなく、PRI API の呼び出しに切り替えることをお勧めします。
 
 PRI API は、Windows 10 向け Windows SDK のバージョン 1803 で導入されました。 API は、Win32 Windows API の形式になります。つまり、それらを呼び出すオプションがいくつかあります。 Win32 アプリから直接それらを呼び出すか、または .NET アプリ、さらには UWP アプリからでも [platform invoke](/dotnet/framework/interop/consuming-unmanaged-dll-functions?branch=live) を介してそれらを呼び出すことができます。
 
@@ -29,7 +29,7 @@ PRI API は、Windows 10 向け Windows SDK のバージョン 1803 で導入さ
 |[シナリオ 1: 文字列リソースとアセット ファイルから PRI ファイルを生成する](pri-apis-scenario-1.md)|このシナリオでは、カスタム ビルド システムを表す新しいアプリを作成します。 リソース インデクサーを作成し、文字列とその他の種類のリソースを追加します。 次に、PRI ファイルを生成してダンプします。|
 
 ## <a name="important-apis"></a>重要な API
-* [パッケージ リソース インデックス (PRI) リファレンス](https://docs.microsoft.com/windows/desktop/menurc/pri-indexing-reference)
+* [パッケージ リソース インデックス (PRI) リファレンス](/windows/desktop/menurc/pri-indexing-reference)
 
 ## <a name="related-topics"></a>関連トピック
 * [MakePri.exe を使用して手動でリソースをコンパイルする](makepri-exe-command-options.md)

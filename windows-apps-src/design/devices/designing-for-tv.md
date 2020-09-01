@@ -13,12 +13,12 @@ design-contact: jeffarn
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5025a63f5c96365ba1f14311b9c68ed41f4fc5aa
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 491b67322c8b328c21446d50951daad61f15ad3d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234594"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175576"
 ---
 # <a name="designing-for-xbox-and-tv"></a>Xbox およびテレビ向け設計
 
@@ -75,12 +75,12 @@ _**スクリーンショットに示されているすべてのムービーは�
 | [UI コントロールのガイドライン](#guidelines-for-ui-controls)  |  いくつかの UI コントロールは、複数のデバイスで問題なく動作しますが、テレビで使用する場合には特定の考慮事項があります。 10 フィート エクスペリエンスを設計する際にこのようなコントロールを使う場合のベスト プラクティスについて説明します。 |
 | [Xbox のカスタム表示状態トリガー](#custom-visual-state-trigger-for-xbox) | UWP アプリを 10 フィート エクスペリエンス用にカスタマイズする場合、カスタム*表示状態トリガー*を使用して、アプリが Xbox コンソールで起動されたことを検出したときにアプリのレイアウトが変わるようにすることをお勧めします。 |
 
-上記の設計とレイアウトの考慮事項に加えて、アプリをビルドするときに考慮する必要がある[ゲームパッドとリモートコントロールの対話](../input/gamepad-and-remote-interactions.md)の最適化がいくつかあります。
+上記の設計とレイアウトの考慮事項に加えて、アプリをビルドするときに考慮する必要がある [ゲームパッドとリモートコントロールの対話](../input/gamepad-and-remote-interactions.md) の最適化がいくつかあります。
 
 | 機能        | 説明           |
 | -------------------------------------------------------------- |--------------------------------|
 | [XY フォーカス ナビゲーションと操作](../input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction) | ユーザーは、 **XY フォーカスナビゲーション**を使用して、アプリの UI 内を移動できます。 ただし、ユーザーの移動は上下左右に制限されます。 このセクションでは、この点に対応するための推奨事項とその他の考慮事項について説明します。 |
-| [[マウス モード]](../input/gamepad-and-remote-interactions.md#mouse-mode)|XY フォーカスナビゲーションは、マップ、描画、および描画アプリなど、一部の種類のアプリケーションでは実用的ではなく、可能でもありません。 このような場合、**マウスモード**では、ユーザーは PC 上のマウスと同じように、ゲームパッドやリモコンで自由に移動できます。|
+| [[マウス モード]](../input/gamepad-and-remote-interactions.md#mouse-mode)|XY フォーカスナビゲーションは、マップ、描画、および描画アプリなど、一部の種類のアプリケーションでは実用的ではなく、可能でもありません。 このような場合、 **マウスモード** では、ユーザーは PC 上のマウスと同じように、ゲームパッドやリモコンで自由に移動できます。|
 | [フォーカスの視覚効果](../input/gamepad-and-remote-interactions.md#focus-visual)  | フォーカスのビジュアルは、現在フォーカスがある UI 要素を強調表示する境界線です。 これにより、ユーザーが移動または対話する UI をすばやく識別できます。  |
 | [取り組みに焦点を当てる](../input/gamepad-and-remote-interactions.md#focus-engagement) | フォーカスを操作するには、UI 要素にフォーカスがあるときに、ユーザーがゲームパッドまたはリモコンの [ **A/Select** ] ボタンを押す必要があります。 |
 | [ハードウェア ボタン](../input/gamepad-and-remote-interactions.md#hardware-buttons) | ゲームパッドとリモコンは、まったく異なるボタンと構成を提供します。 |
@@ -185,7 +185,7 @@ UI 要素の適切なサイズを計算するときに、このトピックで�
 
 ### <a name="drawing-ui-to-the-edge"></a>端までの UI の描画
 
-ユーザーに没入感を提供するために、特定の UI 要素を使って画面の端まで拡張することをお勧めします。 [ScrollViewer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)、[CommandBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar) などを使えます。
+ユーザーに没入感を提供するために、特定の UI 要素を使って画面の端まで拡張することをお勧めします。 [ScrollViewer](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)、[CommandBar](/uwp/api/Windows.UI.Xaml.Controls.CommandBar) などを使えます。
 
 一方、対話型の要素とテキストは画面の端に表示されることを常に避け、一部のテレビで表示が切れないようにすることも重要です。 画面の端 5% 以内には重要でない視覚効果のみを描画することをお勧めします。 「[UI 要素のサイズ](#ui-element-sizing)」で説明したように、Xbox One コンソールの既定の拡大縮小率 200% に従っている UWP アプリは、960 x 540 epx の領域を使います。そのため、アプリの UI では重要な UI を以下の領域に置かないようにします。
 
@@ -205,7 +205,7 @@ Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().SetDesiredBoundsMo
     (Windows.UI.ViewManagement.ApplicationViewBoundsMode.UseCoreWindow);
 ```
 
-このコード行で、アプリ ウィンドウは画面の端まで拡張されます。そのため、前に説明したテレビのセーフ エリアへ、すべての対話型 UI と重要な UI を移動する必要があります。 コンテキスト メニューや開かれた状態の [ComboBoxes](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) などの一時的な UI は、テレビのセーフ エリア内に自動的に残ります。
+このコード行で、アプリ ウィンドウは画面の端まで拡張されます。そのため、前に説明したテレビのセーフ エリアへ、すべての対話型 UI と重要な UI を移動する必要があります。 コンテキスト メニューや開かれた状態の [ComboBoxes](/uwp/api/Windows.UI.Xaml.Controls.ComboBox) などの一時的な UI は、テレビのセーフ エリア内に自動的に残ります。
 
 ![コア ウィンドウの境界](images/designing-for-tv/core-window-bounds.png)
 
@@ -213,7 +213,7 @@ Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().SetDesiredBoundsMo
 
 通常、ナビゲーション ウィンドウは画面の端近くに描画されるため、不自然なギャップが入らないように背景をテレビのセーフ エリア以外まで広げる必要があります。 ナビゲーション ウィンドウの背景の色をアプリの背景の色に変更するだけで、これを行うことができます。
 
-既に説明したように、コア ウィンドウの境界を使用すると、画面の端まで UI を描画することができますが、さらに [SplitView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.SplitView) のコンテンツで正の余白を使用してコンテンツがテレビ セーフ エリア内に収まるようにする必要があります。
+既に説明したように、コア ウィンドウの境界を使用すると、画面の端まで UI を描画することができますが、さらに [SplitView](/uwp/api/Windows.UI.Xaml.Controls.SplitView) のコンテンツで正の余白を使用してコンテンツがテレビ セーフ エリア内に収まるようにする必要があります。
 
 ![画面の端まで拡張されたナビゲーション ウィンドウ](images/designing-for-tv/tv-safe-areas-2.png)
 
@@ -239,7 +239,7 @@ Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().SetDesiredBoundsMo
 </SplitView>
 ```
 
-[CommandBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar) も、アプリの 1 つまたは複数の端の近くに置かれることが多いウィンドウの例ですが、そのためにテレビではその背景を画面の端まで拡張する必要があります。 これには通常、**[その他]** ボタンも含まれます。[その他] ボタンは右側に表示する "..." で表し、テレビのセーフ エリア内に収める必要があります。 目的の操作と視覚効果を実現するためのいくつかの異なる方法を次に示します。
+[CommandBar](/uwp/api/Windows.UI.Xaml.Controls.CommandBar) も、アプリの 1 つまたは複数の端の近くに置かれることが多いウィンドウの例ですが、そのためにテレビではその背景を画面の端まで拡張する必要があります。 これには通常、**[その他]** ボタンも含まれます。[その他] ボタンは右側に表示する "..." で表し、テレビのセーフ エリア内に収める必要があります。 目的の操作と視覚効果を実現するためのいくつかの異なる方法を次に示します。
 
 **オプション 1**: `CommandBar` の背景色を透明またはページの背景と同じ色に変更します。
 
@@ -280,7 +280,7 @@ Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().SetDesiredBoundsMo
 
 ![グリッドのフォーカスのスクロールをテレビのセーフ エリア内に収める](images/designing-for-tv/scrolling-grid-focus.png)
 
-UWP にはフォーカス表示を [VisibleBounds](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview.visiblebounds) 内に保持する機能がありますが、リストやグリッドの項目をセーフ エリアの表示領域内までスクロールできるように余白を追加する必要があります。 具体的には、次のコード スニペットのように、[ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) または [GridView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) の [ItemsPresenter](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsPresenter) に正の余白を追加します。
+UWP にはフォーカス表示を [VisibleBounds](/uwp/api/windows.ui.viewmanagement.applicationview.visiblebounds) 内に保持する機能がありますが、リストやグリッドの項目をセーフ エリアの表示領域内までスクロールできるように余白を追加する必要があります。 具体的には、次のコード スニペットのように、[ListView](/uwp/api/Windows.UI.Xaml.Controls.ListView) または [GridView](/uwp/api/Windows.UI.Xaml.Controls.GridView) の [ItemsPresenter](/uwp/api/Windows.UI.Xaml.Controls.ItemsPresenter) に正の余白を追加します。
 
 ```xml
 <Style x:Key="TitleSafeListViewStyle"
@@ -331,9 +331,9 @@ UWP にはフォーカス表示を [VisibleBounds](https://docs.microsoft.com/uw
 ```
 
 > [!NOTE]
-> このコード スニペットは `ListView` 専用です。`GridView` のスタイルの場合、[ControlTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) と [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) の両方の [TargetType](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.controltemplate.targettype) 属性を `GridView` に設定します。
+> このコード スニペットは `ListView` 専用です。`GridView` のスタイルの場合、[ControlTemplate](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) と [Style](/uwp/api/Windows.UI.Xaml.Style) の両方の [TargetType](/uwp/api/windows.ui.xaml.controls.controltemplate.targettype) 属性を `GridView` に設定します。
 
-項目をどのように表示するかを細かく制御するには、アプリケーションがバージョン1803以降を対象としている場合は、 [UIElement. Bringare View要求さ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)れたイベントを使用できます。 次のコードスニペットのように、 **ListView**GridView の[ItemsPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel)に配置して、 / **GridView**内部**ScrollViewer**の前にキャッチすることができます。
+項目をどのように表示するかを細かく制御するには、アプリケーションがバージョン1803以降を対象としている場合は、 [UIElement. Bringare View要求さ](/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)れたイベントを使用できます。 次のコードスニペットのように、 **ListView**GridView の[ItemsPanel](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel)に配置して、 / **GridView**内部**ScrollViewer**の前にキャッチすることができます。
 
 ```xaml
 <GridView x:Name="gridView">
@@ -403,7 +403,7 @@ PC でアクセント カラーを選べるように、ユーザーは Xbox One 
 
 また、Xbox One と PC、電話、その他のデバイスでは、ユーザーの色のセットが異なることに注意してください。
 
-アプリで **SystemControlForegroundAccentBrush** などのブラシ リソースやカラー リソース (**SystemAccentColor**) を使うか、代わりに [UIColorType.Accent*](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.UIColorType) API からアクセント カラーを直接呼び出していれば、これらの色は Xbox One で利用可能なアクセント カラーに置き換えられます。 ハイ コントラストのブラシの色も、PC や電話と同じ方法でシステムから取得されます。
+アプリで **SystemControlForegroundAccentBrush** などのブラシ リソースやカラー リソース (**SystemAccentColor**) を使うか、代わりに [UIColorType.Accent*](/uwp/api/Windows.UI.ViewManagement.UIColorType) API からアクセント カラーを直接呼び出していれば、これらの色は Xbox One で利用可能なアクセント カラーに置き換えられます。 ハイ コントラストのブラシの色も、PC や電話と同じ方法でシステムから取得されます。
 
 アクセント カラー全般について詳しくは、「[アクセント カラー](../style/color.md#accent-color)」をご覧ください。
 
@@ -420,9 +420,9 @@ PC でアクセント カラーを選べるように、ユーザーは Xbox One 
 従来、Xbox 上のアプリは、この "テレビ セーフ" カラーの範囲内に収まるように色を調整する必要がありました。ただし、Fall Creators Update 以降、Xbox One はすべての範囲のコンテンツをテレビ セーフ範囲に自動的に対応させています。 つまり、ほとんどのアプリ開発者がテレビ セーフ カラーについて心配する必要がなくなりました。
 
 > [!IMPORTANT]
-> 既にテレビ セーフ カラーの範囲内にあるビデオ コンテンツは、[メディア ファンデーション](https://docs.microsoft.com/windows/desktop/medfound/microsoft-media-foundation-sdk) を使用して再生する場合、このカラー スケール効果は適用されません。
+> 既にテレビ セーフ カラーの範囲内にあるビデオ コンテンツは、[メディア ファンデーション](/windows/desktop/medfound/microsoft-media-foundation-sdk) を使用して再生する場合、このカラー スケール効果は適用されません。
 
-DirectX 11 または DirectX 12 を使ってアプリを開発し、UI またはビデオをレンダリングするために独自のスワップ チェーンを作成している場合、[IDXGISwapChain3::SetColorSpace1](https://docs.microsoft.com/windows/desktop/api/dxgi1_4/nf-dxgi1_4-idxgiswapchain3-setcolorspace1) を呼び出して使用する色空間を指定できるため、色の操作が必要かどうかをシステムに通知します。
+DirectX 11 または DirectX 12 を使ってアプリを開発し、UI またはビデオをレンダリングするために独自のスワップ チェーンを作成している場合、[IDXGISwapChain3::SetColorSpace1](/windows/desktop/api/dxgi1_4/nf-dxgi1_4-idxgiswapchain3-setcolorspace1) を呼び出して使用する色空間を指定できるため、色の操作が必要かどうかをシステムに通知します。
 
 ## <a name="guidelines-for-ui-controls"></a>UI コントロールのガイドライン
 
@@ -430,11 +430,11 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 
 ### <a name="pivot-control"></a>ピボット コントロール
 
-[ピボット](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)は、別のヘッダーやタブを選択することにより、アプリ内でビューのすばやいナビゲーションを提供します。 このコントロールでは、フォーカスがあるヘッダーに下線が引かれ、ゲームパッド/リモコンを使用している場合に、現在選択されているヘッダーがわかりやすくなります。
+[ピボット](/uwp/api/Windows.UI.Xaml.Controls.Pivot)は、別のヘッダーやタブを選択することにより、アプリ内でビューのすばやいナビゲーションを提供します。 このコントロールでは、フォーカスがあるヘッダーに下線が引かれ、ゲームパッド/リモコンを使用している場合に、現在選択されているヘッダーがわかりやすくなります。
 
 ![ピボットの下線](images/designing-for-tv/pivot-underline.png)
 
-[Pivot.IsHeaderItemsCarouselEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot.isheaderitemscarouselenabledproperty) プロパティを `true` に設定すると、選択したピボット ヘッダーが常に最初の位置に移動する代わりに、ピボットが常に同じ位置に固定されます。 ヘッダーの折り返しを煩わしいと感じるユーザーもいるため、これでテレビなどの大画面表示でエクスペリエンスが向上します。 すべてのピボット ヘッダーが同時に画面に収まらない場合、ユーザーは表示されるスクロール バーを使って他のヘッダーを表示できますが、最良のエクスペリエンスを提供するためには、すべてのピボット ヘッダーが画面に収まることを確認する必要があります。 詳しくは、「[タブとピボット](/windows/uwp/design/controls-and-patterns/pivot)」をご覧ください。
+[Pivot.IsHeaderItemsCarouselEnabled](/uwp/api/windows.ui.xaml.controls.pivot.isheaderitemscarouselenabledproperty) プロパティを `true` に設定すると、選択したピボット ヘッダーが常に最初の位置に移動する代わりに、ピボットが常に同じ位置に固定されます。 ヘッダーの折り返しを煩わしいと感じるユーザーもいるため、これでテレビなどの大画面表示でエクスペリエンスが向上します。 すべてのピボット ヘッダーが同時に画面に収まらない場合、ユーザーは表示されるスクロール バーを使って他のヘッダーを表示できますが、最良のエクスペリエンスを提供するためには、すべてのピボット ヘッダーが画面に収まることを確認する必要があります。 詳しくは、「[タブとピボット](../controls-and-patterns/pivot.md)」をご覧ください。
 
 ### <a name="navigation-pane"></a>ナビゲーション ウィンドウ <a name="navigation-pane" />
 
@@ -444,7 +444,7 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 
 ### <a name="commandbar-labels"></a>CommandBar のラベル
 
-[CommandBar](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar) のアイコンの高さを最小化し、一貫性が保たれるようにするために、アイコンの右側にラベルを配置することをお勧めします。 [CommandBar.DefaultLabelPosition](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar.defaultlabelpositionproperty) プロパティを `CommandBarDefaultLabelPosition.Right` に設定することによって、これを実現できます。
+[CommandBar](/uwp/api/Windows.UI.Xaml.Controls.CommandBar) のアイコンの高さを最小化し、一貫性が保たれるようにするために、アイコンの右側にラベルを配置することをお勧めします。 [CommandBar.DefaultLabelPosition](/uwp/api/windows.ui.xaml.controls.commandbar.defaultlabelpositionproperty) プロパティを `CommandBarDefaultLabelPosition.Right` に設定することによって、これを実現できます。
 
 ![アイコンの右側にラベルが配置された CommandBar](images/designing-for-tv/commandbar.png)
 
@@ -452,7 +452,7 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 
 ### <a name="tooltip"></a>ヒント
 
-[Tooltip](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ToolTip) コントロールは、ユーザーが要素の上にマウスを置くか、要素をタップして長押ししたときに UI の詳しい情報を提供する方法として導入されました。 ゲームパッドとリモコンの場合、`Tooltip` は、要素にフォーカスが設定されて少し時間が経つと表示され、しばらく画面に表示された後で消えます。 使う `Tooltip` が多すぎると、ユーザーがこの動作を煩わしいと感じる可能性があります。 テレビを設計するときには `Tooltip` を使わないようにしてください。
+[Tooltip](/uwp/api/Windows.UI.Xaml.Controls.ToolTip) コントロールは、ユーザーが要素の上にマウスを置くか、要素をタップして長押ししたときに UI の詳しい情報を提供する方法として導入されました。 ゲームパッドとリモコンの場合、`Tooltip` は、要素にフォーカスが設定されて少し時間が経つと表示され、しばらく画面に表示された後で消えます。 使う `Tooltip` が多すぎると、ユーザーがこの動作を煩わしいと感じる可能性があります。 テレビを設計するときには `Tooltip` を使わないようにしてください。
 
 ### <a name="button-styles"></a>ボタンのスタイル
 
@@ -468,7 +468,7 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 
 ### <a name="mediatransportcontrols"></a>MediaTransportControls
 
-[MediaTransportControls](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) 要素によって、ユーザーが再生、一時停止、クローズド キャプションの有効化などの操作を実行できる既定の再生エクスペリエンスが提供され、ユーザーはメディアを操作することができます。 このコントロールは、[MediaPlayerElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement) のプロパティであり、*1 行*と *2 行*の 2 つのレイアウト オプションをサポートしています。 1 行のレイアウトでは、スライダーと再生ボタンはすべて 1 つの行に配置され、スライダーの左側に再生/一時停止ボタンが配置されます。 2 行のレイアウトでは、スライダーは独自の行に配置され、再生ボタンは下側の別の行に配置されます。 10 フィート エクスペリエンス向けに設計する場合は、ゲームパッドでのナビゲーションが向上するため、2 行のレイアウトを使用してください。 2 行のレイアウトを有効にするには、`MediaPlayerElement` の [TransportControls](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.transportcontrols) プロパティの `MediaTransportControls` 要素で `IsCompact="False"` を設定します。
+[MediaTransportControls](/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) 要素によって、ユーザーが再生、一時停止、クローズド キャプションの有効化などの操作を実行できる既定の再生エクスペリエンスが提供され、ユーザーはメディアを操作することができます。 このコントロールは、[MediaPlayerElement](/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement) のプロパティであり、*1 行*と *2 行*の 2 つのレイアウト オプションをサポートしています。 1 行のレイアウトでは、スライダーと再生ボタンはすべて 1 つの行に配置され、スライダーの左側に再生/一時停止ボタンが配置されます。 2 行のレイアウトでは、スライダーは独自の行に配置され、再生ボタンは下側の別の行に配置されます。 10 フィート エクスペリエンス向けに設計する場合は、ゲームパッドでのナビゲーションが向上するため、2 行のレイアウトを使用してください。 2 行のレイアウトを有効にするには、`MediaPlayerElement` の [TransportControls](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.transportcontrols) プロパティの `MediaTransportControls` 要素で `IsCompact="False"` を設定します。
 
 ```xml
 <MediaPlayerElement x:Name="mediaPlayerElement1"  
@@ -482,7 +482,7 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 
 アプリにメディアを追加する方法について詳しくは、「[メディア再生](../controls-and-patterns/media-playback.md)」をご覧ください。
 
-> ![注] `MediaPlayerElement` は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [MediaElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 上記の推奨事項は `MediaElement` にも適用され、`TransportControls` プロパティも同じ方法でアクセスされます。
+> ![注] `MediaPlayerElement` は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 上記の推奨事項は `MediaElement` にも適用され、`TransportControls` プロパティも同じ方法でアクセスされます。
 
 ### <a name="search-experience"></a>検索エクスペリエンス
 

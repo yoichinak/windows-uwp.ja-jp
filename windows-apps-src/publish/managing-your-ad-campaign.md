@@ -6,19 +6,19 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a2cccf0392c4e71cc76449d1cfe505af092871e
-ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
+ms.openlocfilehash: 92f670fbacef8c3e87cf1b3389a3d8ab9a9db444
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88970150"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174776"
 ---
 # <a name="manage-your-ad-campaign"></a>広告キャンペーンの管理
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-[パートナーセンター](https://partner.microsoft.com/dashboard)でアプリの広告キャンペーンを管理するには、左側のナビゲーションメニューで [**惹き**] を展開し、[ **ad キャンペーン**] を選択します。 アプリに関連付けられたすべての広告キャンペーンが、各広告キャンペーンのインプレッション数、クリック数、インストール数と合わせて表示されます。 インプレッション数、クリック数、インストール数について詳しくは、「[[広告キャンペーン] レポート](promote-your-app-report.md)」でこれらの用語の定義をご覧ください。
+[パートナーセンター](https://partner.microsoft.com/dashboard)でアプリの広告キャンペーンを管理するには、左側のナビゲーションメニューで [**惹き**] を展開し、[ **ad キャンペーン**] を選択します。 アプリに関連付けられたすべての広告キャンペーンが、各広告キャンペーンのインプレッション数、クリック数、インストール数と合わせて表示されます。 インプレッション数、クリック数、インストール数について詳しくは、「[[広告キャンペーン] レポート](/windows/uwp/publish/ad-campaign-report)」でこれらの用語の定義をご覧ください。
 
 広告キャンペーンの一覧をフィルター処理するには、**[セクション フィルター]** ドロップダウンをクリックし、次のフィルターから選びます。
 
@@ -33,7 +33,7 @@ ms.locfileid: "88970150"
 ## <a name="reporting"></a>レポート
 
 
-このページには、レポートの詳細が表示されます。 詳しくは、「[[広告キャンペーン] レポート](promote-your-app-report.md)」をご覧ください。
+このページには、レポートの詳細が表示されます。 詳しくは、「[[広告キャンペーン] レポート](/windows/uwp/publish/ad-campaign-report)」をご覧ください。
 
 
 ## <a name="edit-an-ad-campaign"></a>広告キャンペーンの編集
@@ -46,12 +46,8 @@ ms.locfileid: "88970150"
 
 * [アプリの広告キャンペーンの作成](create-an-ad-campaign-for-your-app.md)
 * [自社広告について](about-house-ads.md)
-* [アプリのインストールの広告レポート](app-install-ads-reports.md)
-* [一般的な質問](common-questions.md)
+* [アプリのインストールの広告レポート](/windows/uwp/publish/ad-campaign-report)
+* [よくある質問](common-questions.md)
  
 
  
-
-
-
-

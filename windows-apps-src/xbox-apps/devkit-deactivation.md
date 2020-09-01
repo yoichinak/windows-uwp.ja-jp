@@ -1,17 +1,17 @@
 ---
 title: Xbox One 開発者モードの非アクティブ化
-description: 開発者モードを非アクティブ化する方法を説明します。
+description: 開発にコンソールを使用しない場合は、次の手順を使用して開発者モードを非アクティブ化します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 244124dd-d80a-4a72-91db-1c9c2fbc7c3c
 ms.localizationpriority: medium
-ms.openlocfilehash: 6e7b96e3b8b0cd6f47fdd97008aa8d90dc032fc4
-ms.sourcegitcommit: bee98f7a468c97c707de76afc14e1707c25f74f4
+ms.openlocfilehash: 6e1629435151ca7f66ea5d2e4ef5c90e7336d4f8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80531461"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174716"
 ---
 # <a name="xbox-one-developer-mode-deactivation"></a>Xbox One 開発者モードの非アクティブ化
 
@@ -31,9 +31,9 @@ ms.locfileid: "80531461"
 
 ## <a name="deactivate-your-console-using-the-dev-mode-activation-app"></a>開発者モードのアクティブ化用アプリを使って本体を非アクティブ化する
 
-本体の開発者モードを非アクティブ化するための推奨される方法は、**開発者モードのアクティブ化**用アプリを使うことです。 
+コンソールで開発者モードを非アクティブ化する方法としては、開発 **モードライセンス認証** アプリを使用することをお勧めします。 
 
-1. **[ゲームとアプリ]**  >  **[アプリ]** に移動します。
+1. [**ゲーム] & [アプリ**] [アプリ] に移動  >  **Apps**します。
   
    ![アクティブ化手順 3](images/devkit-deactivation-5.png)    
    
@@ -43,7 +43,7 @@ ms.locfileid: "80531461"
   
     ![本体の非アクティブ化](images/deactivation-app.png)
 
-[開発者モードのアクティブ化](devkit-activation.md)用アプリについて詳しくは、「**Xbox One 開発者モードのアクティブ化**」をご覧ください。 
+**開発者モードのアクティブ化**用アプリについて詳しくは、「[Xbox One 開発者モードのアクティブ化](devkit-activation.md)」をご覧ください。 
 
 ## <a name="reset-your-console"></a>本体をリセットする
 
@@ -56,7 +56,7 @@ ms.locfileid: "80531461"
 
 1.  **[マイ コレクション]** に移動します。
 
-2.  **[アプリ]** を選択し、 **[設定]** を選択します。
+2.  **[アプリ]** を選択し、**[設定]** を選択します。
 
 3.  左ペインの **[システム]** に移動し、右ペインの **[本体の情報]** を選択します。   
    
@@ -66,7 +66,7 @@ ms.locfileid: "80531461"
     
     ![本体のリセット](images/devkit-deactivation-3.png)
     
-5.  次に、 **[Reset and remove everything]** (すべてを削除してリセット) を選びます。 このオプションは、本体をリセットして元の製品版の状態にします。  アプリ、ゲーム、ローカルに保存されたデータはすべて削除されます。 もう 1 つのオプションである **[Reset and keep my games & apps]** (ゲームとアプリを保持してリセット) を選んだ場合、本体は開発者プログラムから削除されません。  
+5.  次に、**[Reset and remove everything]** (すべてを削除してリセット) を選びます。 このオプションは、本体をリセットして元の製品版の状態にします。  アプリ、ゲーム、ローカルに保存されたデータはすべて削除されます。 もう 1 つのオプションである **[Reset and keep my games & apps]** (ゲームとアプリを保持してリセット) を選んだ場合、本体は開発者プログラムから削除されません。  
    
     ![すべてを削除してリセット](images/devkit-deactivation-4.png)
 
@@ -74,16 +74,16 @@ ms.locfileid: "80531461"
 
 何らかの理由でコンソールにアクセスできない場合は、パートナーセンターを使用して、コンソールで開発者モードを非アクティブ化することもできます。
 
-1. パートナーセンターの [ [Xbox One コンソールの管理](https://partner.microsoft.com/xboxconfig/devices)] ページに移動します。 サインインを求めるメッセージが表示される場合があります。
+1. パートナーセンターの [ [Xbox One コンソールの管理](https://partner.microsoft.com/xboxconfig/devices) ] ページに移動します。 サインインを要求される場合があります。
 
 2. 本体の一覧で、シリアル番号、本体の ID、またはデバイス ID を照らし合わせて、非アクティブ化する本体を見つけます。  
 
-3. **[Deactivate]** (非アクティブ化) をクリックします。  
+3. [ **非アクティブ化**] をクリックします。  
   
 ![DevCenter を使った非アクティブ化](images/devkit-deactivation-6.png)
 
 事前に Xbox One 本体をリテール モードに戻していない場合は、「[リテール モードに切り替える](#switch-to-retail-mode)」の説明に従ってここで戻してください。
 
-## <a name="see-also"></a>参照
-- [Xbox One 開発者モードのライセンス認証](devkit-activation.md)
+## <a name="see-also"></a>関連項目
+- [Xbox One 開発者モードのアクティブ化](devkit-activation.md)
 - [Xbox One の UWP](index.md)

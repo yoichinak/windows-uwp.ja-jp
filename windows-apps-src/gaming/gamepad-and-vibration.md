@@ -6,12 +6,12 @@ ms.date: 09/06/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ゲームパッド, 振動
 ms.localizationpriority: medium
-ms.openlocfilehash: e65b22039c381bd333516bd9f98c60bbddb9621c
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 66844b78893ffa8cb92b6b17bd11d87c1d4b1aa0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210598"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175326"
 ---
 # <a name="gamepad-and-vibration"></a>ゲームパッドと振動
 
@@ -27,28 +27,28 @@ ms.locfileid: "79210598"
 
 ## <a name="gamepad-overview"></a>ゲームパッドの概要
 
-Xbox ワイヤレス コントローラーや Xbox ワイヤレス コントローラー S などのゲームパッドは、汎用のゲーム入力デバイスです。 ゲームパッドは Xbox One の標準入力デバイスです。一般的に、キーボードやマウスを好まない Windows のゲーマーが選びます。 ゲームパッドは、Windows 10 および Xbox UWP アプリで [Windows. ゲーム. 入力][] 名前空間によってサポートされています。
+Xbox ワイヤレス コントローラーや Xbox ワイヤレス コントローラー S などのゲームパッドは、汎用のゲーム入力デバイスです。 ゲームパッドは Xbox One の標準入力デバイスです。一般的に、キーボードやマウスを好まない Windows のゲーマーが選びます。 ゲームパッドは、Windows 10 および Xbox UWP アプリで [Windows.Gaming.Input][] 名前空間によってサポートされています。
 
-Xbox One ゲームパッドには、方向パッド (または D パッド) が搭載されています。**A**、 **B**、 **X**、 **Y**、**ビュー**、および**メニュー**ボタン左および右の thumbsticks、バンパー、およびトリガー合計4つの振動モーター。 どちらのサムスティックも、X 軸と Y 軸のデュアル アナログの読み取り値を提供し、内側に押すとボタンとしても機能します。 各トリガーは、どれだけの距離を示すアナログ読み取りを提供します。
+Xbox One ゲームパッドには、方向パッド (または D パッド) が搭載されています。 **A**、 **B**、 **X**、 **Y**、 **ビュー**、および **メニュー** ボタン左および右の thumbsticks、バンパー、およびトリガー合計4つの振動モーター。 どちらのサムスティックも、X 軸と Y 軸のデュアル アナログの読み取り値を提供し、内側に押すとボタンとしても機能します。 各トリガーは、どれだけの距離を示すアナログ読み取りを提供します。
 
 <!-- > [!NOTE]
 > The Xbox Elite Wireless Controller is equipped with four additional **Paddle** buttons on its underside. These can be used to provide redundant access to game commands that are difficult to use together (such as the right thumbstick together with any of the **A**, **B**, **X**, or **Y** buttons) or to provide dedicated access to additional commands. -->
 
 > [!NOTE]
-> また `Windows.Gaming.Input.Gamepad` では、Xbox 360 ゲームパッドもサポートされています。これには、標準 Xbox 1 ゲームパッドと同じコントロールレイアウトがあります。
+> `Windows.Gaming.Input.Gamepad` では、Xbox 360 ゲームパッドもサポートされています。これには、標準 Xbox 1 ゲームパッドと同じコントロールレイアウトがあります。
 
 ### <a name="vibration-and-impulse-triggers"></a>振動とリアル トリガー
 
 Xbox One ゲームパッドには、強弱のゲームパッドの振動を生むための独立した 2 つのモーターと、トリガーごとに鋭い振動を生む 2 つの専用のモーターがあります (この独自の機能のために、Xbox One ゲームパッドのトリガーは_リアル トリガー_と呼ばれています)。
 
 > [!NOTE]
-> Xbox 360 ゲームパッドには、_インパルストリガー_が搭載されていません。
+> Xbox 360 ゲームパッドには、 _インパルストリガー_が搭載されていません。
 
 詳しくは、「[振動とリアル トリガーの概要](#vibration-and-impulse-triggers-overview)」をご覧ください。
 
 ### <a name="thumbstick-deadzones"></a>サムスティックのデッドゾーン
 
-中央の位置で待機中のサムスティックは、常に安定してニュートラルな X 軸と Y 軸の読み取り値を生成することが理想的ですが、 機械的な力とサムスティックの感度のために、中央の位置での実際の読み取り値は、理想的なニュートラルの値の近似値でしかなく、読み取りごとに異なる可能性があります。 このため、製造の違い、機械的な磨耗、またはその他のゲームパッドの問題を補正するために&mdash;無視される、理想的な中心位置の近くにある小さな_deadzone_&mdash;使用する必要があります。
+中央の位置で待機中のサムスティックは、常に安定してニュートラルな X 軸と Y 軸の読み取り値を生成することが理想的ですが、 機械的な力とサムスティックの感度のために、中央の位置での実際の読み取り値は、理想的なニュートラルの値の近似値でしかなく、読み取りごとに異なる可能性があります。 このため、 _deadzone_ &mdash; 製造の &mdash; 違い、機械的な磨耗、またはその他のゲームパッドの問題を補正するために無視される、理想的な中心位置の近くにある小さな deadzone の値を常に使用する必要があります。
 
 デッドゾーンを大きくすることは、意図する入力と意図しない入力とを分ける簡単な方法です。
 
@@ -56,19 +56,19 @@ Xbox One ゲームパッドには、強弱のゲームパッドの振動を生�
 
 ### <a name="ui-navigation"></a>UI のナビゲーション
 
-ユーザー インターフェイスの操作に異なる入力デバイスをサポートする負担を軽くし、ゲームとデバイス間の整合性を高めるため、ほとんどの物理入力デバイスは、[UI ナビゲーション コントローラー](ui-navigation-controller.md)と呼ばれる個別の論理入力デバイスとして同時に機能します。 UI ナビゲーション コントローラーは、各種入力デバイスに共通の UI ナビゲーション コマンドのボキャブラリを提供します。
+ユーザー インターフェイスの操作に異なる入力デバイスをサポートする負担を軽くし、ゲームとデバイス間の整合性を高めるため、ほとんどの物理__ 入力デバイスは、[UI ナビゲーション コントローラー](ui-navigation-controller.md)と呼ばれる個別の論理__ 入力デバイスとして同時に機能します。 UI ナビゲーション コントローラーは、各種入力デバイスに共通の UI ナビゲーション コマンドのボキャブラリを提供します。
 
-UI ナビゲーションコントローラーとして、ゲームパッドは、[必要な一連](ui-navigation-controller.md#required-set)のナビゲーションコマンドを左スティック、D パッド、**ビュー**、**メニュー**、 **a**、 **B**の各ボタンにマップします。
+UI ナビゲーションコントローラーとして、ゲームパッドは、 [必要な一連](ui-navigation-controller.md#required-set) のナビゲーションコマンドを左スティック、D パッド、 **ビュー**、 **メニュー**、 **a**、 **B** の各ボタンにマップします。
 
 | ナビゲーション コマンド | ゲームパッド入力                       |
 | ------------------:| ----------------------------------- |
-|                 ［上へ］ | 左スティックを上/方向パッドを上       |
-|               ［下へ］ | 左スティックを下/方向パッドを下   |
+|                 上へ | 左スティックを上/方向パッドを上       |
+|               [下へ] | 左スティックを下/方向パッドを下   |
 |               Left | 左スティックを左/方向パッドを左   |
-|              右 | 左スティックを右/方向パッドを右 |
+|              Right | 左スティックを右/方向パッドを右 |
 |               表示 | 表示ボタン                         |
 |               メニュー | メニュー ボタン                         |
-|             同意する | A ボタン                            |
+|             承諾 | A ボタン                            |
 |             キャンセル | B ボタン                            |
 
 また、ゲームパッドはナビゲーション コマンドのすべての[オプション セット](ui-navigation-controller.md#optional-set)をその他の入力にマップします。
@@ -94,9 +94,9 @@ UI ナビゲーションコントローラーとして、ゲームパッドは�
 
 ### <a name="the-gamepads-list"></a>ゲームパッドの一覧
 
-[Gamepad][] クラスには静的プロパティである [Gamepad][] が用意されています。これは、現在接続されているゲームパッドの読み取り専用リストです。 接続されているゲームパッドの一部にのみ関心があるため、`Gamepads` プロパティを使用してアクセスするのではなく、独自のコレクションを維持することをお勧めします。
+[Gamepad][] クラスには静的プロパティである [Gamepad][] が用意されています。これは、現在接続されているゲームパッドの読み取り専用リストです。 接続されているゲームパッドの一部にのみ関心があるため、プロパティを使用してアクセスするのではなく、独自のコレクションを維持することをお勧めし `Gamepads` ます。
 
-次の例では、接続されているすべてのゲームパッドを新しいコレクションにコピーします。 バックグラウンドの他のスレッドがこのコレクションにアクセスすることに注意してください。これは、(ユーザーが[追加][]した、または作成した[padpad)][]イベントで、コレクションを読み込んだ、または更新するコードをロックする必要があることに注意してください。
+次の例では、接続されているすべてのゲームパッドを新しいコレクションにコピーします。 バックグラウンドの他のスレッドがこのコレクションにアクセスすることに注意してください。これは、(ユーザーが [追加][] した、または作成した [padpad)][] イベントで、コレクションを読み込んだ、または更新するコードをロックする必要があることに注意してください。
 
 ```cpp
 auto myGamepads = ref new Vector<Gamepad^>();
@@ -142,7 +142,7 @@ private void GetGamepads()
 
 ### <a name="adding-and-removing-gamepads"></a>ゲームパッドの追加と削除
 
-ゲームパッドが追加または削除さ[padpad)][]、そのイベントが発生した場合は[追加][]が発生します。 これらのイベントハンドラーを登録することで、現在接続されているゲームパッドを追跡できます。
+ゲームパッドが追加または削除さ[れると][]、そのイベントが発生した場合は[、そのイベント][]が発生します。 これらのイベントハンドラーを登録することで、現在接続されているゲームパッドを追跡できます。
 
 次の例では、追加されたゲームパッドの追跡を開始します。
 
@@ -179,7 +179,7 @@ Gamepad.GamepadAdded += (object sender, Gamepad e) =>
 };
 ```
 
-次の例では、削除されたゲームパッドの追跡を停止します。 また、削除されたときに追跡しているゲームパッドの動作を処理する必要もあります。たとえば、このコードでは、1つのゲームパッドからの入力のみを追跡し、削除されたときに `nullptr` に設定するだけです。 ゲームパッドがアクティブになっている場合はすべてのフレームをチェックし、コントローラーが接続されていないときに入力を収集しているゲームパッドを更新する必要があります。
+次の例では、削除されたゲームパッドの追跡を停止します。 また、削除されたときに追跡しているゲームパッドの動作を処理する必要もあります。たとえば、このコードでは、1つのゲームパッドからの入力のみを追跡し、 `nullptr` 削除されたときにに設定するだけです。 ゲームパッドがアクティブになっている場合はすべてのフレームをチェックし、コントローラーが接続されていないときに入力を収集しているゲームパッドを更新する必要があります。
 
 ```cpp
 Gamepad::GamepadRemoved += ref new EventHandler<Gamepad^>(Platform::Object^, Gamepad^ args)
@@ -219,7 +219,7 @@ Gamepad.GamepadRemoved += (object sender, Gamepad e) =>
 };
 ```
 
-詳細については、「[ゲームの入力方法](input-practices-for-games.md)」を参照してください。
+詳細については、「 [ゲームの入力方法](input-practices-for-games.md) 」を参照してください。
 
 ### <a name="users-and-headsets"></a>ユーザーとヘッドセット
 
@@ -249,7 +249,7 @@ Gamepad gamepad = myGamepads[0];
 GamepadReading reading = gamepad.GetCurrentReading();
 ```
 
-読み取りデータには、ゲームパッドの状態だけでなく、正確にいつ状態が取得されたかを示すタイムスタンプも含まれます。 このタイムスタンプは、以前の読み取りのタイミングや、ゲームのシミュレーションのタイミングと関連付けに便利です。
+読み取りデータには、ゲームパッドの状態だけでなく、正確にいつ状態が取得されたかを示すタイムスタンプも含まれます。　 このタイムスタンプは、以前の読み取りのタイミングや、ゲームのシミュレーションのタイミングと関連付けに便利です。
 
 ### <a name="reading-the-thumbsticks"></a>サムスティックの読み取り
 
@@ -271,7 +271,7 @@ double rightStickX = reading.RightThumbstickX; // returns a value between -1.0 a
 double rightStickY = reading.RightThumbstickY; // returns a value between -1.0 and +1.0
 ```
 
-サムスティックの値を読み取るとき、中央の位置で待機中のサムスティックの値は、一定してニュートラルの 0.0 にはなりません。サムスティックを動かし、中央の位置に戻るたびに、0.0 に近い値が生成されます。 このばらつきを少なくするために、小さな_デッドゾーン_を実装します。デッドゾーン+は、理想の中央の位置付近の、無視される範囲の値です。 デッドゾーンを実装する方法の 1 つは、サムスティックが中央から移動された距離を特定し、読み取り値が指定した距離以下の場合は無視することです。 サムスティックの読み取りは基本的にはピタゴラス定理を使用するだけで&mdash;平面ではなく極座標であるため、正確ではない&mdash;距離を計算できます。 これで、放射状のデッドゾーンが作られます。
+サムスティックの値を読み取るとき、中央の位置で待機中のサムスティックの値は、一定してニュートラルの 0.0 にはなりません。サムスティックを動かし、中央の位置に戻るたびに、0.0 に近い値が生成されます。 このばらつきを少なくするために、小さな_デッドゾーン_を実装します。デッドゾーン+は、理想の中央の位置付近の、無視される範囲の値です。 デッドゾーンを実装する方法の 1 つは、サムスティックが中央から移動された距離を特定し、読み取り値が指定した距離以下の場合は無視することです。 &mdash;サムスティックの読み取りは、ピタゴラス定理を使用するだけで、平面ではなく極座標であるため、正確ではない距離を計算でき &mdash; ます。 これで、放射状のデッドゾーンが作られます。
 
 次の例は、ピタゴラスの定理を使った基本的な放射状のデッドゾーンを示しています。
 
@@ -331,7 +331,7 @@ double rightTrigger = reading.RightTrigger; // returns a value between 0.0 and 1
 
 ### <a name="reading-the-buttons"></a>ボタンの読み取り
 
-各ゲームパッドの各&mdash;ボタンは、D パッド、左と右のバンパー、左と右のサムスティックの押下、 **A**、 **B**、 **X**、 **Y**、**ビュー**、**メニュー**&mdash;によって、押された状態 (下方向) または解放された (上の) かを示すデジタル読み取りを提供します。 効率を上げるために、ボタンの読み取りは個々のブール値として表されません。これらはすべて、ビットフィールド[Padbuttons][]列挙体によって表される1つのにパックされています。
+各ゲームパッドボタンは &mdash; 、D パッド、左と右の2つの方向、左と右のサムスティックの押下、 **A**、 **B**、 **X**、 **Y**、**ビュー**、および**メニュー**によって、押されている (下にある &mdash; ) か、または離された (上に) かを示すデジタル読み取りが提供されます。 効率を上げるために、ボタンの読み取りは個々のブール値として表されません。これらはすべて、ビットフィールド [Padbuttons][] 列挙体によって表される1つのにパックされています。
 
 <!-- > [!NOTE]
 > The Xbox Elite Wireless Controller is equipped with four additional **paddle** buttons on its underside. These buttons are also represented in the `GamepadButtons` enumeration and their values are read in the same way as the standard gamepad buttons. -->
@@ -370,11 +370,11 @@ if (GamepadButtons.None == (reading.Buttons & GamepadButtons.A))
 }
 ```
 
-場合によっては、ボタンを押された状態から離した状態に切り替えるか、または離された状態に切り替えられるか、複数のボタンが押されたか離されたか、またはボタンのセットが特定の&mdash;方法で並べ替えられているかどうかを判断する必要がある場合があります。 これらの各状態を検出する方法について詳しくは、「[ボタンの状態遷移の検出](input-practices-for-games.md#detecting-button-transitions)」および「[ボタンの複雑な配置の検出](input-practices-for-games.md#detecting-complex-button-arrangements)」をご覧ください。
+場合によっては、ボタンを押された状態から離した状態に切り替えるか、または離された状態に切り替えたか、複数のボタンが押されたか離されたか、またはボタンのセットが特定の方法で並んでいるかどうかを判断する必要があり &mdash; ます。 これらの各状態を検出する方法について詳しくは、「[ボタンの状態遷移の検出](input-practices-for-games.md#detecting-button-transitions)」および「[ボタンの複雑な配置の検出](input-practices-for-games.md#detecting-complex-button-arrangements)」をご覧ください。
 
 ## <a name="run-the-gamepad-input-sample"></a>ゲームパッド入力のサンプルの実行
 
-[GamepadUWP サンプル _(github)_ ](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/System/GamepadUWP) は、ゲームパッドに接続して、その状態を読み取る方法を示しています。
+[GamepadUWP サンプル _(github)_](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/System/GamepadUWP) は、ゲームパッドに接続して、その状態を読み取る方法を示しています。
 
 ## <a name="vibration-and-impulse-triggers-overview"></a>振動とリアル トリガーの概要
 
@@ -384,9 +384,9 @@ Xbox One ゲームパッドには、独立した振動モーターが合計 4 �
 
 ## <a name="using-vibration-and-impulse"></a>振動とリアル トリガーの使用
 
-ゲームパッドの振動は、[Gamepad][] クラスの [Vibration][] プロパティによって制御されます。 `Vibration` は、4つの浮動小数点値で構成される[GamepadVibration][]構造体のインスタンスです。各値は、いずれかのモーターの強度を表します。
+ゲームパッドの振動は、[Gamepad][] クラスの [Vibration][] プロパティによって制御されます。 `Vibration` は、4つの浮動小数点値で構成される [GamepadVibration][] 構造体のインスタンスです。各値は、いずれかのモーターの強度を表します。
 
-`Gamepad.Vibration` プロパティのメンバーを直接変更することもできますが、別の `GamepadVibration` インスタンスを必要な値に初期化し、`Gamepad.Vibration` プロパティにコピーして、実際のモータの輝度をすべて一度に変更することをお勧めします。
+プロパティのメンバーは `Gamepad.Vibration` 直接変更できますが、別のインスタンスを必要な値に初期化し、 `GamepadVibration` プロパティにコピーして、 `Gamepad.Vibration` 実際のモータの輝度をすべて一度に変更することをお勧めします。
 
 次の例は、モーターの強さを一度に変更する方法を示しています。
 
@@ -436,7 +436,7 @@ vibration.RightMotor = 0.25; // sets the intensity of the right motor to 25%
 mainGamepad.Vibration = vibration;
 ```
 
-この 2 つのモーターは同じではないため、これらのプロパティを同じ値に設定しても、一方のモーターともう一方のモーターの振動は同じになりません。 いずれの値についても、左側のモーターは、同じ値を&mdash;する右モータよりも低い周波数でより強い振動を生成し、より高い周波数で穏やか振動を生成&mdash;ます。 最大値でも、左のモーターでは右のモーターと同じ高い周波数を生成することはできず、右のモーターは左のモーターほど強い力を生み出すことはできません。 ただし、これらのモーターはゲームパッドの本体によってしっかりと連結しているため、各モーターの特徴は異なり、振動の強度が異なる場合でも、プレイヤーがそれぞれの振動を完全に分けて感じることはありません。 このアレンジによって、モーターがまったく同じ場合よりも、より幅広く表現豊かに触感を生み出すことができます。
+この 2 つのモーターは同じではないため、これらのプロパティを同じ値に設定しても、一方のモーターともう一方のモーターの振動は同じになりません。 任意の値について、左のモーターは、 &mdash; 同じ値に対して、 &mdash; 穏やか振動をより高い周波数で生成する右モータよりも低い周波数でより強い振動を生成します。 最大値でも、左のモーターでは右のモーターと同じ高い周波数を生成することはできず、右のモーターは左のモーターほど強い力を生み出すことはできません。 ただし、これらのモーターはゲームパッドの本体によってしっかりと連結しているため、各モーターの特徴は異なり、振動の強度が異なる場合でも、プレイヤーがそれぞれの振動を完全に分けて感じることはありません。 このアレンジによって、モーターがまったく同じ場合よりも、より幅広く表現豊かに触感を生み出すことができます。
 
 ### <a name="using-the-impulse-triggers"></a>リアル トリガーの使用
 
@@ -462,23 +462,23 @@ mainGamepad.Vibration = vibration;
 
 ## <a name="run-the-gamepad-vibration-sample"></a>ゲームパッドの振動のサンプルの実行
 
-[GamepadVibrationUWP サンプル _(github)_ ](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/System/GamepadVibrationUWP) では、ゲームパッドの振動モーターとリアル トリガーを使用して、さまざまな効果を生む方法を示しています。
+[GamepadVibrationUWP サンプル _(github)_](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/System/GamepadVibrationUWP) では、ゲームパッドの振動モーターとリアル トリガーを使用して、さまざまな効果を生む方法を示しています。
 
 ## <a name="see-also"></a>関連項目
 
 * [Windows.Gaming.Input.UINavigationController][]
-* [IGameController を入力します。][]
-* [ゲームの入力方法](input-practices-for-games.md)
+* [Windows.Gaming.Input.IGameController][]
+* [ゲームの入力プラクティス](input-practices-for-games.md)
 
-[Windows. ゲーム. 入力]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.aspx
-[Windows.Gaming.Input.UINavigationController]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.aspx
-[IGameController を入力します。]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.aspx
-[Gamepad]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.aspx
-[Gamepad]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.gamepads.aspx
-[追加]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.gamepadadded.aspx
-[padpad)]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.gamepadremoved.aspx
-[getcurrentreading]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.getcurrentreading.aspx
-[Vibration]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.vibration.aspx
-[GamepadReading]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepadreading.aspx
-[Padbuttons]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepadbuttons.aspx
-[gamepadvibration]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepadvibration.aspx
+[Windows. ゲーム. 入力]: /uwp/api/Windows.Gaming.Input
+[Windows.Gaming.Input.UINavigationController]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[Windows.Gaming.Input.IGameController]: /uwp/api/Windows.Gaming.Input.IGameController
+[ゲーム]: /uwp/api/Windows.Gaming.Input.Gamepad
+[gamepads]: /uwp/api/Windows.Gaming.Input.Gamepad
+[gamepadadded]: /uwp/api/Windows.Gaming.Input.Gamepad
+[gamepadremoved]: /uwp/api/Windows.Gaming.Input.Gamepad
+[getcurrentreading]: /uwp/api/Windows.Gaming.Input.Gamepad
+[vibration]: /uwp/api/Windows.Gaming.Input.Gamepad
+[gamepadreading]: /uwp/api/Windows.Gaming.Input.GamepadReading
+[gamepadbuttons]: /uwp/api/Windows.Gaming.Input.GamepadButtons
+[gamepadvibration]: /uwp/api/Windows.Gaming.Input.GamepadVibration

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 81b3930c-6af9-406d-9d1e-8ee6a13ec38a
 ms.localizationpriority: medium
-ms.openlocfilehash: a3e95eae10fb06135f0fed1b92f1717f5e5fdf4d
-ms.sourcegitcommit: 0f2ae8f97daac440c8e86dc07d11d356de29515c
+ms.openlocfilehash: 5d36d1d47670023b2ee462ba9cd88449b2769079
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83280282"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174326"
 ---
 # <a name="brokered-windows-runtime-components-for-a-side-loaded-uwp-app"></a>サイドロードされた UWP アプリ用の仲介型 Windows ランタイムコンポーネント
 
@@ -44,7 +44,7 @@ Windows には、*サイドロード アプリケーション用の Windows ラ�
 
 **コントラクト**
 
-サイドロード アプリケーションとデスクトップ コンポーネントの間のコントラクトは、UWP 型システムの観点から記述されます。 これ \# には、UWP を表すことができる1つ以上の C クラスを宣言する必要があります。 C を使用して Windows ランタイムクラスを作成するための特定の要件については、MSDN トピック「 [c \# および Visual Basic での Windows ランタイムコンポーネントの作成](https://docs.microsoft.com/previous-versions/windows/apps/br230301(v=vs.140))」を参照してください \# 。
+サイドロード アプリケーションとデスクトップ コンポーネントの間のコントラクトは、UWP 型システムの観点から記述されます。 これ \# には、UWP を表すことができる1つ以上の C クラスを宣言する必要があります。 C を使用して Windows ランタイムクラスを作成するための特定の要件については、MSDN トピック「 [c \# および Visual Basic での Windows ランタイムコンポーネントの作成](/previous-versions/windows/apps/br230301(v=vs.140)) 」を参照してください \# 。
 
 >**メモ**  現時点では、列挙型は、デスクトップコンポーネントとサイドロードアプリケーションの間の Windows ランタイムコンポーネントコントラクトではサポートされていません。
 
@@ -102,11 +102,11 @@ namespace Fabrikam
 
 これにより、サイドロード アプリケーションからインスタンス化できる "EnterpriseServer" クラスが定義されます。 このクラスは、RuntimeClass で保障された機能を提供します。 RuntimeClass は、サイドロード アプリケーションに含める参照用の winmd を生成するために使用できます。
 
-**手順 2:** プロジェクトファイルを手動で編集して、プロジェクトの出力の種類を**Windows ランタイムコンポーネント**に変更します。
+**手順 2:** プロジェクトファイルを手動で編集して、プロジェクトの出力の種類を **Windows ランタイムコンポーネント**に変更します。
 
 これを Visual Studio で実行するには、新しく作成されたプロジェクトを右クリックし、[プロジェクトのアンロード] を選択します。もう一度右クリックし、[Edit EnterpriseServer.csproj の編集] を選択して、プロジェクト ファイル (XML ファイル) を編集用に開きます。
 
-開いているファイルで、 \< OutputType タグを検索 \> し、その値を "winmdobj" に変更します。
+開かれたファイルで \<OutputType\> タグを検索し、その値を "winmdobj" に変更します。
 
 **手順 3:** "参照" 用の Windows メタデータ ファイル (.winmd ファイル) を作成するビルド規則を作ります。 つまり、実装は含まれません。
 
@@ -179,7 +179,7 @@ namespace Fabrikam
 
 カテゴリは inProcessServer です。outOfProcessServer カテゴリには、このアプリケーション構成に適用できないエントリが複数あるためです。 <Path> コンポーネントには、必ず clrhost.dll を含める必要があります (ただし、これは強制的には適用されません****。別の値を指定するとエラーが発生し、その場合の動作は未定義です)。
 
-<ActivatableClass> セクションは、アプリ パッケージ内の Windows ランタイム コンポーネントによって優先される実際のインプロセス RuntimeClass と同じです。 <ActivatableClassAttribute>は新しい要素で、属性 Name = "DesktopApplicationPath" と Type = "string" は必須かつ不変です。 Value 属性では、デスクトップ コンポーネントの実装用の winmd の場所を指定します (詳しくは、次のセクションを参照)。 デスクトップ コンポーネントによって優先される各 RuntimeClass には、独自の <ActivatableClass> 要素ツリーが必要です。 ActivatableClassId は、RuntimeClass の完全な名前空間修飾名と一致する必要があります。
+<ActivatableClass> セクションは、アプリ パッケージ内の Windows ランタイム コンポーネントによって優先される実際のインプロセス RuntimeClass と同じです。 <ActivatableClassAttribute> は新しい要素で、属性 Name = "DesktopApplicationPath" と Type = "string" は必須かつ不変です。 Value 属性では、デスクトップ コンポーネントの実装用の winmd の場所を指定します (詳しくは、次のセクションを参照)。 デスクトップ コンポーネントによって優先される各 RuntimeClass には、独自の <ActivatableClass> 要素ツリーが必要です。 ActivatableClassId は、RuntimeClass の完全な名前空間修飾名と一致する必要があります。
 
 「コントラクトの定義」で説明したように、プロジェクトの参照先は、デスクトップ コンポーネントの参照用の winmd にする必要があります。 Visual Studio のプロジェクト システムでは、通常、同じ名前で 2 レベルのディレクトリ構造が作成されます。 このサンプルでは、EnterpriseIPCApplication \\ enterpriseipcapplication です。 参照用の **winmd** は、この第 2 レベルのディレクトリに手動でコピーされます。その後、[プロジェクトの参照] ダイアログを使って (**[参照]** ボタンをクリック)、この **winmd** を見つけて参照します。 その後、デスクトップコンポーネントの最上位レベルの名前空間 (たとえば、Fabrikam) は、プロジェクトの参照部分の最上位ノードとして表示されます。
 
@@ -406,7 +406,7 @@ namespace Fabrikam
 
 上の参照では、このハイブリッド サーバーを適切に動作させるために欠かせない参照が慎重に組み合わされています。 手順としては、(プロジェクトの OutputType を編集する手順で説明したように) .csproj ファイルを開き、これらの参照を必要に応じて追加します。
 
-参照が適切に構成されたら、次は、サーバーの機能を実装する必要があります。 「 [Windows ランタイムコンポーネントとの相互運用性のベストプラクティス (C \# /vb/c + + と XAML を使用した UWP アプリ)](https://docs.microsoft.com/previous-versions/windows/apps/hh750311(v=win.10))」を参照してください。
+参照が適切に構成されたら、次は、サーバーの機能を実装する必要があります。 「 [Windows ランタイムコンポーネントとの相互運用性のベストプラクティス (C \# /vb/c + + と XAML を使用した UWP アプリ)](/previous-versions/windows/apps/hh750311(v=win.10))」を参照してください。
 この作業では、実装の一部として、デスクトップ コードを呼び出すことができる Windows ランタイム コンポーネント dll を作成します。 関連するサンプルには、Windows ランタイムで使われる主なパターンが含まれます。
 
 -   メソッド呼び出し
@@ -476,7 +476,7 @@ IPC アプローチには 2 つのプロセス間の Windows ランタイム イ
 
 **Visual Studio でのプロキシの作成**
 
-通常の UWP アプリパッケージ内で使用するプロキシおよびスタブを作成および登録するプロセスについては、「 [Windows ランタイムコンポーネントでのイベントの発生](https://docs.microsoft.com/previous-versions/windows/apps/dn169426(v=vs.140))」を参照してください。
+通常の UWP アプリパッケージ内で使用するプロキシおよびスタブを作成および登録するプロセスについては、「 [Windows ランタイムコンポーネントでのイベントの発生](/previous-versions/windows/apps/dn169426(v=vs.140))」を参照してください。
 この記事で説明されている手順には、アプリケーション パッケージ内でのプロキシ/スタブの登録プロセスが含まれているため、次に示すプロセスよりも複雑です (グローバル登録とは異なります)。
 
 **手順 1:** デスクトップ コンポーネント プロジェクトのソリューションを使って、Visual Studio でプロキシ/スタブ プロジェクトを作ります。
@@ -577,7 +577,7 @@ struct PersonStruct
 
 サーバーを変更するときは、以前に実行されていたインスタンスがいずれも実行されていないことを確認することが必要です。 COM は、最終的にはプロセスを清掃しますが、タイマーによる処理には時間がかかり、反復的な開発では効率的ではありません。 そのため、前に実行されているインスタンスを強制終了することは、開発中に通常の手順です。 これには、どの dllhost のインスタンスがサーバーをホストしているかを開発者が追跡する必要があります。
 
-サーバー プロセスを見つけて強制終了するには、タスク マネージャーやその他のサード パーティ アプリを使うことができます。 コマンドラインツールの**TaskList**も含まれており、柔軟な構文があります。次に例を示します。
+サーバー プロセスを見つけて強制終了するには、タスク マネージャーやその他のサード パーティ アプリを使うことができます。 コマンドラインツール **TaskList.exe** も含まれており、柔軟な構文があります。次に例を示します。
 
   
  | **コマンド** | **操作** |
@@ -594,9 +594,8 @@ struct PersonStruct
 
 -   [信頼性の高い Microsoft Store アプリの提供](https://blogs.msdn.com/b/b8/archive/2012/05/17/delivering-reliable-and-trustworthy-metro-style-apps.aspx)
 
--   [アプリ コントラクトと拡張機能 (Windows ストア アプリ)](https://docs.microsoft.com/previous-versions/windows/apps/hh464906(v=win.10))
+-   [アプリ コントラクトと拡張機能 (Windows ストア アプリ)](/previous-versions/windows/apps/hh464906(v=win.10))
 
--   [Windows 10 でアプリをサイドロードする方法](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+-   [Windows 10 でアプリをサイドロードする方法](../get-started/enable-your-device-for-development.md)
 
 -   [企業への UWP アプリの展開](https://blogs.msdn.com/b/windowsstore/archive/2012/04/25/deploying-metro-style-apps-to-businesses.aspx)
-

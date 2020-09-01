@@ -7,12 +7,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 07/13/2018
 ms.topic: article
-ms.openlocfilehash: 969d0c24c86a47e72cbfec08d835c25b6e6779c4
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: cc3577a116e47ca054e7dea5dbbb657fa37cb8b6
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234886"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173356"
 ---
 # <a name="respond-to-the-presence-of-the-touch-keyboard"></a>タッチ キーボードの表示への応答
 
@@ -20,8 +20,8 @@ ms.locfileid: "83234886"
 
 ### <a name="important-apis"></a>重要な API
 
-- [AutomationPeer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer)
-- [InputPane](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.InputPane)
+- [AutomationPeer](/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer)
+- [InputPane](/uwp/api/Windows.UI.ViewManagement.InputPane)
 
 ![既定のレイアウト モードのタッチ キーボード](images/keyboard/default.png)
 
@@ -29,7 +29,7 @@ ms.locfileid: "83234886"
 
 タッチ キーボードによって、タッチをサポートするデバイスのテキスト入力が有効になります。 Windows アプリのテキスト入力コントロールは、ユーザーが編集可能な入力フィールドをタップしたときに、既定でタッチキーボードを呼び出します。 タッチ キーボードは、通常、ユーザーがフォーム内のコントロール間を移動している間は表示されますが、この動作はフォーム内の他のコントロールの種類に基づいて異なります。
 
-標準のテキスト入力コントロールから派生していないカスタム テキスト入力コントロールで対応するタッチ キーボードの動作をサポートするには、<a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer">AutomationPeer</a> クラスを使ってコントロールを Microsoft UI オートメーションに公開し、適切な UI オートメーション コントロール パターンを実装する必要があります。 「[キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/design/accessibility/keyboard-accessibility)」と「[カスタム オートメーション ピア](https://docs.microsoft.com/windows/uwp/design/accessibility/custom-automation-peers)」をご覧ください。
+標準のテキスト入力コントロールから派生していないカスタム テキスト入力コントロールで対応するタッチ キーボードの動作をサポートするには、<a href="/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationPeer">AutomationPeer</a> クラスを使ってコントロールを Microsoft UI オートメーションに公開し、適切な UI オートメーション コントロール パターンを実装する必要があります。 「[キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)」と「[カスタム オートメーション ピア](../accessibility/custom-automation-peers.md)」をご覧ください。
 
 このサポートがカスタム コントロールに追加されると、タッチ キーボードの表示に適切に応答できます。
 
@@ -41,12 +41,12 @@ ms.locfileid: "83234886"
 
 Windows アプリの開発に慣れていない場合は、以下のトピックを参照して、ここで説明するテクノロジについて理解してください。
 
-- [最初のアプリを作成する](https://docs.microsoft.com/windows/uwp/get-started/your-first-app)
-- 「[イベントとルーティング イベントの概要](https://docs.microsoft.com/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
+- [最初のアプリの作成](../../get-started/your-first-app.md)
+- 「[イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)」に記載されているイベントの説明
 
 **ユーザーエクスペリエンスのガイドライン:**
 
-キーボード入力用に最適化された便利で魅力的なアプリのデザインに関するヒントについては、「[キーボード操作](https://docs.microsoft.com/windows/uwp/design/input/keyboard-interactions)」を参照してください。
+キーボード入力用に最適化された便利で魅力的なアプリのデザインに関するヒントについては、「 [キーボード操作](./keyboard-interactions.md) 」を参照してください。
 
 ## <a name="touch-keyboard-and-a-custom-ui"></a>タッチ キーボードとカスタム UI
 
@@ -54,7 +54,7 @@ Windows アプリの開発に慣れていない場合は、以下のトピック
 
 - フォームに対する操作が行われている間はタッチ キーボードを表示します。
 
-- テキスト入力のコンテキストでフォーカスがテキスト入力フィールドから移動したときに、カスタムコントロールに適切な UI オートメーション [AutomationControlType](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType)が割り当てられていることを確認します。 たとえば、テキスト入力シナリオの半ばでメニューを開くときに、キーボードを表示したままにするには、このメニューに Menu の **AutomationControlType** が必要です。
+- テキスト入力のコンテキストでフォーカスがテキスト入力フィールドから移動したときに、カスタムコントロールに適切な UI オートメーション [AutomationControlType](/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType) が割り当てられていることを確認します。 たとえば、テキスト入力シナリオの半ばでメニューを開くときに、キーボードを表示したままにするには、このメニューに Menu の **AutomationControlType** が必要です。
 
 - UI オートメーション プロパティを操作してタッチ キーボードを制御しないでください。 UI オートメーション プロパティの正確さに依存する他のアクセシビリティ ツールがあります。
 
@@ -62,7 +62,7 @@ Windows アプリの開発に慣れていない場合は、以下のトピック
 
     タッチキーボードは画面の大部分を occludes しているため、ユーザーがフォーム上のコントロールを移動すると、フォーカスが設定された入力フィールドが表示されるようになります。現在表示されていないコントロールも含まれます。
 
-    UI をカスタマイズする場合は、[**InputPane**](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.InputPane) オブジェクトで公開される [Showing](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.showing) イベントと [Hiding](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.hiding) イベントを処理して、タッチ キーボードの表示について同様の動作を提供します。
+    UI をカスタマイズする場合は、[**InputPane**](/uwp/api/Windows.UI.ViewManagement.InputPane) オブジェクトで公開される [Showing](/uwp/api/windows.ui.viewmanagement.inputpane.showing) イベントと [Hiding](/uwp/api/windows.ui.viewmanagement.inputpane.hiding) イベントを処理して、タッチ キーボードの表示について同様の動作を提供します。
 
     ![タッチ キーボードが表示または非表示になっているフォーム](images/touch-keyboard-pan1.png)
 
@@ -72,7 +72,7 @@ Windows アプリの開発に慣れていない場合は、以下のトピック
 
 ## <a name="handling-the-showing-and-hiding-events"></a>Showing イベントと Hiding イベントの処理
 
-タッチキーボードのイベントを[表示](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.showing)および[非表示](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.inputpane.hiding)にするイベントハンドラーをアタッチする例を次に示します。
+タッチキーボードのイベントを [表示](/uwp/api/windows.ui.viewmanagement.inputpane.showing) および [非表示](/uwp/api/windows.ui.viewmanagement.inputpane.hiding) にするイベントハンドラーをアタッチする例を次に示します。
 
 ```csharp
 using Windows.UI.ViewManagement;
@@ -211,8 +211,8 @@ void Scenario2_ShowHideEvents::OnHiding(InputPane^ /*sender*/, InputPaneVisibili
 ## <a name="related-articles"></a>関連記事
 
 - [キーボード操作](keyboard-interactions.md)
-- [キーボードのアクセシビリティ](https://docs.microsoft.com/windows/uwp/accessibility/keyboard-accessibility)
-- [カスタム オートメーション ピア](https://docs.microsoft.com/windows/uwp/accessibility/custom-automation-peers)
+- [キーボードアクセシビリティ](../accessibility/keyboard-accessibility.md)
+- [カスタム オートメーション ピア](../accessibility/custom-automation-peers.md)
 
 ### <a name="samples"></a>サンプル
 
