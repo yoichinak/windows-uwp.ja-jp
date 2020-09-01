@@ -1,18 +1,18 @@
 ---
 title: 頂点バッファー ビュー (VBV) とインデックス バッファー ビュー (IBV)
-description: 頂点バッファーには、頂点のリストのデータが保持されます。
+description: Direct3D レンダリングで頂点のデータと整数インデックスを保持する、頂点バッファービュー (VBV) とインデックスバッファービュー (IBV) について説明します。
 ms.assetid: 695115D2-9DA0-41F2-9416-33BFAB698129
 keywords:
 - 頂点バッファー ビュー (VBV)
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: cfb92c4f876d85388ce325f151408fe7b9e8d8b4
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a616f2bad8f478b2d20e96b183ba944950fef8a8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57636247"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156096"
 ---
 # <a name="vertex-buffer-view-vbv-and-index-buffer-view-ibv"></a>頂点バッファー ビュー (VBV) とインデックス バッファー ビュー (IBV)
 

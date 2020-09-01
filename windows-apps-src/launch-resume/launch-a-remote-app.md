@@ -1,17 +1,17 @@
 ---
 title: リモート デバイスでのアプリの起動
-description: "\"Rome\" プロジェクトを使って、リモート デバイスでアプリを起動する方法について説明します。"
+description: 別のデバイスで UWP アプリまたは Windows デスクトップアプリケーションをリモートで起動して、ユーザーが1つのデバイスでタスクを開始し、別のデバイスでタスクを完了できるようにする方法について説明します。
 ms.date: 02/12/2018
 ms.topic: article
-keywords: windows 10、uwp、接続されているデバイス、リモート システム、ローマ、プロジェクトのローマ
+keywords: windows 10、uwp、接続されているデバイス、リモートシステム、ローマ、プロジェクトローマ
 ms.assetid: 54f6a33d-a3b5-4169-8664-653dbab09175
 ms.localizationpriority: medium
-ms.openlocfilehash: ac4a5783250f3bd21cb8a3b96a579715830e687d
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 784403ede6b21b79dcb14d1da6dde22df68c410e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371713"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158786"
 ---
 # <a name="launch-an-app-on-a-remote-device"></a>リモート デバイスでのアプリの起動
 
@@ -25,7 +25,7 @@ Windows 10 Version 1607 以降で実行される UWP アプリは、同じく Wi
 
 ### <a name="add-the-remotesystem-capability"></a>remoteSystem 機能を追加する
 
-アプリでリモート デバイスのアプリを起動するには、`remoteSystem` 機能をアプリ パッケージ マニフェストに追加する必要があります。 これには、マニフェスト デザイナーで  **[機能]** タブの **[リモート システム]** を選んで追加するか、プロジェクトの _Package.appxmanifest_ ファイルに以下のコードを手動で追加します。
+アプリでリモート デバイスのアプリを起動するには、`remoteSystem` 機能をアプリ パッケージ マニフェストに追加する必要があります。 パッケージマニフェストデザイナーを使用して、[**機能**] タブの [**リモートシステム**] を選択することによって追加できます。また、プロジェクトの_package.appxmanifest_ファイルに次の行を手動で追加することもできます。
 
 ``` xml
 <Capabilities>
@@ -35,7 +35,7 @@ Windows 10 Version 1607 以降で実行される UWP アプリは、同じく Wi
 
 ### <a name="enable-cross-device-sharing"></a>クロスデバイス共有を実現
 
-さらに、クライアントデバイスは、デバイス間の共有を許可するように設定する必要があります。 この設定でアクセスされる**設定**:**システム** > **エクスペリエンスを共有** > **デバイス間で共有**既定で有効です。 
+さらに、クライアントデバイスは、デバイス間の共有を許可するように設定する必要があります。 この設定には **[設定]** : **[システム]** > **[共有エクスペリエンス]** > **[デバイス間で共有します]** でアクセスできます。既定で有効になっています。 
 
 ![[共有エクスペリエンス] 設定ページ](images/shared-experiences-settings.png)
 
@@ -62,7 +62,7 @@ Windows 10 Version 1607 以降で実行される UWP アプリは、同じく Wi
 
 ## <a name="launch-an-app-on-a-remote-device"></a>リモート デバイスでのアプリの起動
 
-接続するデバイスを [**RemoteLauncher.LaunchUriAsync**](https://docs.microsoft.com/uwp/api/windows.system.remotelauncher.launchuriasync) API に渡すことによって、アプリをリモートで起動します。 このメソッドには 3 つのオーバーロードがあります。 この例で示されている最も単純なオーバーロードでは、リモート デバイス上のアプリをアクティブ化する URI を指定します。 この例では、URI によって、リモート コンピューター上のマップ アプリがスペース ニードルの 3D ビューで開かれます。
+接続するデバイスを [**RemoteLauncher.LaunchUriAsync**](/uwp/api/windows.system.remotelauncher.launchuriasync) API に渡すことによって、アプリをリモートで起動します。 このメソッドには 3 つのオーバーロードがあります。 この例で示されている最も単純なオーバーロードでは、リモート デバイス上のアプリをアクティブ化する URI を指定します。 この例では、URI によって、リモート コンピューター上のマップ アプリがスペース ニードルの 3D ビューで開かれます。
 
 その他の **RemoteLauncher.LaunchUriAsync** のオーバーロードでは、適切なアプリがリモート デバイスで起動できない場合に参照する Web サイトの URI などのオプションや、リモート デバイスでの URI の起動に使用できるパッケージ ファミリ名のオプションの一覧を指定できます。 キーと値のペアの形式でデータを提供することもできます。 音楽の再生をデバイスから別のデバイスへと切り替えるとき、アクティブ化しているアプリにデータを渡して、再生する曲名や現在の再生位置などのコンテキストをリモート アプリに提供する場合があります。
 
@@ -70,11 +70,11 @@ Windows 10 Version 1607 以降で実行される UWP アプリは、同じく Wi
 
 [!code-cs[Main](./code/RemoteLaunchScenario/MainPage.xaml.cs#SnippetRemoteUriLaunch)]
 
-**RemoteLauncher.LaunchUriAsync()** から返される [**RemoteLaunchUriStatus**](https://docs.microsoft.com/uwp/api/windows.system.remotelaunchuristatus) オブジェクトは、リモートの起動が成功したかどうか、さらに、失敗した場合はその理由についての情報を提供します。
+**RemoteLauncher.LaunchUriAsync()** から返される [**RemoteLaunchUriStatus**](/uwp/api/windows.system.remotelaunchuristatus) オブジェクトは、リモートの起動が成功したかどうか、さらに、失敗した場合はその理由についての情報を提供します。
 
 ## <a name="related-topics"></a>関連トピック
 
-[リモート システムの API のリファレンス](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems)  
-[接続されているアプリとデバイス (プロジェクト ローマ) の概要](connected-apps-and-devices.md)  
+[リモート システムの API リファレンス](/uwp/api/Windows.System.RemoteSystems)  
+[接続されているアプリとデバイス (プロジェクトローマ) の概要](connected-apps-and-devices.md)  
 [リモート デバイスの検出](discover-remote-devices.md)  
 [リモート システムのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/dev/Samples/RemoteSystems)では、リモート システムを検出する方法、リモート システムでアプリを起動する方法、アプリ サービスを使って 2 つのシステム上で実行しているアプリ間でメッセージを送信する方法が説明されています。

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c48cd52d69d13b61f059894cc0dbea89eecf913
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: c0e92b422272488e49613531e4304587dc00e08f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66360869"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157536"
 ---
 # <a name="hardware-drm"></a>ハードウェア DRM
 
@@ -25,7 +25,7 @@ ms.locfileid: "66360869"
 
 ## <a name="windows-tee-implementation"></a>Windows TEE 実装
 
-このトピックでは、Windows 10 が信頼できる実行環境 (TEE) を実装する方法の概要を説明します。
+このトピックでは、Windows 10 で信頼された実行環境 (TEE) を実装する方法の概要を簡単に示します。
 
 Windows TEE 実装の詳細については、このドキュメントでは説明しません。 ただし、標準の移植キット TEE ポートと Windows ポートの違いについては、簡単に説明します。 Windows は OEM プロキシ レイヤーを実装し、Windows メディア ファンデーション サブシステムのユーザー モード ドライバーに、シリアル化された PRITEE 関数呼び出しを転送します。 これは最終的に Windows TrEE (信頼される実行環境) ドライバーまたは OEM のグラフィックス ドライバーにルーティングされます。 これらのいずれの方法についても、このドキュメントでは説明しません。 次の図は、Windows ポートのコンポーネントの一般的な操作を示しています。 Windows PlayReady TEE 実装を開発する場合は、<WMLA@Microsoft.com> にご連絡ください。
 
@@ -35,8 +35,8 @@ Windows TEE 実装の詳細については、このドキュメントでは説�
 
 このトピックでは、ハードウェア DRM を使うように設計されたアプリを開発するときに考慮する必要がある事項について、簡単な一覧を使って説明します。 「[PlayReady DRM](playready-client-sdk.md#output-protection)」で説明されているように、Windows 10 用 PlayReady HWDRM では、すべての出力の保護は、出力の保護の動作に影響を与える Windows TEE 実装内から適用されます。
 
--   **圧縮されていないデジタル ビデオ 270 の出力保護レベル (OPL) のサポート:** Windows 10 用の PlayReady HWDRM ダウン解像度をサポートしていませんし、HDCP が有効になっていることを強制します。 HWDRM の高解像度コンテンツには、270 を超える OPL をお勧めします (ただし、必須ではありません)。 また、HDCP タイプの制限をライセンスで設定することもお勧めします (Windows 10 では HDCP バージョン 2.2)。
--   **DRM (SWDRM)、ソフトウェアとは異なり、出力保護ができる以上のモニターに基づくすべてのモニターに適用されます。** たとえば、ユーザーが 2 台のモニターを接続していて、1 台のモニターが HDCP をサポートし、もう 1 台がサポートしていない場合、HDCP をサポートするモニターでのみコンテンツがレンダリングされている場合でも、ライセンスに HDCP が必要な場合、再生は失敗します。 ソフトウェア DRM では、HDCP をサポートしているモニターにレンダリングされているのみの場合、コンテンツは再生されます。
+-   **未圧縮デジタル ビデオ向けの出力保護レベル (OPL) 270 のサポート:** Windows 10 用 PlayReady HWDRM では、解像度の低下をサポートしておらず、HDCP が強制的に使われます。 HWDRM の高解像度コンテンツには、270 を超える OPL をお勧めします (ただし、必須ではありません)。 また、HDCP タイプの制限をライセンスで設定することもお勧めします (Windows 10 では HDCP バージョン 2.2)。
+-   **出力の保護は、ソフトウェア DRM (SWDRM) とは異なり、最も能力の低いモニターに基づいてすべてのモニターに適用されます。** たとえば、ユーザーが 2 台のモニターを接続していて、1 台のモニターが HDCP をサポートし、もう 1 台がサポートしていない場合、HDCP をサポートするモニターでのみコンテンツがレンダリングされている場合でも、ライセンスに HDCP が必要な場合、再生は失敗します。 ソフトウェア DRM では、HDCP をサポートしているモニターにレンダリングされているのみの場合、コンテンツは再生されます。
 -   コンテンツのキーとライセンスで、**次の条件が満たされていない限り、HWDRM がクライアントで使用されることと、安全であることが保証されません**。
     -   ビデオのコンテンツ キーに使われるライセンスには、最低限のセキュリティ レベルとして 3000 が必要です。
     -   オーディオは、ビデオとは異なるコンテンツ キーに暗号化される必要があります。また、オーディオに使われるライセンスには、最低限のセキュリティ レベルとして 2000 が必要です。 または、オーディオをプレーン テキストのままにすることもできます。
@@ -79,28 +79,28 @@ localSettings.values["SoftwareOverride"] = 1;
 mediaProtectionManager.properties["Windows.Media.Protection.UseSoftwareProtectionLayer"] = true;
 ```
 
-ハードウェア DRM ではソフトウェア DRM、c: を参照するかを確認する最善の方法\\ユーザー\\&lt;username&gt;\\AppData\\ローカル\\パッケージ\\&lt;アプリケーション名&gt;\\LocalCache\\PlayReady\\\*
+ハードウェア DRM またはソフトウェア DRM を使用しているかどうかを確認する最善の方法は、C: \\ Users ユーザー \\ &lt; 名 &gt; \\ AppData \\ ローカル \\ パッケージ \\ &lt; アプリケーション名 &gt; \\ localcache \\ PlayReady を参照することです。\\\*
 
 -   mspr.hds ファイルがある場合は、ソフトウェア DRM を使っています。
--   別の操作をした場合\*ハードウェア DRM では、.hds ファイル。
+-   別の hds ファイルがある場合は \* 、ハードウェア DRM にあります。
 -   PlayReady フォルダー全体を削除して、テストを再試行することもできます。
 
 ## <a name="detect-the-type-of-hardware-drm"></a>ハードウェア DRM の種類を検出する
 
 このセクションでは、システムでサポートされているハードウェア DRM の種類を検出する方法について説明します。
 
-[  **PlayReadyStatics.CheckSupportedHardware**](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware) メソッドを使って、システムが特定のハードウェア DRM 機能をサポートしているかどうかを判断できます。 次に、例を示します。
+[**PlayReadyStatics.CheckSupportedHardware**](/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware) メソッドを使って、システムが特定のハードウェア DRM 機能をサポートしているかどうかを判断できます。 次に例を示します。
 
 ```csharp
 bool isFeatureSupported = PlayReadyStatics.CheckSupportedHardware(PlayReadyHardwareDRMFeatures.HEVC);
 ```
 
-[  **PlayReadyHardwareDRMFeatures**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) 列挙体には、照会できるハードウェア DRM 機能の値の有効な一覧が含まれます。 ハードウェア DRM がサポートされているかどうかを判断するには、クエリで **HardwareDRM** メンバーを使います。 ハードウェアが高効率ビデオ コーディング (HEVC)/H.265 コーデックをサポートしているかどうかを判断するには、クエリで **HEVC** メンバーを使います。
+[**PlayReadyHardwareDRMFeatures**](/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) 列挙体には、照会できるハードウェア DRM 機能の値の有効な一覧が含まれます。 ハードウェア DRM がサポートされているかどうかを判断するには、クエリで **HardwareDRM** メンバーを使います。 ハードウェアが高効率ビデオ コーディング (HEVC)/H.265 コーデックをサポートしているかどうかを判断するには、クエリで **HEVC** メンバーを使います。
 
-[  **PlayReadyStatics.PlayReadyCertificateSecurityLevel**](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.playreadycertificatesecuritylevel) プロパティを使って、クライアント証明書のセキュリティ レベルを取得し、ハードウェア DRM がサポートされているかどうか判断することもできます。 返された証明書のセキュリティ レベルが 3000 以上でない限り、クライアントが個別化またはプロビジョニングされていないか (この場合、このプロパティは 0 を返します)、ハードウェア DRM が使われていません (この場合、このプロパティは 3000 未満の値を返します)。
+[**PlayReadyStatics.PlayReadyCertificateSecurityLevel**](/uwp/api/windows.media.protection.playready.playreadystatics.playreadycertificatesecuritylevel) プロパティを使って、クライアント証明書のセキュリティ レベルを取得し、ハードウェア DRM がサポートされているかどうか判断することもできます。 返された証明書のセキュリティ レベルが 3000 以上でない限り、クライアントが個別化またはプロビジョニングされていないか (この場合、このプロパティは 0 を返します)、ハードウェア DRM が使われていません (この場合、このプロパティは 3000 未満の値を返します)。
 
 ### <a name="detecting-support-for-aes128cbc-hardware-drm"></a>AES128CBC ハードウェア DRM のサポートの検出
-Windows 10、バージョン 1709 以降では、デバイス上での AES128CBC ハードウェア暗号化のサポート状況を検出できます。これには、 **[PlayReadyStatics.CheckSupportedHardware](https://docs.microsoft.com/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware)** を呼び出して、列挙値 [**PlayReadyHardwareDRMFeatures.Aes128Cbc**](https://docs.microsoft.com/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) を指定します。 以前のバージョンの Windows 10 では、この値を指定すると、例外がスローされます。 このため、**CheckSupportedHardware** を呼び出す前に、 **[ApiInformation.IsApiContractPresent](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent)** を呼び出して、メジャー コントラクト バージョン 5 を指定し、この列挙値が存在していることを確認します。
+Windows 10、バージョン 1709 以降では、デバイス上での AES128CBC ハードウェア暗号化のサポート状況を検出できます。これには、**[PlayReadyStatics.CheckSupportedHardware](/uwp/api/windows.media.protection.playready.playreadystatics.checksupportedhardware)** を呼び出して、列挙値 [**PlayReadyHardwareDRMFeatures.Aes128Cbc**](/uwp/api/Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures) を指定します。 以前のバージョンの Windows 10 では、この値を指定すると、例外がスローされます。 このため、**CheckSupportedHardware** を呼び出す前に、**[ApiInformation.IsApiContractPresent](/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent)** を呼び出して、メジャー コントラクト バージョン 5 を指定し、この列挙値が存在していることを確認します。
 
 ```csharp
 bool supportsAes128Cbc = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 5);

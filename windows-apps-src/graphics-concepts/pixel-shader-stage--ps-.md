@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 81b2bc5e78087b19d8829df4dab4b03e4db76467
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 1d35fa06ac415b1d4197c1b1bcbf101f1d4cf9b7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370985"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156286"
 ---
 # <a name="pixel-shader-ps-stage"></a>ピクセル シェーダー (PS) ステージ
 
 
 ピクセル シェーダー (PS) ステージはプリミティブの補間データを受信し、カラーなどのピクセル単位のデータを生成します。
 
-これはプログラム可能なシェーダー ステージであり、[グラフィックス パイプライン](graphics-pipeline.md)図では角丸ブロックとして示されます。 このシェーダー ステージは、シェーダー モデル 4.0 の[共通シェーダー コア](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)に基づいて構築された、独自の機能を公開します。
+これはプログラム可能なシェーダー ステージであり、[グラフィックス パイプライン](graphics-pipeline.md)図では角丸ブロックとして示されます。 このシェーダー ステージは、シェーダー モデル 4.0 の[共通シェーダー コア](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-common-core)に基づいて構築された、独自の機能を公開します。
 
 ピクセル シェーダー ステージ (PS) では、ピクセル単位の照明や後処理など、豊富なシェーディング手法を使用できます。 ピクセル シェーダーは、定数変数、テクスチャ データ、補間された頂点単位の値などのデータを組み合わせて、ピクセル単位の出力を生成するプログラムです。 [ラスタライザー (RS) ステージ](rasterizer-stage--rs-.md)では、プリミティブによってカバーされたピクセルごとにピクセル シェーダーが 1 回呼び出されます。ただし、**NULL** シェーダーを指定して、シェーダーを実行しないようにすることもできます。
 
@@ -27,23 +27,23 @@ ms.locfileid: "66370985"
 
 ピクセル シェーダーの組み込み関数は、画面領域 x および y についての数量の微分係数を生成したり、使用したりします。 微分係数の最も一般的な用途は、テクスチャ サンプリングの詳細レベルの計算や、異方性フィルタリングにおいて、異方性の軸に沿ったサンプルを選択するための計算などです。 通常、ハードウェアの実装では、複数のピクセル (たとえば 2x2 グリッド) に対して同時にピクセル シェーダーが実行されます。そのため、ピクセル シェーダーで計算された数量の微分係数を、隣接ピクセルの同じ実行時点における値の差分として合理的に近似させることができます。
 
-## <a name="span-idinputsspanspan-idinputsspanspan-idinputsspaninputs"></a><span id="Inputs"></span><span id="inputs"></span><span id="INPUTS"></span>入力
+## <a name="span-idinputsspanspan-idinputsspanspan-idinputsspaninputs"></a><span id="Inputs"></span><span id="inputs"></span><span id="INPUTS"></span>Inputaccel
 
 
 パイプラインがジオメトリ シェーダーなしに構成されている場合、ピクセル シェーダーは 16 個の 32 ビット、4 成分の入力に制限されます。 それ以外の場合、ピクセル シェーダーは 32 ビット、4 成分の入力を 32 個まで受け取ることができます。
 
 ピクセル シェーダーの入力データには (パースペクティブ補正あり/なしで補間可能な) 頂点属性が含まれます。または、ピクセル シェーダーの入力データをプリミティブ単位の定数として処理することもできます。 ピクセル シェーダー入力は、宣言された補間モードに基づき、ラスター化されているプリミティブの頂点属性から補間されます。 プリミティブがラスター化前にクリップされた場合は、クリッピング処理中に補間モードが受け入れられます。
 
-頂点属性は、ピクセル シェーダーの中心位置で補間 (または評価) されます。 ピクセル シェーダーの属性補間モードは、入力レジスタ宣言において、[引数](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-function-parameters)または[入力構造体](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-struct)の要素単位で宣言します。 属性は、線形補間することも、重心サンプリングによって補間することもできます。 「[ラスター化ルール](rasterization-rules.md)」の「マルチサンプル アンチエイリアシング時の属性の重心サンプリング」セクションをご覧ください。 重心評価はマルチサンプリング時のみに関連し、ピクセルがプリミティブによってカバーされているが、ピクセルの重心はカバーされていない場合に対応するためのものです。重心評価は、(カバーされていない) ピクセルの重心のできるだけ近くで行われます。
+頂点属性は、ピクセル シェーダーの中心位置で補間 (または評価) されます。 ピクセル シェーダーの属性補間モードは、入力レジスタ宣言において、[引数](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-function-parameters)または[入力構造体](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-struct)の要素単位で宣言します。 属性は、線形補間することも、重心サンプリングによって補間することもできます。 「[ラスター化ルール](rasterization-rules.md)」の「マルチサンプル アンチエイリアシング時の属性の重心サンプリング」セクションをご覧ください。 重心評価はマルチサンプリング時のみに関連し、ピクセルがプリミティブによってカバーされているが、ピクセルの重心はカバーされていない場合に対応するためのものです。重心評価は、(カバーされていない) ピクセルの重心のできるだけ近くで行われます。
 
-入力はシステム値セマンティクスで宣言することもできます。[システム値セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)は、他のパイプライン ステージで使用されるパラメーターをマークします。 たとえば、SV でピクセルの位置をマークする必要があります\_セマンティックの位置。 [入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)ピクセル シェーダーの 1 つのスカラーを生成することができます (SV を使用して\_PrimitiveID)、 [(RS) ラスタライザー ステージ](rasterizer-stage--rs-.md)(SVを使用してピクセルシェーダーのも、1つのスカラーを生成できます\_IsFrontFace)。
+入力はシステム値セマンティクスで宣言することもできます。[システム値セマンティクス](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)は、他のパイプライン ステージで使用されるパラメーターをマークします。 たとえば、ピクセル位置は、SV position セマンティックでマークする必要があり \_ ます。 [入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)は、(sv PrimitiveID を使用して) ピクセルシェーダーに対して1つのスカラーを生成でき \_ ます。[ラスタライザー (RS) ステージ](rasterizer-stage--rs-.md)は、(sv \_ isfrontface を使用して) ピクセルシェーダーに対して1つのスカラーを生成することもできます。
 
 ## <a name="span-idoutputsspanspan-idoutputsspanspan-idoutputsspanoutputs"></a><span id="Outputs"></span><span id="outputs"></span><span id="OUTPUTS"></span>出力
 
 
 ピクセル シェーダーは、32 ビット、4 成分の色を 8 つまで出力できます。ピクセルが破棄された場合は色を出力することはできません。 ピクセル シェーダーの出力レジスタの成分は、使用前に宣言する必要があります。レジスタごとに異なる出力書き込みマスクを使用できます。
 
-深度バッファーに深度データを書き込むかどうかは、([出力結合 (OM) ステージ](output-merger-stage--om-.md)で) 深度書き込みの有効化ステートを使用して制御します (または、破棄命令を使用して、そのピクセルのデータを破棄します)。 ピクセル シェーダーに綿密にテストの省略可能な 32 ビット、1 コンポーネント、浮動小数点、深さの値を出力もできます (SV を使用して\_セマンティックの深さ)。 深度値は、oDepth レジスタに出力され、深度テスト用の補間された深度値と置き換えられます (深度テストが有効化されていると想定しています)。 固定関数深度またはシェーダー oDepth の使用を動的に変更することはできません。
+深度バッファーに深度データを書き込むかどうかは、([出力結合 (OM) ステージ](output-merger-stage--om-.md)で) 深度書き込みの有効化ステートを使用して制御します (または、破棄命令を使用して、そのピクセルのデータを破棄します)。 ピクセルシェーダーは、(SV の深さのセマンティックを使用して) 深度テストのために、オプションの32ビット、1コンポーネント、浮動小数点、および深度値を出力することもでき \_ ます。 深度値は、oDepth レジスタに出力され、深度テスト用の補間された深度値と置き換えられます (深度テストが有効化されていると想定しています)。 固定関数深度またはシェーダー oDepth の使用を動的に変更することはできません。
 
 ピクセル シェーダーはステンシル値を出力できません。
 
@@ -55,7 +55,3 @@ ms.locfileid: "66370985"
  
 
  
-
-
-
-

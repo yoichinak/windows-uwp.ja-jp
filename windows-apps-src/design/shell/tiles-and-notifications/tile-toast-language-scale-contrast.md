@@ -6,16 +6,16 @@ ms.date: 10/12/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: aa6e93196d30c15374129eee7714604cfab7b82e
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 88bcd5d6ce59d0561e76f46f6291f58ad03ddf3c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57601477"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156736"
 ---
 # <a name="tile-and-toast-notification-support-for-language-scale-and-high-contrast"></a>言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート
 
-タイルやトーストで、表示言語、[表示倍率](../../layout/screen-sizes-and-breakpoints-for-responsive-design.md)、ハイ コントラスト、その他の実行時のコンテキストに合わせた文字列や画像を読み込むことができます。 背景、リソース ファイルの名前に修飾子を使用する方法については、次を参照してください。[言語、スケール、およびその他の修飾子のためのリソースを調整](../../../app-resources/tailor-resources-lang-scale-contrast.md)と[アプリ アイコンとロゴ](/windows/uwp/design/style/app-icons-and-logos)します。
+タイルとトーストでは、表示言語、 [スケールファクター](../../layout/screen-sizes-and-breakpoints-for-responsive-design.md)、ハイコントラスト、およびその他のランタイムコンテキストに合わせて調整された文字列とイメージを読み込むことができます。 リソースファイルの名前に修飾子を使用する方法の背景については、「 [言語、スケール、およびその他の修飾子](../../../app-resources/tailor-resources-lang-scale-contrast.md) と [アプリのアイコンとロゴ](../../style/app-icons-and-logos.md)用にリソースを調整する」を参照してください。
 
 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../../globalizing/globalizing-portal.md)」をご覧ください。
 
@@ -29,7 +29,7 @@ ms.locfileid: "57601477"
 <text id="1">ms-resource:Farewell</text>
 ```
 
-`ms-resource` URI スキームを省略した場合、テキスト本文は単なる文字列リテラルとなり、*識別子への参照に*はなりません。
+`ms-resource` URI スキームを省略した場合、テキスト本文は単なる文字列リテラルとなり、** 識別子への参照にはなりません。
 
 ```xml
 <text id="1">Farewell</text>
@@ -66,15 +66,15 @@ URI スキーム `ms-resource` および `ms-appx` が自動で修飾子の照�
 
 次に、画像を提供するアプリ サービスに、どの画像を返すか決定するためのクエリ文字列を調べて使用する HTTP ハンドラーを実装します。
 
-また、[タイル](/uwp/schemas/tiles/tilesschema/schema-root?branch=live)または[トースト](/uwp/schemas/tiles/toastschema/schema-root?branch=live)通知の XML ペイロードで [**addImageQuery**](/uwp/schemas/tiles/tilesschema/element-visual?branch=live) 属性を `true` に設定する必要があります。 **addImageQuery** 属性は、タイルとトーストの両方のスキーマの `visual` 要素、`binding` 要素、`image` 要素にあります。 要素に **addImageQuery** を明示的に設定すると、祖先に設定された値が上書きされます。 たとえば、`image` 要素の **addImageQuery** の値が `true` であれば、その親の `binding` 要素の **addImageQuery** の `false` が上書きされます。
+また、[タイル](/uwp/schemas/tiles/tilesschema/schema-root?branch=live)または[トースト](/uwp/schemas/tiles/toastschema/schema-root?branch=live)通知の XML ペイロードで [**addImageQuery**](/uwp/schemas/tiles/tilesschema/element-visual?branch=live) 属性を `true` に設定する必要があります。 **AddImageQuery**属性は、 `visual` `binding` `image` タイルスキーマとトーストスキーマの両方の、、およびの各要素に表示されます。 要素に **addImageQuery** を明示的に設定すると、祖先に設定された値が上書きされます。 たとえば、`image` 要素の **addImageQuery** の値が `true` であれば、その親の `binding` 要素の **addImageQuery** の `false` が上書きされます。
 
 使用できるクエリ文字列は次のとおりです。
 
 | 修飾子 | クエリ文字列 | 例 |
 | --------- | ------------ | ------- |
-| Scale | ms-scale | ?ms-scale=400 |
-| 言語 | ms-lang | ?ms-lang=en-US |
-| Contrast | ms-contrast | ?ms-contrast=high |
+| スケール | ms-scale | ?ms-scale=400 |
+| Language | ms-lang | ?ms-lang=en-US |
+| この例を、 | ms-contrast | ?ms-contrast=high |
 
 クエリ文字列で使用可能な修飾子の値を網羅したリファレンス テーブルについては、「[ResourceContext.QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues)」をご覧ください。
 
@@ -84,12 +84,12 @@ URI スキーム `ms-resource` および `ms-appx` が自動で修飾子の照�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [画面サイズとのレスポンシブ デザイン ブレークポイント](../../layout/screen-sizes-and-breakpoints-for-responsive-design.md)
-* [言語、スケール、およびその他の修飾子のためのリソースを調整します。](../../../app-resources/tailor-resources-lang-scale-contrast.md)
-* [タイルとアイコン アセットのガイドライン](app-assets.md).
-* [グローバリゼーションとローカライズ](../../globalizing/globalizing-portal.md)
+* [レスポンシブ デザインの画面サイズと改行ポイント](../../layout/screen-sizes-and-breakpoints-for-responsive-design.md)
+* [言語、スケール、その他の修飾子用にリソースを調整する](../../../app-resources/tailor-resources-lang-scale-contrast.md)
+* [タイルとアイコン資産のガイドライン](../../style/app-icons-and-logos.md)。
+* [グローバライズとローカライズ](../../globalizing/globalizing-portal.md)
 * [UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](../../../app-resources/localize-strings-ui-manifest.md)
-* [XAML マークアップとコードから、イメージやその他の資産を参照します。](../../../app-resources/images-tailored-for-scale-theme-contrast.md)
-* [AddImageQuery](/uwp/schemas/tiles/tilesschema/element-visual?branch=live)
+* [XAML マークアップとコードから画像やその他のアセットを参照する](../../../app-resources/images-tailored-for-scale-theme-contrast.md)
+* [addImageQuery](/uwp/schemas/tiles/tilesschema/element-visual?branch=live)
 * [タイルのスキーマ](/uwp/schemas/tiles/tilesschema/schema-root?branch=live)
 * [トースト スキーマ](/uwp/schemas/tiles/toastschema/schema-root?branch=live)

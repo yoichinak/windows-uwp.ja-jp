@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: bdcf398b448a3b0571b07063b9d4e70800259248
-ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
+ms.openlocfilehash: fb585b46399d7b24eaafa531b2aae34f397dbeb2
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89094589"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155846"
 ---
 # <a name="guidelines-for-background-tasks"></a>バックグラウンド タスクのガイドライン
 
@@ -22,7 +22,7 @@ ms.locfileid: "89094589"
 
 バックグラウンド タスクの開発時とアプリの公開前に、次のガイダンスについて検討します。
 
-バックグラウンド タスクを使ってバックグラウンドでメディアを再生する場合、Windows 10 バージョン 1607 で簡単に行うことができる機能強化について、「[バックグラウンドでのメディアの再生](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)」をご覧ください。
+バックグラウンド タスクを使ってバックグラウンドでメディアを再生する場合、Windows 10 バージョン 1607 で簡単に行うことができる機能強化について、「[バックグラウンドでのメディアの再生](../audio-video-camera/background-audio.md)」をご覧ください。
 
 **インプロセス バックグラウンド タスクとアウトプロセス バックグラウンド タスク:** Windows 10 バージョン 1607 には、フォアグラウンド アプリと同じプロセスでバックグラウンド コードを実行できる[インプロセス バックグラウンド タスク](create-and-register-an-inproc-background-task.md) が導入されました。 インプロセス バックグラウンド タスクとアウトプロセス バックグラウンド タスクのどちらを使用するかを決定するときは、以下の事項を検討してください。
 
@@ -30,16 +30,16 @@ ms.locfileid: "89094589"
 |--------------|--------|
 |回復力   | バックグラウンド プロセスが別のプロセスで実行されている場合、バックグラウンド プロセスでクラッシュが発生してもフォアグラウンド アプリケーションがダウンしません。 さらに、実行時間制限を過ぎて実行された場合、アプリ内からでもバックグラウンド アクティビティを終了できます。 フォアグラウンド プロセスとバックグラウンド プロセスが互いに通信する必要がない場合は、バックグラウンド処理をフォアグラウンド アプリとは別のタスクに分離することをお勧めします (インプロセス バックグラウンド タスクの主な利点の 1 つは、プロセス間通信が不要になることであるためです)。 |
 |簡便性    | インプロセス バックグラウンド タスクでは、プロセス間通信が不要のため、記述内容は複雑になりません。  |
-|使用可能なトリガー | インプロセスバックグラウンドタスクは、 [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396)、 [DeviceServicingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceservicingtrigger) 、および **iotstartuptask**というトリガーをサポートしていません。 |
+|使用可能なトリガー | インプロセスバックグラウンドタスクは、 [DeviceUseTrigger](/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396)、 [DeviceServicingTrigger](/uwp/api/windows.applicationmodel.background.deviceservicingtrigger) 、および **iotstartuptask**というトリガーをサポートしていません。 |
 |VoIP | インプロセス バックグラウンド タスクでは、アプリケーション内での VoIP バックグラウンド タスクのアクティブ化がサポートされていません。 |  
 
-**トリガー インスタンスの数の制限:** アプリが登録できる一部のトリガー インスタンスの数には制限があります。 アプリが [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger)、[MediaProcessingTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.mediaprocessingtrigger)、および [DeviceUseTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396) を登録できるのは、アプリのインスタンスごとに 1 回のみです。 アプリでこの制限を超えると、登録で例外がスローされます。
+**トリガー インスタンスの数の制限:** アプリが登録できる一部のトリガー インスタンスの数には制限があります。 アプリが [ApplicationTrigger](/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger)、[MediaProcessingTrigger](/uwp/api/windows.applicationmodel.background.mediaprocessingtrigger)、および [DeviceUseTrigger](/uwp/api/windows.applicationmodel.background.deviceusetrigger?f=255&MSPPError=-2147217396) を登録できるのは、アプリのインスタンスごとに 1 回のみです。 アプリでこの制限を超えると、登録で例外がスローされます。
 
 **CPU クォータ:** バックグラウンドタスクは、トリガーの種類に基づいて取得されるウォールクロックの使用時間によって制限されます。 ほとんどのトリガーは、使用時間がウォールクロック時間で 30 秒に制限されますが、負荷の高いタスクを完了するために最大 10 分実行できるトリガーもあります。 バッテリの寿命を長くし、フォアグラウンド アプリのユーザー エクスペリエンスを高めるため、バックグラウンド タスクは軽量にしてください。 バックグラウンド タスクに適用されるリソースの制約については、「[バックグラウンド タスクによるアプリのサポート](support-your-app-with-background-tasks.md)」をご覧ください。
 
 **バックグラウンドタスクの管理:** アプリは、登録されたバックグラウンドタスクの一覧を取得し、進行状況と完了ハンドラーを登録して、それらのイベントを適切に処理する必要があります。 バックグラウンド タスク クラスでは、進行状況、キャンセル、完了を報告する必要があります。 詳細については、「キャンセルされ [たバックグラウンドタスクの処理](handle-a-cancelled-background-task.md)」と「 [バックグラウンドタスクの進行状況と完了の監視](monitor-background-task-progress-and-completion.md)」を参照してください。
 
-** [Backgroundtaskdeferral](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskDeferral)を使用します。** バックグラウンドタスククラスで非同期コードを実行する場合は、必ず遅延を使用してください。 そうしないと、 [Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドから制御が戻ったとき (または、インプロセスバックグラウンドタスクの場合は [onbackgroundactivated 化](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated) されたメソッド)、バックグラウンドタスクが途中で終了することがあります。 詳しくは、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください
+** [Backgroundtaskdeferral](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskDeferral)を使用します。** バックグラウンドタスククラスで非同期コードを実行する場合は、必ず遅延を使用してください。 そうしないと、 [Run](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドから制御が戻ったとき (または、インプロセスバックグラウンドタスクの場合は [onbackgroundactivated 化](/uwp/api/windows.ui.xaml.application.onbackgroundactivated) されたメソッド)、バックグラウンドタスクが途中で終了することがあります。 詳しくは、「[アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)」をご覧ください
 
 別の方法として、保留を 1 回要求し、**async/await** を使って、非同期メソッドの呼び出しを完了させることもできます。 **await** メソッドを呼び出した後、保留を閉じます。
 
@@ -51,21 +51,21 @@ ms.locfileid: "89094589"
 
 ![リソース グループの設定](images/resourcegroup.png)
 
-リソース グループの設定の詳細については、「[アプリケーション スキーマ リファレンス](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-application)」を参照してください。
+リソース グループの設定の詳細については、「[アプリケーション スキーマ リファレンス](/uwp/schemas/appxpackage/uapmanifestschema/element-application)」を参照してください。
 
 フォアグラウンド アプリと同じプロセスで実行されるバックグラウンド タスクは、アプリケーション マニフェストでの自身を宣言する必要はありません。 アウトプロセスで実行されるバックグラウンド タスクをマニフェストで宣言する方法について詳しくは、「[アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)」をご覧ください。
 
-**アプリの更新を準備する:** アプリを更新する場合は、**ServicingComplete** バックグラウンド タスク (「SystemTriggerType[](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType)」をご覧ください) を作って登録し、以前のバージョンのアプリのバックグラウンド タスクを登録解除して新しいバージョンのバックグラウンド タスクを登録します。 これは、フォアグラウンドで実行中のコンテキストの外で必要となる可能性があるアプリの更新を実行するのに適したタイミングです。
+**アプリの更新を準備する:** アプリを更新する場合は、**ServicingComplete** バックグラウンド タスク (「SystemTriggerType[](/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType)」をご覧ください) を作って登録し、以前のバージョンのアプリのバックグラウンド タスクを登録解除して新しいバージョンのバックグラウンド タスクを登録します。 これは、フォアグラウンドで実行中のコンテキストの外で必要となる可能性があるアプリの更新を実行するのに適したタイミングです。
 
 **バックグラウンド タスクを実行する要求:**
 
 > **重要**   Windows 10 以降では、バックグラウンドタスクを実行するための前提条件として、アプリがロック画面に表示される必要がなくなりました。
 
-ユニバーサル Windows プラットフォーム (UWP) アプリは、ロック画面にピン留めしなくても、サポートされているすべての種類のタスクを実行できます。 ただし、アプリは [**Getaccessstate**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出し、アプリがバックグラウンドで実行されることを拒否されていないことを確認する必要があります。 [**Getaccessstatus**] が、拒否された [**backgroundaccessstatus**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙体のいずれかを返さないことを確認します。 たとえば、 https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundAccessStatus) ユーザーがデバイスの設定でアプリのバックグラウンドタスクのアクセス許可を明示的に拒否している場合、このメソッドはを返します。
+ユニバーサル Windows プラットフォーム (UWP) アプリは、ロック画面にピン留めしなくても、サポートされているすべての種類のタスクを実行できます。 ただし、アプリは [**Getaccessstate**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出し、アプリがバックグラウンドで実行されることを拒否されていないことを確認する必要があります。 [**Getaccessstatus**] が、拒否された [**backgroundaccessstatus**](/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙体のいずれかを返さないことを確認します。 たとえば、 https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundAccessStatus) ユーザーがデバイスの設定でアプリのバックグラウンドタスクのアクセス許可を明示的に拒否している場合、このメソッドはを返します。
 
-アプリがバックグラウンドでの実行を拒否された場合、アプリは [**Requestaccessasync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出して、バックグラウンドタスクを登録する前に応答が拒否されないようにする必要があります。
+アプリがバックグラウンドでの実行を拒否された場合、アプリは [**Requestaccessasync**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出して、バックグラウンドタスクを登録する前に応答が拒否されないようにする必要があります。
 
-バックグラウンド アクティビティとバッテリー節約機能についてのユーザーの選択について詳しくは、「[バックグラウンド アクティビティの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity)」をご覧ください。 
+バックグラウンド アクティビティとバッテリー節約機能についてのユーザーの選択について詳しくは、「[バックグラウンド アクティビティの最適化](../debug-test-perf/optimize-background-activity.md)」をご覧ください。 
 ## <a name="background-task-checklist"></a>バックグラウンド タスクのチェック リスト
 
 *インプロセス バックグラウンド タスクとアウトプロセス バックグラウンド タスクの両方に適用されます*
@@ -81,10 +81,10 @@ ms.locfileid: "89094589"
 
 -   Windows ランタイムコンポーネントでバックグラウンドタスクを作成します。
 -   バックグラウンド タスクでは、トースト、タイル、バッジの更新以外の UI は表示しません。
--   [Run](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドでは、各非同期メソッド呼び出しに対して保留を要求し、メソッドが終了した時点で閉じます。 または、 **async/await**で1つの遅延を使用します。
+-   [Run](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドでは、各非同期メソッド呼び出しに対して保留を要求し、メソッドが終了した時点で閉じます。 または、 **async/await**で1つの遅延を使用します。
 -   固定ストレージを使って、バックグラウンド タスクとアプリ間でデータを共有します。
 -   アプリケーション マニフェストで、各バックグラウンド タスクと共に、バックグラウンド タスクで使うトリガーの種類を宣言します。 エントリ ポイントとトリガーの種類が正しいことを確認します。
--   アプリケーションと同じコンテキストで実行する必要があるトリガー ( [**Controlchanneltrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger)など) を使用している場合を除き、マニフェストに実行可能な要素を指定しないでください。
+-   アプリケーションと同じコンテキストで実行する必要があるトリガー ( [**Controlchanneltrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger)など) を使用している場合を除き、マニフェストに実行可能な要素を指定しないでください。
 
 *インプロセス バックグラウンド タスクにのみ適用されます*
 
@@ -97,7 +97,7 @@ ms.locfileid: "89094589"
 * [インプロセスバックグラウンドタスクを作成して登録](create-and-register-an-inproc-background-task.md)します。
 * [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)
 * [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
-* [バックグラウンドでのメディアの再生](https://docs.microsoft.com/windows/uwp/audio-video-camera/background-audio)
+* [バックグラウンドでのメディアの再生](../audio-video-camera/background-audio.md)
 * [取り消されたバックグラウンド タスクの処理](handle-a-cancelled-background-task.md)
 * [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)
 * [バックグラウンド タスクの登録](register-a-background-task.md)
@@ -107,7 +107,7 @@ ms.locfileid: "89094589"
 * [メンテナンス トリガーの使用](use-a-maintenance-trigger.md)
 * [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](/previous-versions/hh974425(v=vs.110))
 
  
 

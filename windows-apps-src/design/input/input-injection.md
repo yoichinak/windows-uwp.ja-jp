@@ -7,18 +7,18 @@ keywords: デバイス, デジタイザー, 入力, 操作, 挿入
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7bcd63d940e53d90d925f83f27e4c77165a11650
-ms.sourcegitcommit: 124cea09be7f12444bfff541badb65d539d55c83
+ms.openlocfilehash: f06414362b6a821233eabfb396ae59001f35c30d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84124120"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156896"
 ---
 # <a name="simulate-user-input-through-input-injection"></a>入力の挿入によるユーザー入力のシミュレート
 
 Windows アプリケーションのキーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからのユーザー入力をシミュレートし、自動化します。
 
-> **Important APIs**: [**Windows.UI.Input.Preview.Injection**](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection)
+> **Important APIs**: [**Windows.UI.Input.Preview.Injection**](/uwp/api/windows.ui.input.preview.injection)
 
 ## <a name="overview"></a>概要
 
@@ -43,9 +43,9 @@ Windows アプリで入力インジェクション Api を使用するには、�
 |:--:|
 | *タッチ入力の挿入のサンプル* |
 
-この例では、入力の挿入の API ([Windows.UI.Input.Preview.Injection](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection)) を使用してアプリの 1 つの領域でマウス入力のイベントをリッスンし、別の領域で対応するタッチ入力のイベントをシミュレートする方法を示します。
+この例では、入力の挿入の API ([Windows.UI.Input.Preview.Injection](/uwp/api/windows.ui.input.preview.injection)) を使用してアプリの 1 つの領域でマウス入力のイベントをリッスンし、別の領域で対応するタッチ入力のイベントをシミュレートする方法を示します。
 
-**このサンプルを[入力挿入サンプルからダウンロードする (マウスポインター)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-input-injection-mouse-to-touch.zip)**
+**このサンプルを [入力挿入サンプルからダウンロードする (マウスポインター)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-input-injection-mouse-to-touch.zip)**
 
 1. まず、UI を設定します (MainPage.xaml)。
 
@@ -168,13 +168,13 @@ Windows アプリで入力インジェクション Api を使用するには、�
 
 2. 次に、アプリを初期化します。
     
-    このスニペットでは、グローバル オブジェクトを宣言し、ボタン クリック イベントで処理済みとしてマークされている可能性があるマウスの入力領域内でポインター イベント ([AddHandler](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.addhandler)) のリスナーを宣言します。
+    このスニペットでは、グローバル オブジェクトを宣言し、ボタン クリック イベントで処理済みとしてマークされている可能性があるマウスの入力領域内でポインター イベント ([AddHandler](/uwp/api/windows.ui.xaml.uielement.addhandler)) のリスナーを宣言します。
 
-    [InputInjector](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.inputinjector) オブジェクトは入力データを送信するための仮想入力デバイスを表します。
+    [InputInjector](/uwp/api/windows.ui.input.preview.injection.inputinjector) オブジェクトは入力データを送信するための仮想入力デバイスを表します。
 
     `ContainerInput_PointerPressed` ハンドラーで、Touch Injection 関数を呼び出します。
 
-    `ContainerInput_PointerReleased` ハンドラーで、UninitializeTouchInjection を呼び出して [InputInjector](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.inputinjector) オブジェクトをシャットダウンします。
+    `ContainerInput_PointerReleased` ハンドラーで、UninitializeTouchInjection を呼び出して [InputInjector](/uwp/api/windows.ui.input.preview.injection.inputinjector) オブジェクトをシャットダウンします。
 
     ```csharp
     public sealed partial class MainPage : Page
@@ -251,13 +251,13 @@ Windows アプリで入力インジェクション Api を使用するには、�
     ```
 3. タッチ入力の挿入関数は次のとおりです。
 
-    まず、[TryCreate](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.inputinjector.trycreate) を呼び出して、[InputInjector](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.inputinjector) オブジェクトを初期化します。
+    まず、[TryCreate](/uwp/api/windows.ui.input.preview.injection.inputinjector.trycreate) を呼び出して、[InputInjector](/uwp/api/windows.ui.input.preview.injection.inputinjector) オブジェクトを初期化します。
 
-    次に、`Default` の [InjectedInputVisualizationMode](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.injectedinputvisualizationmode) で [InitializeTouchInjection](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.inputinjector.initializetouchinjection) を呼び出します。
+    次に、`Default` の [InjectedInputVisualizationMode](/uwp/api/windows.ui.input.preview.injection.injectedinputvisualizationmode) で [InitializeTouchInjection](/uwp/api/windows.ui.input.preview.injection.inputinjector.initializetouchinjection) を呼び出します。
 
-    挿入のポイントを計算した後で、[InjectedInputTouchInfo](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.injectedinputtouchinfo) を呼び出して、挿入するタッチ ポイントの一覧を初期化します (たとえば、マウス入力ポインターに対応する 1 つのタッチ ポイントを作成します)。
+    挿入のポイントを計算した後で、[InjectedInputTouchInfo](/uwp/api/windows.ui.input.preview.injection.injectedinputtouchinfo) を呼び出して、挿入するタッチ ポイントの一覧を初期化します (たとえば、マウス入力ポインターに対応する 1 つのタッチ ポイントを作成します)。
 
-    まず、[InjectTouchInput](https://docs.microsoft.com/uwp/api/windows.ui.input.preview.injection.inputinjector.injecttouchinput) を 2 回呼び出します。1 回目はポインター ダウン用で、2 回目はポインター アップ用です。
+    まず、[InjectTouchInput](/uwp/api/windows.ui.input.preview.injection.inputinjector.injecttouchinput) を 2 回呼び出します。1 回目はポインター ダウン用で、2 回目はポインター アップ用です。
 
     ```csharp
     /// <summary>
@@ -359,7 +359,7 @@ Windows アプリで入力インジェクション Api を使用するには、�
     }
     ```
 
-4. 最後に、入力の挿入領域で任意の Button [Click](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase) ルーティング イベントを処理し、クリックしたボタンの名前で UI を更新します。
+4. 最後に、入力の挿入領域で任意の Button [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase) ルーティング イベントを処理し、クリックしたボタンの名前で UI を更新します。
 
 ## <a name="see-also"></a>関連項目
 

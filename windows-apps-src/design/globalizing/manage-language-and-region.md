@@ -7,19 +7,19 @@ ms.date: 11/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 9998436b106acce6a9223140e66d2633c2210a54
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: c4f1857ba4afe5eba271f7022c64aca26eb6b6b8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493357"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156936"
 ---
 # <a name="understand-user-profile-languages-and-app-manifest-languages"></a>ユーザー プロファイルの言語とアプリ マニフェストの言語について
 Windows ユーザーは、**設定**  >  **時間 & 言語**  >  **領域 & 言語**を使用して、優先する表示言語の順序付きリストを構成したり、1つの優先する表示言語を構成したりできます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。
 
 また、[**設定**時間] では、[言語] & [言語] を & しますが、[言語] とは異なり、  >  **Time & Language**  >  **Region & language**ユーザーは世界中の場所 (地域) を指定できます。 表示言語 (および地域バリアント) の設定は地域の設定を決定するものではありません。その逆も同様です。 たとえば、現在フランスに住んでいるユーザーが、優先される Windows 表示言語としてスペイン語 (メキシコ) を選択している場合があります。
 
-Windows アプリの場合、言語は[BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)として表されます。 たとえば、BCP-47 言語タグ "en-US" は **[設定]** の英語 (米国)に対応しています。 適切な Windows ランタイム Api は、BCP-47 言語タグの文字列表現を受け入れて返します。
+Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)として表されます。 たとえば、BCP-47 言語タグ "en-US" は **[設定]** の英語 (米国)に対応しています。 適切な Windows ランタイム Api は、BCP-47 言語タグの文字列表現を受け入れて返します。
 
 「[IANA 言語サブタグ レジストリ](https://www.iana.org/assignments/language-subtag-registry)」も参照してください。
 
@@ -93,9 +93,9 @@ Windows アプリの場合、言語は[BCP-47 言語タグ](https://tools.ietf.o
 **注** ユーザー プロファイルの言語とアプリ マニフェストの言語が互いの地域バリアントである場合、ユーザーの地域バリアントがアプリの実行時の言語として使用されます。 たとえば、ユーザーが en-GB を選んだがアプリでは en-US がサポートされるという場合、アプリの実行時の言語は en-GB になります。 この結果、日付、時刻、数値の形式はユーザーの期待 (en-GB) により近いものとなりますが、(言語の対応付けにより) ローカライズ リソースはアプリのサポート言語 (en-US) で読み込まれます。
 
 ## <a name="qualify-resource-files-with-their-language"></a>ユーザーの言語によるリソース ファイルの修飾
-言語リソース修飾子でリソース ファイルまたはそのフォルダーに名前を付けます。 リソース修飾子の詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください)。 リソースファイルには、イメージ (またはその他のアセット) を使用できます。また、リソースコンテナーファイル (テキスト文字列を含む *. resw*など) を指定することもできます。
+言語リソース修飾子でリソース ファイルまたはそのフォルダーに名前を付けます。 リソース修飾子の詳細については、「[言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」を参照してください)。 リソースファイルには、イメージ (またはその他のアセット) を使用できます。また、リソースコンテナーファイル (テキスト文字列を含む *. resw* など) を指定することもできます。
 
-**メモ**アプリの既定の言語のリソースでも、言語の修飾子を指定する必要があります。 たとえば、アプリの既定の言語が英語 (米国) の場合は、アセットをとして修飾し `\Assets\Images\en-US\logo.png` ます。
+**メモ** アプリの既定の言語のリソースでも、言語の修飾子を指定する必要があります。 たとえば、アプリの既定の言語が英語 (米国) の場合は、アセットをとして修飾し `\Assets\Images\en-US\logo.png` ます。
 
 - Windows では、en-us や en GB などの地域別のバリアントを含む複雑な照合が実行されます。 そのため、必要に応じて region サブタグを含めます。 「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。
 - 言語に対して非表示スクリプト値が定義されていない場合は、修飾子に言語スクリプトのサブタグを指定します。 たとえば、zh-tw または zh-tw の代わりに、zh-tw、zh-tw-TW、または zh-hant-Zh-tw を使用します (詳細については、 [IANA 言語のサブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)を参照してください)。
@@ -193,7 +193,7 @@ Windows アプリの場合、言語は[BCP-47 言語タグ](https://tools.ietf.o
 </table>
 
 >[!NOTE]
-> Microsoft が使用する標準の国/地域コードの一覧については、[公式の国/地域の一覧](/windows/uwp/publish/supported-languages)を参照してください。
+> Microsoft が使用する標準の国/地域コードの一覧については、 [公式の国/地域の一覧](../../publish/supported-languages.md)を参照してください。
 
 ## <a name="important-apis"></a>重要な API
 * [GlobalizationPreferences.Languages](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages)

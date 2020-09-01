@@ -5,18 +5,18 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: Windows 10、UWP、MRT、PRI。 リソース、ゲーム、Centennial、Desktop App Converter、MUI、サテライト アセンブリ
 ms.localizationpriority: medium
-ms.openlocfilehash: c753e9437c76c89ac6af8cedcb1f954d1ce56fe3
-ms.sourcegitcommit: 3e7a4f7605dfb4e87bac2d10b6d64f8b35229546
+ms.openlocfilehash: dafce15fa259fdbc8a0afab90b6617dc6cc37cf4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089449"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157616"
 ---
 # <a name="use-the-windows-10-resource-management-system-in-a-legacy-app-or-game"></a>レガシ アプリやゲームで Windows 10 のリソース管理システムを使用する
 
 .NET アプリや Win32 アプリは多くの場合、対象市場を拡大するため、さまざまな言語にローカライズされます。 アプリのローカライズの価値提案の詳細については、「[グローバリゼーションとローカライズ](../design/globalizing/globalizing-portal.md)」をご覧ください。 .NET または Win32 アプリやゲームを、msix または .appx パッケージとしてパッケージ化することにより、リソース管理システムを活用して、実行時コンテキストに合わせて調整されたアプリリソースを読み込むことができます。 この詳細なトピックでは、この手法について説明します。
 
-従来の Win32 アプリケーションをローカライズする方法はたくさんありますが、Windows 8 では[新しいリソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))が導入されました。このリソース管理システムは、さまざまなプログラミング言語やさまざまな種類のアプリケーションで動作し、ローカライズ機能を簡素化するだけでなく、さまざまな機能を提供します。 このトピックでは、このシステムを "MRT" と呼びます。 「モダン」という用語の使用は停止されましたが、MRT は従来 "Modern Resource Technology" を表していました。 リソース マネージャーは、MRM (モダン リソース マネージャー) または PRI (パッケージ リソース インデックス) としても知られています。
+従来の Win32 アプリケーションをローカライズする方法はたくさんありますが、Windows 8 では[新しいリソース管理システム](/previous-versions/windows/apps/jj552947(v=win.10))が導入されました。このリソース管理システムは、さまざまなプログラミング言語やさまざまな種類のアプリケーションで動作し、ローカライズ機能を簡素化するだけでなく、さまざまな機能を提供します。 このトピックでは、このシステムを "MRT" と呼びます。 「モダン」という用語の使用は停止されましたが、MRT は従来 "Modern Resource Technology" を表していました。 リソース マネージャーは、MRM (モダン リソース マネージャー) または PRI (パッケージ リソース インデックス) としても知られています。
 
 MSIX ベースまたは .appx ベースの展開 (たとえば、Microsoft Store) と組み合わせると、MRT.DLL は、アプリケーションのダウンロードとインストールのサイズを最小限に抑えるために、特定のユーザー/デバイスに適用可能なリソースを自動的に提供できます。 ローカライズ コンテンツのサイズが大きなアプリケーションでは、これによって大きなサイズ削減効果があり、高度なゲームの場合では、数*ギガバイト*にも及ぶ削減効果となることがあります。 さらに、Windows シェルと Microsoft Store でローカライズされて表示されることや、ユーザーの使用言語と利用可能なリソースが一致しない場合の自動フォールバック ロジックなども、MRT によるメリットの例です。
 
@@ -27,28 +27,28 @@ MSIX ベースまたは .appx ベースの展開 (たとえば、Microsoft Store
 <table>
 <tr>
 <th>作業</th>
-<th>メリット</th>
+<th>特長</th>
 <th>推定コスト</th>
 </tr>
 <tr>
 <td>パッケージマニフェストのローカライズ</td>
 <td>Windows シェルと Microsoft Store でローカライズ コンテンツが表示されるために必要な最小限の作業</td>
-<td>S</td>
+<td>小</td>
 </tr>
 <tr>
 <td>MRT を使ってリソースを識別して検索する</td>
 <td>ダウンロードとインストールのサイズの最小化や、言語の自動フォールバックの前提条件</td>
-<td>中</td>
+<td>Medium</td>
 </tr>
 <tr>
 <td>リソース パッケージをビルドする</td>
 <td>ダウンロードとインストールのサイズを最小化するための最後の手順</td>
-<td>S</td>
+<td>小</td>
 </tr>
 <tr>
 <td>MRT リソース形式と API へ移行する</td>
 <td>大幅に小さなファイル サイズ (既存のリソース テクノロジによる)</td>
-<td>L</td>
+<td>大</td>
 </tr>
 </table>
 
@@ -66,7 +66,7 @@ MSIX ベースまたは .appx ベースの展開 (たとえば、Microsoft Store
 
 この図で、アプリケーション コードは 3 つの論理リソース名を参照しています。 実行時に、擬似関数 `GetResource` は、MRT を使用して、リソース テーブル (PRI ファイルと呼ばれます) で、そのリソース名を検索し、環境条件 (ユーザーの言語とディスプレイのスケール ファクター) に基づいて、最適な候補を見つけます。 ラベルの場合は、文字列が直接使用されます。 ロゴ イメージの場合は、文字列がファイル名として解釈され、ファイルがディスクから読み取られます。 
 
-ユーザーが英語またはドイツ語以外の言語を話す場合、または100% または300% 以外の表示スケールファクターを使用している場合、MRT.DLL はフォールバック規則のセットに基づいて "最も近い" 一致候補を選択します (詳細については、「[リソース管理システム](https://docs.microsoft.com/previous-versions/windows/apps/jj552947(v=win.10))」を参照してください)。
+ユーザーが英語またはドイツ語以外の言語を話す場合、または100% または300% 以外の表示スケールファクターを使用している場合、MRT.DLL はフォールバック規則のセットに基づいて "最も近い" 一致候補を選択します (詳細については、「 [リソース管理システム](/previous-versions/windows/apps/jj552947(v=win.10)) 」を参照してください)。
 
 MRT は複数の修飾子に合わせてカスタマイズされたリソースをサポートします。たとえば、ロゴ イメージに埋め込みのテキストが含まれ、そのテキストをローカライズする必要がある場合には、そのロゴは 4 つの候補 (EN/スケール-100、DE/スケール-100、EN/スケール-300、DE/スケール-300) を持つことができます。
 
@@ -106,9 +106,9 @@ MRT は複数の修飾子に合わせてカスタマイズされたリソース�
 * 比較的少ないファイルまたは単純なインストーラーと、機能拡張フックのない小さいデスクトップアプリケーションがある場合は、ファイルレイアウトとマニフェストの情報を手動で作成できます。
 * ソースから再構築し、純粋な UWP アプリケーションとしてアプリを更新する場合は、Visual Studio で新しいプロジェクトを作成し、IDE を利用して作業の多くを行うことができます。
 
-[デスクトップアプリコンバーター](https://www.microsoft.com/store/p/desktopappconverter/9nblggh4skzw)を使用する場合は、変換プロセスの詳細について、「[デスクトップアプリコンバーターを使用してデスクトップアプリケーションをパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-run-desktop-app-converter)する」を参照してください。 デスクトップのコンバーターのサンプルの完全なセットについては[、デスクトップブリッジの UWP サンプル github リポジトリを](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)参照してください。
+[デスクトップアプリコンバーター](https://www.microsoft.com/store/p/desktopappconverter/9nblggh4skzw)を使用する場合は、変換プロセスの詳細について、「[デスクトップアプリコンバーターを使用してデスクトップアプリケーションをパッケージ化](/windows/msix/desktop/desktop-to-uwp-run-desktop-app-converter)する」を参照してください。 Desktop Converter のサンプルの完全なセットは、[GitHub リポジトリの Desktop Bridge to UWP サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples)にあります。
 
-パッケージを手動で作成する場合は、アプリケーションのすべてのファイル (実行可能ファイルとコンテンツ、ただしソース コードを含まない) とパッケージ マニフェスト ファイル (.appxmanifest) が含まれるディレクトリ構造を作成する必要があります。 例については、 [Hello, World GitHub サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/blob/master/Samples/HelloWorldSample/CentennialPackage/AppxManifest.xml)を参照してください。ただし、`ContosoDemo.exe` というデスクトップ実行可能ファイルを実行する基本的なパッケージマニフェストファイルは次のとおりです。<span style="background-color: yellow">強調表示</span>されたテキストは、実際の値に置き換えられます。
+パッケージを手動で作成する場合は、すべてのアプリケーションのファイル (実行可能ファイルとコンテンツ) とパッケージマニフェストファイル (package.appxmanifest) を含むディレクトリ構造を作成する必要があります。 例は [Hello, World GitHub サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/blob/master/Samples/HelloWorldSample/CentennialPackage/AppxManifest.xml)にありますが、というデスクトップ実行可能ファイルを実行する基本的なパッケージマニフェストファイル `ContosoDemo.exe` は次のようになります。 <span style="background-color: yellow">強調表示</span> されたテキストは、独自の値に置き換えられます。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -148,15 +148,15 @@ MRT は複数の修飾子に合わせてカスタマイズされたリソース�
 </Package>
 ```
 
-パッケージマニフェストファイルとパッケージレイアウトの詳細については、「[アプリケーションパッケージマニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/appx-package-manifest)」を参照してください。
+パッケージマニフェストファイルとパッケージレイアウトの詳細については、「 [アプリケーションパッケージマニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)」を参照してください。
 
-最後に、Visual Studio を使用して新しいプロジェクトを作成し、既存のコードを移行する場合は、「 [Hello, world "アプリを作成](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)する」を参照してください。 新しいプロジェクトに既存のコードを含めることができますが、純粋な UWP アプリとして実行するには、(特にユーザー インターフェイス対して) 大幅なコードの変更が必要になる場合があります。 それらの変更は、このドキュメントの対象範囲外です。
+最後に、Visual Studio を使用して新しいプロジェクトを作成し、既存のコードを移行する場合は、「 [Hello, world "アプリを作成](../get-started/create-a-hello-world-app-xaml-universal.md)する」を参照してください。 新しいプロジェクトには既存のコードを含めることができますが、純粋な UWP アプリとして実行するには (特にユーザーインターフェイスで) コードを大幅に変更することが必要になる場合があります。 それらの変更は、このドキュメントの対象範囲外です。
 
 ## <a name="phase-1-localize-the-manifest"></a>フェーズ 1: マニフェストをローカライズする
 
 ### <a name="step-11-update-strings--assets-in-the-manifest"></a>手順 1.1: マニフェスト内の資産 & 文字列を更新する
 
-フェーズ0では、アプリケーションの基本的なパッケージマニフェスト (package.appxmanifest) ファイルを作成しました (コンバーターに指定された値に基づいて、MSI から抽出されるか、手動でマニフェストに入力されます) が、ローカライズされた情報は含まれず、サポートされません。高解像度のスタートタイル資産などの追加機能
+フェーズ0では、アプリケーションの基本的なパッケージマニフェスト (. package.appxmanifest) ファイルを作成しました。このファイルは、コンバーターに指定された値に基づいて、MSI から抽出されるか、手動でマニフェストに入力されますが、ローカライズされた情報は含まれません。また、高解像度のスタートタイル資産などの追加機能もサポートし
 
 アプリケーションの名前と説明が正しくローカライズされていることを確認するには、リソースファイルのセットでいくつかのリソースを定義し、それらを参照するようにパッケージマニフェストを更新する必要があります。
 
@@ -195,19 +195,19 @@ MRT は複数の修飾子に合わせてカスタマイズされたリソース�
 
 Visual Studio でデザイナーを使用する場合は:
 
-1. プロジェクトに `Strings\en-us` フォルダー (またはその他の言語) を作成し、既定の `resources.resw`の名前を使用して、プロジェクトのルートフォルダーに**新しい項目**を追加します。 リソース**ディクショナリではなくリソース** **ファイル (resw)** を選択してください。リソースディクショナリは、XAML アプリケーションによって使用されるファイルです。
+1. `Strings\en-us`プロジェクトにフォルダー (またはその他の言語) を作成し、既定の名前を使用して、プロジェクトのルートフォルダーに**新しい項目**を追加し `resources.resw` ます。 リソース**ディクショナリではなくリソース****ファイル (resw)** を選択してください。リソースディクショナリは、XAML アプリケーションによって使用されるファイルです。
 2. デザイナーを使って次の文字列を入力します (同じ `Names` を使用し、`Values` をアプリケーションのために適切なテキストに置き換えます)。
 
 <img src="images\editing-resources-resw.png"/>
 
 > [!NOTE]
-> Visual Studio デザイナーから始める場合は、`F7`を押して、いつでも XML を直接編集できます。 ただし、最小限の XML ファイルで開始する場合、さまざまな追加のメタデータが含まれていないため、*デザイナーは、ファイルを認識しません*。手動で編集する XML ファイルに、デザイナーが生成したファイルからスケルトンの XSD 情報をコピーすると、この問題を解決できます。
+> Visual Studio デザイナーから始める場合は、を押して、いつでも XML を直接編集でき `F7` ます。 ただし、最小限の XML ファイルで開始する場合、さまざまな追加のメタデータが含まれていないため、*デザイナーは、ファイルを認識しません*。手動で編集する XML ファイルに、デザイナーが生成したファイルからスケルトンの XSD 情報をコピーすると、この問題を解決できます。
 
 #### <a name="update-the-manifest-to-reference-the-resources"></a>マニフェストを更新してリソースを参照する
 
-`.resw` ファイルで値を定義した後、次の手順では、リソース文字列を参照するようにマニフェストを更新します。 ここでも、XML ファイルを直接編集するか、Visual Studio のマニフェスト デザイナーを利用できます。
+ファイルで値を定義した後 `.resw` 、次の手順では、リソース文字列を参照するようにマニフェストを更新します。 ここでも、XML ファイルを直接編集するか、Visual Studio のマニフェスト デザイナーを利用できます。
 
-XML を直接編集する場合は、`AppxManifest.xml` ファイルを開き、<span style="background-color: lightgreen">強調表示された値</span>に次の変更を行います。これは、アプリケーション固有ではなく、このテキストを*そのまま*使用します。 これらの正確なリソース名を使用する必要はありません&mdash;、独自の&mdash;を選択することはできますが、`.resw` ファイル内のものと完全に一致する必要があります。 これらの名前は `Names` ファイルで作成した `.resw` と一致し、`ms-resource:` スキームと `Resources/` 名前空間のプレフィックスが付く必要があります。 
+XML を直接編集する場合は、`AppxManifest.xml` ファイルを開き、<span style="background-color: lightgreen">強調表示された値</span>に次の変更を行います。これは、アプリケーション固有ではなく、このテキストを*そのまま*使用します。 これらの正確なリソース名を使用する必要はありません &mdash; が、独自に選択でき &mdash; ますが、ファイル内の内容と正確に一致している必要があり `.resw` ます。 これらの名前は `.resw` ファイルで作成した `Names` と一致し、`ms-resource:` スキームと `Resources/` 名前空間のプレフィックスが付く必要があります。 
 
 > [!NOTE]
 > マニフェストの多くの要素は、このスニペットから除外されています。何も削除しないでください。
@@ -234,7 +234,7 @@ XML を直接編集する場合は、`AppxManifest.xml` ファイルを開き、
 </Package>
 ```
 
-Visual Studio マニフェストデザイナーを使用している場合は、package.appxmanifest ファイルを開き、<span style="background-color: lightgreen">強調表示</span>されている値を * [*アプリケーション*] タブと [*パッケージ化*] タブで変更します。
+Visual Studio マニフェストデザイナーを使用している場合は、package.appxmanifest ファイルを開き、 <span style="background-color: lightgreen">強調表示</span> されている値を * [*アプリケーション* ] タブと [ *パッケージ化* ] タブで変更します。
 
 <img src="images\editing-application-info.png"/>
 <img src="images\editing-packaging-info.png"/>
@@ -245,21 +245,21 @@ Visual Studio マニフェストデザイナーを使用している場合は、
 
 Visual Studio でビルドを行う場合は、`Ctrl+Shift+B` を押すとプロジェクトをビルドできます。次にプロジェクトを右クリックして、コンテキスト メニューから `Deploy` を選択します。
 
-手動でビルドする場合は、次の手順に従って `MakePRI` ツールの構成ファイルを作成し、`.pri` ファイル自体を生成します (詳細については、「[アプリのパッケージ化](/windows/msix/package/manual-packaging-root)」を参照してください)。
+手動でビルドする場合は、次の手順に従ってツールの構成ファイルを作成 `MakePRI` し、ファイル自体を生成し `.pri` ます (詳細については、「 [アプリの手動パッケージング](/windows/msix/package/manual-packaging-root)」を参照してください)。
 
-1. [スタート] メニューの**Visual studio 2017**または**visual studio 2019**フォルダーから、開発者コマンドプロンプトを開きます。
-2. プロジェクトルートディレクトリ (package.appxmanifest ファイルと**Strings**フォルダーを含むディレクトリ) に切り替えます。
-3. "Contoso_demo.xml" をプロジェクトに適した名前に置き換え、"en-US" をアプリの既定の言語に置き換えて (または必要に応じて "en-US" のままとして)、次のコマンドを入力します。 XML ファイルは、(プロジェクトディレクトリでは**なく**) 親ディレクトリに作成されます。これは、アプリケーションの一部ではないためです (任意の他のディレクトリを選択できますが、今後のコマンドでは必ず置き換えてください)。
+1. [スタート] メニューの **Visual studio 2017** または **visual studio 2019** フォルダーから、開発者コマンドプロンプトを開きます。
+2. プロジェクトルートディレクトリ (package.appxmanifest ファイルと **Strings** フォルダーを含むディレクトリ) に切り替えます。
+3. "Contoso_demo.xml" をプロジェクトに適した名前に置き換え、"en-US" をアプリの既定の言語に置き換えて (または必要に応じて "en-US" のままとして)、次のコマンドを入力します。 XML ファイルは、(プロジェクトディレクトリでは**なく** ) 親ディレクトリに作成されます。これは、アプリケーションの一部ではないためです (任意の他のディレクトリを選択できますが、今後のコマンドでは必ず置き換えてください)。
 
     ```CMD
     makepri createconfig /cf ..\contoso_demo.xml /dq en-US /pv 10.0 /o
     ```
 
     「`makepri createconfig /?`」と入力すると、各パラメーターの意味が表示されますが、主なパラメーターは次のとおりです。
-      * 構成ファイル名 (このコマンドの出力) を `/cf` 設定します。
-      * 既定の修飾子を設定 `/dq` (この場合は言語) `en-US`
-      * プラットフォームのバージョン (この場合は Windows 10) を `/pv` 設定します。
-      * 出力ファイルが存在する場合に上書きするように設定 `/o`
+      * `/cf` 構成ファイル名 (このコマンドの出力) を設定します。
+      * `/dq` 既定の修飾子 (この場合は言語) を設定します。 `en-US`
+      * `/pv` プラットフォームのバージョン (この場合は Windows 10) を設定します
+      * `/o` 出力ファイルが存在する場合に上書きするように設定します
 
 4. 構成ファイルが作成されました。`MakePRI` を再度実行して、ディスクにあるリソースを検索し、それを PRI ファイルにパッケージ化します。 "Contoso_demop.xml" を、前の手順で使った XML ファイル名に置き換えます。入力と出力の両方に、必ず親ディレクトリを指定します。 
 
@@ -268,11 +268,11 @@ Visual Studio でビルドを行う場合は、`Ctrl+Shift+B` を押すとプロ
     ```
 
     `makepri new /?` と入力すると、各パラメーターの意味が表示されますが、主なパラメーターは次のとおりです:
-      * プロジェクトルート (この場合は現在のディレクトリ) を設定 `/pr`
-      * 前の手順で作成した構成ファイル名を `/cf` 設定します。
-      * 出力ファイルを設定 `/of` 
-      * `/mf` によってマッピングファイルが作成されます (そのため、後の手順でパッケージ内のファイルを除外できます)。
-      * 出力ファイルが存在する場合に上書きするように設定 `/o`
+      * `/pr` プロジェクトルート (この場合は現在のディレクトリ) を設定します。
+      * `/cf` 前の手順で作成した構成ファイル名を設定します。
+      * `/of` 出力ファイルを設定します。 
+      * `/mf` マッピングファイルを作成します (これにより、後の手順でパッケージ内のファイルを除外できます)。
+      * `/o` 出力ファイルが存在する場合に上書きするように設定します
 
 5. 既定の言語リソース (たとえば en-US) を持つ `.pri` が作成されました。 次のコマンドを実行して、正しく動作することを確認します。
 
@@ -281,44 +281,44 @@ Visual Studio でビルドを行う場合は、`Ctrl+Shift+B` を押すとプロ
     ```
 
     `makepri dump /?` と入力すると、各パラメーターの意味が表示されますが、主なパラメーターは次のとおりです:
-      * 入力ファイル名を設定 `/if` 
-      * `/of` 出力ファイル名を設定します (`.xml` は自動的に追加されます)
-      * 出力ファイルが存在する場合に上書きするように設定 `/o`
+      * `/if` 入力ファイル名を設定します。 
+      * `/of` 出力ファイル名を設定します ( `.xml` 自動的に追加されます)
+      * `/o` 出力ファイルが存在する場合に上書きするように設定します
 
-6. 最後に、`.\resources.xml` をテキスト エディターで開き、`<NamedResource>` の値 (`ApplicationDescription` や `PublisherDisplayName` など) が含まれること、さらに選択した既定の言語の `<Candidate>` が含まれることを確認します (ファイルの先頭には、その他のコンテンツがありますが、ここでは無視してください)。
+6. 最後に、`..\resources.xml` をテキスト エディターで開き、`<NamedResource>` の値 (`ApplicationDescription` や `PublisherDisplayName` など) が含まれること、さらに選択した既定の言語の `<Candidate>` が含まれることを確認します (ファイルの先頭には、その他のコンテンツがありますが、ここでは無視してください)。
 
-マッピングファイル `.\resources.map.txt` を開いて、プロジェクトに必要なファイルが含まれていることを確認できます (プロジェクトのディレクトリに含まれていない PRI ファイルを含む)。 マッピング ファイルには、 *ファイルへの参照は含まれて*いません`resources.resw`。これは重要です。そのファイルの内容は既に PRI ファイルに埋め込まれているためです。 ただし、イメージのファイル名などの他のリソースは含まれています。
+マッピングファイルを開いて、 `..\resources.map.txt` プロジェクトに必要なファイルが含まれていることを確認できます (プロジェクトのディレクトリに含まれていない PRI ファイルを含む)。 マッピング ファイルには、`resources.resw` ファイルへの参照は含まれて*いません*。これは重要です。そのファイルの内容は既に PRI ファイルに埋め込まれているためです。 ただし、イメージのファイル名などの他のリソースは含まれています。
 
 #### <a name="building-and-signing-the-package"></a>パッケージをビルドして署名する 
 
 PRI ファイルがビルドされました。次はパッケージをビルドして署名します。
 
-1. アプリパッケージを作成するには、次のコマンドを実行します。 `contoso_demo.appx` を作成する msix/.appx ファイルの名前に置き換え、ファイル用に別のディレクトリを選択します (このサンプルでは親ディレクトリを使用しますが、プロジェクトディレクトリにすることはでき**ません**)。
+1. アプリケーションパッケージを作成するには、次のコマンドを実行し `contoso_demo.appx` ます。は、作成する msix/.appx ファイルの名前に置き換え、ファイル用に別のディレクトリを選択します (このサンプルでは親ディレクトリを使用しますが、プロジェクトディレクトリにすることはでき **ません** )。
 
     ```CMD
     makeappx pack /m AppXManifest.xml /f ..\resources.map.txt /p ..\contoso_demo.appx /o
     ```
 
     `makeappx pack /?` と入力すると、各パラメーターの意味が表示されますが、主なパラメーターは次のとおりです:
-      * 使用するマニフェストファイルを設定 `/m`
-      * `/f` は、前の手順で作成したマッピングファイルを使用するように設定します。 
-      * 出力パッケージ名を設定 `/p`
-      * 出力ファイルが存在する場合に上書きするように設定 `/o`
+      * `/m` 使用するマニフェストファイルを設定します
+      * `/f` (前の手順で作成した) 使用するマッピングファイルを設定します。 
+      * `/p` 出力パッケージ名を設定します
+      * `/o` 出力ファイルが存在する場合に上書きするように設定します
 
-2. パッケージが作成された後は、署名されている必要があります。 署名証明書を取得する最も簡単な方法は、Visual Studio で空のユニバーサル Windows プロジェクトを作成し、作成した `.pfx` ファイルをコピーすることですが、「[アプリパッケージ署名証明書を作成する方法](https://docs.microsoft.com/windows/desktop/appxpkg/how-to-create-a-package-signing-certificate)」の説明に従って、`MakeCert` と `Pvk2Pfx` ユーティリティを使用して手動で作成することもできます。
+2. パッケージが作成された後は、署名されている必要があります。 署名証明書を取得する最も簡単な方法は、Visual Studio で空のユニバーサル Windows プロジェクトを作成し、作成したファイルをコピーすることです `.pfx` 。ただし、 `MakeCert` `Pvk2Pfx` 「 [アプリパッケージ署名証明書を作成する方法](/windows/desktop/appxpkg/how-to-create-a-package-signing-certificate)」の説明に従って、とのユーティリティを使用して手動で作成できます。
 
     > [!IMPORTANT]
     > 署名証明書を手動で作成する場合は、ソースプロジェクトまたはパッケージソースとは別のディレクトリにファイルを配置してください。そうしないと、秘密キーを含むパッケージの一部として含まれる可能性があります。
 
-3. パッケージに署名するには、次のコマンドを使用します。 `Publisher` の `Identity` 要素で指定されている `AppxManifest.xml` は、証明書の `Subject` と一致する必要があります (これは  **要素では**ありません`<PublisherDisplayName>`。それはユーザーに表示されるローカライズされた表示名です)。 通常と同様に、`contoso_demo...` のファイル名をプロジェクトに適した名前で置き換えます。さらに  **ファイルが現在のディレクトリにないことを確認します (** これは非常に重要です`.pfx`。そうしない場合、プライベート署名キーを含めて、パッケージの一部として作成されてしまいます)。
+3. パッケージに署名するには、次のコマンドを使用します。 `AppxManifest.xml` の `Identity` 要素で指定されている `Publisher` は、証明書の `Subject` と一致する必要があります (これは `<PublisherDisplayName>` 要素では**ありません**。それはユーザーに表示されるローカライズされた表示名です)。 通常と同様に、`contoso_demo...` のファイル名をプロジェクトに適した名前で置き換えます。さらに `.pfx` ファイルが現在のディレクトリにないことを確認します (**これは非常に重要です**。そうしない場合、プライベート署名キーを含めて、パッケージの一部として作成されてしまいます)。
 
     ```CMD
     signtool sign /fd SHA256 /a /f ..\contoso_demo_key.pfx ..\contoso_demo.appx
     ```
 
     `signtool sign /?` と入力すると、各パラメーターの意味が表示されますが、主なパラメーターは次のとおりです:
-      * ファイルダイジェストアルゴリズムを `/fd` 設定します (既定値は .appx です)
-      * 最適な証明書は、`/a` によって自動的に選択されます。
+      * `/fd` ファイルダイジェストアルゴリズム (.appx は .appx の既定値) を設定します。
+      * `/a` 最適な証明書が自動的に選択されます
       * `/f` 署名証明書を含む入力ファイルを指定します。
 
 最後に、`.appx` ファイルをダブルクリックしてインストールします。またはコマンド ラインを使用する場合には、PowerShell プロンプトを開き、パッケージを含むディレクトリへ移動し、次のように入力します (`contoso_demo.appx` を使用するパッケージ名に置き換えます)。
@@ -339,19 +339,19 @@ add-appxpackage contoso_demo.appx
     ```
     
     `certutil -addstore /?` と入力すると、各パラメーターの意味が表示されますが、主なパラメーターは次のとおりです:
-      * 証明書を証明書ストアに追加 `-addstore`
+      * `-addstore` 証明書ストアに証明書を追加します。
       * `TrustedPeople` 証明書の配置先のストアを示します。
 
 Windows エクスプローラーを使用する場合:
 
 1. `.pfx` ファイルが含まれているフォルダーに移動します
 2. `.pfx` ファイルをダブルクリックすると、**証明書インポート ウィザード**が表示されます
-3. `Local Machine` を選択し、[`Next`] をクリックします
-4. ユーザーアカウント制御管理者の昇格時のプロンプトが表示されたら、それを受け入れ、[`Next`] をクリックします。
-5. 秘密キーのパスワードを入力し (存在する場合)、[`Next`] をクリックします。
-6. `Place all certificates in the following store` の選択
-7. `Browse` をクリックして、(「信頼された発行元」`Trusted People`ではなく **)**  フォルダーを選択します
-8. `Next` をクリックし、`Finish`
+3. 選択 `Local Machine` してクリック `Next`
+4. ユーザーアカウント制御管理者の昇格時のプロンプトが表示されたら、それを受け入れ、[ `Next`
+5. 秘密キーのパスワードを入力し (存在する場合)、[] をクリックします。 `Next`
+6. `Place all certificates in the following store` を選択
+7. `Browse` をクリックして、(「信頼された発行元」**ではなく**) `Trusted People` フォルダーを選択します
+8. [] をクリックし `Next` 、 `Finish`
 
 `Trusted People` ストアに証明書を追加したら、もう一度パッケージをインストールします。
 
@@ -359,7 +359,7 @@ Windows エクスプローラーを使用する場合:
 
 ### <a name="step-13-add-more-supported-languages"></a>手順 1.3: サポート言語を追加する
 
-パッケージマニフェストに変更が加えられ、最初の `resources.resw` ファイルが作成された後、言語を追加するのは簡単です。
+パッケージマニフェストに変更が加えられ、初期ファイルが作成された後、言語を追加するの `resources.resw` は簡単です。
 
 #### <a name="create-additional-localized-resources"></a>追加のローカライズ リソースを作成する
 
@@ -431,13 +431,13 @@ makepri createconfig /cf ..\contoso_demo.xml /dq en-US_de-DE_fr-FR /pv 10.0 /o
 新しくローカライズされた変更をテストするには、使用する新しい UI 言語を Windows に追加します。 言語パックをダウンロードしたり、システムを再起動したり、Windows UI 全体を他言語で表示させたりする必要はありません。 
 
 1. `Settings` アプリを実行します (`Windows + I`)
-2. `Time & language` にアクセス
-3. `Region & language` にアクセス
-4. [`Add a language`] をクリック
+2. [https://resources.azure.com](`Time & language`) に移動します
+3. [https://resources.azure.com](`Region & language`) に移動します
+4. [`Add a language`] をクリックします。
 5. 必要な言語を入力 (または選択) します (たとえば `Deutsch` または `German`)
  * サブ言語がある場合は、必要なものを選びます (たとえば `Deutsch / Deutschland`)
 6. 言語の一覧で新しい言語を選択します
-7. [`Set as default`] をクリック
+7. [`Set as default`] をクリックします。
 
 スタート メニューを開き、作成したアプリケーションを検索します。選択した言語のローカライズされた値が表示されます (他のアプリもローカライズされて表示される場合があります)。 ローカライズされた名前がすぐに表示されない場合は、スタート メニューのキャッシュが更新されるまで、数分待機します。 元の言語に戻すには、言語の一覧で既定の言語を変更します。 
 
@@ -492,7 +492,7 @@ Win32 デスクトップ アプリをローカライズする方法は多数あ�
 
 #### <a name="resource-file-layout"></a>リソース ファイルのレイアウト
 
-この記事では、すべてのローカライズされたリソースのファイル名が同じであることを前提としています (例: `contoso_demo.exe.mui`、`contoso_strings.dll` または `contoso.strings.xml`) が、BCP-47 名 (`en-US`、`de-DE`など) を持つ異なるフォルダーに配置されていることを前提としています。 使用するリソース ファイルの数、名前、ファイル形式、関連付けられている API などは問題とはなりません。すべての*論理*リソースが同じファイル名である (そして異なる*物理*ディレクトリに配置されている) ことのみが問題となります。 
+この記事では、すべてのローカライズされたリソースのファイル名が同じであることを前提としています (たとえば、 `contoso_demo.exe.mui` また `contoso_strings.dll` はまたは) が、 `contoso.strings.xml` BCP-47 の名前 (、など) の異なるフォルダーに配置されていることを前提としてい `en-US` `de-DE` ます。 使用するリソース ファイルの数、名前、ファイル形式、関連付けられている API などは問題とはなりません。すべての*論理*リソースが同じファイル名である (そして異なる*物理*ディレクトリに配置されている) ことのみが問題となります。 
 
 反対の例として、アプリケーションがフラットなファイル構造を使用していて、1 つの `Resources` ディレクトリに、`english_strings.dll` と `french_strings.dll` が含まれている場合には、これは MRT にうまくマッピングされません。 望ましい構造は、`Resources` ディレクトリにサブディレクトリがあり、そこにファイルが配置されている (たとえば `en\strings.dll` や `fr\strings.dll`) 構造です。 `strings.lang-en.dll` や `strings.lang-fr.dll` などのように、同じ基本ファイル名を使用して、修飾子を埋め込むことも可能ですが、言語コードと同じディレクトリの使用がコンセプトとしてシンプルであり、ここではそれを使います。
 
@@ -541,11 +541,11 @@ MRT では、このプロセスの最初の 2 つの手順のみを変更する�
 
 リソースの検索に MRT を使用するため、コードを切り替えることは難しくはありません。 いくつかの WinRT の種類と数行のコードを使う必要があります。 主に使用される種類は次のとおりです。
 
-* [ResourceContext](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceContext) 現在アクティブな修飾子の値のセット (言語、スケール ファクターなど) をカプセル化します
-* [ResourceManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcemanager) (.NETバージョンではなく、WinRT バージョン) PRI ファイルからすべてのリソースへのアクセスを実現します
-* [ResourceMap](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcemap) PRI ファイル内のリソースの特定のサブセット (この例では、文字列リソースではなく、ファイル ベースのリソース) を表します
-* [NamedResource](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Resources.Core.NamedResource) 論理リソースとそのすべての候補を表します
-* [ResourceCandidate](https://docs.microsoft.com/uwp/api/windows.applicationmodel.resources.core.resourcecandidate) 1 つの具体的な候補リソースを表す 
+* [ResourceContext](/uwp/api/Windows.ApplicationModel.Resources.Core.ResourceContext) 現在アクティブな修飾子の値のセット (言語、スケール ファクターなど) をカプセル化します
+* [ResourceManager](/uwp/api/windows.applicationmodel.resources.core.resourcemanager) (.NETバージョンではなく、WinRT バージョン) PRI ファイルからすべてのリソースへのアクセスを実現します
+* [ResourceMap](/uwp/api/windows.applicationmodel.resources.core.resourcemap) PRI ファイル内のリソースの特定のサブセット (この例では、文字列リソースではなく、ファイル ベースのリソース) を表します
+* [NamedResource](/uwp/api/Windows.ApplicationModel.Resources.Core.NamedResource) 論理リソースとそのすべての候補を表します
+* [ResourceCandidate](/uwp/api/windows.applicationmodel.resources.core.resourcecandidate) 1 つの具体的な候補リソースを表す 
 
 あるリソースのファイル名 (たとえば、上のサンプルの `UICommands\ui.txt` など) を解決する方法は、疑似コードでは、次のようになります。
 
@@ -572,13 +572,13 @@ set absoluteFileName = bestCandidate.ValueAsString
 </blockquote>
 </pre>
 
-このコードでは、(実際のディスク上のファイルの配置にかかわらず) 特定の言語のフォルダー ( **など) を要求して**いない`UICommands\en-US\ui.txt`ことに、特に注意してください。 代わりに*論理*ファイル名 `UICommands\ui.txt` を要求して、ディスク上の言語ディレクトリからの適切なファイルの選択を MRT に依存しています。
+このコードでは、(実際のディスク上のファイルの配置にかかわらず) 特定の言語のフォルダー (`UICommands\en-US\ui.txt` など) を要求して**いない**ことに、特に注意してください。 代わりに*論理*ファイル名 `UICommands\ui.txt` を要求して、ディスク上の言語ディレクトリからの適切なファイルの選択を MRT に依存しています。
 
 これ以降、サンプル アプリは以前と同様に、`CreateFile` を使って `absoluteFileName` を読み込み、`name=value` ペアを解析できます。アプリ内のロジックの変更はまったく必要ありません。 C# または C++/CX で記述している場合、実際のコードは、この擬似コード以上にそれほど複雑になることはありません (さらに多くの中間変数は省略できます)。下記の **.NET リソースを読み込む**のセクションをご覧ください。 C++/WRL ベースのアプリケーションでは、WinRT API のアクティブ化と呼び出しに使用される低レベルの COM ベースの API によってより複雑になりますが、基本的な手順は同じです。下記の **Win32 MUI リソースを読み込む**のセクションをご覧ください。
 
 #### <a name="loading-net-resources"></a>.NET リソースを読み込む
 
-.NET には、リソースを検索して読み込むための組み込みのメカニズム (「サテライト アセンブリ」と呼ばれます) があるため、上記の合成の例のように、明示的なコードの置き換えは必要ありません.NET では、適切なディレクトリにリソース DLL が存在することのみが必要であり、それらは自動的に検索されます。 アプリがリソースパックを使用して MSIX または .appx としてパッケージ化されている場合、ディレクトリ構造は多少異なります。これは、リソースディレクトリがメインアプリケーションディレクトリのサブディレクトリであるか、それともピアである (ユーザーがいる場合は、まったく存在しない) ことです。の設定に言語が表示されていません)。 
+.NET には、リソースを検索して読み込むための組み込みのメカニズム (「サテライト アセンブリ」と呼ばれます) があるため、上記の合成の例のように、明示的なコードの置き換えは必要ありません。.NET では、適切なディレクトリにリソース DLL が存在することのみが必要であり、それらは自動的に検索されます。 アプリがリソースパックを使用して MSIX または .appx としてパッケージ化されている場合、ディレクトリ構造は多少異なります。これは、リソースディレクトリがメインアプリケーションディレクトリのサブディレクトリであるか、それともピアである (ユーザーの設定に言語が指定されていない場合はまったく存在しない) ことです。 
 
 たとえば、次のレイアウトを持つ .NET アプリケーションを考えます。ここでは、すべてのファイルが `MainApp` フォルダーの下に存在しています。
 
@@ -595,7 +595,7 @@ set absoluteFileName = bestCandidate.ValueAsString
 </pre>
 </blockquote>
 
-.Appx に変換した後、レイアウトは次のようになります。 `en-US` が既定の言語であり、ユーザーの言語一覧にドイツ語とフランス語の両方が含まれていると仮定します。
+.Appx に変換した後、レイアウトは次のようになります。これは既定の言語であり、 `en-US` ユーザーの言語一覧にドイツ語とフランス語の両方が表示されていることを前提としています。
 
 <blockquote>
 <pre>
@@ -615,7 +615,7 @@ set absoluteFileName = bestCandidate.ValueAsString
 
 ローカライズ リソースが、メイン実行可能ファイルのインストール場所の下のサブディレクトリに存在しないため、組み込みの .NET リソースの解決が失敗します。 さいわい、.NET は、失敗したアセンブリの読み込みの試行を処理するための、明確に定義されたメカニズムである、`AssemblyResolve` イベントを備えています。 MRT を使用する .NET アプリは、このイベントに登録して、見つからなかったアセンブリを .NET リソース サブシステムに提供する必要があります。 
 
-WinRT API を使用して、.NET で使われるサテライト アセンブリを検索する方法の簡単な例は次のとおりです。このコードは、最小限の実装を示すように、意図的に圧縮されていますが、上記の疑似コードによく対応しています。ここでは、渡されている `ResolveEventArgs` が検索する必要があるアセンブリの名前を提供します。 このコードの実行可能なバージョン (詳細なコメントとエラー処理を含む) は、`PriResourceRsolver.cs`GitHub の [.NET アセンブリ リゾルバー **サンプル** の ](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DotNetSatelliteAssemblyDemo) にあります。
+WinRT API を使用して、.NET で使われるサテライト アセンブリを検索する方法の簡単な例は次のとおりです。このコードは、最小限の実装を示すように、意図的に圧縮されていますが、上記の疑似コードによく対応しています。ここでは、渡されている `ResolveEventArgs` が検索する必要があるアセンブリの名前を提供します。 このコードの実行可能なバージョン (詳細なコメントとエラー処理を含む) は、[GitHub の **.NET アセンブリ リゾルバー** サンプル](https://github.com/Microsoft/DesktopBridgeToUWP-Samples/tree/master/Samples/DotNetSatelliteAssemblyDemo) の `PriResourceRsolver.cs` にあります。
 
 ```csharp
 static class PriResourceResolver
@@ -649,7 +649,7 @@ void EnableMrtResourceLookup()
 .NET ランタイムは、リソース DLL が見つからない場合には、`AssemblyResolve` イベントを発生させます。その場合、提供されたイベント ハンドラーは、MRT を使って必要なファイルを検索し、アセンブリを返します。
 
 > [!NOTE]
-> アプリに他の目的で既に `AssemblyResolve` ハンドラーがある場合は、リソースを解決するコードを既存のコードと統合する必要があります。
+> アプリに他の目的のハンドラーが既にある場合は `AssemblyResolve` 、リソースを解決するコードを既存のコードと統合する必要があります。
 
 #### <a name="loading-win32-mui-resources"></a>Win32 MUI リソースを読み込む
 
@@ -724,7 +724,7 @@ HRESULT GetMrtResourceHandle(LPCWSTR resourceFilePath,  HINSTANCE* resourceHandl
 
 Bundle Generator ツールを使用するには、パッケージ用に作成した PRI 構成ファイルを手動で更新して、`<packaging>` セクションを削除する必要があります。
 
-Visual Studio を使用している場合は、`priconfig.packaging.xml` と `priconfig.default.xml`のファイルを作成して、すべての言語をメインパッケージに組み込む方法について、[デバイスにリソースがインストールされているかどうかに関係なく、デバイスにリソースがインストールされている](https://docs.microsoft.com/previous-versions/dn482043(v=vs.140))ことを確認してください。
+Visual Studio を使用している場合は、ファイルとを作成して、すべての言語をメインパッケージに組み込む方法について、 [デバイスにリソースがインストールされているかどうかに関係なく、リソースがデバイスにインストールされている](/previous-versions/dn482043(v=vs.140)) ことを確認してください `priconfig.packaging.xml` `priconfig.default.xml` 。
 
 ファイルを手動で編集する場合は、次の手順に従います。 
 
@@ -777,13 +777,13 @@ Visual Studio を使用している場合は、`priconfig.packaging.xml` と `pr
     makepri new /pr . /cf ..\contoso_demo.xml /of ..\resources.pri /mf AppX /o
     ```
 
-3. 次のコマンドを使って、メイン パッケージを作成します (これには実行可能コードと既定の言語リソースが含まれています)。 いつもと同様に、必要に応じて名前を変更します。後でバンドルの作成が容易になるように、パッケージは別のディレクトリに配置する必要があります (この例では、`.\bundle` ディレクトリを使います)。
+3. 次のコマンドを使って、メイン パッケージを作成します (これには実行可能コードと既定の言語リソースが含まれています)。 いつもと同様に、必要に応じて名前を変更します。後でバンドルの作成が容易になるように、パッケージは別のディレクトリに配置する必要があります (この例では、`..\bundle` ディレクトリを使います)。
 
     ```CMD
     makeappx pack /m .\AppXManifest.xml /f ..\resources.map.txt /p ..\bundle\contoso_demo.main.appx /o
     ```
 
-4. メイン パッケージが作成されたら、次のコマンドを追加言語ごとに 1 回ずつ使います (つまり、前の手順で生成された各言語マップ ファイルに、このコマンドを繰り返します)。 ここでも、出力は別のディレクトリ (メイン パッケージと同じディレクトリ) にする必要があります。 言語が **オプションと** オプションの `/f`両方`/p` で指定されていることに注意してください。また、新しい `/r` 引数の使い方 (リソース パッケージが必要であることを指定します) に注意してください。
+4. メイン パッケージが作成されたら、次のコマンドを追加言語ごとに 1 回ずつ使います (つまり、前の手順で生成された各言語マップ ファイルに、このコマンドを繰り返します)。 ここでも、出力は別のディレクトリ (メイン パッケージと同じディレクトリ) にする必要があります。 言語が `/f` オプションと `/p` オプションの **両方** で指定されていることに注意してください。また、新しい `/r` 引数の使い方 (リソース パッケージが必要であることを指定します) に注意してください。
 
     ```CMD
     makeappx pack /r /m .\AppXManifest.xml /f ..\resources.language-de.map.txt /p ..\bundle\contoso_demo.de.appx /o
@@ -799,7 +799,7 @@ Visual Studio を使用している場合は、`priconfig.packaging.xml` と `pr
 
 ### <a name="step-32-signing-the-bundle"></a>手順 3.2: バンドルに署名する
 
-(Bundle Generator ツールを使うか、または手動で) `.appxbundle` を作成したら、メイン パッケージとすべてのリソース パッケージを含む、1 つのファイルが作成されます。 最後の手順は、ファイルに署名を行い、Windows がインストールできるようにすることです。
+(Bundle Generator ツールを使うか、または手動で) `.appxbundle` を作成したら、メイン パッケージとすべてのリソース パッケージを含む、1 つのファイルが作成されます。  最後の手順は、ファイルに署名を行い、Windows がインストールできるようにすることです。
 
 ```CMD
 signtool sign /fd SHA256 /a /f ..\contoso_demo_key.pfx ..\contoso_demo.appxbundle

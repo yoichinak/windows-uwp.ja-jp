@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 177d5a8fed47396fa694bd8fb88baea8d8b7bbb3
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 6478eaa2dadac74c22e5959623f03547f18babfc
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371182"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156316"
 ---
 # <a name="output-merger-om-stage"></a>出力マージャー (OM) ステージ
 
 
 出力マージャー (OM) ステージでは、各種出力データ (ピクセル シェーダー値、深度とステンシルの情報) をレンダー ターゲットおよび深度/ステンシル バッファーの内容と結合し、最終的なパイプラインの結果を生成します。
 
-## <a name="span-idpurpose-and-usesspanspan-idpurpose-and-usesspanspan-idpurpose-and-usesspanpurpose-and-uses"></a><span id="Purpose-and-uses"></span><span id="purpose-and-uses"></span><span id="PURPOSE-AND-USES"></span>目的と使用
+## <a name="span-idpurpose-and-usesspanspan-idpurpose-and-usesspanspan-idpurpose-and-usesspanpurpose-and-uses"></a><span id="Purpose-and-uses"></span><span id="purpose-and-uses"></span><span id="PURPOSE-AND-USES"></span>目的と用途
 
 
 出力マージャー (OM) ステージは、表示するピクセルの決定 (深度ステンシル テストによる) と最終的なピクセル カラーのブレンディングを行うための最後のステップです。
@@ -31,25 +31,25 @@ OM ステージでは、次のものを組み合わせて使用することで�
 -   レンダー ターゲットの内容
 -   深度/ステンシル バッファーの内容
 
-### <a name="span-idblending-overviewspanspan-idblending-overviewspanspan-idblending-overviewspanblending-overview"></a><span id="Blending-overview"></span><span id="blending-overview"></span><span id="BLENDING-OVERVIEW"></span>描画の概要
+### <a name="span-idblending-overviewspanspan-idblending-overviewspanspan-idblending-overviewspanblending-overview"></a><span id="Blending-overview"></span><span id="blending-overview"></span><span id="BLENDING-OVERVIEW"></span>ブレンディングの概要
 
 ブレンディングは、1 つまたは複数のピクセル値を結合して、最終的なピクセル カラーを作成します。 次の図は、ピクセル データのブレンディングに関連するプロセスを示したものです。
 
 ![データのブレンディングのしくみ](images/d3d10-blend-state.png)
 
-概念的には、このフロー チャートが出力結合 (OM) ステージで 2 回実行されると考えることができます。RGB データのブレンディングと、それと並行して実行されるアルファ データのブレンディングです。 API を使用してブレンディング ステートを作成および設定する方法については「[ブレンド機能の構成](https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-blend-state)」を参照してください。
+概念的には、このフロー チャートが出力結合 (OM) ステージで 2 回実行されると考えることができます。RGB データのブレンディングと、それと並行して実行されるアルファ データのブレンディングです。 API を使用してブレンディング ステートを作成および設定する方法については「[ブレンド機能の構成](/windows/desktop/direct3d11/d3d10-graphics-programming-guide-blend-state)」を参照してください。
 
 固定機能ブレンディングは、レンダー ターゲットごとに個別に有効にすることができます。 ただし、ブレンディング制御は 1 組しかないため、ブレンディングが有効なすべての RenderTargets に同じブレンディングが適用されます。 ブレンディング値 (BlendFactor を含む) は常に、ブレンディング前にレンダー ターゲット フォーマットの範囲にクランプされます。 クランプは、レンダー ターゲット タイプを考慮して、レンダー ターゲットごとに実行されます。 ただし、クランプされない float16、float11、および float10 フォーマットは例外で、これらのフォーマットのブレンディング処理は、少なくとも出力フォーマットと同じ精度/範囲で実行できます。 NaN および符号付きのゼロは、すべての場合について伝搬されます (0.0 のブレンドの重みを含みます)。
 
 sRGB レンダー ターゲットを使用する際、ランタイムはブレンディングを実行する前にレンダー ターゲットの色を線形空間に変換します。 ランタイムは、レンダー ターゲットに値を保存する前に、最終的なブレンドされた値をsRGB 空間に変換します。
 
-### <a name="span-iddual-source-color-blendingspanspan-iddual-source-color-blendingspanspan-iddual-source-color-blendingspandual-source-color-blending"></a><span id="Dual-source-color-blending"></span><span id="dual-source-color-blending"></span><span id="DUAL-SOURCE-COLOR-BLENDING"></span>デュアル元の色のブレンド
+### <a name="span-iddual-source-color-blendingspanspan-iddual-source-color-blendingspanspan-iddual-source-color-blendingspandual-source-color-blending"></a><span id="Dual-source-color-blending"></span><span id="dual-source-color-blending"></span><span id="DUAL-SOURCE-COLOR-BLENDING"></span>デュアルソースのカラー ブレンディング
 
 この機能を使用すると、出力マージャーステージで、スロット 0 の 1 つのレンダー ターゲットを使用するブレンディング処理の入力として両方のピクセル シェーダー出力 (o0 および o1) を同時に使用することができます。 有効なブレンディング処理には、加算、減算、および逆減算があります。 ブレンドの式および出力書き込みマスクによって、ピクセル シェーダーが出力する成分が指定されます。 それ以外の成分は無視されます。
 
 他のピクセル シェーダー出力 (o2、o3 など) への書き込みは定義されていません。スロット 0 にバインドされていない場合、レンダー ターゲットに書き込むことはできません。 デュアル ソースのカラー ブレンディング時には、oDepth の書き込みは有効です。
 
-### <a name="span-iddepth-stencil-testspanspan-iddepth-stencil-testspanspan-iddepth-stencil-testspandepth-stencil-testing-overview"></a><span id="Depth-Stencil-Test"></span><span id="depth-stencil-test"></span><span id="DEPTH-STENCIL-TEST"></span>深度ステンシル テストの概要
+### <a name="span-iddepth-stencil-testspanspan-iddepth-stencil-testspanspan-iddepth-stencil-testspandepth-stencil-testing-overview"></a><span id="Depth-Stencil-Test"></span><span id="depth-stencil-test"></span><span id="DEPTH-STENCIL-TEST"></span>深度/ステンシル テストの概要
 
 テクスチャ リソースとして作成される深度/ステンシル バッファーは、深度データとステンシル データの両方を格納できます。 深度データは、カメラに最も近い位置に配置されたピクセルを特定するために使用され、ステンシル データは、更新可能なピクセルをマスクするために使用されます。 最終的には、深度値とステンシル値のデータの両方が、ピクセルを描画する必要があるかどうかを決定するために出力結合 (OM) ステージで使用されます。 次の図は、深度/ステンシル テストがどのように実行されるかを概念的に示したものです。
 
@@ -69,7 +69,7 @@ sRGB レンダー ターゲットを使用する際、ランタイムはブレ�
 
 サンプル マスクは、アクティブなレンダー ターゲットで更新されるサンプルを決定する 32 ビットのマルチサンプリング カバレッジ マスクです。 サンプル マスクは 1 つだけ使用できます。 サンプル マスク内のビットからリソース内のサンプルへのマッピングは、ユーザーが定義します。 n サンプル レンダリングの場合、サンプル マスクの (LSB から) 最初の n ビットが使用されます (最大ビット数は 32 ビットです)。
 
-## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
+## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>代入
 
 
 出力マージャー (OM) ステージでは、次のものを組み合わせて使用することで、レンダリングされる最終的なピクセル カラーを生成します。
@@ -79,7 +79,7 @@ sRGB レンダー ターゲットを使用する際、ランタイムはブレ�
 -   レンダー ターゲットの内容
 -   深度/ステンシル バッファーの内容
 
-## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
+## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>Output
 
 
 ### <a name="span-idoutput-write-mask-overviewspanspan-idoutput-write-mask-overviewspanspan-idoutput-write-mask-overviewspanoutput-write-mask-overview"></a><span id="Output-write-mask-overview"></span><span id="output-write-mask-overview"></span><span id="OUTPUT-WRITE-MASK-OVERVIEW"></span>出力書き込みマスクの概要
@@ -108,7 +108,7 @@ sRGB レンダー ターゲットを使用する際、ランタイムはブレ�
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="configuring-depth-stencil-functionality.md">深度ステンシルの機能を構成します。</a></p></td>
+<td align="left"><p><a href="configuring-depth-stencil-functionality.md">深度ステンシル機能の構成</a></p></td>
 <td align="left"><p>ここでは、出力結合 (OM) ステージの深度/ステンシル バッファーと深度/ステンシル ステートを設定する手順について説明します。</p></td>
 </tr>
 </tbody>
@@ -124,7 +124,3 @@ sRGB レンダー ターゲットを使用する際、ランタイムはブレ�
  
 
  
-
-
-
-

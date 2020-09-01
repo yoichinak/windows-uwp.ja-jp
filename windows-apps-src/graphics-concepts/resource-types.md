@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9712b4498b03460568d20d4c8e27172ad5c14360
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: b300747027f0c9466e7ca04b4c4b571882f57a6e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210098"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156436"
 ---
 # <a name="resource-types"></a>リソースの種類
 
@@ -28,7 +28,7 @@ ms.locfileid: "79210098"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">アイテム</th>
+<th align="left">項目</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -46,7 +46,7 @@ ms.locfileid: "79210098"
 
  
 
-## <a name="span-idbuffer_resourcesspanspan-idbuffer_resourcesspanspan-idbuffer_resourcesspanspan-idbuffer-resourcesspanbuffer-resources"></a><span id="Buffer_Resources"></span><span id="buffer_resources"></span><span id="BUFFER_RESOURCES"></span><span id="buffer-resources"></span>バッファーリソース
+## <a name="span-idbuffer_resourcesspanspan-idbuffer_resourcesspanspan-idbuffer_resourcesspanspan-idbuffer-resourcesspanbuffer-resources"></a><span id="Buffer_Resources"></span><span id="buffer_resources"></span><span id="BUFFER_RESOURCES"></span><span id="buffer-resources"></span>バッファー リソース
 
 
 バッファー リソースは完全に型指定されたデータのコレクションであり、内部的にはバッファーに要素が格納されます。 要素は 1 ～ 4 つの成分で構成されます。 要素のデータ型の例としては、圧縮済みデータ (R8G8B8A8 など)、単一の 8 ビット整数、4 つの 32 ビット浮動小数点などがあります。 これらのデータ型は、位置ベクトル、法線ベクトル、頂点バッファーのテクスチャ座標、インデックス バッファーのインデックス、デバイスの状態などのデータを格納するために使用されます。
@@ -88,7 +88,7 @@ ms.locfileid: "79210098"
 
 -   *オフセット* - バッファーの先頭から最初のインデックスまでのバイト数です。
 -   *StartIndexLocation* - オフセットから、該当する描画呼び出しで使用される最初の頂点までのバイト数です。
--   *IndexCount* - レンダリングするインデックスの数です。
+-   *Indexcount* -レンダリングするインデックスの数。
 
 インデックス バッファーは、ストリップカット インデックスで区切ることによって、複数のライン ストリップまたはトライアングル ストリップ ([プリミティブ トポロジ](primitive-topologies.md)) をまとめることができます。 ストリップカット インデックスを使用すると、複数のライン ストリップまたはトライアングル ストリップを 1 つの描画呼び出しを使って描画することができます。 ストリップカット インデックスは、インデックスに使用できる最大の値のことです (16 ビット インデックスの場合は 0xffff、32 ビット インデックスの場合は 0xffffffff)。 ストリップ カット インデックスはインデックス付きプリミティブのワインディング順序をリセットします。ストリップ カット インデックスを使用すれば、縮退三角形を使用しなくても、トライアングル ストリップの適切なワインディング順序を維持できます。 次の図は、ストリップカット インデックスの例を示しています。
 
@@ -110,18 +110,18 @@ Direct3D には、シェーダー定数バッファーまたは単に定数バ�
 
 定数バッファーを使用して、ストリーム出力ステージの結果を保存します。
 
-シェーダーで定数バッファーを宣言する例については、「[シェーダー定数 (DirectX HLSL)](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants)」をご覧ください。
+シェーダーで定数バッファーを宣言する例については、「[シェーダー定数 (DirectX HLSL)](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants)」をご覧ください。
 
 ## <a name="span-idtexture_resourcesspanspan-idtexture_resourcesspanspan-idtexture_resourcesspanspan-idtexture-resourcesspantexture-resources"></a><span id="Texture_Resources"></span><span id="texture_resources"></span><span id="TEXTURE_RESOURCES"></span><span id="texture-resources"></span>テクスチャリソース
 
 
-テクスチャ リソースは、テクセルを格納するように設計された、データの構造化されたコレクションです。 バッファーと異なり、テクスチャは、シェーダー ユニットに読み取られる際にテクスチャ サンプラーでフィルターを適用することができます。 テクスチャへのフィルター処理の適用方法はテクスチャの種類に影響されます。 テクセルは、パイプラインで読み取ったり、書き込んだりすることができるテクスチャの最小単位を表します。 各テクセルには 1 ~ 4 個のコンポーネントが含まれており、いずれかの DXGI 形式で配置されます (「 [**dxgi\_形式**](https://docs.microsoft.com/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format)」を参照してください)。
+テクスチャ リソースは、テクセルを格納するように設計された、データの構造化されたコレクションです。 バッファーと異なり、テクスチャは、シェーダー ユニットに読み取られる際にテクスチャ サンプラーでフィルターを適用することができます。 テクスチャへのフィルター処理の適用方法はテクスチャの種類に影響されます。 テクセルは、パイプラインで読み取ったり、書き込んだりすることができるテクスチャの最小単位を表します。 各テクセルには、1 ~ 4 個のコンポーネントが含まれており、いずれかの DXGI 形式で配置されます (「 [**dxgi \_ 形式**](/windows/desktop/api/dxgiformat/ne-dxgiformat-dxgi_format)」を参照してください)。
 
 テクスチャは構造化されたリソースとして作成されるため、そのサイズがわかります。 ただし、各テクスチャはリソース作成時に型指定される場合もありますが、テクスチャをパイプラインにバインドするときにビューを使用して型を完全に指定するという条件で、リソース作成時に型指定されない場合もあります。
 
 -   [テクスチャの種類](#texture-types)
 -   [サブリソース](#subresources)
--   [厳密な型指定と弱い型指定](#typed)
+-   [強い型指定と弱い型指定](#typed)
 
 ### <a name="span-idtexture_typesspanspan-idtexture_typesspanspan-idtexture_typesspanspan-idtexture-typesspantexture-types"></a><span id="Texture_Types"></span><span id="texture_types"></span><span id="TEXTURE_TYPES"></span><span id="texture-types"></span>テクスチャの種類
 
@@ -154,7 +154,7 @@ Direct3D 10 には、テクスチャの配列用の新しいデータ構造も�
 
 Direct3D のすべてのテクスチャ配列は、テクスチャの同次配列です。つまり、1 つのテクスチャ配列内にあるテクスチャはすべて、データ形式とサイズが (テクスチャ幅とミップマップ レベル数も含めて) 同じである必要があります。 各配列に含まれるすべてのテクスチャのサイズが一致してさえいれば、さまざまなサイズのテクスチャ配列を作成できます。
 
-### <a name="span-idtexture2d_resourcespanspan-idtexture2d_resourcespanspan-idtexture2d_resourcespanspan-idtexture2d-resourcespan2d-texture-and-2d-texture-array"></a><span id="Texture2D_Resource"></span><span id="texture2d_resource"></span><span id="TEXTURE2D_RESOURCE"></span><span id="texture2d-resource"></span>2D テクスチャと2D テクスチャ配列
+### <a name="span-idtexture2d_resourcespanspan-idtexture2d_resourcespanspan-idtexture2d_resourcespanspan-idtexture2d-resourcespan2d-texture-and-2d-texture-array"></a><span id="Texture2D_Resource"></span><span id="texture2d_resource"></span><span id="TEXTURE2D_RESOURCE"></span><span id="texture2d-resource"></span>2D テクスチャと 2D テクスチャ配列
 
 Texture2D リソースにはテクセルの 2D グリッドが 1 つ含まれています。 各テクセルは u ベクトルと v ベクトルで指定できます。 これはテクスチャ リソースであるため、ミップマップ レベルとサブリソースが格納される場合もあります。 すべてのデータが設定された 2D テクスチャ リソースは次の図のようになります。
 
@@ -222,7 +222,7 @@ API の中にはリソース全体にアクセスするものもあれば、リ�
 
 ![ミップ スライスの図](images/d3d10-resource-mip-slice.png)
 
-### <a name="span-idselecting_a_single_subresourcespanspan-idselecting_a_single_subresourcespanspan-idselecting_a_single_subresourcespanselecting-a-single-subresource"></a><span id="Selecting_a_Single_Subresource"></span><span id="selecting_a_single_subresource"></span><span id="SELECTING_A_SINGLE_SUBRESOURCE"></span>1つのサブリソースを選択する
+### <a name="span-idselecting_a_single_subresourcespanspan-idselecting_a_single_subresourcespanspan-idselecting_a_single_subresourcespanselecting-a-single-subresource"></a><span id="Selecting_a_Single_Subresource"></span><span id="selecting_a_single_subresource"></span><span id="SELECTING_A_SINGLE_SUBRESOURCE"></span>単一サブリソースの選択
 
 次の図に示すように、単一のリソースを選択するには、前述の 2 種類のスライスを使用します。
 

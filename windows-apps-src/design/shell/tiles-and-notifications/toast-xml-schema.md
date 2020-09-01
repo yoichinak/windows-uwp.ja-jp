@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 33244391ca9f2ffcba21adacccebf2e9b1d73419
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cf3bf3733e17312ee0750006d2b8f94c70dbbd43
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66363358"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156656"
 ---
 # <a name="toast-content-xml-schema"></a>トースト通知のコンテンツの XML スキーマ
 
@@ -43,12 +43,12 @@ ms.locfileid: "66363358"
 </toast>
 ```
 
-**属性&lt;トースト&gt;**
+**トーストの属性 &lt;&gt;**
 
 launch?
 
 -   launch?  = 文字列
--   この属性は省略可能です。
+-   これは省略可能な属性です。
 -   トースト通知によってアプリケーションがアクティブ化されるときにアプリケーションに渡される文字列です。
 -   activationType の値に応じて、この値は、フォアグラウンドのアプリ、バックグラウンド タスクの内部、または元のアプリからプロトコル起動された他のアプリで取得することができます。
 -   この文字列の形式とコンテンツは、アプリ独自の使用方法に合わせて、アプリによって定義されます。
@@ -58,14 +58,14 @@ launch?
 duration?
 
 -   duration?  = "short|long"
--   この属性は省略可能です。 既定値は "short" です。
+-   これは省略可能な属性です。 既定値は "short" です。
 -   これは、特定のシナリオやアプリケーションの互換性のみを目的とした属性です。 アラーム シナリオでは、この属性は必要ありません。
 -   このプロパティを使うことはお勧めしません。
 
 activationType?
 
 -   activationType?  = "foreground | background | protocol | system"
--   この属性は省略可能です。
+-   これは省略可能な属性です。
 -   既定値は "foreground" です。
 
 scenario?
@@ -75,51 +75,51 @@ scenario?
 -   シナリオがアラーム、リマインダー、着信呼び出しの表示以外の場合、この属性は必要ありません。
 -   通知を常に画面上に表示することのみを目的とする場合は、この属性を使わないでください。
 
-**属性&lt;visual&gt;**
+**ビジュアルの属性 &lt;&gt;**
 
 lang?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 baseUri?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 addImageQuery?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
-**属性&lt;バインド&gt;**
+**バインディングの属性 &lt;&gt;**
 
 template?
 
--   \[重要な\]テンプレートでしょうか。  = "ToastGeneric"
+-   \[重要な \] テンプレートですか?  = "ToastGeneric"
 -   新しいアダプティブ通知と対話型通知の機能を使う場合は、従来のテンプレートではなく、必ず "ToastGeneric" テンプレートを使って作業を始めてください。
 -   新しい操作で従来のテンプレートを使うと、現時点では動作する可能性があります。ただし、この方法は対象となる使用方法ではないため、今後も引き続き動作するかどうかは保証できません。
 
 lang?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 baseUri?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
 addImageQuery?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
-**属性&lt;テキスト&gt;**
+**テキスト内の属性 &lt;&gt;**
 
 lang?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-visual)をご覧ください。
 
-**属性&lt;イメージ&gt;**
+**画像内の属性 &lt;&gt;**
 
 src
 
--   この必須の属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
+-   この必須の属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
 
 placement?
 
@@ -131,11 +131,11 @@ placement?
 
 alt?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
 
 addImageQuery?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-image)をご覧ください。
 
 hint-crop?
 
@@ -144,19 +144,19 @@ hint-crop?
 -   既定値は "none" であり、トリミングされないことを意味します。
 -   "circle" を指定すると、画像が円形にトリミングされます。 連絡先のプロフィール画像、人物の画像などにこの属性を使います。
 
-**属性&lt;オーディオ&gt;**
+**オーディオの属性 &lt;&gt;**
 
 src?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
 
 loop?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
 
 silent?
 
--   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
+-   この省略可能な属性について詳しくは、[要素のスキーマに関するこの記事](/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。
 
 ## <a name="schemas-ltactiongt"></a>スキーマ: &lt;action&gt;
 
@@ -177,7 +177,7 @@ silent?
 </toast>
 ```
 
-**属性&lt;入力&gt;**
+**入力の属性 &lt;&gt;**
 
 id
 
@@ -185,7 +185,7 @@ id
 -   この属性は必須です。
 -   id 属性は必須の属性であり、アプリが (フォアグラウンドまたはバックグラウンドで) アクティブ化されたときにユーザー入力を取得するために使われます。
 
-type
+型
 
 -   type = "text | selection"
 -   この属性は必須です。
@@ -210,24 +210,24 @@ defaultInput?
 -   入力の種類が "text" である場合、この属性は文字列入力として処理されます。
 -   入力の種類が "selection" である場合、この属性は、入力の要素内で利用できるいずれかの選択項目の ID として処理されます。
 
-**属性&lt;の選択&gt;**
+**選択範囲内の属性 &lt;&gt;**
 
 id
 
 -   この属性は必須です。 ユーザーの選択項目を特定するために使われます。 id はアプリに返されます。
 
-content
+コンテンツ
 
 -   この属性は必須です。 この selection 要素に対して表示する文字列を指定します。
 
-**属性&lt;アクション&gt;**
+**動作中の属性 &lt;&gt;**
 
-content
+コンテンツ
 
 -   content = 文字列
 -   content 属性は必須です。 ボタンに表示されるテキスト文字列を指定します。
 
-arguments
+引数
 
 -   arguments = 文字列
 -   arguments 属性は必須です。 この属性は、アプリによって定義されたデータを表します。ユーザーがこの action を実行し、アプリがアクティブ化された後で、アプリはこのデータを取得することができます。
@@ -255,7 +255,7 @@ hint-inputId
 
 アプリで再通知や通知の再スケジュールをバックグラウンド タスクとして処理しない場合は、システムで、再通知や通知を無視するための操作を処理できます。 システムによって処理される操作は、組み合わせることができます (または個別に指定することもできます)。ただし、無視操作を使わないで再通知の操作を実装することはお勧めしません。
 
-システム コマンド コンボ:SnoozeAndDismiss
+システム コマンドの組み合わせ: SnoozeAndDismiss
 
 ```
 <toast>

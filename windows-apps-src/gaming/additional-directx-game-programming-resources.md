@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、プログラミング
 ms.localizationpriority: medium
-ms.openlocfilehash: a87b979dc48f8977047599cac6a32ba0d901bd63
-ms.sourcegitcommit: 2571af6bf781a464a4beb5f1aca84ae7c850f8f9
+ms.openlocfilehash: 6c1da82eaff074dfd3e925c298f9839dbb70ee3d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606361"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156506"
 ---
 # <a name="game-programming-resources"></a>ゲーム プログラミング リソース
 
@@ -23,7 +23,7 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 ## <a name="game-programming-reference"></a>ゲーム プログラミング リファレンス
 
 
--   [グラフィックスとゲーム](https://docs.microsoft.com/windows/desktop/graphics-and-multimedia)
+-   [グラフィックスとゲーム](/windows/desktop/graphics-and-multimedia)
 -   [OpenGL リファレンスに関するページ](https://www.opengl.org/sdk/docs/man4/)
 
 ## <a name="game-design-guidance"></a>ゲーム設計のガイダンス
@@ -43,9 +43,9 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
 
 -   [DirectX ツール キット](  https://github.com/Microsoft/DirectXTK)
 -   [DirectXTex テクスチャ処理ライブラリに関するページ](  https://github.com/Microsoft/DirectXTex)
--   Microsoft Visual Studio [ グラフィックス診断](https://docs.microsoft.com/visualstudio/debugger/overview-of-visual-studio-graphics-diagnostics?view=vs-2015) に関するページ
+-   Microsoft Visual Studio [ グラフィックス診断](/visualstudio/debugger/overview-of-visual-studio-graphics-diagnostics?view=vs-2015) に関するページ
 -   [Win2D](https://github.com/Microsoft/Win2D) - GPU アクセラレーションを使った即時モードの 2D グラフィックス レンダリング用の、使いやすい Windows ランタイム API です。
--   [Microsoft Store の角度](https://github.com/microsoft/angle/wiki)-OPENGL es api 呼び出しを DIRECTX 11 api 呼び出しに変換することにより、Windows で opengl es コンテンツを実行します。
+-   [Microsoft Store の角度](https://github.com/microsoft/angle/wiki) -OPENGL es api 呼び出しを DIRECTX 11 api 呼び出しに変換することにより、Windows で opengl es コンテンツを実行します。
 
 ## <a name="gdc-2015-game-dev-session-videos"></a>GDC 2015 のゲーム開発セッションのビデオ
 
@@ -81,7 +81,3 @@ Windows でのゲーム プログラミングについて詳しくは、次の�
  
 
  
-
-
-
-

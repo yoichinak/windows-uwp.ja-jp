@@ -6,20 +6,20 @@ ms.topic: article
 keywords: windows 10、uwp、接続されているデバイス、リモートシステム、ローマ、プロジェクトローマ
 ms.assetid: 7f39d080-1fff-478c-8c51-526472c1326a
 ms.localizationpriority: medium
-ms.openlocfilehash: 742ef56165ea26df3a03d54e99a17d2a00908cb6
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 08004f22575be69fff3f8d8017ea34327d9a0b7a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684454"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156036"
 ---
 # <a name="connected-apps-and-devices-project-rome"></a>接続されるアプリやデバイス ("Rome" プロジェクト)
 
-このセクションでは、[プロジェクトローマ](https://developer.microsoft.com/windows/project-rome)を使用してデバイスとプラットフォームの間でアプリを接続する方法について説明します。 クロスプラットフォームシナリオでプロジェクトローマを実装する方法については、[プロジェクトローマのメインドキュメントページ](https://docs.microsoft.com/windows/project-rome/)を参照してください。
+このセクションでは、 [プロジェクトローマ](https://developer.microsoft.com/windows/project-rome)を使用してデバイスとプラットフォームの間でアプリを接続する方法について説明します。 クロスプラットフォームシナリオでプロジェクトローマを実装する方法については、 [プロジェクトローマのメインドキュメントページ](/windows/project-rome/)を参照してください。
 
 ほとんどのユーザーは複数のデバイスを持っており、あるデバイスでアクティビティを始めてデバイスで終えることがよくあります。 これに対応するため、アプリはデバイスとプラットフォームにまたがる必要があります。 Project ローマでは、リモートデバイスの検出、リモートデバイスでのアプリの起動、リモートデバイスでの app service との通信を行うことができます。
 
-Windows 10 バージョン 1607 に導入された[リモート システム API](https://docs.microsoft.com/uwp/api/Windows.System.RemoteSystems) を使うと、ユーザーがあるデバイスでタスクを開始して別のデバイスで終えることができるアプリを記述できます。 タスクは中央のフォーカスに残り、ユーザーは最も便利なデバイスで作業を行うことができます。 たとえば、ユーザーが車に乗りながら電話でラジオを聴きますが、帰宅したらホーム ステレオ システムに搭載した Xbox One に再生を転送することがあります。
+Windows 10 バージョン1607で導入された [リモートシステム api](/uwp/api/Windows.System.RemoteSystems) を使用すると、ユーザーが1つのデバイスでタスクを開始し、別のデバイスでタスクを完了できるようにするアプリを作成できます。 タスクは中央のフォーカスに残り、ユーザーは最も便利なデバイスで作業を行うことができます。 たとえば、ユーザーが車に乗りながら電話でラジオを聴きますが、帰宅したらホーム ステレオ システムに搭載した Xbox One に再生を転送することがあります。
 
 コンパニオン デバイスに "Rome" プロジェクトを使う (つまり、リモート制御シナリオ) こともできます。 アプリ サービス メッセージング API を使って 2 つのデバイス間にアプリ チャネルを作り、カスタム メッセージを送受信します。 たとえば、テレビの再生を制御する電話用アプリや、別のアプリで視聴しているテレビ番組のキャラクターに関する情報を表示するコンパニオン アプリを記述することができます。  
 
@@ -36,4 +36,4 @@ Windows 10 バージョン 1607 に導入された[リモート システム API
 | [リモート アプリ サービスとの通信](communicate-with-a-remote-app-service.md) | リモート デバイスのアプリを操作する方法について説明します。 |
 | [リモート セッションでデバイスを接続する](remote-sessions.md) | リモート セッションで複数のデバイスを結合することにより、これらのデバイス間で共有エクスペリエンスを作成します。 |
 | [デバイス間でもユーザーのアクティビティを継続する](useractivities.md)| 複数のデバイスであっても、ユーザーがアプリで行っていた操作を再開できるようにします。|
-| [ユーザーアクティビティのベストプラクティス](useractivities-best-practices.md)| ユーザーアクティビティを作成および更新するための推奨される方法について説明します。|
+| [ユーザー アクティビティのベスト プラクティス](useractivities-best-practices.md)| ユーザーアクティビティを作成および更新するための推奨される方法について説明します。|

@@ -7,17 +7,17 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a6b61463204b4ae60fbb853cd00a10c7185a084
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: a8e3bee4a32c4a66ece5f486386340e9f9122f87
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66362699"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156806"
 ---
 # <a name="send-a-local-tile-notification"></a>ローカル タイル通知の送信
  
 
-Windows 10 での主要なアプリのタイルは、セカンダリ タイルをプログラムで作成され、アプリのコードで定義されているときに、アプリ マニフェストで定義されます。 この記事では、アダプティブ タイル テンプレートを使って、ローカル タイル通知をプライマリ タイルやセカンダリ タイルに送信する方法について説明します  (ローカル通知とは、Web サーバーからプッシュまたはプルされる通知ではなく、アプリ コードから送信される通知です)。
+Windows 10 では、アプリのプライマリ タイルはアプリ マニフェストで定義されます。これに対して、セカンダリ タイルはプログラムによって作成され、アプリ コードで定義されます。 この記事では、アダプティブ タイル テンプレートを使って、ローカル タイル通知をプライマリ タイルやセカンダリ タイルに送信する方法について説明します  (ローカル通知とは、Web サーバーからプッシュまたはプルされる通知ではなく、アプリ コードから送信される通知です)。
 
 ![既定のタイルと通知を含んだタイル](images/sending-local-tile-01.png)
 
@@ -26,17 +26,17 @@ Windows 10 での主要なアプリのタイルは、セカンダリ タイル�
 
  
 
-## <a name="install-the-nuget-package"></a>NuGet パッケージをインストールする
+## <a name="install-the-nuget-package"></a>NuGet パッケージのインストール
 
 
 [Notifications ライブラリの NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)をインストールすることをお勧めします。このパッケージを使うと、生の XML ではなくオブジェクトによってタイルのペイロードが生成され、作業が簡素化されます。
 
 この記事のインライン コードの例は、Notifications ライブラリを使った場合の C# に対応しています  (独自の XML を作成する場合は、この記事の最後に示されている、Notifications ライブラリを使わないコード例をご覧ください)。
 
-## <a name="add-namespace-declarations"></a>名前空間宣言を追加する
+## <a name="add-namespace-declarations"></a>名前空間宣言の追加
 
 
-タイル API にアクセスするには、[**Windows.UI.Notifications**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications) 名前空間を追加します。 **Microsoft.Toolkit.Uwp.Notifications** 名前空間も追加することをお勧めします。これにより、タイルのヘルパー API を使うことができます (これらの API にアクセスするには、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)の NuGet パッケージをインストールする必要があります)。
+タイル API にアクセスするには、[**Windows.UI.Notifications**](/uwp/api/Windows.UI.Notifications) 名前空間を追加します。 **Microsoft.Toolkit.Uwp.Notifications** 名前空間も追加することをお勧めします。これにより、タイルのヘルパー API を使うことができます (これらの API にアクセスするには、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)の NuGet パッケージをインストールする必要があります)。
 
 ```csharp
 using Windows.UI.Notifications;
@@ -46,7 +46,7 @@ using Microsoft.Toolkit.Uwp.Notifications; // Notifications library
 ## <a name="create-the-notification-content"></a>タイル通知のコンテンツを作成する
 
 
-Windows 10 でタイルのペイロードは、通知のカスタム ビジュアルのレイアウトを作成するため、適応型タイル テンプレートを使用して定義されます。 (アダプティブ タイルの活用方法について詳しくは、「[アダプティブ タイルの作成](create-adaptive-tiles.md)」をご覧ください)。
+Windows 10 では、アダプティブ タイル テンプレートを使ってタイルのペイロードが定義されます。これにより、通知に合わせたカスタムの視覚的なレイアウトを作成できます  (アダプティブ タイルの活用方法について詳しくは、「[アダプティブ タイルの作成](create-adaptive-tiles.md)」をご覧ください)。
 
 次のコード例では、普通サイズのタイルおよびワイド タイル用にアダプティブ タイルのコンテンツを作成します。
 
@@ -125,7 +125,7 @@ TileContent content = new TileContent()
 ## <a name="create-the-notification"></a>通知を作成する
 
 
-通知のコンテンツを決定したら、新しい [**TileNotification**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileNotification) を作成する必要があります。 **TileNotification** コンストラクターは Windows ランタイムの [**XmlDocument**](https://docs.microsoft.com/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトを受け取ります。このオブジェクトは、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)を使っている場合に、**TileContent.GetXml** メソッドから取得することができます。
+通知のコンテンツを決定したら、新しい [**TileNotification**](/uwp/api/Windows.UI.Notifications.TileNotification) を作成する必要があります。 **TileNotification** コンストラクターは Windows ランタイムの [**XmlDocument**](/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトを受け取ります。このオブジェクトは、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)を使っている場合に、**TileContent.GetXml** メソッドから取得することができます。
 
 次のコード例では、新しいタイルの通知を作成します。
 
@@ -152,7 +152,7 @@ tileNotification.ExpirationTime = DateTimeOffset.UtcNow.AddMinutes(10);
 
 **プライマリ タイル**
 
-通知をプライマリ タイルに送信するには、[**TileUpdateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications.TileUpdateManager) を使ってプライマリ タイル用のタイル アップデーターを作成し、"Update" を呼び出して通知を送信します。 表示されるかどうかに関係なく、アプリのプライマリ タイルは常に存在します。そのため、タイルがピン留めされていない場合でも、通知をタイルに送信することができます。 ユーザーが後でプライマリ タイルをピン留めする場合、送信した通知はタイルをピン留めしたときに表示されます。
+通知をプライマリ タイルに送信するには、[**TileUpdateManager**](/uwp/api/Windows.UI.Notifications.TileUpdateManager) を使ってプライマリ タイル用のタイル アップデーターを作成し、"Update" を呼び出して通知を送信します。 表示されるかどうかに関係なく、アプリのプライマリ タイルは常に存在します。そのため、タイルがピン留めされていない場合でも、通知をタイルに送信することができます。 ユーザーが後でプライマリ タイルをピン留めする場合、送信した通知はタイルをピン留めしたときに表示されます。
 
 次のコード例では、通知をプライマリ タイルに送信します。
 
@@ -162,9 +162,9 @@ tileNotification.ExpirationTime = DateTimeOffset.UtcNow.AddMinutes(10);
 TileUpdateManager.CreateTileUpdaterForApplication().Update(notification);
 ```
 
-**セカンダリ タイル**
+**セカンダリタイル**
 
-通知をセカンダリ タイルに送信するには、まず、セカンダリ タイルが存在することを確認します。 存在しないセカンダリ タイル (ユーザーがセカンダリ タイルのピン留めを外した場合など) のタイル アップデーターを作成すると、例外がスローされます。 [  **SecondaryTile.Exists**](https://docs.microsoft.com/uwp/api/Windows.UI.StartScreen.SecondaryTile#Windows_UI_StartScreen_SecondaryTile_Exists_System_String_)(tileId) を使ってセカンダリ タイルがピン留めされていることを確認してから、セカンダリ タイルのタイル アップデーターを作成し、通知を送信することができます。
+通知をセカンダリ タイルに送信するには、まず、セカンダリ タイルが存在することを確認します。 存在しないセカンダリ タイル (ユーザーがセカンダリ タイルのピン留めを外した場合など) のタイル アップデーターを作成すると、例外がスローされます。 [**SecondaryTile.Exists**](/uwp/api/Windows.UI.StartScreen.SecondaryTile#Windows_UI_StartScreen_SecondaryTile_Exists_System_String_)(tileId) を使ってセカンダリ タイルがピン留めされていることを確認してから、セカンダリ タイルのタイル アップデーターを作成し、通知を送信することができます。
 
 次のコード例では、通知をセカンダリ タイルに送信します。
 
@@ -199,14 +199,14 @@ TileUpdateManager.CreateTileUpdaterForApplication().Clear();
 
 ![通知を含んだタイルと消去された後のタイル](images/sending-local-tile-03.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 
-**通知キューを使用します。**
+**通知キューの使用**
 
-最初のタイルの更新を実行したので、[通知キュー](https://docs.microsoft.com/previous-versions/windows/apps/hh868234(v=win.10))を有効にしてタイルの機能を拡張できます。
+最初のタイルの更新を実行したので、[通知キュー](/previous-versions/windows/apps/hh868234(v=win.10))を有効にしてタイルの機能を拡張できます。
 
-**その他の通知の配信方法**
+**通知の他の配信方法**
 
 この記事では、タイルの更新を通知として送信する方法について説明します。 通知を配信する他の方法 (スケジュール、定期的、プッシュ) を調べるには、「[通知の配信](choosing-a-notification-delivery-method.md)」をご覧ください。
 
@@ -233,7 +233,7 @@ public string XmlEncode(string text)
 
 [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)の NuGet パッケージではなく、生の XML を使う場合は、この記事で照会した最初の 3 つの例で、以下の代替のコード例を利用することができます。 他のコード例は、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)または生の XML のいずれかと共に使うことができます。
 
-名前空間宣言を追加する
+名前空間宣言の追加
 
 ```csharp
 using Windows.UI.Notifications;
@@ -288,15 +288,11 @@ var notification = new TileNotification(doc);
 
 * [アダプティブ タイルの作成](create-adaptive-tiles.md)
 * [タイルのコンテンツのスキーマ](../tiles-and-notifications/tile-schema.md)
-* [通知ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
-* [GitHub の完全なコード サンプル](https://github.com/WindowsNotifications/quickstart-sending-local-tile-win10)
-* [**Windows.UI.Notifications 名前空間**](https://docs.microsoft.com/uwp/api/Windows.UI.Notifications)
-* [通知キュー (XAML) を使用する方法](https://docs.microsoft.com/previous-versions/windows/apps/hh868234(v=win.10))
-* [通知を配信します。](choosing-a-notification-delivery-method.md)
+* [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
+* [GitHub での完全なコード サンプル](https://github.com/WindowsNotifications/quickstart-sending-local-tile-win10)
+* [**Windows.UI.Notifications 名前空間**](/uwp/api/Windows.UI.Notifications)
+* [通知キューの使用方法 (XAML)](/previous-versions/windows/apps/hh868234(v=win.10))
+* [通知の配信](choosing-a-notification-delivery-method.md)
  
 
  
-
-
-
-

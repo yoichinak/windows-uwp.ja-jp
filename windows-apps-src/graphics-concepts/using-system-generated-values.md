@@ -7,17 +7,17 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 87d4be69d9a7869f5331d30225e93a22ad9e959c
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 7217b52c6e9f9882997649c5f843eb119d741e0b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371253"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156156"
 ---
-# <a name="span-iddirect3dconceptsusingsystem-generatedvaluesspanusing-system-generated-values"></a><span id="direct3dconcepts.using_system-generated_values"></span>システムによって生成された値を使用してください。
+# <a name="span-iddirect3dconceptsusing_system-generated_valuesspanusing-system-generated-values"></a><span id="direct3dconcepts.using_system-generated_values"></span>システム生成値の使用
 
 
-システム生成値は、シェーダー操作で一定の効率を実現するために、[入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)で (ユーザー指定の入力[セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)に基づいて) 生成されます。 インスタンス ID ([頂点シェーダー (VS) ステージ](vertex-shader-stage--vs-.md)で参照可能)、頂点 ID (VS で参照可能)、またはプリミティブ ID ([ジオメトリ シェーダー (GS) ステージ](geometry-shader-stage--gs-.md)/[ピクセル シェーダー (PS) ステージ](pixel-shader-stage--ps-.md)で参照可能) などのデータをアタッチするとにより、その後のシェーダー ストレージがそれらのシステム値を探して、そのステージでの処理を最適化できるようになります。
+システムによって生成される値は、シェーダー操作の特定の効率を実現するために、 [入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md) (ユーザー指定の入力 [セマンティクス](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)に基づく) によって生成されます。 インスタンス ID ([頂点シェーダー (VS) ステージ](vertex-shader-stage--vs-.md)で参照可能)、頂点 ID (VS で参照可能)、またはプリミティブ ID ([ジオメトリ シェーダー (GS) ステージ](geometry-shader-stage--gs-.md)/[ピクセル シェーダー (PS) ステージ](pixel-shader-stage--ps-.md)で参照可能) などのデータをアタッチするとにより、その後のシェーダー ストレージがそれらのシステム値を探して、そのステージでの処理を最適化できるようになります。
 
 たとえば、VS ステージでは、インスタンス ID を参照してシェーダー用の頂点ごとの追加データを取得したり、その他の操作を実行したりできます。GS ステージや PS ステージでは、プリミティブ ID を使ってプリミティブごとのデータを同じように取得できます。
 
@@ -48,7 +48,7 @@ IA ステージは、各プリミティブにプリミティブ ID を追加し�
 
 頂点シェーダーの入力宣言にインスタンス ID のセマンティックが含まれている場合、[入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md) は各頂点にインスタンス ID を追加します。 インデックス付きの描画が呼び出されるたびに、インスタンス ID は 1 ずつ増加します。 その他の描画呼び出しでは、インスタンス ID の値は変わりません。 インスタンス ID がオーバーフローした場合 (2³²– 1 を超えた場合) は 0 に戻ります。
 
-## <a name="span-idexamplespanspan-idexamplespanspan-idexamplespanexample"></a><span id="Example"></span><span id="example"></span><span id="EXAMPLE"></span>例
+## <a name="span-idexamplespanspan-idexamplespanspan-idexamplespanexample"></a><span id="Example"></span><span id="example"></span><span id="EXAMPLE"></span>よう
 
 
 次の図は、[入力アセンブラー (IA) ステージ](input-assembler-stage--ia-.md)で、インスタンス化されたトライアングル ストリップにどのようにシステム値がアタッチされるかを示しています。
@@ -103,7 +103,3 @@ IA ステージは、各プリミティブにプリミティブ ID を追加し�
  
 
  
-
-
-
-

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, UI, ナビゲーション
 ms.localizationpriority: medium
-ms.openlocfilehash: ec5ba9d893a622e256030601cca204abab35045f
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7cf5369bd01fbcf95c5af7bddc7055958cc50299
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57599927"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159086"
 ---
 # <a name="ui-navigation-controller"></a>UI ナビゲーション コントローラー
 
@@ -40,14 +40,14 @@ UI ナビゲーション コントローラーは_論理_入力デバイスで�
 次の表は、これらのコマンドとその使用目的を例と共にまとめたものです。
 | コマンド | 使用目的
 | -------:| ---------------
-|      Up | XY フォーカス ナビゲーションの上
-|    Down | XY フォーカス ナビゲーションの下
+|      上へ | XY フォーカス ナビゲーションの上
+|    [下へ] | XY フォーカス ナビゲーションの下
 |    Left | XY フォーカス ナビゲーションの左
-|   右 | XY フォーカス ナビゲーションの右
-|    ビュー | ゲームプレイの情報を表示 _(スコアボード、ゲーム統計、目標、世界やマップ領域)_
-|    Menu | プライマリ メニューまたは一時停止 _(設定、状態、装備、道具、一時停止)_
-|  OK | 肯定的な応答 _(同意する、進む、確認する、開始する、はい)_
-|  Cancel | 否定的な応答 _(拒否する、後退する、断る、停止する、いいえ)_
+|   Right | XY フォーカス ナビゲーションの右
+|    表示 | ゲームプレイの情報を表示 _(スコアボード、ゲーム統計、目標、世界やマップ領域)_
+|    メニュー | プライマリ メニューまたは一時停止 _(設定、状態、装備、道具、一時停止)_
+|  承諾 | 肯定的な応答 _(同意する、進む、確認する、開始する、はい)_
+|  キャンセル | 否定的な応答 _(拒否する、後退する、断る、停止する、いいえ)_
 
 
 ### <a name="optional-set"></a>オプション セット
@@ -82,31 +82,31 @@ Windows.Gaming.Input 名前空間でサポートされている入力デバイ�
 
 | ナビゲーション コマンド | ゲームパッド入力                       | アーケード スティック入力 | レース ホイール入力 |
 | ------------------:| ----------------------------------- | ------------------ | ------------------ |
-|                 Up | 左スティックを上/方向パッドを上       | スティックを上           | 方向パッドを上           |
-|               Down | 左スティックを下/方向パッドを下   | スティックを下         | 方向パッドを下         |
+|                 上へ | 左スティックを上/方向パッドを上       | スティックを上           | 方向パッドを上           |
+|               [下へ] | 左スティックを下/方向パッドを下   | スティックを下         | 方向パッドを下         |
 |               Left | 左スティックを左/方向パッドを左   | スティックを左         | 方向パッドを左         |
-|              右 | 左スティックを右/方向パッドを右 | スティックを右        | 方向パッドを右        |
-|               ビュー | 表示ボタン                         | 表示ボタン        | 表示ボタン        |
-|               Menu | メニュー ボタン                         | メニュー ボタン        | メニュー ボタン        |
-|             OK | A ボタン                            | アクション 1 ボタン    | A ボタン           |
-|             Cancel | B ボタン                            | アクション 2 ボタン    | B ボタン           |
+|              Right | 左スティックを右/方向パッドを右 | スティックを右        | 方向パッドを右        |
+|               表示 | 表示ボタン                         | 表示ボタン        | 表示ボタン        |
+|               メニュー | メニュー ボタン                         | メニュー ボタン        | メニュー ボタン        |
+|             承諾 | A ボタン                            | アクション 1 ボタン    | A ボタン           |
+|             キャンセル | B ボタン                            | アクション 2 ボタン    | B ボタン           |
 
 次の表は、_オプション セット_のナビゲーション コマンドをさまざまな入力デバイスにマッピングする方法をまとめたものです。
 
 | ナビゲーション コマンド | ゲームパッド入力          | アーケード スティック入力 | レース ホイール入力    |
 | ------------------:| ---------------------- | ------------------ | --------------------- |
-|             PageUp | 左トリガー           | _サポートされていません_    | _異なります_              |
-|           PageDown | 右トリガー          | _サポートされていません_    | _異なります_              |
-|           PageLeft | L ボタン            | _サポートされていません_    | _異なります_              |
-|          PageRight | R ボタン           | _サポートされていません_    | _異なります_              |
-|           ScrollUp | 右スティックを上    | _サポートされていません_    | _異なります_              |
-|         ScrollDown | 右スティックを下  | _サポートされていません_    | _異なります_              |
-|         ScrollLeft | 右スティックを左  | _サポートされていません_    | _異なります_              |
-|        ScrollRight | 右スティックを右 | _サポートされていません_    | _異なります_              |
-|           Context1 | X ボタン               | _サポートされていません_    | X ボタン (_一般的な場合_) |
-|           Context2 | Y ボタン               | _サポートされていません_    | Y ボタン (_一般的な場合_) |
-|           Context3 | 左スティックを押す  | _サポートされていません_    | _異なります_              |
-|           Context4 | 右スティックを押す | _サポートされていません_    | _異なります_              |
+|             PageUp | 左トリガー           | _サポートされていない_    | _状況に応じて異なる_              |
+|           PageDown | 右トリガー          | _サポートされていない_    | _状況に応じて異なる_              |
+|           PageLeft | L ボタン            | _サポートされていない_    | _状況に応じて異なる_              |
+|          PageRight | R ボタン           | _サポートされていない_    | _状況に応じて異なる_              |
+|           ScrollUp | 右スティックを上    | _サポートされていない_    | _状況に応じて異なる_              |
+|         ScrollDown | 右スティックを下  | _サポートされていない_    | _状況に応じて異なる_              |
+|         ScrollLeft | 右スティックを左  | _サポートされていない_    | _状況に応じて異なる_              |
+|        ScrollRight | 右スティックを右 | _サポートされていない_    | _状況に応じて異なる_              |
+|           Context1 | X ボタン               | _サポートされていない_    | X ボタン (_一般的_) |
+|           Context2 | Y ボタン               | _サポートされていない_    | Y ボタン (_一般的な場合_) |
+|           Context3 | 左スティックを押す  | _サポートされていない_    | _状況に応じて異なる_              |
+|           Context4 | 右スティックを押す | _サポートされていない_    | _状況に応じて異なる_              |
 
 
 ## <a name="detect-and-track-ui-navigation-controllers"></a>UI ナビゲーション コントローラーの検出と追跡
@@ -214,22 +214,22 @@ if (OptionalUINavigationButtons::Context1 == (reading.OptionalButtons & Optional
 [InputInterfacingUWP サンプル _(GitHub)_](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/UWPSamples/System/InputInterfacingUWP) は、さまざまな入力デバイスが UI ナビゲーション コントローラーとしてどのように動作するかを示します。
 
 ## <a name="see-also"></a>関連項目
-[Windows.Gaming.Input.Gamepad][]
-[Windows.Gaming.Input.ArcadeStick][]
-[Windows.Gaming.Input.RacingWheel][]
-[Windows.Gaming.Input.IGameController][]
+[Windows. ゲームゲーム][] 
+ArcadeStick を入力します。 [Windows.Gaming.Input.ArcadeStick][] 
+[Windows. ゲーム. RacingWheel][] 
+[IGameController を入力し][]ます。
 
 
-[Windows.Gaming.Input]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.aspx
-[Windows.Gaming.Input.Gamepad]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.gamepad.aspx
-[Windows.Gaming.Input.Arcadestick]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.arcadestick.aspx
-[Windows.Gaming.Input.Racingwheel]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.aspx
-[Windows.Gaming.Input.IGameController]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.aspx
-[uinavigationcontroller]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.aspx
-[uinavigationcontrollers]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.uinavigationcontrollers.aspx
-[uinavigationcontrolleradded]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.uinavigationcontrolleradded.aspx
-[uinavigationcontrollerremoved]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.uinavigationcontrollerremoved.aspx
-[getcurrentreading]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.getcurrentreading.aspx
-[uinavigationreading]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationreading.aspx
-[requireduinavigationbuttons]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.requireduinavigationbuttons.aspx
-[optionaluinavigationbuttons]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.optionaluinavigationbuttons.aspx
+[Windows.Gaming.Input]: /uwp/api/Windows.Gaming.Input
+[Windows.Gaming.Input.Gamepad]: /uwp/api/Windows.Gaming.Input.Gamepad
+[Arcadestick を入力します。]: /uwp/api/Windows.Gaming.Input.ArcadeStick
+[Windows. ゲーム. Racingwheel]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[Windows.Gaming.Input.IGameController]: /uwp/api/Windows.Gaming.Input.IGameController
+[uinavigationcontroller]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[uinavigationcontrollers]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[uinavigationcontrolleradded]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[uinavigationcontrollerremoved]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[getcurrentreading]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[uinavigationreading]: /uwp/api/Windows.Gaming.Input.UINavigationReading
+[requireduinavigationbuttons]: /uwp/api/Windows.Gaming.Input.RequiredUINavigationButtons
+[optionaluinavigationbuttons]: /uwp/api/Windows.Gaming.Input.OptionalUINavigationButtons

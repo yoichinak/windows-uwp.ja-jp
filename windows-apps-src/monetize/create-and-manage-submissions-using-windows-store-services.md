@@ -6,12 +6,12 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API
 ms.localizationpriority: medium
-ms.openlocfilehash: 38a59db4115332a374c96c8a4400dbaccff9cd82
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: af0d36f2fa76fe9bb5bd253436f3d434a860e7ec
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846822"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155626"
 ---
 # <a name="create-and-manage-submissions"></a>申請の作成と管理
 
@@ -40,21 +40,21 @@ ms.locfileid: "88846822"
 
 Microsoft Store 申請 API を呼び出すコードの作成を開始する前に、次の前提条件が満たされていることを確認します。
 
-* 自分 (または自分の組織) に Azure AD ディレクトリがあり、自分がそのディレクトリに対する[グローバル管理者](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Microsoft 365 または Microsoft の他のビジネス サービスをすでに使用している場合、Azure AD ディレクトリをすでに所有しています。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
+* 自分 (または自分の組織) に Azure AD ディレクトリがあり、自分がそのディレクトリに対する[グローバル管理者](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Microsoft 365 または Microsoft の他のビジネス サービスをすでに使用している場合、Azure AD ディレクトリをすでに所有しています。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
 
 * [Azure AD アプリケーションをパートナー センター アカウントと関連付け](#associate-an-azure-ad-application-with-your-windows-partner-center-account)、テナント ID、クライアント ID、キーを取得する必要があります。 Azure AD アクセス トークンを取得するにはこれらの値が必要です。Microsoft Store 申請 API への呼び出しにこれらを使用します。
 
 * Microsoft Store 申請 API で使うアプリを準備します。
 
-  * アプリがパートナーセンターにまだ存在しない場合は、 [パートナーセンターでアプリの名前を予約することで、アプリを作成](https://docs.microsoft.com/windows/uwp/publish/create-your-app-by-reserving-a-name)する必要があります。 Microsoft Store 送信 API を使用して、パートナーセンターでアプリを作成することはできません。これを作成するには、パートナーセンターで作業する必要があります。その後、API を使用してアプリにアクセスし、プログラムによって送信を作成できます。 ただし、API を使うと、アプリの申請を作成する前に、アドオンとパッケージ フライトをプログラムで作成できます。
+  * アプリがパートナーセンターにまだ存在しない場合は、 [パートナーセンターでアプリの名前を予約することで、アプリを作成](../publish/create-your-app-by-reserving-a-name.md)する必要があります。 Microsoft Store 送信 API を使用して、パートナーセンターでアプリを作成することはできません。これを作成するには、パートナーセンターで作業する必要があります。その後、API を使用してアプリにアクセスし、プログラムによって送信を作成できます。 ただし、API を使うと、アプリの申請を作成する前に、アドオンとパッケージ フライトをプログラムで作成できます。
 
-  * この API を使用して特定のアプリの送信を作成する前に、まず [パートナーセンターでアプリの送信を1つ作成](https://docs.microsoft.com/windows/uwp/publish/app-submissions)する必要があります ( [年齢](https://docs.microsoft.com/windows/uwp/publish/age-ratings) 区分のアンケートへの回答を含む)。 この操作の実行後、API を使ってこのアプリの新しい申請をプログラムで作成できるようになります。 アドオンの申請またはパッケージ フライトの申請を作成しなくても、このような申請に API を使うことができます。
+  * この API を使用して特定のアプリの送信を作成する前に、まず [パートナーセンターでアプリの送信を1つ作成](../publish/app-submissions.md)する必要があります ( [年齢](../publish/age-ratings.md) 区分のアンケートへの回答を含む)。 この操作の実行後、API を使ってこのアプリの新しい申請をプログラムで作成できるようになります。 アドオンの申請またはパッケージ フライトの申請を作成しなくても、このような申請に API を使うことができます。
 
-  * アプリの申請を作成または更新するときにアプリ パッケージを追加する必要がある場合は、[アプリ パッケージを準備](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)します。
+  * アプリの申請を作成または更新するときにアプリ パッケージを追加する必要がある場合は、[アプリ パッケージを準備](../publish/app-package-requirements.md)します。
 
-  * アプリの申請を作成または更新するときにストア登録情報用のスクリーンショットまたは画像を含める必要がある場合は、[アプリのスクリーンショットと画像を準備](https://docs.microsoft.com/windows/uwp/publish/app-screenshots-and-images)します。
+  * アプリの申請を作成または更新するときにストア登録情報用のスクリーンショットまたは画像を含める必要がある場合は、[アプリのスクリーンショットと画像を準備](../publish/app-screenshots-and-images.md)します。
 
-  * アドオンの申請を作成または更新するときにアイコンを含める必要がある場合は、[アイコンを準備](https://docs.microsoft.com/windows/uwp/publish/create-iap-descriptions)します。
+  * アドオンの申請を作成または更新するときにアイコンを含める必要がある場合は、[アイコンを準備](../publish/create-add-on-store-listings.md)します。
 
 <span id="associate-an-azure-ad-application-with-your-windows-partner-center-account" />
 
@@ -79,7 +79,7 @@ Microsoft Store 送信 API を使用するには、Azure AD アプリケーシ�
 
 Microsoft Store 申請 API のいずれかのメソッドを呼び出す前に、まず API の各メソッドの **Authorization** ヘッダーに渡す Azure AD アクセス トークンを取得する必要があります。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、トークンを更新してそれ以降の API 呼び出しで引き続き使用できます。
 
-アクセス トークンを取得するには、「[クライアント資格情報を使用したサービス間の呼び出し](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/)」の手順に従って、HTTP POST を ```https://login.microsoftonline.com/<tenant_id>/oauth2/token``` エンドポイントに送信します。 要求の例を次に示します。
+アクセス トークンを取得するには、「[クライアント資格情報を使用したサービス間の呼び出し](/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow)」の手順に従って、HTTP POST を ```https://login.microsoftonline.com/<tenant_id>/oauth2/token``` エンドポイントに送信します。 要求の例を次に示します。
 
 ```json
 POST https://login.microsoftonline.com/<tenant_id>/oauth2/token HTTP/1.1
@@ -94,7 +94,7 @@ grant_type=client_credentials
 
 [POST URI] と [*クライアント \_ id* ] と [*クライアント \_ シークレット*] の [*テナント \_ id* ] の値について、前のセクションでパートナーセンターから取得したアプリケーションのテナント id、クライアント id、キーを指定します。 *resource* パラメーターには、```https://manage.devcenter.microsoft.com``` を指定します。
 
-アクセス トークンの有効期限が切れた後は、[この](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-code/#refreshing-the-access-tokens)手順に従って更新できます。
+アクセス トークンの有効期限が切れた後は、[この](/azure/active-directory/azuread-dev/v1-protocols-oauth-code#refreshing-the-access-tokens)手順に従って更新できます。
 
 C#、Java、または Python コードを使ってアクセス トークンを取得する方法を示す例については、Microsoft Store 申請 API の[コード例](#code-examples)をご覧ください。
 
@@ -136,7 +136,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 
 | 問題      | 解決方法                                          |
 |---------------|---------------------------------------------|
-| PowerShell から Microsoft Store 申請 API を呼び出した後、[ConvertFrom-Json](https://docs.microsoft.com/powershell/module/5.1/microsoft.powershell.utility/ConvertFrom-Json) コマンドレットを使って API の応答データを JSON 形式から PowerShell オブジェクトに変換し、[ConvertTo-Json](https://docs.microsoft.com/powershell/module/5.1/microsoft.powershell.utility/ConvertTo-Json) コマンドレットを使ってもう一度 JSON 形式に変換すると、応答データが破損します。 |  既定では、[ConvertTo-Json](https://docs.microsoft.com/powershell/module/5.1/microsoft.powershell.utility/ConvertTo-Json) コマンドレットの *-Depth* パラメーターは、2 レベルのオブジェクトに設定されます。これは、Microsoft Store 申請 API から返される JSON オブジェクトの大半にとって浅すぎます。 [ConvertTo-Json](https://docs.microsoft.com/powershell/module/5.1/microsoft.powershell.utility/ConvertTo-Json) コマンドレットを呼び出すときは、*-Depth* パラメーターを大きい値 (たとえば 20) に設定します。 |
+| PowerShell から Microsoft Store 申請 API を呼び出した後、[ConvertFrom-Json](/powershell/module/5.1/microsoft.powershell.utility/ConvertFrom-Json) コマンドレットを使って API の応答データを JSON 形式から PowerShell オブジェクトに変換し、[ConvertTo-Json](/powershell/module/5.1/microsoft.powershell.utility/ConvertTo-Json) コマンドレットを使ってもう一度 JSON 形式に変換すると、応答データが破損します。 |  既定では、[ConvertTo-Json](/powershell/module/5.1/microsoft.powershell.utility/ConvertTo-Json) コマンドレットの *-Depth* パラメーターは、2 レベルのオブジェクトに設定されます。これは、Microsoft Store 申請 API から返される JSON オブジェクトの大半にとって浅すぎます。 [ConvertTo-Json](/powershell/module/5.1/microsoft.powershell.utility/ConvertTo-Json) コマンドレットを呼び出すときは、*-Depth* パラメーターを大きい値 (たとえば 20) に設定します。 |
 
 ## <a name="additional-help"></a>追加のヘルプ
 

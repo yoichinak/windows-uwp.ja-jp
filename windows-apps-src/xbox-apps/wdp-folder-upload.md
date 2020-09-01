@@ -1,25 +1,25 @@
 ---
 title: Device Portal のフォルダー アップロード API のリファレンス
-description: フォルダー アップロード API にプログラムでアクセスする方法について説明します。
+description: Xbox デバイスポータル REST API を使用して、開発ディレクトリにフォルダーをアップロードする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: e1a2c7f0-0040-4ce7-94de-17224736e20b
 ms.localizationpriority: medium
-ms.openlocfilehash: 870d203271cb75ecf5531106bb2c10b3736db9b9
-ms.sourcegitcommit: bad7ed6def79acbb4569de5a92c0717364e771d9
+ms.openlocfilehash: b71f60350bf5c8318adb2a4741bb1a275a4b0276
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59244048"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157756"
 ---
 # <a name="upload-a-folder-to-the-development-directory"></a>開発ディレクトリにフォルダーをアップロードする
 
-**要求**
+**Request**
 
 フォルダー全体を DevelopmentFiles の既知のフォルダー ID (またはそのフォルダーのサブフォルダー) に一度にアップロードできます。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :------
 POST | /api/app/packagemanager/upload 
 
@@ -40,15 +40,15 @@ destinationFolder (必須) | アップロードするフォルダーのターゲ
 
 - ディレクトリ コンテンツの原則に従ったマルチパートの http 本文。
 
-**応答**
+**Response**
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
 HTTP 状態コード      | 説明
 :------     | :-----
-200 | 成功
+200 | Success
 4XX | エラー コード
 5XX | エラー コード
 

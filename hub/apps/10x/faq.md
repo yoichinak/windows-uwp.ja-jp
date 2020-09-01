@@ -6,18 +6,18 @@ ms.date: 06/02/2020
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: 3ba14e33c098d3515522a9a5907065751fafba87
-ms.sourcegitcommit: 13bda6040988461a61b1b5561fde2f7a54835ccd
+ms.openlocfilehash: f321815658a1b59d941f8b2c0e1fa5aa0142b4f7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84318238"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157676"
 ---
 # <a name="windows-10x-developer-faq"></a>Windows 10 開発者向け FAQ
 
 > [!IMPORTANT]
-> 最近、Windows 10 および Windows 10 10 の優先順位付けに関するいくつかの変更を発表しました。
-> これらの発表には、Windows 10 倍のフォームファクターの優先度の変更が含まれます。 [詳細については、こちらを参照してください。](https://blogs.windows.com/windowsexperience/2020/05/04/accelerating-innovation-in-windows-10-to-meet-customers-where-they-are/)
+> Microsoft では先日、Windows 10 および Windows 10X の優先順位に関するいくつかの変更を発表しました。
+> これらの発表には、Windows 10X フォーム ファクターの優先順位の変更が含まれます。 [詳細をこちらでご確認ください。](https://blogs.windows.com/windowsexperience/2020/05/04/accelerating-innovation-in-windows-10-to-meet-customers-where-they-are/)
 
 Windows 10 は、デュアル画面デバイスで使用できるように最適化された Windows ファミリの製品ラインです。 開発者は、アプリを Windows 10 に最適化することで、より広範な対象ユーザーに配信できます。これにより、モバイルおよびデュアルスクリーンの対象ユーザーに固有の新機能を利用できるだけでなく、同じ幅の Windows 10 機能と豊富なデスクトップサポートも利用できます。 [Windows 10 は、2019の遅延について発表](https://blogs.windows.com/windowsexperience/2019/10/02/introducing-windows-10x-enabling-dual-screen-pcs-in-2020/#6qxkItE2XMPu24uw.97)しました。今後、2020のリリースを予定しています。
 
@@ -25,7 +25,7 @@ Windows 10 は、デュアル画面デバイスで使用できるように最適
  
 *[表示されるプレリリース製品、画面がシミュレートされ、変更される可能性があります]*
 
-デュアルスクリーンエクスペリエンスと Windows 10 の構築の詳細については、 [Microsoft 365 の開発日](https://developer.microsoft.com/microsoft-365/virtual-events)または[デュアルスクリーンの開発者ドキュメント](https://docs.microsoft.com/dual-screen/)から仮想セッションを確認してください。ひとめでわかるように、ここでは、いくつかの質問に対する回答を示します。
+デュアルスクリーンエクスペリエンスと Windows 10 の構築の詳細については、 [Microsoft 365 の開発日](https://developer.microsoft.com/microsoft-365/virtual-events)または [デュアルスクリーンの開発者ドキュメント](/dual-screen/)から仮想セッションを確認してください。ひとめでわかるように、ここでは、いくつかの質問に対する回答を示します。
 
 ### <a name="how-is-this-different-from-developing-for-windows-10"></a>Windows 10 向けの開発とはどのように違いますか。
 
@@ -33,7 +33,7 @@ Windows 10 は、デュアル画面デバイスで使用できるように最適
 
 ### <a name="does-this-replace-desktop-windows-10"></a>これにより、デスクトップの Windows 10 が置換されるのですか。
 
-いいえ。 Windows 10 は、Windows 10 のデスクトップリリースと並行してリリースされます。 Windows 10 のデスクトップリリースでは、最新のデスクトップアプリケーションのストーリーに対する拡張機能と機能強化が引き続き提供されます。 Windows 10 は、デュアルスクリーンプラットフォームをサポートするために最適化された別のプラットフォームです。
+不正解です。 Windows 10 は、Windows 10 のデスクトップリリースと並行してリリースされます。 Windows 10 のデスクトップリリースでは、最新のデスクトップアプリケーションのストーリーに対する拡張機能と機能強化が引き続き提供されます。 Windows 10 は、デュアルスクリーンプラットフォームをサポートするために最適化された別のプラットフォームです。
 
 ### <a name="when-will-windows-10x-be-released"></a>Windows 10 がリリースされるのはいつですか。
 
@@ -41,7 +41,7 @@ Windows 10 は、2020以降のサードパーティ製のデュアルスクリ�
 
 ### <a name="when-can-i-start-development-for-windows-10x"></a>Windows 10 の開発を開始するにはどうすればよいですか。
 
-[Microsoft emulator と Windows 10 倍のエミュレーターイメージ](https://docs.microsoft.com/dual-screen/windows/get-dev-tools)を今すぐダウンロードできます。 このエミュレーターは引き続き改善され、他の Windows 10 対応デバイスのサポートによって補完されます。 これらのエミュレーターは、プレリリース版の Windows SDK と組み合わせることで、最初のデュアルスクリーンデバイスが一般公開される前に、Windows 10 の開発を可能にします。
+[Microsoft emulator と Windows 10 倍のエミュレーターイメージ](/dual-screen/windows/get-dev-tools)を今すぐダウンロードできます。 このエミュレーターは引き続き改善され、他の Windows 10 対応デバイスのサポートによって補完されます。 これらのエミュレーターは、プレリリース版の Windows SDK と組み合わせることで、最初のデュアルスクリーンデバイスが一般公開される前に、Windows 10 の開発を可能にします。
 
 ### <a name="will-my-universal-windows-platform-uwp-apps-run-on-windows-10x"></a>ユニバーサル Windows プラットフォーム (UWP) アプリは Windows 10 倍で動作しますか。
 
@@ -57,4 +57,4 @@ Windows 10 がリリース前の開発を続けているため、特定の制限
 
 ### <a name="if-i-enhance-my-app-with-windows-10x-features-will-it-still-run-on-devices-running-desktop-windows-10"></a>Windows 10 の機能でアプリを拡張すると、デスクトップ Windows 10 を実行しているデバイスでも動作しますか。
 
-Windows 10 用に設計されたアプリは、windows 10 のデスクトップバージョンを実行しているデバイスでも動作しますが、次のメジャーバージョンの更新まで、これらの新しい Windows Api は Windows 10 のデスクトップバージョンには追加されません。 複数のバージョンのデスクトップ Windows 10 でサポートされているアプリを開発している場合と同様に、適応型の[コーディングのベストプラクティス](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)に従って、10倍とデスクトップの両方の windows 10 でアプリが正常に動作することを確認します。 
+Windows 10 用に設計されたアプリは、windows 10 のデスクトップバージョンを実行しているデバイスでも動作しますが、次のメジャーバージョンの更新まで、これらの新しい Windows Api は Windows 10 のデスクトップバージョンには追加されません。 複数のバージョンのデスクトップ Windows 10 でサポートされているアプリを開発している場合と同様に、適応型の [コーディングのベストプラクティス](/windows/uwp/debug-test-perf/version-adaptive-code) に従って、10倍とデスクトップの両方の windows 10 でアプリが正常に動作することを確認します。

@@ -1,21 +1,21 @@
 ---
-title: サンプルゲームを拡張する
-description: UWP DirectX ゲームの XAML オーバーレイを実装する方法について説明します。
+title: サンプル ゲームを拡張する
+description: 基本的なユニバーサル Windows プラットフォーム (UWP) DirectX ゲームのオーバーレイに対して、Direct2D の代わりに XAML を使用する方法について説明します。
 keywords: DirectX, XAML
 ms.date: 10/24/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 06b52e5b6fdba1db83c941e770cd49360085accf
-ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
+ms.openlocfilehash: be2ef3b4d5c3cce4a4305a8faa1f4af5dea3e8bc
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85409551"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156376"
 ---
-# <a name="extend-the-sample-game"></a>サンプルゲームを拡張する
+# <a name="extend-the-sample-game"></a>サンプル ゲームを拡張する
 
 > [!NOTE]
-> このトピックは、「DirectX チュートリアルシリーズ[を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md)」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
+> このトピックは、「DirectX チュートリアルシリーズ [を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md) 」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
 
 基本的なユニバーサル Windows プラットフォーム (UWP) DirectX 3D ゲームの主なコンポーネントについて説明してきました。 ビュープロバイダーとレンダリングパイプラインを含むゲームのフレームワークを設定し、基本的なゲームループを実装できます。 また、基本的なユーザー インターフェイス オーバーレイの作成、サウンドの組み込み、コントロールの実装を行うこともできます。 これで独自のゲームを作成することができるはずですが、他のヘルプや情報が必要な場合は以下のリソースを参照してください。
 
@@ -25,7 +25,7 @@ ms.locfileid: "85409551"
 
 ## <a name="using-xaml-for-the-overlay"></a>オーバーレイに XAML を適用
 
-詳しく説明しなかったもう1つの方法は、オーバーレイに対して[Direct2D](/windows/desktop/Direct2D/direct2d-portal)ではなく、XAML を使用することです。 XAML には、Direct2D に比べ、ユーザー インターフェイス要素を描画するときの利点が数多くあります。 最も重要な利点は、Windows 10 の外観を DirectX ゲームに統合する作業が容易になるという点です。 UWP アプリを定義する共通した要素、スタイル、動作の多くが XAML モデルに緊密に統合されるため、ゲーム開発者による実装作業がはるかに容易になります。 作成するゲームのデザインに複雑なユーザー インターフェイスが含まれる場合は、Direct2D の代わりに XAML の使用を検討してください。
+詳しく説明しなかったもう1つの方法は、オーバーレイに対して [Direct2D](/windows/desktop/Direct2D/direct2d-portal) ではなく、XAML を使用することです。 XAML には、Direct2D に比べ、ユーザー インターフェイス要素を描画するときの利点が数多くあります。 最も重要な利点は、Windows 10 の外観を DirectX ゲームに統合する作業が容易になるという点です。 UWP アプリを定義する共通した要素、スタイル、動作の多くが XAML モデルに緊密に統合されるため、ゲーム開発者による実装作業がはるかに容易になります。 作成するゲームのデザインに複雑なユーザー インターフェイスが含まれる場合は、Direct2D の代わりに XAML の使用を検討してください。
 
 XAML を使用して、以前に作成した Direct2D のゲーム インターフェイスに似たインターフェイスを作成できます。
 
@@ -43,7 +43,7 @@ XAML を使用して、以前に作成した Direct2D のゲーム インター�
 ユーザー インターフェイスの要素 | XAML ユーザー インターフェイス要素は、[**Windows::UI::Xaml**](/uwp/api/Windows.UI.Xaml) や [**Windows::UI::Xaml::Controls**](/uwp/api/Windows.UI.Xaml.Controls) を含め、Windows ランタイム XAML API の一部である標準化要素から採用されます。 XAML ユーザー インターフェイス要素の動作を処理するコードは、コード ビハインド ファイル、Main.xaml.cpp で定義されます。 | 四角形と楕円のような単純な図形を描画することができます。
 ウィンドウのサイズ変更 | ハンドルのサイズ変更やビュー状態変更イベントが自然に処理され、これに伴いオーバーレイが変形されます。 | オーバーレイのコンポーネントを再描画する方法を手動で指定する必要があります。
 
-もう 1 つの大きな違いは、[スワップ チェーン](/windows/uwp/graphics-concepts/swap-chains)です。 スワップ チェーンを [**Windows::UI::Core::CoreWindow**](/uwp/api/windows.ui.core.corewindow) オブジェクトに結合する必要はありません。 代わりに、新しい [**SwapChainPanel**](/uwp/api/windows.ui.xaml.controls.swapchainpanel) オブジェクトの構築時に、XAML を統合する DirectX アプリによりスワップ チェーンが関連付けられます。 
+もう 1 つの大きな違いは、[スワップ チェーン](../graphics-concepts/swap-chains.md)です。 スワップ チェーンを [**Windows::UI::Core::CoreWindow**](/uwp/api/windows.ui.core.corewindow) オブジェクトに結合する必要はありません。 代わりに、新しい [**SwapChainPanel**](/uwp/api/windows.ui.xaml.controls.swapchainpanel) オブジェクトの構築時に、XAML を統合する DirectX アプリによりスワップ チェーンが関連付けられます。 
 
 次のスニペットは、[**DirectXPage.xaml**](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/DirectXPage.xaml) ファイルで **SwapChainPanel** の XAML を宣言する方法を示しています。
 ```xml

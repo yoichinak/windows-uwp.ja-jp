@@ -9,14 +9,14 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 1e06a87ce771f603721c928b984d0f57d8e45013
-ms.sourcegitcommit: 1d53d89bd3d044f4a2dc290b93c1ad15a088b361
+ms.openlocfilehash: 72b6196f0b4607f2414eb94220dd31190ef93245
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87547314"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156016"
 ---
-# <a name="create-and-register-a-winmain-com-background-task"></a>Winmain COM バックグラウンドタスクを作成して登録する
+# <a name="create-and-register-a-winmain-com-background-task"></a>winmain COM バックグラウンド タスクの作成と登録
 
 > [!TIP]
 > SetTaskEntryPointClsid メソッドは、Windows 10 バージョン2004以降で使用できます。
@@ -26,26 +26,26 @@ ms.locfileid: "87547314"
 
 **重要な API**
 
--   [**IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask)
--   [**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
+-   [**IBackgroundTask**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask)
+-   [**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder)
 
 COM バックグラウンドタスククラスを作成し、トリガーへの応答として完全信頼パッケージの winmain アプリで実行されるように登録します。 バックグラウンド タスクを使えば、アプリが中断されている、または実行されていないときに機能を提供できます。 このトピックでは、フォアグラウンドアプリプロセスまたは別のプロセスで実行できるバックグラウンドタスクを作成し、登録する方法について説明します。
 
 ## <a name="create-the-background-task-class"></a>バックグラウンド タスク クラスを作る
 
-[**IBackgroundTask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) インターフェイスを実装するクラスを作ると、コードをバックグラウンドで実行できます。 このコードは、 [**Systemtrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType)や[**TimeTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.TimeTrigger)などを使用して特定のイベントがトリガーされたときに実行されます。
+[**IBackgroundTask**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) インターフェイスを実装するクラスを作ると、コードをバックグラウンドで実行できます。 このコードは、 [**Systemtrigger**](/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType) や [**TimeTrigger**](/uwp/api/Windows.ApplicationModel.Background.TimeTrigger)などを使用して特定のイベントがトリガーされたときに実行されます。
 
-次の手順では、 [**Ibackgroundtask**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask)インターフェイスを実装する新しいクラスを作成し、それをメインプロセスに追加する方法を示します。
+次の手順では、 [**Ibackgroundtask**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) インターフェイスを実装する新しいクラスを作成し、それをメインプロセスに追加する方法を示します。
 
-1.  パッケージ化された WinMain アプリケーションソリューションで WinRT Api を参照するには、[**次の手順を参照してください**](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-enhance)。 これは、IBackgroundTask と関連する Api を使用するために必要です。
-2.  その新しいクラスで、 [**Ibackgroundtask**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask)インターフェイスを実装します。 [**Ibackgroundtask. Run**](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run)メソッドは、指定されたイベントがトリガーされたときに呼び出される必須のエントリポイントです。このメソッドは、すべてのバックグラウンドタスクで必要です。
+1.  パッケージ化された WinMain アプリケーションソリューションで WinRT Api を参照するには、[**次の手順を参照してください**](/windows/apps/desktop/modernize/desktop-to-uwp-enhance)。 これは、IBackgroundTask と関連する Api を使用するために必要です。
+2.  その新しいクラスで、 [**Ibackgroundtask**](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) インターフェイスを実装します。 [**Ibackgroundtask. Run**](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run)メソッドは、指定されたイベントがトリガーされたときに呼び出される必須のエントリポイントです。このメソッドは、すべてのバックグラウンドタスクで必要です。
 
 > [!NOTE]
 > バックグラウンドタスククラス自体 &mdash; およびバックグラウンドタスクプロジェクト内の他のすべてのクラスは、 &mdash; **パブリック**である必要があります。
 
 次のサンプルコードは、primes をカウントし、キャンセルが要求されるまでファイルに書き込む基本的なバックグラウンドタスククラスを示しています。
 
-C++/WinRT の例では、 [**COM コクラス**](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/author-coclasses#implement-the-coclass-and-class-factory)としてバックグラウンドタスククラスを実装しています。
+C++/WinRT の例では、 [**COM コクラス**](../cpp-and-winrt-apis/author-coclasses.md#implement-the-coclass-and-class-factory)としてバックグラウンドタスククラスを実装しています。
 
 
 <details>
@@ -391,9 +391,9 @@ sampleTaskServer.Start();
 
 ## <a name="register-the-background-task-to-run"></a>実行するバックグラウンド タスクを登録する
 
-1.  バックグラウンドタスクが既に登録されているかどうかを確認するには、 [**Backgroundtaskregistration. AllTasks**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.alltasks)プロパティを繰り返します。 *この手順は重要*です。アプリが既存のバックグラウンドタスクの登録を確認しない場合は、タスクを複数回登録すると、パフォーマンスに関する問題が発生し、作業が完了するまでタスクの利用可能な CPU 時間が不足する可能性があります。 アプリケーションでは、同じエントリポイントを使用してすべてのバックグラウンドタスクを処理し、 [**Backgroundtaskregistration**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration)に割り当てられた[**名前**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.name#Windows_ApplicationModel_Background_BackgroundTaskRegistration_Name)や[**TaskId**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.taskid#Windows_ApplicationModel_Background_BackgroundTaskRegistration_TaskId)などの他のプロパティを使用して、どのような作業を行う必要があるかを判断できます。
+1.  バックグラウンドタスクが既に登録されているかどうかを確認するには、 [**Backgroundtaskregistration. AllTasks**](/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.alltasks) プロパティを繰り返します。 *この手順は重要*です。アプリが既存のバックグラウンドタスクの登録を確認しない場合は、タスクを複数回登録すると、パフォーマンスに関する問題が発生し、作業が完了するまでタスクの利用可能な CPU 時間が不足する可能性があります。 アプリケーションでは、同じエントリポイントを使用してすべてのバックグラウンドタスクを処理し、 [**Backgroundtaskregistration**](/uwp/api/windows.applicationmodel.background.backgroundtaskregistration)に割り当てられた[**名前**](/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.name#Windows_ApplicationModel_Background_BackgroundTaskRegistration_Name)や[**TaskId**](/uwp/api/windows.applicationmodel.background.backgroundtaskregistration.taskid#Windows_ApplicationModel_Background_BackgroundTaskRegistration_TaskId)などの他のプロパティを使用して、どのような作業を行う必要があるかを判断できます。
 
-次の例では、 **Alltasks**プロパティを反復処理し、タスクが既に登録されている場合はフラグ変数を true に設定します。
+次の例では、 **Alltasks** プロパティを反復処理し、タスクが既に登録されている場合はフラグ変数を true に設定します。
 
 ```csharp
 
@@ -432,14 +432,14 @@ for (auto const& task : allTasks)
 
 ```
 
-1.  バックグラウンド タスクがまだ登録されていない場合は、[**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) を使ってバックグラウンド タスクのインスタンスを作成します。 タスクのエントリ ポイントには、名前空間を含めてバックグラウンド タスク クラスの名前を指定します。
+1.  バックグラウンド タスクがまだ登録されていない場合は、[**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) を使ってバックグラウンド タスクのインスタンスを作成します。 タスクのエントリ ポイントには、名前空間を含めてバックグラウンド タスク クラスの名前を指定します。
 
-バックグラウンド タスク トリガーは、バックグラウンド タスクが実行されるタイミングを制御します。 考えられるトリガーの一覧については、「 [**Windows アプリケーション**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background)の名前空間」を参照してください。
+バックグラウンド タスク トリガーは、バックグラウンド タスクが実行されるタイミングを制御します。 考えられるトリガーの一覧については、「 [**Windows アプリケーション**](/uwp/api/windows.applicationmodel.background) の名前空間」を参照してください。
 
 > [!NOTE]
 > パッケージ化された winmain バックグラウンドタスクでは、トリガーのサブセットのみがサポートされます。
 
-たとえば、次のコードでは、新しいバックグラウンドタスクを作成し、15分間の定期的な[**TimeTrigger**]()で実行するように設定しています。
+たとえば、次のコードでは、新しいバックグラウンドタスクを作成し、15分間の定期的な [**TimeTrigger**]()で実行するように設定しています。
 
 ```csharp
 
@@ -471,7 +471,7 @@ if (!taskRegistered)
 
 ```
 
-1.  トリガー イベントの発生後、どのようなときにタスクを実行するかという条件を追加することもできます (省略可能)。 たとえば、インターネットが使用可能になるまでタスクを実行したくない場合は、 **Internetavailable**という条件を使用します。 指定できる条件の一覧については、「[**SystemConditionType**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
+1.  トリガー イベントの発生後、どのようなときにタスクを実行するかという条件を追加することもできます (省略可能)。 たとえば、インターネットが使用可能になるまでタスクを実行したくない場合は、 **Internetavailable**という条件を使用します。 指定できる条件の一覧については、「[**SystemConditionType**](/uwp/api/Windows.ApplicationModel.Background.SystemConditionType)」をご覧ください。
 
 次のサンプル コードでは、"ユーザーの存在" を条件として割り当てています。
 
@@ -485,7 +485,7 @@ builder.AddCondition(SystemCondition{ SystemConditionType::InternetAvailable });
 // The code in the next step goes here.
 ```
 
-4.  [**BackgroundTaskBuilder**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトで Register メソッドを呼び出してバックグラウンド タスクを登録します。 [**BackgroundTaskRegistration**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration) の結果は、次の手順に備えて保存します。 Register 関数は、例外の形式でエラーを返す場合があることに注意してください。 必ず、try catch で Register を呼び出してください。
+4.  [**BackgroundTaskBuilder**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) オブジェクトで Register メソッドを呼び出してバックグラウンド タスクを登録します。 [**BackgroundTaskRegistration**](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskRegistration) の結果は、次の手順に備えて保存します。 Register 関数は、例外の形式でエラーを返す場合があることに注意してください。 必ず、try catch で Register を呼び出してください。
 
 バックグラウンド タスクを登録し、その結果を保存するコードを次に示します。
 
@@ -1043,9 +1043,9 @@ int wmain(_In_ int argc, _In_reads_(argc) const wchar** argv)
 </details>
 
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
-モダンスタンバイでバックグラウンドタスクを実行できる UWP アプリとは異なり、WinMain アプリは最新のスタンバイの低電力フェーズからコードを実行できません。 詳細については、「[最新のスタンバイ](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)」を参照してください。
+モダンスタンバイでバックグラウンドタスクを実行できる UWP アプリとは異なり、WinMain アプリは最新のスタンバイの低電力フェーズからコードを実行できません。 詳細については、「 [最新のスタンバイ](/windows-hardware/design/device-experiences/modern-standby) 」を参照してください。
 
 API リファレンス、バックグラウンド タスクの概念的ガイダンス、バックグラウンド タスクを使ったアプリの作成に関する詳しい説明については、次の関連するトピックをご覧ください。
 
@@ -1065,8 +1065,8 @@ API リファレンス、バックグラウンド タスクの概念的ガイダ
 
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
 * [バックグラウンド タスクのデバッグ](debug-a-background-task.md)
-* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](https://msdn.microsoft.com/library/windows/apps/hh974425(v=vs.110).aspx)
+* [UWP アプリで一時停止イベント、再開イベント、バックグラウンド イベントをトリガーする方法 (デバッグ時)](/previous-versions/hh974425(v=vs.110))
 
 **バックグラウンド タスクの API リファレンス**
 
-* [**Windows.ApplicationModel.Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background)
+* [**Windows.ApplicationModel.Background**](/uwp/api/Windows.ApplicationModel.Background)

@@ -5,18 +5,18 @@ ms.date: 06/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c9a5008756831eed9819a3b323d167dcc4b2744
-ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.openlocfilehash: db6b47a29e302cb962e5b91cfba823eb7f89db81
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89043404"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156606"
 ---
 # <a name="pointofservice-device-objects"></a>PointOfService デバイス オブジェクト
 
 ## <a name="creating-a-device-object"></a>デバイス オブジェクトの作成
 
-新しい列挙または保存された DeviceID のいずれかから、使用する PointOfService デバイスを特定したら、プログラムにより選択した、またはユーザーが新しい POS デバイス オブジェクトを作成するために選択した [**DeviceID**](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.deviceinformation.id) を使用して [**FromIdAsync**](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.fromidasync) を呼び出します。
+新しい列挙または保存された DeviceID のいずれかから、使用する PointOfService デバイスを特定したら、プログラムにより選択した、またはユーザーが新しい POS デバイス オブジェクトを作成するために選択した [**DeviceID**](/uwp/api/windows.devices.enumeration.deviceinformation.id) を使用して [**FromIdAsync**](/uwp/api/windows.devices.pointofservice.barcodescanner.fromidasync) を呼び出します。
 
 このサンプルでは、DeviceID を使用して FromIdAsync で新しい BarcodeScanner オブジェクトを作成することを試みています。 オブジェクトの作成に失敗した場合は、デバッグ メッセージが書き込まれます。
 

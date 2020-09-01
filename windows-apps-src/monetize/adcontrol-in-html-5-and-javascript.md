@@ -6,19 +6,19 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, AdControl, 広告コントロール, JavaScript, HTML
 ms.localizationpriority: medium
-ms.openlocfilehash: 7614265048945ddc9f1a1c32338e8446ee3ce7ba
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: d770e8a9a15835d7fab52e7383acca3a3df6c6cd
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77507186"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155676"
 ---
 # <a name="adcontrol-in-html-5-and-javascript"></a>HTML 5 および JavaScript の AdControl
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-このチュートリアルでは、Windows 10 (HTML) 用のユニバーサル Windows プラットフォーム (UWP) JavaScript/HTML アプリで [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) クラスを使ってバナー広告を表示する方法について説明します。
+このチュートリアルでは、Windows 10 (HTML) 用のユニバーサル Windows プラットフォーム (UWP) JavaScript/HTML アプリで [AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol) クラスを使ってバナー広告を表示する方法について説明します。
 
 JavaScript/HTML アプリにバナー広告を追加する方法を示す完全なサンプル プロジェクトについては、「[GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)」をご覧ください。
 
@@ -27,7 +27,7 @@ JavaScript/HTML アプリにバナー広告を追加する方法を示す完全�
 * Visual Studio 2015 以降の Visual Studio のリリースと共に [Microsoft Advertising SDK](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK) をインストールします。 インストール手順については、[この記事](install-the-microsoft-advertising-libraries.md)をご覧ください。
 
 > [!NOTE]
-> Windows 10 SDK バージョン 10.0.14393 (記念日更新) 以降のバージョンの Windows SDK がインストールされている場合は、 [WinJS](https://github.com/winjs/winjs)ライブラリもインストールする必要があります。 このライブラリは以前のバージョンの Windows SDK for Windows 10 に含まれていましたが、Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) 以降ではこのライブラリを別個にインストールする必要があります。 
+> Windows 10 SDK バージョン 10.0.14393 (記念日更新) 以降のバージョンの Windows SDK がインストールされている場合は、 [WinJS](https://github.com/winjs/winjs) ライブラリもインストールする必要があります。 このライブラリは以前のバージョンの Windows SDK for Windows 10 に含まれていましたが、Windows 10 SDK バージョン 10.0.14393 (Anniversary Update) 以降ではこのライブラリを別個にインストールする必要があります。 
 
 ## <a name="integrate-a-banner-ad-into-your-app"></a>バナー広告をアプリに統合する
 
@@ -36,17 +36,17 @@ JavaScript/HTML アプリにバナー広告を追加する方法を示す完全�
     > [!NOTE]
     > 既存のプロジェクトを使用している場合、プロジェクトの Package.appxmanifest ファイルを開き、**インターネット (クライアント)** 機能が選択されていることを確認します。 アプリでは、テスト広告やライブ広告を受信するためにこの機能が必要になります。
 
-2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、 **[x86]** ) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising ライブラリへの参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
+2. プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっている場合は、アーキテクチャ固有のビルド出力 (たとえば、**[x86]**) を使うようにプロジェクトを更新します。 プロジェクトのターゲットが **[Any CPU]** (任意の CPU) になっていると、次の手順で Microsoft Advertising ライブラリへの参照を正常に追加できません。 詳しくは、「[プロジェクトのターゲットを "Any CPU" に設定すると参照エラーが発生する](known-issues-for-the-advertising-libraries.md#reference_errors)」をご覧ください。
 
 3. プロジェクトで Microsoft Advertising SDK への参照を追加します。
 
-    1. **[ソリューション エクスプローラー]** ウィンドウで、 **[参照設定]** を右クリックし、 **[参照の追加]** を選択します。
-    2.  **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張]** をクリックして、 **[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
+    1. **[ソリューション エクスプローラー]** ウィンドウで、**[参照設定]** を右クリックし、**[参照の追加]** を選択します。
+    2.  **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張]** をクリックして、**[Microsoft Advertising SDK for JavaScript]** (バージョン 10.0) の横にあるチェック ボックスをオンにします。
     3.  **[参照マネージャー]** で、[OK] をクリックします。
 
 6.  index.html ファイル (またはプロジェクトに対応するその他の html ファイル) を開きます。
 
-7.  **&lt;head&gt;** セクションで、プロジェクトの default.css と main.js の JavaScript 参照の後に ad.js への参照を追加します。
+7.  ** &lt; Head &gt; **セクションで、プロジェクトの JavaScript による .css および main.js の参照の後に、ad.js への参照を追加します。
 
     ``` HTML
     <!-- Advertising required references -->
@@ -54,12 +54,12 @@ JavaScript/HTML アプリにバナー広告を追加する方法を示す完全�
     ```
 
     > [!NOTE]
-    > この行は、 **&lt;head&gt;** セクションの main.js のインクルードの後に配置する必要があります。そうでない場合、プロジェクトのビルド時にエラーが発生します。
+    > この行は、main.js を含めた後に** &lt; head &gt; **セクションに配置する必要があります。そうしないと、プロジェクトのビルド時にエラーが発生します。
 
-8.  default.html ファイル (またはプロジェクトに対応するその他の html ファイル) の **&lt;body&gt;** セクションを変更して、**AdControl** の **div** を追加します。 **AdControl** の **applicationId** プロパティと **adUnitId** プロパティに、[広告ユニットのテスト値](set-up-ad-units-in-your-app.md#test-ad-units)を割り当てます。 また、コントロールの**高さ**と**幅**を、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに合わせて調整します。
+8.  default.html ファイル (または、プロジェクトに適したその他の html ファイル) の** &lt; body &gt; **セクションを変更して、 **adcontrol**の**div**を含めます。 **AdControl** の **applicationId** プロパティと **adUnitId** プロパティに、[広告ユニットのテスト値](set-up-ad-units-in-your-app.md#test-ad-units)を割り当てます。 また、コントロールの**高さ**と**幅**を、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに合わせて調整します。
 
     > [!NOTE]
-    > 各 **AdControl** に、対応する*広告ユニット*があります。広告ユニットは、コントロールに広告を提供するためにサービスで使用されます。すべての広告ユニットは、*広告ユニット ID* と*アプリケーション ID* で構成されます。 ここでは、広告ユニット ID とアプリケーション ID のテスト値をコントロールに割り当てます。 これらのテスト値は、テスト バージョンのアプリでのみ使用できます。 ストアにアプリを発行する前に、[これらのテスト値をパートナーセンターのライブ値に置き換える](#release)必要があります。
+    > 各 **AdControl** に、対応する*広告ユニット*があります。広告ユニットは、コントロールに広告を提供するためにサービスで使用されます。すべての広告ユニットは、*広告ユニット ID* と*アプリケーション ID* で構成されます。 ここでは、広告ユニット ID とアプリケーション ID のテスト値をコントロールに割り当てます。 これらのテスト値は、テスト バージョンのアプリでのみ使用できます。 ストアにアプリを発行する前に、 [これらのテスト値をパートナーセンターのライブ値に置き換える](#release) 必要があります。
 
     ``` HTML
     <div id="myAd" style="position: absolute; top: 50px; left: 0px; width: 300px; height: 250px; z-index: 1"
@@ -110,7 +110,7 @@ JavaScript/HTML アプリにバナー広告を追加する方法を示す完全�
 このコードで広告が表示されない場合は、**AdControl** を含む **div** に **position:relative** の属性を挿入してみてください。 これにより、**IFrame** の既定の設定が上書きされます。 この属性の値が原因でなければ、広告が正しく表示されるようになります。 新しい広告ユニットが利用可能になるまでに最大で 30 分かかる場合があることに注意してください。
 
 > [!NOTE]
-> この例の *applicationId* の値と *adUnitId* の値は、[テスト モードの値](set-up-ad-units-in-your-app.md#test-ad-units)です。 アプリを送信する前に、これらの値をパートナーセンターの[ライブ値に置き換える](set-up-ad-units-in-your-app.md#live-ad-units)必要があります。
+> この例の *applicationId* の値と *adUnitId* の値は、[テスト モードの値](set-up-ad-units-in-your-app.md#test-ad-units)です。 アプリを送信する前に、これらの値をパートナーセンターの [ライブ値に置き換える](set-up-ad-units-in-your-app.md#live-ad-units) 必要があります。
 
 <span id="release" />
 
@@ -118,17 +118,17 @@ JavaScript/HTML アプリにバナー広告を追加する方法を示す完全�
 
 1. アプリでのバナー広告の使用方法が[バナー広告のガイドライン](ui-and-user-experience-guidelines.md#guidelines-for-banner-ads)に従っていることを確認します。
 
-1.  パートナーセンターで、[アプリ内広告](../publish/in-app-ads.md)ページにアクセスし、[広告ユニットを作成](set-up-ad-units-in-your-app.md#live-ad-units)します。 広告ユニットの種類として、 **[バナー]** を指定します。 広告ユニット ID とアプリケーション ID の両方をメモしておきます。
+1.  パートナーセンターで、 [アプリ内広告](../publish/in-app-ads.md) ページにアクセスし、 [広告ユニットを作成](set-up-ad-units-in-your-app.md#live-ad-units)します。 広告ユニットの種類として、**[バナー]** を指定します。 広告ユニット ID とアプリケーション ID の両方をメモしておきます。
     > [!NOTE]
     > テスト広告ユニットとライブ UWP 広告ユニットでは、アプリケーション ID の値の形式が異なります。 テスト アプリケーション ID の値は GUID です。 パートナーセンターでライブ UWP ad ユニットを作成すると、ad ユニットの [アプリケーション ID] の値は、常にアプリのストア ID と一致します (たとえば、ストア ID 値は9NBLGGH4R315 のようになります)。
 
-2. 必要に応じて、 **[アプリ内広告]** ページの [[仲介設定]](../publish/in-app-ads.md#mediation) セクションで設定を構成することで、[AdControl](../publish/in-app-ads.md) の広告仲介を有効にできます。 広告仲介を使うと、複数の広告ネットワークから広告を表示して、広告収益とアプリ プロモーションの機能を最大限に引き出すことができます。表示される広告には、Taboola や Smaato などの他の有料広告ネットワークからの広告や、Microsoft のアプリ プロモーション キャンペーン用の広告などが含まれます。
+2. 必要に応じて、[[アプリ内広告]](../publish/in-app-ads.md) ページの [[仲介設定]](../publish/in-app-ads.md#mediation) セクションで設定を構成することで、**AdControl** の広告仲介を有効にできます。 広告仲介を使うと、複数の広告ネットワークから広告を表示して、広告収益とアプリ プロモーションの機能を最大限に引き出すことができます。表示される広告には、Taboola や Smaato などの他の有料広告ネットワークからの広告や、Microsoft のアプリ プロモーション キャンペーン用の広告などが含まれます。
 
-3.  コードで、テスト ad の単位の値 (**applicationId**と**adUnitId**) を、パートナーセンターで生成したライブの値に置き換えます。
+3.  コードで、テスト ad の単位の値 (**applicationId** と **adUnitId**) を、パートナーセンターで生成したライブの値に置き換えます。
 
 4.  パートナーセンターを使用して、ストアに[アプリを送信](../publish/app-submissions.md)します。
 
-5.  パートナーセンターで、[広告のパフォーマンスレポート](../publish/advertising-performance-report.md)を確認します。             
+5.  パートナーセンターで、 [広告のパフォーマンスレポート](../publish/advertising-performance-report.md) を確認します。             
 
 <span id="manage" />
 
@@ -143,5 +143,5 @@ JavaScript/HTML アプリにバナー広告を追加する方法を示す完全�
 
 * [バナー広告のガイドライン](ui-and-user-experience-guidelines.md#guidelines-for-banner-ads)
 * [GitHub の広告サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Advertising)
-* [アプリの ad ユニットを設定する](set-up-ad-units-in-your-app.md)
-* [JavaScript でのエラー処理のチュートリアル](error-handling-in-javascript-walkthrough.md)
+* [アプリの広告ユニットをセットアップする](set-up-ad-units-in-your-app.md)
+* [JavaScript ウォークスルーでのエラー処理](error-handling-in-javascript-walkthrough.md)

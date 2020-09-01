@@ -7,19 +7,19 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e3614b7bde3a87c8f5fa6fdc0eada560fd7bbcdc
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: f56036ecc083d72f552954860d04750c1c83b8b6
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370963"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156206"
 ---
 # <a name="stream-output-so-stage"></a>ストリーム出力 (SO) ステージ
 
 
 ストリーム出力 (SO) ステージでは、直前のアクティブなステージからメモリ内の 1 つ以上のバッファーに、頂点データを連続して出力 (ストリーミング) します。 メモリにストリーミングされたデータは、CPU からの入力データまたはリード バックとして、パイプラインに再循環させることができます。
 
-## <a name="span-idpurposeandusesspanspan-idpurposeandusesspanspan-idpurposeandusesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と使用
+## <a name="span-idpurpose_and_usesspanspan-idpurpose_and_usesspanspan-idpurpose_and_usesspanpurpose-and-uses"></a><span id="Purpose_and_uses"></span><span id="purpose_and_uses"></span><span id="PURPOSE_AND_USES"></span>目的と用途
 
 
 ![パイプライン内のストリーム出力ステージの場所を示す図](images/d3d10-pipeline-stages-so.png)
@@ -31,17 +31,17 @@ ms.locfileid: "66370963"
 ストリーム出力データをパイプラインに送る方法は 2 とおりあります。
 
 -   ストリーム出力データは、入力アセンブラー (IA) ステージに戻すことができます。
--   ストリーム出力データは、ロード関数 ([Load](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-load) など) を使用して、プログラム可能なシェーダーで読み取ることができます。
+-   ストリーム出力データは、ロード関数 ([Load](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-load) など) を使用して、プログラム可能なシェーダーで読み取ることができます。
 
-## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>入力
+## <a name="span-idinputspanspan-idinputspanspan-idinputspaninput"></a><span id="Input"></span><span id="input"></span><span id="INPUT"></span>代入
 
 
 前のシェーダー ステージの頂点データです。
 
-## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>出力
+## <a name="span-idoutputspanspan-idoutputspanspan-idoutputspanoutput"></a><span id="Output"></span><span id="output"></span><span id="OUTPUT"></span>Output
 
 
-ストリーム出力 (SO) ステージでは、ジオメトリ シェーダー (GS) ステージなど、直前のアクティブなステージからメモリ内の 1 つ以上のバッファーに、頂点データを連続して出力 (ストリーミング) します。 ジオメトリ シェーダー (GS) のステージがアクティブでない場合、Stream 出力 (SO) 段階は継続的にメモリ (または、DS でないかどうかも、頂点シェーダー (VS) ステージからのアクティブな) 内のバッファーに、ドメイン シェーダー (DS) のステージから頂点データを出力します。
+ストリーム出力 (SO) ステージでは、ジオメトリ シェーダー (GS) ステージなど、直前のアクティブなステージからメモリ内の 1 つ以上のバッファーに、頂点データを連続して出力 (ストリーミング) します。 ジオメトリシェーダー (GS) ステージが非アクティブになっている場合、ストリーム出力 () ステージは、連続して頂点データをドメインシェーダー (DS) ステージからメモリ内のバッファーに継続的に出力します (または、DS も、頂点シェーダー (VS) ステージの非アクティブな場合)。
 
 三角形ストリップまたはライン ストリップが入力アセンブラー (IA) ステージにバインドされているときには、各ストリップがリストに変換されてからストリーム出力されます。頂点は、常に、完全なプリミティブとして書き出されます (たとえば、三角形の場合は 3 つの頂点が一度に出力されます)。不完全なプリミティブがストリーム出力されることはありません。隣接性のあるプリミティブ タイプの場合、データがストリーム出力される前に隣接性データが破棄されます。
 
@@ -58,7 +58,3 @@ ms.locfileid: "66370963"
  
 
  
-
-
-
-

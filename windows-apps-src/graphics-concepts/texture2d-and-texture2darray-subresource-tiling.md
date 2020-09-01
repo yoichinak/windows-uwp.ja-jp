@@ -7,22 +7,22 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e193ab7bce31c1f13cb40f04902922c6ff21056
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 28152f39983f4831a9efa981efcb85fb65fa0204
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370913"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156176"
 ---
 # <a name="texture2d-and-texture2darray-subresource-tiling"></a>Texture2D と Texture2DArray のサブリソースのタイル表示
 
 
-次の表に、[**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) および [**Texture2DArray**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サブリソースがどのようにタイル表示されるかを示します。 これらの表の値は、テール ミップ パッキングをカウントしていません。
+次の表に、[**Texture2D**](/windows/desktop/direct3dhlsl/sm5-object-texture2d) および [**Texture2DArray**](/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サブリソースがどのようにタイル表示されるかを示します。 これらの表の値は、テール ミップ パッキングをカウントしていません。
 
-## <a name="span-idsubresources-with-multisample-counts-of-1spanspan-idsubresources-with-multisample-counts-of-1spanspan-idsubresources-with-multisample-counts-of-1spansubresources-with-multisample-counts-of-1"></a><span id="Subresources-with-multisample-counts-of-1"></span><span id="subresources-with-multisample-counts-of-1"></span><span id="SUBRESOURCES-WITH-MULTISAMPLE-COUNTS-OF-1"></span>1 のマルチ サンプリングのカウントを使用したサブリソース
+## <a name="span-idsubresources-with-multisample-counts-of-1spanspan-idsubresources-with-multisample-counts-of-1spanspan-idsubresources-with-multisample-counts-of-1spansubresources-with-multisample-counts-of-1"></a><span id="Subresources-with-multisample-counts-of-1"></span><span id="subresources-with-multisample-counts-of-1"></span><span id="SUBRESOURCES-WITH-MULTISAMPLE-COUNTS-OF-1"></span>マルチサンプリング数が1のサブリソース
 
 
-次の表に、マルチサンプル数が 1 の [**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) および [**Texture2DArray**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サブリソースがどのようにタイル表示されるかを示します。
+次の表に、マルチサンプル数が 1 の [**Texture2D**](/windows/desktop/direct3dhlsl/sm5-object-texture2d) および [**Texture2DArray**](/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サブリソースがどのようにタイル表示されるかを示します。
 
 | ビット/ピクセル (1 サンプル/ピクセル) | タイルの寸法 (ピクセル、W x H) |
 |-----------------------------|-------------------------------|
@@ -36,12 +36,12 @@ ms.locfileid: "66370913"
 
  
 
-ストリームのリソースではサポートされていません形式のビット数は 96 の bpp 形式、ビデオ形式は、DXGI\_形式\_R1\_UNORM、DXGI\_形式\_R8G8\_B8G8\_UNORM、DXGI\_形式\_R8R8\_G8B8\_UNORM します。
+ストリーミングリソースでサポートされていない形式のビットカウントは、96 bpp 形式、ビデオ形式、DXGI \_ フォーマット \_ R1 \_ UNORM、dxgi \_ 形式の \_ R8G8 \_ B8G8 \_ unorm、および dxgi \_ 形式 \_ R8R8 \_ G8B8 \_ unorm です。
 
-## <a name="span-idsubresources-with-various-multisample-countsspanspan-idsubresources-with-various-multisample-countsspanspan-idsubresources-with-various-multisample-countsspansubresources-with-various-multisample-counts"></a><span id="Subresources-with-various-multisample-counts"></span><span id="subresources-with-various-multisample-counts"></span><span id="SUBRESOURCES-WITH-VARIOUS-MULTISAMPLE-COUNTS"></span>サブリソースのさまざまなマルチ サンプル数
+## <a name="span-idsubresources-with-various-multisample-countsspanspan-idsubresources-with-various-multisample-countsspanspan-idsubresources-with-various-multisample-countsspansubresources-with-various-multisample-counts"></a><span id="Subresources-with-various-multisample-counts"></span><span id="subresources-with-various-multisample-counts"></span><span id="SUBRESOURCES-WITH-VARIOUS-MULTISAMPLE-COUNTS"></span>さまざまなマルチサンプリング数を持つサブリソース
 
 
-次の表に、さまざまなマルチサンプル数の [**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) および [**Texture2DArray**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サブリソースがどのようにタイル表示されるかを示します。
+次の表に、さまざまなマルチサンプル数の [**Texture2D**](/windows/desktop/direct3dhlsl/sm5-object-texture2d) および [**Texture2DArray**](/windows/desktop/direct3dhlsl/sm5-object-texture2darray) サブリソースがどのようにタイル表示されるかを示します。
 
 | ビット/ピクセル (1 サンプル/ピクセル) | タイルの寸法 (ピクセル、W x H) |
 |-----------------------------|-------------------------------|
@@ -49,7 +49,7 @@ ms.locfileid: "66370913"
 | 2                           | 2 x 1                           |
 | 4                           | 2 x 2                           |
 | 8                           | 4 x 2                           |
-| 16                          | 4 x 4                           |
+| 16                          | 4x4                           |
 
  
 
@@ -64,12 +64,8 @@ ms.locfileid: "66370913"
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[ストリーミングのリソースの領域は並べて表示する方法](how-a-streaming-resource-s-area-is-tiled.md)
+[ストリーミング リソースの領域をタイル表示する方法](how-a-streaming-resource-s-area-is-tiled.md)
 
  
 
  
-
-
-
-

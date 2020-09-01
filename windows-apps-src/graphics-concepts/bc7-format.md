@@ -7,30 +7,30 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 25ee9960e55100eaf743d73d7007e9bcf51342ee
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 4ca22bc897acf0d4cbd924002de96d13f2ba8549
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66370722"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159026"
 ---
 # <a name="bc7-format"></a>BC7 形式
 
 
 BC7 形式は、RGB および RGBA データの高品質圧縮に使用される、テクスチャ圧縮形式です。
 
-BC7 形式のブロック モードについて詳しくは、[BC7 形式モード リファレンス](https://docs.microsoft.com/windows/desktop/direct3d11/bc7-format-mode-reference)をご覧ください。
+BC7 形式のブロック モードについて詳しくは、[BC7 形式モード リファレンス](/windows/desktop/direct3d11/bc7-format-mode-reference)をご覧ください。
 
-## <a name="span-idabout-bc7-dxgi-format-bc7spanspan-idabout-bc7-dxgi-format-bc7spanspan-idabout-bc7-dxgi-format-bc7spanabout-bc7dxgiformatbc7"></a><span id="About-BC7-DXGI-FORMAT-BC7"></span><span id="about-bc7-dxgi-format-bc7"></span><span id="ABOUT-BC7-DXGI-FORMAT-BC7"></span>Bc7 の使用/DXGI について\_形式\_bc7 の使用
+## <a name="span-idabout-bc7-dxgi-format-bc7spanspan-idabout-bc7-dxgi-format-bc7spanspan-idabout-bc7-dxgi-format-bc7spanabout-bc7dxgi_format_bc7"></a><span id="About-BC7-DXGI-FORMAT-BC7"></span><span id="about-bc7-dxgi-format-bc7"></span><span id="ABOUT-BC7-DXGI-FORMAT-BC7"></span>BC7/DXGI \_ 形式の BC7 について \_
 
 
-次の DXGI によって bc7 の使用が指定された\_列挙値の書式設定。
+BC7 は、次の DXGI 形式の列挙値によって指定され \_ ます。
 
--   **DXGI\_形式\_BC7\_TYPELESS**します。
--   **DXGI\_形式\_BC7\_UNORM**します。
--   **DXGI\_形式\_BC7\_UNORM\_SRGB**します。
+-   **DXGI \_\_BC7 \_ の形式を指定**しないでください。
+-   **DXGI \_\_BC7 \_ unorm の書式を設定**します。
+-   **DXGI \_\_BC7 \_ unorm \_ SRGB の形式を設定**します。
 
-BC7 形式は、[Texture2D](https://docs.microsoft.com/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
+BC7 形式は、[Texture2D](/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
 
 BC7 は、16バイト (128 ビット) の固定ブロックサイズと 4 × 4 テクセルの固定タイル サイズを使用します。 以前の BC 形式と同様に、サポートされるタイル サイズ (4 x 4) よりも大きなテクスチャ画像は、複数のブロックを使用して圧縮されます。 このアドレス指定 ID は、3 次元画像とミップマップ、キューブマップ、テクスチャ配列にも適用されます。 すべての画像タイルは同じ形式でなければなりません。
 
@@ -40,7 +40,7 @@ BC7 デコーダーは、テクスチャ フィルタリングが適用される
 
 BC7 の圧縮解除ハードウェアはビットアキュレートである必要があります。つまり、ハードウェアはこのドキュメントで説明されているデコーダーによって返される結果と同一の結果を返す必要があります。
 
-## <a name="span-idbc7-implementationspanspan-idbc7-implementationspanspan-idbc7-implementationspanbc7-implementation"></a><span id="BC7-Implementation"></span><span id="bc7-implementation"></span><span id="BC7-IMPLEMENTATION"></span>Bc7 の使用の実装
+## <a name="span-idbc7-implementationspanspan-idbc7-implementationspanspan-idbc7-implementationspanbc7-implementation"></a><span id="BC7-Implementation"></span><span id="bc7-implementation"></span><span id="BC7-IMPLEMENTATION"></span>BC7 の実装
 
 
 BC7 の実装では、16 バイト (128ビット) ブロックの最下位ビットに指定されたモードで、8 つのモードのうちの 1 つを指定できます。 モードは 0 または 0 の値の後に 1 が続く複数ビットによりエンコードされます。
@@ -51,15 +51,15 @@ BC7 ブロックには、複数のエンドポイントのペアを含むこと�
 
 色成分とアルファ成分を組み合わせた BC7 ブロックの場合、ブロックはモードビット、圧縮エンドポイント、圧縮インデックス、およびパーティション ビットと P ビット (オプション) で構成されます。 これらのブロックでは、エンドポイントの色は RGBA 形式で表現され、アルファ成分の値は色成分の値により補間されます。
 
-個別の色成分とアルファ成分を持つ BC7 ブロックの場合、ブロックはモード ビット、回転ビット、圧縮エンドポイント、圧縮インデックス、およびインデックス セレクタ ビット (オプション) で構成されます。 これらのブロックがある、有効な RGB ベクター \[R、G、B\]とスカラーのアルファ チャネル\[A\]個別にエンコードします。
+個別の色成分とアルファ成分を持つ BC7 ブロックの場合、ブロックはモード ビット、回転ビット、圧縮エンドポイント、圧縮インデックス、およびインデックス セレクタ ビット (オプション) で構成されます。 これらのブロックには、有効な RGB ベクター \[ R、G、B \] と、個別にエンコードされたスカラーアルファチャネルがあり \[ \] ます。
 
 次の表に、各ブロック タイプのコンポーネントを示します。
 
 | BC7 ブロックに含まれるもの     | モード ビット | 回転ビット | インデックス セレクター ビット | パーティション ビット | 圧縮エンドポイント | P ビット    | 圧縮インデックス |
 |---------------------------|-----------|---------------|--------------------|----------------|----------------------|----------|--------------------|
-| 色成分のみ     | required  | なし           | なし                | required       | required             | オプション | required           |
-| 色とアルファの組み合わせ    | required  | なし           | なし                | オプション       | required             | オプション | required           |
-| 色とアルファが別々 | required  | required      | オプション           | なし            | required             | なし      | required           |
+| 色成分のみ     | 必須  | N/A           | N/A                | 必須       | 必須             | オプション | 必須           |
+| 色とアルファの組み合わせ    | 必須  | N/A           | N/A                | オプション       | 必須             | オプション | 必須           |
+| 色とアルファが別々 | 必須  | 必須      | オプション           | N/A            | 必須             | N/A      | 必須           |
 
  
 
@@ -267,7 +267,7 @@ BC7 モード 2 には以下の特徴があります。
 
 ![モード 2 のビット レイアウト](images/bc7-mode2.png)
 
-### <a name="span-idmode-3spanspan-idmode-3spanspan-idmode-3spanmode-3"></a><span id="Mode-3"></span><span id="mode-3"></span><span id="MODE-3"></span>モード 3
+### <a name="span-idmode-3spanspan-idmode-3spanspan-idmode-3spanmode-3"></a><span id="Mode-3"></span><span id="mode-3"></span><span id="MODE-3"></span>モード3
 
 BC7 モード 3 には以下の特徴があります。
 
@@ -294,7 +294,7 @@ BC7 モード 4 には以下の特徴があります。
 
 ![モード 4 のビット レイアウト](images/bc7-mode4.png)
 
-### <a name="span-idmode-5spanspan-idmode-5spanspan-idmode-5spanmode-5"></a><span id="Mode-5"></span><span id="mode-5"></span><span id="MODE-5"></span>5 モード
+### <a name="span-idmode-5spanspan-idmode-5spanspan-idmode-5spanmode-5"></a><span id="Mode-5"></span><span id="mode-5"></span><span id="MODE-5"></span>モード 5
 
 BC7 モード 5 には以下の特徴があります。
 
@@ -308,7 +308,7 @@ BC7 モード 5 には以下の特徴があります。
 
 ![モード 5 のビット レイアウト](images/bc7-mode5.png)
 
-### <a name="span-idmode-6spanspan-idmode-6spanspan-idmode-6spanmode-6"></a><span id="Mode-6"></span><span id="mode-6"></span><span id="MODE-6"></span>6 モード
+### <a name="span-idmode-6spanspan-idmode-6spanspan-idmode-6spanmode-6"></a><span id="Mode-6"></span><span id="mode-6"></span><span id="MODE-6"></span>モード6
 
 BC7 モード 6 には以下の特徴があります。
 
@@ -319,7 +319,7 @@ BC7 モード 6 には以下の特徴があります。
 
 ![モード 6 のビット レイアウト](images/bc7-mode6.png)
 
-### <a name="span-idmode-7spanspan-idmode-7spanspan-idmode-7spanmode-7"></a><span id="Mode-7"></span><span id="mode-7"></span><span id="MODE-7"></span>7 モード
+### <a name="span-idmode-7spanspan-idmode-7spanspan-idmode-7spanmode-7"></a><span id="Mode-7"></span><span id="mode-7"></span><span id="MODE-7"></span>モード 7
 
 BC7 モード 7 には以下の特徴があります。
 
@@ -339,13 +339,13 @@ BC7 では、次のいずれかの方法でアルファ成分をエンコード�
 
 -   明示的なアルファ成分エンコーディングのないブロック タイプ。 これらのブロックでは、カラー エンドポイントには RGB のみのエンコードがあり、アルファ成分はすべてのテクセルに対して 1.0 にデコードされます。
 -   色成分とアルファ成分を組み合わせたブロック タイプ。 これらのブロックでは、エンドポイントのカラー値は RGBA 形式で指定され、アルファ成分の値は、カラー値と共に補間されます。
--   色成分とアルファ成分が分離されたブロック タイプ。 これらのブロックでは、色とアルファの値が別々に指定され、それぞれ独自のインデックス セットを持ちます。 有効なベクターとスカラー チャネルとは別にエンコード、ベクトルのカラー チャネルを示す一般的であるため、 \[R、G、B\]スカラー アルファ チャネルを指定して\[A\]します。 この方法をサポートするために、別の 2 ビット フィールドがエンコードに提供されます。これにより、スカラー値として別のチャネル エンコードの指定が可能になります。 その結果、ブロックは、このアルファ エンコードの次の 4 つの異なる表現のうちの 1 つを持つことができます (2 ビット フィールドによって示されます)。
+-   色成分とアルファ成分が分離されたブロック タイプ。 これらのブロックでは、色とアルファの値が別々に指定され、それぞれ独自のインデックス セットを持ちます。 その結果、有効なベクターとスカラーチャネルが個別にエンコードされます。ベクターは一般的に、カラーチャネル \[ R、G、B を指定し、 \] スカラーはアルファチャネル a を指定し \[ \] ます。 この方法をサポートするために、別の 2 ビット フィールドがエンコードに提供されます。これにより、スカラー値として別のチャネル エンコードの指定が可能になります。 その結果、ブロックは、このアルファ エンコードの次の 4 つの異なる表現のうちの 1 つを持つことができます (2 ビット フィールドによって示されます)。
     -   RGB|A: アルファ チャネル分離
     -   AGB|R: "赤" 色チャネル分離
     -   RAB|G: "緑" 色チャネル分離
     -   RGA|B: "青" 色チャネル分離
 
-    デコーダーは、デコード後にチャネルの順序を RGBA に戻すため、内部ブロックの形式は開発者には見えません。 別の色成分とアルファ成分を持つ黒は、2 つのセットのインデックス データも持っています。1 つはベクター化されたチャネル セット用で、もう 1 つはスカラー チャネル用です。 (モードの 4 の場合、これらのインデックスが幅の異なるは\[2 または 3 ビット\]します。 モード 4 には、ベクトルまたはスカラー チャネルが 3 ビット インデックスを使用するかどうかを指定する、1 ビットのセレクターも含まれています。)
+    デコーダーは、デコード後にチャネルの順序を RGBA に戻すため、内部ブロックの形式は開発者には見えません。 別の色成分とアルファ成分を持つ黒は、2 つのセットのインデックス データも持っています。1 つはベクター化されたチャネル セット用で、もう 1 つはスカラー チャネル用です。 (モード4の場合、これらのインデックスの幅は \[ 2 または3ビットに \] なります。 モード 4 には、ベクトルまたはスカラー チャネルが 3 ビット インデックスを使用するかどうかを指定する、1 ビットのセレクターも含まれています。)
 
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
@@ -355,7 +355,3 @@ BC7 では、次のいずれかの方法でアルファ成分をエンコード�
  
 
  
-
-
-
-

@@ -6,22 +6,22 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, レンダリング フレームワーク, 変換, Direct3D 9, Direct3D 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 6629ba035a7fb0085e28f3fa033e58a1c1105ccf
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 780054dd7e51456c582265c27a7e415f92cba382
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368024"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159136"
 ---
 # <a name="convert-the-rendering-framework"></a>レンダリング フレームワークの変換
 
 
 
-**概要**
+**まとめ**
 
--   [パート 1: Direct3D の初期化 11](simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md)
--   パート 2:レンダリング フレームワークの変換
--   [パート 3:ポート、ゲームのループ](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)
+-   [パート 1: Direct3D 11 の初期化](simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md)
+-   パート 2: レンダリング フレームワークの変換
+-   [パート 3: ゲーム ループの移植](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)
 
 
 ジオメトリ バッファーを移植する方法、HLSL シェーダー プログラムをコンパイルして読み込む方法、Direct3D 11 のレンダリング チェーンを実装する方法など、Direct3D 9 の簡単なレンダリング フレームワークを Direct3D 11 に変換する方法について説明します。 「[チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植](walkthrough--simple-port-from-direct3d-9-to-11-1.md)」のパート 2 です。
@@ -93,19 +93,19 @@ technique RenderSceneSimple
 }
 ```
 
-Direct3D 11 では、引き続き HLSL シェーダーを使うことができます。 各シェーダーは、それぞれの HLSL ファイルに配置して、Visual Studio で別々のファイルにコンパイルされるようにします。その後で、個々の Direct3D リソースとして読み込みます。 ターゲットをレベルを設定します[シェーダー モデル 4 レベルの 9\_1 (4/\_0\_レベル\_9\_1)](https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro) DirectX 9.1 Gpu のこれらのシェーダーが書き込まれるためです。
+Direct3D 11 では、引き続き HLSL シェーダーを使うことができます。 各シェーダーは、それぞれの HLSL ファイルに配置して、Visual Studio で別々のファイルにコンパイルされるようにします。その後で、個々の Direct3D リソースとして読み込みます。 ターゲットレベルを [シェーダーモデル4レベル 9 \_ 1 (/4 \_ 0 \_ レベル \_ 9 \_ 1)](/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro) に設定します。これらのシェーダーは DirectX 9.1 gpu 用に記述されているためです。
 
 入力レイアウトを定義する際に、入力レイアウトが表す、頂点ごとのデータを格納するために使うデータ構造体がシステム メモリと GPU メモリで同じことを確認しました。 同じように、頂点シェーダーの出力がピクセル シェーダーへの入力として使われる構造体と一致する必要があります。 規則は C++ の関数間でデータを受け渡す場合と異なり、構造体の末尾の使わない変数は省略できます。 ただし、順序を並べ替えることはできず、データ構造体の真ん中のコンテンツをスキップすることもできません。
 
-> **注**   Direct3D 9 ピクセル シェーダーにバインド頂点シェーダーのルールが使用された direct3d11 の規則よりもより厳密でないです。 Direct3D 9 の配置は、柔軟ですが、効率的ではありませんでした。
+> **メモ**   頂点シェーダーをピクセルシェーダーにバインドするための Direct3D 9 のルールは、Direct3D 11 のルールよりも緩やかでした。 Direct3D 9 の配置は、柔軟ですが、効率的ではありませんでした。
 
  
 
-HLSL ファイルが古い構文 SV ではなく色などを示す-シェーダー セマンティクスを使用することは\_ターゲット。 その場合は、HLSL 互換モード (/Gec コンパイラ オプション) を有効にするか、シェーダー [セマンティクス](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)を現行の構文に更新する必要があります。 この例の頂点シェーダーは現行の構文で更新されています。
+HLSL ターゲットではなく、色などのシェーダーセマンティクスに対して、HLSL ファイルが古い構文を使用する可能性があり \_ ます。 その場合は、HLSL 互換モード (/Gec コンパイラ オプション) を有効にするか、シェーダー [セマンティクス](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics)を現行の構文に更新する必要があります。 この例の頂点シェーダーは現行の構文で更新されています。
 
 ハードウェア変換の頂点シェーダーを次に示します。今回は、個別のファイルに定義しています。
 
-> **注**  頂点シェーダーは、SV を出力するために必要な\_位置システム値セマンティック。 このセマンティクスは頂点の位置データを座標値に解決します。x は -1 ～ 1 の値に、y は -1 ～ 1 の値になり、z は元の同次座標 w の値で割られ (z/w)、w は 1 を元の w の値で割った値 (1/w) になります。
+> **メモ**   SV の位置システム値のセマンティックを出力するには、頂点シェーダーが必要です \_ 。 このセマンティクスは頂点の位置データを座標値に解決します。x は -1 ～ 1 の値に、y は -1 ～ 1 の値になり、z は元の同次座標 w の値で割られ (z/w)、w は 1 を元の w の値で割った値 (1/w) になります。
 
  
 
@@ -150,9 +150,9 @@ VS_OUTPUT main(VS_INPUT input) // main is the default function name
 }
 ```
 
-パススルー ピクセル シェーダーに必要なコードはこれだけです。 パススルーと呼んでいますが、実際には、各ピクセルの透視補正補間された色データを取得します。 なお、SV\_ターゲット システム値セマンティックは、API で必要なピクセル シェーダーによって色値の出力に適用されます。
+パススルー ピクセル シェーダーに必要なコードはこれだけです。 パススルーと呼んでいますが、実際には、各ピクセルの透視補正補間された色データを取得します。 SV の \_ ターゲットシステム値のセマンティックは、API で必要とされるピクセルシェーダーによって出力されるカラー値に適用されることに注意してください。
 
-> **注**  シェーダー レベル 9\_ピクセル シェーダーは、SV から読み取ることができません x\_位置システム値セマンティック。 4.0 (以降) のピクセル シェーダーのモデル使用 SV\_x が 0 と、レンダー ターゲットの幅と y の間は、画面のピクセル位置を取得する位置が 0 ~ レンダー ターゲットの高さ (0.5 で各オフセット)。
+> **メモ**   シェーダーレベル 9 \_ x ピクセルシェーダーは、SV POSITION システム値のセマンティックから読み取ることができません \_ 。 モデル 4.0 (およびそれ以降) のピクセルシェーダーは、SV の位置を使用して \_ 画面上のピクセル位置を取得できます。 x は0からレンダーターゲットの幅、y は0からレンダーターゲットの高さ (各オフセットは 0.5) になります。
 
  
 
@@ -185,7 +185,7 @@ PS_OUTPUT main(PS_INPUT In)
 ## <a name="compile-and-load-shaders"></a>シェーダーのコンパイルと読み込み
 
 
-Direct3D 9 ゲームでは、プログラム可能なパイプラインを実装する便利な方法として Effects ライブラリをよく使いました。 エフェクトは [**D3DXCreateEffectFromFile function**](https://docs.microsoft.com/windows/desktop/direct3d9/d3dxcreateeffectfromfile) メソッドを使って実行時にコンパイルできます。
+Direct3D 9 ゲームでは、プログラム可能なパイプラインを実装する便利な方法として Effects ライブラリをよく使いました。 エフェクトは [**D3DXCreateEffectFromFile function**](/windows/desktop/direct3d9/d3dxcreateeffectfromfile) メソッドを使って実行時にコンパイルできます。
 
 Direct3D 9 でのエフェクトの読み込み
 
@@ -234,19 +234,19 @@ m_d3dDevice->CreateVertexShader(
     );
 ```
 
-コンパイル済みのアプリ パッケージにシェーダーのバイトコードを含めるには、単純に Visual Studio プロジェクトに HLSL ファイルを追加します。 Visual Studio では、[エフェクト コンパイラ ツール](https://docs.microsoft.com/windows/desktop/direct3dtools/fxc) (FXC) を使って、HLSL ファイルをコンパイル済みシェーダー オブジェクト (.CSO ファイル) にコンパイルし、それらをアプリ パッケージに含めます。
+コンパイル済みのアプリ パッケージにシェーダーのバイトコードを含めるには、単純に Visual Studio プロジェクトに HLSL ファイルを追加します。 Visual Studio では、[エフェクト コンパイラ ツール](/windows/desktop/direct3dtools/fxc) (FXC) を使って、HLSL ファイルをコンパイル済みシェーダー オブジェクト (.CSO ファイル) にコンパイルし、それらをアプリ パッケージに含めます。
 
-> **注**   HLSL コンパイラの適切なターゲットの機能レベルを設定してください Visual Studio で、HLSL ソース ファイルを右クリックし、プロパティを選択して、変更、**シェーダー モデル**設定 **。HLSL コンパイラ -&gt;全般**します。 アプリで Direct3D シェーダー リソースを作成するときに、Direct3D ではこのプロパティとハードウェアの機能を照合します。
+> **メモ**   HLSL コンパイラに適切なターゲット機能レベルを設定するようにしてください。 Visual Studio で HLSL ソースファイルを右クリックし、[プロパティ] を選択し、[ **Hlsl コンパイラ- &gt; 全般**] の [**シェーダーモデル**] 設定を変更します。 アプリで Direct3D シェーダー リソースを作成するときに、Direct3D ではこのプロパティとハードウェアの機能を照合します。
 
  
 
 ![HLSL シェーダーのプロパティ](images/hlslshaderpropertiesmenu.png)![HLSL シェーダーの種類](images/hlslshadertypeproperties.png)
 
-ここは、Direct3D 9 の頂点ストリームの宣言に対応する入力レイアウトを作成するのに適した場所です。 頂点ごとのデータ構造体は、頂点シェーダーで使う構造体と一致する必要があります。Direct3D 11 では、入力レイアウトをより細かく制御できます。そのため、浮動小数点ベクトルの配列サイズとビット長を定義し、頂点シェーダーのセマンティクスを指定できます。 作成、 [ **D3D11\_入力\_要素\_DESC** ](https://docs.microsoft.com/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)構造体し、Direct3D を通知するために、頂点ごとのデータのように使用します。 API では入力レイアウトを頂点シェーダー リソースに照らして検証するため、頂点シェーダーを読み込んで、入力レイアウトを定義するまで待ちます。 入力レイアウトに互換性がない場合は、Direct3D から例外がスローされます。
+ここは、Direct3D 9 の頂点ストリームの宣言に対応する入力レイアウトを作成するのに適した場所です。 頂点ごとのデータ構造体は、頂点シェーダーで使う構造体と一致する必要があります。Direct3D 11 では、入力レイアウトをより細かく制御できます。そのため、浮動小数点ベクトルの配列サイズとビット長を定義し、頂点シェーダーのセマンティクスを指定できます。 [**D3D11 \_ INPUT \_ 要素 \_ DESC**](/windows/desktop/api/d3d11/ns-d3d11-d3d11_input_element_desc)構造体を作成し、それを使用して、頂点ごとのデータがどのように表示されるかを Direct3D に通知します。 API では入力レイアウトを頂点シェーダー リソースに照らして検証するため、頂点シェーダーを読み込んで、入力レイアウトを定義するまで待ちます。 入力レイアウトに互換性がない場合は、Direct3D から例外がスローされます。
 
-頂点ごとのデータは互換性のある型でシステム メモリに格納する必要があります。 DirectXMath データ型が役立つことができます。たとえば、DXGI\_形式\_R32G32B32\_に対応する FLOAT [ **XMFLOAT3**](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat3)します。
+頂点ごとのデータは互換性のある型でシステム メモリに格納する必要があります。 DirectXMath データ型は、役に立ちます。たとえば、DXGI \_ FORMAT \_ R32G32B32 FLOAT は \_ [**XMFLOAT3**](/windows/desktop/api/directxmath/ns-directxmath-xmfloat3)に対応します。
 
-> **注**  定数バッファーが同時に 4 つの浮動小数点数に合わせて調整される固定入力レイアウトを使用します。 [**XMFLOAT4** ](https://docs.microsoft.com/windows/desktop/api/directxmath/ns-directxmath-xmfloat4) (とその派生物) は、定数バッファーのデータをお勧めします。
+> **メモ**   定数バッファーは、一度に4つの浮動小数点数に配置される固定入力レイアウトを使用します。 定数バッファー データには [**XMFLOAT4**](/windows/desktop/api/directxmath/ns-directxmath-xmfloat4) (とその派生) をお勧めします。
 
  
 
@@ -483,12 +483,8 @@ DirectX 11 を使った画面へのフレームの表示
 m_swapChain->Present(1, 0);
 ```
 
-作成したレンダリング チェーンは、[**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドに実装したゲーム ループから呼び出されます。 これに示した[パート 3。ビューポートとゲームのループ](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)します。
+作成したレンダリング チェーンは、[**IFrameworkView::Run**](/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドに実装したゲーム ループから呼び出されます。 これについては、「[パート 3: ゲーム ループの移植](simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md)」をご覧ください。
 
  
 
  
-
-
-
-

@@ -6,14 +6,14 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 移植, Direct3D 9, Direct3D 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d4aef73b9b28d631a492436ff90761541134220
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 2e194ab79b8ba0a5dc79d4ad24f808d3613a0c98
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66367425"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158996"
 ---
-# <a name="walkthrough-port-a-simple-direct3d-9-app-to-directx-11-and-universal-windows-platform-uwp"></a>チュートリアル: DirectX 11 およびユニバーサル Windows プラットフォーム (UWP) に単純な Direct3D 9 アプリをポートします。
+# <a name="walkthrough-port-a-simple-direct3d-9-app-to-directx-11-and-universal-windows-platform-uwp"></a>チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植
 
 
 
@@ -32,16 +32,16 @@ ms.locfileid: "66367425"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md">Direct3D の初期化 11</a></p></td>
+<td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-1--initializing-direct3d.md">Direct3D 11 の初期化</a></p></td>
 <td align="left"><p>Direct3D デバイスとデバイス コンテキストへのハンドルを取得する方法や、DXGI を使ってスワップ チェーンを設定する方法など、Direct3D 9 の初期化コードを Direct3D 11 に変換する方法について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-2--rendering.md">レンダリングのフレームワークを変換します。</a></p></td>
+<td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-2--rendering.md">レンダリング フレームワークの変換</a></p></td>
 <td align="left"><p>ジオメトリ バッファーを移植する方法、HLSL シェーダー プログラムをコンパイルして読み込む方法、Direct3D 11 のレンダリング チェーンを実装する方法など、Direct3D 9 の簡単なレンダリング フレームワークを Direct3D 11 に変換する方法について説明します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md">ポート、ゲームのループ</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView">  <strong>IFrameworkView</strong></a> を作成して、全画面表示の <a href="https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow"><strong>CoreWindow</strong></a> を制御する方法など、UWP ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。</p></td>
+<td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md">ゲーム ループの移植</a></p></td>
+<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView"><strong>IFrameworkView</strong></a> を作成して、全画面表示の <a href="https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow"><strong>CoreWindow</strong></a> を制御する方法など、UWP ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。</p></td>
 </tr>
 </tbody>
 </table>
@@ -61,14 +61,14 @@ ms.locfileid: "66367425"
 -   デバイス、デバイス コンテキスト、グラフィックス インフラストラクチャの分離。
 -   シェーダーをコンパイルし、実行時にシェーダーのバイトコードを読み込むプロセス。
 -   入力アセンブラー (IA) ステージの頂点ごとのデータを構成する方法。
--   [  **IFrameworkView**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を使って CoreWindow ビューを作成する方法。
+-   [**IFrameworkView**](/uwp/api/Windows.ApplicationModel.Core.IFrameworkView) を使って CoreWindow ビューを作成する方法。
 
-このチュートリアルでは、簡素化のため [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow) を使用しており、XAML の相互運用には対応しない点に注意してください。
+このチュートリアルでは、簡素化のため [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) を使用しており、XAML の相互運用には対応しない点に注意してください。
 
 ## <a name="prerequisites"></a>前提条件
 
 
-[UWP DirectX ゲームの開発環境を準備する](prepare-your-dev-environment-for-windows-store-directx-game-development.md)必要があります。 テンプレートは、まだ必要はありませんが、このチュートリアルのコード サンプルの読み込みに Microsoft Visual Studio 2015 が必要があります。
+[UWP DirectX ゲームの開発環境を準備する](prepare-your-dev-environment-for-windows-store-directx-game-development.md)必要があります。 テンプレートはまだ必要ありませんが、このチュートリアルのコード サンプルを読み込むには Microsoft Visual Studio 2015 が必要です。
 
 このチュートリアルで説明する DirectX 11 と UWP のプログラミングの概念について詳しくは、「[DirectX 9 からの DirectX 11 と Windows ストアへの移行](porting-considerations.md)」をご覧ください。
 
@@ -76,11 +76,10 @@ ms.locfileid: "66367425"
 
 **Direct3D**
 
-* [Direct3D 9 での HLSL シェーダーの記述](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-writing-shaders-9)
+* [Direct3D 9 での HLSL シェーダーの記述](/windows/desktop/direct3dhlsl/dx-graphics-hlsl-writing-shaders-9)
 * [DirectX ゲーム プロジェクト テンプレート](user-interface.md)
 
-**Microsoft ストア**
+**Microsoft Store**
 
-* [**Microsoft::WRL::ComPtr**](https://docs.microsoft.com/cpp/windows/comptr-class)
-* [**オブジェクト演算子 (^) へのハンドルします。** ](https://docs.microsoft.com/cpp/windows/handle-to-object-operator-hat-cpp-component-extensions)
-
+* [**Microsoft::WRL::ComPtr**](/cpp/windows/comptr-class)
+* [**オブジェクト演算子 (^) へのハンドル**](/cpp/windows/handle-to-object-operator-hat-cpp-component-extensions)

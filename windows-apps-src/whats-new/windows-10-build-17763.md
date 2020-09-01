@@ -6,12 +6,12 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 77b47866bc064baec7c0ecf556eb615f67af0554
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 8599d1f493dc37095c0cb9464aa1d14c22072413
+ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234387"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88846842"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
@@ -47,7 +47,7 @@ C++/WinRT コード例 | 既存の C++/CX コード例とともに、250 件の 
 DirectX グラフィックス インフラストラクチャ (DXGI) | 不足している DXGI API についての新しいドキュメントが追加され、Windows 10 上で動作するときのベスト プラクティスに関する記事が提供されています。 </br> * [最適なパフォーマンスを得るには、DXGI フリップ モデルを使用してください](https://docs.microsoft.com/windows/desktop/direct3ddxgi/for-best-performance--use-dxgi-flip-model)。最新バージョンの Windows でプレゼンテーション スタックのパフォーマンスと効率を最大化する方法について説明します。 </br> * [IDXGIOutput6::CheckHardwareCompositionSupport メソッド](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-idxgioutput6-checkhardwarecompositionsupport):ハードウェアの拡大がサポートされていることをアプリケーションに通知します。 </br> * [DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS 列挙](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_hardware_composition_support_flags):サポートされているハードウェア構成のレベルについて説明します。
 開始 | 「[はじめに](../get-started/index.md)」のコンテンツが新しいトピックによって改訂されており、Windows 10 を初めて使用する開発者が次の一般的なタスクを実行するための方法についての情報とガイダンスが示されます。 </br> * [フォームの作成](../get-started/construct-form-learning-track.md) </br> * [一覧での顧客の表示](../get-started/display-customers-in-list-learning-track.md) </br> * [設定の保存と読み込み](../get-started/settings-learning-track.md) </br> * [ファイルの操作](../get-started/fileio-learning-track.md)
 マップ スタイル シート エディター | 新しい[マップ スタイル シート エディター](https://www.microsoft.com/p/map-style-sheet-editor/9nbhtcjt72ft?rtc=1#activetab=pivot:overviewtab) アプリケーションを使用して、アプリケーションに追加するマップの外観を対話形式でカスタマイズできます。
-Microsoft Learn | 新しい [Microsoft Learn サイト](https://www.microsoft.com/learning/default.aspx)は、新しい実践的な学習とトレーニングの機会を Microsoft 開発者に提供します。 現時点では、Microsoft Learn は Microsoft 365、Microsoft Azure、Office 365、および Windows Server についてのトレーニングと認定を提供します。
+Microsoft Learn | 新しい [Microsoft Learn サイト](https://www.microsoft.com/learning/default.aspx)は、新しい実践的な学習とトレーニングの機会を Microsoft 開発者に提供します。 現在、Microsoft Learn では Microsoft 365、Microsoft Azure、Windows Server についてのトレーニングと認定を提供しています。
 メモ帳 | [メモ帳が更新](https://blogs.windows.com/windowsexperience/2018/07/11/announcing-windows-10-insider-preview-build-17713/)されており、ズーム、折り返し検索/置換、および Unix/Linux と Mac の行の末尾 (それぞれ LF および CR) のサポートが追加されました。
 Project Rome | [Project Rome](https://docs.microsoft.com/windows/project-rome/) では、サポートされるすべてのプラットフォームおよび SDK にわたって一貫性のあるプログラミング エクスペリエンスが提供されるようになりました。 </br>  新しい [Microsoft Graph 通知](https://developer.microsoft.com/graph/docs/concepts/notifications-concept-overview)では、Project Rome を使用して、アプリのためのユーザーを中心としたクロスプラットフォーム通知プラットフォームが提供されます。
 画面切り取り | 新しい [URI スキーム](../launch-resume/launch-screen-snipping.md)によって、アプリで新しい切り取り領域をプログラムで開いたり、注釈用の特定のイメージとともに切り取り & スケッチ アプリを起動したりできます。
