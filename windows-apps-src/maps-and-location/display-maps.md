@@ -6,12 +6,12 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, マップ コントロール, マップ ビュー
 ms.localizationpriority: medium
-ms.openlocfilehash: cc12f6c9b9177bce9a91288fdd2c43c118be5f61
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 1979aa2b2e99a585a122e4835bb6920b9d342cd7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210308"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162646"
 ---
 # <a name="display-maps-with-2d-3d-and-streetside-views"></a>2D、3D、Streetside ビューでの地図の表示
 
@@ -90,11 +90,11 @@ private void SpaceNeedle_Click(object sender, RoutedEventArgs e)
 アプリ固有の地理情報または一般的な地理情報を表示できるアプリ内でマップが必要な場合に、マップ コントロールを使います。 アプリにマップ コントロールを含めておくことで、ユーザーはアプリの外部に移動することなく情報を得ることができます。
 
 > [!NOTE]
->その情報を得るためにユーザーがアプリの外部に移動してもかまわない場合は、Windows マップ アプリを利用することも検討してください。 アプリから Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示することができます。 詳しくは、「[Windows マップ アプリの起動](https://docs.microsoft.com/windows/uwp/launch-resume/launch-maps-app)」をご覧ください。
+>その情報を得るためにユーザーがアプリの外部に移動してもかまわない場合は、Windows マップ アプリを利用することも検討してください。 アプリから Windows マップ アプリを起動し、特定の地図、ルート案内、検索結果を表示することができます。 詳しくは、「[Windows マップ アプリの起動](../launch-resume/launch-maps-app.md)」をご覧ください。
 
 ### <a name="add-a-map-control-to-your-app"></a>アプリへのマップ コントロールの追加
 
-[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) を追加することによって、XAML ページに地図を表示します。 **MapControl** を使うには、XAML ページまたはコード内に [**Windows.UI.Xaml.Controls.Maps**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps) 名前空間の宣言が必要です。 ツールボックスからコントロールをドラッグすると、この名前空間宣言が自動的に追加されます。 XAML ページに **MapControl** を手動で追加する場合は、ページの上部に名前空間宣言を手動で追加する必要があります。
+[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) を追加することによって、XAML ページに地図を表示します。 **MapControl** を使うには、XAML ページまたはコード内に [**Windows.UI.Xaml.Controls.Maps**](/uwp/api/Windows.UI.Xaml.Controls.Maps) 名前空間の宣言が必要です。 ツールボックスからコントロールをドラッグすると、この名前空間宣言が自動的に追加されます。 XAML ページに **MapControl** を手動で追加する場合は、ページの上部に名前空間宣言を手動で追加する必要があります。
 
 次の例では、基本的なマップ コントロールを表示し、タッチ入力を受け付けるだけでなくズーム コントロールとチルト コントロールを表示するように地図を構成しています。
 
@@ -137,17 +137,17 @@ pageGrid.Children.Add(MapControl2);
 
 ### <a name="get-and-set-a-maps-authentication-key"></a>マップ認証キーの取得と設定
 
-[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) やマップ サービスを使用する前に、マップ認証キーを [**MapServiceToken**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken) プロパティの値として指定する必要があります。 前に示した例では、`EnterYourAuthenticationKeyHere` を [Bing Maps Developer Center](https://www.bingmapsportal.com/) から取得したキーで置き換えます。 マップ認証キーを指定するまでは、コントロールの下に **[警告: MapServiceToken が指定されていません]** というテキストが表示されます。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
+[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) やマップ サービスを使用する前に、マップ認証キーを [**MapServiceToken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken) プロパティの値として指定する必要があります。 前に示した例では、`EnterYourAuthenticationKeyHere` を [Bing Maps Developer Center](https://www.bingmapsportal.com/) から取得したキーで置き換えます。 マップ認証キーを指定するまでは、コントロールの下に **[警告: MapServiceToken が指定されていません]** というテキストが表示されます。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 ## <a name="set-the-location-of-a-map"></a>地図の場所の設定
 地図を表示するときは、特定の場所を示すように設定することも、ユーザーの現在の場所を使うこともできます。  
 
 ### <a name="set-a-starting-location-for-the-map"></a>地図の開始位置の設定
 
-コードで [**MapControl**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center) の [**Center**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) プロパティを指定するか、または XAML マークアップでプロパティをバインドすることにより、地図上の表示位置を設定します。 シアトル市を中心とした地図を表示する例を次に示します。
+コードで [**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の [**Center**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center) プロパティを指定するか、または XAML マークアップでプロパティをバインドすることにより、地図上の表示位置を設定します。 シアトル市を中心とした地図を表示する例を次に示します。
 
 > [!NOTE]
-> 文字列は [**Geopoint**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geopoint) に変換できないため、データ バインディングを使わない限り、XAML マークアップで [**Center**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center) プロパティに対する値を指定できません。 (この制限は、[**MapControl.Location**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.setlocation) 添付プロパティにも適用されます)。
+> 文字列は [**Geopoint**](/uwp/api/Windows.Devices.Geolocation.Geopoint) に変換できないため、データ バインディングを使わない限り、XAML マークアップで [**Center**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center) プロパティに対する値を指定できません。 (この制限は、[**MapControl.Location**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.setlocation) 添付プロパティにも適用されます)。
 
  
 ```csharp
@@ -168,9 +168,9 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 
 ### <a name="set-the-current-location-of-the-map"></a>地図の現在位置の設定
 
-ユーザーの位置情報にアクセスするには、先にアプリで [**RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) メソッドを呼び出す必要があります。 このときに、アプリをフォアグラウンドで実行し、**RequestAccessAsync** を UI スレッドから呼び出す必要があります。 位置情報に対するアクセス許可をユーザーがアプリに与えるまで、アプリは位置情報にアクセスできません。
+ユーザーの位置情報にアクセスするには、先にアプリで [**RequestAccessAsync**](/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) メソッドを呼び出す必要があります。 このときに、アプリをフォアグラウンドで実行し、**RequestAccessAsync** を UI スレッドから呼び出す必要があります。 位置情報に対するアクセス許可をユーザーがアプリに与えるまで、アプリは位置情報にアクセスできません。
 
-[  **Geolocator**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) クラスの [**GetGeopositionAsync**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator) メソッドを使って、デバイスの現在の位置情報を取得します (位置情報にアクセスできる場合)。 対応する [**Geopoint**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geopoint) を取得するには、geoposition オブジェクトの geocoordinate の [**Point**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geocoordinate.point) プロパティを使います。 詳しくは、「[現在の位置情報の取得](get-location.md)」をご覧ください。
+[**Geolocator**](/uwp/api/Windows.Devices.Geolocation.Geolocator) クラスの [**GetGeopositionAsync**](/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) メソッドを使って、デバイスの現在の位置情報を取得します (位置情報にアクセスできる場合)。 対応する [**Geopoint**](/uwp/api/Windows.Devices.Geolocation.Geopoint) を取得するには、geoposition オブジェクトの geocoordinate の [**Point**](/uwp/api/windows.devices.geolocation.geocoordinate.point) プロパティを使います。 詳しくは、「[現在の位置情報の取得](get-location.md)」をご覧ください。
 
 ```csharp
 // Set your current location.
@@ -200,19 +200,19 @@ switch (accessStatus)
 }
 ```
 
-地図にデバイスの位置を表示するときは、位置情報の精度に基づいてグラフィックスを表示してズーム レベルを設定することを検討します。 詳しくは、「[位置認識アプリのガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/guidelines-and-checklist-for-detecting-location)」をご覧ください。
+地図にデバイスの位置を表示するときは、位置情報の精度に基づいてグラフィックスを表示してズーム レベルを設定することを検討します。 詳細については、「 [場所を認識するアプリのガイドライン](./guidelines-and-checklist-for-detecting-location.md)」を参照してください。
 
 ### <a name="change-the-location-of-the-map"></a>地図の位置の変更
 
-2D 地図に表示する位置を変更するには、[**TrySetViewAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetviewasync) メソッドのいずれかのオーバーロードを呼び出します。 そのメソッドを使って、[**Center**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center)、[**ZoomLevel**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.zoomlevel)、[**Heading**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.heading)、[**Pitch**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.pitch) の新しい値を指定します。 また、ビューが変わるときに使うアニメーションをオプションで指定することもできます。そのためには、[**MapAnimationKind**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapAnimationKind) 列挙値の定数を指定します。
+2D 地図に表示する位置を変更するには、[**TrySetViewAsync**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetviewasync) メソッドのいずれかのオーバーロードを呼び出します。 そのメソッドを使って、[**Center**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center)、[**ZoomLevel**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.zoomlevel)、[**Heading**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.heading)、[**Pitch**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.pitch) の新しい値を指定します。 また、ビューが変わるときに使うアニメーションをオプションで指定することもできます。そのためには、[**MapAnimationKind**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapAnimationKind) 列挙値の定数を指定します。
 
-3D 地図の場所を変更するには、代わりに [**TrySetSceneAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetsceneasync) メソッドを使います。 詳しくは、「[航空写真 3D ビューの表示](#3Dviews)」をご覧ください。
+3D 地図の場所を変更するには、代わりに [**TrySetSceneAsync**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetsceneasync) メソッドを使います。 詳しくは、「[航空写真 3D ビューの表示](#3Dviews)」をご覧ください。
 
-地図上に [**GeoboundingBox**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetviewboundsasync) の内容を表示するには、[**TrySetViewBoundsAsync**](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.GeoboundingBox) メソッドを呼び出します。 たとえばこのメソッドを使うと、地図上にルートやルートの一部を表示することができます。 詳しくは、「[地図へのルートとルート案内の表示](routes-and-directions.md)」をご覧ください。
+地図上に [**GeoboundingBox**](/uwp/api/Windows.Devices.Geolocation.GeoboundingBox) の内容を表示するには、[**TrySetViewBoundsAsync**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetviewboundsasync) メソッドを呼び出します。 たとえばこのメソッドを使うと、地図上にルートやルートの一部を表示することができます。 詳細については、「 [マップにルートと方向を表示する](routes-and-directions.md)」を参照してください。
 
 ## <a name="change-the-appearance-of-a-map"></a>地図の外観の変更
 
-地図の外観をカスタマイズするには、マップ コントロールの [**StyleSheet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.StyleSheet) プロパティを既存の [**MapStyleSheet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapstylesheet) オブジェクトに設定します。
+地図の外観をカスタマイズするには、マップ コントロールの [**StyleSheet**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.StyleSheet) プロパティを既存の [**MapStyleSheet**](/uwp/api/windows.ui.xaml.controls.maps.mapstylesheet) オブジェクトに設定します。
 
 ```csharp
 myMap.StyleSheet = MapStyleSheet.RoadDark();
@@ -220,9 +220,9 @@ myMap.StyleSheet = MapStyleSheet.RoadDark();
 
 ![濃色スタイルの地図](images/style-dark.png)
 
-また、JSON を使用してカスタム スタイルを定義し、その JSON を使用して [**MapStyleSheet**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapstylesheet) オブジェクトを作成することもできます。
+また、JSON を使用してカスタム スタイルを定義し、その JSON を使用して [**MapStyleSheet**](/uwp/api/windows.ui.xaml.controls.maps.mapstylesheet) オブジェクトを作成することもできます。
 
-スタイルシートの JSON は、[マップスタイルシートエディター](https://www.microsoft.com/p/map-style-sheet-editor/9nbhtcjt72ft)アプリケーションを使用して対話形式で作成できます。
+スタイルシートの JSON は、 [マップスタイルシートエディター](https://www.microsoft.com/p/map-style-sheet-editor/9nbhtcjt72ft) アプリケーションを使用して対話形式で作成できます。
 
 ```csharp
 myMap.StyleSheet = MapStyleSheet.ParseFromJson(@"
@@ -284,26 +284,26 @@ myMap.StyleSheet = MapStyleSheet.Combine(new List<MapStyleSheet> { builtInSheet,
 
 マップ カメラを拡大、縮小、回転、傾けることで、求める効果をもたらす適切な角度に設定できます。 次のプロパティをお試しください。
 
--   地図の**中心**を地理的位置に設定するには、[**Center**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center) プロパティを設定します。
--   **** ZoomLevel[ **プロパティに 1 ～ 20 度の値を設定することにより、地図の**ズーム レベル](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.zoomlevel)を設定します。
--   **** Heading[ **プロパティを設定することにより地図の**回転](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.heading)を設定します。ここでは 0 度または 360 度 = 北、90 度 = 東、180 度 = 南、270 度 = 西です。
--   **** DesiredPitch[ **プロパティに 0 ～ 65 度の値を設定することにより、地図の**傾き](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.desiredpitch)を設定します。
+-   地図の**中心**を地理的位置に設定するには、[**Center**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.center) プロパティを設定します。
+-   [**ZoomLevel**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.zoomlevel) プロパティに 1 ～ 20 度の値を設定することにより、地図の**ズーム レベル**を設定します。
+-   [**Heading**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.heading) プロパティを設定することにより地図の**回転**を設定します。ここでは 0 度または 360 度 = 北、90 度 = 東、180 度 = 南、270 度 = 西です。
+-   [**DesiredPitch**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.desiredpitch) プロパティに 0 ～ 65 度の値を設定することにより、地図の**傾き**を設定します。
 
 ## <a name="show-and-hide-map-features"></a>地図機能を表示または非表示にする
 
-道路やランドマークなどの地図機能を表示または非表示にするには、[**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のプロパティの値を設定します。
+道路やランドマークなどの地図機能を表示または非表示にするには、[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のプロパティの値を設定します。
 
-* 地図に**建物やランドマーク**を表示するには、[**LandmarksVisible**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.landmarksvisible) プロパティを有効または無効にします。
+* 地図に**建物やランドマーク**を表示するには、[**LandmarksVisible**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.landmarksvisible) プロパティを有効または無効にします。
 
   > [!NOTE]
   > 建物の表示と非表示を切り替えることはできますが、3 次元表示を無効にすることはできません。  
 
-* 地図に公共階段などの**歩行者用の施設**を表示するには、[**PedestrianFeaturesVisible**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.pedestrianfeaturesvisible) プロパティを有効または無効にします。
-* 地図に**交通情報**を表示するには、[**TrafficFlowVisible**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trafficflowvisible) プロパティを有効または無効にします。
-* 地図に**透かし**を表示するかどうかを指定するには、[**WatermarkMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.watermarkmode) プロパティを [**MapWatermarkMode**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapWatermarkMode) 定数のいずれかに設定します。
-* 地図に**自動車ルートや徒歩ルート**を表示するには、マップ コントロールの [**Routes**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapRouteView) コレクションに [**MapRouteView**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.routes) を追加します。 詳しい情報と例については、「[地図へのルートとルート案内の表示](routes-and-directions.md)」をご覧ください。
+* 地図に公共階段などの**歩行者用の施設**を表示するには、[**PedestrianFeaturesVisible**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.pedestrianfeaturesvisible) プロパティを有効または無効にします。
+* 地図に**交通情報**を表示するには、[**TrafficFlowVisible**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trafficflowvisible) プロパティを有効または無効にします。
+* 地図に**透かし**を表示するかどうかを指定するには、[**WatermarkMode**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.watermarkmode) プロパティを [**MapWatermarkMode**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapWatermarkMode) 定数のいずれかに設定します。
+* 地図に**自動車ルートや徒歩ルート**を表示するには、マップ コントロールの [**Routes**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.routes) コレクションに [**MapRouteView**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapRouteView) を追加します。 詳細と例については、「 [マップにルートと方向を表示](routes-and-directions.md)する」を参照してください。
 
-[  **MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) でプッシュピン、図形、XAML コントロールを表示する方法については、「[関心のあるポイント (POI) の地図への表示](display-poi.md)」をご覧ください。
+[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) でプッシュピン、図形、XAML コントロールを表示する方法については、「[関心のあるポイント (POI) の地図への表示](display-poi.md)」をご覧ください。
 
 ## <a name="display-streetside-views"></a>Streetside ビューの表示
 
@@ -316,14 +316,14 @@ Streetside ビューの「内部」での操作は、マップ コントロー�
 
 Streetside ビューを表示するには
 
-1.  [  **IsStreetsideSupported**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.isstreetsidesupported) を確認して、Streetside ビューがデバイスでサポートされているかどうかを調べます。
-2.  Streetside ビューがサポートされている場合は、[**FindNearbyAsync**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.StreetsidePanorama) を呼び出し、指定した位置の近くに [**StreetsidePanorama**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.streetsidepanorama.findnearbyasync) を作成します。
-3.  [  **StreetsidePanorama**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.StreetsidePanorama) が null でないかどうかを確認し、近隣のパノラマ写真があるかどうかを調べます。
-4.  近隣のパノラマ写真があった場合、[**StreetsideExperience**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.streetsideexperience) を作成し、マップ コントロールの [**CustomExperience**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.customexperience) プロパティに設定します。
+1.  [**IsStreetsideSupported**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.isstreetsidesupported) を確認して、Streetside ビューがデバイスでサポートされているかどうかを調べます。
+2.  Streetside ビューがサポートされている場合は、[**FindNearbyAsync**](/uwp/api/windows.ui.xaml.controls.maps.streetsidepanorama.findnearbyasync) を呼び出し、指定した位置の近くに [**StreetsidePanorama**](/uwp/api/Windows.UI.Xaml.Controls.Maps.StreetsidePanorama) を作成します。
+3.  [**StreetsidePanorama**](/uwp/api/Windows.UI.Xaml.Controls.Maps.StreetsidePanorama) が null でないかどうかを確認し、近隣のパノラマ写真があるかどうかを調べます。
+4.  近隣のパノラマ写真があった場合、[**StreetsideExperience**](/uwp/api/windows.ui.xaml.controls.maps.streetsideexperience) を作成し、マップ コントロールの [**CustomExperience**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.customexperience) プロパティに設定します。
 
 次の例は、前掲の画像に似た Streetside ビューを表示する方法を示しています。
 
-マップコントロールのサイズが小さすぎると、概要マップ  表示されない**ことに注意**してください。
+**メモ**   マップコントロールのサイズが小さすぎると、概要マップは表示されません。
 
  
 
@@ -365,20 +365,20 @@ private async void showStreetsideView()
 ## <a name="display-aerial-3d-views"></a>航空写真 3D ビューの表示
 
 
-[  **MapScene**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapScene) クラスを使って、地図の 3D 視点を指定します。 マップ シーンは、地図に表示される 3D ビューを表します。 [  **MapCamera**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapCamera) クラスは、このようなビューが表示されるカメラの位置を表します。
+[**MapScene**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapScene) クラスを使って、地図の 3D 視点を指定します。 マップ シーンは、地図に表示される 3D ビューを表します。 [**MapCamera**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapCamera) クラスは、このようなビューが表示されるカメラの位置を表します。
 
 ![マップ シーンの場所と MapCamera の場所を示す図](images/mapcontrol-techdiagram.png)
 
-建物などの地物を地図表面に 3D 表示するには、マップ コントロールの [**Style**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.style) プロパティを [**MapStyle.Aerial3DWithRoads**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapStyle) に設定します。 **Aerial3DWithRoads** スタイルの 3D ビューの例を次に示します。
+建物などの地物を地図表面に 3D 表示するには、マップ コントロールの [**Style**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.style) プロパティを [**MapStyle.Aerial3DWithRoads**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapStyle) に設定します。 **Aerial3DWithRoads** スタイルの 3D ビューの例を次に示します。
 
 ![3D 地図ビューの例。](images/only3d-730width.png)
 
 3D ビューを表示するには
 
-1.  [  **Is3DSupported**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.is3dsupported) を確認して、3D ビューがデバイスでサポートされているかどうかを調べます。
-2.  3D ビューがサポートされている場合は、マップ コントロールの [**Style**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.style) プロパティを [**MapStyle.Aerial3DWithRoads**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapStyle) に設定します。
-3.  [  **CreateFromLocationAndRadius**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapScene)、CreateFromCamera[**などの多数の**CreateFrom](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapscene.createfromlocationandradius) メソッドの中から [**MapScene**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapscene.createfromcamera) オブジェクトを作成します。
-4.  [  **TrySetSceneAsync**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetsceneasync) を呼び出して、3D ビューを表示します。 また、ビューが変わるときに使うアニメーションをオプションで指定することもできます。そのためには、[**MapAnimationKind**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapAnimationKind) 列挙値の定数を指定します。
+1.  [**Is3DSupported**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.is3dsupported) を確認して、3D ビューがデバイスでサポートされているかどうかを調べます。
+2.  3D ビューがサポートされている場合は、マップコントロールの [**スタイル**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.style) プロパティを [**mapstyle**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapStyle)に設定します。
+3.  [**Createfromlocationandradius**](/uwp/api/windows.ui.xaml.controls.maps.mapscene.createfromlocationandradius)や[**createfromcamera**](/uwp/api/windows.ui.xaml.controls.maps.mapscene.createfromcamera)など、多くの**createfrom**メソッドの1つを使用して[**mapscene**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapScene)オブジェクトを作成します。
+4.  [**TrySetSceneAsync**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.trysetsceneasync) を呼び出して、3D ビューを表示します。 また、ビューが変わるときに使うアニメーションをオプションで指定することもできます。そのためには、[**MapAnimationKind**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapAnimationKind) 列挙値の定数を指定します。
 
 次の例は、3D ビューを表示する方法を示しています。
 
@@ -419,46 +419,46 @@ private async void display3DLocation()
 ## <a name="get-info-about-locations"></a>位置に関する情報の取得
 
 
-地図上の位置に関する情報を取得するには、[**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のメソッドを呼び出します。
+地図上の位置に関する情報を取得するには、[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のメソッドを呼び出します。
 
--   [**Trygetlocationfromoffset**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.getlocationfromoffset)メソッド-マップコントロールのビューポートの指定したポイントに対応する地理的位置を取得します。
--   [**Getoffsetfromlocation**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.getoffsetfromlocation)メソッド-指定された地理的位置に対応するマップコントロールのビューポートのポイントを取得します。
--   [**Islocationinview**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.islocationinview)メソッド-マップコントロールのビューポートで、指定された地理的位置が現在表示されているかどうかを確認します。
--   [**Findmapelementsatoffset**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.findmapelementsatoffset)メソッド-マップコントロールのビューポートの指定した位置にあるマップ上の要素を取得します。
+-   [**Trygetlocationfromoffset**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.getlocationfromoffset) メソッド-マップコントロールのビューポートの指定したポイントに対応する地理的位置を取得します。
+-   [**GetOffsetFromLocation**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.getoffsetfromlocation) メソッド - 指定した地理的な位置情報に対応するマップ コントロールのビューポート内のポイントを取得します。
+-   [**IsLocationInView**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.islocationinview) メソッド - 指定した地理的な位置がマップ コントロールのビューポート内に現在表示されているかどうかを調べます。
+-   [**FindMapElementsAtOffset**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.findmapelementsatoffset) メソッド - マップ コントロールのビューポート内の指定したポイントにある地図上の要素を取得します。
 
 ## <a name="handle-interaction-and-changes"></a>操作と変更の処理
 
 
-地図上でのユーザー入力ジェスチャを処理するには、[**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のイベントを処理します。 地図上の地理的な位置、およびジェスチャが行われたビューポート内の実際の位置に関する情報を取得するには、[**MapInputEventArgs**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapinputeventargs.location) の [**Location**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapinputeventargs.position) プロパティと [**Position**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapInputEventArgs) プロパティの値を確認します。
+地図上でのユーザー入力ジェスチャを処理するには、[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のイベントを処理します。 地図上の地理的な位置、およびジェスチャが行われたビューポート内の実際の位置に関する情報を取得するには、[**MapInputEventArgs**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapInputEventArgs) の [**Location**](/uwp/api/windows.ui.xaml.controls.maps.mapinputeventargs.location) プロパティと [**Position**](/uwp/api/windows.ui.xaml.controls.maps.mapinputeventargs.position) プロパティの値を確認します。
 
--   [**MapTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.maptapped)
--   [**MapDoubleTapped**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapdoubletapped)
--   [**MapHolding**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapholding)
+-   [**MapTapped**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.maptapped)
+-   [**MapDoubleTapped**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapdoubletapped)
+-   [**MapHolding**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapholding)
 
-地図が読み込まれている最中であるか、完全に読み込まれたかどうかを判断するには、コントロールの [**LoadingStatusChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.loadingstatuschanged) イベントを処理します。
+地図が読み込まれている最中であるか、完全に読み込まれたかどうかを判断するには、コントロールの [**LoadingStatusChanged**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.loadingstatuschanged) イベントを処理します。
 
-ユーザーやアプリによる地図の設定変更に対応するには、[**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のイベントを処理します。 [マップのガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
+ユーザーやアプリによる地図の設定変更に対応するには、[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) の次のイベントを処理します。 [マップのガイドライン]()
 
--   [**変更されたセンター**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.centerchanged)
--   [**HeadingChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.headingchanged)
--   [**PitchChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.pitchchanged)
--   [**ZoomLevelChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.zoomlevelchanged)
+-   [**CenterChanged**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.centerchanged)
+-   [**HeadingChanged**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.headingchanged)
+-   [**PitchChanged**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.pitchchanged)
+-   [**ZoomLevelChanged**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.zoomlevelchanged)
 
-## <a name="best-practice-recommendations"></a>推奨される運用方法
+## <a name="best-practice-recommendations"></a>ベスト プラクティスの推奨事項
 
 -   ユーザーが地理情報を表示するためにパンとズームを過度に使用しなくて済むように、十分な画面領域 (または画面全体) を使用してマップを表示します。
 
 -   静的な情報ビューの提示をするためにのみマップを使う場合、小さなマップを使う方が適している場合があります。 小さく静的なマップを使う場合は、使いやすさを考えてサイズを決めます。画面上の領域を十分節約できる程度に小さく、判読しにくくならない程度に大きくします。
 
--   マップ シーンに関心のあるポイントを埋め込むには、[**MapElements**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapelementsproperty) を使います。その他の情報も、マップ シーンのオーバーレイとして表示される一時的な UI に表示できます。
+-   マップ シーンに関心のあるポイントを埋め込むには、[**MapElements**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapelementsproperty) を使います。その他の情報も、マップ シーンのオーバーレイとして表示される一時的な UI に表示できます。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [現在の位置情報の取得](get-location.md)
-* [位置認識アプリの設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/guidelines-and-checklist-for-detecting-location)
-* [地図の設計ガイドライン](https://docs.microsoft.com/windows/uwp/maps-and-location/controls-map)
+* [位置認識アプリの設計ガイドライン](./guidelines-and-checklist-for-detecting-location.md)
+* [地図の設計ガイドライン]()
 * [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)
-* [**MapControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl)
+* [**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl)

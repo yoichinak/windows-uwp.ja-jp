@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 89b393120657b7c02ccfe10ce6aca16be80118aa
-ms.sourcegitcommit: f282c906cddf0d57217484e61a5cbd2fe8469421
+ms.openlocfilehash: 8a4b682f009a4ac1350ceee3b8c23fe5e772150d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852259"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163596"
 ---
 # <a name="custom-manipulation-experiences-with-interactiontracker"></a>InteractionTracker を使用したカスタム操作エクスペリエンス
 
@@ -20,8 +20,8 @@ ms.locfileid: "65852259"
 
 ここでは、以下の記事で説明されている概念を理解していることを前提とします。
 
-- [入力に基づくアニメーション](input-driven-animations.md)
-- [ベースのリレーションのアニメーション](relation-animations.md)
+- [入力駆動型アニメーション](input-driven-animations.md)
+- [関係ベース アニメーション](relation-animations.md)
 
 ## <a name="why-create-custom-manipulation-experiences"></a>カスタム操作エクスペリエンスを作成する理由
 
@@ -44,12 +44,12 @@ InteractionTracker は、SDK バージョン 10586 で Windows.UI.Composition.In
 - **完全な柔軟性** – 操作エクスペリエンスのすべての側面をカスタマイズし調整することができます。具体的には、入力時または入力に反応して発生するモーションを正確にカスタマイズできます。 InteractionTracker を使用してカスタム操作エクスペリエンスを作成するとき、必要なすべての素材は自由に利用できます。
 - **スムーズなパフォーマンス** – 操作エクスペリエンスの課題の 1 つは、そのパフォーマンスが UI スレッドに依存していることです。 このことは、UI がビジー状態の場合に、すべての操作エクスペリエンスに悪影響を及ぼす可能性があります。 InteractionTracker は、独立したスレッド上で 60 FPS で動作し、滑らかな動きを実現する新しいアニメーション エンジンを利用するために作成されました。
 
-## <a name="overview-interactiontracker"></a>概要:InteractionTracker
+## <a name="overview-interactiontracker"></a>概要: InteractionTracker
 
 カスタム操作エクスペリエンスを作成するとき、2 つの主要なコンポーネントを操作できます。 最初にこれらのコンポーネントについて説明します。
 
-- [InteractionTracker](https://docs.microsoft.com/uwp/api/windows.ui.composition.interactions.interactiontracker) – アクティブなユーザー入力、直接的な更新、および直接的なアニメーションによって動作するプロパティを持つステート マシンを管理するコア オブジェクトです。 このオブジェクトは、CompositionAnimation と関連付けて、カスタム操作のモーションを作成することを目的としています。
-- [VisualInteractionSource](https://docs.microsoft.com/uwp/api/windows.ui.composition.interactions.visualinteractionsource) – 入力が InteractionTracker に送信されるタイミングや条件を定義する補完オブジェクトです。 ヒット テストや他の入力構成プロパティで使用される CompositionVisual を定義します。
+- [InteractionTracker](/uwp/api/windows.ui.composition.interactions.interactiontracker) – アクティブなユーザー入力、直接的な更新、および直接的なアニメーションによって動作するプロパティを持つステート マシンを管理するコア オブジェクトです。 このオブジェクトは、CompositionAnimation と関連付けて、カスタム操作のモーションを作成することを目的としています。
+- [VisualInteractionSource](/uwp/api/windows.ui.composition.interactions.visualinteractionsource) – 入力が InteractionTracker に送信されるタイミングや条件を定義する補完オブジェクトです。 ヒット テストや他の入力構成プロパティで使用される CompositionVisual を定義します。
 
 ステート マシンとして、InteractionTracker のプロパティは次のいずれかによって動作します。
 
@@ -59,16 +59,16 @@ InteractionTracker は、SDK バージョン 10586 で Windows.UI.Composition.In
 
 ### <a name="interactiontracker-state-machine"></a>InteractionTracker ステート マシン
 
-前述のように、他の 4 つの状態のいずれかに移行する各 – 4 つの状態とステート マシンは InteractionTracker です。 (InteractionTracker でこれらの状態がどのように遷移するかについて詳しくは、[InteractionTracker](https://docs.microsoft.com/uwp/api/windows.ui.composition.interactions.interactiontracker) クラスのドキュメントをご覧ください)。
+既に説明したように、InteractionTracker は 4 つの状態を持つステート マシンです。各状態は他のいずれの状態にも遷移することができます  (InteractionTracker でこれらの状態がどのように遷移するかについて詳しくは、[InteractionTracker](/uwp/api/windows.ui.composition.interactions.interactiontracker) クラスのドキュメントをご覧ください)。
 
-| 状態 | 説明 |
+| State | 説明 |
 |-------|-------------|
 | アイドル | アクティブになっていません。モーションを発生させる入力やアニメーションがありません。 |
 | 操作中 | アクティブなユーザー入力が検出されました。 |
 | 慣性 | アクティブな入力やプログラムに従った速度によって、アクティブなモーションが発生しました。 |
 | CustomAnimation | カスタム アニメーションによって、アクティブなモーションが発生しました。 |
 
-InteractionTracker での状態遷移の各状況では、リッスンすることができイベント (またはコールバック) が生成されます。 これらのイベントをリッスンするには、[IInteractionTrackerOwner](https://docs.microsoft.com/uwp/api/windows.ui.composition.interactions.iinteractiontrackerowner) インターフェイスを実装し、CreateWithOwner メソッドを使用して、InteractionTracker オブジェクトを作成する必要があります。 次の図は、さまざまなイベントがトリガーされるタイミングの概要を示しています。
+InteractionTracker での状態遷移の各状況では、リッスンすることができイベント (またはコールバック) が生成されます。 これらのイベントをリッスンするには、[IInteractionTrackerOwner](/uwp/api/windows.ui.composition.interactions.iinteractiontrackerowner) インターフェイスを実装し、CreateWithOwner メソッドを使用して、InteractionTracker オブジェクトを作成する必要があります。 次の図は、さまざまなイベントがトリガーされるタイミングの概要を示しています。
 
 ![InteractionTracker ステート マシン](images/animation/interaction-tracker-diagram.png)
 
@@ -78,7 +78,7 @@ InteractionTracker を入力によって動作させるには、VisualInteractio
 
 1. 入力が追跡され、座標空間のジェスチャが検出されるヒット テスト領域。
 1. 検出されルーティングされる入力の構成。次のようなものがあります。
-    - 検出可能なジェスチャ。位置の X および Y (水平および垂直パン)、スケール (ピンチ)
+    - 検出可能なジェスチャー: 位置 X および Y (水平方向および垂直方向のパン)、拡大/縮小 (ピンチ)
     - 慣性
     - レールとチェーン
     - リダイレクト モード: InteractionTracker に自動的にリダイレクトされる入力データの種類
@@ -121,7 +121,7 @@ var opacityExp = -_tracker.GetReference().Position;
 > [!NOTE]
 > 式で InteractionTracker の位置を参照する場合は、最終的に生成される式で適切な方向への移動を行うための値を無効にする必要があります。 その理由は、InteractionTracker ではグラフの原点から一方向への移動が行われるためです。また、ユーザーが "現実世界" の座標における InteractionTracker の一方向への移動 (原点からの距離など) を考慮することができるためです。
 
-## <a name="get-started"></a>はじめに
+## <a name="get-started"></a>開始
 
 InteractionTracker を使用して、カスタム操作エクスペリエンスの作成を開始するには:
 
@@ -167,5 +167,5 @@ private void InteractionTrackerSetup(Compositor compositor, Visual hitTestRoot)
 
 InteractionTracker の高度な使用法について詳しくは、次の記事をご覧ください。
 
-- [InertiaModifiers でスナップ ポイントを作成します。](inertia-modifiers.md)
-- [SourceModifiers での更新のプル](source-modifiers.md)
+- [InertiaModifiers を使用したスナップ位置の作成](inertia-modifiers.md)
+- [SourceModifiers を使用した引っ張って更新](source-modifiers.md)

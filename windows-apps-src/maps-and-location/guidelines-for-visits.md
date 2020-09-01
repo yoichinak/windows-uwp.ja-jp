@@ -6,12 +6,12 @@ ms.date: 05/18/2017
 ms.topic: article
 keywords: windows 10, uwp, マップ, 位置情報, geovisit, ジオビジット
 ms.localizationpriority: medium
-ms.openlocfilehash: db351660722cd13a4e8f14bebb651d60f33d1671
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 3b1766d0f883fa42b005908dcc63102e97ff0d4f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57640777"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162516"
 ---
 # <a name="guidelines-for-using-visits-tracking"></a>ビジット追跡の使用ガイドライン
 
@@ -19,7 +19,7 @@ ms.locfileid: "57640777"
 
 ## <a name="preliminary-setup"></a>準備段階のセットアップ
 
-先へ進む前に、アプリがデバイスの位置情報にアクセスできることを確認します。 ユーザーからアプリに位置情報へのアクセスが許可されるように、マニフェスト内に `Location` 機能を宣言し、**[Geolocator.RequestAccessAsync](https://docs.microsoft.com/uwp/api/Windows.Devices.Geolocation.Geolocator.RequestAccessAsync)** メソッドを呼び出す必要があります。 方法については、「[ユーザーの位置情報の取得](get-location.md)」をご覧ください。 
+先へ進む前に、アプリがデバイスの位置情報にアクセスできることを確認します。 ユーザーからアプリに位置情報へのアクセスが許可されるように、マニフェスト内に `Location` 機能を宣言し、**[Geolocator.RequestAccessAsync](/uwp/api/Windows.Devices.Geolocation.Geolocator.RequestAccessAsync)** メソッドを呼び出す必要があります。 方法については、「[ユーザーの位置情報の取得](get-location.md)」をご覧ください。 
 
 クラスには、必ず `Geolocation` 名前空間を追加してください。 このガイドに記載されているコード スニペットを使用するには、この処理が必要になります。
 
@@ -28,7 +28,7 @@ using Windows.Devices.Geolocation;
 ```
 
 ## <a name="check-the-latest-visit"></a>最新のビジットを確認する
-ビジット追跡機能を使用する最も簡単な方法は、ビジットに関して認識された最新の状態変化を取得することです。 状態変化はプラットフォームによってログ記録されるイベントであり、意味のある場所に対してユーザーが進入または退出したこと、前回のレポート以降に重要な移動が発生したこと、またはユーザーの位置状態が失われたことを示します (**[VisitStateChange](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.visitstatechange)** 列挙をご覧ください)。 状態変化は **[Geovisit](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geovisit)** インスタンスで表されます。 **Geovisit** インスタンスを取得して最後に記録された状態変化を調べるには、**[GeovisitMonitor](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geovisitmonitor)** クラスに用意されている指定のメソッドを使用します。
+ビジット追跡機能を使用する最も簡単な方法は、ビジットに関して認識された最新の状態変化を取得することです。 状態変化はプラットフォームによってログ記録されるイベントであり、意味のある場所に対してユーザーが進入または退出したこと、前回のレポート以降に重要な移動が発生したこと、またはユーザーの位置状態が失われたことを示します (**[VisitStateChange](/uwp/api/windows.devices.geolocation.visitstatechange)** 列挙をご覧ください)。 状態変化は **[Geovisit](/uwp/api/windows.devices.geolocation.geovisit)** インスタンスで表されます。 **Geovisit** インスタンスを取得して最後に記録された状態変化を調べるには、**[GeovisitMonitor](/uwp/api/windows.devices.geolocation.geovisitmonitor)** クラスに用意されている指定のメソッドを使用します。
 
 > [!NOTE]
 > 最後にログ記録されたビジットを確認しても、システムがビジットを現在追跡中であることの保証にはなりません。 ビジットの発生を追跡するには、フォアグラウンドで監視するか、バックグラウンド追跡に登録する必要があります (以下のセクションをご覧ください)。
@@ -131,7 +131,7 @@ public void UnregisterFromVisits() {
 
 アプリが開いていなくてもビジット関連のアクティビティをデバイスで処理できるように、ビジットの監視をバックグラウンド タスクに実装することもできます。 これは、汎用性および省電力という点で推奨される方法です。 
 
-このガイドでは、「[アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)」のモデル (メイン アプリケーションのファイルを 1 つのプロジェクトにまとめ、バックグラウンド タスクのファイルは同じソリューション内の別プロジェクトにまとめる) を使用します。 バックグラウンド タスクを初めて実装する場合、最初のうちはガイダンスに従い、下に示すように必要な置き換えを行ってビジット処理のバックグラウンド タスクを作成することをお勧めします。
+このガイドでは、「[アウトプロセス バックグラウンド タスクの作成と登録](../launch-resume/create-and-register-a-background-task.md)」のモデル (メイン アプリケーションのファイルを 1 つのプロジェクトにまとめ、バックグラウンド タスクのファイルは同じソリューション内の別プロジェクトにまとめる) を使用します。 バックグラウンド タスクを初めて実装する場合、最初のうちはガイダンスに従い、下に示すように必要な置き換えを行ってビジット処理のバックグラウンド タスクを作成することをお勧めします。
 
 > [!NOTE]
 > 以下のスニペットでは、わかりやすくするために、エラー処理やローカル ストレージなどいくつかの重要な機能が省略されています。 バックグラウンドでのビジット処理の堅牢な実装については、[サンプル アプリ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Geolocation)をご覧ください。
@@ -269,6 +269,6 @@ private async void RegisterBackgroundTask(object sender, RoutedEventArgs e) {
 これで、アプリはビジット処理のバックグラウンド タスクを登録できるようになります。また、このタスクはビジット関連の状態変化がデバイスによってログ記録されるたびにアクティブ化されます。 この状態変化情報に対する処理を決定するには、バックグラウンド タスク クラスにロジックを指定する必要があります。
 
 ## <a name="related-topics"></a>関連トピック
-* [アウトプロセス バックグラウンド タスクの作成と登録](https://docs.microsoft.com/windows/uwp/launch-resume/create-and-register-a-background-task)
+* [アウトプロセス バックグラウンド タスクの作成と登録](../launch-resume/create-and-register-a-background-task.md)
 * [ユーザーの位置情報の取得](get-location.md)
-* [Windows.Devices.Geolocation 名前空間](https://docs.microsoft.com/uwp/api/windows.devices.geolocation)
+* [Windows. デバイス. 位置情報名前空間](/uwp/api/windows.devices.geolocation)

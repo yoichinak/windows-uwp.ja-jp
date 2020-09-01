@@ -6,16 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f4ad8c6fe4108546a66a2915ef1c453d812dff5
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 89ae286fbc29628e8d81899265019ccdaaa038a3
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371114"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161706"
 ---
 # <a name="themeresource-markup-extension"></a>{ThemeResource} マークアップ拡張
 
-現在アクティブなテーマに応じて異なるリソースを取得する追加のシステム ロジックと共に、リソースへの参照を評価して任意の XAML 属性の値を提供します。 [{StaticResource} マークアップ拡張](staticresource-markup-extension.md)と同様、リソースは [**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) で定義されており、**ThemeResource** の使用は **ResourceDictionary** 内のそのリソースのキーを参照します。
+現在アクティブなテーマに応じて異なるリソースを取得する追加のシステム ロジックと共に、リソースへの参照を評価して任意の XAML 属性の値を提供します。 [{StaticResource} マークアップ拡張](staticresource-markup-extension.md)と同様、リソースは [**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) で定義されており、**ThemeResource** の使用は **ResourceDictionary** 内のそのリソースのキーを参照します。
 
 ## <a name="xaml-attribute-usage"></a>XAML 属性の使用方法
 
@@ -25,9 +25,9 @@ ms.locfileid: "66371114"
 
 ## <a name="xaml-values"></a>XAML 値
 
-| 用語 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
-| key | 要求されたリソースのキー。 このキーは、[**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) によって最初に割当てられます。 リソース キーとしては、XamlName の文法で定義されている任意の文字列を使うことができます。 |
+| key | 要求されたリソースのキー。 このキーは、[**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) によって最初に割当てられます。 リソース キーとしては、XamlName の文法で定義されている任意の文字列を使うことができます。 |
 
 ## <a name="remarks"></a>注釈
 
@@ -37,37 +37,37 @@ ms.locfileid: "66371114"
 
 **ThemeResource** は、要求されたリソースについてキーを指定する 1 個の引数を受け取ります。 リソース キーは常に、Windows ランタイム XAML の文字列です。 リソース キーを最初に指定する方法について詳しくは、「[x:Key 属性](x-key-attribute.md)」をご覧ください。
 
-リソースの定義方法と [**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) の適切な使用方法 (サンプル コードを含む) について詳しくは、「[ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/controls-and-patterns/resourcedictionary-and-xaml-resource-references)」をご覧ください。
+リソースの定義方法と [**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) の適切な使用方法 (サンプル コードを含む) について詳しくは、「[ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」をご覧ください。
 
-**重要** **StaticResource** と同様、**ThemeResource** は、XAML ファイルの中で辞書的に定義されているリソースへの前方参照を行うことはできません。 そのようなことを試みることはサポートしていません。 前方参照が失敗しなかったとしても、そのようなことを試みるだけでパフォーマンスの低下を招きます。 最善の結果を得るには、前方参照を避けるようにリソース ディクショナリの構成を調整します。
+**重要****StaticResource** と同様、**ThemeResource** は、XAML ファイルの中で辞書的に定義されているリソースへの前方参照を行うことはできません。 そのようなことを試みることはサポートしていません。 前方参照が失敗しなかったとしても、そのようなことを試みるだけでパフォーマンスの低下を招きます。 最善の結果を得るには、前方参照を避けるようにリソース ディクショナリの構成を調整します。
 
 解決できないキーに **ThemeResource** を指定しようとすると、実行時に XAML 解析例外がスローされます。 デザイン ツールでも、警告やエラーが通知されることがあります。
 
-Windows ランタイム XAML プロセッサの実装では、**ThemeResource** のバッキング クラス表現はありません。 コードで最も近いのは、[**Contains**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.contains) または [**TryGetValue**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.trygetvalue) を呼び出すなど、[**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) のコレクション API を使うことです。
+Windows ランタイム XAML プロセッサの実装では、**ThemeResource** のバッキング クラス表現はありません。 コードで最も近いのは、[**Contains**](/uwp/api/windows.ui.xaml.resourcedictionary.contains) または [**TryGetValue**](/uwp/api/windows.ui.xaml.resourcedictionary.trygetvalue) を呼び出すなど、[**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) のコレクション API を使うことです。
 
-**ThemeResource** はマークアップ拡張です。 通常、マークアップ拡張は、属性値をリテラル値やハンドラー名以外にエスケープする必要があり、特定の型やプロパティに対して型コンバーターを指定するのではなく、よりグローバルにその必要がある場合に実装します。 XAML のすべてのマークアップ拡張では、それぞれの属性構文で "{" と "}" の文字を使います。これは規約であり、これに従って XAML プロセッサは、マークアップ拡張で属性を処理する必要があることを認識します。
+**ThemeResource** はマークアップ拡張です。 一般にマークアップ拡張機能を実装するのは、属性値をリテラル値やハンドラー名以外にエスケープする要件が存在し、その要件の適用範囲がグローバルで、特定の型やプロパティに型コンバーターを適用するだけにとどまらない場合です。 XAML のすべてのマークアップ拡張では、それぞれの属性構文で "{" と "}" の文字を使います。これは規約であり、これに従って XAML プロセッサは、マークアップ拡張で属性を処理する必要があることを認識します。
 
 ### <a name="when-and-how-to-use-themeresource-rather-than-staticresource"></a>{StaticResource} ではなく {ThemeResource} を使う状況とその方法
 
-**ThemeResource** がリソース ディクショナリの項目に解決される規則は、通常、**StaticResource** の場合と同じです。 **ThemeResource** 検索は [**ThemeDictionaries**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) のコレクションで参照される [**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) ファイルまで拡張できます。これは、**StaticResource** の場合も同じです。 その違いは、**ThemeResource** では実行時に再評価を行うことができるのに対し、**StaticResource** では再評価を行うことができない点にあります。
+**ThemeResource** がリソース ディクショナリの項目に解決される規則は、通常、**StaticResource** の場合と同じです。 **ThemeResource** 検索は [**ThemeDictionaries**](/uwp/api/windows.ui.xaml.resourcedictionary.themedictionaries) のコレクションで参照される [**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) ファイルまで拡張できます。これは、**StaticResource** の場合も同じです。 その違いは、**ThemeResource** では実行時に再評価を行うことができるのに対し、**StaticResource** では再評価を行うことができない点にあります。
 
 各テーマ ディクショナリのキー セットでは、どのテーマがアクティブであるかに関係なく、キーを持つリソースの同じセットを提供する必要があります。 特定のキーを持つリソースが **HighContrast** テーマ ディクショナリに存在する場合、**Light** と **Default** にも同じ名前を持つ別のリソースが存在する必要があります。 そうでないと、ユーザーがテーマを切り替えたときにリソース検索が失敗し、アプリが適切に表示されなくなります。 テーマ ディクショナリには、サブ値を指定するために同じスコープ内からのみ参照されるキーを持つリソースを含めることができます。ただし、これらはすべてのテーマで等価である必要はありません。
 
 通常は、リソースをテーマ ディクショナリに格納し、これらの値がテーマごとに変化するときや、変化する値によってサポートされているときにのみ、**ThemeResource** を使ってこれらのリソースを参照します。 これは、次の種類のリソースに適しています。
 
--   ブラシ。特に [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) の色。 この使い方は、既定の XAML コントロール テンプレート (generic.xaml) において **ThemeResource** の約 80% を占めています。
+-   ブラシ。特に [**SolidColorBrush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) の色。 この使い方は、既定の XAML コントロール テンプレート (generic.xaml) において **ThemeResource** の約 80% を占めています。
 -   境界線、オフセット、余白、パディングなどのピクセル値。
 -   **FontFamily**、**FontSize** などのフォント プロパティ。
--   通常システムによってスタイルが設定され、動的な表示に使われる、限られた数のコントロールの完全なテンプレート ([**GridViewItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridViewItem)、[**ListViewItem**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListViewItem) など)。
+-   通常システムによってスタイルが設定され、動的な表示に使われる、限られた数のコントロールの完全なテンプレート ([**GridViewItem**](/uwp/api/Windows.UI.Xaml.Controls.GridViewItem)、[**ListViewItem**](/uwp/api/Windows.UI.Xaml.Controls.ListViewItem) など)。
 -   テキスト表示スタイル (通常はフォントの色、背景、サイズを変更する目的で使われます)。
 
-Windows ランタイムには、特に **ThemeResource** から参照するためのリソースのセットが用意されています。 これらはすべて、Windows ソフトウェア開発キット (Windows SDK) の include/winrt/xaml/design フォルダーにある XAML ファイル themeresources.xaml に記載されています。 themeresources.xaml に定義されているテーマ ブラシと追加のスタイルについて詳しくは、「[XAML テーマ リソース リファレンス](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-theme-resources)」をご覧ください。 ブラシについては、アクティブになる可能性のある 3 種類のテーマごとに、各ブラシの色の値を表形式で示しています。
+Windows ランタイムには、特に **ThemeResource** から参照するためのリソースのセットが用意されています。 これらはすべて、Windows ソフトウェア開発キット (Windows SDK) の include/winrt/xaml/design フォルダーにある XAML ファイル themeresources.xaml に記載されています。 themeresources.xaml に定義されているテーマ ブラシと追加のスタイルについて詳しくは、「[XAML テーマ リソース リファレンス](../design/controls-and-patterns/xaml-theme-resources.md)」をご覧ください。 ブラシについては、アクティブになる可能性のある 3 種類のテーマごとに、各ブラシの色の値を表形式で示しています。
 
 コントロール テンプレートの表示状態の XAML 定義では、テーマの変更によって変更される可能性がある基になるリソースがある場合は常に **ThemeResource** 参照を使う必要があります。 通常、システム テーマが変更されても、表示状態の変更は発生しません。 この場合、リソースでは、**ThemeResource** 参照を使って、依然アクティブな表示状態に対して値を再評価できるようにする必要があります。 たとえば、特定の UI 部分のブラシの色とそのプロパティの 1 つを変更する表示状態があり、そのブラシの色がテーマごとに異なる場合は、**ThemeResource** 参照を使って、既定のテンプレートのこのプロパティ値と、その既定のテンプレートに対する表示状態の変更を提供する必要があります。
 
-**ThemeResource** は、一連の依存型の値で使われる場合があります。 たとえば、キーを持つリソースである [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) で使われる [**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) で **ThemeResource** 参照を使うことがあります。 ただし、キーを持つ **SolidColorBrush** リソースを使う任意の UI プロパティで **ThemeResource** 参照を使うこともあります。この場合、テーマが変更されたときに動的な値の変更を可能にするのはそれぞれの [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) タイプのプロパティです。
+**ThemeResource** は、一連の依存型の値で使われる場合があります。 たとえば、キーを持つリソースである [**SolidColorBrush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) で使われる [**Color**](/uwp/api/Windows.UI.Color) で **ThemeResource** 参照を使うことがあります。 ただし、キーを持つ **SolidColorBrush** リソースを使う任意の UI プロパティで **ThemeResource** 参照を使うこともあります。この場合、テーマが変更されたときに動的な値の変更を可能にするのはそれぞれの [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) タイプのプロパティです。
 
-**注**  `{ThemeResource}`テーマの切り替えの評価を実行時のリソースが Windows 8.1 の XAML でサポートされますが、Windows 8 を対象とするアプリの XAML でサポートされていません。
+**メモ**   `{ThemeResource}`また、テーマの切り替えでの実行時のリソースの評価は Windows 8.1 XAML でサポートされていますが、Windows 8 を対象とするアプリの XAML ではサポートされていません。
 
 ### <a name="system-resources"></a>システム リソース
 
@@ -77,7 +77,7 @@ Windows ランタイムには、特に **ThemeResource** から参照するた�
 
 ### <a name="an-example-themeresource-usage"></a>{ThemeResource} の使用例
 
-**ThemeResource** の使い方の例として、既定の generic.xaml ファイルと themeresources.xaml ファイルから抜粋した XAML の例を示します。 ここでは、1 つのテンプレート (既定の [**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button)) と、テーマの変更に対応するための 2 つのプロパティ ([**Background**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) と [**Foreground**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground)) の宣言方法について注目します。
+**ThemeResource** の使い方の例として、既定の generic.xaml ファイルと themeresources.xaml ファイルから抜粋した XAML の例を示します。 ここでは、1 つのテンプレート (既定の [**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button)) と、テーマの変更に対応するための 2 つのプロパティ ([**Background**](/uwp/api/windows.ui.xaml.controls.control.background) と [**Foreground**](/uwp/api/windows.ui.xaml.controls.control.foreground)) の宣言方法について注目します。
 
 ```xml
     <!-- Default style for Windows.UI.Xaml.Controls.Button -->
@@ -87,9 +87,9 @@ Windows ランタイムには、特に **ThemeResource** から参照するた�
 ...
 ```
 
-ここで、これらのプロパティは [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) 値を受け取ります。[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) リソース (`ButtonBackgroundThemeBrush` と `ButtonForegroundThemeBrush`) の参照には、**ThemeResource** が使われています。
+ここで、これらのプロパティは [**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) 値を受け取ります。[**SolidColorBrush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) リソース (`ButtonBackgroundThemeBrush` と `ButtonForegroundThemeBrush`) の参照には、**ThemeResource** が使われています。
 
-これらの同じプロパティは、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) の表示状態のいくつかによっても調整されます。 特に、背景色は、ボタンをクリックしたときに変更されます。 同様に、表示状態のストーリーボードの [**Background**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) と [**Foreground**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.foreground) のアニメーションでは、[**DiscreteObjectKeyFrame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame) オブジェクトと共に、キー フレーム値として **ThemeResource** を含むブラシへの参照を使っています。
+これらの同じプロパティは、[**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button) の表示状態のいくつかによっても調整されます。 特に、背景色は、ボタンをクリックしたときに変更されます。 同様に、表示状態のストーリーボードの [**Background**](/uwp/api/windows.ui.xaml.controls.control.background) と [**Foreground**](/uwp/api/windows.ui.xaml.controls.control.foreground) のアニメーションでは、[**DiscreteObjectKeyFrame**](/uwp/api/Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame) オブジェクトと共に、キー フレーム値として **ThemeResource** を含むブラシへの参照を使っています。
 
 ```xml
 <VisualState x:Name="Pressed">
@@ -138,19 +138,18 @@ Windows ランタイムには、特に **ThemeResource** から参照するた�
 
 ## <a name="windows8-behavior"></a>Windows 8 の動作
 
-Windows 8 をサポートしていない、 **ThemeResource**マークアップ拡張機能は Windows 8.1 以降から使用できます。 また、Windows 8 では、Windows ランタイム アプリのテーマに関連するリソースを動的に切り替えはできません。 XAML テンプレートとスタイルのテーマ変更を認識するには、アプリを再起動する必要がありました。 アプリは再コンパイルして、Windows 8.1 を対象のスタイルを使用するよう強くお勧めしますので、優れたユーザー エクスペリエンスをそう**ThemeResource**使用状況、ユーザーが動的に、テーマを切り替えることができます。 Windows 8、Windows 8.1 で実行されている Windows 8 の動作を使用してコンパイルされたアプリです。
+Windows 8 では **ThemeResource** マークアップ拡張はサポートされていませんでしたが、Windows 8.1 以降で利用できるようになりました。 また、Windows 8 は、Windows ランタイム アプリのテーマ関連リソースの動的切り替えをサポートしていません。 XAML テンプレートとスタイルのテーマ変更を認識するには、アプリを再起動する必要がありました。 これは褒められたユーザー エクスペリエンスではありません。そのため、アプリを再コンパイルして Windows 8.1 をターゲットにすることを強くお勧めします。そうすれば、**ThemeResource** を利用したスタイルを使うことができ、ユーザーがテーマを切り替えたときに動的にテーマを切り替えることができます。 Windows 8 用にコンパイルしたアプリは、Windows 8.1 上で実行しても Windows 8 のときと同じ動作になります。
 
 ## <a name="design-time-tools-support-for-the-themeresource-markup-extension"></a>設計時ツールの **{ThemeResource}** マークアップ拡張のサポート
 
-Microsoft Visual Studio 2013 は、使用する場合に、Microsoft IntelliSense ドロップダウン リストでの使用可能なキー値を含めることができます、 **{ThemeResource}** XAML ページのマークアップ拡張機能。 たとえば、「{ThemeResource」と入力するとすぐに、[XAML テーマ リソース](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-theme-resources)のリソース キーが表示されます。
+Microsoft Visual Studio 2013 では、XAML ページで **{ThemeResource}** マークアップ拡張を使うときに Microsoft IntelliSense のドロップダウンに可能なキー値を含めることができます。 たとえば、「{ThemeResource」と入力するとすぐに、[XAML テーマ リソース](../design/controls-and-patterns/xaml-theme-resources.md)のリソース キーが表示されます。
 
-**{ThemeResource}** の一部としてリソース キーが存在すると、 **[定義へ移動]** (F12 キー) 機能でそのリソースを解決して、テーマ リソースが定義されている設計時の generic.xaml を表示できます。 テーマ リソースを何度も定義されるため (テーマごとに)、 **[定義へ移動]** ではファイルで見つかった最初の定義に移動します。これは **Default** の定義です。 他の定義が必要な場合は、ファイル内のキー名を検索して、他のテーマの定義を参照できます。
+**{ThemeResource}** の一部としてリソース キーが存在すると、**[定義へ移動]** (F12 キー) 機能でそのリソースを解決して、テーマ リソースが定義されている設計時の generic.xaml を表示できます。 テーマ リソースを何度も定義されるため (テーマごとに)、**[定義へ移動]** ではファイルで見つかった最初の定義に移動します。これは **Default** の定義です。 他の定義が必要な場合は、ファイル内のキー名を検索して、他のテーマの定義を参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ResourceDictionary と XAML のリソースの参照](https://docs.microsoft.com/windows/uwp/controls-and-patterns/resourcedictionary-and-xaml-resource-references)
-* [XAML のテーマのリソース](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-theme-resources)
-* [**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary)
-* [X:key 属性](x-key-attribute.md)
+* [ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)
+* [XAML テーマ リソース](../design/controls-and-patterns/xaml-theme-resources.md)
+* [**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary)
+* [x:Key 属性](x-key-attribute.md)
  
-

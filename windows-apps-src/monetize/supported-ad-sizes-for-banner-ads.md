@@ -1,24 +1,24 @@
 ---
 ms.assetid: f54ae666-d609-49d6-90ba-e2e62ebc3652
-description: サポートされているバナー広告のサイズについて説明します。
+description: ユニバーサル Windows プラットフォーム (UWP) アプリでサポートされているバナー広告のサイズについて説明し、バナー広告のサイズの例を紹介します。
 title: サポートされているバナー広告のサイズ
 ms.date: 02/18/2020
 ms.topic: article
 keywords: windows 10, UWP, 広告, Advertising, サイズ, バナー
 ms.localizationpriority: medium
-ms.openlocfilehash: ec96d744f7a9d2e91b27feae1fe5f3b0c322a450
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: 2ed20f6307b5bbf833dc321cd44354e4fe79c046
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506856"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162406"
 ---
 # <a name="supported-banner-ad-sizes"></a>サポートされているバナー広告のサイズ
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでは、次のバナー広告のサイズがサポートされています。 アプリで**Adcontrol**オブジェクトをインスタンス化するときは、これらのサポートされているサイズのいずれかに合わせて width プロパティと height プロパティを設定してください。
+ユニバーサル Windows プラットフォーム (UWP) アプリでは、次のバナー広告のサイズがサポートされています。 アプリで **Adcontrol** オブジェクトをインスタンス化するときは、これらのサポートされているサイズのいずれかに合わせて width プロパティと height プロパティを設定してください。
 
 サイズは幅 x 高さです。
 

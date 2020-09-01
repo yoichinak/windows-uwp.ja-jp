@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, ネットワーク, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b0dd6168d932d1c131ca6bcd4530795c6ed1ba3
-ms.sourcegitcommit: b408494ebe8489b9ba84fb8bfd893d90c8524020
+ms.openlocfilehash: 6d6d9d927c60cb74f1b19de607480e0811f47cbb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88576855"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162936"
 ---
 # <a name="networking-for-games"></a>ゲームのネットワーク
 
@@ -27,7 +27,7 @@ Networking API は、インフラストラクチャ (クライアント サー�
 
 単一プレイヤーのゲームでは、ユーザー名、ゲームのスコア、その他のさまざまな情報を保存するために、セントラル Web サーバーまたはサービスがよく使われます。 これらのゲームでは、直接ゲーム操作に影響しないため、ネットワーク転送の速度と待機時間はそれほど大きな問題ではありません。
 
-ネットワークの状態はいつでも変化する可能性があり、Networking API を使うゲームでは、発生する可能性のあるネットワーク例外を処理できるようにしておく必要があります。 ネットワーク例外の処理について詳しくは、「[ネットワークの基本](/windows/uwp/networking/networking-basics)」をご覧ください。
+ネットワークの状態はいつでも変化する可能性があり、Networking API を使うゲームでは、発生する可能性のあるネットワーク例外を処理できるようにしておく必要があります。 ネットワーク例外の処理について詳しくは、「[ネットワークの基本](../networking/networking-basics.md)」をご覧ください。
 
 ファイアウォールと Web プロキシは一般的で、ネットワーク機能の使用に影響する可能性があります。 ネットワークを使うゲームでは、ファイアウォールとプロキシを適切に処理できるようにしておく必要があります。
 
@@ -362,11 +362,11 @@ using namespace Windows::Web::Http;
 * [ストリーム ソケットによるネットワーク リソースへの接続](/previous-versions/windows/apps/jj150599(v=win.10))
 * [ネットワーク サービスへの接続](/previous-versions/windows/apps/hh452976(v=win.10))
 * [Web サービスへの接続](/previous-versions/windows/apps/hh761504(v=win.10))
-* [ネットワークの基本](/windows/uwp/networking/networking-basics)
+* [ネットワークの基本](../networking/networking-basics.md)
 * [ネットワーク分離機能を構成する方法](/previous-versions/windows/apps/hh770532(v=win.10))
 * [ループバックを有効にする方法とネットワーク分離のトラブルシューティングを行う方法](/previous-versions/windows/apps/hh780593(v=win.10))
 
-### <a name="reference"></a>リファレンス
+### <a name="reference"></a>参照先
 
 * [DatagramSocket](/uwp/api/Windows.Networking.Sockets.DatagramSocket)
 * [HttpClient](/uwp/api/Windows.Web.Http.HttpClient)

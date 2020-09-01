@@ -5,12 +5,12 @@ ms.date: 06/14/2018
 ms.topic: article
 keywords: Windows 10, UWP, 店舗販売時点管理, POS
 ms.localizationpriority: medium
-ms.openlocfilehash: 5416628b88a070c7bd4f361f9f438fe690951d34
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: 4fad9bc75ed0ff79be1596a3c99445c7e9f97b1f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054162"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163266"
 ---
 # <a name="pointofservice-device-sharing"></a>PointOfService デバイス共有
 
@@ -54,11 +54,11 @@ if (printer != null)
 
 ## <a name="api-methods-used"></a>使用されている API メソッド 
 
-+ [Barの場合](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.barcodescanner.dispose) 
-+ [CashDrawer](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.cashdrawer.dispose) 
-+ [LineDisplay。破棄](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.linedisplay.dispose) 
-+ [MagneticStripeReader](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.magneticstripereader.dispose)  
-+ [PosPrinter](https://docs.microsoft.com/uwp/api/windows.devices.pointofservice.posprinter.dispose) 
++ [Barの場合](/uwp/api/windows.devices.pointofservice.barcodescanner.dispose) 
++ [CashDrawer](/uwp/api/windows.devices.pointofservice.cashdrawer.dispose) 
++ [LineDisplay。破棄](/uwp/api/windows.devices.pointofservice.linedisplay.dispose) 
++ [MagneticStripeReader](/uwp/api/windows.devices.pointofservice.magneticstripereader.dispose)  
++ [PosPrinter](/uwp/api/windows.devices.pointofservice.posprinter.dispose) 
 
 
 [!INCLUDE [feedback](./includes/pos-feedback.md)]

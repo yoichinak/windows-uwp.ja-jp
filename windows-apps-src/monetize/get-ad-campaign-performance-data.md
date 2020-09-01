@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: d1b76184f70c796ad3b6e89b119dd56670ed028f
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: fd933f103bf8964997102731b653e125fae89e12
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66372158"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162446"
 ---
 # <a name="get-ad-campaign-performance-data"></a>広告キャンペーンのパフォーマンス データの取得
 
 
 日付範囲やその他のオプション フィルターを指定して、アプリケーションに関するプロモーション用広告キャンペーンのパフォーマンス データの集計サマリーを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 このメソッドは、データを JSON 形式で返します。
 
-このメソッドが用意されている同じデータを返します、[広告キャンペーン レポート](../publish/app-install-ads-reports.md)パートナー センターでします。 広告キャンペーンについて詳しくは、「[アプリ向けの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)」をご覧ください。
+このメソッドは、パートナーセンターの [Ad キャンペーンレポート](/windows/uwp/publish/ad-campaign-report) によって提供されるものと同じデータを返します。 広告キャンペーンについて詳しくは、「[アプリ向けの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)」をご覧ください。
 
 広告キャンペーンの詳細を作成、更新、取得するには、[Microsoft Store プロモーション API](run-ad-campaigns-using-windows-store-services.md) の[広告キャンペーンの管理](manage-ad-campaigns.md)メソッドを使用します。
 
@@ -29,38 +29,38 @@ ms.locfileid: "66372158"
 * Microsoft Store 分析 API に関するすべての[前提条件](access-analytics-data-using-windows-store-services.md#prerequisites)を満たします (前提条件がまだ満たされていない場合)。
 * このメソッドの要求ヘッダーで使う [Azure AD アクセス トークンを取得](access-analytics-data-using-windows-store-services.md#obtain-an-azure-ad-access-token)します。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れたら新しいトークンを取得できます。
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI                                                              |
+| 認証方法 | 要求 URI                                                              |
 |--------|--------------------------------------------------------------------------|
 | GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/analytics/promotion``` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header        | 種類   | 説明                |
+| Header        | Type   | 説明                |
 |---------------|--------|---------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
+| 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
 特定のアプリに関する広告キャンペーンのパフォーマンス データを取得するには、*applicationId* パラメーターを使用します。 開発者アカウントに関連付けられているすべてのアプリに関する広告パフォーマンス データを取得するには、*applicationId* パラメーターは省略します。
 
-| パラメーター     | 種類   | 説明     | 必須 |
+| パラメーター     | Type   | 説明     | 必須 |
 |---------------|--------|-----------------|----------|
-| applicationId   | string    | 広告キャンペーンのパフォーマンス データを取得するアプリの [Store ID](in-app-purchases-and-trials.md#store-ids) です。 |    X      |
-|  startDate  |  date   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の開始日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 30 日を差し引いた日付になります。   |   X    |
-| endDate   |  date   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の終了日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 1 日を差し引いた日付になります。   |   X    |
-| top   |  int   |  要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。   |   X    |
-| skip   | int    |  クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。   |   X    |
-| filter   |  string   |  応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 サポートされているフィルターは **campaignId** のみです。 各ステートメントでは **eq** や **ne** 演算子を使用できます。また、ステートメントを **and** や **or** で結合することもできます。  *filter* パラメーターの例: ```filter=campaignId eq '100023'```。   |   X    |
-|  aggregationLevel  |  string   | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。<strong>day</strong>、<strong>week</strong>、または <strong>month</strong>。 指定しない場合、既定値は <strong>day</strong> です。    |   X    |
-| orderby   |  string   |  <p>広告キャンペーンのパフォーマンス データに関する結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターには、次のいずれかの文字列を指定できます。</p><ul><li><strong>date</strong></li><li><strong>campaignId</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は <strong>asc</strong> です。</p><p><em>orderby</em> 文字列の例: <em>orderby=date,campaignId</em></p>   |   X    |
-|  groupby  |  string   |  <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>campaignId</strong></li><li><strong>applicationId</strong></li><li><strong>date</strong></li><li><strong>currencyCode</strong></li></ul><p><em>groupby</em> パラメーターは、<em>aggregationLevel</em> パラメーターと同時に使用できます。 例: <em>&amp;groupby=applicationId&amp;aggregationLevel=week</em></p>   |   X    |
+| applicationId   | string    | 広告キャンペーンパフォーマンスデータを取得するアプリの [ストア ID](in-app-purchases-and-trials.md#store-ids) 。 |    いいえ      |
+|  startDate  |  日付   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の開始日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 30 日を差し引いた日付になります。   |   いいえ    |
+| endDate   |  日付   |  広告キャンペーンのパフォーマンス データを取得する日付範囲の終了日です。YYYY/MM/DD の形式で指定します。 既定値は、現在の日付から 1 日を差し引いた日付になります。   |   いいえ    |
+| top   |  int   |  要求で返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。   |   いいえ    |
+| skip   | int    |  クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、top=10000 と skip=0 を指定すると、データの最初の 10,000 行が取得され、top=10000 と skip=10000 を指定すると、データの次の 10,000 行が取得されます。   |   いいえ    |
+| filter   |  string   |  応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 サポートされているフィルターは **campaignId** のみです。 各ステートメントでは **eq** や **ne** 演算子を使用できます。また、ステートメントを **and** や **or** で結合することもできます。  *filter* パラメーターの例: ```filter=campaignId eq '100023'```。   |   いいえ    |
+|  aggregationLevel  |  string   | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。<strong>day</strong>、<strong>week</strong>、または <strong>month</strong>。 指定しない場合、既定値は <strong>day</strong> です。    |   いいえ    |
+| orderby   |  string   |  <p>広告キャンペーンのパフォーマンス データに関する結果データ値の順序を指定するステートメントです。 構文は <em>orderby=field [order],field [order],...</em> です。<em>field</em> パラメーターは次のいずれかの文字列になります。</p><ul><li><strong>date</strong></li><li><strong>campaignId</strong></li></ul><p><em>order</em> パラメーターは省略可能であり、<strong>asc</strong> または <strong>desc</strong> を指定して、各フィールドを昇順または降順にすることができます。 既定値は <strong>asc</strong>です。</p><p><em>Orderby</em>文字列の例を次に示します。 <em>orderby = date, campaignId</em></p>   |   いいえ    |
+|  groupby  |  string   |  <p>指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。</p><ul><li><strong>campaignId</strong></li><li><strong>applicationId</strong></li><li><strong>date</strong></li><li><strong>currencyCode</strong></li></ul><p><em>groupby</em> パラメーターは、<em>aggregationLevel</em> パラメーターと同時に使用できます。 例: <em> &amp; Groupby = applicationId &amp; aggregationLevel = week</em></p>   |   いいえ    |
 
 
 ### <a name="request-example"></a>要求の例
@@ -75,16 +75,16 @@ GET https://manage.devcenter.microsoft.com/v1.0/my/analytics/promotion?applicati
 Authorization: Bearer <your access token>
 ```
 
-## <a name="response"></a>応答
+## <a name="response"></a>[応答]
 
 
 ### <a name="response-body"></a>応答本文
 
-| Value      | 種類   | 説明  |
+| 値      | Type   | 説明  |
 |------------|--------|---------------|
-| Value      | array  | 広告キャンペーンのパフォーマンスに関する集計データが含まれるオブジェクトの配列です。 各オブジェクトのデータについて詳しくは、次の「[キャンペーンのパフォーマンス オブジェクト](#campaign-performance-object)」セクションをご覧ください。          |
+| 値      | array  | 広告キャンペーンのパフォーマンスに関する集計データが含まれるオブジェクトの配列です。 各オブジェクトのデータについて詳しくは、次の「[キャンペーンのパフォーマンス オブジェクト](#campaign-performance-object)」セクションをご覧ください。          |
 | @nextLink  | string | データの追加ページがある場合、この文字列には、データの次のページを要求するために使用できる URI が含まれます。 たとえば、要求の **top** パラメーターが 5 に設定されたが、クエリに対するデータに 5 個を超える項目が含まれている場合に、この値が返されます。 |
-| TotalCount | int    | クエリの結果データ内の行の総数です。                                |
+| TotalCount | INT    | クエリの結果データ内の行の総数です。                                |
 
 
 <span id="campaign-performance-object" />
@@ -94,7 +94,7 @@ Authorization: Bearer <your access token>
 
 *Value* 配列の要素には、次の値が含まれます。
 
-| Value               | 種類   | 説明            |
+| 値               | Type   | 説明            |
 |---------------------|--------|------------------------|
 | date                | string | 広告キャンペーンのパフォーマンス データの対象となる日付範囲の最初の日付です。 要求に日付を指定した場合、この値はその日付になります。 要求に週、月、またはその他の日付範囲を指定した場合、この値はその日付範囲の最初の日付になります。 |
 | applicationId       | string | 広告キャンペーンのパフォーマンス データを取得するアプリのストア ID です。                     |
@@ -150,6 +150,6 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [アプリの広告キャンペーンを作成します。](https://docs.microsoft.com/windows/uwp/publish/create-an-ad-campaign-for-your-app)
-* [Microsoft Store サービスを使用して広告キャンペーンを実行します。](run-ad-campaigns-using-windows-store-services.md)
-* [Microsoft Store サービスを使用して分析データにアクセス](access-analytics-data-using-windows-store-services.md)
+* [アプリの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)
+* [Microsoft Store サービスを使用した広告キャンペーンの実行](run-ad-campaigns-using-windows-store-services.md)
+* [Microsoft Store サービスを使った分析データへのアクセス](access-analytics-data-using-windows-store-services.md)

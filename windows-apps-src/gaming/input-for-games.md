@@ -6,22 +6,22 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f1daac8bc94d49c501307728c1e966ba89435f9
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 0c9565f02356b776738bb325eb9a29e84582f4ad
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57631667"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163096"
 ---
 # <a name="input-for-games"></a>ゲームの入力
 
 このセクションでは、Windows 10 と Xbox One のユニバーサル Windows プラットフォーム (UWP) ゲームで使用可能なさまざまな種類の入力デバイスについて説明し、その基本的な使用方法を示して、ゲームで効果的な入力プログラミングについて推奨するパターンと手法を紹介します。
 
-> **注意**    UWP ゲームに使用できる入力デバイスには、ジャンル固有またはゲーム固有のカスタム入力デバイスなど、他の種類のデバイスもあります。 そのようなデバイスとそのプログラミングについては、このセクションでは説明しません。 カスタム入力デバイスを使いやすくするインターフェイスnについて詳しくは、[Windows.Gaming.Input.Custom](https://docs.microsoft.com/uwp/api/windows.gaming.input.custom) 名前空間をご覧ください。
+> **注意**    UWP ゲームに使用できる入力デバイスには、ジャンル固有またはゲーム固有のカスタム入力デバイスなど、他の種類のデバイスもあります。 そのようなデバイスとそのプログラミングについては、このセクションでは説明しません。 カスタム入力デバイスを使いやすくするインターフェイスnについて詳しくは、[Windows.Gaming.Input.Custom](/uwp/api/windows.gaming.input.custom) 名前空間をご覧ください。
 
 ## <a name="gaming-input-devices"></a>ゲーム入力デバイス
 
-Windows 10 と Xbox One の UWP ゲームおよび UWP アプリ でのゲーム入力デバイスは、[Windows.Gaming.Input](https://docs.microsoft.com/uwp/api/windows.gaming.input) 名前空間によってサポートされています。
+Windows 10 と Xbox One の UWP ゲームおよび UWP アプリ でのゲーム入力デバイスは、[Windows.Gaming.Input](/uwp/api/windows.gaming.input) 名前空間によってサポートされています。
 
 ### <a name="gamepads"></a>ゲームパッド
 
@@ -59,20 +59,20 @@ UI ナビゲーション コントローラーは、UI ナビゲーション コ
 
 UWP ゲームでの UI ナビゲーション コントローラーの使用方法について詳しくは、「[UI ナビゲーション コント ローラー](ui-navigation-controller.md)」をご覧ください。
 
-### <a name="headsets"></a>ヘッドセット
+### <a name="headsets"></a>Headsets
 
 ヘッドセットは、オーディオ キャプチャと再生を行うデバイスです。ヘッドセットを入力デバイス経由で接続すると、特定のユーザーに関連付けられます。 ヘッドセットは、通常ボイス チャット用オンライン ゲームで使用されます。ただし、ゲームの没入性を高めたり、オンライン ゲームとオフライン ゲームの両方でゲームプレイの機能を提供する場合にも使用できます。
 
 UWP ゲームでのヘッドセットの使用方法について詳しくは、「[ヘッドセット](headset.md)」をご覧ください。
 
-### <a name="users"></a>Users
+### <a name="users"></a>ユーザー
 
 各入力デバイスとそこに接続するヘッドセットに特定のユーザーを関連付け、そのユーザーの ID をそのユーザーのゲームプレイにリンクすることができます。 ユーザー ID は、物理入力デバイスからの入力を論理 UI ナビゲーション コント ローラーからの入力に関連付けるための手段でもあります。
 
 ユーザーと入力デバイスの管理方法について詳しくは、「[ユーザーおよびそのデバイスの追跡](input-practices-for-games.md#tracking-users-and-their-devices)」をご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-* [ゲームの入力のプラクティス](input-practices-for-games.md)
-* [Windows.Gaming.Input 名前空間](https://docs.microsoft.com/uwp/api/windows.gaming.input)
-* [Windows.Gaming.Input.Custom 名前空間](https://docs.microsoft.com/uwp/api/windows.gaming.input.custom)
+* [ゲームの入力プラクティス](input-practices-for-games.md)
+* [Windows. ゲーム. 名前空間](/uwp/api/windows.gaming.input)
+* [Windows. ゲーム. カスタム名前空間](/uwp/api/windows.gaming.input.custom)

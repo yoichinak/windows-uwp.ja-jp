@@ -6,29 +6,29 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, AdControl, トラブルシューティング, XAML, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: ab8ba3930c13ffcb00d2cb9701a89cafe581b4ff
-ms.sourcegitcommit: 71f9013c41fc1038a9d6c770cea4c5e481c23fbc
+ms.openlocfilehash: 719e05d67d68627fcd631edfd6c688b17f8507bd
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506886"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164386"
 ---
 # <a name="xaml-and-c-troubleshooting-guide"></a>XAML と C# のトラブルシューティング ガイド
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 このトピックでは、XAML アプリの Microsoft Advertising ライブラリに関する、開発上の一般的な問題に対する解決策について説明します。
 
 * [XAML](#xaml)
   * [AdControl が表示されない](#xaml-notappearing)
-  * [黒いボックスが点滅して消えます](#xaml-blackboxblinksdisappears)
-  * [更新されない広告](#xaml-adsnotrefreshing)
+  * [ブラック ボックスが点滅し、表示されなくなる](#xaml-blackboxblinksdisappears)
+  * [広告が更新されない](#xaml-adsnotrefreshing)
 
 * [C#](#csharp)
   * [AdControl が表示されない](#csharp-adcontrolnotappearing)
-  * [黒いボックスが点滅して消えます](#csharp-blackboxblinksdisappears)
-  * [更新されない広告](#csharp-adsnotrefreshing)
+  * [ブラック ボックスが点滅し、表示されなくなる](#csharp-blackboxblinksdisappears)
+  * [広告が更新されない](#csharp-adsnotrefreshing)
 
 <span id="xaml"/>
 
@@ -48,7 +48,7 @@ ms.locfileid: "77506886"
                   Width="728" Height="90" />
     ```
 
-3.  **Height** プロパティと **Width** プロパティを確認します。 これらのプロパティは、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに設定する必要があります。
+3.  **高さ**と**幅**のプロパティを確認します。 これらのプロパティは、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに設定する必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` xml
@@ -57,9 +57,9 @@ ms.locfileid: "77506886"
                   Width="728" Height="90" />
     ```
 
-4.  要素の配置を確認します。 [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) は表示可能領域の内部にある必要があります。
+4.  要素の配置を確認します。 [AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol) は表示可能領域の内部にある必要があります。
 
-5.  **Visibility** プロパティを確認します。 省略可能な **Visibility** プロパティは collapsed または hidden に設定しないでください。 (次のように) インラインで設定できるほか、外部スタイル シートで設定できます。
+5.  **可視性**プロパティを確認します。 省略可能な **Visibility** プロパティは collapsed または hidden に設定しないでください。 (次のように) インラインで設定できるほか、外部スタイル シートで設定できます。
 
     > [!div class="tabbedCodeSnippets"]
     ``` xml
@@ -82,7 +82,7 @@ ms.locfileid: "77506886"
 
 7.  **AdControl** がビューポートから隠れていないことを確認します。 **AdControl** は、広告が正常に表示されるように、見える必要があります。
 
-8.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
+8.  **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
 
 <span id="xaml-blackboxblinksdisappears"/>
 
@@ -116,7 +116,7 @@ ms.locfileid: "77506886"
 
     ブラック ボックスの原因となる最も一般的なエラーは、"No ad available" です。 このエラーは、要求から復帰する利用可能な広告がないことを意味します。
 
-3.  [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol) は正常に動作しています。
+3.  [AdControl](/uwp/api/microsoft.advertising.winrt.ui.adcontrol) は正常に動作しています。
 
     既定では、**AdControl** は広告を表示できない場合に折りたたまれます。 他の要素が同じ親の子である場合、これらの他の要素は折りたたまれた **AdControl** の隙間を埋めるように移動し、次の要求が行われたときに展開できます。
 
@@ -124,7 +124,7 @@ ms.locfileid: "77506886"
 
 ### <a name="ads-not-refreshing"></a>広告が更新されない
 
-1.  [IsAutoRefreshEnabled](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled) プロパティを確認します。 既定では、この省略可能なプロパティは **True** に設定されています。 **False** に設定すると、他の広告を取得するために [Refresh](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh) メソッドを使う必要があります。
+1.  [IsAutoRefreshEnabled](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled) プロパティを確認します。 既定では、この省略可能なプロパティは **True**に設定されています。 **False**に設定すると、 [Refresh](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh)メソッドを使用して別の ad を取得する必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` xml
@@ -134,7 +134,7 @@ ms.locfileid: "77506886"
                   IsAutoRefreshEnabled="True" />
     ```
 
-2.  **Refresh** メソッドの呼び出しを確認します。 自動更新の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
+2.  **Refresh**メソッドの呼び出しを確認します。 自動更新を使用する場合、別の ad を取得するために **更新** を使用することはできません。 手動更新を使用する場合は、デバイスの現在のデータ接続に応じて、30 ~ 60 秒後に **更新** を呼び出す必要があります。
 
     次のコード スニペットは、**Refresh** メソッドを使う方法の例を示しています。 最初のスニペットは、XAML UI マークアップです。
 
@@ -186,7 +186,7 @@ ms.locfileid: "77506886"
     adControl.Width = 728;
     ```
 
-4.  **Height** と **Width** パラメーターを確認します。 これらのプロパティは、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに設定する必要があります。
+4.  **Height** と **Width** パラメーターを確認します。 これらは、 [バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかに設定する必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` cs
@@ -205,7 +205,7 @@ ms.locfileid: "77506886"
 
 6.  **Margin** パラメーターを確認します。 **AdControl** は表示可能領域の内部にある必要があります。
 
-7.  **Visibility** プロパティを確認します。 省略可能な **Visibility** プロパティを **Visible** に設定する必要があります。
+7.  **可視性**プロパティを確認します。 省略可能な **Visibility** プロパティを **Visible** に設定する必要があります。
 
     > [!div class="tabbedCodeSnippets"]
     ``` cs
@@ -219,7 +219,7 @@ ms.locfileid: "77506886"
 
 8.  **AdControl** の親を確認します。 親はアクティブな状態で表示されている必要があります。
 
-9. **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、[ApplicationId](set-up-ad-units-in-your-app.md#test-ad-units) と **AdUnitId** のどちらについても**テスト値**を使ってください。
+9. **ApplicationId** と **AdUnitId** の実際の値は、エミュレーターでのテストに使わないようにしてください。 **AdControl** が想定どおりに機能していることを確認するには、**ApplicationId** と **AdUnitId** のどちらについても[テスト値](set-up-ad-units-in-your-app.md#test-ad-units)を使ってください。
 
 <span id="csharp-blackboxblinksdisappears"/>
 
@@ -249,9 +249,9 @@ ms.locfileid: "77506886"
 
 ### <a name="ads-not-refreshing"></a>広告が更新されない
 
-1.  [AdControl](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) の **IsAutoRefreshEnabled** プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **false** に設定すると、他の広告を取得するために **Refresh** メソッドを使う必要があります。
+1.  **AdControl** の [IsAutoRefreshEnabled](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.isautorefreshenabled.aspx) プロパティが false に設定されているかどうかを確認します。 既定では、この省略可能なプロパティは **true** に設定されています。 **False**に設定すると、 **Refresh**メソッドを使用して別の ad を取得する必要があります。
 
-2.  [Refresh](https://docs.microsoft.com/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh.aspx) メソッドの呼び出しを確認します。 自動更新 (**IsAutoRefreshEnabled** が **true**) の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新 (**IsAutoRefreshEnabled** が **false**) の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
+2.  [Refresh](/uwp/api/microsoft.advertising.winrt.ui.adcontrol.refresh.aspx)メソッドの呼び出しを確認します。 自動更新 (**IsAutoRefreshEnabled** が **true**) の場合、他の広告を取得するために **Refresh** を使うことはできません。 手動更新 (**IsAutoRefreshEnabled** が **false**) の場合、デバイスの現在のデータ接続に応じて、少なくとも 30 秒から 60 秒経ってから **Refresh** を呼び出します。
 
     次の例は、**Refresh** メソッドを呼び出す方法を示しています。
 

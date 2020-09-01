@@ -1,28 +1,28 @@
 ---
 title: Device Portal の Fiddler API のリファレンス
-description: プログラムによって Fiddler のトレースを有効または無効にする方法について説明します。
+description: REST API Xbox デバイスポータルを使用して、devkit で Fiddler ネットワークトレースを有効または無効にする方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: e7d4225e-ac2c-41dc-aca7-9b1a95ec590b
 ms.localizationpriority: medium
-ms.openlocfilehash: 4cbdae1084f96901e90f8237d71bd59bf2d4c592
-ms.sourcegitcommit: 681c1e3836d2a51cd3b31d824ece344281932bcd
+ms.openlocfilehash: f431adae41021432dfcfca6b4e79df5237fcb283
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59240020"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163996"
 ---
 # <a name="fiddler-settings-api-reference"></a>Fiddler 設定 API のリファレンス   
 この REST API を使って、開発機での Fiddler のネットワーク トレースを有効または無効にすることができます。
 
 ## <a name="determine-if-fiddler-tracing-is-enabled"></a>Fiddler トレースが有効になっているかどうかを判断します。
 
-**要求**
+**Request**
 
 次の要求を使って、デバイスで Fiddler トレースが有効になっているかどうかを確認することができます。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
 GET | /ext/fiddler
 
@@ -39,27 +39,27 @@ GET | /ext/fiddler
 
 - なし
 
-**応答**   
+**Response**   
 
 - プロキシが有効かどうかを指定する JSON ブール プロパティ IsProxyEnabled。
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
 HTTP 状態コード      | 説明
 :------     | :-----
-200 | 成功
+200 | Success
 4XX | エラー コード
 5XX | エラー コード
 
 ## <a name="enable-fiddler-tracing"></a>Fiddler のトレースを有効にする
 
-**要求**
+**Request**
 
 次の要求を使って、開発機の Fiddler のトレースを有効にすることができます。  この設定を有効にするには、デバイスを再起動する必要があることに注意してください。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
 POST | /ext/fiddler
 
@@ -82,11 +82,11 @@ POST | /ext/fiddler
 
 - updateCert が false である場合や指定されていない場合は、なし。 それ以外の場合は、FiddlerRoot.cer ファイルを格納する、原則に従ったマルチパートの http 本文。
 
-**応答**   
+**Response**   
 
 - なし  
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 
@@ -98,13 +98,13 @@ HTTP 状態コード      | 説明
 
 ## <a name="disable-fiddler-tracing-on-the-devkit"></a>開発機で Fiddler のトレースを無効にする
 
-**要求**
+**Request**
 
 次の要求を使って、デバイスでの Fiddler のトレースを無効にすることができます。 この設定を有効にするには、デバイスを再起動する必要があることに注意してください。
 
-メソッド      | 要求 URI
+Method      | 要求 URI
 :------     | :-----
-Del | /ext/fiddler
+DELETE | /ext/fiddler
 
 **URI パラメーター**
 
@@ -118,11 +118,11 @@ Del | /ext/fiddler
 
 - なし
 
-**応答**   
+**Response**   
 
 - なし 
 
-**状態コード**
+**status code**
 
 この API では次の状態コードが返される可能性があります。
 

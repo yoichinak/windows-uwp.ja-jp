@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c635d0efad627734e0305c687e015ad183764717
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 38522be28280c0a08f6cb065e5dfb5c2f26642a8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371050"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162796"
 ---
 # <a name="introduction-to-rasterization-rules"></a>ラスター化規則の概要
 
@@ -21,7 +21,7 @@ ms.locfileid: "66371050"
 
 これは、ラスター化規則の簡単な説明です。 詳しくは、「[ラスター化ルール](rasterization-rules.md)」をご覧ください。 「[ラスタライザー (RS) ステージ](rasterizer-stage--rs-.md)」もご覧ください。
 
-## <a name="span-idtrianglerasterizationrulesspanspan-idtrianglerasterizationrulesspanspan-idtrianglerasterizationrulesspantriangle-rasterization-rules"></a><span id="Triangle_Rasterization_Rules"></span><span id="triangle_rasterization_rules"></span><span id="TRIANGLE_RASTERIZATION_RULES"></span>三角形のラスタライズ ルール
+## <a name="span-idtriangle_rasterization_rulesspanspan-idtriangle_rasterization_rulesspanspan-idtriangle_rasterization_rulesspantriangle-rasterization-rules"></a><span id="Triangle_Rasterization_Rules"></span><span id="triangle_rasterization_rules"></span><span id="TRIANGLE_RASTERIZATION_RULES"></span>三角形のラスター化ルール
 
 
 Direct3D は、塗りつぶしジオメトリに左上の塗りつぶし規則を使います。 これは、GDI と OpenGL の長方形に使われているのと同じ規則です。 Direct3D では、ピクセルの中心が決定的な点となります。 中心が三角形の中の場合、ピクセルは三角形の一部です。 ピクセルの中心は、整数座標上にあります。
@@ -52,14 +52,14 @@ Direct3D により使われる三角形のラスター化ルールのこの説�
 
 ![前の 2 つの番号付きの正方形の影響を受けているピクセル](images/samepix.png)
 
-## <a name="span-idpointandlinerulesspanspan-idpointandlinerulesspanspan-idpointandlinerulesspanpoint-and-line-rules"></a><span id="Point_and_Line_Rules"></span><span id="point_and_line_rules"></span><span id="POINT_AND_LINE_RULES"></span>ポイント、線ルール
+## <a name="span-idpoint_and_line_rulesspanspan-idpoint_and_line_rulesspanspan-idpoint_and_line_rulesspanpoint-and-line-rules"></a><span id="Point_and_Line_Rules"></span><span id="point_and_line_rules"></span><span id="POINT_AND_LINE_RULES"></span>点および線のルール
 
 
 点は、ポイント スプライトと同じようにレンダリングされます。どちらも画面に沿った四角形としてレンダリングされるため、多角形のレンダリングと同じルールに従います。
 
-アンチエイリアスが適用されていない線のレンダリング ルールは、[GDI の線](https://docs.microsoft.com/windows/desktop/gdi/lines)のルールとまったく同じです。
+アンチエイリアスが適用されていない線のレンダリング ルールは、[GDI の線](/windows/desktop/gdi/lines)のルールとまったく同じです。
 
-## <a name="span-idpointspriterulesspanspan-idpointspriterulesspanspan-idpointspriterulesspanpoint-sprite-rules"></a><span id="Point_Sprite_Rules"></span><span id="point_sprite_rules"></span><span id="POINT_SPRITE_RULES"></span>ポイントのスプライトの規則
+## <a name="span-idpoint_sprite_rulesspanspan-idpoint_sprite_rulesspanspan-idpoint_sprite_rulesspanpoint-sprite-rules"></a><span id="Point_Sprite_Rules"></span><span id="point_sprite_rules"></span><span id="POINT_SPRITE_RULES"></span>ポイント スプライトのルール
 
 
 ポイント スプライトとパッチ プリミティブは、プリミティブが最初に三角形にテッセレーションされた後、その三角形がラスター化されたかのようにラスター化されます。
@@ -69,14 +69,10 @@ Direct3D により使われる三角形のラスター化ルールのこの説�
 
 [デバイス](devices.md)
 
-[ラスタライザー (RS) のステージ](rasterizer-stage--rs-.md)
+[ラスタライザー (RS) ステージ](rasterizer-stage--rs-.md)
 
-[ラスタライズ ルール](rasterization-rules.md)
-
- 
+[ラスター化ルール](rasterization-rules.md)
 
  
 
-
-
-
+ 

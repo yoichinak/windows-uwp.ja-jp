@@ -5,12 +5,12 @@ keywords: ユーザー アクティビティ、ユーザー アクティビテ�
 ms.date: 04/27/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ddceda3457ef5251cb2b1e384dbb880725103fa
-ms.sourcegitcommit: 445320ff0ee7323d823194d4ec9cfa6e710ed85d
+ms.openlocfilehash: ebaca3b831ae30637a88d01319a89d139dde1cf8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282310"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162626"
 ---
 # <a name="continue-user-activity-even-across-devices"></a>デバイス間でもユーザーのアクティビティを継続する
 
@@ -18,7 +18,7 @@ ms.locfileid: "72282310"
 
 ## <a name="user-activities-and-timeline"></a>ユーザー アクティビティとタイムライン
 
-私たちの毎日の時間は、複数のデバイス間に広がっています。 私たちは、バスの中でスマートフォンを、日中は PC を、夜は電話やタブレットを使用しています。 Windows 10 ビルド 1803 以降では、[ユーザー アクティビティ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity) を作成すると、そのアクティビティが Windows タイムラインと Cortana の 前回終了した位置から再開機能に表示されるようになりました。 タイムラインは、ユーザー アクティビティを活用して作業していることを時系列に表示する豊富な機能を備えたタスク ビューです。 また、さまざまなデバイス間で作業していた内容も含めることができます。
+私たちの毎日の時間は、複数のデバイス間に広がっています。 私たちは、バスの中でスマートフォンを、日中は PC を、夜は電話やタブレットを使用しています。 Windows 10 ビルド 1803 以降では、[ユーザー アクティビティ](/uwp/api/windows.applicationmodel.useractivities.useractivity) を作成すると、そのアクティビティが Windows タイムラインと Cortana の 前回終了した位置から再開機能に表示されるようになりました。 タイムラインは、ユーザー アクティビティを活用して作業していることを時系列に表示する豊富な機能を備えたタスク ビューです。 また、さまざまなデバイス間で作業していた内容も含めることができます。
 
 ![Windows タイムラインのイメージ](images/timeline.png)
 
@@ -26,20 +26,20 @@ ms.locfileid: "72282310"
 
 **UserActivity** は、ユーザーがあなたのアプリ内で作業していたことと考えてください。 たとえば、RSSリーダーを使用している場合、**UserActivity** はあなたが読んでいるフィードになります。 ゲームをプレイしている場合、**UserActivity** はあなたがプレイしているレベルになります。 音楽アプリを聴いている場合は、**UserActivity** があなたが聴いているプレイリストになります。 ドキュメントで作業している場合、**UserActivity** は作業を中断した場所になるなどです。  要するに、**UserActivity** は、ユーザーが自分のやっていることを再開できるように、アプリ内の目的地を表すものです。
 
-[UserActivity.CreateSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を呼び出して **UserActivity** を使用すると、システムは **UserActivity**の開始時刻と終了時刻を示す履歴レコードを作成します。 時間の経過とともに **UserActivity** を再使用していくと、複数の履歴レコードが記録されます。
+[UserActivity.CreateSession](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を呼び出して **UserActivity** を使用すると、システムは **UserActivity**の開始時刻と終了時刻を示す履歴レコードを作成します。 時間の経過とともに **UserActivity** を再使用していくと、複数の履歴レコードが記録されます。
 
 ## <a name="add-user-activities-to-your-app"></a>アプリにユーザー アクティビティを追加する
 
-[UserActivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity) は、Windows でのユーザー エンゲージメントの単位です。 これには、アクティビティが属するアプリをアクティブ化するために使用される URI、ビジュアル、およびアクティビティを記述するメタデータの 3 つの部分があります。
+[UserActivity](/uwp/api/windows.applicationmodel.useractivities.useractivity) は、Windows でのユーザー エンゲージメントの単位です。 これには、アクティビティが属するアプリをアクティブ化するために使用される URI、ビジュアル、およびアクティビティを記述するメタデータの 3 つの部分があります。
 
-1. [ActivationUri](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri#Windows_ApplicationModel_UserActivities_UserActivity_ActivationUri) は、特定のコンテキストでアプリケーションを再開するために使用します。 通常、このリンクでは、スキームのプロトコルハンドラー (たとえば、"my app:/page2? action = edit") または AppUriHandler (たとえば、 http://constoso.com/page2?action=edit) ) の形式を使用します。
-2. [VisualElements](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.visualelements) は、タイトル、説明、またはアダプティブ カード要素でアクティビティを視覚的に識別できるようにするクラスを公開します。
-3. 最後に、[コンテンツ](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.content#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_Content) は、特定のコンテキストでアクティビティをグループ化したり取得したりするために使用できるアクティビティのメタデータを格納できます。 多くの場合、これは [https://schema.org](https://schema.org) データのフォームとなります。
+1. [ActivationUri](/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri#Windows_ApplicationModel_UserActivities_UserActivity_ActivationUri) は、特定のコンテキストでアプリケーションを再開するために使用します。 通常、このリンクは、スキーム ("my app:/page2? action = edit" など) または AppUriHandler (など) のプロトコルハンドラーの形式を使用し http://constoso.com/page2?action=edit) ます。
+2. [VisualElements](/uwp/api/windows.applicationmodel.useractivities.useractivity.visualelements) は、タイトル、説明、またはアダプティブ カード要素でアクティビティを視覚的に識別できるようにするクラスを公開します。
+3. 最後に、[コンテンツ](/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.content#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_Content) は、特定のコンテキストでアクティビティをグループ化したり取得したりするために使用できるアクティビティのメタデータを格納できます。 多くの場合、これはデータの形式に [https://schema.org](https://schema.org) なります。
 
 **UserActivity** をアプリに追加するには:
 
 1. アプリケーション内でユーザーのコンテキスト (ページ ナビゲーション、新しいゲームレベルなど) が変更されたときに **UserActivity** オブジェクトを生成する
-2. 次の必須フィールドの最小セットを使用して、 **Useractivity**オブジェクトを設定します。[ActivityId](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activityid#Windows_ApplicationModel_UserActivities_UserActivity_ActivityId)、 [ActivationUri](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri)、および[useractivity. visualelements](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.displaytext#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_DisplayText)。
+2. **UserActivity** オブジェクトに必要なフィールドの最小セットを入力します。 [ActivityId](/uwp/api/windows.applicationmodel.useractivities.useractivity.activityid#Windows_ApplicationModel_UserActivities_UserActivity_ActivityId)、[ActivationUri](/uwp/api/windows.applicationmodel.useractivities.useractivity.activationuri)、および [UserActivity.VisualElements.DisplayText](/uwp/api/windows.applicationmodel.useractivities.useractivityvisualelements.displaytext#Windows_ApplicationModel_UserActivities_UserActivityVisualElements_DisplayText)。
 3. **UserActivity** によって再アクティブ化できるように、カスタム スキーム ハンドラーをアプリケーションに追加します。
 
 **UserActivity** はわずか数行のコードでアプリに統合できます。 たとえば、MainPage.xaml.cs の MainPage クラス内でこのコードを想像してみてください (注: `using Windows.ApplicationModel.UserActivities;` を前提としています)。
@@ -65,19 +65,19 @@ private async Task GenerateActivityAsync()
 }
 ```
 
-上の `GenerateActivityAsync()` メソッドの最初の行は、ユーザの [UserActivityChannel](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitychannel) を取得します。 これは、このアプリのアクティビティが公開されるフィードです。 次の行は、`MainPage` と呼ばれるアクティビティのチャネルを照会します。
+上の `GenerateActivityAsync()` メソッドの最初の行は、ユーザの [UserActivityChannel](/uwp/api/windows.applicationmodel.useractivities.useractivitychannel) を取得します。 これは、このアプリのアクティビティが公開されるフィードです。 次の行は、`MainPage` と呼ばれるアクティビティのチャネルを照会します。
 
 * ユーザーがアプリの特定の場所にいるたびに同じ ID が生成されるように、アクティビティに名前を付ける必要があります。 たとえば、アプリがページ ベースの場合は、ページの識別子を使用します。ドキュメント ベースの場合は、ドキュメントの名前 (または名前のハッシュ) を使用します。
-* 同じ ID を持つフィードに既存のアクティビティがある場合、そのアクティビティは `UserActivity.State` が [公開済み](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitystate) に設定されているチャンネルから返されます その名前のアクティビティがない場合、`UserActivity.State` が **New** に設定された状態で新しいアクティビティが返されます。
+* 同じ ID を持つフィードに既存のアクティビティがある場合、そのアクティビティは `UserActivity.State` が [公開済み](/uwp/api/windows.applicationmodel.useractivities.useractivitystate) に設定されているチャンネルから返されます その名前のアクティビティがない場合、`UserActivity.State` が **New** に設定された状態で新しいアクティビティが返されます。
 * アクティビティがアプリに適用されます。 アクティビティ ID が他のアプリの ID と競合するのを心配する必要はありません。
 
 **UserActivity** を取得または作成した後で、他の 2 つの必須フィールド、 `UserActivity.VisualElements.DisplayText` と `UserActivity.ActivationUri` を指定します。
 
-次に、[SaveAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.saveasync) を呼び出して **UserActivity** を保存し、最後に [CreateSession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を保存します。これは [UserActivitySession](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitysession) を返します。 **UserActivitySession** は、ユーザーが実際に **UserActivity** を使用しているときに、管理するために使用できるオブジェクトです。 たとえば、**UserActivitySession** 上でユーザーがページを離れるときに `Dispose()` を呼び出す必要があります。 上記の例では、`CreateSession()` を呼び出す前に `_currentActivity` で` `Dispose()` を呼び出しています。 これは、`_currentActivity` をページのメンバー フィールドにして、新しいものを開始する前に既存のアクティビティを停止したいからです (注:`?` は [null 条件演算子](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-) で、メンバー アクセスを実行する前に null をテストします)。
+次に、[SaveAsync](/uwp/api/windows.applicationmodel.useractivities.useractivity.saveasync) を呼び出して **UserActivity** を保存し、最後に [CreateSession](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を保存します。これは [UserActivitySession](/uwp/api/windows.applicationmodel.useractivities.useractivitysession) を返します。 **UserActivitySession** は、ユーザーが実際に **UserActivity** を使用しているときに、管理するために使用できるオブジェクトです。 たとえば、**UserActivitySession** 上でユーザーがページを離れるときに `Dispose()` を呼び出す必要があります。 上記の例では、`CreateSession()` を呼び出す前に `_currentActivity` で` `Dispose()` を呼び出しています。 これは、`_currentActivity` をページのメンバー フィールドにして、新しいものを開始する前に既存のアクティビティを停止したいからです (注:`?` は [null 条件演算子](/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-) で、メンバー アクセスを実行する前に null をテストします)。
 
 この場合、`ActivationUri` はカスタム スキームであるため、アプリケーション マニフェストにプロトコルを登録する必要もあります。 これは、Package.appmanifest XML ファイルで、またはデザイナーを使用して行います。
 
-デザイナーで変更を加えるには、プロジェクトの Package.appmanifest ファイルをダブルクリックしてデザイナーを起動し、 **[宣言]** タブを選択して、 **[プロトコル]** 定義を追加します。 記入する必要がある唯一のプロパティは、現在、**名前**です。 上記で指定した URI の `my-app` と一致するはずです。
+デザイナーで変更を加えるには、プロジェクトの Package.appmanifest ファイルをダブルクリックしてデザイナーを起動し、**[宣言]** タブを選択して、**[プロトコル]** 定義を追加します。 記入する必要がある唯一のプロパティは、現在、**名前**です。 上記で指定した URI の `my-app` と一致するはずです。
 
 ここで、プロトコルによって起動されたときに何をすべきかをアプリに伝えるコードを記述する必要があります。 App.xaml.cs の `OnActivated` メソッドを上書きして、メイン ページに URI を渡します。
 
@@ -150,12 +150,12 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 ## <a name="cross-platform-and-service-to-service-integration"></a>クロス プラットフォームとサービス間の統合
 
 アプリがクロスプラットフォーム (Android や iOS など) で稼働している場合や、クラウドにユーザーの状態を保持している場合は、[Microsoft Graph](https://developer.microsoft.com/graph) で UserActivities を公開できます。
-アプリケーションまたはサービスが Microsoft アカウントで認証されると、上記と同じデータを使用して [アクティビティ](https://docs.microsoft.com/graph/api/resources/projectrome-activity) オブジェクトと [履歴](https://docs.microsoft.com/graph/api/resources/projectrome-historyitem) オブジェクトを生成するための 2 回の単純な REST 呼び出しが必要です。
+アプリケーションまたはサービスが Microsoft アカウントで認証されると、上記と同じデータを使用して [アクティビティ](/graph/api/resources/projectrome-activity) オブジェクトと [履歴](/graph/api/resources/projectrome-historyitem) オブジェクトを生成するための 2 回の単純な REST 呼び出しが必要です。
 
 ## <a name="summary"></a>まとめ
 
-[UserActivity](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities) API を使用して、アプリをタイムラインと Cortana に表示させることができます。
-* [ **Useractivity** API についての詳細情報](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities)
+[UserActivity](/uwp/api/windows.applicationmodel.useractivities) API を使用して、アプリをタイムラインと Cortana に表示させることができます。
+* [ **Useractivity** API についての詳細情報](/uwp/api/windows.applicationmodel.useractivities)
 * 「[sample code](https://github.com/Microsoft/project-rome)」をご覧ください。
 * 「[more sophisticated Adaptive Cards](https://adaptivecards.io/)」を参照してください。
 * [Microsoft Graph](https://developer.microsoft.com/graph) を介して、iOS、Android、または Web サービスから **UserActivity** を公開します。
@@ -163,13 +163,13 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 
 ## <a name="key-apis"></a>キー API
 
-* [UserActivities 名前空間](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities)
+* [UserActivities 名前空間](/uwp/api/windows.applicationmodel.useractivities)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [ユーザーアクティビティ (プロジェクトローマドキュメント)](https://docs.microsoft.com/windows/project-rome/user-activities/)
-* [アダプティブカード](https://docs.microsoft.com/adaptive-cards/)
-* [アダプティブカードビジュアライザー、サンプル](https://adaptivecards.io/)
-* [URI のアクティブ化の処理](https://docs.microsoft.com/windows/uwp/launch-resume/handle-uri-activation)
-* [Microsoft Graph、アクティビティフィード、アダプティブカードを使用して、あらゆるプラットフォームの顧客と提携する](https://channel9.msdn.com/Events/Connect/2017/B111)
+* [ユーザーアクティビティ (プロジェクトローマドキュメント)](/windows/project-rome/user-activities/)
+* [アダプティブカード](/adaptive-cards/)
+* [アダプティブ カード ビジュアライザー、サンプル](https://adaptivecards.io/)
+* [URI のアクティブ化の処理](./handle-uri-activation.md)
+* [Microsoft Graph、アクティビティ フィード、およびアダプティブ カードを使用して、どのプラットフォームでも顧客の関心を惹きつける](https://channel9.msdn.com/Events/Connect/2017/B111)
 * [Microsoft Graph](https://developer.microsoft.com/graph)

@@ -4,14 +4,14 @@ title: XAML 構文のガイド
 ms.assetid: A57FE7B4-9947-4AA0-BC99-5FE4686B611D
 ms.date: 02/08/2017
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0351f3566d708b7a588fa77f9f15564f382de44f
-ms.sourcegitcommit: 807dadf5eceb576aba3ad898a6e9bf12129e94a4
+ms.openlocfilehash: e27fb3edbcf3a6ffcd1e1a175e63c1a7090f5719
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680746"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164096"
 ---
 # <a name="xaml-syntax-guide"></a>XAML 構文のガイド
 
@@ -43,7 +43,7 @@ XAML 構文では、次の 3 つの方法を使って XAML でオブジェクト
 
 ### <a name="declaring-an-object-by-using-object-element-syntax"></a>オブジェクト要素構文を使用したオブジェクトの宣言
 
-オブジェクト要素構文を使ってオブジェクトを宣言するには、`<objectName>  </objectName>` のようにタグを記述します。ここで、*objectName* は、インスタンス化するオブジェクトの型名を表します。 [  **Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) オブジェクトを宣言するためのオブジェクト要素の使用方法は次のとおりです。
+オブジェクト要素構文を使ってオブジェクトを宣言するには、`<objectName>  </objectName>` のようにタグを記述します。ここで、*objectName* は、インスタンス化するオブジェクトの型名を表します。 [**Canvas**](/uwp/api/Windows.UI.Xaml.Controls.Canvas) オブジェクトを宣言するためのオブジェクト要素の使用方法は次のとおりです。
 
 ```xml
 <Canvas>
@@ -54,7 +54,7 @@ XAML 構文では、次の 3 つの方法を使って XAML でオブジェクト
 
 ### <a name="containers"></a>コンテナー
 
-UI 要素として使われるオブジェクト ([**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas) など) の多くは、他のオブジェクトを格納することができます。 そのようなオブジェクトは、コンテナーとも呼ばれます。 次の例は、要素 [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を 1 つ格納している **Canvas** コンテナーを示しています。
+UI 要素として使われるオブジェクト ([**Canvas**](/uwp/api/Windows.UI.Xaml.Controls.Canvas) など) の多くは、他のオブジェクトを格納することができます。 そのようなオブジェクトは、コンテナーとも呼ばれます。 次の例は、要素 [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を 1 つ格納している **Canvas** コンテナーを示しています。
 
 ```xml
 <Canvas>
@@ -70,9 +70,9 @@ UI 要素として使われるオブジェクト ([**Canvas**](https://docs.micr
 
 一部のオブジェクトでは、構造の初期値として使われる内部テキストを使って新しい値を宣言できます。 XAML では、この手法と構文を*初期化テキスト*と呼びます。 初期化テキストは概念的に、パラメーターを持つコンストラクターの呼び出しに似ています。 初期化テキストは、一部の構造体の初期値を設定するのに便利です。
 
-構造体の値に **x:Key** を持たせ、[**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) 内に存在できるようにする必要がある場合にはよく、オブジェクト要素構文を初期化テキストと共に使います。 この手法は、その構造体の値を複数のターゲット プロパティで共有する場合に使用できます。 一部の構造体では、属性構文を使って構造体の値を設定することができません。このため、初期化テキストが、便利で共有可能な [**CornerRadius**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.CornerRadius)、[**Thickness**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Thickness)、[**GridLength**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.GridLength)、[**Color**](https://docs.microsoft.com/uwp/api/Windows.UI.Color) リソースを生成するための唯一の方法になります。
+構造体の値に **x:Key** を持たせ、[**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) 内に存在できるようにする必要がある場合にはよく、オブジェクト要素構文を初期化テキストと共に使います。 この手法は、その構造体の値を複数のターゲット プロパティで共有する場合に使用できます。 一部の構造体では、属性構文を使って構造体の値を設定することができません。このため、初期化テキストが、便利で共有可能な [**CornerRadius**](/uwp/api/Windows.UI.Xaml.CornerRadius)、[**Thickness**](/uwp/api/Windows.UI.Xaml.Thickness)、[**GridLength**](/uwp/api/Windows.UI.Xaml.GridLength)、[**Color**](/uwp/api/Windows.UI.Color) リソースを生成するための唯一の方法になります。
 
-この省略された例では、初期化テキストを使って [**Thickness**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Thickness) の値 (**Left** と **Right** を 20 に、**Top** と **Bottom** を 10 に設定する値) を指定しています。 この例は、キーを持つリソースとして作成された **Thickness** と、そのリソースへの参照を示しています。 [  **Thickness**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Thickness) の初期化テキストについて詳しくは、「[**Thickness**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Thickness)」をご覧ください。
+この省略された例では、初期化テキストを使って [**Thickness**](/uwp/api/Windows.UI.Xaml.Thickness) の値 (**Left** と **Right** を 20 に、**Top** と **Bottom** を 10 に設定する値) を指定しています。 この例は、キーを持つリソースとして作成された **Thickness** と、そのリソースへの参照を示しています。 [**Thickness**](/uwp/api/Windows.UI.Xaml.Thickness) の初期化テキストについて詳しくは、「[**Thickness**](/uwp/api/Windows.UI.Xaml.Thickness)」をご覧ください。
 
 ```xml
 <UserControl ...>
@@ -87,7 +87,7 @@ UI 要素として使われるオブジェクト ([**Canvas**](https://docs.micr
 </UserControl ...>
 ```
 
-<bpt id="p1">**</bpt>Note<ept id="p1">**</ept><ph id="ph1">  </ph>Some structures can't be declared as object elements. 初期化テキストがサポートされておらず、リソースとして使うことができません。 XAML でそれらの値にプロパティを設定するには、属性構文を使う必要があります。 そのような型には、[**Duration**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Duration)、[**RepeatBehavior**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepeatBehavior)、[**Point**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Point)、[**Rect**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Rect)、[**Size**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Size) などがあります。
+**メモ**   一部の構造体は、オブジェクト要素として宣言できません。 初期化テキストがサポートされておらず、リソースとして使うことができません。 XAML でそれらの値にプロパティを設定するには、属性構文を使う必要があります。 そのような型には、[**Duration**](/uwp/api/Windows.UI.Xaml.Duration)、[**RepeatBehavior**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepeatBehavior)、[**Point**](/uwp/api/Windows.Foundation.Point)、[**Rect**](/uwp/api/Windows.Foundation.Rect)、[**Size**](/uwp/api/Windows.Foundation.Size) などがあります。
 
 ## <a name="setting-properties"></a>プロパティの設定
 
@@ -101,17 +101,17 @@ UI 要素として使われるオブジェクト ([**Canvas**](https://docs.micr
 オブジェクトの宣言の場合と同様に、プロパティを設定する際にどの方法でも使用できるというわけではありません。 一部のプロパティでは、1 種類の方法しかサポートされません。
 プロパティのなかには、複数の形式をサポートしているものもあります。たとえば、プロパティ要素構文と属性構文のどちらも使用できるプロパティもあります。 どれを使用できるかは、プロパティと、そのプロパティが使うオブジェクト型の両方に応じて決まります。 Windows ランタイム API リファレンスでは、「**構文**」セクションに、使うことができる XAML の使用方法が表示されます。 ときには、使うことができても冗長な別の方法が存在することがあります。 そのような冗長な方法は、表示されないこともあります。それは、リファレンスでは XAML でそのプロパティを使うためのベスト プラクティスや実世界のシナリオを示すようにしているためです。 XAML で設定できるプロパティのリファレンス ページにある **XAML の使用方法**に関するセクションに、XAML 構文に関するガイダンスが記載されています。
 
-Some properties on objects cannot be set in XAML by any means, and can only be set using code. このようなプロパティは通常、XAML よりコード ビハインドで使う方が適しています。
+オブジェクトの一部のプロパティは、何らかの方法で XAML で設定することはできず、コードを使用してのみ設定できます。 このようなプロパティは通常、XAML よりコード ビハインドで使う方が適しています。
 
 読み取り専用プロパティは、XAML で設定することはできません。 コードでも、所有する型はコンストラクター オーバーロード、ヘルパー メソッド、集計プロパティのサポートなど、他の設定方法をサポートしている必要があります。 集計プロパティは、設定可能な他のプロパティの値のほか、組み込み処理のあるイベントに依存することもあります。これらの機能は、依存関係プロパティ システムで使用できます。 集計プロパティをサポートするうえで依存関係プロパティがいかに便利であるかについて詳しくは、「[依存関係プロパティの概要](dependency-properties-overview.md)」をご覧ください。
 
-XAML のコレクション構文の場合、一見、読み取り専用のプロパティを設定しているかのように見えますが、実際は違います。 See "<bpt id="p1">[</bpt>Collection Syntax<ept id="p1">](#collection-syntax)</ept>" later in this topic.
+XAML のコレクション構文の場合、一見、読み取り専用のプロパティを設定しているかのように見えますが、実際は違います。 このトピックで後述する「[コレクションの構文](#collection-syntax)」を参照してください。
 
 ### <a name="setting-a-property-by-using-attribute-syntax"></a>属性構文によるプロパティの設定
 
 XML や HTML などのマークアップ言語でプロパティ値を設定するには、属性値を設定するのが一般的です。 XAML 属性は、XML で属性値を設定する場合と同じように設定できます。 タグで囲まれ、要素名に続く任意の場所で属性名を指定します。要素名との間は少なくとも 1 つの空白で区切ります。 属性名の後に、等号を挟んで、 引用符で囲んだ属性値を指定します。 引用符は、値の前後で対応していれば二重引用符と単一引用符のどちらでもかまいません。 属性値は、文字列として表現できる値である必要があります。 文字列には数字が含まれることが多いものの、XAML では、XAML パーサーが関与して基本的な値の変換を実行するまで、属性値がすべて文字列値となります。
 
-この例では、4 つの属性の属性構文を使用して、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) オブジェクトの [**Name**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.name)、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)、[**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) の各プロパティを設定しています。
+この例では、4 つの属性の属性構文を使用して、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) オブジェクトの [**Name**](/uwp/api/windows.ui.xaml.frameworkelement.name)、[**Width**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)、[**Height**](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)、[**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) の各プロパティを設定しています。
 
 ```xml
 <Rectangle Name="rectangle1" Width="100" Height="100" Fill="Blue" />
@@ -119,23 +119,23 @@ XML や HTML などのマークアップ言語でプロパティ値を設定す�
 
 ### <a name="setting-a-property-by-using-property-element-syntax"></a>プロパティ要素構文によるプロパティの設定
 
-オブジェクトの多くのプロパティは、プロパティ要素構文を使って設定できます。 プロパティ要素は次のようになります。`<`*object*`.`*property*`>`
+オブジェクトの多くのプロパティは、プロパティ要素構文を使って設定できます。 Property 要素は次のようになります: `<` *オブジェクト* `.` *プロパティ* `>` 。
 
-プロパティ要素構文を使うには、設定するプロパティに対応する XAML プロパティ要素を作成します。 標準 XML の場合、この要素は、その名前にドットが含まれている要素と見なされます。 However, in XAML, the dot in the element name identifies the element as a property element, with <bpt id="p1">*</bpt>property<ept id="p1">*</ept> expected to be a member of <bpt id="p2">*</bpt>object<ept id="p2">*</ept> in a backing object model implementation. プロパティ要素構文を使うには、プロパティ要素タグに "設定する" ためにオブジェクト要素を指定できる必要があります。 プロパティ要素にはコンテンツ (単一の要素、複数の要素、または内部テキスト) が常に存在します。自己終了プロパティ要素を使う意味はありません。
+プロパティ要素構文を使うには、設定するプロパティに対応する XAML プロパティ要素を作成します。 標準 XML の場合、この要素は、その名前にドットが含まれている要素と見なされます。 ただし、XAML では、要素名のドットは、要素をプロパティ要素として識別します。 *プロパティ* は、バッキングオブジェクトモデルの実装の *オブジェクト* のメンバーである必要があります。 プロパティ要素構文を使うには、プロパティ要素タグに "設定する" ためにオブジェクト要素を指定できる必要があります。 プロパティ要素にはコンテンツ (単一の要素、複数の要素、または内部テキスト) が常に存在します。自己終了プロパティ要素を使う意味はありません。
 
 次の文法では、*property* は設定するプロパティの名前、*propertyValueAsObjectElement* はプロパティの値の型の要件を満たす単一のオブジェクト要素をそれぞれ表します。
 
-<ph id="ph1">`&lt;`</ph><bpt id="p1">*</bpt>object<ept id="p1">*</ept><ph id="ph2">`&gt;`</ph>
+`<`*object*`>`
 
-<ph id="ph1">`&lt;`</ph><bpt id="p1">*</bpt>object<ept id="p1">*</ept><ph id="ph2">`.`</ph><bpt id="p2">*</bpt>property<ept id="p2">*</ept><ph id="ph3">`&gt;`</ph>
+`<`*オブジェクト* `.`*プロパティ*`>`
 
-<bpt id="p1">*</bpt>propertyValueAsObjectElement<ept id="p1">*</ept>
+*propertyValueAsObjectElement*
 
-<ph id="ph1">`&lt;/`</ph><bpt id="p1">*</bpt>object<ept id="p1">*</ept><ph id="ph2">`.`</ph><bpt id="p2">*</bpt>property<ept id="p2">*</ept><ph id="ph3">`&gt;`</ph>
+`</`*オブジェクト* `.`*プロパティ*`>`
 
-<ph id="ph1">`&lt;/`</ph><bpt id="p1">*</bpt>object<ept id="p1">*</ept><ph id="ph2">`&gt;`</ph>
+`</`*object*`>`
 
-次の例では、プロパティ要素構文を使用して、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) オブジェクト要素で [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) を設定しています (**SolidColorBrush** 内では [**Color**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) が属性として設定されています)。この XAML を解析すると、属性構文を使用して **Fill** を設定した上記の XAML の例とまったく同じ結果になります。
+次の例では、プロパティ要素構文を使用して、[**SolidColorBrush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) オブジェクト要素で [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) の [**Fill**](/uwp/api/Windows.UI.Xaml.Shapes.Shape.Fill) を設定しています  (**SolidColorBrush** 内では [**Color**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush.Color) が属性として設定されています)。この XAML を解析すると、属性構文を使用して **Fill** を設定した上記の XAML の例とまったく同じ結果になります。
 
 ```xml
 <Rectangle
@@ -151,15 +151,15 @@ XML や HTML などのマークアップ言語でプロパティ値を設定す�
 
 ### <a name="xaml-vocabularies-and-object-oriented-programming"></a>XAML ボキャブラリとオブジェクト指向のプログラミング
 
-Windows ランタイムの XAML 型の XAML メンバーとして表示されるプロパティとイベントは、ほとんどの場合基本型から継承されます。 `<Button Background="Blue" .../>` を例にして考えてみましょう。 [  **Background**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.background) プロパティは、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) クラスで即座に宣言されるプロパティではありません。 代わりに、[**Control**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control) 基底クラスから **Background** が継承されます。 実際、**Button** に関するリファレンスのトピックを見ると、メンバーのリストには連続した基底クラス ([**ButtonBase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase)、[**Control**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Control)、[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement)、[**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement)、[**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject)) の各チェーンから継承されたメンバーが少なくとも 1 つ含まれることがわかります。 **[プロパティ]** の一覧では、読み取り/書き込みプロパティとコレクション プロパティがすべて、XAML ボキャブラリという意味で継承されます。 ほかには、イベント (さまざまな [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) イベントなど) が継承されます。
+Windows ランタイムの XAML 型の XAML メンバーとして表示されるプロパティとイベントは、ほとんどの場合基本型から継承されます。 `<Button Background="Blue" .../>` を例にして考えてみましょう。 [**Background**](/uwp/api/windows.ui.xaml.controls.control.background) プロパティは、[**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button) クラスで即座に宣言されるプロパティではありません。 代わりに、[**Control**](/uwp/api/Windows.UI.Xaml.Controls.Control) 基底クラスから **Background** が継承されます。 実際、**Button** に関するリファレンスのトピックを見ると、メンバーのリストには連続した基底クラス ([**ButtonBase**](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase)、[**Control**](/uwp/api/Windows.UI.Xaml.Controls.Control)、[**FrameworkElement**](/uwp/api/Windows.UI.Xaml.FrameworkElement)、[**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement)、[**DependencyObject**](/uwp/api/Windows.UI.Xaml.DependencyObject)) の各チェーンから継承されたメンバーが少なくとも 1 つ含まれることがわかります。 **[プロパティ]** の一覧では、読み取り/書き込みプロパティとコレクション プロパティがすべて、XAML ボキャブラリという意味で継承されます。 ほかには、イベント (さまざまな [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) イベントなど) が継承されます。
 
 XAML のガイダンスに Windows ランタイム リファレンスを使う場合には、構文やコード例に示されている要素名が、プロパティを定義する型の名前のこともあります。これは、リファレンスのそのトピックが基底クラスからプロパティを継承する型になる可能性のあるものすべてに共通するものであるためです。 Visual Studio の XML エディターで IntelliSense for XAML を使うと、IntelliSense とそのドロップダウン リストによって継承が結合されるほか、クラス インスタンスのオブジェクト要素を開始した時点で設定に利用できる属性の正確な一覧が提供されます。
 
-### <a name="xaml-content-properties"></a>XAML コンテンツ プロパティ
+### <a name="xaml-content-properties"></a>XAML コンテンツのプロパティ
 
 一部の型には、XAML コンテンツ構文を有効にするように定義されたプロパティが 1 つ含まれています。 型に XAML コンテンツ プロパティが含まれている場合には、XAML でプロパティ要素を指定するときにそのプロパティのプロパティ要素を省略できます。 つまり、所有する型のオブジェクト要素タグ内で直接内部テキストを指定することによって、プロパティをその内部テキストの値に設定できます。 XAML コンテンツ プロパティでは、そのプロパティのマークアップ構文を単純化できるため、入れ子の数を少なくすることによって XAML をわかりやすくすることができます。
 
-XAML コンテンツ構文が利用できる場合、Windows ランタイム リファレンス ドキュメントでは、該当するプロパティの「**構文**」の XAML に関するセクションにその構文が示されています。 たとえば、[**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) の [**Child**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border.child) プロパティのページには、プロパティ要素構文の代わりに、**Border** の単一オブジェクト **Border.Child** 値を設定する XAML コンテンツ構文が示されています。
+XAML コンテンツ構文が利用できる場合、Windows ランタイム リファレンス ドキュメントでは、該当するプロパティの「**構文**」の XAML に関するセクションにその構文が示されています。 たとえば、[**Border**](/uwp/api/Windows.UI.Xaml.Controls.Border) の [**Child**](/uwp/api/windows.ui.xaml.controls.border.child) プロパティのページには、プロパティ要素構文の代わりに、**Border** の単一オブジェクト **Border.Child** 値を設定する XAML コンテンツ構文が示されています。
 
 ```xml
 <Border>
@@ -167,13 +167,13 @@ XAML コンテンツ構文が利用できる場合、Windows ランタイム リ
 </Border>
 ```
 
-XAML コンテンツ プロパティとして宣言されているプロパティで、プロパティの型が **Object** と **String** のいずれかの場合には、基本的に XML ドキュメント モデルの内部テキストになるもの (開始オブジェクト タグと終了オブジェクト タグの間の文字列) が XAML コンテンツ構文でサポートされます。 たとえば、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の [**Text**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティのページには、**Text** を設定する内部テキスト値のある XAML 構文が示されていますが、文字列 "Text" が表示されることはありません。 次に使用方法の例を示します。
+XAML コンテンツ プロパティとして宣言されているプロパティで、プロパティの型が **Object** と **String** のいずれかの場合には、基本的に XML ドキュメント モデルの内部テキストになるもの (開始オブジェクト タグと終了オブジェクト タグの間の文字列) が XAML コンテンツ構文でサポートされます。 たとえば、[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の [**Text**](/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティのページには、**Text** を設定する内部テキスト値のある XAML 構文が示されていますが、文字列 "Text" が表示されることはありません。 次に使用方法の例を示します。
 
 ```xml
 <TextBlock>Hello!</TextBlock>
 ```
 
-あるクラスに XAML コンテンツ プロパティが存在する場合には、そのクラスに関するリファレンス トピックの「属性」のセクションに記載されています。 [  **ContentPropertyAttribute**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Markup.ContentPropertyAttribute) の値を検索します。 この属性は名前の付いたフィールド、"Name" を使います。 "Name" の値は、XAML コンテンツ プロパティとなるクラスのプロパティの名前です。 たとえば、[**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) リファレンス ページでは、ContentProperty("Name=Child") と表示されています。
+あるクラスに XAML コンテンツ プロパティが存在する場合には、そのクラスに関するリファレンス トピックの「属性」のセクションに記載されています。 [**ContentPropertyAttribute**](/uwp/api/Windows.UI.Xaml.Markup.ContentPropertyAttribute) の値を検索します。 この属性は名前の付いたフィールド、"Name" を使います。 "Name" の値は、XAML コンテンツ プロパティとなるクラスのプロパティの名前です。 たとえば、[**Border**](/uwp/api/Windows.UI.Xaml.Controls.Border) リファレンス ページでは、ContentProperty("Name=Child") と表示されています。
 
 ここで重要になる XAML 構文の規則の 1 つは、XAML コンテンツ プロパティ要素と、その要素で設定する他のプロパティ要素は混在できないというものです。 XAML コンテンツ プロパティは、プロパティ要素の前か、後に設定する必要があります。 たとえば、このような XAML は無効です。
 
@@ -191,7 +191,7 @@ XAML コンテンツ プロパティとして宣言されているプロパテ�
 
 これまでに見てきた構文はすべて、プロパティを 1 つのオブジェクトに設定しています。 しかし、複数の子要素を持つ親要素が必要な UI シナリオも数多くあります。 たとえば、入力フォームの UI では、複数のテキスト ボックス要素、いくつかのラベル、そしておそらくは 1 つの "Submit" ボタンが必要になります。 それでも、プログラミング オブジェクト モデルを使用してそれらの要素にアクセスする場合は、別々のプロパティの値としてアクセスするのではなく、1 つのコレクション プロパティの項目としてアクセスするのが一般的です。 XAML では、複数の子要素や、一般的なバッキング コレクション モデルがサポートされています。これは、暗黙的にコレクション型を使うプロパティを扱い、コレクション型の子要素を特別な方法で処理することによって実現されます。
 
-このほか、多くのコレクション プロパティが、クラスの XAML コンテンツ プロパティとして識別されます。 暗黙的なコレクション処理と XAML コンテンツ構文を組み合わせた記述は、パネル、ビュー、項目コントロールなどのコントロールを合成するために広く使われる型によく見られます。 For example, the following example shows the simplest possible XAML for compositing two peer UI elements within a <bpt id="p1">[</bpt><bpt id="p2">**</bpt>StackPanel<ept id="p2">**</ept><ept id="p1">](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)</ept>.
+このほか、多くのコレクション プロパティが、クラスの XAML コンテンツ プロパティとして識別されます。 暗黙的なコレクション処理と XAML コンテンツ構文を組み合わせた記述は、パネル、ビュー、項目コントロールなどのコントロールを合成するために広く使われる型によく見られます。 たとえば、次の例は、 [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel)内の2つのピア UI 要素を合成するために最も単純な XAML を示しています。
 
 ```xml
 <StackPanel>
@@ -212,7 +212,7 @@ XAML パーサーによってコレクションに項目が追加されるとき
 
 XAML で設定可能なプロパティはいずれも、直接値を設定するための属性構文またはプロパティ要素構文をサポートしますが、両方の構文をサポートしない可能性もあります。 いずれかの構文をサポートするプロパティもあれば、XAML コンテンツ プロパティなど、他の構文オプションをサポートしているプロパティもあります。 プロパティでサポートされる XAML 構文の種類は、そのプロパティでプロパティの型として使われるオブジェクトの型によって決まります。 プロパティ型が double (float または decimal)、integer、Boolean、string など、プリミティブ型の場合には、そのプロパティは常に属性構文をサポートします。
 
-プロパティを設定する際、その設定に使うオブジェクト型を文字列の処理によって作成できる場合も、属性構文を使用できます。 プリミティブではこれが常に当てはまり、パーサーには型変換が組み込まれています。 ただし、その他のオブジェクト型のなかにも、プロパティ要素内のオブジェクト要素ではなく、属性値として指定された文字列を使って作成できるものがあります。 これを正しく機能させるには、基になる型変換が必要です。この型変換は、特定のプロパティでサポートされるか、該当するプロパティ型を使う値すべてでサポートされます。 属性の文字列値を使って、新しいオブジェクト値の初期化にとって重要なプロパティが設定されます。 型コンバーターによっては、文字列の情報を処理する方法に応じて、一般的なプロパティ型のさまざまなサブクラスが作成される可能性もあります。 この動作をサポートするオブジェクト型は、リファレンス ドキュメントの構文のセクションに特別な文法が記載されます。 たとえば、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) の XAML 構文では、属性構文を使って **Brush** 型のプロパティの新しい [**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) 値を作成する方法を示しています (Windows ランタイム XAML には多数の **Brush** プロパティがあります)。
+プロパティを設定する際、その設定に使うオブジェクト型を文字列の処理によって作成できる場合も、属性構文を使用できます。 プリミティブではこれが常に当てはまり、パーサーには型変換が組み込まれています。 ただし、その他のオブジェクト型のなかにも、プロパティ要素内のオブジェクト要素ではなく、属性値として指定された文字列を使って作成できるものがあります。 これを正しく機能させるには、基になる型変換が必要です。この型変換は、特定のプロパティでサポートされるか、該当するプロパティ型を使う値すべてでサポートされます。 属性の文字列値を使って、新しいオブジェクト値の初期化にとって重要なプロパティが設定されます。 型コンバーターによっては、文字列の情報を処理する方法に応じて、一般的なプロパティ型のさまざまなサブクラスが作成される可能性もあります。 この動作をサポートするオブジェクト型は、リファレンス ドキュメントの構文のセクションに特別な文法が記載されます。 たとえば、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) の XAML 構文では、属性構文を使って **Brush** 型のプロパティの新しい [**SolidColorBrush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) 値を作成する方法を示しています (Windows ランタイム XAML には多数の **Brush** プロパティがあります)。
 
 ## <a name="xaml-parsing-logic-and-rules"></a>XAML 解析のロジックと規則
 
@@ -234,17 +234,17 @@ XML や HTML などのマークアップ言語でプロパティ値を設定す�
 
 このどちらの構文でも、オブジェクトを宣言し、そのオブジェクトのプロパティを設定できます。 最初のサンプルは、1 つのマークアップ要素ですが、このマークアップの解析は、実際には XAML プロセッサで別々の手順で行われます。
 
-まず、オブジェクト要素があるので、新しい *objectName* オブジェクトをインスタンス化する必要があることがわかります。 Only after such an instance exists can the instance property <bpt id="p1">*</bpt>propertyName<ept id="p1">*</ept> be set on it.
+まず、オブジェクト要素があるので、新しい *objectName* オブジェクトをインスタンス化する必要があることがわかります。 このようなインスタンスが存在する場合にのみ、インスタンスプロパティ *propertyName* を設定できます。
 
 XAML のもう 1 つの規則は、要素の属性がどのような順序でも設定できる必要があるというものです。 たとえば、`<Rectangle Height="50" Width="100" />` と `<Rectangle Width="100"  Height="50" />` の間には違いがありません。 順序をどちらにするかは、スタイルの問題です。
 
-<bpt id="p1">**</bpt>Note<ept id="p1">**</ept><ph id="ph1">  </ph>XAML designers often promote ordering conventions if you use design surfaces other than the XML editor, but you can freely edit that XAML later, to reorder the attributes or introduce new ones.
+**メモ**   XAML デザイナーでは、XML エディター以外のデザインサーフェイスを使用する場合、順序付け規則が昇格されることがよくありますが、後でその XAML を自由に編集したり、属性の順序を変更したり、新しい属性を導入したりできます。
 
 ## <a name="attached-properties"></a>添付プロパティ
 
-XAML は、*添付プロパティ*と呼ばれる構文要素を追加することによって XML を拡張したものです。 プロパティ要素構文と同様に、添付プロパティ構文にはドットが含まれます。このドットは XAML 解析にとって特別な意味があります。 Specifically, the dot separates the provider of the attached property, and the property name.
+XAML は、*添付プロパティ*と呼ばれる構文要素を追加することによって XML を拡張したものです。 プロパティ要素構文と同様に、添付プロパティ構文にはドットが含まれます。このドットは XAML 解析にとって特別な意味があります。 具体的には、ドットは添付プロパティのプロバイダーとプロパティ名を区切ります。
 
-XAML では、*AttachedPropertyProvider*.*PropertyName* 構文を使って添付プロパティを設定します。XAML で添付プロパティ [**Canvas.Left**](https://docs.microsoft.com/dotnet/api/system.windows.controls.canvas.left) を設定する例を次に示します。
+XAML では、*AttachedPropertyProvider*.*PropertyName* 構文を使って添付プロパティを設定します。XAML で添付プロパティ [**Canvas.Left**](/dotnet/api/system.windows.controls.canvas.left) を設定する例を次に示します。
 
 ```xml
 <Canvas>
@@ -256,39 +256,39 @@ XAML では、*AttachedPropertyProvider*.*PropertyName* 構文を使って添付
 
 Windows ランタイム XAML には、次のシナリオをサポートする添付プロパティがあります。
 
--   子要素が親コンテナーのパネルにレイアウト内での動作を通知する: [**Canvas**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Canvas)、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**VariableSizedWrapGrid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid)。
--   コントロールの使用が、コントロール テンプレートから取得するコントロールの重要性の高い部分の動作に影響を及ぼす: [**ScrollViewer**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[**VirtualizingStackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.VirtualizingStackPanel)。
--   サービスと、そのサービスを使うクラスが継承を共有しない場合に、関連クラスで利用できるサービスを利用する: [**Typography**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography)、[**VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager)、[**AutomationProperties**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Automation.AutomationProperties)、[**ToolTipService**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ToolTipService)。
--   アニメーションのターゲット設定: [**Storyboard**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)。
+-   子要素が親コンテナーのパネルにレイアウト内での動作を通知する: [**Canvas**](/uwp/api/Windows.UI.Xaml.Controls.Canvas)、[**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**VariableSizedWrapGrid**](/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid)。
+-   コントロールの使用が、コントロール テンプレートから取得するコントロールの重要性の高い部分の動作に影響を及ぼす: [**ScrollViewer**](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[**VirtualizingStackPanel**](/uwp/api/Windows.UI.Xaml.Controls.VirtualizingStackPanel)。
+-   サービスと、そのサービスを使うクラスが継承を共有しない場合に、関連クラスで利用できるサービスを利用する: [**Typography**](/uwp/api/Windows.UI.Xaml.Documents.Typography)、[**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager)、[**AutomationProperties**](/uwp/api/Windows.UI.Xaml.Automation.AutomationProperties)、[**ToolTipService**](/uwp/api/Windows.UI.Xaml.Controls.ToolTipService)。
+-   アニメーションのターゲット設定: [**Storyboard**](/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)。
 
 詳しくは、「[添付プロパティの概要](attached-properties-overview.md)」をご覧ください。
 
 ## <a name="literal--values"></a>リテラルの "{" 値
 
-Because the opening brace symbol <ph id="ph1">\{</ph> is the opening of the markup extension sequence, you use an escape sequence to specify a literal string value that starts with "<ph id="ph2">\{</ph>". The escape sequence is "<ph id="ph1">\{</ph><ph id="ph2">\}</ph>". For example, to specify a string value that is a single opening brace, specify the attribute value as "<ph id="ph1">\{</ph><ph id="ph2">\}</ph><ph id="ph3">\{</ph>". You can also use the alternative quotation marks (for example, a <bpt id="p1">**</bpt>'<ept id="p1">**</ept> within an attribute value delimited by <bpt id="p2">**</bpt>""<ept id="p2">**</ept>) to provide a "<ph id="ph1">\{</ph>" value as a string.
+左中かっこ記号 \{ はマークアップ拡張シーケンスを開くため、エスケープシーケンスを使用して、"" で始まるリテラル文字列値を指定し \{ ます。 エスケープシーケンスは " \{ \} " です。 たとえば、1つの左中かっこである文字列値を指定するには、属性値を "" として指定し \{ \} \{ ます。 代替引用符 (たとえば、 **""** で区切られた属性値内の **'** ) を使用して、" \{ " という値を文字列として指定することもできます。
 
-<bpt id="p1">**</bpt>Note<ept id="p1">**</ept><ph id="ph1">  </ph>"<ph id="ph2">\\</ph>}" also works if it's inside a quoted attribute.
+**Note**    "}" に注意してください \\ 。は、引用符で囲まれた属性内にある場合にも機能します。
  
 ## <a name="enumeration-values"></a>列挙値
 
-Windows ランタイム API の多くのプロパティでは、値として列挙型が使われます。 メンバーが読み取り/書き込みプロパティの場合には、属性値を指定することによって設定できます。 プロパティの値に使う列挙値を指定するには、定数名の非修飾名を使います。 たとえば、XAML で [**UIElement.Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) を設定するには、`<Button Visibility="Visible"/>` のように記述します。 次に、文字列として "Visible" が [**Visibility**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Visibility) 列挙値、**Visible** の名前付きの定数に直接マップされます。
+Windows ランタイム API の多くのプロパティでは、値として列挙型が使われます。 メンバーが読み取り/書き込みプロパティの場合には、属性値を指定することによって設定できます。 プロパティの値に使う列挙値を指定するには、定数名の非修飾名を使います。 たとえば、XAML で [**UIElement.Visibility**](/uwp/api/windows.ui.xaml.uielement.visibility) を設定するには、`<Button Visibility="Visible"/>` のように記述します。 次に、文字列として "Visible" が [**Visibility**](/uwp/api/Windows.UI.Xaml.Visibility) 列挙値、**Visible** の名前付きの定数に直接マップされます。
 
 -   修飾された形式は機能しないので、使わないでください。 たとえば、`<Button Visibility="Visibility.Visible"/>` のような XAML は無効です。
 -   定数の値を使わないでください。 要するに、列挙体の整数値に依存しないようにしてください。この整数値は、明示的または暗黙的な列挙体の定義方法に応じて変わります。 一見、機能しているように見えても、永続的でない実装の詳細となるものに依存しているため、XAML でもコードでも好ましくない方法です。 たとえば、`<Button Visibility="1"/>` のように記述しないでください。
 
-<bpt id="p1">**</bpt>Note<ept id="p1">**</ept><ph id="ph1">  </ph>In reference topics for APIs that use XAML and use enumerations, click the link to the enumeration type in the <bpt id="p2">**</bpt>Property value<ept id="p2">**</ept> section of <bpt id="p3">**</bpt>Syntax<ept id="p3">**</ept>. 列挙体のページに移動するので、その列挙体の名前付き定数を確認できます。
+**メモ**   XAML を使用し、列挙を使用する Api のリファレンストピックについては、「**構文**」の [**プロパティ値**] セクションで列挙型へのリンクをクリックしてください。 列挙体のページに移動するので、その列挙体の名前付き定数を確認できます。
 
-列挙体は、フラグのように機能します。つまり、**FlagsAttribute** で属性が設定されます。 フラグのように機能する列挙体の値の組み合わせを XAML 属性値として指定する必要がある場合は、各列挙体定数の名前を使います。各名前はコンマ (,) で区切り、空白文字は含めません。 フラグのような属性は、Windows ランタイム XAML ボキャブラリでは一般的ではありませんが、それが利用できる例の 1 つが [**ManipulationModes**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ManipulationModes) で、XAML でフラグのように機能する列挙値の設定がサポートされています。
+列挙体は、フラグのように機能します。つまり、**FlagsAttribute** で属性が設定されます。 フラグのように機能する列挙体の値の組み合わせを XAML 属性値として指定する必要がある場合は、各列挙体定数の名前を使います。各名前はコンマ (,) で区切り、空白文字は含めません。 フラグのような属性は、Windows ランタイム XAML ボキャブラリでは一般的ではありませんが、それが利用できる例の 1 つが [**ManipulationModes**](/uwp/api/Windows.UI.Xaml.Input.ManipulationModes) で、XAML でフラグのように機能する列挙値の設定がサポートされています。
 
 ## <a name="interfaces-in-xaml"></a>XAML でのインターフェイス
 
-まれに、プロパティの型がインターフェイスである XAML 構文があります。 XAML の型システムでは、インターフェイスを実装する型は解析時に値として許容されます。 値として使えるように、このような型の作成済みのインスタンスが必要になります。 型として使われるインターフェイスは、[**ButtonBase**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase) の [**Command**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) と [**CommandParameter**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.commandparameter) プロパティの XAML 構文で見ることができます。 これらのプロパティは、Model-View-ViewModel (MVVM) 設計パターンをサポートしています。この設計パターンでは、**ICommand** インターフェイスはビューとモデルがどのように相互作用するかのコントラクトです。
+まれに、プロパティの型がインターフェイスである XAML 構文があります。 XAML の型システムでは、インターフェイスを実装する型は解析時に値として許容されます。 値として使えるように、このような型の作成済みのインスタンスが必要になります。 型として使われるインターフェイスは、[**ButtonBase**](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase) の [**Command**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command) と [**CommandParameter**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.commandparameter) プロパティの XAML 構文で見ることができます。 これらのプロパティは、Model-View-ViewModel (MVVM) 設計パターンをサポートしています。この設計パターンでは、**ICommand** インターフェイスはビューとモデルがどのように相互作用するかのコントラクトです。
 
 ## <a name="xaml-placeholder-conventions-in-windows-runtime-reference"></a>Windows ランタイム リファレンスでの XAML プレースホルダーの規則
 
-XAML を使用できる Windows ランタイム API のリファレンス トピックでいずれかの「**構文**」セクションを調べたことがあれば、構文にかなりの数のプレースホルダーが含まれていることに気付いたことでしょう。 XAML syntax is different than the C#, Microsoft Visual Basic or Visual C++ component extensions (C++/CX) syntax because the XAML syntax is a usage syntax. 独自の XAML ファイルでの具体的な使い方を示しますが、使用できる値について説明し過ぎないようにしています。 そのため、通常は使用法としてリテラルとプレースホルダーを混ぜて文法を説明し、プレースホルダーの一部は「**XAML 値**」のセクションで定義します。
+XAML を使用できる Windows ランタイム API のリファレンス トピックでいずれかの「**構文**」セクションを調べたことがあれば、構文にかなりの数のプレースホルダーが含まれていることに気付いたことでしょう。 XAML 構文は使用法構文なので、C#、Microsoft Visual Basic、または Visual C++ コンポーネント拡張機能 (C++/CX) の構文とは異なります。 独自の XAML ファイルでの具体的な使い方を示しますが、使用できる値について説明し過ぎないようにしています。 そのため、通常は使用法としてリテラルとプレースホルダーを混ぜて文法を説明し、プレースホルダーの一部は「**XAML 値**」のセクションで定義します。
 
-プロパティの XAML 構文で型名または要素名が表示されている場合、それらの名前は、元はプロパティを定義する型のための名前です。 しかし、Windows ランタイム XAML は、[**DependencyObject**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyObject) ベースのクラスのクラス継承モデルをサポートしています。 そのため、多くの場合、実際の定義クラスではなく、プロパティまたは属性を最初に定義したクラスから派生したクラスの属性を使います。 たとえば、深い継承を使って、任意の [**UIElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) 派生クラスの属性として [**Visibility**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) を設定できます たとえば、`<Button Visibility="Visible" />` のようになります。 そのため、XAML 使用方法の構文で示されている要素名が厳密に文字どおりであるとは考えないでください。そのクラスを表す要素と、派生クラスを表す要素でも、その構文が使用できることがあります。 定義要素として示されている型が、現実に使うことはまれであるか不可能である場合、その型の名前は構文内で意図的に小文字にしてあります。 たとえば、**UIElement.Visibility** の構文は、次のようになっています。
+プロパティの XAML 構文で型名または要素名が表示されている場合、それらの名前は、元はプロパティを定義する型のための名前です。 しかし、Windows ランタイム XAML は、[**DependencyObject**](/uwp/api/Windows.UI.Xaml.DependencyObject) ベースのクラスのクラス継承モデルをサポートしています。 そのため、多くの場合、実際の定義クラスではなく、プロパティまたは属性を最初に定義したクラスから派生したクラスの属性を使います。 たとえば、深い継承を使って、任意の [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) 派生クラスの属性として [**Visibility**](/uwp/api/windows.ui.xaml.uielement.visibility) を設定できます  たとえば、 `<Button Visibility="Visible" />`と指定します。 そのため、XAML 使用方法の構文で示されている要素名が厳密に文字どおりであるとは考えないでください。そのクラスを表す要素と、派生クラスを表す要素でも、その構文が使用できることがあります。 定義要素として示されている型が、現実に使うことはまれであるか不可能である場合、その型の名前は構文内で意図的に小文字にしてあります。 たとえば、**UIElement.Visibility** の構文は、次のようになっています。
 
 ``` syntax
 <uiElement Visibility="Visible"/>
@@ -301,20 +301,19 @@ XAML を使用できる Windows ランタイム API のリファレンス トピ
 XAML の使用方法のセクションでも、さまざまな一般化されたプレースホルダーが使われています。 これらのプレースホルダーは、「**XAML 値**」で毎回再定義されるわけではありません。何を表しているかを推測したり、しだいに覚えることができるためです。 ほとんどの読者は、「**XAML 値**」で定義を繰り返し見ることに飽きてしまうと思われるので、定義しないままにしています。 参考までに、これらのプレースホルダーの一部と、それらの一般的な意味を、次の一覧に示しておきます。
 
 -   *object*: 理論上は任意のオブジェクト値ですが、多くの場合、実際には特定の型のオブジェクトに限定されます (文字列かオブジェクトかの選択など)。詳しくは、リファレンス ページの「解説」をご覧ください。
--   <bpt id="p1">*</bpt>object<ept id="p1">*</ept> <bpt id="p2">*</bpt>property<ept id="p2">*</ept>: <bpt id="p3">*</bpt>object<ept id="p3">*</ept> <bpt id="p4">*</bpt>property<ept id="p4">*</ept> in combination is used for cases where the syntax being shown is the syntax for a type that can be used as an attribute value for many properties. For example, the <bpt id="p1">**</bpt>Xaml Attribute Usage<ept id="p1">**</ept> shown for <bpt id="p2">[</bpt><bpt id="p3">**</bpt>Brush<ept id="p3">**</ept><ept id="p2">](/uwp/api/Windows.UI.Xaml.Media.Brush)</ept> includes: &lt;<bpt id="p4">*</bpt>object<ept id="p4">*</ept> <bpt id="p5">*</bpt>property<ept id="p5">*</ept>="<bpt id="p6">*</bpt>predefinedColorName<ept id="p6">*</ept>"/&gt;
+-   *object* *property*: *object* *property* の組み合わせは、示されている構文が多くのプロパティの属性値として使用できる型のための構文である場合に使われます。 たとえば、[**Brush**](/uwp/api/Windows.UI.Xaml.Media.Brush) の「**XAML 属性の使用方法**」には、<*object* *property*="*predefinedColorName*"/> が含まれています。
 -   *eventhandler*: これは、イベント属性のために示される各 XAML 構文の属性値を表します。 これに対して指定するのは、イベント ハンドラー関数の関数名です。 この関数は、XAML ページのコード ビハインドで定義されている必要があります。 プログラミングのレベルでは、その関数は処理するイベントのデリゲート シグネチャと一致する必要があり、一致しない場合はアプリのコードがコンパイルされません。 ただし、それは実際にはプログラミングでの考慮事項であり、XAML での考慮事項ではないため、XAML 構文ではデリゲート型について何も言及しようとはしていません。 イベントのためにどのデリゲートを実装する必要があるかを知りたい場合は、イベントのリファレンス トピックにある「**イベント情報**」セクションの表で、" **デリゲート**" というラベルの行をご覧ください。
--   *enumMemberName*: すべての列挙体の属性構文に示されます。 列挙値を使うプロパティのための同じようなプレースホルダーがありますが、通常は、列挙体の名前を示すプレフィックスがプレースホルダーに付けられます。 たとえば、[**FrameworkElement.FlowDirection**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.flowdirection) で示される構文は、<*frameworkElement***FlowDirection**="* flowDirectionMemberName*"/> です。 これらのプロパティのリファレンス ページで、「**プロパティ値**」のセクションの "**型:** " というテキストの横に表示される、列挙型へのリンクをクリックしてください。 その列挙体を使うプロパティの属性値には、「**メンバー**」の表の「**メンバー名**」列に表示される任意の文字列を使用できます。
--   *double*、*int*、*string*、*bool*: これらは、XAML 言語既知のプリミティブ型です。 C# または Visual Basic を使ってプログラミングを行う場合は、これらの型が Microsoft .NET での対応する型 ([**Double**](https://docs.microsoft.com/dotnet/api/system.double)、[**Int32**](https://docs.microsoft.com/dotnet/api/system.int32)、[**String**](https://docs.microsoft.com/dotnet/api/system.string)、[**Boolean**](https://docs.microsoft.com/dotnet/api/system.boolean) など) に対応付けられ、XAML で定義された値を .NET コード ビハインドで扱うときには、それらの .NET 型の任意のメンバーを使うことができます。 C++/CX を使ってプログラミングを行う場合は、C++ のプリミティブ型を使いますが、[**Platform**](https://docs.microsoft.com/cpp/cppcx/platform-namespace-c-cx) 名前空間で定義されている、それらと同等の型 (たとえば [**Platform::String**](https://docs.microsoft.com/cpp/cppcx/platform-string-class)) を使うこともできます。 場合によっては、特定のプロパティに対して、追加の値の制限があります。 しかし、そのような制限はコードの使用方法と XAML の使用方法の両方に適用されるので、それらの注は通常は「XAML」セクションではなく「**プロパティ値**」または「解説」セクションに記載されます。
+-   *enumMemberName*: すべての列挙体の属性構文に示されます。 列挙値を使うプロパティのための同じようなプレースホルダーがありますが、通常は、列挙体の名前を示すプレフィックスがプレースホルダーに付けられます。 たとえば、 [**system.windows.flowdirection>**](/uwp/api/windows.ui.xaml.frameworkelement.flowdirection) に対して示されている構文は <*FrameworkElement ***System.windows.flowdirection>**= "* flowdirection membername *"/> です。 これらのプロパティのリファレンス ページで、「**プロパティ値**」のセクションの "**型:**" というテキストの横に表示される、列挙型へのリンクをクリックしてください。 その列挙体を使うプロパティの属性値には、「**メンバー**」の表の「**メンバー名**」列に表示される任意の文字列を使用できます。
+-   *double*、*int*、*string*、*bool*: これらは、XAML 言語既知のプリミティブ型です。 C# または Visual Basic を使ってプログラミングを行う場合は、これらの型が Microsoft .NET での対応する型 ([**Double**](/dotnet/api/system.double)、[**Int32**](/dotnet/api/system.int32)、[**String**](/dotnet/api/system.string)、[**Boolean**](/dotnet/api/system.boolean) など) に対応付けられ、XAML で定義された値を .NET コード ビハインドで扱うときには、それらの .NET 型の任意のメンバーを使うことができます。 C++/CX を使ってプログラミングを行う場合は、C++ のプリミティブ型を使いますが、[**Platform**](/cpp/cppcx/platform-namespace-c-cx) 名前空間で定義されている、それらと同等の型 (たとえば [**Platform::String**](/cpp/cppcx/platform-string-class)) を使うこともできます。 場合によっては、特定のプロパティに対して、追加の値の制限があります。 しかし、そのような制限はコードの使用方法と XAML の使用方法の両方に適用されるので、それらの注は通常は「XAML」セクションではなく「**プロパティ値**」または「解説」セクションに記載されます。
 
 ## <a name="tips-and-tricks-notes-on-style"></a>スタイルに関するヒントと注意事項
 
--   マークアップ拡張の全般的な説明は、メインの「[XAML の概要](xaml-overview.md)」に記載されています。 ただし、このトピックで示されているガイダンスに最も大きな影響を及ぼすマークアップ拡張は、[StaticResource](staticresource-markup-extension.md) マークアップ拡張 (および関連する [ThemeResource](themeresource-markup-extension.md)) です。 StaticResource マークアップ拡張の機能は、XAML を XAML の [**ResourceDictionary**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) の再利用可能なリソースにファクタリングできるようにすることです。 ほとんどの場合、**ResourceDictionary** でコントロール テンプレートと関連スタイルを定義します。 コントロール テンプレートの定義またはアプリ固有のスタイルの小さな部分についても、**ResourceDictionary** で定義します。たとえば、[**SolidColorBrush**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) ではアプリが UI の各部分で何度も使う色を定義します。 StaticResource を使うと、設定にプロパティ要素を使う必要のあるプロパティが、属性構文で設定できるようになります。 XAML をファクタリングして再利用するメリットは、ページ レベルの構文を簡略化するだけにとどまりません。 詳しくは、「[ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/controls-and-patterns/resourcedictionary-and-xaml-resource-references)」をご覧ください。
+-   マークアップ拡張の全般的な説明は、メインの「[XAML の概要](xaml-overview.md)」に記載されています。 ただし、このトピックで示されているガイダンスに最も大きな影響を及ぼすマークアップ拡張は、[StaticResource](staticresource-markup-extension.md) マークアップ拡張 (および関連する [ThemeResource](themeresource-markup-extension.md)) です。 StaticResource マークアップ拡張の機能は、XAML を XAML の [**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) の再利用可能なリソースにファクタリングできるようにすることです。 ほとんどの場合、**ResourceDictionary** でコントロール テンプレートと関連スタイルを定義します。 コントロール テンプレートの定義またはアプリ固有のスタイルの小さな部分についても、**ResourceDictionary** で定義します。たとえば、[**SolidColorBrush**](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) ではアプリが UI の各部分で何度も使う色を定義します。 StaticResource を使うと、設定にプロパティ要素を使う必要のあるプロパティが、属性構文で設定できるようになります。 XAML をファクタリングして再利用するメリットは、ページ レベルの構文を簡略化するだけにとどまりません。 詳細については、「 [ResourceDictionary および XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」を参照してください。
 -   XAML の例では、空白や改行がどのように適用されるかに関するさまざまな規則が確認できます。 特に、多くの異なる属性が設定されたオブジェクト要素の分割方法に関してはさまざまな規則があります。 これは、単にスタイルの問題です。 Visual Studio の XML エディターでは、XAML を編集するときに既定のスタイル規則が適用されますが、設定で変更することもできます。 まれではあるものの、XAML ファイル内の空白が意味を持つこともあります。このような場合について詳しくは、「[XAML と空白](xaml-and-whitespace.md)」をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [XAML の概要](xaml-overview.md)
-* <bpt id="p1">[</bpt>XAML namespaces and namespace mapping<ept id="p1">](xaml-namespaces-and-namespace-mapping.md)</ept>
-* [ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/controls-and-patterns/resourcedictionary-and-xaml-resource-references)
+* [XAML 名前空間と名前空間マッピング](xaml-namespaces-and-namespace-mapping.md)
+* [ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)
  
-

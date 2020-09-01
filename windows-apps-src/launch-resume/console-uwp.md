@@ -5,32 +5,32 @@ keywords: console uwp
 ms.date: 08/02/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c2dba15d78301c84f4064bcd6548d44e3c17beb2
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: cab52a84e631404fc4cbd682d6cedef7e799d387
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366350"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162666"
 ---
 # <a name="create-a-universal-windows-platform-console-app"></a>ユニバーサル Windows プラットフォームを使用してコンソール アプリを作成する
 
-このトピックでは、作成する方法を説明します、 [C +/cli WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)または C++/cli CX ユニバーサル Windows プラットフォーム (UWP) コンソール アプリです。
+このトピックでは、 [c++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) または c++/cx ユニバーサル WINDOWS プラットフォーム (UWP) コンソールアプリを作成する方法について説明します。
 
-以降では、Windows 10、バージョン 1803 では、次を記述できます C +/cli WinRT または C++/cli DOS または PowerShell のコンソール ウィンドウなどのコンソール ウィンドウで実行される CX UWP コンソール アプリです。 コンソール アプリの入力と出力をコンソール ウィンドウを使用し、使用できます[ユニバーサル C ランタイム](/cpp/c-runtime-library/reference/crt-alphabetical-function-reference)などの関数**printf**と**getchar**します。 Microsoft Store には、UWP コンソール アプリを公開することができます。 それらのアプリは、アプリのリストにエントリがあり、スタート メニューに固定することができるプライマリ タイルがあります。 コマンドラインから起動する、通常は、UWP コンソール アプリをスタート メニューから起動できます。
+Windows 10 バージョン1803以降では、コンソールウィンドウ (DOS、PowerShell コンソールウィンドウなど) で実行される C++/WinRT または C++/CX の UWP コンソールアプリを作成できます。 コンソールアプリは、入力と出力にコンソールウィンドウを使用し、 **printf**や**Getchar**などの[ユニバーサル C ランタイム](/cpp/c-runtime-library/reference/crt-alphabetical-function-reference)関数を使用できます。 Microsoft Store には、UWP コンソール アプリを公開することができます。 それらのアプリは、アプリのリストにエントリがあり、スタート メニューに固定することができるプライマリ タイルがあります。 UWP コンソールアプリは、[スタート] メニューから起動できますが、通常はコマンドラインから起動します。
 
-アクションのいずれかを表示するには、UWP のコンソール アプリケーションの作成に関するビデオを次に示します。
+1つの動作を確認するために、UWP コンソールアプリの作成に関するビデオをご覧ください。
 
 > [!VIDEO https://www.youtube.com/embed/bwvfrguY20s]
 
 ## <a name="use-a-uwp-console-app-template"></a>UWP コンソール アプリ テンプレートを使用する 
 
-UWP コンソール アプリを作成するには、まず [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewWhitechapelMSFT.ConsoleAppUniversal) から入手できる**コンソール アプリ (ユニバーサル) プロジェクト テンプレート**をインストールします。 インストール済みのテンプレートは、で利用できます**新しいプロジェクト** > **インストール済み** > **他の言語** >  **Visual C++**   >  **Windows Universal**として**コンソール アプリC++/WinRT (ユニバーサル Windows)** と**コンソール アプリC++/CX (ユニバーサル Windows)** します。
+UWP コンソール アプリを作成するには、まず [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AndrewWhitechapelMSFT.ConsoleAppUniversal) から入手できる**コンソール アプリ (ユニバーサル) プロジェクト テンプレート**をインストールします。 インストールされたテンプレートは、[**新しいプロジェクト**] [  >  **インストールされている**  >  **他の言語] の**下で利用可能に  >  **Visual C++**  >  なります。**windows ユニバーサル**は、**コンソールアプリ c++/WinRT (ユニバーサル windows)** と**コンソールアプリ c++/cx (ユニバーサル windows**) Visual C++ ます。
 
 ## <a name="add-your-code-to-main"></a>Main() にコードを追加します。
 
 テンプレートは **Program.cpp** を追加します。これには `main()` 関数が含まれています。 これは、UWP コンソール アプリで実行が開始される場所です。 `__argc` および `__argv` パラメーターでコマンドライン引数にアクセスします。 制御が `main()` から返ってくると、UWP コンソール アプリは終了します。
 
-次の例の**Program.cpp**で追加、**コンソール アプリ C+/cli WinRT**テンプレート。
+次の **プログラム .cpp** の例は、 **コンソールアプリ C++/WinRT** テンプレートによって追加されています。
 
 ```cppwinrt
 #include "pch.h"
@@ -58,9 +58,9 @@ int __cdecl main()
 
 ## <a name="uwp-console-app-behavior"></a>UWP コンソール アプリの動作
 
-UWP コンソール アプリは、実行されているディレクトリ、およびその下のファイル システムにアクセスできます。 テンプレートは [AppExecutionAlias](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-uap5-appexecutionalias) 拡張機能をアプリの Package.appxmanifest ファイルに追加するため、これが可能になります。 この拡張機能を使用すると、コンソール ウィンドウからエイリアスを入力してアプリを起動することもできます。 アプリを起動するためにシステムパスに入る必要はありません。
+UWP コンソール アプリは、実行されているディレクトリ、およびその下のファイル システムにアクセスできます。 テンプレートは [AppExecutionAlias](/uwp/schemas/appxpackage/uapmanifestschema/element-uap5-appexecutionalias) 拡張機能をアプリの Package.appxmanifest ファイルに追加するため、これが可能になります。 この拡張機能を使用すると、コンソール ウィンドウからエイリアスを入力してアプリを起動することもできます。 アプリを起動するためにシステムパスに入る必要はありません。
 
-さらに、[ファイル アクセス許可](https://docs.microsoft.com/windows/uwp/files/file-access-permissions) で説明されているように、制限された機能 `broadFileSystemAccess` を追加することで、ファイルシステムへの広範なアクセスを UWP コンソール アプリに付与することができます。 この機能は、[**Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間の API で動作します。
+さらに、[ファイル アクセス許可](../files/file-access-permissions.md) で説明されているように、制限された機能 `broadFileSystemAccess` を追加することで、ファイルシステムへの広範なアクセスを UWP コンソール アプリに付与することができます。 この機能は、[**Windows.Storage**](/uwp/api/Windows.Storage) 名前空間の API で動作します。
 
 テンプレートによって [SupportsMultipleInstances](multi-instance-uwp.md) 機能がアプリの Package.appxmanifest ファイルに追加されるため、複数の UWP コンソール アプリのインスタンスを同時に実行できます。
 
@@ -99,10 +99,10 @@ UWP コンソール アプリは、実行されているディレクトリ、お
 
 ## <a name="additional-considerations-for-uwp-console-apps"></a>UWP コンソール アプリに関するその他の考慮事項
 
-- のみ C +/cli WinRT および C++/cli コンソール アプリが CX の UWP アプリにあります。
+- コンソールアプリとして使用できるのは、C++/WinRT および C++/CX UWP アプリだけです。
 - UWP コンソール アプリはデスクトップまたは IoT プロジェクト タイプをターゲットにする必要があります。
-- UWP のコンソール アプリ ウィンドウを作成できません。 ユーザーの同意プロンプトなど、MessageBox() または Location()、またはその他何らかの理由でウィンドウを作成することがありますの API を使用できません。
+- UWP コンソールアプリでは、ウィンドウを作成できない場合があります。 メッセージボックス ()、場所 ()、またはユーザーの同意プロンプトなど、何らかの理由でウィンドウを作成する可能性のあるその他の API を使用することはできません。
 - UWP コンソール アプリは、バックグラウンド タスクを消費したり、バックグラウンド タスクとして機能したりしない場合があります。
 - [コマンド ラインのアクティブ化](https://blogs.windows.com/buildingapps/2017/07/05/command-line-activation-universal-windows-apps/#5YJUzjBoXCL4MhAe.97) を除き、UWP コンソール アプリは、ファイルの関連付け、プロトコルの関連付けなどのアクティブ化をサポートしていません。
 - UWP コンソール アプリは複数インスタンスをサポートしていますが、[複数インスタンスのリダイレクト](multi-instance-uwp.md) はサポートしていません
-- UWP アプリで使用できる Win32 API の一覧については、「[UWP アプリ用の Win32 API と COM API](https://docs.microsoft.com/uwp/win32-and-com/win32-and-com-for-uwp-apps)」をご覧ください。
+- UWP アプリで使用できる Win32 API の一覧については、「[UWP アプリ用の Win32 API と COM API](/uwp/win32-and-com/win32-and-com-for-uwp-apps)」をご覧ください。

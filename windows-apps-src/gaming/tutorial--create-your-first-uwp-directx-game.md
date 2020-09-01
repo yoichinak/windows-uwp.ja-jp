@@ -1,24 +1,24 @@
 ---
 title: DirectX ユニバーサル Windows プラットフォーム (UWP) ゲームの作成
-description: この一連のチュートリアルでは、DirectX と[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)を使用して、 **Simple3DGameDX**という名前の基本的なユニバーサル Windows プラットフォーム (UWP) サンプルゲームを作成する方法について説明します。
+description: この一連のチュートリアルでは、DirectX と [C++/WinRT](../cpp-and-winrt-apis/index.md) を使用して、 **Simple3DGameDX**という名前の基本的なユニバーサル Windows プラットフォーム (UWP) サンプルゲームを作成する方法について説明します。
 ms.assetid: 9edc5868-38cf-58cc-1fb3-8fb85a7ab2c9
 keywords: DirectX sample game、sample game、ユニバーサル Windows プラットフォーム (UWP)、Direct3D 11 game
 ms.date: 06/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e3007cd79546cba8961000cb2aae44b0b0536fe
-ms.sourcegitcommit: 20969781aca50738792631f4b68326f9171a3980
+ms.openlocfilehash: 284aa821cc58a49f45bed3b0d7e28c20f9d19ba1
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85409571"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163026"
 ---
 # <a name="create-a-simple-universal-windows-platform-uwp-game-with-directx"></a>DirectX を使った単純なユニバーサル Windows プラットフォーム (UWP) ゲームの作成
 
-この一連のチュートリアルでは、DirectX と[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)を使用して、 **Simple3DGameDX**という名前の基本的なユニバーサル Windows プラットフォーム (UWP) サンプルゲームを作成する方法について説明します。 ゲームプレイは、単純なファーストユーザー3D 撮影ギャラリーで行われます。
+この一連のチュートリアルでは、DirectX と [C++/WinRT](../cpp-and-winrt-apis/index.md) を使用して、 **Simple3DGameDX**という名前の基本的なユニバーサル Windows プラットフォーム (UWP) サンプルゲームを作成する方法について説明します。 ゲームプレイは、単純なファーストユーザー3D 撮影ギャラリーで行われます。
 
 > [!NOTE]
-> **Simple3DGameDX**サンプルゲーム自体をダウンロードできるリンクは、 [Direct3D サンプルゲーム](/samples/microsoft/windows-universal-samples/simple3dgamedx/)です。 C++/WinRT ソースコードは、という名前のフォルダーに `cppwinrt` あります。 その他の UWP サンプルアプリの詳細については、「 [uwp アプリのサンプルの入手](/windows/uwp/get-started/get-uwp-app-samples)」を参照してください。
+> **Simple3DGameDX**サンプルゲーム自体をダウンロードできるリンクは、 [Direct3D サンプルゲーム](/samples/microsoft/windows-universal-samples/simple3dgamedx/)です。 C++/WinRT ソースコードは、という名前のフォルダーに `cppwinrt` あります。 その他の UWP サンプルアプリの詳細については、「 [uwp アプリのサンプルの入手](../get-started/get-app-samples.md)」を参照してください。
 
 これらのチュートリアルでは、アートやメッシュなどのアセットを読み込んだり、メインのゲームループを作成したり、単純なレンダリングパイプラインを実装したり、サウンドやコントロールを追加したりするためのプロセスなど、ゲームの主要な部分について説明します。
 
@@ -32,7 +32,7 @@ UWP DirectX ゲームの基本的な概念とコンポーネントについて�
 
 このチュートリアルでは、これらのサブジェクトについて理解している必要があります。
 
-- [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)。 C++/winrt は、Windows ランタイム (WinRT) Api 向けの標準の最新 C++ 17 言語投影であり、ヘッダーファイルベースのライブラリとして実装されており、最新の Windows Api に対するファーストクラスのアクセスを提供するように設計されています。
+- [C++/WinRT](../cpp-and-winrt-apis/index.md)。 C++/winrt は、Windows ランタイム (WinRT) Api 向けの標準の最新 C++ 17 言語投影であり、ヘッダーファイルベースのライブラリとして実装されており、最新の Windows Api に対するファーストクラスのアクセスを提供するように設計されています。
 - 線形代数およびニュートン物理学の基本的な概念。
 - 基本的なグラフィックス プログラミング用語。
 - Windows プログラミングの基本的な概念。
@@ -63,6 +63,6 @@ UWP DirectX ゲームの基本的な概念とコンポーネントについて�
 |[レンダリング フレームワーク I: レンダリングの概要](tutorial--assembling-the-rendering-pipeline.md)|レンダリングパイプラインを開発してグラフィックスを表示する方法について説明します。 レンダリングの概要。|
 |[レンダリング フレームワーク II: ゲームのレンダリング](tutorial-game-rendering.md)|グラフィックスを表示するレンダリング パイプラインをアセンブルする方法について説明します。 ゲームのレンダリング、データのセットアップと準備。|
 |[ユーザー インターフェイスの追加](tutorial--adding-a-user-interface.md)|DirectX UWP ゲームに2D ユーザーインターフェイスオーバーレイを追加する方法について説明します。|
-|[コントロールを追加する](tutorial--adding-controls.md)|ここでは、サンプルゲームが3d ゲームで移動外観コントロールを実装する方法と、基本的なタッチ、マウス、およびゲームコントローラーコントロールを開発する方法について説明します。|
+|[コントロールの追加](tutorial--adding-controls.md)|ここでは、サンプルゲームが3d ゲームで移動外観コントロールを実装する方法と、基本的なタッチ、マウス、およびゲームコントローラーコントロールを開発する方法について説明します。|
 |[サウンドの追加](tutorial--adding-sound.md)|XAudio2 Api を使用してゲームの音楽とサウンド効果を再生する単純なサウンドエンジンを開発します。|
-|[サンプルゲームを拡張する](tutorial-resources.md)|UWP DirectX ゲームの XAML オーバーレイを実装する方法について説明します。|
+|[サンプル ゲームを拡張する](tutorial-resources.md)|UWP DirectX ゲームの XAML オーバーレイを実装する方法について説明します。|

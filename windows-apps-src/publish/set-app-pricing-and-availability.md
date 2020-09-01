@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, 価格, 使用可能状況, 見つけやすさ, 無料試用版, 試用版, トライアル, アプリ, リリース日
 ms.localizationpriority: medium
-ms.openlocfilehash: e9f516aeabae142c1975de2f9df343a43e642bab
-ms.sourcegitcommit: c0a859e4b8b46dea33e381ed5ae5197437902a41
+ms.openlocfilehash: 9956463471b310835aedf517817878d526cc810d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87120116"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164106"
 ---
 # <a name="set-app-pricing-and-availability"></a>アプリの価格と使用可能状況の設定
 
@@ -23,10 +23,10 @@ ms.locfileid: "87120116"
 
 Microsoft Store は、世界中の240の国と地域を超えている顧客に届けます。 既定では、対象となるすべての市場にアプリが提供されます。 必要に応じて、アプリを提供する特定の市場を選ぶこともできます。 
 
-詳しくは、「[市場の選択の定義](define-pricing-and-market-selection.md)」をご覧ください。
+詳しくは、「[市場の選択の定義](./define-market-selection.md)」をご覧ください。
 
 
-## <a name="visibility"></a>表示
+## <a name="visibility"></a>視程
 
 **[表示]** セクションでは、ユーザーが Microsoft Store でアプリを見つけたり、その Store 登録情報を表示したりできるかどうかなど、アプリを見つけて入手する方法の制限を設定することができます。
 
@@ -70,7 +70,7 @@ Microsoft Store は、世界中の240の国と地域を超えている顧客に�
 >[!NOTE]
 > これらの日付は、Windows 10 (Xbox を含む) のユーザーにのみ適用されます。 以前の OS バージョンのユーザーが利用できるアプリの場合、製品が利用可能である限りこれらのユーザーにも試用版が提供されます。 
 
-試用版を Windows 10 のユーザーに提供する期間を設定するには、**[開始]** ドロップダウンと **[終了]** ドロップダウン、またはそのどちらかを **[次の時点]** に変更し、日付と時刻を選択します。 このとき、**[UTC]** を選択して世界標準時 (UTC) の時刻を指定するか、または **[ローカル]** を選択して、市場に関連付けられている各タイム ゾーンの時刻を指定することができます  (複数のタイム ゾーンがある市場では、その市場のタイム ゾーンの 1 つだけが使われます。 米国では、東部標準時のタイムゾーンが使用されます)。市場に対して異なる日付を設定する場合は、[**特定の市場に合わせてカスタマイズ**する] を選択できます。
+試用版を Windows 10 のユーザーに提供する期間を設定するには、**[開始]** ドロップダウンと **[終了]** ドロップダウン、またはそのどちらかを **[次の時点]** に変更し、日付と時刻を選択します。 このとき、**[UTC]** を選択して世界標準時 (UTC) の時刻を指定するか、または **[ローカル]** を選択して、市場に関連付けられている各タイム ゾーンの時刻を指定することができます  (複数のタイム ゾーンがある市場では、その市場のタイム ゾーンの 1 つだけが使われます。 米国では、東部標準時のタイムゾーンが使用されます)。市場に対して異なる日付を設定する場合は、[ **特定の市場に合わせてカスタマイズ** する] を選択できます。
 
 
 ## <a name="sale-pricing"></a>セール価格
@@ -90,5 +90,3 @@ Microsoft Store は、世界中の240の国と地域を超えている顧客に�
 ## <a name="publish-date"></a>公開日
 
 以前は、**[公開日]** セクションはこのページに表示されていました。 この機能は、**[Publishing hold options]** (公開の保留オプション) セクションの [[Submission options]](manage-submission-options.md) (申請オプション) ページに移動しました。 (アプリを Microsoft Store に公開するタイミングを制御するため、**[価格と使用可能情報]** ページの [[スケジュール]](configure-precise-release-scheduling.md) セクションを使うことをお勧めします)。
-
-

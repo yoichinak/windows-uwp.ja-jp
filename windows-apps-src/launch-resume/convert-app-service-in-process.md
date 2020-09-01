@@ -3,19 +3,19 @@ title: ホスト アプリと同じプロセスで実行するようにアプリ
 description: 別のバックグラウンド プロセスで実行されたアプリ サービスのコードを、アプリ サービスのプロバイダーと同じプロセス内で実行されるコードに変換します。
 ms.date: 11/03/2017
 ms.topic: article
-keywords: windows 10、uwp、アプリ サービス
+keywords: windows 10、uwp、app service
 ms.assetid: 30aef94b-1b83-4897-a2f1-afbb4349696a
 ms.localizationpriority: medium
-ms.openlocfilehash: 2de79a5c5090f9dbe070f56ee6b2afd73d78f05f
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: d1bdd8b72cafe3dd719f7ee1733e13e1531f8c7e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66366346"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162716"
 ---
 # <a name="convert-an-app-service-to-run-in-the-same-process-as-its-host-app"></a>ホスト アプリと同じプロセスで実行するようにアプリ サービスを変換する
 
-[AppServiceConnection](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection) を使うと、別のアプリケーションがバック グラウンドでアプリをスリープ解除し、直接通信することができます。
+[AppServiceConnection](/uwp/api/windows.applicationmodel.appservice.appserviceconnection) を使うと、別のアプリケーションがバック グラウンドでアプリをスリープ解除し、直接通信することができます。
 
 インプロセスのアプリ サービスを導入することで、実行中の 2 つのフォアグラウンド アプリケーションはアプリ サービス接続経由で直接通信することができます。 アプリ サービスをフォアグラウンド アプリケーションとして同じプロセスで実行できるようになったため、アプリ間の通信がかなり簡単になっただけでなく、サービス コードを別個のプロジェクトに分離する必要がなくなりました。
 
@@ -38,13 +38,13 @@ ms.locfileid: "66366346"
 >   </Applications>
 > ```
 
-削除、`EntryPoint`属性を`<Extension>`要素のため、今すぐ[OnBackgroundActivated()](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onbackgroundactivated) app service が呼び出されたときに使用されるエントリ ポイントです。
+属性を `EntryPoint` 要素から削除し `<Extension>` ます。これは、app service が呼び出されたときに使用されるエントリポイントが [onbackgroundactivated 化](/uwp/api/windows.ui.xaml.application.onbackgroundactivated) された () であるためです。
 
 2 つ目の変更として、サービス ロジックを別個のバックグラウンド タスク プロジェクトから、**OnBackgroundActivated()** によって呼び出すことができるメソッドに移動します。
 
-これで、アプリケーションがアプリ サービスを直接実行できるようになります。 たとえば、App.xaml.cs: で
+これで、アプリケーションがアプリ サービスを直接実行できるようになります。 たとえば、App.xaml.cs の場合は次のようになります。
 
-[!NOTE] 次のコードは、例 1 (アウト プロセス サービス) に使用したものと異なる。 次のコードでは、あくまで説明のためは提供されており、例 2 の一部であり、(プロセス内のサービス) としては使用できません。  例からの記事の移行を続行するには、例 2 (プロセス内のサービス) に 1 (アウト プロセス サービス) は、以下の説明のコードではなく、例 1 の提供するコードに進みます。
+[!NOTE] 次のコードは、例 1 (アウトプロセスサービス) で提供されているものとは異なります。 次のコードは説明のためだけに用意されており、例 2 (インプロセスサービス) の一部としては使用しないでください。  例 1 (アウトプロセスサービス) から例 2 (インプロセスサービス) へのこの記事の移行を続行するには、次のコードではなく、例1で提供されているコードを引き続き使用します。
 
 ``` cs
 using Windows.ApplicationModel.AppService;
@@ -97,8 +97,8 @@ sealed partial class App : Application
 }
 ```
 
-上記のコードでは、`OnBackgroundActivated` メソッドがアプリ サービスのアクティブ化を処理します。 [AppServiceConnection](https://docs.microsoft.com/uwp/api/windows.applicationmodel.appservice.appserviceconnection) を通じた通信に必要なすべてのイベントが登録され、タスク保留オブジェクトが格納されて、アプリケーション間の通信が完了したときに完了とマークできるようになります。
+上記のコードでは、`OnBackgroundActivated` メソッドがアプリ サービスのアクティブ化を処理します。 [AppServiceConnection](/uwp/api/windows.applicationmodel.appservice.appserviceconnection) を通じた通信に必要なすべてのイベントが登録され、タスク保留オブジェクトが格納されて、アプリケーション間の通信が完了したときに完了とマークできるようになります。
 
-アプリが要求を読み取り、`Key` 文字列と `Value` 文字列が存在するかどうかを確認する [ValueSet](https://docs.microsoft.com/uwp/api/windows.foundation.collections.valueset) を読み取ります。 存在する場合、アプリ サービスは `Response` 文字列値と `True` 文字列値のペアを、**AppServiceConnection** のもう一方の側にあるアプリに戻します。
+アプリが要求を読み取り、`Key` 文字列と `Value` 文字列が存在するかどうかを確認する [ValueSet](/uwp/api/windows.foundation.collections.valueset) を読み取ります。 存在する場合、アプリ サービスは `Response` 文字列値と `True` 文字列値のペアを、**AppServiceConnection** のもう一方の側にあるアプリに戻します。
 
-他のアプリとの接続と通信について詳しくは、「[アプリ サービスの作成と利用](https://docs.microsoft.com/windows/uwp/launch-resume/how-to-create-and-consume-an-app-service?f=255&MSPPError=-2147217396)」をご覧ください。
+他のアプリとの接続と通信について詳しくは、「[アプリ サービスの作成と利用](./how-to-create-and-consume-an-app-service.md?f=255&MSPPError=-2147217396)」をご覧ください。

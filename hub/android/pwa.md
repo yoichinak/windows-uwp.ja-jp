@@ -7,12 +7,12 @@ manager: jken
 ms.topic: article
 keywords: windows での android、pwa、android、cordova、ionic、phonegap、ハイブリッド web アプリ
 ms.date: 04/28/2020
-ms.openlocfilehash: c0ff9acf1d8e93e82f1db424d7a356c974988683
-ms.sourcegitcommit: 24b19e7ee06e5bb11a0dae334806741212490ee9
+ms.openlocfilehash: 482fd02ed7b5d978d81ec52309006034f70b7e47
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82255216"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163986"
 ---
 # <a name="get-started-developing-a-pwa-or-hybrid-web-app-for-android"></a>Android 用の PWA またはハイブリッド web アプリの開発を開始する
 
@@ -55,13 +55,13 @@ Cordova には、次の2つの一般的なディストリビューションが�
 
 ## <a name="adobe-phonegap"></a>Adobe PhoneGap
 
-[PhoneGap](https://phonegap.com/): ローカルコンピューターにネイティブ sdk をインストールしなくても、ネイティブアプリをビルドする adobe サーバーにコードをアップロードできるようにする、adobe でサポートされている、[コマンドライン](http://docs.phonegap.com/getting-started/1-install-phonegap/cli/)、[デスクトップアプリ](https://phonegap.com/products#desktop-app-section)、 [PhoneGap ビルド](https://build.phonegap.com/)などの追加ツールを使用して、Cordova をサポートするフレームワーク。 これにより、Windows コンピューターを使用して iOS アプリを構築するなどの操作を行うことができます。
+[PhoneGap](https://phonegap.com/): ローカルコンピューターにネイティブ sdk をインストールしなくても、ネイティブアプリをビルドする adobe サーバーにコードをアップロードできるようにする、adobe でサポートされている、 [コマンドライン](http://docs.phonegap.com/getting-started/1-install-phonegap/cli/)、 [デスクトップアプリ](https://phonegap.com/products#desktop-app-section)、 [PhoneGap ビルド](https://build.phonegap.com/)などの追加ツールを使用して、Cordova をサポートするフレームワーク。 これにより、Windows コンピューターを使用して iOS アプリを構築するなどの操作を行うことができます。
 
 ### <a name="install-phonegap"></a>PhoneGap のインストール
 
 PhoneGap を使用して PWA またはハイブリッド web アプリの構築を開始するには、まず次のツールをインストールする必要があります。
 
-- Node.js は、Ionic エコシステムと対話するためのものです。 Windows[用 NodeJS をダウンロード](https://nodejs.org/en/)するか、windows Subsystem for LINUX (wsl) を使用した[nodejs インストールガイド](https://docs.microsoft.com/windows/nodejs/setup-on-wsl2)に従ってください。 複数のプロジェクトとバージョンの NodeJS を操作する場合は、 [Node Version Manager (nvm)](https://docs.microsoft.com/windows/nodejs/setup-on-wsl2#install-nvm-nodejs-and-npm)を使用することを検討してください。
+- Ionic エコシステムと対話するための Node.js。 Windows[用 NodeJS をダウンロード](https://nodejs.org/en/)するか、windows Subsystem for LINUX (wsl) を使用した[nodejs インストールガイド](../nodejs/setup-on-wsl2.md)に従ってください。 複数のプロジェクトとバージョンの NodeJS を操作する場合は、 [Node Version Manager (nvm)](../nodejs/setup-on-wsl2.md#install-nvm-nodejs-and-npm) を使用することを検討してください。
 
 コマンドラインに次のコマンドを入力して、PhoneGap をインストールします。
 
@@ -69,22 +69,22 @@ PhoneGap を使用して PWA またはハイブリッド web アプリの構築�
 npm install -g phonegap
 ```
 
-新しい PhoneGap プロジェクトを作成するには、手順に従って[作業を開始](https://phonegap.com/getstarted/)します。 アプリをハイブリッドから PWA に移行する方法については、PhoneGap docs の[Pwa 機能](http://stage.docs.phonegap.com/tutorials/stockpile/911-pwa-features/)に関するセクションを参照してください。  
+新しい PhoneGap プロジェクトを作成するには、手順に従って [作業を開始](https://phonegap.com/getstarted/)します。 アプリをハイブリッドから PWA に移行する方法については、PhoneGap docs の [Pwa 機能](http://stage.docs.phonegap.com/tutorials/stockpile/911-pwa-features/) に関するセクションを参照してください。  
 
 ## <a name="ionic"></a>Ionic
 
-[Ionic](https://ionicframework.com/)は、各プラットフォームのデザイン言語 (Android、IOS、Windows) に合わせてアプリのユーザーインターフェイス (UI) を調整するフレームワークです。 Ionic を使用すると、[角度](https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro)を使用したり、[反応](https://ionicframework.com/react)したりすることができます。
+[Ionic](https://ionicframework.com/) は、各プラットフォームのデザイン言語 (Android、IOS、Windows) に合わせてアプリのユーザーインターフェイス (UI) を調整するフレームワークです。 Ionic を使用すると、 [角度](https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro) を使用したり、 [反応](https://ionicframework.com/react)したりすることができます。
 
 > [!NOTE]
-> 新しいバージョンの Ionic があります。これは、"[コンデンサー](https://capacitor.ionicframework.com/)" と呼ばれる Cordova の代わりに使用されます。 この方法では、コンテナーを使用してアプリを[より web で](https://ionicframework.com/blog/announcing-capacitor-1-0/)使いやすくします。
+> 新しいバージョンの Ionic があります。これは、" [コンデンサー](https://capacitor.ionicframework.com/)" と呼ばれる Cordova の代わりに使用されます。 この方法では、コンテナーを使用してアプリを [より web で](https://ionicframework.com/blog/announcing-capacitor-1-0/)使いやすくします。
 
 ### <a name="get-started-with-ionic-by-installing-required-tools"></a>必要なツールをインストールして Ionic の使用を開始する
 
 Ionic を使用して PWA またはハイブリッド web アプリの構築を開始するには、まず次のツールをインストールする必要があります。
 
-- Node.js は、Ionic エコシステムと対話するためのものです。 Windows[用 NodeJS をダウンロード](https://nodejs.org/en/)するか、windows Subsystem for LINUX (wsl) を使用した[nodejs インストールガイド](https://docs.microsoft.com/windows/nodejs/setup-on-wsl2)に従ってください。 複数のプロジェクトとバージョンの NodeJS を操作する場合は、 [Node Version Manager (nvm)](https://docs.microsoft.com/windows/nodejs/setup-on-wsl2#install-nvm-nodejs-and-npm)を使用することを検討してください。
+- Ionic エコシステムと対話するための Node.js。 Windows[用 NodeJS をダウンロード](https://nodejs.org/en/)するか、windows Subsystem for LINUX (wsl) を使用した[nodejs インストールガイド](../nodejs/setup-on-wsl2.md)に従ってください。 複数のプロジェクトとバージョンの NodeJS を操作する場合は、 [Node Version Manager (nvm)](../nodejs/setup-on-wsl2.md#install-nvm-nodejs-and-npm) を使用することを検討してください。
 
-- コードを記述するための VS Code。 [Windows 用の VS Code をダウンロード](https://code.visualstudio.com/)します。 Linux コマンドラインを使用してアプリをビルドする場合は、 [Wsl リモート拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)をインストールすることもできます。
+- コードを記述するための VS Code。 [Windows 用の VS Code をダウンロード](https://code.visualstudio.com/)します。 Linux コマンドラインを使用してアプリをビルドする場合は、 [Wsl リモート拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) をインストールすることもできます。
 
 - 任意のコマンドラインインターフェイス (CLI) を操作するための Windows ターミナル。 [Microsoft Store から Windows ターミナルをインストール](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)します。
 
@@ -116,7 +116,7 @@ Web ブラウザーでアプリを実行します。
 ionic serve
 ```
 
-詳細については、 [Ionic Cordova の角度ドキュメント](https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro)を参照してください。アプリをハイブリッドから PWA に移行する方法については、Ionic docs の「[角度アプリを pwa にする](https://ionicframework.com/docs/angular/pwa)」セクションを参照してください。
+詳細については、 [Ionic Cordova の角度ドキュメント](https://ionicframework.com/docs/developer-resources/guides/first-app-v4/intro)を参照してください。アプリをハイブリッドから PWA に移行する方法については、Ionic docs の「 [角度アプリを pwa にする](https://ionicframework.com/docs/angular/pwa) 」セクションを参照してください。
 
 ## <a name="create-a-new-project-with-ionic-capacitor-and-angular"></a>Ionic コンデンサーと角度を使用して新しいプロジェクトを作成する
 
@@ -144,7 +144,7 @@ cd photo-gallery
 npm install @ionic/pwa-elements
 ```
 
-ファイル@ionic/pwa-elementsに次の内容`src/main.ts`を追加してインポートします。
+@ionic/pwa-elementsファイルに次の内容を追加してインポートし `src/main.ts` ます。
 
 ```typescript
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
@@ -159,7 +159,7 @@ Web ブラウザーでアプリを実行します。
 ionic serve
 ```
 
-詳細については、 [Ionic コンデンサーの傾斜](https://ionicframework.com/docs/angular/your-first-app)に関するドキュメントを参照してください。アプリをハイブリッドから PWA に移行する方法については、Ionic docs の「[角度アプリを pwa にする](https://ionicframework.com/docs/angular/pwa)」セクションを参照してください。  
+詳細については、 [Ionic コンデンサーの傾斜](https://ionicframework.com/docs/angular/your-first-app)に関するドキュメントを参照してください。アプリをハイブリッドから PWA に移行する方法については、Ionic docs の「 [角度アプリを pwa にする](https://ionicframework.com/docs/angular/pwa) 」セクションを参照してください。  
 
 ## <a name="create-a-new-project-with-ionic-and-react"></a>Ionic を使用して新しいプロジェクトを作成し、対処する
 
@@ -187,7 +187,7 @@ Web ブラウザーでアプリを実行します。
 ionic serve
 ```
 
-詳細については、 [Ionic](https://ionicframework.com/docs/react/quickstart)に対応するドキュメントを参照してください。アプリをハイブリッドから PWA に移行する方法については、Ionic ドキュメントの「[アプリケーションを pwa に応答](https://ionicframework.com/docs/react/pwa)させる」セクションを参照してください。
+詳細については、 [Ionic](https://ionicframework.com/docs/react/quickstart)に対応するドキュメントを参照してください。アプリをハイブリッドから PWA に移行する方法については、Ionic ドキュメントの「 [アプリケーションを pwa に応答](https://ionicframework.com/docs/react/pwa) させる」セクションを参照してください。
 
 ## <a name="test-your-ionic-app-on-a-device-or-emulator"></a>デバイスまたはエミュレーターで Ionic アプリをテストする
 
@@ -203,17 +203,17 @@ Android デバイスエミュレーターで Ionic アプリをテストする�
 
 2. [Android 仮想デバイス (AVD) を作成](https://developer.android.com/studio/run/managing-avds.html)します。
 
-3. Ionic のコマンドを入力して、アプリケーションをビルドし、エミュレーター `ionic cordova emulate [<platform>] [options]`にデプロイします。 この場合、コマンドは次のようになります。
+3. Ionic のコマンドを入力して、アプリケーションをビルドし、エミュレーターにデプロイし `ionic cordova emulate [<platform>] [options]` ます。 この場合、コマンドは次のようになります。
 
 ```bash
 ionic cordova emulate android --list
 ```
 
-詳細については、Ionic ドキュメントの[Cordova エミュレーター](https://ionicframework.com/docs/cli/commands/cordova-emulate)を参照してください。
+詳細については、Ionic ドキュメントの [Cordova エミュレーター](https://ionicframework.com/docs/cli/commands/cordova-emulate) を参照してください。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
-- [Android 用のデュアルスクリーンアプリを開発し、Surface Duo デバイス SDK を入手する](https://docs.microsoft.com/dual-screen/android/)
+- [Android 用のデュアルスクリーンアプリを開発し、Surface Duo デバイス SDK を入手する](/dual-screen/android/)
 
 - [Windows Defender の除外を追加してパフォーマンスを向上させる](defender-settings.md)
 

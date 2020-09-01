@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 一時停止, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: d7df52a6dfde5369385c176dd79e65bc9e9201f0
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 28c93228f149b25ba129b632d23f9798712ee80d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66368549"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163116"
 ---
 # <a name="how-to-suspend-an-app-directx-and-c"></a>アプリを一時停止する方法 (DirectX と C++)
 
@@ -22,9 +22,9 @@ ms.locfileid: "66368549"
 ## <a name="register-the-suspending-event-handler"></a>中断イベント ハンドラーを登録する
 
 
-まず、[**CoreApplication::Suspending**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントを処理するための登録を行います。このイベントは、ユーザーまたはシステムの動作によってアプリが一時停止の状態に移ったときに発生します。
+まず、[**CoreApplication::Suspending**](/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントを処理するための登録を行います。このイベントは、ユーザーまたはシステムの動作によってアプリが一時停止の状態に移ったときに発生します。
 
-このコードをビュー プロバイダーの [**IFrameworkView::Initialize**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.initialize) メソッドの実装に追加します。
+このコードをビュー プロバイダーの [**IFrameworkView::Initialize**](/uwp/api/windows.applicationmodel.core.iframeworkview.initialize) メソッドの実装に追加します。
 
 ```cpp
 void App::Initialize(CoreApplicationView^ applicationView)
@@ -41,7 +41,7 @@ void App::Initialize(CoreApplicationView^ applicationView)
 ## <a name="save-any-app-data-before-suspending"></a>一時停止の前に任意のアプリ データを保存する
 
 
-アプリでは、[**CoreApplication::Suspending**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントを処理する時点で、ハンドラー関数で重要なアプリケーション データを保存できます。 アプリで [**LocalSettings**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localsettings) Storage API を使って、シンプルなアプリケーション データを同期的に保存する必要があります。 ゲームを開発している場合は、重要なゲームの状態の情報を保存します。 オーディオ処理の一時停止も忘れずに行います。
+アプリでは、[**CoreApplication::Suspending**](/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントを処理する時点で、ハンドラー関数で重要なアプリケーション データを保存できます。 アプリで [**LocalSettings**](/uwp/api/windows.storage.applicationdata.localsettings) Storage API を使って、シンプルなアプリケーション データを同期的に保存する必要があります。 ゲームを開発している場合は、重要なゲームの状態の情報を保存します。 オーディオ処理の一時停止も忘れずに行います。
 
 ここで、コールバックを実装します。 アプリのデータはこのメソッドで保存します。
 
@@ -65,9 +65,9 @@ void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
 }
 ```
 
-コールバックは 5 秒で完了する必要があります。 このコールバック中に、[**SuspendingOperation::GetDeferral**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.suspendingoperation.getdeferral) を呼び出して、保留を要求します。これによって、カウントダウンが開始されます。 アプリが保存操作を完了したら、[**SuspendingDeferral::Complete**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.suspendingdeferral.complete) を呼び出して、アプリを一時停止する準備ができたことをシステムに通知します。 保留を要求しないか、アプリがデータの保存に 5 秒より長くかかった場合、アプリは自動的に一時停止されます。
+コールバックは 5 秒で完了する必要があります。 このコールバック中に、[**SuspendingOperation::GetDeferral**](/uwp/api/windows.applicationmodel.suspendingoperation.getdeferral) を呼び出して、保留を要求します。これによって、カウントダウンが開始されます。 アプリが保存操作を完了したら、[**SuspendingDeferral::Complete**](/uwp/api/windows.applicationmodel.suspendingdeferral.complete) を呼び出して、アプリを一時停止する準備ができたことをシステムに通知します。 保留を要求しないか、アプリがデータの保存に 5 秒より長くかかった場合、アプリは自動的に一時停止されます。
 
-このコールバックは、アプリの [**CoreWindow**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow). の [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) によって処理されるイベント メッセージとして発生します。 このコールバックは、アプリのメイン ループ (ビュー プロバイダーの [**IFrameworkView::Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドで実装) から [**CoreDispatcher::ProcessEvents**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.processevents) を呼び出さない場合は呼び出されません。
+このコールバックは、アプリの [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow). の [**CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher) によって処理されるイベント メッセージとして発生します。 このコールバックは、アプリのメイン ループ (ビュー プロバイダーの [**IFrameworkView::Run**](/uwp/api/windows.applicationmodel.core.iframeworkview.run) メソッドで実装) から [**CoreDispatcher::ProcessEvents**](/uwp/api/windows.ui.core.coredispatcher.processevents) を呼び出さない場合は呼び出されません。
 
 ``` syntax
 // This method is called after the window becomes active.
@@ -97,7 +97,7 @@ void App::Run()
 ## <a name="call-trim"></a>Trim() を呼び出す
 
 
-すべての DirectX の UWP アプリを呼び出す必要があります Windows 8.1 以降、 [ **IDXGIDevice3::Trim** ](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim)サスペンド時にします。 この呼び出しは、アプリに割り当てた一時バッファーをすべて解放するようにグラフィックス ドライバーに対して指示するものであり、アプリが中断状態にある間に終了してメモリ リソースが再利用される可能性を低く抑えることができます。 これは、Windows 8.1 の認定要件です。
+Windows 8.1 以降では、すべての DirectX UWP アプリは、中断時に [**IDXGIDevice3:: Trim**](/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) を呼び出す必要があります。 この呼び出しは、アプリに割り当てた一時バッファーをすべて解放するようにグラフィックス ドライバーに対して指示するものであり、アプリが中断状態にある間に終了してメモリ リソースが再利用される可能性を低く抑えることができます。 Windows 8.1 では、これが認定要件となっています。
 
 ```cpp
 void App::OnSuspending(Platform::Object^ sender, SuspendingEventArgs^ args)
@@ -132,26 +132,22 @@ void DX::DeviceResources::Trim()
 ## <a name="release-any-exclusive-resources-and-file-handles"></a>任意の排他リソースとファイル ハンドルを解放する
 
 
-アプリでは、[**CoreApplication::Suspending**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントを処理する時点で、排他リソースとファイル ハンドルを解放することもできます。 排他リソースとファイル ハンドルを明示的に解放すると、自分のアプリが使っていないときに他のアプリが排他リソースとファイル ハンドルにアクセスできるようになります。 アプリが終了後にアクティブ化されるときに、排他リソースとファイル ハンドルを開く必要があります。
+アプリでは、[**CoreApplication::Suspending**](/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントを処理する時点で、排他リソースとファイル ハンドルを解放することもできます。 排他リソースとファイル ハンドルを明示的に解放すると、自分のアプリが使っていないときに他のアプリが排他リソースとファイル ハンドルにアクセスできるようになります。 アプリが終了後にアクティブ化されるときに、排他リソースとファイル ハンドルを開く必要があります。
 
 ## <a name="remarks"></a>注釈
 
 
 ユーザーが別のアプリまたはデスクトップに切り替えると、システムはアプリを中断します。 ユーザーが元のアプリに戻すと、システムはアプリを再開します。 システムがアプリを再開した時点で、変数とデータ構造の内容は、システムがアプリを一時停止する前の状態と同じです。 システムはアプリを厳密に中断前の状態に復元するので、ユーザーからはアプリがバックグラウンドで実行していたように見えます。
 
-システムは、アプリの一時停止中、アプリとそのデータをメモリに保持するよう試みます。 ただし、アプリをメモリに保持するためのリソースがシステムにない場合、システムはアプリを終了します。 一時停止されてから終了されたアプリにユーザーが戻るときに、システムは [**Activated**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview.activated) イベントを送って、**CoreApplicationView::Activated** イベントのハンドラーでアプリケーション データを復元する必要があります。
+システムは、アプリの一時停止中、アプリとそのデータをメモリに保持するよう試みます。 ただし、アプリをメモリに保持するためのリソースがシステムにない場合、システムはアプリを終了します。 一時停止されてから終了されたアプリにユーザーが戻るときに、システムは [**Activated**](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated) イベントを送って、**CoreApplicationView::Activated** イベントのハンドラーでアプリケーション データを復元する必要があります。
 
 アプリが終了されるときは、システムはアプリに通知を送らないので、アプリは中断されたときにアプリケーション データを保存し、排他リソースとファイル ハンドルを解放して、アプリが終了後アクティブ化されるときにそれらを復元する必要があります。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [(DirectX および C++) アプリを再開する方法](how-to-resume-an-app-directx-and-cpp.md)
-* [(DirectX および C++) アプリをアクティブ化する方法](how-to-activate-an-app-directx-and-cpp.md)
+* [アプリを再開する方法 (DirectX と C++)](how-to-resume-an-app-directx-and-cpp.md)
+* [アプリをアクティブ化する方法 (DirectX と C++)](how-to-activate-an-app-directx-and-cpp.md)
 
  
 
  
-
-
-
-

@@ -4,12 +4,12 @@ description: Xbox の UWP アプリに音声コントロールサポートを追
 ms.date: 10/19/2017
 ms.topic: article
 keywords: windows 10、uwp、xbox、音声、音声対応シェル
-ms.openlocfilehash: f51ec2c93a904893dc337545f634d04affde10fd
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: db846e906917f29781200f3c312f6dbd6e2b2dd1
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75685185"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161666"
 ---
 # <a name="using-speech-to-invoke-ui-elements"></a>Speech を使用した UI 要素の呼び出し
 
@@ -51,16 +51,16 @@ VES は UI オートメーションクライアントであり、UI オートメ
 
 すべての UWP アプリは UI オートメーションフレームワークにアクセスでき、UI に関する情報を、構築されたグラフィックスフレームワーク (XAML、DirectX、Direct3D、Xamarin など) に依存せずに公開できます。  場合によっては、XAML と同様に、大量の処理の大部分がフレームワークによって実行されるため、ナレーターと VES をサポートするために必要な作業が大幅に減少します。
 
-UI オートメーションの詳細については、「 [Ui オートメーションの基礎](https://msdn.microsoft.com/library/ms753107(v=vs.110).aspx "UI オートメーションの基礎")」を参照してください。
+UI オートメーションの詳細については、「 [Ui オートメーションの基礎](/dotnet/framework/ui-automation/ui-automation-fundamentals "UI オートメーションの基礎")」を参照してください。
 
 ## <a name="control-invocation-name"></a>コントロールの呼び出し名 ##
 VES では、コントロールの名前として音声認識エンジンに登録する語句を決定するために、次のヒューリスティックを使用します (つまり、ユーザーがコントロールを呼び出すために読み上げる必要があること)。  これは、音声ヒントラベルに表示される語句でもあります。
 
 優先順位に従った名前のソース:
 
-1. 要素に `LabeledBy` 添付プロパティがある場合、VES はこのテキストラベルの `AutomationProperties.Name` を使用します。
-2. 要素の `AutomationProperties.Name`。  XAML では、コントロールのテキストの内容が `AutomationProperties.Name`の既定値として使用されます。
-3. コントロールが ListItem または Button の場合、VES は、有効な `AutomationProperties.Name`を持つ最初の子要素を検索します。
+1. 要素に添付プロパティがある場合 `LabeledBy` 、VES は `AutomationProperties.Name` このテキストラベルのを使用します。
+2. `AutomationProperties.Name` 要素の。  XAML では、コントロールのテキストコンテンツがの既定値として使用され `AutomationProperties.Name` ます。
+3. コントロールが ListItem または Button の場合、VES は、有効なを持つ最初の子要素を検索し `AutomationProperties.Name` ます。
 
 ## <a name="actionable-controls"></a>アクション可能なコントロール ##
 VES は、次のオートメーションコントロールパターンのいずれかを実装すると、コントロールが実行可能であると見なされます。
@@ -76,16 +76,16 @@ VES は、次のオートメーションコントロールパターンのいず�
 - **Scrollpattern** (例 List)-子要素のコレクションのスクロール可能なコンテナーとして機能するコントロールを表します。
 
 ## <a name="scrollable-containers"></a>スクロール可能なコンテナー ##
-ScrollPattern をサポートするスクロール可能なコンテナーの場合、VES は、"左へスクロール"、"右にスクロール" などの音声コマンドをリッスンし、ユーザーがこれらのコマンドのいずれかをトリガーするときに、適切なパラメーターを使用してスクロールを呼び出します。  スクロールコマンドは、`HorizontalScrollPercent` と `VerticalScrollPercent` プロパティの値に基づいて挿入されます。  たとえば、`HorizontalScrollPercent` が0より大きい場合は、[左にスクロール] が追加されます。100未満の場合は、[右にスクロール] が追加されます。
+ScrollPattern をサポートするスクロール可能なコンテナーの場合、VES は、"左へスクロール"、"右にスクロール" などの音声コマンドをリッスンし、ユーザーがこれらのコマンドのいずれかをトリガーするときに、適切なパラメーターを使用してスクロールを呼び出します。  Scroll コマンドは、プロパティとプロパティの値に基づいて挿入され `HorizontalScrollPercent` `VerticalScrollPercent` ます。  たとえば、 `HorizontalScrollPercent` が0より大きい場合は、[左にスクロール] が追加され、100未満の場合は [右にスクロール] が追加されます。
 
 ## <a name="narrator-overlap"></a>ナレーターの重なり ##
-ナレーターアプリケーションは、UI オートメーションクライアントでもあり、`AutomationProperties.Name` プロパティを、現在選択されている UI 要素に対して読み取るテキストのソースの1つとして使用します。  ユーザー補助機能を向上させるために、多くのアプリ開発者は、ナレーターで読み取られるときにより多くの情報とコンテキストを提供することを目的として、長い説明的なテキストで `Name` プロパティをオーバーロードするようにしました。  ただし、これにより、2つの機能の間で競合が発生します。 VES では、コントロールの表示テキストに一致するか、またはそれに一致する短い語句が必要です。また、ナレーターは長い時間がかかり、より適切なコンテキストを提供するためのわかりやすい語句が得られます。
+ナレーターアプリケーションは、UI オートメーションクライアントでもあり、プロパティを、 `AutomationProperties.Name` 現在選択されている ui 要素に対して読み取るテキストのソースの1つとして使用します。  ユーザー補助機能を向上させるために、多くのアプリ開発者は、 `Name` ナレーターで読み取られるときにより多くの情報とコンテキストを提供することを目的として、長い説明的なテキストを使用してプロパティをオーバーロードするようにしました。  ただし、これにより、2つの機能の間で競合が発生します。 VES では、コントロールの表示テキストに一致するか、またはそれに一致する短い語句が必要です。また、ナレーターは長い時間がかかり、より適切なコンテキストを提供するためのわかりやすい語句が得られます。
 
-これを解決するには、Windows 10 の作成者の更新プログラムから、ナレーターが更新され、`AutomationProperties.HelpText` プロパティも表示されるようになりました。  このプロパティが空でない場合は、`AutomationProperties.Name`に加えて、ナレーターによって内容が読み上げられます。  `HelpText` が空の場合、ナレーターは名前の内容のみを読み取ります。  これにより、必要に応じてより長い説明的な文字列を使用できるようになりますが、`Name` のプロパティには、より短い音声認識のわかりやすい語句が保持されます。
+これを解決するには、Windows 10 の作成者の更新プログラムから、ナレーターが更新され、プロパティも表示されるようになりました `AutomationProperties.HelpText` 。  このプロパティが空でない場合は、に加えて、ナレーターによって内容が読み上げられ `AutomationProperties.Name` ます。  `HelpText`が空の場合、ナレーターは名前の内容のみを読み取ります。  これにより、必要に応じてより長い説明的な文字列を使用できるようになりますが、プロパティにはより短い音声認識のわかりやすい語句が保持され `Name` ます。
 
 ![](images/ves_narrator.jpg)
 
-詳細については、「 [UI でユーザー補助機能をサポートするためのオートメーションプロパティ](https://msdn.microsoft.com/library/ff400332(vs.95).aspx "UI でのアクセシビリティサポートのオートメーションプロパティ")」を参照してください。
+詳細については、「 [UI でユーザー補助機能をサポートするためのオートメーションプロパティ](/previous-versions/windows/silverlight/dotnet-windows-silverlight/ff400332(v=vs.95) "UI でのアクセシビリティサポートのオートメーションプロパティ")」を参照してください。
 
 ## <a name="active-listening-mode-alm"></a>アクティブリスニングモード (ALM) ##
 ### <a name="entering-alm"></a>ALM の入力 ###
@@ -113,7 +113,7 @@ ALM を入力すると、次のようになります。
 ALM では、ユーザーは音声を使用して UI を操作できます。  UI が正しく構成されている (表示されているテキストと一致する名前プロパティがある) 場合、音声を使用してアクションを実行するのはシームレスで、自然なエクスペリエンスです。  ユーザーは、画面に表示されている内容を簡単に読み上げることができます。
 
 ## <a name="overlay-ui-on-xbox"></a>Xbox でのオーバーレイ UI ##
-VES がコントロールに対して派生する名前は、UI で実際に表示されるテキストとは異なる場合があります。  これは、コントロールの `Name` プロパティ、またはアタッチされた `LabeledBy` 要素が別の文字列に明示的に設定されていることが原因で発生する可能性があります。  または、コントロールに GUI テキストはありませんが、icon 要素または image 要素のみが含まれています。
+VES がコントロールに対して派生する名前は、UI で実際に表示されるテキストとは異なる場合があります。  これは、 `Name` コントロールのプロパティ、またはアタッチされた `LabeledBy` 要素が別の文字列に明示的に設定されていることが原因である可能性があります。  または、コントロールに GUI テキストはありませんが、icon 要素または image 要素のみが含まれています。
 
 このような場合、ユーザーは、このようなコントロールを呼び出すために、どのようなことが必要かを確認する方法を必要とします。  したがって、アクティブなリスニングでは、"ラベルを表示する" という音声ヒントを表示できます。  これにより、すべてのアクション可能なコントロールの上に音声ヒントラベルが表示されます。
 
@@ -148,10 +148,10 @@ VES がコントロールに対して派生する名前は、UI で実際に表�
 
 ![](images/ves_scroll.png) 
 
-## <a name="disambiguation"></a>不明瞭解消 ##
+## <a name="disambiguation"></a>曖昧性の除去 ##
 複数の UI 要素に同じ名前が付けられている場合、または音声認識エンジンが複数の候補に一致した場合、VES は非不明瞭モードになります。  このモードでは、ユーザーが適切な要素を選択できるように、関連する要素に対して音声ヒントラベルが表示されます。 ユーザーは、"キャンセル" という指示によって非不明瞭モードを取り消すことができます。
 
-たとえば次のようになります。
+次に例を示します。
 
 - アクティブなリスニングモードで、あいまいさを解消する前。ユーザーは、「あいまいな」と言っています。
 
@@ -209,16 +209,16 @@ XAML ベースの UI の例を次に示します。さまざまな方法で Auto
 
     ![](images/ves_alm_labels.png) 
 
-`button1`の場合、XAML は、コントロールの表示テキストコンテンツのテキストを使用して `AutomationProperties.Name` プロパティを自動的に設定します。  これは、明示的な `AutomationProperties.Name` が設定されていない場合でも、音声ヒントラベルがあるためです。
+の場合 `button1` 、XAML は、 `AutomationProperties.Name` コントロールの表示テキストコンテンツのテキストを使用してプロパティを自動設定します。  このため、明示的なセットがない場合でも、音声ヒントラベルがあり `AutomationProperties.Name` ます。
 
-`button2`では、`AutomationProperties.Name` をコントロールのテキスト以外のものに明示的に設定します。
+で `button2` は、を `AutomationProperties.Name` コントロールのテキスト以外のものに明示的に設定します。
 
-`comboBox`では、`LabeledBy` プロパティを使用してオートメーション `Name`のソースとして `label1` を参照し、`label1` では、画面に表示されるもの ("曜日の選択" ではなく "曜日") よりも自然な語句に `AutomationProperties.Name` を設定しています。
+では `comboBox` 、プロパティを使用し `LabeledBy` `label1` てオートメーションのソースとしてを参照 `Name` して `label1` います。また、は、 `AutomationProperties.Name` 画面に表示されるものよりも自然な語句に設定されています ("曜日の選択" ではなく "曜日")。
 
-最後に、`button3`を使用すると、`button3` 自体に `AutomationProperties.Name` が設定されていないため、VES は最初の子要素から `Name` を取得します。
+最後に、では、が `button3` `Name` `button3` 設定されていないため、VES は最初の子要素からを取得し `AutomationProperties.Name` ます。
 
-## <a name="see-also"></a>「
-- [UI オートメーションの基礎](https://msdn.microsoft.com/library/ms753107(v=vs.110).aspx "UI オートメーションの基礎")
-- [UI でのアクセシビリティサポートのオートメーションプロパティ](https://msdn.microsoft.com/library/ff400332(vs.95).aspx "UI でのアクセシビリティサポートのオートメーションプロパティ")
+## <a name="see-also"></a>関連項目
+- [UI オートメーションの基礎](/dotnet/framework/ui-automation/ui-automation-fundamentals "UI オートメーションの基礎")
+- [UI でのアクセシビリティサポートのオートメーションプロパティ](/previous-versions/windows/silverlight/dotnet-windows-silverlight/ff400332(v=vs.95) "UI でのアクセシビリティサポートのオートメーションプロパティ")
 - [よく寄せられる質問](frequently-asked-questions.md)
 - [Xbox One の UWP](index.md)

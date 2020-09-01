@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 待機時間, DXGI, スワップ チェーン, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 27ecce9d95d3c2e852b049e3cac9579850022df9
-ms.sourcegitcommit: d2aabe027a2fff8a624111a00864d8986711cae6
+ms.openlocfilehash: 41d11865daadacf8ff90971836cab7cd941c4182
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82880862"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163046"
 ---
 # <a name="reduce-latency-with-dxgi-13-swap-chains"></a>DXGI 1.3 スワップ チェーンによる遅延の減少
 
@@ -21,18 +21,18 @@ DXGI 1.3 を使って、スワップ チェーンが新しいフレームのレ�
 
 フリップ モデルのスワップ チェーンでは、ゲームが [**IDXGISwapChain::Present**](/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-present) を呼び出すたびにバック バッファーの "フリップ" がキューに入れられます。 レンダリング ループによって Present() が呼び出されると、前のフレームの表示が完了するまでスレッドがブロックされ、新しいフレームが実際に表示されるまでキューに入れておくための領域を確保します。 これにより、ゲームによってフレームを描画した時点から、そのフレームが表示できるようになる時点まで、追加の待機時間が生まれます。 多くの場合、各フレームのレンダリングが開始されてから表示されるまでの間にほぼ 1 フレーム分の追加待機時間が常に発生するという、安定した状態に到達します。 新しいフレームを許可する準備が整うまで待機してから、現在のデータに基づいてフレームをレンダリングし、即座にキューに入れることをお勧めします。
 
-[**DXGI\_スワップ\_チェーン\_フラグ\_フレーム\_待機時間\_\_**](/windows/win32/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)の待機可能オブジェクトフラグを使用して、待機可能なスワップチェーンを作成します。 この方法で作成されたスワップ チェーンでは、システムが実際に新しいフレームを許可する準備ができたことをレンダリング ループに通知できます。 これにより、現在のデータに基づいてレンダリングした結果を即座に現在のキューに入れることができます。
+[**DXGI \_ スワップ \_ チェーン \_ フラグ \_ フレーム \_ 待機時間 \_ \_ **](/windows/win32/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)の待機可能オブジェクトフラグを使用して、待機可能なスワップチェーンを作成します。 この方法で作成されたスワップ チェーンでは、システムが実際に新しいフレームを許可する準備ができたことをレンダリング ループに通知できます。 これにより、現在のデータに基づいてレンダリングした結果を即座に現在のキューに入れることができます。
 
 ## <a name="step-1-create-a-waitable-swap-chain"></a>手順 1. 待機可能なスワップチェーンを作成する
 
-[**CreateSwapChainForCoreWindow**](/windows/win32/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow)を呼び出すときに、 [**\_DXGI\_スワップ\_\_チェーン\_\_フラグ\_フレーム待機時間**](/windows/win32/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)の待機オブジェクトフラグを指定します。
+[**CreateSwapChainForCoreWindow**](/windows/win32/api/dxgi1_2/nf-dxgi1_2-idxgifactory2-createswapchainforcorewindow)を呼び出すときに、 [**DXGI \_ スワップ \_ チェーン \_ フラグ \_ フレーム \_ 待機時間 \_ \_ **](/windows/win32/api/dxgi/ne-dxgi-dxgi_swap_chain_flag)の待機オブジェクトフラグを指定します。
 
 ```cpp
 swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT; // Enable GetFrameLatencyWaitableObject().
 ```
 
 > [!NOTE]
-> 一部のフラグとは対照的に、このフラグは[**ResizeBuffers**](/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-resizebuffers)を使用して追加または削除することはできません。 このフラグの設定が、スワップ チェーンが作成された時点の設定と異なっている場合、DXGI はエラー コードを返します。
+> 一部のフラグとは対照的に、このフラグは [**ResizeBuffers**](/windows/win32/api/dxgi/nf-dxgi-idxgiswapchain-resizebuffers)を使用して追加または削除することはできません。 このフラグの設定が、スワップ チェーンが作成された時点の設定と異なっている場合、DXGI はエラー コードを返します。
 
 ```cpp
 // If the swap chain already exists, resize it.
@@ -141,7 +141,7 @@ Windows でのマルチスレッド プログラミングについて詳しく�
 * [**IDXGISwapChain2::GetFrameLatencyWaitableObject**](/windows/win32/api/dxgi1_3/nf-dxgi1_3-idxgiswapchain2-getframelatencywaitableobject)
 * [**WaitForSingleObjectEx**](/windows/win32/api/synchapi/nf-synchapi-waitforsingleobjectex)
 * [**Windows.System.Threading**](/uwp/api/Windows.System.Threading)
-* [C++ での非同期プログラミング](/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)
+* [C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)
 * [プロセスとスレッド](/windows/win32/procthread/processes-and-threads)
-* [Synchronization](/windows/win32/sync/synchronization)
+* [同期](/windows/win32/sync/synchronization)
 * [イベント オブジェクトの使用 (Windows)](/windows/win32/sync/using-event-objects)

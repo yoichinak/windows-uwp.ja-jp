@@ -6,16 +6,16 @@ ms.date: 05/09/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, レーシング ハンドル, フォース フィードバック
 ms.localizationpriority: medium
-ms.openlocfilehash: 12b28284fcc459a5d4f155ec7b5fc7cedc0ed8ca
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 0d92fe45a008ee0c3864355faf8133ab8e1ebefb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75685174"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163066"
 ---
-# <a name="racing-wheel-and-force-feedback"></a>レーシング ハンドルとフォース フィードバック
+# <a name="racing-wheel-and-force-feedback"></a>レース ホイールとフォース フィードバック
 
-このページでは、ユニバーサル Windows プラットフォーム (UWP) のための、 [Windows のゲームの入出力ホイール][racingwheel]と関連 api を使用した、Xbox One レースホイールのプログラミングの基本について説明します。
+このページでは、ユニバーサル Windows プラットフォーム (UWP) のための、 [Windows のゲームの入出力ホイール][racingwheel] と関連 api を使用した、Xbox One レースホイールのプログラミングの基本について説明します。
 
 ここでは、次の項目について紹介します。
 
@@ -27,13 +27,13 @@ ms.locfileid: "75685174"
 
 ## <a name="racing-wheel-overview"></a>レーシング ハンドルの概要
 
-レーシング ハンドルは、本物のレースカーのコックピットを模した入力デバイスです。 車やトラックが登場するレーシング ゲームで、アーケード スタイルとシミュレーション スタイルのどちらのゲームにも最適な入力デバイスです。 レーシング ハンドルは、Windows 10 および Xbox One UWP アプリで [Windows.Gaming.Input](https://docs.microsoft.com/uwp/api/windows.gaming.input) 名前空間によってサポートされています。
+レーシング ハンドルは、本物のレースカーのコックピットを模した入力デバイスです。 車やトラックが登場するレーシング ゲームで、アーケード スタイルとシミュレーション スタイルのどちらのゲームにも最適な入力デバイスです。 レーシング ハンドルは、Windows 10 および Xbox One UWP アプリで [Windows.Gaming.Input](/uwp/api/windows.gaming.input) 名前空間によってサポートされています。
 
 Xbox One レーシング ハンドルは、さまざまな価格で提供されています。概して、価格が高いほど、入力とフォース フィードバック機能が優れています。 どのレーシング ハンドルにも、アナログのステアリング ハンドル、アナログのスロットルおよびブレーキのコントロール、ハンドル上のいくつかのボタンを備えています。 一部のレーシング ハンドルには、さらに、アナログのクラッチとハンドブレーキのコントロール、シフト レバー、およびフォース フィードバック機能もあります。 レーシング ハンドルの機能セットはどれも同じではなく、特定の機能のサポート状況も異なる可能性があります &mdash; たとえば、ステアリング ハンドルがサポートする回転の範囲や、シフト レバーがサポートするギア数は異なっている可能性があります。
 
 ### <a name="device-capabilities"></a>デバイスの機能
 
-さまざまな Xbox One レース車輪が、オプションのデバイス機能とその機能のさまざまなレベルのサポートを提供しています。単一の種類の入力デバイス間のこのバリエーションレベルは、 [Windows のゲーム](https://docs.microsoft.com/uwp/api/windows.gaming.input)でサポートされているデバイス間で一意です。 さらに、流通しているほとんどのデバイスでは、少なくともいくつかのオプションの機能またはその他のバリエーションをサポートします。 そのため、接続されている各レーシング ハンドルの機能を個別に特定し、ゲームに適した機能のバリエーションをすべてサポートすることが重要です。
+さまざまな Xbox One レース車輪が、オプションのデバイス機能とその機能のさまざまなレベルのサポートを提供しています。単一の種類の入力デバイス間のこのバリエーションレベルは、 [Windows のゲーム](/uwp/api/windows.gaming.input) でサポートされているデバイス間で一意です。 さらに、流通しているほとんどのデバイスでは、少なくともいくつかのオプションの機能またはその他のバリエーションをサポートします。 そのため、接続されている各レーシング ハンドルの機能を個別に特定し、ゲームに適した機能のバリエーションをすべてサポートすることが重要です。
 
 詳しくは、「[レーシング ハンドル機能の特定](#determining-racing-wheel-capabilities)」をご覧ください。
 
@@ -45,49 +45,49 @@ Xbox One レーシング ハンドルは、さまざまな価格で提供され�
 
 ### <a name="ui-navigation"></a>UI のナビゲーション
 
-ユーザー インターフェイスの操作に異なる入力デバイスをサポートする負担を軽くし、ゲームとデバイス間の整合性を高めるため、ほとんどの物理入力デバイスは、[UI ナビゲーション コントローラー](ui-navigation-controller.md)と呼ばれる個別の論理入力デバイスとして同時に機能します。 UI ナビゲーション コントローラーは、各種入力デバイスに共通の UI ナビゲーション コマンドのボキャブラリを提供します。
+ユーザー インターフェイスの操作に異なる入力デバイスをサポートする負担を軽くし、ゲームとデバイス間の整合性を高めるため、ほとんどの物理__ 入力デバイスは、[UI ナビゲーション コントローラー](ui-navigation-controller.md)と呼ばれる個別の論理__ 入力デバイスとして同時に機能します。 UI ナビゲーション コントローラーは、各種入力デバイスに共通の UI ナビゲーション コマンドのボキャブラリを提供します。
 
 デバイスによってアナログ制御をどの程度重視しているかは異なり、レーシング ハンドル間のバリエーションが広いことから、通常は、[ゲームパッド](gamepad-and-vibration.md) と同様の、デジタルの方向パッド、**ビュー**、**メニュー**、**A**、**B**、**X**、および **Y** ボタンが搭載されています。これらのボタンはゲームプレイ コマンドのサポートを意図したものではなく、レーシング ハンドル ボタンとしてすぐに利用できるものではありません。
 
-UI ナビゲーション コントローラーとして、レーシング ハンドルは、ナビゲーション コマンドの[必須セット](ui-navigation-controller.md#required-set)を左のサムスティック、方向パッド、**ビュー** ボタン、**メニュー** ボタン、**A**  ボタン、および**B** ボタンにマップします。
+UI ナビゲーションコントローラーとして、レース車輪は、 [必要な一連](ui-navigation-controller.md#required-set) のナビゲーションコマンドを左スティック、D パッド、 **ビュー**、 **メニュー**、 **a**、 **B** の各ボタンにマップします。
 
 | ナビゲーション コマンド | レーシング ハンドル入力 |
 | ------------------:| ------------------ |
-|                 ［上へ］ | 方向パッドを上           |
-|               ［下へ］ | 方向パッドを下         |
-|               左 | 方向パッドを左         |
-|              右 | 方向パッドを右        |
-|               表示 | ビュー ボタン        |
-|               Menu | メニュー ボタン        |
-|             OK | A ボタン           |
-|             [キャンセル] | B ボタン           |
+|                 上へ | 方向パッドを上           |
+|               [下へ] | 方向パッドを下         |
+|               Left | 方向パッドを左         |
+|              Right | 方向パッドを右        |
+|               表示 | 表示ボタン        |
+|               メニュー | メニュー ボタン        |
+|             承諾 | A ボタン           |
+|             キャンセル | B ボタン           |
 
 また、一部のレーシング ハンドルでは、ナビゲーション コマンドの[オプション セット](ui-navigation-controller.md#optional-set)を、サポートする他の入力にマップしますが、コマンドのマッピングはデバイスによって異なる可能性があります。 以下のコマンドもサポートすることを検討してください。ただし、ゲームのインターフェイスのナビゲーションの基本コマンドにはしないでください。
 
 | ナビゲーション コマンド | レーシング ハンドル入力    |
 | ------------------:| --------------------- |
-|            PageUp | _varies_              |
-|          PageDown | _varies_              |
-|          Page Left | _varies_              |
-|         Page Right | _varies_              |
-|          Scroll Up | _varies_              |
-|        Scroll Down | _varies_              |
-|        Scroll Left | _varies_              |
-|       Scroll Right | _varies_              |
+|            PageUp | _状況に応じて異なる_              |
+|          PageDown | _状況に応じて異なる_              |
+|          Page Left | _状況に応じて異なる_              |
+|         Page Right | _状況に応じて異なる_              |
+|          Scroll Up | _状況に応じて異なる_              |
+|        Scroll Down | _状況に応じて異なる_              |
+|        Scroll Left | _状況に応じて異なる_              |
+|       Scroll Right | _状況に応じて異なる_              |
 |          Context 1 | X ボタン (_一般的な場合_) |
-|          Context 2 | Y ボタン (_一般的な場合_) |
-|          Context 3 | _varies_              |
-|          Context 4 | _varies_              |
+|          Context 2 | Y ボタン (_一般的_) |
+|          Context 3 | _状況に応じて異なる_              |
+|          Context 4 | _状況に応じて異なる_              |
 
 ## <a name="detect-and-track-racing-wheels"></a>レーシング ハンドルの検出と追跡
 
-レーシング ハンドルの検出と追跡の方法はゲームパッドの場合とまったく同じですが、[Gamepad](https://docs.microsoft.com/uwp/api/Windows.Gaming.Input.Gamepad) クラスの代わりに [RacingWheel](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel) クラスを使用する点だけが異なります。 詳細については、「[ゲームパッドと振動](gamepad-and-vibration.md)」を参照してください。
+レーシング ハンドルの検出と追跡の方法はゲームパッドの場合とまったく同じですが、[Gamepad](/uwp/api/Windows.Gaming.Input.Gamepad) クラスの代わりに [RacingWheel](/uwp/api/windows.gaming.input.racingwheel) クラスを使用する点だけが異なります。 詳細については、「[ゲームパッドと振動](gamepad-and-vibration.md)」を参照してください。
 
 <!-- Racing wheels are managed by the system, therefore you don't have to create or initialize them. The system provides a list of connected racing wheels and events to notify you when a racing wheel is added or removed.
 
 ### The racing wheels list
 
-The [RacingWheel](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel) class provides a static property, [RacingWheels](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.racingwheels#Windows_Gaming_Input_RacingWheel_RacingWheels), which is a read-only list of racing wheels that are currently connected. Because you might only be interested in some of the connected racing wheels, it's recommended that you maintain your own collection instead of accessing them through the `RacingWheels` property.
+The [RacingWheel](/uwp/api/windows.gaming.input.racingwheel) class provides a static property, [RacingWheels](/uwp/api/windows.gaming.input.racingwheel.racingwheels#Windows_Gaming_Input_RacingWheel_RacingWheels), which is a read-only list of racing wheels that are currently connected. Because you might only be interested in some of the connected racing wheels, it's recommended that you maintain your own collection instead of accessing them through the `RacingWheels` property.
 
 The following example copies all connected racing wheels into a new collection.
 ```cpp
@@ -102,7 +102,7 @@ for (auto racingwheel : RacingWheel::RacingWheels)
 
 ### Adding and removing racing wheels
 
-When a racing wheel is added or removed the [RacingWheelAdded](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.racingwheeladded) and [RacingWheelRemoved](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.racingwheelremoved) events are raised. You can register handlers for these events to keep track of the racing wheels that are currently connected.
+When a racing wheel is added or removed the [RacingWheelAdded](/uwp/api/windows.gaming.input.racingwheel.racingwheeladded) and [RacingWheelRemoved](/uwp/api/windows.gaming.input.racingwheel.racingwheelremoved) events are raised. You can register handlers for these events to keep track of the racing wheels that are currently connected.
 
 The following example starts tracking an racing wheels that's been added.
 ```cpp
@@ -138,7 +138,7 @@ Each racing wheel can be associated with a user account to link their identity t
 
 ポーリングでは、明確な時点におけるレーシング ハンドルのスナップショットをキャプチャします。 入力を収集するこのアプローチはほとんどのゲームに最適です。ゲームのロジックはイベント駆動型ではなく、確定的なループの中で実行されることが一般的なためです。また通常は、徐々に集めた多数の単一の入力によるコマンドを解釈するより、一度に集めた入力によるゲーム コマンドを解釈する方が簡単になります。
 
-レーシング ハンドルをポーリングするには、[GetCurrentReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.getcurrentreading#Windows_Gaming_Input_RacingWheel_GetCurrentReading) を呼び出します。この関数はレーシング ハンドルの状態が格納された [RacingWheelReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading) を返します。
+レーシング ハンドルをポーリングするには、[GetCurrentReading](/uwp/api/windows.gaming.input.racingwheel.getcurrentreading#Windows_Gaming_Input_RacingWheel_GetCurrentReading) を呼び出します。この関数はレーシング ハンドルの状態が格納された [RacingWheelReading](/uwp/api/windows.gaming.input.racingwheelreading) を返します。
 
 次の例では、レーシング ハンドルをポーリングして現在の状態を確認します。
 
@@ -148,13 +148,13 @@ auto racingwheel = myRacingWheels[0];
 RacingWheelReading reading = racingwheel->GetCurrentReading();
 ```
 
-読み取りデータには、レーシング ハンドルの状態だけでなく、正確にいつ状態が取得されたかを示すタイムスタンプも含まれます。 このタイムスタンプは、以前の読み取りのタイミングや、ゲームのシミュレーションのタイミングと関連付けに便利です。
+読み取りデータには、レーシング ハンドルの状態だけでなく、正確にいつ状態が取得されたかを示すタイムスタンプも含まれます。　 このタイムスタンプは、以前の読み取りのタイミングや、ゲームのシミュレーションのタイミングと関連付けに便利です。
 
 ### <a name="determining-racing-wheel-capabilities"></a>レーシング ハンドル機能の特定
 
 レーシング ハンドル コントロールの多くはオプションであるか、必須のコントロールであっても複数のバリエーションをサポートするため、レーシング ハンドルの各読み取りで収集された入力の処理を開始する前に、各レーシング ハンドルの機能を個別に特定する必要があります。
 
-オプションのコントロールは、ハンドブレーキ、クラッチ、およびシフトレバーです。接続されているレーシング ハンドルがこれらのコントロールをサポートするかどうかは、レーシング ハンドルの [HasHandbrake](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.hashandbrake#Windows_Gaming_Input_RacingWheel_HasHandbrake)、[HasClutch](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.hasclutch#Windows_Gaming_Input_RacingWheel_HasClutch)、および [HasPatternShifter](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.haspatternshifter#Windows_Gaming_Input_RacingWheel_HasPatternShifter) プロパティをそれぞれ読み取ることで特定できます。 プロパティの値が **true** の場合、コントロールはサポートされています。そうでない場合は、サポートされません。
+オプションのコントロールは、ハンドブレーキ、クラッチ、およびシフトレバーです。接続されているレーシング ハンドルがこれらのコントロールをサポートするかどうかは、レーシング ハンドルの [HasHandbrake](/uwp/api/windows.gaming.input.racingwheel.hashandbrake#Windows_Gaming_Input_RacingWheel_HasHandbrake)、[HasClutch](/uwp/api/windows.gaming.input.racingwheel.hasclutch#Windows_Gaming_Input_RacingWheel_HasClutch)、および [HasPatternShifter](/uwp/api/windows.gaming.input.racingwheel.haspatternshifter#Windows_Gaming_Input_RacingWheel_HasPatternShifter) プロパティをそれぞれ読み取ることで特定できます。 プロパティの値が **true** の場合、コントロールはサポートされています。そうでない場合は、サポートされません。
 
 ```cpp
 if (racingwheel->HasHandbrake)
@@ -180,7 +180,7 @@ auto maxWheelDegrees = racingwheel->MaxWheelAngle;
 auto maxShifterGears = racingwheel->MaxPatternShifterGear;
 ```
 
-また、一部のレーシング ハンドルでは、ステアリング ハンドルを介したフォース フィードバックをサポートします。 接続されているレーシング ハンドルがフォース フィードバックをサポートするかどうかは、レーシング ハンドルの [WheelMotor](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.wheelmotor#Windows_Gaming_Input_RacingWheel_WheelMotor) プロパティを読み取ることで特定できます。 `WheelMotor` プロパティの値が **null** ではない場合、フォース フィードバックはサポートされています。そうでない場合は、サポートされません。
+また、一部のレーシング ハンドルでは、ステアリング ハンドルを介したフォース フィードバックをサポートします。 接続されているレーシング ハンドルがフォース フィードバックをサポートするかどうかは、レーシング ハンドルの [WheelMotor](/uwp/api/windows.gaming.input.racingwheel.wheelmotor#Windows_Gaming_Input_RacingWheel_WheelMotor) プロパティを読み取ることで特定できます。 が null でない場合は、フォースフィードバックがサポートされます。 `WheelMotor` それ以外の場合はサポートされません。 **null**
 
 ```cpp
 if (racingwheel->WheelMotor != nullptr)
@@ -193,12 +193,12 @@ if (racingwheel->WheelMotor != nullptr)
 
 ### <a name="reading-the-buttons"></a>ボタンの読み取り
 
-レーシング ハンドルの各ボタン &mdash; 方向パッドの 4 方向、**前のギア** ボタンと**次のギア** ボタン、その他 16 個のボタン &mdash; は、デジタルの読み取り値によって、押されている (ダウン) か離されている (アップ) かを示します。 効率を高めるため、ボタンの読み取り値は個別のブール値としては表されません。代わりに、読み取り値はすべて、[RacingWheelButtons](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelbuttons) 列挙型で表される単一のビットフィールドにパックされます。
+レーシング ハンドルの各ボタン &mdash; 方向パッドの 4 方向、**前のギア** ボタンと**次のギア** ボタン、その他 16 個のボタン &mdash; は、デジタルの読み取り値によって、押されている (ダウン) か離されている (アップ) かを示します。 効率を高めるため、ボタンの読み取り値は個別のブール値としては表されません。代わりに、読み取り値はすべて、[RacingWheelButtons](/uwp/api/windows.gaming.input.racingwheelbuttons) 列挙型で表される単一のビットフィールドにパックされます。
 
 > [!NOTE]
 > レーシング ハンドルには、**ビュー** ボタンや**メニュー** ボタンなど、他にも UI 操作に使用するボタンが搭載されています。 これらのボタンは `RacingWheelButtons` 列挙型には含まれず、UI ナビゲーション デバイスとしてレーシング ハンドルを利用する場合にしか、読み取られません。 詳しくは、「[UI ナビゲーション デバイス](ui-navigation-controller.md)」をご覧ください。
 
-ボタンの値は、[RacingWheelReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Buttons` プロパティから読み取ります。 このプロパティはビットフィールドであるため、ビット演算子マスクを使用して目的のボタンの値を分離します。 対応するビットが設定されているときはボタンが押されており (ダウン)、それ以外の場合はボタンが離されています (アップ)。
+ボタンの値は、[RacingWheelReading](/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Buttons` プロパティから読み取ります。 このプロパティはビットフィールドであるため、ビット演算子マスクを使用して目的のボタンの値を分離します。 対応するビットが設定されているときはボタンが押されており (ダウン)、それ以外の場合はボタンが離されています (アップ)。
 
 次の例では、**次のギア** ボタンが押されているかどうかを判別します。
 
@@ -218,11 +218,11 @@ if (RacingWheelButtons::None == (reading.Buttons & RacingWheelButtons::NextGear)
 }
 ```
 
-場合によっては、ボタンを押された状態から離した状態に切り替えるか、または離された状態に切り替えられるか、複数のボタンが押されたか離されたか、またはボタンのセットが特定の&mdash;方法で並べ替えられているかどうかを判断する必要がある場合があります。 これらの状態を検出する方法について詳しくは、「[Detecting button transitions (ボタンの移行の検出)](input-practices-for-games.md#detecting-button-transitions)」および「[Detecting complex button arrangements (複雑なボタンのパターンの検出)](input-practices-for-games.md#detecting-complex-button-arrangements)」をご覧ください。
+場合によっては、ボタンが押された状態から離した状態に切り替えるか、または離された状態に切り替わるか、複数のボタンが押されたか離されたか、またはボタンのセットが特定の方法で並べ替えられているかどうかを判断する必要があり &mdash; ます。 これらの状態を検出する方法について詳しくは、「[Detecting button transitions (ボタンの移行の検出)](input-practices-for-games.md#detecting-button-transitions)」および「[Detecting complex button arrangements (複雑なボタンのパターンの検出)](input-practices-for-games.md#detecting-complex-button-arrangements)」をご覧ください。
 
 ### <a name="reading-the-wheel"></a>ハンドルの読み取り
 
-ステアリング ハンドルは、-1.0 ～ +1.0 のアナログの読み取り値を提供する必須のコントロールです。 -1.0 の値はハンドルを最も左に回転した位置に対応し、+1.0 の値はハンドルを最も右に回転した位置に対応します。 ステアリング ハンドルの値は、[RacingWheelReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Wheel` プロパティから読み取ります。
+ステアリング ハンドルは、-1.0 ～ +1.0 のアナログの読み取り値を提供する必須のコントロールです。 -1.0 の値はハンドルを最も左に回転した位置に対応し、+1.0 の値はハンドルを最も右に回転した位置に対応します。 ステアリング ハンドルの値は、[RacingWheelReading](/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Wheel` プロパティから読み取ります。
 
 ```cpp
 float wheel = reading.Wheel;  // returns a value between -1.0 and +1.0.
@@ -232,7 +232,7 @@ float wheel = reading.Wheel;  // returns a value between -1.0 and +1.0.
 
 ### <a name="reading-the-throttle-and-brake"></a>スロットルとブレーキの読み取り
 
-スロットルとブレーキは、0.0 (完全に離された状態) ～ 1.0 (完全に押された状態) の間の浮動小数点値として表されたアナログ読み取り値をそれぞれ提供する必須のコントロールです。 スロットル コントロールの値は、[RacingWheelReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Throttle` プロパティから、ブレーキ コントロールの値は `Brake` プロパティから読み取られます。
+スロットルとブレーキは、0.0 (完全に離された状態) ～ 1.0 (完全に押された状態) の間の浮動小数点値として表されたアナログ読み取り値をそれぞれ提供する必須のコントロールです。 スロットル コントロールの値は、[RacingWheelReading](/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Throttle` プロパティから、ブレーキ コントロールの値は `Brake` プロパティから読み取られます。
 
 ```cpp
 float throttle = reading.Throttle;  // returns a value between 0.0 and 1.0
@@ -241,7 +241,7 @@ float brake    = reading.Brake;     // returns a value between 0.0 and 1.0
 
 ### <a name="reading-the-handbrake-and-clutch"></a>ハンドブレーキとクラッチの読み取り
 
-ハンドブレーキとクラッチは、0.0 (完全に離された状態) ～ 1.0 (完全に押された状態) の間の浮動小数点値として表されたアナログ読み取り値をそれぞれ提供するオプションのコントロールです。 ハンドブレーキ コントロールの値は、[RacingWheelReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Handbrake` プロパティから、クラッチ コントロールの値は `Clutch` プロパティから読み取られます。
+ハンドブレーキとクラッチは、0.0 (完全に離された状態) ～ 1.0 (完全に押された状態) の間の浮動小数点値として表されたアナログ読み取り値をそれぞれ提供するオプションのコントロールです。 ハンドブレーキ コントロールの値は、[RacingWheelReading](/uwp/api/windows.gaming.input.racingwheelreading) 構造体の `Handbrake` プロパティから、クラッチ コントロールの値は `Clutch` プロパティから読み取られます。
 
 ```cpp
 float handbrake = 0.0;
@@ -260,7 +260,7 @@ if(racingwheel->HasClutch)
 
 ### <a name="reading-the-pattern-shifter"></a>シフトレバーの読み取り
 
-シフトレバーは、-1 ～ [MaxPatternShifterGear](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.maxpatternshiftergear) の符号付き整数値として表されたデジタルの読み取り値を提供するオプションのコントロールです。 -1 または 0 は_バック_ ギアと _ニュートラル_ ギアにそれぞれ対応し、正の値が大きくなるほど、高いレベルの前進ギアに対応し、最大のギアは **MaxPatternShifterGear** になります。 パターンシフターの値は、 [RacingWheelReading](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading)構造体の[Pattern/fter歯車](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheelreading.patternshiftergear)プロパティから読み取られます。
+シフトレバーは、-1 ～ [MaxPatternShifterGear](/uwp/api/windows.gaming.input.racingwheel.maxpatternshiftergear) の符号付き整数値として表されたデジタルの読み取り値を提供するオプションのコントロールです。 -1 または 0 は_バック_ ギアと _ニュートラル_ ギアにそれぞれ対応し、正の値が大きくなるほど、高いレベルの前進ギアに対応し、最大のギアは **MaxPatternShifterGear** になります。 パターンシフターの値は、 [RacingWheelReading](/uwp/api/windows.gaming.input.racingwheelreading)構造体の[Pattern/fter歯車](/uwp/api/windows.gaming.input.racingwheelreading.patternshiftergear)プロパティから読み取られます。
 
 ```cpp
 if (racingwheel->HasPatternShifter)
@@ -270,15 +270,15 @@ if (racingwheel->HasPatternShifter)
 ```
 
 > [!NOTE]
-> シフトレバーは、サポートされる場合、必須の**前のギア** ボタンと**次のギア** ボタンと併せて存在します。これらのボタンも、プレイヤーの車の現在のギア操作に使用されます。 シフトレバーとギア ボタンの両方が存在する場合にギアの入力を統合する簡単な方法は、プレイヤーが車に AT (オートマチック トランスミッション) を選択しているときは、シフトレバー (とクラッチ) を無視することです。レーシング ハンドルにシフトレバー コントロールしか搭載されていなくて、プレイヤーが車に MT (マニュアル トランスミッション) を選択しているときは、**前のギア** ボタンと **次のギア** ボタンを無視します。 この方法がゲームに適さない場合は、別の統合方法を実装できます。
+> シフトレバーは、サポートされる場合、必須の**前のギア** ボタンと**次のギア** ボタンと併せて存在します。これらのボタンも、プレイヤーの車の現在のギア操作に使用されます。 これらの入力を統合するための簡単な方法は、プレーヤーが車の自動転送を選択したときに、シフター (およびクラッチ) というパターンを無視し、プレーヤーが車の自動車を手動で送信したときに、そのレースが pattern シフターコントロールを備えている場合にのみ、 **前** と **次の歯車** ボタンを無視することです。 この方法がゲームに適さない場合は、別の統合方法を実装できます。
 
 ## <a name="run-the-inputinterfacing-sample"></a>InputInterfacing サンプルの実行
 
-[InputInterfacingUWP サンプル _(github)_ ](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/Samples/System/InputInterfacingUWP) は、レーシング ハンドルと、種類の異なる入力デバイスとを組み合わせて使用する方法と、これらの入力デバイスが UI ナビゲーション コントローラーとしてどのように動作するかを示します。
+[InputInterfacingUWP サンプル _(github)_](https://github.com/Microsoft/Xbox-ATG-Samples/tree/master/Samples/System/InputInterfacingUWP) は、レーシング ハンドルと、種類の異なる入力デバイスとを組み合わせて使用する方法と、これらの入力デバイスが UI ナビゲーション コントローラーとしてどのように動作するかを示します。
 
 ## <a name="force-feedback-overview"></a>フォース フィードバックの概要
 
-多くのレーシング ハンドルには、より没入型で、難易度の高いドライブ エクスペリエンスを提供するため、フォース フィードバック機能があります。 フォース フィードバックをサポートするレーシング ハンドルには、通常、単一の軸 (ハンドルの回転軸) に沿ってステアリング ハンドルに力を適用する単一のモーターが搭載されています。 Force フィードバックは、windows 10 および Xbox One の UWP アプリで、 [windows](https://docs.microsoft.com/uwp/api/windows.gaming.input.forcefeedback)の "名前空間" によってサポートされています。
+多くのレーシング ハンドルには、より没入型で、難易度の高いドライブ エクスペリエンスを提供するため、フォース フィードバック機能があります。 フォース フィードバックをサポートするレーシング ハンドルには、通常、単一の軸 (ハンドルの回転軸) に沿ってステアリング ハンドルに力を適用する単一のモーターが搭載されています。 Force フィードバックは、windows 10 および Xbox One の UWP アプリで、 [windows](/uwp/api/windows.gaming.input.forcefeedback) の "名前空間" によってサポートされています。
 
 > [!NOTE]
 > フォース フィードバック API は、複数軸のフォースをサポートできますが、現時点では、ハンドルの回転軸以外の軸でフィードバックをサポートしている Xbox One レーシング ハンドルはありません。
@@ -289,7 +289,7 @@ if (racingwheel->HasPatternShifter)
 
 ### <a name="determining-force-feedback-capabilities"></a>フォース フィードバック機能の特定
 
-接続されているレーシング ハンドルがフォース フィードバックをサポートするかどうかは、レーシング ハンドルの [WheelMotor](https://docs.microsoft.com/uwp/api/windows.gaming.input.racingwheel.wheelmotor#Windows_Gaming_Input_RacingWheel_WheelMotor) プロパティを読み取ることで特定できます。 `WheelMotor` が **null** の場合は、フォース フィードバックはサポートされません。そうでない場合は、フォース フィードバックはサポートされているので、フォース フィードバックが適用される軸など、モーターの特定のフィードバック機能を特定します。
+接続されているレーシング ハンドルがフォース フィードバックをサポートするかどうかは、レーシング ハンドルの [WheelMotor](/uwp/api/windows.gaming.input.racingwheel.wheelmotor#Windows_Gaming_Input_RacingWheel_WheelMotor) プロパティを読み取ることで特定できます。 が null の場合、フォースフィードバックはサポートされていません `WheelMotor` 。それ以外の場合は、フォースフィードバックがサポートされており、それが影響を与える可能性のあるエンジンの特定のフィードバック機能を特定することができます。 **null**
 
 ```cpp
 if (racingwheel->WheelMotor != nullptr)
@@ -315,7 +315,7 @@ if (racingwheel->WheelMotor != nullptr)
 
 ### <a name="loading-force-feedback-effects"></a>フォース フィードバック効果の読み込み
 
-フォース フィードバック効果は、ゲームのコマンドに対して自律的に "再生" されるフィードバック デバイスに読み込まれます。 いくつかの基本的な効果があります。カスタム効果は、 [IForceFeedbackEffect](https://docs.microsoft.com/uwp/api/windows.gaming.input.forcefeedback.iforcefeedbackeffect)インターフェイスを実装するクラスを使用して作成できます。
+フォース フィードバック効果は、ゲームのコマンドに対して自律的に "再生" されるフィードバック デバイスに読み込まれます。 いくつかの基本的な効果があります。カスタム効果は、 [IForceFeedbackEffect](/uwp/api/windows.gaming.input.forcefeedback.iforcefeedbackeffect) インターフェイスを実装するクラスを使用して作成できます。
 
 | Effect クラス         | 効果の説明                                                                     |
 | -------------------- | -------------------------------------------------------------------------------------- |
@@ -369,25 +369,25 @@ else
 
 また、必要な場合はいつでも、特定のレーシング ハンドルで、フォース フィードバック システム全体を非同期に有効化、無効化、またはリセットできます。
 
-## <a name="see-also"></a>「
+## <a name="see-also"></a>関連項目
 
-* [Windows.Gaming.Input.UINavigationController](https://docs.microsoft.com/uwp/api/windows.gaming.input.uinavigationcontroller)
-* [IGameController を入力します。](https://docs.microsoft.com/uwp/api/windows.gaming.input.igamecontroller)
-* [ゲームの入力方法](input-practices-for-games.md)
+* [Windows.Gaming.Input.UINavigationController](/uwp/api/windows.gaming.input.uinavigationcontroller)
+* [Windows.Gaming.Input.IGameController](/uwp/api/windows.gaming.input.igamecontroller)
+* [ゲームの入力プラクティス](input-practices-for-games.md)
 
-[Windows.Gaming.Input]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.aspx
-[Windows.Gaming.Input.UINavigationController]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.uinavigationcontroller.aspx
-[Windows.Gaming.Input.IGameController]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.igamecontroller.aspx
-[racingwheel]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.aspx
-[racingwheels]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.racingwheels.aspx
-[racingwheeladded]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.racingwheeladded.aspx
-[racingwheelremoved]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.racingwheelremoved.aspx
-[haspatternshifter]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.haspatternshifter.aspx
-[hashandbrake]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.hashandbrake.aspx
-[hasclutch]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.hasclutch.aspx
-[maxpatternshiftergear]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.maxpatternshiftergear.aspx
-[maxwheelangle]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.maxwheelangle.aspx
-[getcurrentreading]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.getcurrentreading.aspx
-[wheelmotor]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheel.wheelmotor.aspx
-[racingwheelreading]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheelreading.aspx
-[racingwheelbuttons]: https://msdn.microsoft.com/library/windows/apps/windows.gaming.input.racingwheelbuttons.aspx
+[Windows.Gaming.Input]: /uwp/api/Windows.Gaming.Input
+[Windows.Gaming.Input.UINavigationController]: /uwp/api/Windows.Gaming.Input.UINavigationController
+[Windows.Gaming.Input.IGameController]: /uwp/api/Windows.Gaming.Input.IGameController
+[racingwheel]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[racingwheels]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[racingwheeladded]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[racingwheelremoved]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[haspatternshifter]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[hashandbrake]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[hasclutch]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[maxpatternshiftergear]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[maxwheelangle]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[getcurrentreading]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[wheelmotor]: /uwp/api/Windows.Gaming.Input.RacingWheel
+[racingwheelreading]: /uwp/api/Windows.Gaming.Input.RacingWheelReading
+[racingwheelbuttons]: /uwp/api/Windows.Gaming.Input.RacingWheelButtons

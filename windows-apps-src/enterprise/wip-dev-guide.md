@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Windows 10, UWP, WIP, Windows 情報保護, 企業データ, エンタープライズ データ保護, EDP, 対応アプリ
 ms.assetid: 913ac957-ea49-43b0-91b3-e0f6ca01ef2c
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d026c00b1aec4fd8e80b10c0b86c8bd8145f925
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d6454fdf63fb757c703ec31dba46a86e2a46aec6
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258599"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163256"
 ---
 # <a name="windows-information-protection-wip-developer-guide"></a>Windows 情報保護 (WIP) 開発者向けガイド
 
@@ -21,7 +21,7 @@ ms.locfileid: "74258599"
 
 このガイドでは、こうしたアプリの作成方法について説明します。 アプリの作成が完了すると、ポリシー管理者はこのようなアプリを信頼し、アプリによる組織のデータの利用を許可することができます。 また、従業員からも、組織のモバイル デバイス管理 (MDM) から登録を解除した場合や、完全に組織を去ることになった場合でも、デバイス上の個人データをそのまま残す方法が望まれています。
 
-__注__ このガイドは、UWP アプリを対応アプリにするのに役立ちます。 C++ Windowsデスクトップ アプリを対応アプリにする場合は、「[Windows 情報保護 (WIP) 開発者向けガイド (C++)](https://docs.microsoft.com/previous-versions/windows/desktop/EDP/wip-developer-guide?redirectedfrom=MSDN)」をご覧ください。
+__注__ このガイドは、UWP アプリを対応アプリにするのに役立ちます。 C++ Windowsデスクトップ アプリを対応アプリにする場合は、「[Windows 情報保護 (WIP) 開発者向けガイド (C++)](/previous-versions/windows/desktop/EDP/wip-developer-guide)」をご覧ください。
 
 WIP と対応アプリについて詳しくは、「[Windows 情報保護 (WIP)](wip-hub.md)」をご覧ください。
 
@@ -43,13 +43,13 @@ WIP と対応アプリについて詳しくは、「[Windows 情報保護 (WIP)]
 
 * [テスト VM に WIP セットアップ開発者アシスタントをインストールする](#install-assistant)
 
-* [WIP セットアップ開発者アシスタントを使用して保護ポリシーを作成する](#create-protection-policy)
+* [WIP Setup Developer Assistant を使用して保護ポリシーを作成する](#create-protection-policy)
 
 * [Visual Studio プロジェクトをセットアップする](#setup-vs-project)
 
-* [リモートデバッグのセットアップ](#setup-remote-debugging)
+* [リモート デバッグをセットアップする](#setup-remote-debugging)
 
-* [コードファイルに名前空間を追加する](#add-namespaces)
+* [名前空間をコード ファイルに追加する](#add-namespaces)
 
 <a id="install-assistant" />
 
@@ -61,7 +61,7 @@ WIP と対応アプリについて詳しくは、「[Windows 情報保護 (WIP)]
 
 <a id="create-protection-policy" />
 
-### <a name="create-a-protection-policy"></a>保護ポリシーを作成する
+### <a name="create-a-protection-policy"></a>保護ポリシーの作成
 
 WIP Setup Developer Assistant 内の各セクションに情報を追加することによって、ポリシーを定義します。 その使用方法について詳しくは、すべての設定の横にある [ヘルプ] アイコンを選択します。
 
@@ -82,7 +82,7 @@ WIP Setup Developer Assistant 内の各セクションに情報を追加する�
     ```xml
        <rescap:Capability Name="enterpriseDataPolicy"/>
     ```
-   >*参考情報*: "rescap" プレフィックスは、*制限された機能* を意味しています。 「[特殊な用途および制限された用途に関する機能](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
+   >*参考情報*: "rescap" プレフィックスは、*制限された機能* を意味しています。 「[特殊な用途および制限された用途に関する機能](../packaging/app-capability-declarations.md)」をご覧ください。
 
 4. 次の名前空間をパッケージ マニフェスト ファイルに追加します。
 
@@ -103,7 +103,7 @@ WIP Setup Developer Assistant 内の各セクションに情報を追加する�
 
 VM 以外のコンピューターでアプリを開発している場合にのみ、テスト VM に Visual Studio リモート ツールをインストールします。 次に、開発用コンピューターでリモート デバッガーを起動し、アプリがテスト VM で実行されているかどうかを確認します。
 
-「[リモート PC の手順](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps)」をご覧ください。
+「[リモート PC の手順](../debug-test-perf/deploying-and-debugging-uwp-apps.md)」をご覧ください。
 
 <a id="add-namespaces" />
 
@@ -159,8 +159,8 @@ Windows 情報保護は、アプリが保護ポリシーの許可一覧にある
 
 **このセクションの内容:**
 
-* [ファイルからデータを読み取る](#read-file)
-* [ネットワークエンドポイントからのデータの読み取り](#read-network)
+* [データをファイルから読み取る](#read-file)
+* [データをネットワーク エンドポイントから読み取る](#read-network)
 * [クリップボードからデータを読み取る](#read-clipboard)
 * [共有コントラクトからデータを読み取る](#read-share)
 
@@ -168,7 +168,7 @@ Windows 情報保護は、アプリが保護ポリシーの許可一覧にある
 
 ### <a name="read-data-from-a-file"></a>データをファイルから読み取る
 
-**手順 1: ファイルハンドルを取得する**
+**手順 1: ファイル ハンドルを取得する**
 
 ```csharp
     Windows.Storage.StorageFolder storageFolder =
@@ -178,9 +178,9 @@ Windows 情報保護は、アプリが保護ポリシーの許可一覧にある
         await storageFolder.GetFileAsync(fileName);
 ```
 
-**手順 2: アプリでファイルを開くことができるかどうかを判断する**
+**手順 2: アプリでファイルを開くことができるかどうかを確認する**
 
-[FileProtectionManager.GetProtectionInfoAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.getprotectioninfoasync) を呼び出して、アプリでファイルを開くことができるかどうかを判断します。
+[FileProtectionManager.GetProtectionInfoAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.getprotectioninfoasync) を呼び出して、アプリでファイルを開くことができるかどうかを判断します。
 
 ```csharp
 FileProtectionInfo protectionInfo = await FileProtectionManager.GetProtectionInfoAsync(file);
@@ -197,25 +197,25 @@ else if (protectionInfo.Status == FileProtectionStatus.Revoked)
 }
 ```
 
-[FileProtectionStatus](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionstatus) の値が **Protected** である場合、ファイルは保護されており、アプリがポリシーの許可リストに含まれているため、アプリでファイルを開くことができることを意味します。
+[FileProtectionStatus](/uwp/api/windows.security.enterprisedata.fileprotectionstatus) の値が **Protected** である場合、ファイルは保護されており、アプリがポリシーの許可リストに含まれているため、アプリでファイルを開くことができることを意味します。
 
-[FileProtectionStatus](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionstatus) の値が **UnProtected** である場合、ファイルは保護されていないため、アプリがポリシーの許可リストになくても、アプリでファイルを開くことができることをいみします。
+[FileProtectionStatus](/uwp/api/windows.security.enterprisedata.fileprotectionstatus) の値が **UnProtected** である場合、ファイルは保護されていないため、アプリがポリシーの許可リストになくても、アプリでファイルを開くことができることをいみします。
 
 > **API** <br>
-[FileProtectionManager。 GetProtectionInfoAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.getprotectioninfoasync)<br>
-[FileProtectionInfo](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectioninfo)<br>
-[FileProtectionStatus](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
-[ProtectionPolicyManager. IsIdentityManaged](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)
+[FileProtectionManager.GetProtectionInfoAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.getprotectioninfoasync)<br>
+[FileProtectionInfo](/uwp/api/windows.security.enterprisedata.fileprotectioninfo)<br>
+[FileProtectionStatus](/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
+[ProtectionPolicyManager.IsIdentityManaged](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)
 
-**手順 3: ストリームまたはバッファーへのファイルの読み取り**
+**手順 3: ファイルをストリームまたはバッファーに読み取る**
 
-*ストリームへのファイルの読み取り*
+*ファイルをストリームに読み取る*
 
 ```csharp
 var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
 ```
 
-*ファイルをバッファーに読み込む*
+*ファイルをバッファーに読み取る*
 
 ```csharp
 var buffer = await Windows.Storage.FileIO.ReadBufferAsync(file);
@@ -226,7 +226,7 @@ var buffer = await Windows.Storage.FileIO.ReadBufferAsync(file);
 
 企業のエンドポイントから読み取るように、保護されたスレッド コンテキストを作成します。
 
-**手順 1: ネットワークエンドポイントの id を取得する**
+**手順 1: ネットワーク エンドポイントの ID を取得する**
 
 ```csharp
 Uri resourceURI = new Uri("http://contoso.com/stockData.xml");
@@ -241,10 +241,10 @@ string identity = await ProtectionPolicyManager.
 エンドポイントがポリシーによって管理されていない場合、空の文字が返されます。
 
 > **API** <br>
-[ProtectionPolicyManager. GetPrimaryManagedIdentityForNetworkEndpointAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getprimarymanagedidentityfornetworkendpointasync)
+[ProtectionPolicyManager.GetPrimaryManagedIdentityForNetworkEndpointAsync](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getprimarymanagedidentityfornetworkendpointasync)
 
 
-**手順 2: 保護されたスレッドコンテキストを作成する**
+**手順 2: 保護されたスレッド コンテキストを作成する**
 
 エンドポイントがポリシーによって管理されている場合は、保護されたスレッド コンテキストを作成します。 これにより、同じスレッドで確立されるネットワーク接続が、ID にタグ付けされます。
 
@@ -264,18 +264,18 @@ else
     return await GetDataFromNetworkRedirectHelperMethod(resourceURI);
 }
 ```
-この例では、ソケット呼び出しが ``using`` ブロック内に指定されています。 これを行わない場合は、リソースを取得した後で、スレッド コンテキストを必ず閉じてください。 「[ThreadNetworkContext.Close](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.threadnetworkcontext.close)」をご覧ください。
+この例では、ソケット呼び出しが ``using`` ブロック内に指定されています。 これを行わない場合は、リソースを取得した後で、スレッド コンテキストを必ず閉じてください。 「[ThreadNetworkContext.Close](/uwp/api/windows.security.enterprisedata.threadnetworkcontext.close)」をご覧ください。
 
 この保護されたスレッド上には個人用ファイルを作成しないでください。それらのファイルは自動的に暗号化されるためです。
 
-[  **ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) メソッドは、エンドポイントがポリシーによって管理されているかどうかに関係なく、[**ThreadNetworkContext**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.threadnetworkcontext) オブジェクトを返します。 アプリで個人のリソースと企業のリソースの両方を処理する場合は、すべての ID に対して [**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) を呼び出してください。  リソースを取得したら、ThreadNetworkContext を破棄して、現在のスレッドからすべての ID タグを消去します。
+[**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) メソッドは、エンドポイントがポリシーによって管理されているかどうかに関係なく、[**ThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.threadnetworkcontext) オブジェクトを返します。 アプリで個人のリソースと企業のリソースの両方を処理する場合は、すべての ID に対して [**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) を呼び出してください。  リソースを取得したら、ThreadNetworkContext を破棄して、現在のスレッドからすべての ID タグを消去します。
 
 > **API** <br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)<br>
-[ProtectionPolicyManager. CreateCurrentThreadNetworkContext](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext)
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)<br>
+[ProtectionPolicyManager.CreateCurrentThreadNetworkContext](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext)
 
-**手順 3: リソースをバッファーに読み込む**
+**手順 3: リソースをバッファーに読み取る**
 
 ```csharp
 private static async Task<IBuffer> GetDataFromNetworkHelperMethod(Uri resourceURI)
@@ -290,7 +290,7 @@ private static async Task<IBuffer> GetDataFromNetworkHelperMethod(Uri resourceUR
 }
 ```
 
-**Optional保護されたスレッドコンテキストを作成するのではなく、ヘッダートークンを使用する**
+**(省略可能) 保護されたスレッド コンテキストを作成する代わりにヘッダー トークンを使用する**
 
 ```csharp
 public static async Task<IBuffer> GetDataFromNetworkbyUsingHeader(Uri resourceURI)
@@ -380,18 +380,18 @@ private static async Task<IBuffer> GetDataFromNetworkRedirectHelperMethod(Uri re
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. GetPrimaryManagedIdentityForNetworkEndpointAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getprimarymanagedidentityfornetworkendpointasync)<br>
-[ProtectionPolicyManager. CreateCurrentThreadNetworkContext](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext)<br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
+[ProtectionPolicyManager.GetPrimaryManagedIdentityForNetworkEndpointAsync](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getprimarymanagedidentityfornetworkendpointasync)<br>
+[ProtectionPolicyManager.CreateCurrentThreadNetworkContext](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext)<br>
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
 
 <a id="read-clipboard" />
 
 ### <a name="read-data-from-the-clipboard"></a>クリップボードからデータを読み取る
 
-**クリップボードのデータを使用するためのアクセス許可を取得する**
+**クリップボードからのデータを使用するアクセス許可を取得する**
 
-クリップボードからデータを取得するには、アクセス許可を Windows に要求します。 そのためには、[**DataPackageView.RequestAccessAsync**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync) を使用します。
+クリップボードからデータを取得するには、アクセス許可を Windows に要求します。 そのためには、[**DataPackageView.RequestAccessAsync**](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync) を使用します。
 
 ```csharp
 public static async Task PasteText(TextBox textBox)
@@ -412,9 +412,9 @@ public static async Task PasteText(TextBox textBox)
 ```
 
 > **API** <br>
-[DataPackageView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync)
+[DataPackageView.RequestAccessAsync](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync)
 
-**クリップボードデータを使用する機能を非表示または無効にする**
+**クリップボードのデータを使用する機能を非表示にするか、無効にする**
 
 現在のビューにクリップボードのデータを取得するためのアクセス許可があるかどうかを確認します。
 
@@ -439,11 +439,11 @@ private bool IsClipboardAllowedAsync()
 ```
 
 > **API** <br>
-[Protectionpolicを Valuationresult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)<br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
+[ProtectionPolicyEvaluationResult](/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)<br>
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
 
-**ユーザーに同意を求めるダイアログボックスが表示されないようにする**
+**ユーザーに対して同意ダイアログ ボックスが表示されないようにする**
 
 新しいドキュメントは、*個人用*でも*企業用*でもありません。 そのドキュメントは、単なる新規のドキュメントです。 ユーザーが企業データをそのドキュメントに貼り付ける場合、Windows によってポリシーが適用され、ユーザーに対して同意ダイアログ ボックスが表示されます。 次のコードを使用すると、このような状況が発生しなくなります。 このタスクは、データの保護に役立つものではありません。 このタスクは、アプリで完全に新規の項目を作成する場合に、同意ダイアログ ボックスがユーザーに表示されなくするためのものです。
 
@@ -479,9 +479,9 @@ private async void PasteText(bool isNewEmptyDocument)
 ```
 
 > **API** <br>
-[DataPackageView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync)<br>
-[Protectionpolicを Valuationresult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)<br>
-[ProtectionPolicyManager. TryApplyProcessUIPolicy](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.tryapplyprocessuipolicy)
+[DataPackageView.RequestAccessAsync](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync)<br>
+[ProtectionPolicyEvaluationResult](/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)<br>
+[ProtectionPolicyManager.TryApplyProcessUIPolicy](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.tryapplyprocessuipolicy)
 
 <a id="read-share" />
 
@@ -535,9 +535,9 @@ protected override async void OnShareTargetActivated(ShareTargetActivatedEventAr
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. RequestAccessAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.requestaccessasync)<br>
-[Protectionpolicを Valuationresult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)<br>
-[ProtectionPolicyManager. TryApplyProcessUIPolicy](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.tryapplyprocessuipolicy)
+[ProtectionPolicyManager. RequestAccessAsync](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.requestaccessasync)<br>
+[ProtectionPolicyEvaluationResult](/uwp/api/windows.security.enterprisedata.protectionpolicyevaluationresult)<br>
+[ProtectionPolicyManager.TryApplyProcessUIPolicy](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.tryapplyprocessuipolicy)
 
 ## <a name="protect-enterprise-data"></a>企業データの保護
 
@@ -545,15 +545,15 @@ protected override async void OnShareTargetActivated(ShareTargetActivatedEventAr
 
 **このセクションの内容:**
 
-* [ページに表示されるデータを保護する](#protect-pages)
-* [バックグラウンドプロセスとしてデータをファイルに保護する](#protect-background)
+* [ページ内に表示されるデータを保護する](#protect-pages)
+* [バック グラウンド プロセスとして、データをファイルで保護する](#protect-background)
 * [ファイルの一部を保護する](#protect-part-file)
-* [ファイルの保護された部分を読み取る](#read-protected)
-* [フォルダーへのデータの保護](#protect-folder)
-* [ネットワークエンドポイントへのデータの保護](#protect-network)
-* [アプリが共有コントラクトを通じて共有するデータを保護する](#protect-share)
+* [ファイルの保護されている部分を読み取る](#read-protected)
+* [フォルダーでデータを保護する](#protect-folder)
+* [ネットワーク エンドポイントでデータを保護する](#protect-network)
+* [アプリが共有コントラクトを介して共有しているデータを保護する](#protect-share)
 * [別の場所にコピーしたファイルを保護する](#protect-other-location)
-* [デバイスの画面がロックされているときにエンタープライズデータを保護する](#protect-locked)
+* [デバイスの画面がロックされているときに、企業データを保護する](#protect-locked)
 
 <a id="protect-pages" />
 
@@ -563,7 +563,7 @@ protected override async void OnShareTargetActivated(ShareTargetActivatedEventAr
 
 ビューまたはプロセスにタグを付けるとき、Windows によってポリシーが適用されます。 これにより、アプリで制御できない操作に起因するデータ漏洩を防ぐことができます。 たとえば、コンピューターでユーザーが Ctrl + V キーを使用して、ビューから企業の情報をコピーし、その情報を他のアプリに貼り付けるとします。 Windows では、この操作が行われるのを防ぎます。 また Windows は、共有コントラクトを適用する際にも役立ちます。
 
-**現在のアプリビューにタグを付ける**
+**現在のアプリ ビューにタグを付ける**
 
 アプリに複数のビューがあり、一部のビューで企業データを扱い、一部のビューで個人データを扱う場合に、この操作を行います。
 
@@ -578,8 +578,8 @@ ProtectionPolicyManager.GetForCurrentView().Identity = String.Empty;
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
 
 **プロセスにタグを付ける**
 
@@ -600,7 +600,7 @@ ProtectionPolicyManager.ClearProcessUIPolicy();
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. TryApplyProcessUIPolicy](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.tryapplyprocessuipolicy)
+[ProtectionPolicyManager.TryApplyProcessUIPolicy](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.tryapplyprocessuipolicy)
 
 <a id="protect-file" />
 
@@ -608,7 +608,7 @@ ProtectionPolicyManager.ClearProcessUIPolicy();
 
 保護されたファイルを作成し、そのファイルに書き込みを行います。
 
-**手順 1: アプリでエンタープライズファイルを作成できるかどうかを判断する**
+**手順 1: アプリがエンタープライズ ファイルを作成できるかどうかを確認する**
 
 ID 文字列がポリシーによって管理されており、アプリがポリシーの許可リストに登録されている場合、アプリはエンタープライズ ファイルを作成できます。
 
@@ -617,10 +617,10 @@ ID 文字列がポリシーによって管理されており、アプリがポ�
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. IsIdentityManaged](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)
+[ProtectionPolicyManager.IsIdentityManaged](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)
 
 
-**手順 2: ファイルを作成して id に対して保護する**
+**手順 2: ファイルを作成し、ID で保護する**
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -632,9 +632,9 @@ FileProtectionInfo fileProtectionInfo =
 ```
 
 > **API** <br>
-[FileProtectionManager. ProtectAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.protectasync)
+[FileProtectionManager.ProtectAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.protectasync)
 
-**手順 3: ストリームまたはバッファーをファイルに書き込む**
+**手順 3: ストリームやバッファーをファイルに書き込む**
 
 *ストリームを書き込む*
 
@@ -654,7 +654,7 @@ FileProtectionInfo fileProtectionInfo =
     }
 ```
 
-*バッファーの書き込み*
+*バッファーを書き込む*
 
 ```csharp
      if (fileProtectionInfo.Status == FileProtectionStatus.Protected)
@@ -668,8 +668,8 @@ FileProtectionInfo fileProtectionInfo =
 ```
 
 > **API** <br>
-[FileProtectionInfo](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectioninfo)<br>
-[FileProtectionStatus](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
+[FileProtectionInfo](/uwp/api/windows.security.enterprisedata.fileprotectioninfo)<br>
+[FileProtectionStatus](/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
 
 <a id="protect-background" />
 
@@ -679,7 +679,7 @@ FileProtectionInfo fileProtectionInfo =
 
 ファイルを作成するときに、ファイルのハンドルを開いたままにする方法を使用する必要があります。  
 
-**手順 1: エンタープライズファイルを作成できるかどうかを判断する**
+**手順 1: エンタープライズ ファイルを作成できるかどうかを確認する**
 
 使用している ID がポリシーによって管理されており、アプリがポリシーの許可リストに登録されている場合、エンタープライズ ファイルを作成できます。
 
@@ -688,11 +688,11 @@ if (!ProtectionPolicyManager.IsIdentityManaged(identity)) return false;
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. IsIdentityManaged](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)
+[ProtectionPolicyManager.IsIdentityManaged](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)
 
-**手順 2: ファイルを作成して id に対して保護する**
+**手順 2: ファイルを作成し、ID で保護する**
 
-[  **FileProtectionManager.CreateProtectedAndOpenAsync**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.createprotectedandopenasync) を使用して、保護されたファイルを作成し、そのファイルへの書き込み中はファイルのハンドルを開いたままにしておきます。
+[**FileProtectionManager.CreateProtectedAndOpenAsync**](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.createprotectedandopenasync) を使用して、保護されたファイルを作成し、そのファイルへの書き込み中はファイルのハンドルを開いたままにしておきます。
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -703,9 +703,9 @@ ProtectedFileCreateResult protectedFileCreateResult =
 ```
 
 > **API** <br>
-[FileProtectionManager. CreateProtectedAndOpenAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.createprotectedandopenasync)
+[FileProtectionManager.CreateProtectedAndOpenAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.createprotectedandopenasync)
 
-**手順 3: ファイルにストリームまたはバッファーを書き込む**
+**手順 3: ストリームやバッファーをファイルに書き込む**
 
 この例では、ストリームをファイルに書き込みます。
 
@@ -732,9 +732,9 @@ else if (protectedFileCreateResult.ProtectionInfo.Status == FileProtectionStatus
 ```
 
 > **API** <br>
-[ProtectedFileCreateResult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectedfilecreateresult.protectioninfo)<br>
-[FileProtectionStatus](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
-[ProtectedFileCreateResult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectedfilecreateresult.stream)<br>
+[ProtectedFileCreateResult.ProtectionInfo](/uwp/api/windows.security.enterprisedata.protectedfilecreateresult.protectioninfo)<br>
+[FileProtectionStatus](/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
+[ProtectedFileCreateResult.Stream](/uwp/api/windows.security.enterprisedata.protectedfilecreateresult.stream)<br>
 
 <a id="protect-part-file" />
 
@@ -744,7 +744,7 @@ else if (protectedFileCreateResult.ProtectionInfo.Status == FileProtectionStatus
 
 ファイル全体ではなく、企業データを暗号化します。 これにより、MDM から登録解除したり、企業データのアクセス権が失効している場合でも、ユーザーはそのファイルを引き続き使用することができます。 また、アプリでは、どのようなデータを暗号化するかを追跡する必要があります。これにより、アプリでファイルをメモリに読み取るときに、保護するデータを認識することができます。
 
-**手順 1: 暗号化されたストリームまたはバッファーにエンタープライズデータを追加する**
+**手順 1: 企業データを暗号化されたストリームまたはバッファーに追加する**
 
 ```csharp
 string enterpriseDataString = "<employees><employee><name>Bill</name><social>xxx-xxx-xxxx</social></employee></employees>";
@@ -759,11 +759,11 @@ enterpriseData= result.Buffer;
 ```
 
 > **API** <br>
-[DataProtectionManager. ProtectAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.dataprotectionmanager.protectasync)<br>
-[BufferProtectUnprotectResult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.bufferprotectunprotectresult.buffer)
+[DataProtectionManager.ProtectAsync](/uwp/api/windows.security.enterprisedata.dataprotectionmanager.protectasync)<br>
+[BufferProtectUnprotectResult.buffer](/uwp/api/windows.security.enterprisedata.bufferprotectunprotectresult.buffer)
 
 
-**手順 2: 暗号化されていないストリームまたはバッファーに個人データを追加する**
+**手順 2: 個人データを暗号化されていないストリームまたはバッファーに追加する**
 
 ```csharp
 string personalDataString = "<recipies><recipe><name>BillsCupCakes</name><cooktime>30</cooktime></recipe></recipies>";
@@ -772,7 +772,7 @@ var personalData = Windows.Security.Cryptography.CryptographicBuffer.ConvertStri
     personalDataString, Windows.Security.Cryptography.BinaryStringEncoding.Utf8);
 ```
 
-**手順 3: ストリームまたはバッファーの両方をファイルに書き込む**
+**手順 3: ストリームやバッファーをファイルに書き込む**
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -797,7 +797,7 @@ using (var outputStream = stream.GetOutputStreamAt(0))
 }
 ```
 
-**手順 4: ファイル内のエンタープライズデータの場所を追跡する**
+**手順 4: ファイル内の企業データの位置を追跡する**
 
 ファイル内にある企業が所有しているのデータの追跡は、アプリで実行する必要があります。
 
@@ -819,7 +819,7 @@ await Windows.Storage.FileIO.WriteTextAsync
 
 ファイルから企業データを読み取る方法を次に示します。
 
-**手順 1: ファイル内のエンタープライズデータの位置を取得する**
+**手順 1: ファイル内の企業データの位置を取得する**
 
 ```csharp
 Windows.Storage.StorageFolder storageFolder =
@@ -841,7 +841,7 @@ uint endPosition =
     Convert.ToUInt16((doc.FirstChild.Attributes.GetNamedItem("end")).InnerText);
 ```
 
-**手順 2: データファイルを開き、保護されていないことを確認する**
+**手順 2: データ ファイルを開き、保護されていないことを確認する**
 
 ```csharp
 Windows.Storage.StorageFile dataFile =
@@ -855,11 +855,11 @@ if (protectionInfo.Status == FileProtectionStatus.Protected)
 ```
 
 > **API** <br>
-[FileProtectionManager。 GetProtectionInfoAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.getprotectioninfoasync)<br>
-[FileProtectionInfo](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectioninfo)<br>
-[FileProtectionStatus](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
+[FileProtectionManager.GetProtectionInfoAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.getprotectioninfoasync)<br>
+[FileProtectionInfo](/uwp/api/windows.security.enterprisedata.fileprotectioninfo)<br>
+[FileProtectionStatus](/uwp/api/windows.security.enterprisedata.fileprotectionstatus)<br>
 
-**手順 3: ファイルからエンタープライズデータを読み取る**
+**手順 3: ファイルから企業データを読み取る**
 
 ```csharp
 var stream = await dataFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
@@ -871,7 +871,7 @@ Windows.Storage.Streams.Buffer tempBuffer = new Windows.Storage.Streams.Buffer(5
 IBuffer enterpriseData = await stream.ReadAsync(tempBuffer, endPosition, InputStreamOptions.None);
 ```
 
-**手順 4: エンタープライズデータを含むバッファーの暗号化を解除する**
+**手順 4: 企業データを含んでいるバッファーの暗号化を解除する**
 
 ```csharp
 DataProtectionInfo dataProtectionInfo =
@@ -891,8 +891,8 @@ else if (dataProtectionInfo.Status == DataProtectionStatus.Revoked)
 ```
 
 > **API** <br>
-[DataProtectionInfo](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.dataprotectioninfo)<br>
-[DataProtectionManager. GetProtectionInfoAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.dataprotectionmanager.getstreamprotectioninfoasync)<br>
+[DataProtectionInfo](/uwp/api/windows.security.enterprisedata.dataprotectioninfo)<br>
+[DataProtectionManager.GetProtectionInfoAsync](/uwp/api/windows.security.enterprisedata.dataprotectionmanager.getstreamprotectioninfoasync)<br>
 
 <a id="protect-folder" />
 
@@ -924,10 +924,10 @@ private async Task<bool> CreateANewFolderAndProtectItAsync(string folderName, st
 保護する前に、フォルダーが空であることを確認してください。 項目が既に含まれているフォルダーを保護することはできません。
 
 > **API** <br>
-[ProtectionPolicyManager. IsIdentityManaged](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)<br>
-[FileProtectionManager. ProtectAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.protectasync)<br>
-[FileProtectionInfo。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectioninfo.identity)<br>
-[FileProtectionInfo。状態](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectioninfo.status)
+[ProtectionPolicyManager.IsIdentityManaged](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.isidentitymanaged)<br>
+[FileProtectionManager.ProtectAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.protectasync)<br>
+[FileProtectionInfo.Identity](/uwp/api/windows.security.enterprisedata.fileprotectioninfo.identity)<br>
+[FileProtectionInfo.Status](/uwp/api/windows.security.enterprisedata.fileprotectioninfo.status)
 
 <a id="protect-network" />
 
@@ -935,7 +935,7 @@ private async Task<bool> CreateANewFolderAndProtectItAsync(string folderName, st
 
 保護されたスレッド コンテキストを作成し、そのデータを企業のエンドポイントに送信します。  
 
-**手順 1: ネットワークエンドポイントの id を取得する**
+**手順 1: ネットワーク エンドポイントの ID を取得する**
 
 ```csharp
 Windows.Networking.HostName hostName =
@@ -946,9 +946,9 @@ string identity = await ProtectionPolicyManager.
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. GetPrimaryManagedIdentityForNetworkEndpointAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getprimarymanagedidentityfornetworkendpointasync)
+[ProtectionPolicyManager.GetPrimaryManagedIdentityForNetworkEndpointAsync](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getprimarymanagedidentityfornetworkendpointasync)
 
-**手順 2: 保護されたスレッドコンテキストを作成し、ネットワークエンドポイントにデータを送信する**
+**手順 2: 保護されたスレッド コンテキストを作成し、ネットワーク エンドポイントにデータを送信する**
 
 ```csharp
 HttpClient client = null;
@@ -979,15 +979,15 @@ else
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)<br>
-[ProtectionPolicyManager. CreateCurrentThreadNetworkContext](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext)
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)<br>
+[ProtectionPolicyManager.CreateCurrentThreadNetworkContext](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext)
 
 <a id="protect-share" />
 
 ### <a name="protect-data-that-your-app-shares-through-a-share-contract"></a>アプリが共有コントラクトを介して共有しているデータを保護する
 
-ユーザーがアプリからコンテンツを共有できるようにする場合は、共有コントラクトを実装し、[**DataTransferManager.DataRequested**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested) イベントを処理する必要があります。
+ユーザーがアプリからコンテンツを共有できるようにする場合は、共有コントラクトを実装し、[**DataTransferManager.DataRequested**](/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested) イベントを処理する必要があります。
 
 イベント ハンドラーで、データ パッケージ内に企業の資格情報のコンテキストを設定します。
 
@@ -1013,8 +1013,8 @@ private void OnDataRequested(DataTransferManager sender, DataRequestedEventArgs 
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)
 
 <a id="protect-other-location" />
 
@@ -1037,7 +1037,7 @@ private async void CopyProtectionFromOneFileToAnother
 ```
 
 > **API** <br>
-[FileProtectionManager. CopyProtectionAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.fileprotectionmanager.copyprotectionasync)<br>
+[FileProtectionManager.CopyProtectionAsync](/uwp/api/windows.security.enterprisedata.fileprotectionmanager.copyprotectionasync)<br>
 
 <a id="protect-locked" />
 
@@ -1045,9 +1045,9 @@ private async void CopyProtectionFromOneFileToAnother
 
 デバイスがロックされているときは、メモリ内の機密データをすべて削除します。 ユーザーがデバイスをロック解除したとき、アプリではデータを安全に元に戻すことができます。
 
-画面がロックされていることをアプリで認識できるように、[**ProtectionPolicyManager.ProtectedAccessSuspending**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccesssuspending) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成している場合にのみ発生します。 Windows では、デバイスにプロビジョニングされたデータ保護キーが一時的に削除されます。 Windows によってこれらのキーが削除されるため、デバイスがロックされている間 (デバイスが所有者の手元にない場合も考えられます)、暗号化されたデータに対して未承認のアクセスができなくなります。  
+画面がロックされていることをアプリで認識できるように、[**ProtectionPolicyManager.ProtectedAccessSuspending**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccesssuspending) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成している場合にのみ発生します。 Windows では、デバイスにプロビジョニングされたデータ保護キーが一時的に削除されます。 Windows によってこれらのキーが削除されるため、デバイスがロックされている間 (デバイスが所有者の手元にない場合も考えられます)、暗号化されたデータに対して未承認のアクセスができなくなります。  
 
-画面がロック解除されていることをアプリで認識できるように、[**ProtectionPolicyManager.ProtectedAccessResumed**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成しているかどうかに関係なく発生します。
+画面がロック解除されていることをアプリで認識できるように、[**ProtectionPolicyManager.ProtectedAccessResumed**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成しているかどうかに関係なく発生します。
 
 #### <a name="remove-sensitive-data-in-memory-when-the-screen-is-locked"></a>画面がロックされているときに、メモリの機密データを削除する
 
@@ -1087,19 +1087,19 @@ private async void ProtectionPolicyManager_ProtectedAccessSuspending(object send
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. ProtectedAccessSuspending](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccesssuspending)<br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)</br>
-[DataProtectionManager. ProtectAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.dataprotectionmanager.protectasync)<br>
-[BufferProtectUnprotectResult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.bufferprotectunprotectresult.buffer)<br>
-[ProtectedAccessSuspendingEventArgs](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectedaccesssuspendingeventargs.getdeferral)<br>
-[遅延。完了](https://docs.microsoft.com/uwp/api/windows.foundation.deferral.complete)<br>
+[ProtectionPolicyManager.ProtectedAccessSuspending](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccesssuspending)<br>
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)</br>
+[DataProtectionManager.ProtectAsync](/uwp/api/windows.security.enterprisedata.dataprotectionmanager.protectasync)<br>
+[BufferProtectUnprotectResult.buffer](/uwp/api/windows.security.enterprisedata.bufferprotectunprotectresult.buffer)<br>
+[ProtectedAccessSuspendingEventArgs.GetDeferral](/uwp/api/windows.security.enterprisedata.protectedaccesssuspendingeventargs.getdeferral)<br>
+[Deferral.Complete](/uwp/api/windows.foundation.deferral.complete)<br>
 
 #### <a name="add-back-sensitive-data-when-the-device-is-unlocked"></a>デバイスがロック解除されたときに、機密データを元に戻す
 
-[**ProtectedAccessResumed**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed)は、デバイスのロックが解除され、キーがデバイスで再び使用可能になったときに発生します。
+[**ProtectionPolicyManager.ProtectedAccessResumed**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed) は、デバイスがロック解除され、キーがデバイスで再び利用可能になったときに発生します。
 
-管理者がセキュリティで保護されたデータ保護をロックポリシーで構成していない場合、ProtectedAccessResumedEventArgs は空のコレクションです[ **。** ](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectedaccessresumedeventargs.identities)
+[**ProtectedAccessResumedEventArgs.Identities**](/uwp/api/windows.security.enterprisedata.protectedaccessresumedeventargs.identities) は、管理者がロック ポリシーに従って安全なデータ保護を構成していない場合に、空のコレクションになります。
 
 次の例では、前の例とは逆の処理を実行します。 バッファーの暗号化を解除し、そのバッファーからテキスト ボックスに情報を戻してから、バッファーを破棄します。
 
@@ -1124,15 +1124,15 @@ private async void ProtectionPolicyManager_ProtectedAccessResumed(object sender,
 ```
 
 > **API** <br>
-[ProtectionPolicyManager. ProtectedAccessResumed](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed)<br>
-[ProtectionPolicyManager. GetForCurrentView](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
-[ProtectionPolicyManager。 Id](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager)</br>
-[DataProtectionManager. UnprotectAsync](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.dataprotectionmanager.unprotectasync)<br>
-[BufferProtectUnprotectResult](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.bufferprotectunprotectresult)<br>
+[ProtectionPolicyManager.ProtectedAccessResumed](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed)<br>
+[ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
+[ProtectionPolicyManager.Identity](/uwp/api/windows.security.enterprisedata.protectionpolicymanager)</br>
+[DataProtectionManager.UnprotectAsync](/uwp/api/windows.security.enterprisedata.dataprotectionmanager.unprotectasync)<br>
+[BufferProtectUnprotectResult.Status](/uwp/api/windows.security.enterprisedata.bufferprotectunprotectresult)<br>
 
 ## <a name="handle-enterprise-data-when-protected-content-is-revoked"></a>保護されたコンテンツが無効になった場合の企業データの処理
 
-デバイスが MDM から登録解除されたとき、またはポリシー管理者が企業データへのアクセスを明示的に無効にしたときに、アプリに通知する必要がある場合は、[**ProtectionPolicyManager_ProtectedContentRevoked**](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedcontentrevoked) イベントを処理します。
+デバイスが MDM から登録解除されたとき、またはポリシー管理者が企業データへのアクセスを明示的に無効にしたときに、アプリに通知する必要がある場合は、[**ProtectionPolicyManager_ProtectedContentRevoked**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedcontentrevoked) イベントを処理します。
 
 次の例では、メール アプリ用の企業のメールボックス内にあるデータが無効になっているかどうかを確認します。
 
@@ -1159,8 +1159,8 @@ private void ProtectionPolicyManager_ProtectedContentRevoked(object sender, Prot
 ```
 
 > **API** <br>
-[ProtectionPolicyManager_ProtectedContentRevoked](https://docs.microsoft.com/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedcontentrevoked)<br>
+[ProtectionPolicyManager_ProtectedContentRevoked](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedcontentrevoked)<br>
 
 ## <a name="related-topics"></a>関連トピック
 
-[Windows Information Protection (WIP) のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/EnterpriseDataProtection)
+[Windows 情報保護 (WIP) API のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/EnterpriseDataProtection)

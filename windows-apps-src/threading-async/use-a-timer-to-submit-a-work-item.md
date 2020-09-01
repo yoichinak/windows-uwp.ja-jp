@@ -6,28 +6,28 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, タイマー, スレッド
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c34f50d7b5abec28b11fc67a7e0515f07206060
-ms.sourcegitcommit: eb725a47c700131f5975d737bd9d8a809e04943b
+ms.openlocfilehash: a93b023120957f6335c14a4d40013f51e4e7be2a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88970130"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164116"
 ---
 # <a name="use-a-timer-to-submit-a-work-item"></a>タイマーを使った作業項目の送信
 
 
 <b>重要な API</b>
 
--   [**Windows.UI.Core 名前空間**](https://docs.microsoft.com/uwp/api/Windows.UI.Core)
--   [**Windows.System.Threading 名前空間**](https://docs.microsoft.com/uwp/api/Windows.System.Threading)
+-   [**Windows.UI.Core 名前空間**](/uwp/api/Windows.UI.Core)
+-   [**Windows.System.Threading 名前空間**](/uwp/api/Windows.System.Threading)
 
 タイマーが終了した後に実行される作業項目の作成方法を説明します。
 
 ## <a name="create-a-single-shot-timer"></a>1 回限りのタイマーの作成
 
-[**CreateTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer) メソッドを使って、作業項目に対応するタイマーを作成します。 作業を実行するラムダを指定し、*delay* パラメーターを使って、利用可能なスレッドに作業項目を割り当てることができるようになるまでスレッド プールが待機する時間を指定します。 delay パラメーターは [**TimeSpan**](https://docs.microsoft.com/uwp/api/Windows.Foundation.TimeSpan) 構造体を使って指定します。
+[**CreateTimer**](/uwp/api/windows.system.threading.threadpooltimer.createtimer) メソッドを使って、作業項目に対応するタイマーを作成します。 作業を実行するラムダを指定し、*delay* パラメーターを使って、利用可能なスレッドに作業項目を割り当てることができるようになるまでスレッド プールが待機する時間を指定します。 delay パラメーターは [**TimeSpan**](/uwp/api/Windows.Foundation.TimeSpan) 構造体を使って指定します。
 
-> **メモ**   [**CoreDispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI にアクセスし、作業項目の進行状況を表示することができます。
+> **メモ**   [**CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher.runasync)を使用して UI にアクセスし、作業項目の進行状況を表示することができます。
 
 次の例では、3 分間実行される作業項目を作成します。
 
@@ -87,7 +87,7 @@ ms.locfileid: "88970130"
 
 ## <a name="provide-a-completion-handler"></a>完了ハンドラーの指定
 
-必要であれば、[**TimerDestroyedHandler**](https://docs.microsoft.com/uwp/api/windows.system.threading.timerdestroyedhandler) を使って、作業項目の取り消しと完了を処理します。 追加のラムダを指定するには、[**CreateTimer**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.createtimer) オーバーロードを使います。 これは、タイマーが取り消されたとき、または作業項目が完了したときに実行されます。
+必要であれば、[**TimerDestroyedHandler**](/uwp/api/windows.system.threading.timerdestroyedhandler) を使って、作業項目の取り消しと完了を処理します。 追加のラムダを指定するには、[**CreateTimer**](/uwp/api/windows.system.threading.threadpooltimer.createtimer) オーバーロードを使います。 これは、タイマーが取り消されたとき、または作業項目が完了したときに実行されます。
 
 次の例では、作業項目を送信するタイマーを作成し、作業項目が完了したとき、またはタイマーが取り消されたときにメソッドを呼び出します。
 
@@ -207,7 +207,7 @@ ms.locfileid: "88970130"
 
 ## <a name="cancel-the-timer"></a>タイマーの取り消し
 
-タイマーがカウント ダウンを続けているが、作業項目はもう不要である場合は、[**Cancel**](https://docs.microsoft.com/uwp/api/windows.system.threading.threadpooltimer.cancel) を呼び出します。 タイマーが取り消され、作業項目がスレッド プールに送信されなくなります。
+タイマーがカウント ダウンを続けているが、作業項目はもう不要である場合は、[**Cancel**](/uwp/api/windows.system.threading.threadpooltimer.cancel) を呼び出します。 タイマーが取り消され、作業項目がスレッド プールに送信されなくなります。
 
 > [!div class="tabbedCodeSnippets"]
 > ``` csharp
@@ -217,9 +217,9 @@ ms.locfileid: "88970130"
 > DelayTimer->Cancel();
 > ```
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
-ユニバーサル Windows プラットフォーム (UWP) アプリでは UI スレッドをブロックできるため、**Thread.Sleep** を使うことができません。 代わりに、[**ThreadPoolTimer**](https://docs.microsoft.com/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って作業項目を作ります。これによって、UI スレッドをブロックすることなく、作業項目によって実行されたタスクを遅延します。
+ユニバーサル Windows プラットフォーム (UWP) アプリでは UI スレッドをブロックできるため、**Thread.Sleep** を使うことができません。 代わりに、[**ThreadPoolTimer**](/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って作業項目を作ります。これによって、UI スレッドをブロックすることなく、作業項目によって実行されたタスクを遅延します。
 
 作業項目、タイマー作業項目、定期的な作業項目の使い方を示すコード サンプル全体については、[スレッド プールのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Thread%20pool%20sample)をご覧ください。 コード サンプルは、当初、Windows 8.1 用に作成されましたが、コードは Windows 10 で再利用できます。
 

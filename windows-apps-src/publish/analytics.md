@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10、uwp、分析、レポート、ダッシュボード、アプリ、データ、メトリック
 ms.localizationpriority: medium
-ms.openlocfilehash: 13cd8d08fb4c93bdcc273e84fbfdcfe986f28140
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: 9b14ee776b31e21fbb8a0ee1d66b933648549b69
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846722"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162086"
 ---
 # <a name="analyze-app-performance"></a>アプリのパフォーマンスの分析
 
@@ -37,7 +37,7 @@ ms.locfileid: "88846722"
 -   [Xbox 分析レポート](xbox-analytics-report.md)
 -   [インサイト レポート](insights-report.md)
 -   [広告パフォーマンス レポート](advertising-performance-report.md)
--   [広告キャンペーン レポート](promote-your-app-report.md)
+-   [広告キャンペーン レポート](/windows/uwp/publish/ad-campaign-report)
 
 
 > [!NOTE]
@@ -64,4 +64,4 @@ Power BI を使って分析データにアクセスするには、まず、次�
 * [Power BI 用 Windows デベロッパー センター コンテンツ パックを使って分析データに接続する方法](https://powerbi.microsoft.com/documentation/powerbi-content-pack-windows-dev-center/)
 
 > [!NOTE]
-> Power BI 用に Windows デベロッパーセンターコンテンツパックに接続するには、パートナーセンターアカウントに関連付けられている Azure AD ディレクトリから資格情報を指定することをお勧めします。 Microsoft アカウントの資格情報を使う場合は、Power BI の分析データが自動的に更新されないため、Power BI にサインインしてデータを更新する必要があります。 組織で既に Microsoft の Microsoft 365 またはその他のビジネスサービスを使用している場合は、既に Azure AD があります。 それ以外の場合は、[こちらから無料で入手](https://account.azure.com/organization)できます。 アソシエーションの設定の詳細については、「 [Azure Active Directory とパートナーセンターアカウントの関連付け](associate-azure-ad-with-dev-center.md)」を参照してください。
+> Power BI 用に Windows デベロッパーセンターコンテンツパックに接続するには、パートナーセンターアカウントに関連付けられている Azure AD ディレクトリから資格情報を指定することをお勧めします。 Microsoft アカウントの資格情報を使う場合は、Power BI の分析データが自動的に更新されないため、Power BI にサインインしてデータを更新する必要があります。 組織で既に Microsoft の Microsoft 365 またはその他のビジネスサービスを使用している場合は、既に Azure AD があります。 それ以外の場合は、[こちらから無料で入手](https://account.azure.com/organization)できます。 アソシエーションの設定の詳細については、「 [Azure Active Directory とパートナーセンターアカウントの関連付け](./associate-azure-ad-with-partner-center.md)」を参照してください。

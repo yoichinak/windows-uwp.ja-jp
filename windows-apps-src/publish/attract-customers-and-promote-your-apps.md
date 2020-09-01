@@ -5,12 +5,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2532683c7f5762f35640ef7e80180827404cde73
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: b6ffbbb13646fe085fa81c99f4ecf45e328a01f7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943032"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164266"
 ---
 # <a name="attract-customers-and-promote-your-apps"></a>ユーザーへのアピールとアプリの宣伝
 
@@ -105,21 +105,21 @@ ms.locfileid: "88943032"
 
 [ダッシュボードで広告キャンペーンを作成する](create-an-ad-campaign-for-your-app.md)
 
-[REST API を使って広告キャンペーンを作成する](https://docs.microsoft.com/windows/uwp/monetize/run-ad-campaigns-using-windows-store-services)
+[REST API を使って広告キャンペーンを作成する](../monetize/run-ad-campaigns-using-windows-store-services.md)
 
-[ダッシュ ボードでのキャンペーンのパフォーマンス データを確認する](promote-your-app-report.md)
+[ダッシュ ボードでのキャンペーンのパフォーマンス データを確認する](/windows/uwp/publish/ad-campaign-report)
 
-[REST API を使って、キャンペーンのパフォーマンス データを取得する](https://docs.microsoft.com/windows/uwp/monetize/)
+[REST API を使って、キャンペーンのパフォーマンス データを取得する](../monetize/index.md)
 
 ## <a name="promotion-analytics"></a>販売促進の分析
 
 ![販売促進の分析](images/ads-promotion-analytics.png)
 
-[広告キャンペーン レポート](promote-your-app-report.md)
+[広告キャンペーン レポート](/windows/uwp/publish/ad-campaign-report)
 
 [[取得] レポート](acquisitions-report.md)
 
-[REST API を使用して分析データを取得する](https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services)
+[REST API を使用して分析データを取得する](../monetize/access-analytics-data-using-windows-store-services.md)
 
 ## <a name="other-ways-to-promote-your-app"></a>アプリの販売を促進するその他の方法
 
