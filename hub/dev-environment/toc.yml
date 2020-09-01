@@ -60,21 +60,21 @@
             - name: デバイスまたはエミュレーターでのテスト
               href: ../android/emulator.md
         - name: C および C++ の概要
-          href: 'https://docs.microsoft.com/cpp/'
+          href: /cpp/
         - name: C# の概要
-          href: 'https://docs.microsoft.com/dotnet/csharp/'
+          href: /dotnet/csharp/
         - name: Azure での Java の概要
-          href: 'https://docs.microsoft.com/azure/developer/java/'
+          href: /azure/developer/java/
         - name: PowerShell の概要
-          href: 'https://docs.microsoft.com/powershell/'
+          href: /powershell/
         - name: WSL のデータベースの概要
-          href: 'https://docs.microsoft.com/windows/wsl/tutorials/wsl-database'
+          href: /windows/wsl/tutorials/wsl-database
     - name: ツールとプラットフォーム
       items:
         - name: Linux 用 Windows サブシステム
-          href: 'https://docs.microsoft.com/windows/wsl/'
+          href: /windows/wsl/
         - name: Windows ターミナル
-          href: 'https://docs.microsoft.com/windows/terminal/'
+          href: /windows/terminal/
         - name: Windows パッケージ マネージャー
           items:
             - name: 概要
@@ -110,8 +110,8 @@
         - name: VS Code
           href: 'https://code.visualstudio.com/docs'
         - name: "Visual\_Studio"
-          href: 'https://docs.microsoft.com/visualstudio/windows/?view=vs-2019'
+          href: /visualstudio/windows/?view=vs-2019
         - name: Azure
-          href: 'https://docs.microsoft.com/azure/?product=featured'
+          href: /azure/?product=featured
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/'
+          href: /dotnet/

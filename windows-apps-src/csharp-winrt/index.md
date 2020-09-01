@@ -5,12 +5,12 @@ ms.date: 05/19/2020
 ms.topic: article
 keywords: Windows 10, UWP, Standard, C#, winrt, cswinrt, プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: e52763d78937405b308c4c4fe06f6d231fa3abcf
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 8fb098cb247890dc1b3919f6123b76b54366d60f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83580279"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154326"
 ---
 # <a name="cwinrt"></a>C#/WinRT
 
@@ -23,9 +23,9 @@ C#/WinRT は現在、WinRT 型を使用するためのサポートを提供し�
 
 ## <a name="motivation-for-cwinrt"></a>C#/WinRT の動機
 
-[.NET Core](https://docs.microsoft.com/dotnet/core/) は、.NET プラットフォームの焦点であり、.NET 5 は次のメジャー リリースです。 これは、デバイス、クラウド、IoT のアプリケーションを構築するために使用できる、オープンソースのクロスプラットフォーム ランタイムです。
+[.NET Core](/dotnet/core/) は、.NET プラットフォームの焦点であり、.NET 5 は次のメジャー リリースです。 これは、デバイス、クラウド、IoT のアプリケーションを構築するために使用できる、オープンソースのクロスプラットフォーム ランタイムです。
 
-以前のバージョンの .NET Framework と .NET Core には、Windows 固有のテクノロジである WinRT に関する知識が組み込まれていました。 .NET 5 の移植性と効率性の目標をサポートするために、WinRT プロジェクション サポートを .NET コンパイラとランタイムから取り出して、C# /WinRT ツールキットに移動しました。 C#/WinRT の目標は、以前のバージョンの C# コンパイラおよび .NET ランタイムで提供されている組み込みの WinRT サポートと同等の機能を提供することです。 詳細については、「[Windows ランタイム型の .NET マッピング](https://docs.microsoft.com/windows/uwp/winrt-components/net-framework-mappings-of-windows-runtime-types)」を参照してください。
+以前のバージョンの .NET Framework と .NET Core には、Windows 固有のテクノロジである WinRT に関する知識が組み込まれていました。 .NET 5 の移植性と効率性の目標をサポートするために、WinRT プロジェクション サポートを .NET コンパイラとランタイムから取り出して、C# /WinRT ツールキットに移動しました。 C#/WinRT の目標は、以前のバージョンの C# コンパイラおよび .NET ランタイムで提供されている組み込みの WinRT サポートと同等の機能を提供することです。 詳細については、「[Windows ランタイム型の .NET マッピング](../winrt-components/net-framework-mappings-of-windows-runtime-types.md)」を参照してください。
 
 C#/WinRT では、WinUI 3.0 もサポートされています。 このリリースの WinUI は、ネイティブの Microsoft UI コントロールと機能をオペレーティング システムから取り出します。 これにより、アプリ開発者は、Windows 10 バージョン1803 以降のリリースで最新のコントロールとビジュアルを使用できます。
 
@@ -124,7 +124,7 @@ Windows が前述の型のアクティブ化に失敗した場合、C#/WinRT に
 2. Contoso.Controls.dll
 3. Contoso.dll
 
-C#/WinRT は、[LoadLibrary 代替検索順序](https://docs.microsoft.com/windows/win32/dlls/dynamic-link-library-search-order?#alternate-search-order-for-desktop-applications)を使用して実装 DLL を見つけます。 このフォールバック動作に依存するアプリは、アプリ モジュールと共に実装 DLL をパッケージする必要があります。
+C#/WinRT は、[LoadLibrary 代替検索順序](/windows/win32/dlls/dynamic-link-library-search-order#alternate-search-order-for-desktop-applications)を使用して実装 DLL を見つけます。 このフォールバック動作に依存するアプリは、アプリ モジュールと共に実装 DLL をパッケージする必要があります。
 
 ## <a name="known-issues"></a>既知の問題
 

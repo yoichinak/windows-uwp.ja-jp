@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: cb82c137bf2aa0d1cd4e03025d3babace07549b5
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 151abd02b34263cdd92b917127f306c25ebc5e0d
+ms.sourcegitcommit: deb2867924ce16efcabfa011892157b7aa4fa2d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173416"
+ms.locfileid: "89187839"
 ---
 # <a name="keyboard-events"></a>キーボード イベント
 
@@ -107,15 +107,16 @@ void MyProject::MainPage::Grid_KeyUp(
 
 修飾キーは、Ctrl、Shift など、一般的に他のキーと組み合わせて押されるキーです。 アプリでは、これらのキーの組み合わせをキーボード ショートカットとして使って、アプリ コマンドを呼び出すことができます。
 
-ショートカット キーの組み合わせを検出するには、[**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) イベント ハンドラーや [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) イベント ハンドラーでコードを使います。 目的とする修飾キーが押された状態を追跡することができます。 修飾キー以外のキーのキーボード イベントが発生した場合は、同時に修飾キーが押された状態になっていないかどうかを調べることができます。
+ショートカットキーの組み合わせは、 [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) イベントハンドラーと [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) イベントハンドラーで検出できます。 非修飾キーに対してキーボードイベントが発生した場合は、修飾子キーが押された状態であるかどうかを確認できます。
+
+または、 [**corewindow**](/uwp/api/windows.ui.core.corewindow)の[**getkeystate ()**](/uwp/api/windows.ui.core.corewindow.getkeystate)関数を使用[**して、**](/uwp/api/windows.ui.core.corewindow.getforcurrentthread)非修飾キーが押されたときに、修飾子の状態を確認することもできます。
+
+次の例では、この2番目のメソッドを実装していますが、最初の実装のスタブコードも含まれています。
 
 > [!NOTE]
 > Alt キーは **VirtualKey.Menu** 値で表されます。
 
- 
-
 ### <a name="shortcut-keys-example"></a>ショートカット キーの例
-
 
 ショートカット キーを実装する方法を次の例で示します。 この例では、ユーザーは [Play]、[Pause]、[Stop] の各ボタンまたは Ctrl + P、Ctrl + A、Ctrl + S の各キーボード ショートカットを使って、メディアの再生を制御できます。 ボタンの XAML では、ボタン ラベルのヒントや [**AutomationProperties**](/uwp/api/Windows.UI.Xaml.Automation.AutomationProperties) プロパティを使って、ショートカット キーを示します。 このアプリ内の説明は、アプリの操作性とアクセシビリティを向上させるために重要です。 詳しくは、「[キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)」をご覧ください。
 

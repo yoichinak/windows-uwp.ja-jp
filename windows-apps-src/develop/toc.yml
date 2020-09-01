@@ -285,7 +285,7 @@
         - name: UWP でファイルのプロパティにすばやくアクセスする
           href: ../files/fast-file-properties.md
     - name: Machine Learning
-      href: 'https://docs.microsoft.com/windows/ai/'
+      href: /windows/ai/
 - name: 展開
   items:
     - name: UWP バージョンの選択
@@ -727,7 +727,7 @@
         - name: 市販デモ (RDX) 機能の追加
           href: ../monetize/retail-demo-experience.md
         - name: 支払い要求 API で支払いを簡略化する
-          href: ../monetize/payment-request.md
+          href: ../monetize/index.md
     - name: アプリのパッケージ化
       items:
         - name: 概要
@@ -1276,7 +1276,7 @@
         - name: 'ケース スタディ: Bookstore2'
           href: ../porting/wpsl-to-uwp-case-study-bookstore2.md
     - name: Windows 10 で Web アプリを PWA アプリに変換する
-      href: 'https://docs.microsoft.com/microsoft-edge/progressive-web-apps'
+      href: /microsoft-edge/progressive-web-apps
       items:
         - name: Windows 7 アプリを PWA としてパッケージ化する
           href: 'https://docs.pwabuilder.com/jekyll/update/2018/02/03/how-to-package-windows7.html'

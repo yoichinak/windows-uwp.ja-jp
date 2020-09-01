@@ -3,12 +3,12 @@ title: WinUI のリリース ノート
 description: WinUI リリース ノートのインデックス。
 ms.date: 07/15/2020
 ms.topic: reference
-ms.openlocfilehash: 4161b8d8a74ffc493c44bba5104c54cb911861c6
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 33d4b9dfb497017f446549d4f3daf737a8fa5ebb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492877"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166696"
 ---
 # <a name="windows-ui-library-2x-release-notes"></a>Windows UI ライブラリ 2.x のリリース ノート
 
@@ -22,7 +22,7 @@ WinUI には、次の 2 つの NuGet パッケージが含まれています。
 
 * [Microsoft.UI.Xaml.Core.Direct](https://www.nuget.org/packages/Microsoft.UI.Xaml.Core.Direct):ミドルウェア コンポーネントで使用するための下位 API。
 
-WinUI パッケージをダウンロードして、NuGet パッケージ マネージャーを使用してアプリ内で使用できます。詳細については、「[Windows UI ライブラリの使用を開始する](https://docs.microsoft.com/uwp/toolkits/winui/getting-started)」を参照してください。
+WinUI パッケージをダウンロードして、NuGet パッケージ マネージャーを使用してアプリ内で使用できます。詳細については、「[Windows UI ライブラリの使用を開始する](/uwp/toolkits/winui/getting-started)」を参照してください。
 
 ## <a name="examples"></a>例
 

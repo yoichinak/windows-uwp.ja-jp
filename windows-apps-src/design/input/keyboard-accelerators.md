@@ -10,12 +10,12 @@ pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 785047b3ee5f18fa4f6ea8fd78f6d8ab7a92e8e6
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8a3231f608984c9d1f67df71de9cab4cfecd9a13
+ms.sourcegitcommit: deb2867924ce16efcabfa011892157b7aa4fa2d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173426"
+ms.locfileid: "89187897"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 
@@ -386,7 +386,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 
 *ヒントでのアクセラレータ キーの組み合わせ*
 
-[Button](/uwp/api/windows.ui.xaml.controls.button)、 [appbarbutton](/uwp/api/windows.ui.xaml.controls.appbarbutton)、および[appbarbutton](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)オブジェクトでは、キーボードアクセスキーがコントロールの既定のツールヒントに追加されます。 [Menuflyoutitem](/uwp/api/windows.ui.xaml.controls.appbarbutton)および[ToggleMenuFlyoutItem](/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)) オブジェクトの場合、キーボードアクセスキーがポップアップテキストと共に表示されます。
+[Button](/uwp/api/windows.ui.xaml.controls.button)、 [appbarbutton](/uwp/api/windows.ui.xaml.controls.appbarbutton)、および[appbarbutton](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)オブジェクトでは、キーボードアクセスキーがコントロールの既定のツールヒントに追加されます。 [Menuflyoutitem](/uwp/api/windows.ui.xaml.controls.appbarbutton)および[ToggleMenuFlyoutItem](/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)オブジェクトの場合、キーボードアクセスキーがポップアップテキストと共に表示されます。
 
 > [!NOTE]
 > ツールヒント (次の例では Button1 を参照) を指定すると、この動作がオーバーライドされます。

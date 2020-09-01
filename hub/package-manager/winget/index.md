@@ -4,12 +4,12 @@ description: winget コマンド ライン ツールを使用すると、開発�
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 3b3f108de117fb937a7a670497a4a1a1d5810aca
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: 4c918dccb2873f47a16669c195c47180e2129476
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334539"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168746"
 ---
 # <a name="use-the-winget-tool-to-install-and-manage-applications"></a>winget ツールを使用したアプリケーションのインストールと管理
 
@@ -38,7 +38,7 @@ ms.locfileid: "85334539"
 
 * 管理者特権を使用せずに **winget** を実行している場合、アプリケーションによっては、インストールするために[昇格が必要](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/)になる可能性があります。 インストーラーが実行されると、Windows は、[昇格](https://docs.microsoft.com/windows/security/identity-protection/user-account-control)を求めるメッセージを表示します。 昇格しないことを選択すると、アプリケーションのインストールは失敗します。  
 
-* 管理者コマンド プロンプトで **winget** を実行しているときは、アプリケーションで必要とする場合に[昇格のプロンプト](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)は表示されません。 管理者としてコマンド プロンプトを実行しているときは常に注意し、信頼できるアプリケーションのみをインストールしてください。
+* 管理者コマンド プロンプトで **winget** を実行しているときは、アプリケーションで必要とする場合に[昇格のプロンプト](/windows/security/identity-protection/user-account-control/how-user-account-control-works)は表示されません。 管理者としてコマンド プロンプトを実行しているときは常に注意し、信頼できるアプリケーションのみをインストールしてください。
 
 ## <a name="use-winget"></a>winget を使用する
 

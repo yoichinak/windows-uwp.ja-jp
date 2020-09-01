@@ -490,19 +490,19 @@
       href: input/cortana-interactions.md
       items:
         - name: 設計ガイドライン
-          href: 'https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines'
+          href: /cortana/voice-commands/voicecommand-design-guidelines
         - name: フォアグラウンド アプリのアクティブ化
-          href: 'https://docs.microsoft.com/cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana'
+          href: /cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana
         - name: 音声コマンド定義 (VCD) の語句一覧の動的変更
-          href: 'https://docs.microsoft.com/cortana/voice-commands/dynamically-modify-voice-command-definition-vcd-phrase-lists'
+          href: /cortana/voice-commands/dynamically-modify-voice-command-definition-vcd-phrase-lists
         - name: バックグラウンド アプリの起動
-          href: 'https://docs.microsoft.com/cortana/voice-commands/launch-a-background-app-with-voice-commands-in-cortana'
+          href: /cortana/voice-commands/launch-a-background-app-with-voice-commands-in-cortana
         - name: バックグラウンド アプリの操作
-          href: 'https://docs.microsoft.com/cortana/voice-commands/interact-with-a-background-app-in-cortana'
+          href: /cortana/voice-commands/interact-with-a-background-app-in-cortana
         - name: バックグラウンド アプリからのディープ リンク
-          href: 'https://docs.microsoft.com/cortana/voice-commands/deep-link-into-your-app-from-cortana'
+          href: /cortana/voice-commands/deep-link-into-your-app-from-cortana
         - name: 自然言語音声コマンドのサポート
-          href: 'https://docs.microsoft.com/cortana/voice-commands/support-natural-language-voice-commands-in-cortana'
+          href: /cortana/voice-commands/support-natural-language-voice-commands-in-cortana
     - name: 複数の入力
       href: input/multiple-input-design-guidelines.md
     - name: 入力の挿入

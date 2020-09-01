@@ -8,12 +8,12 @@ ms.date: 03/23/2020
 ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
-ms.openlocfilehash: 82e6d91b5a4147237cd04b46dc5b69b8151fece9
-ms.sourcegitcommit: 6dd6d61c912daab2cc4defe5ba0cf717339f7765
+ms.openlocfilehash: 08471b8a04d37c34378b549b8534979a4188d7b8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84978384"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173956"
 ---
 # <a name="controls-for-windows-apps"></a>Windows アプリ用のコントロール
 
@@ -44,7 +44,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | 一部のコントロールは、Windows UI ライブラリ (WinUI) (新しいコントロールと UI 機能を含む NuGet パッケージ) でのみ入手可能です。 これを入手する場合は、[Windows UI ライブラリの概要とインストール手順](/uwp/toolkits/winui/)に関するページを参照してください。<br/>WinUI 2.2 から、多くのコントロールで既定のスタイルが更新され、角の丸めを使用するようになりました。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | 一部のコントロールは、Windows UI ライブラリ (WinUI) (新しいコントロールと UI 機能を含む NuGet パッケージ) でのみ入手可能です。 これを入手する場合は、[Windows UI ライブラリの概要とインストール手順](/uwp/toolkits/winui/)に関するページを参照してください。<br/>WinUI 2.2 から、多くのコントロールで既定のスタイルが更新され、角の丸めを使用するようになりました。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 |
 
 ## <a name="alphabetical-index"></a>アルファベット順インデックス
 
@@ -79,7 +79,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 - [画像とイメージ ブラシ](images-imagebrushes.md)
 - [インク コントロール](inking-controls.md)
 - [リスト ビュー](listview-and-gridview.md)
-- [マップ コントロール](../../maps-and-location/controls-map.md)
+- [マップ コントロール](../../maps-and-location/display-maps.md)
 - [マスターと詳細](master-details.md) (パターン)
 - [メディア再生](media-playback.md)
 - [メニュー バー](menus.md#create-a-menu-bar) ![WinUI ロゴ](images/winui-logo-16x16.png)
