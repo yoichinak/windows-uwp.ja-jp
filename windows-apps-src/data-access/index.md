@@ -6,12 +6,12 @@ ms.date: 11/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, データ, データベース, リレーショナル, テーブル, sqlite
 ms.localizationpriority: medium
-ms.openlocfilehash: 80cf97a7336fe912baf5cda151560dacfa12c2e2
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: d324c5b17e167b841761b92507eec2134e4b7009
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71339717"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173646"
 ---
 # <a name="data-access"></a>データ アクセス
 
@@ -20,7 +20,7 @@ SQLite データベースを使用することで、ユーザーのデバイス�
 | トピック | 説明|
 |-------|------------|
 | [UWP アプリでの SQLite データベースの使用](sqlite-databases.md) | SQLite を使用して、ユーザー デバイス上の軽量なデータベースにデータを保存し、取得する方法を示します。 SQLite は、サーバーを使わない埋め込みデータベース エンジンです。 |
-| [UWP アプリでの SQL Server データベースの使用](sql-server-databases.md) | [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得する方法を示します。 必要なサービス レイヤーはありません。 |
+| [UWP アプリでの SQL Server データベースの使用](sql-server-databases.md) | [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得する方法を示します。 必要なサービス レイヤーはありません。 |
 
 ## <a name="related-topics"></a>関連トピック
 

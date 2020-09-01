@@ -6,12 +6,12 @@ ms.date: 10/04/2017
 ms.topic: article
 keywords: windows 10, uwp, バックグラウンド タスク, アプリ サービス, 接続済みのデバイス, リモート システム
 ms.localizationpriority: medium
-ms.openlocfilehash: 9280a240f35c2fdf5290c94d837e2fafc008dbfd
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 3e3a8266c3f1f9ce80496770fb79c96be5db9d6b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80483008"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158734"
 ---
 # <a name="launching-resuming-and-background-tasks"></a>起動、再開、およびバックグラウンド タスク
 
@@ -95,7 +95,7 @@ ms.locfileid: "80483008"
 | トピック | 説明 |
 |-------|-------------|
 | [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)                                       | アプリがバックグラウンド タスクを実行するための要件を満たしていることを確認します。 |
-| [バックグラウンド タスクからのセンサーやデバイスへのアクセス](access-sensors-and-devices-from-a-background-task.md)   | [**DeviceUseTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.DeviceUseTrigger) を使うと、フォアグラウンド アプリが中断しているときにも、バックグラウンドでユニバーサル Windows アプリからセンサーや周辺機器にアクセスできます。 |
+| [バックグラウンド タスクからのセンサーやデバイスへのアクセス](access-sensors-and-devices-from-a-background-task.md)   | [**DeviceUseTrigger**](/uwp/api/Windows.ApplicationModel.Background.DeviceUseTrigger) を使うと、フォアグラウンド アプリが中断しているときにも、バックグラウンドでユニバーサル Windows アプリからセンサーや周辺機器にアクセスできます。 |
 | [インプロセス バックグラウンド タスクの作成と登録](create-and-register-an-inproc-background-task.md)       | フォアグラウンド アプリと同じプロセスで実行されるバックグラウンド タスクを作成して登録します。 |
 | [アウトプロセス バックグラウンド タスクの作成と登録](create-and-register-a-background-task.md)           | アプリとは別のプロセスで実行されるバックグラウンド タスクを作成して登録し、アプリがフォアグラウンドにないときに実行するように登録します。 |
 | [winmain アプリの COM バックグラウンド タスクを作成して登録する](create-and-register-a-winmain-background-task.md) | パッケージ化された winmain アプリが実行されていない可能性がある場合に、メイン プロセス内またはプロセス外で実行できる COM バックグラウンド タスクを作成します。 |
@@ -105,16 +105,16 @@ ms.locfileid: "80483008"
 | [バックグラウンド タスクの登録のグループ化](group-background-tasks.md)                                             | グループによってバックグラウンド タスクの登録を分離します。 |
 | [取り消されたバックグラウンド タスクの処理](handle-a-cancelled-background-task.md)                                 | 取り消し要求を認識し、作業を停止して、固定ストレージを使っているアプリの取り消しを報告するバックグラウンド タスクの作成方法について説明します。 |
 | [バックグラウンド タスクの進捗状況と完了の監視](monitor-background-task-progress-and-completion.md)       | バックグラウンド タスクの進行状況と完了をアプリから認識する方法について説明します。 |
-| [バックグラウンド アクティビティの最適化](https://docs.microsoft.com/windows/uwp/debug-test-perf/optimize-background-activity) |バックグラウンドで消費されるエネルギーを低減する方法や、バックグラウンド アクティビティの設定を操作する方法を説明します。 |
+| [バックグラウンド アクティビティの最適化](../debug-test-perf/optimize-background-activity.md) |バックグラウンドで消費されるエネルギーを低減する方法や、バックグラウンド アクティビティの設定を操作する方法を説明します。 |
 | [バックグラウンド タスクの登録](register-a-background-task.md)                                                 | ほとんどのバックグラウンド タスクを安全に登録できる再利用可能な関数の作成方法について説明します。 |
-| [バックグラウンド タスクによるシステム イベントへの応答](respond-to-system-events-with-background-tasks.md)         | [  **SystemTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType) イベントに応答するバックグラウンド タスクを作成する方法について説明します。 |
+| [バックグラウンド タスクによるシステム イベントへの応答](respond-to-system-events-with-background-tasks.md)         | [**SystemTrigger**](/uwp/api/Windows.ApplicationModel.Background.SystemTriggerType) イベントに応答するバックグラウンド タスクを作成する方法について説明します。 |
 | [タイマーでのバックグラウンド タスクの実行](run-a-background-task-on-a-timer-.md)                                    | 1 回限りのバックグラウンド タスクをスケジュールする方法、または定期的なバックグラウンド タスクを実行する方法について説明します。 |
 | [バックグラウンドで無期限に実行する](run-in-the-background-indefinetly.md)                                    | 機能を使用すると、バックグラウンドで無期限にバックグラウンド タスクまたは延長実行セッションを実行できます。 |
-| [アプリ内からのバックグラウンド タスクのトリガー](trigger-background-task-from-app.md) | [ApplicationTrigger](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger) を使ってアプリ内からバックグラウンド タスクをアクティブ化する方法について説明します。|
+| [アプリ内からのバックグラウンド タスクのトリガー](trigger-background-task-from-app.md) | [ApplicationTrigger](/uwp/api/Windows.ApplicationModel.Background.ApplicationTrigger) を使ってアプリ内からバックグラウンド タスクをアクティブ化する方法について説明します。|
 | [バックグラウンド タスクを実行するための条件の設定](set-conditions-for-running-a-background-task.md)             | バックグラウンド タスクをいつ実行するかを制御する条件の設定方法について説明します。 |
-| [バックグラウンドでのデータの転送](https://docs.microsoft.com/windows/uwp/networking/background-transfers)                 | バックグラウンド転送 API を使って、バックグラウンドでファイルをコピーします。 |
+| [バックグラウンドでのデータの転送](../networking/background-transfers.md)                 | バックグラウンド転送 API を使って、バックグラウンドでファイルをコピーします。 |
 | [バックグラウンド タスクのライブ タイルの更新](update-a-live-tile-from-a-background-task.md)                   | アプリのライブ タイルを新しいコンテンツで更新するには、バックグラウンド タスクを使います。 |
-| [メンテナンス トリガーの使用](use-a-maintenance-trigger.md)                                                   | デバイスが接続されているときに、[**MaintenanceTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.MaintenanceTrigger) クラスを使って軽量のコードをバックグラウンドで実行する方法について説明します。 |
+| [メンテナンス トリガーの使用](use-a-maintenance-trigger.md)                                                   | デバイスが接続されているときに、[**MaintenanceTrigger**](/uwp/api/Windows.ApplicationModel.Background.MaintenanceTrigger) クラスを使って軽量のコードをバックグラウンドで実行する方法について説明します。 |
 
 ## <a name="remote-systems"></a>リモート システム
 

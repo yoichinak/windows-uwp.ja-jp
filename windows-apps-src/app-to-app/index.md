@@ -6,12 +6,12 @@ ms.date: 02/12/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2de9d5ae04c526c7c35fda4a7aef713814b4fbc2
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: db6cf7937e0d757d946154a4c87e7e4da3fde2cb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77258333"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175756"
 ---
 # <a name="app-to-app-communication"></a>アプリ間通信
 
@@ -37,4 +37,4 @@ UWP アプリでは、他の UWP アプリに機能を提供する[アプリ サ
 
 ## <a name="see-also"></a>関連項目
 
-- [UWP アプリの開発](https://docs.microsoft.com/windows/uwp/develop/)
+- [UWP アプリを開発する](../develop/index.md)

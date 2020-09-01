@@ -6,12 +6,12 @@ ms.date: 11/29/2017
 ms.topic: article
 keywords: Windows 10, UWP, 収益化, エンゲージメント, プロモーション, ストア サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: 7beee974bceceab02984ae6499a9c5db0b0281b9
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: dd6262677cd548fa8e690fde5a90ab1f2662ea2a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74259301"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155646"
 ---
 # <a name="monetization-engagement-and-store-services"></a>収益化、エンゲージメント、Microsoft Store サービス
 
@@ -91,7 +91,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 
 :::row:::
     :::column:::
-        ![分析](images/monetize-analytics-pie-chart.png)
+        ![Analytics](images/monetize-analytics-pie-chart.png)
     :::column-end:::
     :::column span="2":::
 **Analytics**
@@ -111,7 +111,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
  トピック                | 説明                 |
 |--------------------|-----------------------------|
 | [マイクロソフトのアフィリエイト プログラム](https://www.microsoftaffiliates.com/)。 | アプリ、ブログ、Web ページなどのコミュニケーション ツールから Microsoft 製品にリンクして、手数料を獲得できます。 リンクの対象として使うことができるのは、Microsoft Store で販売されているアプリ、ゲーム、音楽、ムービー、ハードウェア、アクセサリなどの商品があります。
-| [A/B テスト](https://docs.microsoft.com/windows/uwp/monetize/run-app-experiments-with-a-b-testing) | アプリの機能の変更をすべてのユーザー向けに有効にする前に、アプリで A/B テストを実行し、一部のユーザーを対象として機能の変更の有効性を測定します。
+| [A/B テスト](./run-app-experiments-with-a-b-testing.md) | アプリの機能の変更をすべてのユーザー向けに有効にする前に、アプリで A/B テストを実行し、一部のユーザーを対象として機能の変更の有効性を測定します。
 | [Microsoft Store Services SDK を使ってユーザーとの関係を深める](microsoft-store-services-sdk.md) | Microsoft Store Services SDK が提供するライブラリとツールを利用すると、顧客エンゲージメントの獲得を図る機能をアプリに追加できます。 これらの機能には、ターゲット通知、A/B テスト、アプリからのフィードバック Hub の起動が含まれます。
 | [アプリからのフィードバック Hub の起動](launch-feedback-hub-from-your-app.md) | UWP アプリにコードを追加して、Windows 10 ユーザーをフィードバック Hub に誘導して、ユーザーが問題、提案、賛成票を送信できるようにします。 次に、パートナー センターの[フィードバック レポート](../publish/feedback-report.md)でこのフィードバックを管理します。 この機能を使うには、Microsoft Store Services SDK が必要です。 
 | [パートナー センターのプッシュ通知を受信するようにアプリを設定する](configure-your-app-to-receive-dev-center-notifications.md) | UWP アプリの通知チャンネルを登録して、[パートナー センターのプッシュ通知](../publish/send-push-notifications-to-your-apps-customers.md)を受信し、プッシュ通知の結果としてのアプリの起動率を追跡できるようにします。 この機能を使うには、Microsoft Store Services SDK が必要です。
@@ -126,8 +126,8 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 
 これらのレポート使って、Microsoft Store でのアプリのパフォーマンスを監視します。
 
-- [支払いの要約](../publish/payout-summary.md)
-- [取得レポート](../publish/acquisitions-report.md)
+- [支払いの概要](../publish/payout-summary.md)
+- [[取得] レポート](../publish/acquisitions-report.md)
 - [アドオン取得レポート](../publish/add-on-acquisitions-report.md)
 - [広告パフォーマンス レポート](../publish/advertising-performance-report.md)
 - [REST API を使った分析データの取得](access-analytics-data-using-windows-store-services.md)

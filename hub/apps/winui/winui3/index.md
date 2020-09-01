@@ -3,12 +3,12 @@ title: WinUI 3 Preview 2 (2020 年 7 月)
 description: WinUI 3 Preview 2 リリースの概要。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 0acea4520f10d5f64baa29cb64fdf0ba1cc4552e
-ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
+ms.openlocfilehash: 4d971ffd3ec44ab766122dbb80847b9c2ccfc891
+ms.sourcegitcommit: e6b1ed3c9ddcf650e2f71c29d81bffac6ab292f4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86997959"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89116807"
 ---
 # <a name="windows-ui-library-3-preview-2-july-2020"></a>Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)
 
@@ -34,7 +34,7 @@ WinUI 3 Preview 2 には、WinUI ベースのユーザー インターフェイ�
 
 1. 開発用コンピューターに Windows 10 バージョン 1803 (ビルド 17134) 以降がインストールされていることを確認します。
 
-2. [Visual Studio 2019 バージョン 16.7 Preview 3](https://visualstudio.microsoft.com/vs/preview) をインストールします。
+2. [Visual Studio 2019 バージョン 16.7.2](https://visualstudio.microsoft.com/vs/) をインストールします
 
     Visual Studio をインストールする際、次のワークロードを含める必要があります。
     - .NET デスクトップ開発
@@ -44,7 +44,10 @@ WinUI 3 Preview 2 には、WinUI ベースのユーザー インターフェイ�
     - C++ によるデスクトップ開発
     - ユニバーサル Windows プラットフォーム ワークロード用の *C++ (v142) ユニバーサル Windows プラットフォーム ツール*のオプション コンポーネント (右ペインにある [ユニバーサル Windows プラットフォーム開発] セクションの [インストールの詳細] を参照してください)
 
-3. C#/.NET 5 および C++/Win32 の各アプリ用のデスクトップ WinUI プロジェクトを作成する場合は、.NET 5 Preview 5 の x64 および x86 の両バージョンもインストールする必要があります。
+    Visual Studio をダウンロードしたら、プログラム内で .NET のプレビューを有効にしてください。 
+    - [ツール] > [オプション] > [プレビュー機能] に移動して、[.NET Core SDK のプレビューを使用する (再起動が必要)] を選択します。 
+
+3. C#/.NET 5 および C++/Win32 の各アプリ用のデスクトップ WinUI プロジェクトを作成する場合は、.NET 5 Preview 5 の x64 および x86 の両バージョンもインストールする必要があります。 **.NET 5 Preview 5 は、現在 WinUI 3 でサポートされている唯一の .NET 5 のプレビューであることに注意してください**。
 
     - x64: [https://aka.ms/dotnet/net5/preview5/Sdk/dotnet-sdk-win-x64.exe](https://aka.ms/dotnet/net5/preview5/Sdk/dotnet-sdk-win-x64.exe)
     - x86: [https://aka.ms/dotnet/net5/preview5/Sdk/dotnet-sdk-win-x86.exe](https://aka.ms/dotnet/net5/preview5/Sdk/dotnet-sdk-win-x86.exe)
@@ -52,6 +55,7 @@ WinUI 3 Preview 2 には、WinUI ベースのユーザー インターフェイ�
 4. [WinUI 3 Preview 2 VSIX パッケージ](https://aka.ms/winui3/previewdownload)をダウンロードしてインストールします。 この VSIX パッケージをインストールすると、WinUI 3 プロジェクト テンプレートと、WinUI 3 ライブラリを含む NuGet パッケージが Visual Studio 2019 に追加されます。
 
     VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2019#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
+
 
 ## <a name="create-winui-projects"></a>WinUI プロジェクトを作成する
 
@@ -211,8 +215,23 @@ WinUI 3 Preview 2 は、Windows 10 April 2018 Update (バージョン 1803 - ビ
 
 ### <a name="known-issues"></a>既知の問題
 
-- C# デスクトップ アプリ:
-  - Windows オブジェクト (XAML オブジェクトを含む) への弱い参照には、`System.WeakReference<T>` ではなく `WinRT.WeakReference<T>` を使用する必要があります。
+
+- C# UWP アプリ:
+
+  WinUI 3 フレームワークは WinRT コンポーネントのセットであり、WinRT には .NET と同様の型とオブジェクトがありますが、本質的に互換性がありません。  現在、C#/WinRT プロジェクションは .NET 5 における .NET と WinRT の相互運用を処理し、.NET 5 アプリで .NET インターフェイスを自由に使用できるようにします。 
+  
+  ただし、C#/WinRT は.NET Native アプリ間の相互運用を処理できないため、WinUI 3 API は UWP アプリに直接投影されます。 そのため、それらの同じ .NET インターフェイスは使用できなくなります。 **UWP アプリで .NET Native が使用されなくなると、この制限は存在しなくなります**。
+
+  たとえば、`INotifyPropertyChanged` API はデスクトップ アプリの WinUI3 の `System.ComponentModel` 名前空間に投影されますが、UWP アプリ (およびすべての C++ アプリ) の WinUI3 の `Microsoft.UI.Xaml.Data` 名前空間に表示されます。 
+  
+  この問題の適用対象:
+    - `INotifyPropertyChanged` (および関連する型)
+    - `INotifyCollectionChanged`
+    - `ICommand`
+
+> [!Note] 
+> `INotifyPropertyChanged` と `INotifyCollectionChanged` が予期したとおりに動作していない場合、`ObservableCollection<T>` クラスも影響を受けます。 独自のバージョンの `ObservableCollection<T>` を実装する例については、[このサンプル](https://github.com/microsoft/Xaml-Controls-Gallery/blob/winui3preview/XamlControlsGallery/CollectionsInterop.cs)を参照してください。 
+
 
 ## <a name="xaml-controls-gallery-winui-3-preview-2-branch"></a>XAML コントロール ギャラリー (WinUI 3 Preview 2 ブランチ)
 
