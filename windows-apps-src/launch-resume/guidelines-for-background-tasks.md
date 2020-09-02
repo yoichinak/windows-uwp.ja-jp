@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: fb585b46399d7b24eaafa531b2aae34f397dbeb2
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 00717a64135ef32a99b06c61b31e2ff59a587878
+ms.sourcegitcommit: b66796c73f14da63794efa66c8ded2caa25da0f7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155846"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285453"
 ---
 # <a name="guidelines-for-background-tasks"></a>バックグラウンド タスクのガイドライン
 
@@ -61,7 +61,7 @@ ms.locfileid: "89155846"
 
 > **重要**   Windows 10 以降では、バックグラウンドタスクを実行するための前提条件として、アプリがロック画面に表示される必要がなくなりました。
 
-ユニバーサル Windows プラットフォーム (UWP) アプリは、ロック画面にピン留めしなくても、サポートされているすべての種類のタスクを実行できます。 ただし、アプリは [**Getaccessstate**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出し、アプリがバックグラウンドで実行されることを拒否されていないことを確認する必要があります。 [**Getaccessstatus**] が、拒否された [**backgroundaccessstatus**](/uwp/api/windows.applicationmodel.background.backgroundaccessstatus) 列挙体のいずれかを返さないことを確認します。 たとえば、 https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundAccessStatus) ユーザーがデバイスの設定でアプリのバックグラウンドタスクのアクセス許可を明示的に拒否している場合、このメソッドはを返します。
+ユニバーサル Windows プラットフォーム (UWP) アプリは、ロック画面にピン留めしなくても、サポートされているすべての種類のタスクを実行できます。 ただし、アプリは [**Getaccessstate**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出し、アプリがバックグラウンドで実行されることを拒否されていないことを確認する必要があります。 **Getaccessstatus**が、拒否された[**backgroundaccessstatus**](/uwp/api/windows.applicationmodel.background.backgroundaccessstatus)列挙体のいずれかを返さないことを確認します。 たとえば、ユーザーがデバイスの設定でアプリのバックグラウンドタスクのアクセス許可を明示的に拒否している場合、このメソッドは DeniedByUser を返します **。**
 
 アプリがバックグラウンドでの実行を拒否された場合、アプリは [**Requestaccessasync**](/uwp/api/windows.applicationmodel.background.backgroundexecutionmanager.getaccessstatus) を呼び出して、バックグラウンドタスクを登録する前に応答が拒否されないようにする必要があります。
 
