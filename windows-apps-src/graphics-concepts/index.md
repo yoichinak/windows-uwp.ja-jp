@@ -1,18 +1,18 @@
 ---
 title: Direct3D グラフィックスの用語集
-description: Microsoft Direct3D で使用されるグラフィックス用語を定義します。
+description: Direct3D のゲームおよびアプリの開発で使用されている一般的な 3D コンピューター グラフィックス用語の概要を定義する用語集をご確認ください。
 ms.assetid: c3850a92-4d05-4f72-bf0f-6a0c79e841eb
 keywords:
 - Direct3D グラフィックスの用語集
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 3cb6a2466ea201c9b5047f7eb159477a0d584429
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 3359b81c6932bfc63c3939d2f857aaef9248e52f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "63805641"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173076"
 ---
 # <a name="direct3d-graphics-glossary"></a>Direct3D グラフィックスの用語集
 

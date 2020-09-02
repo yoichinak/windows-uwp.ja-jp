@@ -6,12 +6,12 @@ ms.date: 04/17/2019
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: c871149f764024de41309f21dbd036848633a2af
-ms.sourcegitcommit: 720413d2053c8d5c5b34d6873740be6e913a4857
+ms.openlocfilehash: d2ae73cc32fd4e3717fe40b8a6ec8c3397b40619
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846732"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161536"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -20,7 +20,7 @@ Windows 10 とユニバーサル Windows プラットフォーム (UWP) に用�
 この記事では、今すぐデスクトップ アプリで使用できる Windows 10 および UWP 機能について説明します。 既存のアプリを現代化してこの記事で説明されている多くの機能を使用する方法を説明したチュートリアルについては、「[WPF アプリの現代化](modernize-wpf-tutorial.md)」チュートリアルをご覧ください。
 
 > [!NOTE]
-> デスクトップ アプリを Windows 10 に移行するのにサポートが必要な場合 [Desktop App Assure](https://docs.microsoft.com/FastTrack/win-10-desktop-app-assure) サービスでは、自身のアプリを Windows 10 に移植する開発者に直接無償のサポートが提供されます。 このプログラムは、すべての ISV と条件に適合する企業が使用できます。 ご利用資格とプログラム自体について詳しくは、[https://docs.microsoft.com/fasttrack/win-10-app-assure-assistance-offered](https://docs.microsoft.com/fasttrack/win-10-app-assure-assistance-offered) をご覧ください。 すぐに開始するには、[リクエストを送信](https://fasttrack.microsoft.com/dl/daa)してください。
+> デスクトップ アプリを Windows 10 に移行するのにサポートが必要な場合 [Desktop App Assure](/FastTrack/win-10-desktop-app-assure) サービスでは、自身のアプリを Windows 10 に移植する開発者に直接無償のサポートが提供されます。 このプログラムは、すべての ISV と条件に適合する企業が使用できます。 適格性とプログラム自体の詳細については、[/fasttrack/win-10-app-assure-assistance-offered](/fasttrack/win-10-app-assure-assistance-offered) をご覧ください。 すぐに開始するには、[リクエストを送信](https://fasttrack.microsoft.com/dl/daa)してください。
 
 ## <a name="windows-ui-library"></a>Windows UI ライブラリ
 
@@ -45,7 +45,7 @@ MSIX パッケージにデスクトップ Windows アプリをパッケージ化
 
 .NET Core 3 は、.NET Core の最新のメジャー リリースです。 このリリースのハイライトは、Windows フォーム、WPF アプリを含む Windows デスクトップ アプリのサポートです。 .NET Core 3 で新規および既存の Windows デスクトップ アプリを実行し、.NET Core で提供されるすべての特典を利用することができます。 [XAML Islands](xaml-islands.md)でホストされている UWP コントロールを、.NET Core 3 を対象とする Windows フォームや WPF アプリでも使用できます。
 
-詳細については、「[.NET Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。
+詳細については、「[.NET Core 3.0 の新機能](/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。
 
 ## <a name="windows-runtime-apis"></a>Windows ランタイム API
 
@@ -67,11 +67,11 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 
 ## <a name="additional-features-available-to-apps-with-package-identity"></a>パッケージ ID を持つアプリで利用できる追加機能
 
-一部の最新の Windows 10 エクスペリエンスは、[パッケージ ID](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/element-identity) を持つデスクトップ アプリでのみ利用可能です。 これらの機能には、特定の Windows ランタイム API、パッケージ拡張機能、UWP コンポーネントなどがあります。 詳しくは、「[パッケージ ID が必要な機能](modernize-packaged-apps.md)」を参照してください。
+一部の最新の Windows 10 エクスペリエンスは、[パッケージ ID](/uwp/schemas/appxpackage/uapmanifestschema/element-identity) を持つデスクトップ アプリでのみ利用可能です。 これらの機能には、特定の Windows ランタイム API、パッケージ拡張機能、UWP コンポーネントなどがあります。 詳しくは、「[パッケージ ID が必要な機能](modernize-packaged-apps.md)」を参照してください。
 
 デスクトップ アプリに ID を付与する方法はいくつかあります。
 
-* [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
+* [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
 * デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
 <a id="desktop-uwp-controls"></a>
@@ -82,14 +82,14 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 
 | Control |  説明 |
 |------ |--------------|
-| [MenuBar](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus#create-a-menu-bar) | **CommandBar** で許容されるよりも多くの組織またはグループ化が必要になる可能性があるアプリ用のコマンド セットを公開する簡単でシンプルな方法を提供します。 |
-| [DropDownButton](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/buttons#create-a-drop-down-button) | その他のオプションを含むアタッチされたポップアップのある視覚インジケータとして山かっこを示します。  |
-| [SplitButton](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/buttons#create-a-split-button) | 個別に呼び出せる 2 つのパーツを持つボタンを指定します。 1 つのパーツは標準のボタンのように動作し、即座にアクションを呼び出します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。|
-| [ToggleSplitButton](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/buttons#create-a-toggle-split-button) | 個別に呼び出せる 2 つのパーツを持つボタンを指定します。 1 つのパーツは、オンまたはオフにできるトグル ボタンのように動作します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。 |
-| [CommandBarFlyout](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/command-bar-flyout) |  UI キャンバス上の項目のコンテキストで一般的なユーザー タスクを示すことができます。 |
-| [ComboBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/combo-box#make-a-combo-box-editable) | コンボ ボックスを、ユーザーがコントロール内に一覧表示されていない値を入力できるように、編集可能にできるようになりました。  |
-| [TreeView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tree-view) | データ バインディング、項目テンプレート、ドラッグ アンド ドロップを有効にするようにツリー ビューを構成できるようになりました。  |
-| [DataGridView](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid) |   行と列に柔軟にデータ コレクションを表示できます。 このコントロールは、[Windows コミュニティ ツールキット](https://docs.microsoft.com/windows/uwpcommunitytoolkit/)で入手できます。  |
+| [MenuBar](/windows/uwp/design/controls-and-patterns/menus#create-a-menu-bar) | **CommandBar** で許容されるよりも多くの組織またはグループ化が必要になる可能性があるアプリ用のコマンド セットを公開する簡単でシンプルな方法を提供します。 |
+| [DropDownButton](/windows/uwp/design/controls-and-patterns/buttons#create-a-drop-down-button) | その他のオプションを含むアタッチされたポップアップのある視覚インジケータとして山かっこを示します。  |
+| [SplitButton](/windows/uwp/design/controls-and-patterns/buttons#create-a-split-button) | 個別に呼び出せる 2 つのパーツを持つボタンを指定します。 1 つのパーツは標準のボタンのように動作し、即座にアクションを呼び出します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。|
+| [ToggleSplitButton](/windows/uwp/design/controls-and-patterns/buttons#create-a-toggle-split-button) | 個別に呼び出せる 2 つのパーツを持つボタンを指定します。 1 つのパーツは、オンまたはオフにできるトグル ボタンのように動作します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。 |
+| [CommandBarFlyout](/windows/uwp/design/controls-and-patterns/command-bar-flyout) |  UI キャンバス上の項目のコンテキストで一般的なユーザー タスクを示すことができます。 |
+| [ComboBox](/windows/uwp/design/controls-and-patterns/combo-box#make-a-combo-box-editable) | コンボ ボックスを、ユーザーがコントロール内に一覧表示されていない値を入力できるように、編集可能にできるようになりました。  |
+| [TreeView](/windows/uwp/design/controls-and-patterns/tree-view) | データ バインディング、項目テンプレート、ドラッグ アンド ドロップを有効にするようにツリー ビューを構成できるようになりました。  |
+| [DataGridView](/windows/communitytoolkit/controls/datagrid) |   行と列に柔軟にデータ コレクションを表示できます。 このコントロールは、[Windows コミュニティ ツールキット](/windows/uwpcommunitytoolkit/)で入手できます。  |
 
 ## <a name="other-technologies-for-modern-desktop-apps"></a>モダン デスクトップ アプリ向けのその他のテクノロジ
 
@@ -101,10 +101,10 @@ Microsoft Graph は、数百万に及ぶユーザーのデータとやり取り�
 * Enterprise Mobility および Security サービス:Identity Manager、Intune、Advanced Threat Analytics、Advanced Threat Protection
 * Windows 10 サービス: アクティビティとデバイス
 
-詳細については、[Microsoft Graph のドキュメント](https://developer.microsoft.com/graph/docs/concepts/overview)をご覧ください。
+詳細については、[Microsoft Graph のドキュメント](/graph/overview)をご覧ください。
 
 ### <a name="adaptive-cards"></a>アダプティブ カード
 
 アダプティブ カードは、オープンなクロスプラットフォーム フレームワークで、これにより、さまざまなデバイスやプラットフォーム間で一貫性のある共通の方法によりカードベースの UI コンテンツを交換できます。
 
-詳しくは、[アダプティブ カードのドキュメント](https://docs.microsoft.com/adaptive-cards/)をご覧ください。
+詳しくは、[アダプティブ カードのドキュメント](/adaptive-cards/)をご覧ください。

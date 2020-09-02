@@ -1,16 +1,16 @@
 ---
-Description: デスクトップ アプリケーションと UWP アプリでのコードの共有
 title: デスクトップ アプリケーションと UWP アプリでのコードの共有
+description: デスクトップアプリケーションを .NET Framework (WPF と Windows フォームを使用) または C++ Win32 Api からユニバーサル Windows プラットフォーム (UWP) と Windows 10 に移動する方法について説明します。
 ms.date: 10/03/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e13c656f02531d500a72aa74b2d3c5d6cc29aa4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ed23f77936378f2348abf868a67041be84978123
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174936"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304684"
 ---
 # <a name="move-from-a-desktop-application-to-uwp"></a>デスクトップアプリケーションから UWP への移行
 

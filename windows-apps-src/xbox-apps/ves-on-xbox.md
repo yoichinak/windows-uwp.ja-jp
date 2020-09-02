@@ -1,15 +1,15 @@
 ---
 title: Xbox での音声対応シェル (VES)
-description: Xbox の UWP アプリに音声コントロールサポートを追加する方法について説明します。
+description: 音声認識シェル (VES) を使用して、Xbox 上のユニバーサル Windows プラットフォーム (UWP) アプリに音声コントロールサポートを追加する方法について説明します。
 ms.date: 10/19/2017
 ms.topic: article
 keywords: windows 10、uwp、xbox、音声、音声対応シェル
-ms.openlocfilehash: db846e906917f29781200f3c312f6dbd6e2b2dd1
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 38afa2473dd74ab580cf38cc21d1f2b192f9b72a
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161666"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304654"
 ---
 # <a name="using-speech-to-invoke-ui-elements"></a>Speech を使用した UI 要素の呼び出し
 
@@ -217,7 +217,7 @@ XAML ベースの UI の例を次に示します。さまざまな方法で Auto
 
 最後に、では、が `button3` `Name` `button3` 設定されていないため、VES は最初の子要素からを取得し `AutomationProperties.Name` ます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 - [UI オートメーションの基礎](/dotnet/framework/ui-automation/ui-automation-fundamentals "UI オートメーションの基礎")
 - [UI でのアクセシビリティサポートのオートメーションプロパティ](/previous-versions/windows/silverlight/dotnet-windows-silverlight/ff400332(v=vs.95) "UI でのアクセシビリティサポートのオートメーションプロパティ")
 - [よく寄せられる質問](frequently-asked-questions.md)

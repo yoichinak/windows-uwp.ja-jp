@@ -1,17 +1,17 @@
 ---
 ms.assetid: ''
 title: Windows アプリでのインクのサポート
-description: Windows アプリにインクサポートを追加するためのステップバイステップチュートリアルです。
-keywords: インク, 手描き入力, チュートリアル
+description: 基本的なユニバーサル Windows プラットフォーム (UWP) アプリで Windows Ink を使用した書き込みと描画をサポートする方法については、このステップバイステップのチュートリアルを参照してください。
+keywords: インク、インク、チュートリアル
 ms.date: 01/25/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1972a266297d41e357bd2086f8485c154153d582
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0ed230fc9beb158df050f314a0142f250c2a8691
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157036"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304604"
 ---
 # <a name="tutorial-support-ink-in-your-windows-app"></a>チュートリアル: Windows アプリでインクをサポートする
 
@@ -119,7 +119,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
     <InkCanvas x:Name="inkCanvas" />
 ```
 
-これで完了です。 
+以上で作業は終了です。 
 
 ここで、アプリをもう一度実行します。 何でも自由に書き込んだり、自画像の絵などを描いてみてください。
 

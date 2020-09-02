@@ -1,18 +1,18 @@
 ---
 title: 環境光
-description: 環境光は、シーンに一定の照明を生成します。
+description: アンビエント照明がシーンに対して一定の光源を提供し、C++ を使用して Direct3D でアンビエント照明を設定する方法について説明します。
 ms.assetid: C34FA65A-3634-4A4B-B183-4CDA89F4DC95
 keywords:
 - 環境光
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ac958a93fcafbb33a9025196b49398e2e3269e55
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: c21a674b0961836752c879bcea681b568f31053c
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291840"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304464"
 ---
 # <a name="ambient-lighting"></a>環境光
 
@@ -22,38 +22,38 @@ ms.locfileid: "58291840"
 
 シーンの環境光は、次の式で表されます。
 
-環境光 = Cₐ\*\[Gₐ + 合計 (Atten<sub>は</sub>\*スポット<sub>は</sub>\*L<sub>ai</sub>)\]
+アンビエント照明 = C ₐ \* \[ g ₐ + sum (<sub>私の</sub> \* スポットライト<sub>i</sub> \* L<sub>ai</sub>)\]
 
-各項目の意味は次のとおりです。
+各値の説明:
 
-| パラメーター         | 既定値 | 種類          | 説明                                                                                                       |
+| パラメーター         | 既定値 | 型          | Description                                                                                                       |
 |-------------------|---------------|---------------|-------------------------------------------------------------------------------------------------------------------|
 | Cₐ                | (0,0,0,0)     | D3DCOLORVALUE | マテリアルのアンビエント色                                                                                            |
 | Gₐ                | (0,0,0,0)     | D3DCOLORVALUE | グローバル アンビエント色                                                                                              |
 | Atten<sub>i</sub> | (0,0,0,0)     | D3DCOLORVALUE | i 番目のライトの減衰。 「[減衰とスポットライト係数](attenuation-and-spotlight-factor.md)」を参照してください。 |
 | Spot<sub>i</sub>  | (0,0,0,0)     | D3DVECTOR     | i 番目のライトのスポットライト係数。 「[減衰とスポットライト係数](attenuation-and-spotlight-factor.md)」を参照してください。  |
-| sum               | なし           | なし           | 環境光の合計                                                                                          |
+| Sum               | 該当なし           | 該当なし           | 環境光の合計                                                                                          |
 | L<sub>ai</sub>    | (0,0,0,0)     | D3DVECTOR     | i 番目のライトのアンビエント色                                                                              |
 
  
 
 Cₐ の値は、次のいずれかになります。
 
--   頂点の color1 場合 AMBIENTMATERIALSOURCE = D3DMCS\_頂点宣言で指定されている COLOR1、および最初の頂点の色。
--   頂点の color2 場合 AMBIENTMATERIALSOURCE = D3DMCS\_頂点宣言で指定されている COLOR2、および 2 番目の頂点の色。
+-   AMBIENTMATERIALSOURCE = D3DMCS color1 の場合は頂点 color1、頂点 \_ 宣言では最初の頂点の色が指定されます。
+-   AMBIENTMATERIALSOURCE = D3DMCS color2 の場合は頂点 color2、 \_ 2 番目の頂点の色は頂点宣言で指定されます。
 -   マテリアルのアンビエント色。
 
-**注**  かどうか AMBIENTMATERIALSOURCE のいずれかのオプションを使用すると、および頂点の色が指定されていない、素材のアンビエント色が使用されます。
+**メモ**   いずれかの AMBIENTMATERIALSOURCE オプションが使用されており、頂点の色が指定されていない場合は、素材のアンビエント色が使用されます。
 
  
 
 マテリアルのアンビエント色を使用するには、下記のコード例に示すように、SetMaterial を使用します。
 
-Gₐ は、グローバル アンビエント色です。 サニティを使用して設定されます (D3DRS\_アンビエント)。 Direct3D のシーンには、グローバル アンビエント色が 1 つあります。 このパラメーターは、Direct3D のライト オブジェクトには対応していません。
+Gₐ は、グローバル アンビエント色です。 これは、SetRenderState (D3DRS アンビエント) を使用して設定され \_ ます。 Direct3D のシーンには、グローバル アンビエント色が 1 つあります。 このパラメーターは、Direct3D のライト オブジェクトには対応していません。
 
 L<sub>ai</sub> は、シーンの i 番目のアンビエント色です。 各 Direct3D のライトには一連のプロパティがあり、その 1 つがアンビエント色です。 sum(L<sub>ai</sub>) の項は、シーン内のすべてのアンビエント色の合計です。
 
-## <a name="span-idexamplespanspan-idexamplespanspan-idexamplespanexample"></a><span id="Example"></span><span id="example"></span><span id="EXAMPLE"></span>例
+## <a name="span-idexamplespanspan-idexamplespanspan-idexamplespanexample"></a><span id="Example"></span><span id="example"></span><span id="EXAMPLE"></span>よう
 
 
 この例では、オブジェクトの色は、シーンの環境光と素材のアンビエント色を使用しています。
@@ -82,7 +82,7 @@ Ambient.a = 0.0f;
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[照明の計算](mathematics-of-lighting.md)
+[光源の計算](mathematics-of-lighting.md)
 
  
 

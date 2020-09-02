@@ -10,12 +10,12 @@ ms.custom: 19H1
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 5f62fa915c7a00d2e359989e6e10718f704854ab
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d90669e03ae15acdc826d9e0b227f12d4ecf3cbc
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173006"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304714"
 ---
 # <a name="launch-the-windows-settings-app"></a>Windows 設定アプリの起動
 
@@ -25,7 +25,7 @@ ms.locfileid: "89173006"
 -   [**PreferredApplicationPackageFamilyName**](/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname)
 -   [**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview)
 
-Windows 設定アプリを起動する方法について説明します。 ここでは、**ms-settings:** URI スキームについて説明します。 Windows 設定アプリを起動して特定の設定ページを表示するには、この URI スキームを使います。
+Windows 設定アプリを起動する方法について説明します。 このトピックでは、 **ms 設定:** URI スキームについて説明します。 Windows 設定アプリを起動して特定の設定ページを表示するには、この URI スキームを使います。
 
 設定アプリの起動は、個人データにアクセスするアプリの開発の重要な部分です。 アプリが機密性の高いリソースにアクセスできない場合、そのリソースのプライバシー設定への便利なリンクをユーザーに提供することをお勧めします。 詳しくは、「[個人データにアクセスするアプリのガイドライン](../security/index.md)」をご覧ください。
 
@@ -78,7 +78,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 * ms-settings:storagecleanup
 * ms-settings:update-security -->
 
-## <a name="accounts"></a>[アカウント]
+## <a name="accounts"></a>アカウント
 
 |設定ページ| URI |
 |-------------|-----|
@@ -168,7 +168,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | ゲーム DVR | ms-settings:gaming-gamedvr |
 | ゲーム モード | ms-settings:gaming-gamemode |
 | ゲームの全画面表示の再生 | ms-settings:quietmomentsgame |
-| TruePlay | ms 設定: trueplay (**Windows 10 バージョン1809以降では非推奨**) |
+| TruePlay | ms 設定: trueplay (**Windows 10 バージョン1809以降 (10.0;ビルド 17763)、この機能は Windows から削除されています**) |
 | Xbox ネットワーク | ms-settings:gaming-xboxnetworking |
 
 ## <a name="home-page"></a>ホーム ページ
@@ -202,7 +202,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 既知のネットワークの管理 | ms-settings:network-wifisettings |
 | モバイルホットスポット | ms-settings:network-mobilehotspot |
 | NFC | ms-settings:nfctransactions |
-| プロキシ | ms-settings:network-proxy |
+| Proxy (プロキシ) | ms-settings:network-proxy |
 | Status | ms-settings:network-status<br/>ms-設定: ネットワーク |
 | VPN | ms-settings:network-vpn |
 | Wi-Fi | ms-settings:network-wifi (デバイスに wifi アダプターがある場合にのみ利用可能) |
@@ -269,7 +269,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 |設定ページ| URI |
 |-------------|-----|
-| [アカウント] | ms-settings:surfacehub-accounts |
+| アカウント | ms-settings:surfacehub-accounts |
 | セッションのクリーンアップ | ms-settings:surfacehub-sessioncleanup |
 | チーム会議 | ms-settings:surfacehub-calling |
 | チーム デバイス管理 | ms-settings:surfacehub-devicemanagenent |
@@ -285,7 +285,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | バッテリー節約機能 | ms-settings:batterysaver (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
 | バッテリー節約機能の設定 | ms-settings:batterysaver-settings (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
 | バッテリーの使用状況 | ms-settings:batterysaver-usagedetails (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
-| クリップボードのトピック | ms-設定: クリップボード |
+| クリップボード | ms-設定: クリップボード |
 | ディスプレイ | ms-settings:display |
 | 既定の保存場所 | ms-settings:savelocations |
 | ディスプレイ | ms-settings:screenrotation |
@@ -307,7 +307,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | Phone | ms 設定: phone (**Windows 10 バージョン1809以降では非推奨**) |
 | 電源とスリープ | ms-settings:powersleep |
 | サウンド | ms 設定: サウンド |
-| ストレージ | ms-settings:storagesense |
+| Storage | ms-settings:storagesense |
 | ストレージ センサー | ms-settings:storagepolicies |
 
 ## <a name="time-and-language"></a>時刻と言語
@@ -316,8 +316,8 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 |-------------|-----|
 | 日時 | ms-settings:dateandtime |
 | 日本 IME の設定 | ms-settings:regionlanguage-jpnime (Microsoft 日本語入力方式エディターがインストールされている場合に利用可能) |
-| Region | ms 設定: regionformatting 設定 |
-| Language | ms-設定: キーボード<br/>ms-settings:regionlanguage<br/>ms-設定: regionlanguage-bpmfime<br/>ms-設定: regionlanguage-cangjieime<br/>ms 設定: regionlanguage-chsime-domainlexicon<br/>ms 設定: regionlanguage-chsime-keyconfig<br/>ms 設定: regionlanguage-chsime-udp<br/>ms-設定: regionlanguage-chsime-wubi-udp<br/>ms 設定: regionlanguage-quickime |
+| リージョン | ms 設定: regionformatting 設定 |
+| 言語 | ms-設定: キーボード<br/>ms-settings:regionlanguage<br/>ms-設定: regionlanguage-bpmfime<br/>ms-設定: regionlanguage-cangjieime<br/>ms 設定: regionlanguage-chsime-domainlexicon<br/>ms 設定: regionlanguage-chsime-keyconfig<br/>ms 設定: regionlanguage-chsime-udp<br/>ms-設定: regionlanguage-chsime-wubi-udp<br/>ms 設定: regionlanguage-quickime |
 | Pinyin IME の設定 | ms-settings:regionlanguage-chsime-pinyin (Microsoft Pinyin 入力方式エディターがインストールされている場合に利用可能) |
 | 音声 | ms-settings:speech |
 | Wubi IME の設定  | ms-settings:regionlanguage-chsime-wubi (Microsoft Wubi 入力方式エディターがインストールされている場合に利用可能) |
@@ -331,7 +331,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | 配信の最適化 | ms-settings:delivery-optimization |
 | デバイスの検索 | ms-settings:findmydevice |
 | 開発者向け | ms-settings:developers |
-| Recovery | ms-settings:recovery |
+| 復元 | ms-settings:recovery |
 | トラブルシューティング | ms-settings:troubleshoot |
 | Windows セキュリティ | ms-settings:windowsdefender |
 | Windows Insider Program | ms-settings:windowsinsider(ユーザーが WIP に登録されている場合にのみ存在)<br/>ms 設定: windowsinsider-optin |

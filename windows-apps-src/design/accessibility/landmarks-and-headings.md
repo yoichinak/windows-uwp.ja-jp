@@ -1,5 +1,5 @@
 ---
-description: ユーザー補助のランドマークと見出しの機能について説明します。
+description: UI オートメーションのランドマークおよび見出し機能を使用して、アプリのコンテンツのセクションを定義し、アクセシビリティを向上させ、支援技術のユーザー () が UI をナビゲートできるようにする方法について説明します。
 ms.assetid: 019CC63D-D915-4EBD-9442-DE899AB973C9
 title: ランドマークと見出し
 label: Landmarks and Headings
@@ -8,12 +8,12 @@ ms.date: 01/24/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c05f39c0497a2e2ef369abd04ed437f8387e60f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 65af556180e39ea66bbeb553a50c0746f952a08c
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173996"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304744"
 ---
 # <a name="landmarks-and-headings"></a>ランドマークと見出し
 

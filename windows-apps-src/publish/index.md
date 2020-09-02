@@ -1,21 +1,21 @@
 ---
-Description: Windows アプリを Microsoft Store に公開する方法を確認します。
+description: パートナー センターにサインアップし、使用して、Microsoft Store に Windows アプリとゲームを公開する方法を説明します。
 title: Windows アプリを公開する
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, 公開する, 公開, 販売, 販売する, 配布, 配布する, store, ダッシュボード
 ms.assetid: 631d1e2d-e4da-4740-ace0-4c0ad78653fe
 ms.localizationpriority: medium
-ms.openlocfilehash: 4d30eb37e9633496e510a2e05ec48cc819bd51c9
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 19607823ce98aa71a8e3abecb94b82ff06a08352
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80614976"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164126"
 ---
 # <a name="publish-windows-apps-and-games"></a>Windows アプリとゲームを公開する  
 
-[パートナー センター](https://partner.microsoft.com/dashboard)を使用することで、アプリとゲームを Microsoft Store に公開できます。 [今すぐサインアップしましょう。](https://developer.microsoft.com/store/register)
+[パートナー センター](https://partner.microsoft.com/dashboard)を使用することで、アプリとゲームを Microsoft Store に公開できます。 [今すぐサインアップ!](https://developer.microsoft.com/store/register)
 
 <br/>
 
@@ -25,7 +25,7 @@ ms.locfileid: "80614976"
         <h3 style="margin-top: 10px; margin-bottom: 0px">アプリの申請</h3>
         <p style="margin-top: 0px; margin-bottom: 50px">申請に必要な項目を確認して、アプリの認定を受けましょう。</p>
         <br>
-        <a href="app-submissions.md">アプリの提出用チェック リスト</a><br/>
+        <a href="app-submissions.md">アプリの申請用チェック リスト</a><br/>
         <a href="the-app-certification-process.md">認定プロセス</a><br/>
         <a href="store-policies.md">Microsoft Store ポリシー</a><br/>
         <a href="//docs.microsoft.com/legal/windows/agreements/app-developer-agreement">アプリ開発者契約</a><br/>
@@ -33,7 +33,7 @@ ms.locfileid: "80614976"
     :::column-end:::
     :::column:::
         <img src="https://docs.microsoft.com/media/illustrations/bcs-partner-advanced-management- billing-7.svg" alt="Pricing illustration" />
-        <h3 style="margin-top: 10px; margin-bottom: 0px">価格と使用可能状況</h3>
+        <h3 style="margin-top: 10px; margin-bottom: 0px">価格と可用性</h3>
         <p style="margin-top: 0px; margin-bottom: 50px">市場ごとの価格設定とスケジュール、表示オプション、セール価格などによって、アプリの使用可能状況をカスタマイズすることができます。</p>
         <br>
         <a href="define-pricing-and-market-selection.md">市場を選ぶ</a><br/>
@@ -85,9 +85,9 @@ ms.locfileid: "80614976"
     :::column:::
         <img src="https://docs.microsoft.com/media/illustrations/bcs-user-management-add-customer-1.svg" alt="Account icon" />
         <h3 style="margin-top: 10px; margin-bottom: 0px">アカウント ユーザーの管理</h3>
-        <a href="associate-azure-ad-with-dev-center.md">Azure AD を設定する</a><br/>
+        <a href="associate-azure-ad-with-dev-center.md">Azure AD の設定</a><br/>
         <a href="add-users-groups-and-azure-ad-applications.md">アカウント ユーザーを追加する</a><br/>
-        <a href="set-custom-permissions-for-account-users.md">役割とアクセス許可</a><br/>
+        <a href="set-custom-permissions-for-account-users.md">ロールとアクセス許可</a><br/>
     :::column-end:::
     :::column:::
         <img src="https://docs.microsoft.com/media/illustrations/sql-get-started-download.svg" alt="Shopping cart icon" />

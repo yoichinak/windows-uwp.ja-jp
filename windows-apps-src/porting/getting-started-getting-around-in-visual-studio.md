@@ -1,17 +1,17 @@
 ---
 description: Visual Studio の操作方法
-title: Visual Studio の操作方法
+title: コントロールを追加し、そのプロパティを設定し、イベントに応答することによって、Microsoft Visual Studio プロジェクトを開始する方法について説明します。
 ms.assetid: 7FBB50A2-6D22-4082-B333-5153DADDDE9A
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 02a0b3c631d3ee85353eb0516d5c6d1aa511f77e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 412a8409d85afedee2cb754672950805076bedd2
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174926"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304674"
 ---
 # <a name="getting-started-getting-around-in-visual-studio"></a>概要: Visual Studio の操作方法
 
