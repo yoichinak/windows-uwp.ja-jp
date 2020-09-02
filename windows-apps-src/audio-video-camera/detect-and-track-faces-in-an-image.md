@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b6b2cf937646f41a2e51e6a109d272965817665f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6232a8003140284956319728e16b3b953aff3177
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160886"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362735"
 ---
 # <a name="detect-faces-in-images-or-videos"></a>画像やビデオでの顔の検出
 
@@ -31,59 +31,59 @@ ms.locfileid: "89160886"
 
 この例では、次の名前空間の API を使っています。
 
-[!code-cs[FaceDetectionUsing](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetFaceDetectionUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetFaceDetectionUsing":::
 
 [**FaceDetector**](/uwp/api/Windows.Media.FaceAnalysis.FaceDetector) オブジェクト用と、画像から検出される [**DetectedFace**](/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧用に、クラス メンバー変数を宣言しています。
 
-[!code-cs[ClassVariables1](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetClassVariables1)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetClassVariables1":::
 
 顔検出は、さまざまな方法で作成できる [**SoftwareBitmap**](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) オブジェクトに対して可能です。 この例では、[**FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使って、顔が検出される画像ファイルをユーザーが選べるようにしています。 ソフトウェア ビットマップの操作について詳しくは、「[イメージング](imaging.md)」をご覧ください。
 
-[!code-cs[Picker](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetPicker)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetPicker":::
 
 [**BitmapDecoder**](/uwp/api/Windows.Graphics.Imaging.BitmapDecoder) クラスを使って、**SoftwareBitmap** に画像ファイルをデコードします。 顔検出処理は、画像が小さいほど高速になるため、ソース画像の縮小が必要になる場合があります。 デコード中にこれを行うには、[**BitmapTransform**](/uwp/api/Windows.Graphics.Imaging.BitmapTransform) オブジェクトを作成し、[**ScaledWidth**](/uwp/api/windows.graphics.imaging.bitmaptransform.scaledwidth) および [**ScaledHeight**](/uwp/api/windows.graphics.imaging.bitmaptransform.scaledheight) プロパティを設定して、そのオブジェクトを [**GetSoftwareBitmapAsync**](/uwp/api/windows.graphics.imaging.bitmapdecoder.getsoftwarebitmapasync) の呼び出しに渡します。これにより、デコードされて縮小された **SoftwareBitmap** が返されます。
 
-[!code-cs[Decode](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetDecode)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetDecode":::
 
 現在のバージョンでは、**FaceDetector** クラスでのみ Gray8 または Nv12 の画像がサポートされています。 **SoftwareBitmap** クラスには、ビットマップの形式を変換する [**Convert**](/uwp/api/windows.graphics.imaging.softwarebitmap.convert) メソッドが用意されています。 この例では、ソース画像を Gray8 ピクセル形式に変換しています (まだその形式になっていない場合)。 必要に応じて、[**GetSupportedBitmapPixelFormats**](/uwp/api/windows.media.faceanalysis.facedetector.getsupportedbitmappixelformats) および [**IsBitmapPixelFormatSupported**](/uwp/api/windows.media.faceanalysis.facedetector.isbitmappixelformatsupported) メソッドを使って、ピクセル形式がサポートされているかどうかを実行時に調べることができます。これにより、サポートされている一連の形式が今後のバージョンで拡張される場合に備えることができます。
 
-[!code-cs[Format](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetFormat)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetFormat":::
 
 [**CreateAsync**](/uwp/api/windows.media.faceanalysis.facedetector.createasync) を呼び出すことで **FaceDetector** オブジェクトをインスタンス化したら、[**DetectFacesAsync**](/uwp/api/windows.media.faceanalysis.facedetector.detectfacesasync) を呼び出して、適切なサイズに拡大縮小済み、サポートされているピクセル形式に変換済みのビットマップを渡します。 このメソッドは [**DetectedFace**](/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧を返します。 **ShowDetectedFaces** はヘルパー メソッドであり、次に示しているように、画像内の顔の周りに四角形を描画します。
 
-[!code-cs[Detect](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetDetect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetDetect":::
 
 顔検出処理の実行中に作成されたオブジェクトは必ず破棄してください。
 
-[!code-cs[Dispose](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetDispose)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetDispose":::
 
 画像を表示し、検出された顔の周りに四角形を描画するには、XAML ページに [**Canvas**](/uwp/api/Windows.UI.Xaml.Controls.Canvas) 要素を追加します。
 
-[!code-xml[Canvas](./code/FaceDetection_Win10/cs/MainPage.xaml#SnippetCanvas)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml" id="SnippetCanvas":::
 
 描画される四角形のスタイルの設定用に、いくつかのメンバー変数を定義します。
 
-[!code-cs[ClassVariables2](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetClassVariables2)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetClassVariables2":::
 
 **ShowDetectedFaces** ヘルパー メソッドでは、新しい [**ImageBrush**](/uwp/api/Windows.UI.Xaml.Media.ImageBrush) が作成され、ソースが、ソース画像を表す **SoftwareBitmap**  から作成された [**SoftwareBitmapSource**](/uwp/api/Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource) に設定されます。 XAML **Canvas** コントロールの背景がイメージ ブラシに設定されます。
 
 ヘルパー メソッドに渡された顔の一覧が空でない場合は、一覧内の各顔をループし、[**DetectedFace**](/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) クラスの [**FaceBox**](/uwp/api/windows.media.faceanalysis.detectedface.facebox) プロパティを使って、画像内で顔の周りの四角形の位置とサイズを調べます。 **Canvas** コントロールはほとんどの場合、ソース画像と異なるサイズであるため、**FaceBox** の X 座標と Y 座標にも、幅と高さにも、拡大縮小値 (ソース画像のサイズと **Canvas** コントロールの実際のサイズとの比率) を掛ける必要があります。
 
-[!code-cs[ShowDetectedFaces](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetShowDetectedFaces)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetShowDetectedFaces":::
 
 ## <a name="track-faces-in-a-sequence-of-frames"></a>フレームのシーケンスで顔を追跡する
 
 ビデオ内の顔を検出する場合は、[**FaceDetector**](/uwp/api/Windows.Media.FaceAnalysis.FaceDetector) よりも [**FaceTracker**](/uwp/api/Windows.Media.FaceAnalysis.FaceTracker) クラスを使う方が効率的です。実装手順はほとんど同じです。 **FaceTracker** では、前に処理したフレームに関する情報を使って検出処理を最適化します。
 
-[!code-cs[FaceTrackingUsing](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetFaceTrackingUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetFaceTrackingUsing":::
 
 **FaceTracker** オブジェクトのクラス変数を宣言します。 この例では、[**ThreadPoolTimer**](/uwp/api/Windows.System.Threading.ThreadPoolTimer) を使って、定義した間隔で顔追跡を開始します。 [SemaphoreSlim](/dotnet/api/system.threading.semaphoreslim) を使って、同時に 1 つの顔追跡処理のみが実行されるようにします。
 
-[!code-cs[ClassVariables3](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetClassVariables3)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetClassVariables3":::
 
 顔追跡処理を初期化するには、[**CreateAsync**](/uwp/api/windows.media.faceanalysis.facetracker.createasync) を呼び出して新しい **FaceTracker** オブジェクトを作成します。 目的のタイマー間隔を初期化してから、タイマーを作成します。 指定した間隔が経過するたびに **ProcessCurrentVideoFrame** ヘルパー メソッドが呼び出されます。
 
-[!code-cs[TrackingInit](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetTrackingInit)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetTrackingInit":::
 
 **ProcessCurrentVideoFrame** ヘルパー メソッドはタイマーによって非同期的に呼び出されるため、このメソッドはまず、セマフォの **Wait** メソッドを呼び出して、追跡処理が進行中であるかどうかを調べて、そうであれば、顔を検出しようとせずに戻ります。 このメソッドの最後で、セマフォの **Release** メソッドが呼び出され、後続の **ProcessCurrentVideoFrame** が呼び出されて、処理が続行されます。
 
@@ -93,7 +93,7 @@ ms.locfileid: "89160886"
 
 [**ProcessNextFrameAsync**](/uwp/api/windows.media.faceanalysis.facetracker.processnextframeasync) を呼び出して、フレーム内の顔を表す [**DetectedFace**](/uwp/api/Windows.Media.FaceAnalysis.DetectedFace) オブジェクトの一覧を取得します。 顔の一覧を取得したら、顔検出について先ほど説明した同じ方法でそれらの顔を表示できます。 Face tracking ヘルパーメソッドは UI スレッドで呼び出されないため、 [**CoreDispatcher**](/uwp/api/windows.ui.core.coredispatcher.runasync)の呼び出し内で ui 更新を行う必要があります。
 
-[!code-cs[ProcessCurrentVideoFrame](./code/FaceDetection_Win10/cs/MainPage.xaml.cs#SnippetProcessCurrentVideoFrame)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/FaceDetection_Win10/cs/MainPage.xaml.cs" id="SnippetProcessCurrentVideoFrame":::
 
 ## <a name="related-topics"></a>関連トピック
 

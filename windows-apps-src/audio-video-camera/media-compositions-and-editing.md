@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b1ae11d8f065cf72202365c36a9d69164fc2daa3
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 91b0418555e4d46c15bd43816ec6b01ebbd27d8b
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163876"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363875"
 ---
 # <a name="media-compositions-and-editing"></a>メディア コンポジションと編集
 
@@ -23,22 +23,22 @@ ms.locfileid: "89163876"
 
 [**MediaComposition**](/uwp/api/Windows.Media.Editing.MediaComposition) クラスは、コンポジションの構成要素となるすべてのメディア クリップのコンテナーで、最終的なコンポジションのレンダリングや、ディスクからの読み込みとディスクへの保存、UI に表示するプレビュー ストリームの提供などの機能を担います。 **MediaComposition** をアプリで使うには、[**Windows.Media.Editing**](/uwp/api/Windows.Media.Editing) 名前空間に加え、関連する必要な API を含んだ [**Windows.Media.Core**](/uwp/api/Windows.Media.Core) 名前空間を追加する必要があります。
 
-[!code-cs[Namespace1](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetNamespace1)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetNamespace1":::
 
 
 **MediaComposition** オブジェクトには、コードのいたるところからアクセスすることになるため、それを格納するためのメンバー変数を宣言するのが一般的です。
 
-[!code-cs[DeclareMediaComposition](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetDeclareMediaComposition)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetDeclareMediaComposition":::
 
 **MediaComposition** のコンストラクターに引数はありません。
 
-[!code-cs[MediaCompositionConstructor](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetMediaCompositionConstructor)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetMediaCompositionConstructor":::
 
 ## <a name="add-media-clips-to-a-composition"></a>コンポジションにメディア クリップを追加する
 
 メディア コンポジションは通常、ビデオ クリップを含んでいます。 ビデオ ファイルをユーザーに選択してもらうには、[**FileOpenPicker**](/uwp/schemas/appxpackage/appxmanifestschema/element-fileopenpicker) を使います。 ファイルが選択されたら、[**MediaClip.CreateFromFileAsync**](/uwp/api/windows.media.editing.mediaclip.createfromfileasync) を呼び出し、そのビデオ クリップを格納するための新しい [**MediaClip**](/uwp/api/Windows.Media.Editing.MediaClip) オブジェクトを作成します。 そのクリップを **MediaComposition** オブジェクトの [**Clips**](/uwp/api/windows.media.editing.mediacomposition.clips) リストに追加します。
 
-[!code-cs[PickFileAndAddClip](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetPickFileAndAddClip)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetPickFileAndAddClip":::
 
 -   **MediaComposition** には、[**Clips**](/uwp/api/windows.media.editing.mediacomposition.clips) リストと同じ順序でメディア クリップが出現します。
 
@@ -60,17 +60,17 @@ ms.locfileid: "89163876"
 
 メディア コンポジションをユーザーが表示できるようにするには、UI を定義する XAML ファイルに [**MediaPlayerElement**](/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement) を追加します。
 
-[!code-xml[MediaElement](./code/MediaEditing/cs/MainPage.xaml#SnippetMediaElement)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml" id="SnippetMediaElement":::
 
 [**Mediastreamsource**](/uwp/api/Windows.Media.Core.MediaStreamSource)型のメンバー変数を宣言します。
 
 
-[!code-cs[DeclareMediaStreamSource](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetDeclareMediaStreamSource)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetDeclareMediaStreamSource":::
 
 **MediaComposition** オブジェクトの [**GeneratePreviewMediaStreamSource**](/uwp/api/windows.media.editing.mediacomposition.generatepreviewmediastreamsource) メソッドを呼び出して、コンポジションの **MediaStreamSource** を作成します。 ファクトリ メソッド [**CreateFromMediaStreamSource**](/uwp/api/windows.media.core.mediasource.createfrommediastreamsource) を呼び出して、[**MediaSource**](/uwp/api/Windows.Media.Core.MediaSource) オブジェクトを作成し、それを **MediaPlayerElement** の [**Source**](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティに割り当てます。 これでコンポジションを UI に表示することができます。
 
 
-[!code-cs[UpdateMediaElementSource](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetUpdateMediaElementSource)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetUpdateMediaElementSource":::
 
 -   [**GeneratePreviewMediaStreamSource**](/uwp/api/windows.media.editing.mediacomposition.generatepreviewmediastreamsource) は、**MediaComposition** にメディア クリップが少なくとも 1 つは存在している状態で呼び出す必要があります。まったく存在しない場合、返されるオブジェクトは null になります。
 
@@ -78,17 +78,17 @@ ms.locfileid: "89163876"
 
 ユーザーがページから離れたときは、**MediaPlayerElement** の [**Source**](/uwp/api/windows.ui.xaml.controls.mediaelement.source) プロパティと **MediaStreamSource** オブジェクトを null に設定して、関連付けられているリソースを解放することをお勧めします。
 
-[!code-cs[OnNavigatedFrom](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetOnNavigatedFrom)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetOnNavigatedFrom":::
 
 ## <a name="render-the-composition-to-a-video-file"></a>コンポジションをビデオ ファイルにレンダリングする
 
 メディア コンポジションをフラット ビデオ ファイルにレンダリングして他のデバイスで共有したり表示したりするためには、[**Windows.Media.Transcoding**](/uwp/api/Windows.Media.Transcoding) 名前空間の API が必要となります。 また、非同期操作の進行状況に応じて UI を更新するには、[**Windows.UI.Core**](/uwp/api/Windows.UI.Core) 名前空間の API が必要となります。
 
-[!code-cs[Namespace2](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetNamespace2)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetNamespace2":::
 
 [**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) でユーザーが出力ファイルを選べるようにしたら、**MediaComposition** オブジェクトの [**RenderToFileAsync**](/uwp/api/windows.media.editing.mediacomposition.rendertofileasync) を呼び出し、選択されたファイルにコンポジションをレンダリングします。 以下のコード例の残りの部分は、[**AsyncOperationWithProgress**](/previous-versions/br205807(v=vs.85)) の処理パターンを踏襲しているだけです。
 
-[!code-cs[RenderCompositionToFile](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetRenderCompositionToFile)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetRenderCompositionToFile":::
 
 -   トランスコード処理の速度を優先させるか、隣接するメディア クリップのトリミング精度を優先させるかは、[**MediaTrimmingPreference**](/uwp/api/Windows.Media.Editing.MediaTrimmingPreference) で設定することができます。 **Fast** を選んだ場合は、トランスコード処理の速度が上がってトリミングの精度が低下します。一方、**Precise** を選んだ場合は、トランスコード処理の速度が下がってトリミングの精度が向上します。
 
@@ -96,7 +96,7 @@ ms.locfileid: "89163876"
 
 コンポジションにおけるビデオ クリップの再生時間をトリミングするには、[**MediaClip**](/uwp/api/Windows.Media.Editing.MediaClip) オブジェクトの [**TrimTimeFromStart**](/uwp/api/windows.media.editing.mediaclip.trimtimefromstart) プロパティまたは [**TrimTimeFromEnd**](/uwp/api/windows.media.editing.mediaclip.trimtimefromend) プロパティ、あるいはその両方を設定します。
 
-[!code-cs[TrimClipBeforeCurrentPosition](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetTrimClipBeforeCurrentPosition)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetTrimClipBeforeCurrentPosition":::
 
 -   任意の UI を使って、トリミングの開始と終了の値をユーザーに指定してもらうことができます。 上の例では、**MediaPlayerElement** に関連付けられた [**MediaPlaybackSession**](/uwp/api/Windows.Media.Playback.MediaPlaybackSession) の [**Position**](/uwp/api/windows.media.playback.mediaplaybacksession.position) プロパティを使い、[**StartTimeInComposition**](/uwp/api/windows.media.editing.mediaclip.starttimeincomposition) と [**EndTimeInComposition**](/uwp/api/windows.media.editing.mediaclip.endtimeincomposition) を確認することによって、コンポジションの現在位置で再生されている **MediaClip** を調べています。 次に、**Position** プロパティと **StartTimeInComposition** プロパティをもう一度使って、クリップの先頭からトリミングする時間を計算します。 **FirstOrDefault** メソッドは、**System.Linq** 名前空間の拡張メソッドです。リストから項目を選択するコードが、このメソッドによって単純化されます。
 -   クリッピングが一切適用されていない状態のメディア クリップの再生時間は、**MediaClip** オブジェクトの [**OriginalDuration**](/uwp/api/windows.media.editing.mediaclip.originalduration) プロパティで確認できます。
@@ -107,7 +107,7 @@ ms.locfileid: "89163876"
 
 コンポジションにバックグラウンド トラックを追加するには、オーディオ ファイルを読み込んだ後、ファクトリ メソッド [**BackgroundAudioTrack.CreateFromFileAsync**](/uwp/api/windows.media.editing.backgroundaudiotrack.createfromfileasync) を呼び出して [**BackgroundAudioTrack**](/uwp/api/Windows.Media.Editing.BackgroundAudioTrack) オブジェクトを作成します。 次に、**BackgroundAudioTrack** をコンポジションの [**BackgroundAudioTracks**](/uwp/api/windows.media.editing.mediacomposition.backgroundaudiotracks) プロパティに追加します。
 
-[!code-cs[AddBackgroundAudioTrack](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetAddBackgroundAudioTrack)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetAddBackgroundAudioTrack":::
 
 -   **MediaComposition** では、MP3、WAV、FLAC の各形式のバックグラウンド オーディオ トラックがサポートされます。
 
@@ -123,7 +123,7 @@ ms.locfileid: "89163876"
 
 オーバーレイを使うと、コンポジションの複数のビデオ レイヤーを重ね合わせることができます。 コンポジションには、複数のオーバーレイ レイヤーを含めることができ、それぞれのオーバーレイ レイヤーには複数のオーバーレイを追加することができます。 [**MediaOverlay**](/uwp/api/Windows.Media.Editing.MediaOverlay) オブジェクトは、そのコンストラクターに **MediaClip** を渡すことによって作成します。 オーバーレイの位置と不透明度を設定したら、新しい [**MediaOverlayLayer**](/uwp/api/Windows.Media.Editing.MediaOverlayLayer) を作成し、その [**Overlays**](/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgioutput2-supportsoverlays) リストに **MediaOverlay** を追加します。 最後に、その **MediaOverlayLayer** をコンポジションの [**OverlayLayers**](/uwp/api/windows.media.editing.mediacomposition.overlaylayers) リストに追加します。
 
-[!code-cs[AddOverlay](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetAddOverlay)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetAddOverlay":::
 
 -   レイヤーにおけるオーバーレイの Z オーダーは、そのオーバーレイを含んでいるレイヤーの **Overlays** リストにおける順序に基づいて決まります。 リストにおけるインデックスが大きいほど、手前にレンダリングされます。 コンポジションにおけるオーバーレイ レイヤーにも同じことが当てはまります。 コンポジションの **OverlayLayers** リストにおけるインデックスが大きいレイヤーほど、手前にレンダリングされます。
 
@@ -133,19 +133,19 @@ ms.locfileid: "89163876"
 
 コンポジションに含まれる各 **MediaClip** には、オーディオ効果とビデオ効果のリストがあって、そのリストに複数の効果を追加することができます。 これらの効果にはそれぞれ [**IAudioEffectDefinition**](/uwp/api/Windows.Media.Effects.IAudioEffectDefinition) または [**IVideoEffectDefinition**](/uwp/api/Windows.Media.Effects.IVideoEffectDefinition) が実装されている必要があります。 次の例は、現在の **MediaPlayerElement** 位置を使って表示されている **MediaClip** を選び、[**VideoStabilizationEffectDefinition**](/uwp/api/Windows.Media.Core.VideoStabilizationEffectDefinition) の新しいインスタンスを作成して、メディア クリップの [**VideoEffectDefinitions**](/uwp/api/windows.media.editing.mediaclip.videoeffectdefinitions) リストに追加しています。
 
-[!code-cs[AddVideoEffect](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetAddVideoEffect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetAddVideoEffect":::
 
 ## <a name="save-a-composition-to-a-file"></a>コンポジションをファイルに保存する
 
 メディア コンポジションは、後で変更を加えることができるようにファイルにシリアル化することができます。 出力ファイルを選んだ後、[**MediaComposition**](/uwp/api/Windows.Media.Editing.MediaComposition) の [**SaveAsync**](/uwp/api/windows.media.editing.mediacomposition.saveasync) メソッドを呼び出してコンポジションを保存します。
 
-[!code-cs[SaveComposition](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetSaveComposition)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetSaveComposition":::
 
 ## <a name="load-a-composition-from-a-file"></a>コンポジションをファイルから読み込む
 
 メディア コンポジションをファイルから逆シリアル化することによって、コンポジションを表示したり変更を加えたりする機能をユーザーに提供することができます。 コンポジション ファイルを選んだ後、[**MediaComposition**](/uwp/api/Windows.Media.Editing.MediaComposition) の [**LoadAsync**](/uwp/api/windows.media.editing.mediacomposition.loadasync) メソッドを呼び出してコンポジションを読み込みます。
 
-[!code-cs[OpenComposition](./code/MediaEditing/cs/MainPage.xaml.cs#SnippetOpenComposition)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaEditing/cs/MainPage.xaml.cs" id="SnippetOpenComposition":::
 
 -   コンポジション内のメディア ファイルが、アプリがアクセスできる場所になく、アプリの [**StorageApplicationPermissions**](/uwp/api/Windows.Storage.AccessCache.StorageApplicationPermissions) クラスの [**FutureAccessList**](/uwp/api/windows.storage.accesscache.storageapplicationpermissions.futureaccesslist) プロパティに存在しない場合、コンポジションの読み込み時にエラーがスローされます。
 

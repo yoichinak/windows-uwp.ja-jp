@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 235a5e06a8483599b8fbf29e866e990456c1f1f1
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1a688ade1e8907cb0de0683df0751d1eebef4ed7
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163946"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362625"
 ---
 # <a name="get-a-preview-frame"></a>プレビュー フレームの取得
 
@@ -23,23 +23,23 @@ ms.locfileid: "89163946"
 
 プレビュー フレームをキャプチャするためには、基本的なメディア キャプチャに必要な名前空間に加え、次の名前空間が必要となります。
 
-[!code-cs[PreviewFrameUsing](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetPreviewFrameUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetPreviewFrameUsing":::
 
 プレビュー フレームを要求するとき、フレームの受信に使う形式を指定するには、必要な形式を指定して [**VideoFrame**](/uwp/api/Windows.Media.VideoFrame) オブジェクトを作成します。 この例では、[**VideoDeviceController.GetMediaStreamProperties**](/uwp/api/windows.media.devices.videodevicecontroller.getmediastreamproperties) の呼び出しで [**MediaStreamType.VideoPreview**](/uwp/api/Windows.Media.Capture.MediaStreamType) を指定し、プレビュー ストリームのプロパティを要求することで、プレビュー ストリームと同じ解像度でビデオ フレームを作成します。 プレビュー ストリームの幅と高さを使って新しいビデオ フレームを作成しています。
 
-[!code-cs[CreateFormatFrame](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetCreateFormatFrame)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetCreateFormatFrame":::
 
 [**MediaCapture**](/uwp/api/Windows.Media.Capture.MediaCapture) オブジェクトが初期化されていてアクティブなプレビュー ストリームが存在する場合、[**GetPreviewFrameAsync**](/uwp/api/windows.media.capture.mediacapture.getpreviewframeasync) を呼び出してプレビュー ストリームを取得します。 引数には、最後のステップで作成したビデオ フレームを渡し、取得するフレームの形式を指定します。
 
-[!code-cs[GetPreviewFrameAsync](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetGetPreviewFrameAsync)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetGetPreviewFrameAsync":::
 
 プレビュー フレームの [**SoftwareBitmap**](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) 表現は、[**VideoFrame**](/uwp/api/Windows.Media.VideoFrame) オブジェクトの [**SoftwareBitmap**](/uwp/api/windows.media.videoframe.softwarebitmap) プロパティにアクセスして取得します。 ソフトウェア ビットマップの保存、読み込み、変更については、「[イメージング](imaging.md)」をご覧ください。
 
-[!code-cs[GetPreviewBitmap](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetGetPreviewBitmap)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetGetPreviewBitmap":::
 
 Direct3D API で画像を扱う場合は、プレビュー フレームの [**IDirect3DSurface**](/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface) 表現を取得することもできます。
 
-[!code-cs[GetPreviewSurface](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetGetPreviewSurface)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetGetPreviewSurface":::
 
 > [!IMPORTANT]
 > **GetPreviewFrameAsync** の呼び出し方法と、アプリが実行されているデバイスによっては、返される **VideoFrame** の [**SoftwareBitmap**](/uwp/api/windows.media.videoframe.softwarebitmap) プロパティまたは [**Direct3DSurface**](/uwp/api/windows.media.videoframe.direct3dsurface) プロパティのどちらかが null になることがあります。
@@ -52,7 +52,7 @@ Direct3D API で画像を扱う場合は、プレビュー フレームの [**ID
 
 プレビュー フレームが不要になったら必ず、その [**Close**](/uwp/api/windows.media.videoframe.close) メソッド (C# 内で Dispose に投影される) を呼び出して、フレームによって使われているリソースを解放してください。 または、**using** パターンを使ってもかまいません。その場合は、オブジェクトが自動的に破棄されます。
 
-[!code-cs[CleanUpPreviewFrame](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetCleanUpPreviewFrame)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetCleanUpPreviewFrame":::
 
 ## <a name="related-topics"></a>関連トピック
 

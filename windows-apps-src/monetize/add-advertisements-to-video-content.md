@@ -6,17 +6,17 @@ ms.date: 02/18/2020
 ms.topic: article
 keywords: Windows 10, UWP, 広告, 宣伝, ビデオ, スケジューラ, Javascript
 ms.localizationpriority: medium
-ms.openlocfilehash: 6baf26b083cce08557a9b09f2ba95d5ad889f4a4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9d1a5c08d9965422d6fcd543ee38d3e628be8432
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175106"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364065"
 ---
 # <a name="show-ads-in-video-content"></a>ビデオ コンテンツに広告を表示する
 
 >[!WARNING]
-> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細を表示](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
+> 2020年6月1日から、Microsoft Ad 収益化 platform for Windows UWP アプリがシャットダウンされます。 [詳細情報](https://social.msdn.microsoft.com/Forums/windowsapps/en-US/db8d44cb-1381-47f7-94d3-c6ded3fea36f/microsoft-ad-monetization-platform-shutting-down-june-1st?forum=aiamgr)
 
 このチュートリアルでは、JavaScript と HTML を使って作成されたユニバーサル Windows プラットフォーム (UWP) アプリのビデオ コンテンツに、**AdScheduler** クラスを使って広告を表示する方法について説明します。
 
@@ -44,7 +44,7 @@ ms.locfileid: "89175106"
 
   次の例では、JavaScript コードで [MediaPlayer](https://github.com/Microsoft/TVHelpers/wiki/MediaPlayer-Overview) を確立する方法を示します。
 
-  [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet1)]
+  :::code language="javascript" source="~/../snippets-windows/windows-uwp/monetize/AdvertisingSamples/AdSchedulerSamples/js/js/main.js" id="Snippet1":::
 
 ## <a name="how-to-use-the-adscheduler-class-in-your-code"></a>コードで AdScheduler クラスを使用する方法
 
@@ -75,7 +75,7 @@ ms.locfileid: "89175106"
 
 6.  プロジェクトの main.js ファイルで、新しい **AdScheduler** オブジェクトを作成するコードを追加します。 ビデオ コンテンツをホストする **MediaPlayer** を渡します。 このコードは、[WinJS.UI.processAll](/previous-versions/windows/apps/hh440975) の後に実行されるように配置する必要があります。
 
-    [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet2)]
+    :::code language="javascript" source="~/../snippets-windows/windows-uwp/monetize/AdvertisingSamples/AdSchedulerSamples/js/js/main.js" id="Snippet2":::
 
 7.  **AdScheduler** オブジェクトの **requestSchedule** メソッドまたは **requestScheduleByUrl** メソッドを使ってサーバーに広告スケジュールを要求し、それを **MediaPlayer** タイムラインに挿入してから、ビデオ メディアを再生します。
 
@@ -83,18 +83,18 @@ ms.locfileid: "89175106"
 
         このメソッドでは、非同期コンストラクトである [Promise](../threading-async/asynchronous-programming-universal-windows-platform-apps.md#asynchronous-patterns-in-uwp-using-javascript) の形式を使い、2 つの関数ポインターを渡します。2 つとは、promise の正常完了時に呼び出される **onComplete** 関数へのポインターと、エラーが発生した場合に呼び出される **onError** 関数へのポインターです。 **onComplete** 関数で、ビデオ コンテンツの再生を開始します。 スケジュールされた時間に広告の再生が始まります。 **onError** 関数では、エラーを処理してからビデオの再生を開始します。 ビデオ コンテンツは広告なしで再生されます。 **onError** 関数の引数は、次のメンバーを含むオブジェクトです。
 
-        [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet3)]
+        :::code language="javascript" source="~/../snippets-windows/windows-uwp/monetize/AdvertisingSamples/AdSchedulerSamples/js/js/main.js" id="Snippet3":::
 
     * Microsoft 以外の広告サーバーに広告スケジュールを要求するには、**requestScheduleByUrl** を使用し、サーバー URI を指定します。 このメソッドも **Promise** の形式を使い、**onComplete** 関数と **onError** 関数へのポインターを受け取ります。 サーバーから返される広告ペイロードは、Video Ad Serving Template (VAST) または Video Multiple Ad Playlist (VMAP) ペイロード形式に準拠している必要があります。
 
-        [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet4)]
+        :::code language="javascript" source="~/../snippets-windows/windows-uwp/monetize/AdvertisingSamples/AdSchedulerSamples/js/js/main.js" id="Snippet4":::
 
     > [!NOTE]
     > **MediaPlayer** でメインのビデオ コンテンツの再生を開始する前に、**requestSchedule** または **requestScheduleByUrl** が戻るまで待機する必要があります。 **requestSchedule** が戻る前にメディアの再生を開始すると (プリロール広告の場合)、プリロールによってメインのビデオ コンテンツが中断されます。 関数が失敗した場合でも、**play** を呼び出す必要があります。**AdScheduler** は、広告をスキップしてコンテンツに直接移動するように **MediaPlayer** に通知するためです。 ビジネス要件によっては、広告がリモートで正常に取得できない場合に、ビルトイン広告を挿入するなどの処理を行うこともできます。
 
 8.  再生中に、アプリが進行状況や、最初の広告マッチング プロセス後に発生したエラーを追跡するための追加のイベントを処理できます。 次のコードでは、これらのイベントのいくつか (**onPodStart**、**onPodEnd**、**onPodCountdown**、**onAdProgress**、**onAllComplete**、および **onErrorOccurred**) を示します。
 
-    [!code-javascript[TrialVersion](./code/AdvertisingSamples/AdSchedulerSamples/js/js/main.js#Snippet5)]
+    :::code language="javascript" source="~/../snippets-windows/windows-uwp/monetize/AdvertisingSamples/AdSchedulerSamples/js/js/main.js" id="Snippet5":::
 
 ## <a name="adscheduler-members"></a>AdScheduler のメンバー
 

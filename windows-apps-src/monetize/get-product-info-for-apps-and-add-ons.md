@@ -6,12 +6,12 @@ ms.date: 02/08/2018
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, アドオン, Windows.Services.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: a46d9b0049e0dc9456a36c726a611cbaf00e9616
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 63072c243e4528d4625fe300697b1edbff64383a
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164606"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363135"
 ---
 # <a name="get-product-info-for-apps-and-add-ons"></a>アプリとアドオンの製品情報の取得
 
@@ -42,7 +42,7 @@ ms.locfileid: "89164606"
 現在のアプリに関するストア製品情報を取得するには、[GetStoreProductForCurrentAppAsync](/uwp/api/windows.services.store.storecontext.getstoreproductforcurrentappasync) メソッドを使います。 これは、価格などの情報の取得に使うことができる [StoreProduct](/uwp/api/windows.services.store.storeproduct) オブジェクトを返す非同期メソッドです。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[GetProductInfo](./code/InAppPurchasesAndLicenses_RS1/cs/GetAppInfoPage.xaml.cs#GetAppInfo)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/GetAppInfoPage.xaml.cs" id="GetAppInfo":::
 
 ## <a name="get-info-for-add-ons-with-known-store-ids-that-are-associated-with-the-current-app"></a>現在のアプリに関連付けられている既知の Store ID を持つアドオンの情報の取得
 
@@ -54,7 +54,7 @@ ms.locfileid: "89164606"
 次の例では、現在のアプリに関連付けられていて、指定された Store ID を持つ永続的なアドオンの情報を取得します。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[GetProductInfo](./code/InAppPurchasesAndLicenses_RS1/cs/GetProductInfoPage.xaml.cs#GetProductInfo)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/GetProductInfoPage.xaml.cs" id="GetProductInfo":::
 
 ## <a name="get-info-for-add-ons-that-are-available-for-purchase-from-the-current-app"></a>現在のアプリから購入可能なアドオンの情報の取得
 
@@ -66,7 +66,7 @@ ms.locfileid: "89164606"
 次の例では、現在のアプリから購入できる、すべての永続的なアドオン、Store で管理されるコンシューマブルなアドオン、開発者により管理されるコンシューマブルなアドオンの情報を取得します。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[GetProductInfo](./code/InAppPurchasesAndLicenses_RS1/cs/GetAddOnInfoPage.xaml.cs#GetAddOnInfo)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/GetAddOnInfoPage.xaml.cs" id="GetAddOnInfo":::
 
 
 ## <a name="get-info-for-add-ons-for-the-current-app-that-the-user-has-purchased"></a>現在のアプリでユーザーが購入済みのアドオンの情報の取得
@@ -79,7 +79,7 @@ ms.locfileid: "89164606"
 次の例では、指定された [ストア id](in-app-purchases-and-trials.md#store_ids)を持つ持続性のあるアドオンの情報を取得します。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[GetProductInfo](./code/InAppPurchasesAndLicenses_RS1/cs/GetUserCollectionPage.xaml.cs#GetUserCollection)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/GetUserCollectionPage.xaml.cs" id="GetUserCollection":::
 
 ## <a name="related-topics"></a>関連トピック
 

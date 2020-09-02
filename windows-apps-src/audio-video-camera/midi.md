@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 871a8d1d8458decbd0b398847d7d9de57234ee3d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 26026a0aadb52de27f98dea8a7c21bdc2d1c44f1
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163766"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363855"
 ---
 # <a name="midi"></a>MIDI
 
@@ -23,19 +23,19 @@ ms.locfileid: "89163766"
 
 MIDI デバイスを列挙して使う前に、次の名前空間をプロジェクトに追加します。
 
-[!code-cs[Using](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetUsing":::
 
 XAML ページに [**ListBox**](/uwp/api/Windows.UI.Xaml.Controls.ListBox) コントロールを追加して、システムに接続されている MIDI 入力デバイスのいずれかをユーザーが選択できるようにします。 また、MIDI 出力の一覧を表示する別のコントロールを追加します。
 
-[!code-xml[MidiListBoxes](./code/MIDIWin10/cs/MainPage.xaml#SnippetMidiListBoxes)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml" id="SnippetMidiListBoxes":::
 
 [**FindAllAsync**](/uwp/api/windows.devices.enumeration.deviceinformation.findallasync) メソッドの [**DeviceInformation**](/uwp/api/Windows.Devices.Enumeration.DeviceInformation) クラスは、Windows によって認識される多くの異なる種類のデバイスを列挙するのに使われます。 メソッドで MIDI 入力デバイスだけを検索するよう指定するには、[**MidiInPort.GetDeviceSelector**](/uwp/api/windows.devices.midi.midiinport.getdeviceselector) によって返されるセレクター文字列を使います。 **FindAllAsync** は、システムに登録されている各 MIDI 入力デバイスの **DeviceInformation** が格納された [**DeviceInformationCollection**](/uwp/api/Windows.Devices.Enumeration.DeviceInformationCollection) を返します。 返されたコレクションに項目が含まれていない場合、利用可能な MIDI 入力デバイスはありません。 コレクションに項目が含まれる場合は、**DeviceInformation** オブジェクトのループ処理を行い、各デバイスの名前を MIDI 入力デバイスの **ListBox** に追加します。
 
-[!code-cs[EnumerateMidiInputDevices](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetEnumerateMidiInputDevices)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetEnumerateMidiInputDevices":::
 
 MIDI 出力デバイスの列挙も入力デバイスの列挙とまったく同じように動作しますが、**FindAllAsync** を呼び出すときに、[**MidiOutPort.GetDeviceSelector**](/uwp/api/windows.devices.midi.midioutport.getdeviceselector) によって返されるセレクター文字列を指定する必要があります。
 
-[!code-cs[EnumerateMidiOutputDevices](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetEnumerateMidiOutputDevices)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetEnumerateMidiOutputDevices":::
 
 
 
@@ -52,11 +52,11 @@ MIDI 出力デバイスの列挙も入力デバイスの列挙とまったく同
 -   利用可能なデバイスの名前が格納される [**ListBox**](/uwp/api/Windows.UI.Xaml.Controls.ListBox) コントロール。
 -   UI スレッド以外のスレッドから UI を更新するために必要な [**CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher)。
 
-[!code-cs[WatcherVariables](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherVariables)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetWatcherVariables":::
 
 ヘルパー クラスの外部からのデバイスの現在の一覧にアクセスするために使用される [**DeviceInformationCollection**](/uwp/api/Windows.Devices.Enumeration.DeviceInformationCollection) プロパティを追加します。
 
-[!code-cs[DeclareDeviceInformationCollection](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetDeclareDeviceInformationCollection)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetDeclareDeviceInformationCollection":::
 
 クラスのコンストラクターで、呼び出し元は MIDI デバイスのセレクター文字列、デバイスの一覧を表示する **ListBox**、および UI の更新に必要な **Dispatcher** を渡します。
 
@@ -64,7 +64,7 @@ MIDI デバイスのセレクター文字列を渡して [**DeviceInformation.Cr
 
 ウォッチャーのイベント ハンドラーに対してハンドラーを登録します。
 
-[!code-cs[WatcherConstructor](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherConstructor)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetWatcherConstructor":::
 
 **DeviceWatcher** には次のイベントがあります。
 
@@ -75,31 +75,31 @@ MIDI デバイスのセレクター文字列を渡して [**DeviceInformation.Cr
 
 これらの各イベントのイベント ハンドラーで、ヘルパー メソッド **UpdateDevices** が呼び出され、現在のデバイスの一覧で **ListBox** が更新されます。 **UpdateDevices** は UI 要素を更新し、これらのイベント ハンドラーは UI スレッドでは呼び出されないため、各呼び出しを [**RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) の呼び出しにラップすることで、指定したコードが UI スレッドで実行されるようにする必要があります。
 
-[!code-cs[WatcherEventHandlers](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherEventHandlers)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetWatcherEventHandlers":::
 
 **UpdateDevices** ヘルパー メソッドは、[**DeviceInformation.FindAllAsync**](/uwp/api/windows.devices.enumeration.deviceinformation.findallasync) を呼び出し、この記事の前半で説明したように、返されたデバイスの名前で **ListBox** を更新します。
 
-[!code-cs[WatcherUpdateDevices](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherUpdateDevices)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetWatcherUpdateDevices":::
 
 **DeviceWatcher** オブジェクトの [**Start**](/uwp/api/windows.devices.enumeration.devicewatcher.start) メソッドを使って、ウォッチャーを起動するメソッドを追加し、[**Stop**](/uwp/api/windows.devices.enumeration.devicewatcher.stop) メソッドを使ってウォッチャーを停止するメソッドを追加します。
 
-[!code-cs[WatcherStopStart](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherStopStart)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetWatcherStopStart":::
 
 ウォッチャーのイベント ハンドラーの登録を解除し、デバイス ウォッチャーを null に設定する、デストラクターを用意します。
 
-[!code-cs[WatcherDestructor](./code/MIDIWin10/cs/MyMidiDeviceWatcher.cs#SnippetWatcherDestructor)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MyMidiDeviceWatcher.cs" id="SnippetWatcherDestructor":::
 
 ## <a name="create-midi-ports-to-send-and-receive-messages"></a>メッセージを送受信する MIDI ポートを作成する
 
 ページの分離コードで、**MyMidiDeviceWatcher** ヘルパー クラスの 2 つのインスタンスを保持するメンバー変数を宣言します。1 つは入力デバイス用、もう 1 つは出力デバイス用です。
 
-[!code-cs[DeclareDeviceWatchers](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetDeclareDeviceWatchers)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetDeclareDeviceWatchers":::
 
 ウォッチャー ヘルパー クラスの新しいインスタンスを作成し、デバイスのセレクター文字列、格納する **ListBox**、およびページの **Dispatcher** プロパティでアクセスできる **CoreDispatcher** オブジェクトを渡します。 次に、各オブジェクトの **DeviceWatcher** を起動するメソッドを呼び出します。
 
 各 **DeviceWatcher** は起動するとすぐに、現在システムに接続されているデバイスの列挙を完了し、[**EnumerationCompleted**](/uwp/api/windows.devices.enumeration.devicewatcher.enumerationcompleted) イベントを発生させます。これにより、各 **ListBox** が現在の MIDI デバイスで更新されます。
 
-[!code-cs[StartWatchers](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetStartWatchers)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetStartWatchers":::
 
 ユーザーが MIDI 入力 **ListBox** の項目を選択すると、[**SelectionChanged**](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントが発生します。 このイベントのハンドラーで、ヘルパー クラスの **DeviceInformationCollection** プロパティにアクセスして、デバイスの現在の一覧を取得します。 一覧にエントリがある場合は、 **ListBox**コントロールの[**SelectedIndex**](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex)に対応するインデックスを持つ**deviceinformation**オブジェクトを選択します。
 
@@ -107,25 +107,25 @@ MIDI デバイスのセレクター文字列を渡して [**DeviceInformation.Cr
 
 指定されたデバイスで MIDI メッセージが受信されるたびに発生する [**MessageReceived**](/uwp/api/windows.devices.midi.midiinport.messagereceived) イベントのハンドラーを登録します。
 
-[!code-cs[DeclareMidiPorts](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetDeclareMidiPorts)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetDeclareMidiPorts":::
 
-[!code-cs[InPortSelectionChanged](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetInPortSelectionChanged)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetInPortSelectionChanged":::
 
 **MessageReceived** ハンドラーが呼び出されると、**MidiMessageReceivedEventArgs** の [**Message**](/uwp/api/Windows.Devices.Midi.MidiMessageReceivedEventArgs) プロパティにメッセージが格納されます。 メッセージ オブジェクトの [**Type**](/uwp/api/windows.devices.midi.imidimessage.type) は、受信したメッセージの種類を示す [**MidiMessageType**](/uwp/api/Windows.Devices.Midi.MidiMessageType) 列挙体の値です。 メッセージのデータは、メッセージの種類によって異なります。 この例では、メッセージがノートオン メッセージであるかどうかを確認し、そうである場合は、メッセージの MIDI チャネル、ノート、およびベロシティを出力します。
 
-[!code-cs[MessageReceived](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetMessageReceived)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetMessageReceived":::
 
 出力デバイス **ListBox** の [**SelectionChanged**](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) ハンドラーは、入力デバイスのハンドラーと同じように動作しますが、イベント ハンドラーは登録されません。
 
-[!code-cs[OutPortSelectionChanged](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetOutPortSelectionChanged)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetOutPortSelectionChanged":::
 
 出力デバイスが作成されたら、送信するメッセージの種類に対する新しい [**IMidiMessage**](/uwp/api/Windows.Devices.Midi.IMidiMessage) を作成して、メッセージを送信できます。 この例では、メッセージは [**NoteOnMessage**](/uwp/api/Windows.Devices.Midi.MidiNoteOnMessage) です。 [**IMidiOutPort**](/uwp/api/Windows.Devices.Midi.IMidiOutPort) オブジェクトの [**SendMessage**](/uwp/api/windows.devices.midi.imidioutport.sendmessage) メソッドが呼び出されて、メッセージを送信します。
 
-[!code-cs[SendMessage](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetSendMessage)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetSendMessage":::
 
 アプリが非アクティブ化になったときは、必ずアプリのリソースをクリーンアップしてください。 イベント ハンドラーの登録を解除し、MIDI の入力ポート オブジェクトと出力ポート オブジェクトを null に設定します。 デバイス ウォッチャーを停止し、null に設定します。
 
-[!code-cs[CleanUp](./code/MIDIWin10/cs/MainPage.xaml.cs#SnippetCleanUp)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MIDIWin10/cs/MainPage.xaml.cs" id="SnippetCleanUp":::
 
 ## <a name="using-the-built-in-windows-general-midi-synth"></a>組み込みの Windows General MIDI シンセサイザーを使用する
 

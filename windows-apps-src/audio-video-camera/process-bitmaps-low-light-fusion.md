@@ -5,12 +5,12 @@ ms.date: 03/22/2018
 ms.topic: article
 keywords: Windows 10, UWP, 低光量 Fusion, ビットマップ, 画像処理
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c1ae98b12d9ddb83f5109212d91ae2aa804e32a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4e82eb780efe83125a09417f349f84ee9451c1f0
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163646"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363835"
 ---
 # <a name="process-bitmaps-with-the-lowlightfusion-api"></a>LowLightFusion を使用したビットマップの処理
 
@@ -26,26 +26,26 @@ ms.locfileid: "89163646"
 
 最初に、アルゴリズムで受け入れる画像の枚数 (フレームとも呼ばれます) を決定し、これらのフレームを格納するリストを作成する必要があります。
 
-[!code-cs[SnippetGetMaxLLFFrames](./code/LowLightFusionSample/cs/MainPage.xaml.cs#SnippetGetMaxLLFFrames)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/LowLightFusionSample/cs/MainPage.xaml.cs" id="SnippetGetMaxLLFFrames":::
 
 低光量 Fusion アルゴリズムで受け入れるフレームの枚数を決定したら、[FileOpenPicker](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使用して、アルゴリズムで利用される画像をユーザーが選択できるようにすることができます。
 
-[!code-cs[SnippetGetFrames](./code/LowLightFusionSample/cs/MainPage.xaml.cs#SnippetGetFrames)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/LowLightFusionSample/cs/MainPage.xaml.cs" id="SnippetGetFrames":::
 
 適切な枚数のフレームが選択されているので、次に、フレームを [SoftwareBitmaps](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap) にデコードし、SoftwareBitmaps が LowLightFusion の正しい形式になっていることを確認する必要があります。
 
-[!code-cs[SnippetDecodeFrames](./code/LowLightFusionSample/cs/MainPage.xaml.cs#SnippetDecodeFrames)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/LowLightFusionSample/cs/MainPage.xaml.cs" id="SnippetDecodeFrames":::
 
 
 ## <a name="fuse-the-bitmaps-into-a-single-bitmap"></a>複数のビットマップを 1 つのビットマップに合成する
 
 適切な枚数のフレームが受け付け可能な形式になっているので、次に、**[FuseAsync](/uwp/api/windows.media.core.lowlightfusion.fuseasync)** メソッドを使用して、低光量 Fusion アルゴリズムを適用します。 結果として生成される処理済みの画像は、鮮明度が向上しており、SoftwareBitmap の形式になります。 
 
-[!code-cs[SnippetFuseFrames](./code/LowLightFusionSample/cs/MainPage.xaml.cs#SnippetFuseFrames)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/LowLightFusionSample/cs/MainPage.xaml.cs" id="SnippetFuseFrames":::
 
 最後に、ユーザーが使い慣れた "通常" の画像形式 (作業を開始したときと同様の画像形式) にエンコードし保存することによって、生成された SoftwareBitmap をクリーンアップします。
 
-[!code-cs[SnippetEncodeFrame](./code/LowLightFusionSample/cs/MainPage.xaml.cs#SnippetEncodeFrame)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/LowLightFusionSample/cs/MainPage.xaml.cs" id="SnippetEncodeFrame":::
 
 
 ## <a name="before-and-after"></a>適用前と適用後

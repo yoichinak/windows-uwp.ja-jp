@@ -6,12 +6,12 @@ ms.date: 09/12/2017
 ms.topic: article
 keywords: Windows 10, UWP, キャプチャ, ビデオ
 ms.localizationpriority: medium
-ms.openlocfilehash: 78f12137bcb6dbb9984648ce141b4351d592902b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6d40e75dd88b84eb5d7244a2ad3ed3d605c17e0b
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160916"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362876"
 ---
 # <a name="capture-from-multiple-sources-using-mediaframesourcegroup"></a>MediaFrameSourceGroup を使用して複数のソースからキャプチャする
 
@@ -28,14 +28,14 @@ ms.locfileid: "89160916"
 
 すべてのデバイスが 2 台のカラー カメラを含むソース グループを保持しているわけではありません。そのため、ビデオをキャプチャする前に、ソース グループが検出済みであるかどうかを確認する必要があります
 
-[!code-cs[MultiRecordFindSensorGroups](./code/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs#SnippetMultiRecordFindSensorGroups)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs" id="SnippetMultiRecordFindSensorGroups":::
 
 ## <a name="initialize-the-mediacapture-object"></a>MediaCapture オブジェクトを初期化する
 **[MediaCapture](/uwp/api/windows.media.capture.mediacapture)** クラスは、UWP アプリでのほとんどのオーディオ、ビデオ、および写真のキャプチャ操作で使用されるプライマリ クラスです。 初期化パラメーターを含んでいる **[MediaCaptureInitializationSettings](/uwp/api/windows.media.capture.mediacaptureinitializationsettings)** オブジェクトを渡して **[InitializeAsync](/uwp/api/windows.media.capture.mediacapture.InitializeAsync)** を呼び出し、オブジェクトを初期化します。 この例では、指定した設定は **[SourceGroup](/uwp/api/windows.media.capture.mediacaptureinitializationsettings.SourceGroup)** プロパティのみで、前のコード例で取得された **MediaFrameSourceGroup** に設定されています。
 
 メディアをキャプチャする場合に **MediaCapture** や他の UWP アプリの機能を使用して実行できるその他の操作については、「[カメラ](camera.md)」をご覧ください。
 
-[!code-cs[MultiRecordInitMediaCapture](./code/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs#SnippetMultiRecordInitMediaCapture)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs" id="SnippetMultiRecordInitMediaCapture":::
 
 ## <a name="create-a-mediaencodingprofile"></a>MediaEncodingProfile を作成する
 **[MediaEncodingProfile](/uwp/api/windows.media.mediaproperties.mediaencodingprofile)** クラスは、キャプチャしたオーディオやビデオをファイルに書き込む際のエンコードの方法をメディア キャプチャ パイプラインに伝えます。 一般的なキャプチャやコード変換のシナリオでは、このクラスによって、一般的なプロファイル (**[CreateAvi](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createavi)** や **[CreateMp3](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.createmp3)** など) を作成するための一連の静的メソッドが提供されます。 この例では、Mpeg4 コンテナーと H264 ビデオ エンコードを使用して、エンコード プロファイルを手動で作成します。 ビデオ エンコードの設定は、**[VideoEncodingProperties](/uwp/api/windows.media.mediaproperties.videoencodingproperties)** オブジェクトを使用して指定します。 このシナリオで使用される各カラー カメラに対して、**VideoStreamDescriptor** オブジェクトを構成します。 記述子は、エンコードを指定する **VideoEncodingProperties** オブジェクトを使用して作成されます。 **VideoStreamDescriptor** の **[Label](/uwp/api/windows.media.core.videostreamdescriptor.Label)** プロパティは、ストリームにキャプチャされるメディア フレーム ソースの ID に設定する必要があります。 この方法によって、キャプチャ パイプラインは、どのストリーム記述子とエンコード プロパティが各カメラで使用されるかを識別します。 フレーム ソースの ID は、**MediaFrameSourceGroup** が選択されたときに、**[MediaFrameSourceInfo](/uwp/api/windows.media.capture.frames.mediaframesourceinfo)** オブジェクト (前のセクションをご覧ください) によって公開されます。
@@ -44,7 +44,7 @@ ms.locfileid: "89160916"
 Windows 10, version 1709 以降では、**[SetVideoTracks](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.setvideotracks)** を呼び出すことによって、**MediaEncodingProfile** に対して複数のエンコード プロパティを設定できます。 ビデオ ストリーム記述子の一覧は、**[GetVideoTracks](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.GetVideoTracks)** を呼び出して取得することができます。 1 つのストリーム記述子を格納する **[Video](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.Video)** プロパティを設定した場合、**SetVideoTracks** を呼び出して設定した記述子の一覧は、指定した 1 つの記述子を含んでいる一覧に置き換えられます。
 
 
-[!code-cs[MultiRecordMediaEncodingProfile](./code/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs#SnippetMultiRecordMediaEncodingProfile)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs" id="SnippetMultiRecordMediaEncodingProfile":::
 
 ### <a name="encode-timed-metadata-in-media-files"></a>メディア ファイルでタイミングが設定されたメタデータをエンコードする
 
@@ -54,16 +54,16 @@ Windows 10、バージョン 1803 以降では、オーディオとビデオに�
 
 次の例では、**TimedMetadataStreamDescriptor**オブジェクトを初期化する方法を示します。 まず、**TimedMetadataEncodingProperties** オブジェクトが作成されると、**Subtype** が、ストリームに含めるメタデータのタイプを識別する GUID に設定されます。 この例では、GoPro メタデータ (gpmd) の GUID が使用されています。 [**SetFormatUserData**](/uwp/api/windows.media.mediaproperties.timedmetadataencodingproperties.setformatuserdata) メソッドが呼び出されて形式固有のデータが設定されます。 MP4 ファイルの場合、形式固有のデータが SampleDescription ボックス (stsd) に格納されます。 次に、エンコード プロパティから、新しい**TimedMetadataStreamDescriptor** が作成されます。 **Label** プロパティと **Name** プロパティが、エンコードするストリームの ID に設定されます。 
 
-[!code-cs[GetStreamDescriptor](./code/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs#SnippetGetStreamDescriptor)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs" id="SnippetGetStreamDescriptor":::
 
 [**MediaEncodingProfile**](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.settimedmetadatatracks)を呼び出して、メタデータストリーム記述子をエンコードプロファイルに追加します。 次の例では、2 つのビデオ ストリーム記述子、1 つのオーディオ ストリーム記述子、1 つのタイミングが設定されたメタデータ ストリーム記述子を受け取り、ストリームのエンコードに使用できる **MediaEncodingProfile** を返すヘルパー メソッドを示します。
 
-[!code-cs[GetMediaEncodingProfile](./code/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs#SnippetGetMediaEncodingProfile)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs" id="SnippetGetMediaEncodingProfile":::
 
 ## <a name="record-using-the-multi-stream-mediaencodingprofile"></a>マルチストリームの MediaEncodingProfile を使用して録画する
 この例の最期の手順では、キャプチャしたメディアが書き込まれる **StorageFile** と前のコード例で作成した **MediaEncodingProfile** を渡して **[StartRecordToStorageFileAsync](/uwp/api/windows.media.capture.mediacapture.startrecordtostoragefileasync)** を呼び出し、ビデオ キャプチャを開始します。 数秒待機した後で、**[StopRecordAsync](/uwp/api/windows.media.capture.mediacapture.StopRecordAsync)** が呼び出され録画が停止します。
 
-[!code-cs[MultiRecordToFile](./code/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs#SnippetMultiRecordToFile)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.MultiRecord.xaml.cs" id="SnippetMultiRecordToFile":::
 
 操作が完了すると、各カメラからキャプチャしたビデオを含むビデオ ファイルが作成されます。このファイルでは、それぞれのビデオが個別のストリームとしてエンコードされています。 複数のビデオ トラックが含まれているメディア ファイルを再生する方法について詳しくは、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」をご覧ください。
 

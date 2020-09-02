@@ -6,12 +6,12 @@ ms.date: 09/27/2017
 ms.topic: article
 keywords: Windows 10, ゲーム, ブロードキャスト
 ms.localizationpriority: medium
-ms.openlocfilehash: 5cfa40c54511a411025d2d1c3be056dd0209865e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 87c35bb4612ad970f01853b2ace46b44b1882781
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172006"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362495"
 ---
 # <a name="manage-game-broadcasting"></a>ゲームのブロードキャストを管理する
 この記事では、UWP アプリのゲームのブロードキャストを管理する方法を示します。 ユーザーは、Windows に組み込まれているシステム UI を使用してゲームのブロードキャストを開始する必要がありますが、Windows 10 バージョン 1709 以降、アプリでシステムのブロードキャスト UI を起動でき、ブロードキャストが開始および停止されたときには通知を受信できます。
@@ -31,23 +31,23 @@ ms.locfileid: "89172006"
 
 **AppBroadcastingStatus** クラスの **[CanStartBroadcast](/uwp/api/windows.media.appbroadcasting.appbroadcastingstatus.CanStartBroadcast)** プロパティは、アプリが現在ブロードキャストを開始できるかどうかを通知します。 開始できない場合は、**[Details](/uwp/api/windows.media.appbroadcasting.appbroadcastingstatus.Details)** プロパティを調べて、ブロードキャストを利用できない理由を確認できます。 理由に応じて、ユーザーに対してステータスを表示したり、ブロードキャストを有効にするための手順を示したりすることができます。
 
-[!code-cpp[CanStartBroadcast](./code/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp#SnippetCanStartBroadcast)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/gaming/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp" id="SnippetCanStartBroadcast":::
 
 **[ShowBroadcastUI](/uwp/api/windows.media.appbroadcasting.appbroadcastingui.ShowBroadcastUI)** を呼び出すことによって、アプリのブロードキャスト UI をシステムで表示することを要求します。
 
 > [!NOTE] 
 > **ShowBroadcastUI** メソッドは、システムの現在の状態に応じて、成功しない可能性がある要求を示します。 アプリでは、このメソッドを呼び出した後、ブロードキャストが開始済みであることを想定しないでください。 ブロードキャストが開始または停止するときに通知される **[IsCurrentAppBroadcastingChanged](/uwp/api/windows.media.appbroadcasting.appbroadcastingmonitor.IsCurrentAppBroadcastingChanged)** イベントを使用します。
 
-[!code-cpp[LaunchBroadcastUI](./code/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp#SnippetLaunchBroadcastUI)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/gaming/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp" id="SnippetLaunchBroadcastUI":::
 
 ## <a name="receive-notifications-when-broadcasting-starts-and-stops"></a>ブロードキャストが開始および停止するときに通知を受信する
 ユーザーがシステム UI を使用して、**[AppBroadcastingMonitor](/uwp/api/windows.media.appbroadcasting.appbroadcastingmonitor)** クラスのインスタンスを初期化し、**[IsCurrentAppBroadcastingChanged](/uwp/api/windows.media.appbroadcasting.appbroadcastingmonitor.IsCurrentAppBroadcastingChanged)** イベントのハンドラーを登録することによって、アプリのブロードキャストを開始または停止するときに通知を受信することを登録します。 前のセクションで説明したように、必ずある時点で **[ApiInformation.IsApiContractPresent](/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent)** を使用して、ブロードキャスト API を使用する前に、デバイスにブロードキャスト API が存在することを確認します。 
 
-[!code-cpp[AppBroadcastingRegisterChangedHandler](./code/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp#SnippetAppBroadcastingRegisterChangedHandler)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/gaming/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp" id="SnippetAppBroadcastingRegisterChangedHandler":::
 
 **IsCurrentAppBroadcastingChanged** イベントのハンドラーで、現在のブロードキャストの状態を反映するように、アプリの UI を更新することもできます。
 
-[!code-cpp[AppBroadcastingChangedHandler](./code/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp#SnippetAppBroadcastingChangedHandler)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/gaming/AppBroadcast/cpp/AppBroadcastExampleApp/App.cpp" id="SnippetAppBroadcastingChangedHandler":::
 
 ## <a name="related-topics"></a>関連トピック
 

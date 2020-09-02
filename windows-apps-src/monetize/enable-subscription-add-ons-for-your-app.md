@@ -5,12 +5,12 @@ keywords: Windows 10, UWP, サブスクリプション, アドオン, アプリ�
 ms.date: 12/06/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 39f319d272e4dde465af68d4c5b7af7fb7a17799
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 844af95545e34dab8adb6698624fcd0dccb2ab30
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89167716"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362805"
 ---
 # <a name="enable-subscription-add-ons-for-your-app"></a>アプリのサブスクリプション アドオンの有効化
 
@@ -88,14 +88,14 @@ UWP アプリのサブスクリプション アドオンでは、次の機能を
 4. 最後に、コードで [**RequestPurchaseAsync**](/uwp/api/windows.services.store.storeproduct.RequestPurchaseAsync) メソッドを呼び出して、サブスクリプションの購入を要求します。 サブスクリプションに試用版がある場合は、試用版がユーザーに提供されます。 それ以外の場合は、製品版のサブスクリプションが購入用に提供されます。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[Subscriptions](./code/InAppPurchasesAndLicenses_RS1/cs/PurchaseSubscriptionAddOnTrialPage.xaml.cs#PurchaseTrialSubscription)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/PurchaseSubscriptionAddOnTrialPage.xaml.cs" id="PurchaseTrialSubscription":::
 
 ### <a name="get-info-about-subscription-add-ons-for-the-current-app"></a>現在のアプリのサブスクリプション アドオンの情報の取得
 
 このコード例では、アプリで利用可能なすべてのサブスクリプション アドオンの情報を取得する方法を示しています。 この情報を取得するには、まず [**GetAssociatedStoreProductsAsync**](/uwp/api/Windows.Services.Store.StoreContext.GetAssociatedStoreProductsAsync) メソッドを使用して、アプリで利用可能なアドオンそれぞれを表す [**StoreProduct**](/uwp/api/Windows.Services.Store.StoreProduct) オブジェクトのコレクションを取得します。 次に、各製品の [**StoreSku**](/uwp/api/windows.services.store.storesku) を取得し、[**IsSubscription**](/uwp/api/windows.services.store.storesku.IsSubscription) プロパティと [**SubscriptionInfo**](/uwp/api/windows.services.store.storesku.SubscriptionInfo) プロパティを使用してサブスクリプション情報にアクセスします。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[Subscriptions](./code/InAppPurchasesAndLicenses_RS1/cs/GetSubscriptionAddOnsPage.xaml.cs#GetSubscriptions)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/GetSubscriptionAddOnsPage.xaml.cs" id="GetSubscriptions":::
 
 <span id="manage-subscriptions" />
 

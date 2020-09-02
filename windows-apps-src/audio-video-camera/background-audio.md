@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 72687db5bed8303b672ed8ed009108708cb126be
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a0c816470f4a6caf79cb3370a39bc76abb7ef878
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161186"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364035"
 ---
 # <a name="play-media-in-the-background"></a>バックグラウンドでのメディアの再生
 この記事では、アプリをフォアグラウンドからバックグラウンドに移動してもメディアの再生を続行できるように、アプリを構成する方法について説明します。 バックグラウンドでの再生とは、ユーザーがアプリを最小化してホーム画面に戻った後や、それ以外の方法でアプリから離れた後も、アプリでオーディオの再生を続行できることを意味します。 
@@ -68,19 +68,19 @@ Windows 10 バージョン 1607 では、新しいシングル プロセス モ�
 ## <a name="handle-transitioning-between-foreground-and-background"></a>フォアグラウンドとバックグラウンドの間の移行の処理
 アプリがフォアグラウンドからバックグラウンドに移動すると、[**EnteredBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) イベントが発生します。 また、アプリがフォアグラウンドに戻るときには、[**LeavingBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベントが発生します。 これらは、アプリのライフサイクル イベントであるために、アプリを作成するときに、これらのイベントのハンドラーを登録する必要があります。 既定のプロジェクト テンプレートでは、これは、App.xaml.cs の **App** クラス コンストラクターに追加することを意味します。 
 
-[!code-cs[RegisterEvents](./code/BackgroundAudio_RS1/cs/App.xaml.cs#SnippetRegisterEvents)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BackgroundAudio_RS1/cs/App.xaml.cs" id="SnippetRegisterEvents":::
 
 バックグラウンドで現在実行しているかどうかを追跡する変数を作成します。
 
-[!code-cs[DeclareBackgroundMode](./code/BackgroundAudio_RS1/cs/App.xaml.cs#SnippetDeclareBackgroundMode)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BackgroundAudio_RS1/cs/App.xaml.cs" id="SnippetDeclareBackgroundMode":::
 
 [**EnteredBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) イベントが発生したときに、現在バックグラウンドで実行していることを示す追跡変数を設定します。 **EnteredBackground** イベントで長時間のタスクは実行しないでください。ユーザーに対して、バックグラウンドへの移行が遅いように見える可能性があります。
 
-[!code-cs[EnteredBackground](./code/BackgroundAudio_RS1/cs/App.xaml.cs#SnippetEnteredBackground)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BackgroundAudio_RS1/cs/App.xaml.cs" id="SnippetEnteredBackground":::
 
 [**LeavingBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベント ハンドラーで、アプリがバックグラウンドで実行されなくなったことを示すために追跡変数を設定する必要があります。
 
-[!code-cs[LeavingBackground](./code/BackgroundAudio_RS1/cs/App.xaml.cs#SnippetLeavingBackground)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BackgroundAudio_RS1/cs/App.xaml.cs" id="SnippetLeavingBackground":::
 
 ### <a name="memory-management-requirements"></a>メモリ管理の要件
 フォアグラウンドとバックグラウンドの間の移行処理で最も重要な部分は、アプリが使うメモリの管理です。 バックグラウンドで実行すると、システムによってアプリが保持することを許可されているメモリ リソースが減少するため、[**AppMemoryUsageIncreased**](/uwp/api/windows.system.memorymanager.appmemoryusageincreased) と [**AppMemoryUsageLimitChanging**](/uwp/api/windows.system.memorymanager.appmemoryusagelimitchanging) イベントについても登録する必要があります。 これらのイベントが発生したとき、アプリの現在のメモリ使用量と、現在の制限を確認し、必要に応じて、メモリ使用量を減らしてください。 バックグラウンドで実行中にメモリ使用量を減らす方法については、[アプリがバックグラウンドに移動したときにメモリを解放する方法に関するページ](../launch-resume/reduce-memory-usage.md)をご覧ください。

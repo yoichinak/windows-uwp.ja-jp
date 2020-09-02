@@ -6,12 +6,12 @@ keywords: UWP, アドオン, アプリ内購入, IAP, Windows.ApplicationModel.S
 ms.date: 08/25/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ab2b5937746f006c0f5efd296e9b4a4f3cb82696
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ac6fc8a6ac39c106e3d5d593a36595097c4bde45
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364115"
 ---
 # <a name="enable-in-app-product-purchases"></a>アプリ内製品購入の有効化
 
@@ -34,7 +34,7 @@ ms.locfileid: "89171576"
 アプリを初期化するときに、[CurrentApp](/uwp/api/Windows.ApplicationModel.Store.CurrentApp) または [CurrentAppSimulator](/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator) を初期化することでアプリの [LicenseInformation](/uwp/api/Windows.ApplicationModel.Store.LicenseInformation) オブジェクトを取得し、アプリ内製品の購入を有効にします。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[EnableInAppPurchases](./code/InAppPurchasesAndLicenses/cs/EnableInAppPurchases.cs#InitializeLicenseTest)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses/cs/EnableInAppPurchases.cs" id="InitializeLicenseTest":::
 
 ## <a name="step-2-add-the-in-app-offers-to-your-app"></a>手順 2: アプリにアプリ内製品の販売を追加する
 
@@ -61,7 +61,7 @@ ms.locfileid: "89171576"
     次の例は、ライセンス固有の条件ブロック内に **featureName** という名前の製品機能のコードを記述する方法を示しています。 **featureName** という文字列は、アプリ内でこの製品を一意に識別するトークンであり、ストアでも識別用に使われます。
 
     > [!div class="tabbedCodeSnippets"]
-    [!code-csharp[EnableInAppPurchases](./code/InAppPurchasesAndLicenses/cs/EnableInAppPurchases.cs#CodeFeature)]
+    :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses/cs/EnableInAppPurchases.cs" id="CodeFeature":::
 
 3.  **この機能の購入 UI を追加する**
 
@@ -70,7 +70,7 @@ ms.locfileid: "89171576"
     次の例は、ユーザーが既にアプリ内製品を所有しているかどうかをテストし、所有していない場合は購入できるように購入用ダイアログを表示する方法を示しています。 "show the purchase dialog" というコメントを、購入用ダイアログの独自のコードに置き換えてください (わかりやすい [このアプリを購入]  ボタンのあるページなど)。
 
     > [!div class="tabbedCodeSnippets"]
-    [!code-csharp[EnableInAppPurchases](./code/InAppPurchasesAndLicenses/cs/EnableInAppPurchases.cs#BuyFeature)]
+    :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses/cs/EnableInAppPurchases.cs" id="BuyFeature":::
 
 ## <a name="step-3-change-the-test-code-to-the-final-calls"></a>手順 3: テスト コードを最終的な呼び出しに変更する
 
@@ -83,7 +83,7 @@ ms.locfileid: "89171576"
   > [!NOTE]
   > コードで使用するアプリ内プラントークンは、パートナーセンターの対応するアドオンに対して指定した [製品 ID](../publish/set-your-add-on-product-id.md#product-id) 値と一致する必要があります。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
 コンシューマブルなアプリ内購入オプション (購入して使い切った後、必要に応じて再購入できる項目) を顧客に提供することに関心がある場合は、「[コンシューマブルなアプリ内製品購入の有効化](enable-consumable-in-app-product-purchases.md)」をご覧ください。
 

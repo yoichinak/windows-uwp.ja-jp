@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、3dprinting、3d 印刷
 ms.localizationpriority: medium
-ms.openlocfilehash: b89fb14b8e554452674e0c7b0bc31b6314cce253
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 357d8bd3a460e61c436750fc4c9cbfbf8a8fcbfc
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175496"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362855"
 ---
 # <a name="3d-printing-from-your-app"></a>アプリからの 3D 印刷
 
@@ -29,25 +29,25 @@ ms.locfileid: "89175496"
 
 3D 印刷機能を搭載するアプリケーション クラスで、[**Windows.Graphics.Printing3D**](/uwp/api/Windows.Graphics.Printing3D) 名前空間を追加します。
 
-[!code-cs[3DPrintNamespace](./code/3dprinthowto/cs/MainPage.xaml.cs#Snippet3DPrintNamespace)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="Snippet3DPrintNamespace":::
 
 このガイドでは、次の追加の名前空間を使います。
 
-[!code-cs[OtherNamespaces](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetOtherNamespaces)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetOtherNamespaces":::
 
 次に、有用なメンバー フィールドをクラスに追加します。 プリンター ドライバーに渡す印刷タスクを表すために、[**Print3DTask**](/uwp/api/Windows.Graphics.Printing3D.Print3DTask) オブジェクトを宣言します。 アプリに読み込まれる元の 3D データ ファイルを保持するために、[**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを宣言します。 必要なすべてのメタデータが含まれた、印刷準備が完了した 3D モデルを表す [**Printing3D3MFPackage**](/uwp/api/Windows.Graphics.Printing3D.Printing3D3MFPackage) オブジェクトを宣言します。
 
-[!code-cs[DeclareVars](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetDeclareVars)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetDeclareVars":::
 
 ## <a name="create-a-simple-ui"></a>シンプルな UI の作成
 
 このサンプルでは、プログラム メモリにファイルを読み込む読み込みボタン、必要に応じてファイルを変更する修正ボタン、印刷ジョブを開始する印刷ボタンの 3 つのユーザー コントロールを使います。 次のコードで、これらのボタン (クリック イベント ハンドラー付き) を .cs クラスの対応する XAML ファイルに作成します。
 
-[!code-xml[Buttons](./code/3dprinthowto/cs/MainPage.xaml#SnippetButtons)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml" id="SnippetButtons":::
 
 UI フィードバック用に **TextBlock** を追加します。
 
-[!code-xml[OutputText](./code/3dprinthowto/cs/MainPage.xaml#SnippetOutputText)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml" id="SnippetOutputText":::
 
 
 
@@ -58,7 +58,7 @@ UI フィードバック用に **TextBlock** を追加します。
 
 メソッドでは `OnLoadClick` 、 [**Fileopenpicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスを使用して、アプリのメモリに1つのファイルを読み込みます。
 
-[!code-cs[FileLoad](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetFileLoad)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetFileLoad":::
 
 ## <a name="use-3d-builder-to-convert-to-3d-manufacturing-format-3mf"></a>3D Builder による 3D Manufacturing Format (.3mf) への変換
 
@@ -73,7 +73,7 @@ UI フィードバック用に **TextBlock** を追加します。
 > 
 3D Builder には、ファイル形式の変換以外にも、モデルを編集したり色データを追加したりといった、印刷に固有の操作を行うための簡単なツールが用意されているため、多くの場合、3D 印刷を処理するアプリに統合するだけの価値があります。
 
-[!code-cs[FileCheck](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetFileCheck)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetFileCheck":::
 
 ## <a name="repair-model-data-for-3d-printing"></a>3D 印刷可能なモデル データへの修復
 
@@ -81,18 +81,18 @@ UI フィードバック用に **TextBlock** を追加します。
 
 3D データファイルは、 [**IRandomAccessStream**](/uwp/api/Windows.Storage.Streams.IRandomAccessStream)を実装するように変換する必要があります。これは、 [**Printing3DModel**](/uwp/api/Windows.Graphics.Printing3D.Printing3DModel) オブジェクトの生成に使用できます。
 
-[!code-cs[RepairModel](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetRepairModel)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetRepairModel":::
 
 これで、**Printing3DModel** オブジェクトを印刷できる状態に修復できました。 [**SaveModelToPackageAsync**](/uwp/api/windows.graphics.printing3d.printing3d3mfpackage.savemodeltopackageasync) を使って、クラスを作成したときに宣言した **Printing3D3MFPackage** オブジェクトにモデルを割り当てます。
 
-[!code-cs[SaveModel](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetSaveModel)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetSaveModel":::
 
 ## <a name="execute-printing-task-create-a-taskrequested-handler"></a>印刷タスクの実行: TaskRequested ハンドラーの作成
 
 
 3D 印刷ダイアログをユーザーに表示してユーザーが印刷を開始したときに、アプリが目的のパラメーターを 3D 印刷パイプラインに渡す必要があります。 3D 印刷 API は **[Taskrequested](/uwp/api/Windows.Graphics.Printing3D.Print3DManager.TaskRequested)** されたイベントを発生させます。 このイベントを適切に処理するメソッドを記述する必要があります。 通常どおり、ハンドラー メソッドはイベントと同じ型である必要があります。**TaskRequested** イベントには、パラメーター [**Print3DManager**](/uwp/api/Windows.Graphics.Printing3D.Print3DManager) (センダー オブジェクトへの参照) と [**Print3DTaskRequestedEventArgs**](/uwp/api/Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs) オブジェクト (ほとんどの関連情報を保持するオブジェクト) があります。
 
-[!code-cs[MyTaskTitle](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetMyTaskTitle)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetMyTaskTitle":::
 
 このメソッドの主な目的は、*args* パラメーターを使って、**Printing3D3MFPackage** をパイプラインに送信することです。 **Print3DTaskRequestedEventArgs** 型には、[**Request**](/uwp/api/windows.graphics.printing3d.print3dtaskrequestedeventargs.request) という 1 つのプロパティがあります。 その型は [**Print3DTaskRequest**](/uwp/api/Windows.Graphics.Printing3D.Print3DTaskRequest) で、1 つの印刷ジョブ要求を表します。 そのメソッドである [**CreateTask**](/uwp/api/windows.graphics.printing3d.print3dtaskrequest.createtask) を使って、プログラムは印刷ジョブに関する適切な情報を送信します。このメソッドは、3D 印刷パイプラインに送信された **Print3DTask** オブジェクトへの参照を返します。
 
@@ -100,15 +100,15 @@ UI フィードバック用に **TextBlock** を追加します。
 
 **Print3DTaskSourceRequestedHandler** は、1つのパラメーターを受け取ります。これは、送信されるデータを提供する [**Print3DTaskSourceRequestedArgs**](/uwp/api/Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs) オブジェクトです。 このクラスの 1 つのパブリック メソッドである [**SetSource**](/uwp/api/windows.graphics.printing3d.print3dtasksourcerequestedargs.setsource) が、印刷するパッケージを受け取ります。 次のように **Print3DTaskSourceRequestedHandler** デリゲートを実装します。
 
-[!code-cs[SourceHandler](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetSourceHandler)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetSourceHandler":::
 
 次に、新しく定義したデリゲート `sourceHandler` を使って、**CreateTask** を呼び出します。
 
-[!code-cs[CreateTask](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetCreateTask)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetCreateTask":::
 
 返された **Print3DTask** が、最初に宣言したクラス変数に割り当てられます。 これで、必要に応じてこの参照を使い、タスクによってスローされた特定のイベントを処理できるようになりました。
 
-[!code-cs[Optional](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetOptional)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetOptional":::
 
 > [!NOTE]  
 > これらのイベントに `Task_Submitting` および `Task_Completed` メソッドを登録するには、それらを実装する必要があります。
@@ -120,15 +120,15 @@ UI フィードバック用に **TextBlock** を追加します。
 
 `MyTaskRequested` メソッドを **TaskRequested** イベントに登録します。
 
-[!code-cs[RegisterMyTaskRequested](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetRegisterMyTaskRequested)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetRegisterMyTaskRequested":::
 
 **TaskRequested** イベント ハンドラーを登録したら、メソッド [**ShowPrintUIAsync**](/uwp/api/windows.graphics.printing3d.print3dmanager.showprintuiasync) を呼び出して、現在のアプリケーション ウィンドウに 3D 印刷ダイアログを表示することができます。
 
-[!code-cs[ShowDialog](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetShowDialog)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetShowDialog":::
 
 最後に、アプリにコントロールが戻ったら、イベント ハンドラーの登録を解除することをお勧めします。  
 
-[!code-cs[DeregisterMyTaskRequested](./code/3dprinthowto/cs/MainPage.xaml.cs#SnippetDeregisterMyTaskRequested)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/devices-sensors/3dprinthowto/cs/MainPage.xaml.cs" id="SnippetDeregisterMyTaskRequested":::
 
 ## <a name="related-topics"></a>関連トピック
 

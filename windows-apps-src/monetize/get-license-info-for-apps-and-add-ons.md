@@ -6,12 +6,12 @@ ms.date: 12/04/2017
 ms.topic: article
 keywords: Windows 10, UWP, ライセンス, アプリ, アドオン, アプリ内購入, IAP, Windows.Services.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c83ecc7b5bfc8158d80469eab12710719fa0834
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 29f2e5ceee6d7d9c779c7fb544d507e31456b3fd
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164676"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363165"
 ---
 # <a name="get-license-info-for-apps-and-add-ons"></a>アプリとアドオンのライセンス情報の取得
 
@@ -42,7 +42,7 @@ ms.locfileid: "89164676"
 ユーザーが使用する権利を持っている現在のアプリの永続的なアドオンのライセンスにアクセスするには、[StoreAppLicense](/uwp/api/windows.services.store.storeapplicense) オブジェクトの [AddOnLicenses](/uwp/api/windows.services.store.storeapplicense.addonlicenses) プロパティを使います。 このプロパティは、アドオンのライセンスを表す [StoreLicense](/uwp/api/windows.services.store.storelicense) オブジェクトのコレクションを返します。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[GetLicenseInfo](./code/InAppPurchasesAndLicenses_RS1/cs/GetLicenseInfoPage.xaml.cs#GetLicenseInfo)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/GetLicenseInfoPage.xaml.cs" id="GetLicenseInfo":::
 
 完全なサンプル アプリケーションについては、[ストア サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Store)をご覧ください。
 

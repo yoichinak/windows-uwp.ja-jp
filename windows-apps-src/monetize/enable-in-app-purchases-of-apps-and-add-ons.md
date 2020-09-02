@@ -6,12 +6,12 @@ keywords: Windows 10, UWP, アドオン, アプリ内購入, IAP, Windows.Servic
 ms.date: 08/25/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 36140b18c2358bf0b7ed497138ca7f9059900736
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3064a651715329a3602c0c3539394d2ce72f90a7
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171566"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362815"
 ---
 # <a name="enable-in-app-purchases-of-apps-and-add-ons"></a>アプリとアドオンのアプリ内購入の有効化
 
@@ -46,7 +46,7 @@ ms.locfileid: "89171566"
 この例は、[StoreContext](/uwp/api/windows.services.store.storecontext) クラスの [RequestPurchaseAsync](/uwp/api/windows.services.store.storecontext.requestpurchaseasync) メソッドを使用して、[ストア ID](in-app-purchases-and-trials.md#store-ids) がわかっているアプリまたはアドオンを購入する方法を示しています。 完全なサンプル アプリケーションについては、[ストア サンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Store)をご覧ください。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[EnablePurchases](./code/InAppPurchasesAndLicenses_RS1/cs/PurchaseAddOnPage.xaml.cs#PurchaseAddOn)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses_RS1/cs/PurchaseAddOnPage.xaml.cs" id="PurchaseAddOn":::
 
 ## <a name="video"></a>ビデオ
 

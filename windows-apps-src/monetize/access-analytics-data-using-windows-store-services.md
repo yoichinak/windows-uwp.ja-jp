@@ -7,12 +7,12 @@ ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8becf9149d0afa888d0024619df06f2103c7bf8b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bf83105dc3b5a49746e0fb6e1d01db4accdb5c41
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158646"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363625"
 ---
 # <a name="access-analytics-data-using-store-services"></a>ストア サービスを使った分析データへのアクセス
 
@@ -85,7 +85,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 パートナーセンターの UWP アプリでは、次の分析方法を使用できます。
 
-| 通信の種類       | メソッド      |
+| シナリオ       | メソッド      |
 |---------------|--------------------|
 | 取得、変換、インストール、および使用 |  <ul><li>[アプリの購入を取得](get-app-acquisitions.md) する (レガシ)</li><li>[アプリ取得じょうごデータを取得](get-acquisition-funnel-data.md) する (レガシ)</li><li>[チャネルごとのアプリのコンバージョンの取得](get-app-conversions-by-channel.md)</li><li>[アドオンの入手数の取得](get-in-app-acquisitions.md)</li><li>[サブスクリプション アドオンの取得数の取得](get-subscription-acquisitions.md)</li><li>[チャネルごとのアドオンのコンバージョンの取得](get-add-on-conversions-by-channel.md)</li><li>[アプリのインストール数の取得](get-app-installs.md)</li><li>[アプリの使用状況 (日単位) の取得](get-app-usage-daily.md)</li><li>[アプリの使用状況 (月単位) の取得](get-app-usage-monthly.md)</li></ul> |
 | アプリのエラー | <ul><li>[エラー報告データの取得](get-error-reporting-data.md)</li><li>[アプリのエラーに関する詳細情報の取得](get-details-for-an-error-in-your-app.md)</li><li>[アプリのエラーに関するスタック トレースの取得](get-the-stack-trace-for-an-error-in-your-app.md)</li><li>[アプリのエラーの CAB ファイルをダウンロードする](download-the-cab-file-for-an-error-in-your-app.md)</li></ul> |
@@ -97,7 +97,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 次の分析メソッドは、[Windows デスクトップ アプリケーション プログラム](/windows/desktop/appxpkg/windows-desktop-application-program)に参加している開発者アカウントで利用できます。
 
-| 通信の種類       | メソッド      |
+| シナリオ       | メソッド      |
 |---------------|--------------------|
 | インストール |  <ul><li>[デスクトップ アプリケーションのインストール数の取得](get-desktop-app-installs.md)</li></ul> |
 | Blocks |  <ul><li>[デスクトップ アプリケーションのアップグレード ブロックの取得](get-desktop-block-data.md)</li><li>[デスクトップ アプリケーションのアップグレード ブロックの詳細情報の取得](get-desktop-block-data-details.md)</li></ul> |
@@ -108,7 +108,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 
 次の追加のメソッドは、[Xbox Live サービス](/gaming/xbox-live/developer-program-overview.md)を使うゲームの開発者アカウントで利用できます。
 
-| 通信の種類       | メソッド      |
+| シナリオ       | メソッド      |
 |---------------|--------------------|
 | 一般的な分析 |  <ul><li>[Xbox Live の分析データの取得](get-xbox-live-analytics.md)</li><li>[Xbox Live の実績データの取得](get-xbox-live-achievements-data.md)</li><li>[Xbox Live の同時使用状況データの取得](get-xbox-live-concurrent-usage-data.md)</li></ul> |
 | 正常性分析 |  <ul><li>[Xbox Live の正常性データの取得](get-xbox-live-health-data.md)</li></ul> |
@@ -123,7 +123,7 @@ Azure AD アクセス トークンを取得したら、Microsoft Store 分析 AP
 次のコード例は、Azure AD アクセス トークンを取得し、C# コンソール アプリから Microsoft Store 分析 API を呼び出す方法を示しています。 このコード例を使う場合は、変数 *tenantId*、*clientId*、*clientSecret*、および *appID* を自分のシナリオに合った適切な値に割り当ててください。 この例では、Microsoft Store 分析 API から返される JSON データを逆シリアル化するときに、Newtonsoft の [Json.NET パッケージ](https://www.newtonsoft.com/json)が必要になります。
 
 > [!div class="tabbedCodeSnippets"]
-[!code-csharp[AnalyticsApi](./code/StoreServicesExamples_Analytics/cs/Program.cs#AnalyticsApiExample)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/StoreServicesExamples_Analytics/cs/Program.cs" id="AnalyticsApiExample":::
 
 ## <a name="error-responses"></a>エラー応答
 

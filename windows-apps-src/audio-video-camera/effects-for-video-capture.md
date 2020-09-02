@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b52cd60e14370970ddb3c85a2a5e4c91107bed45
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ffb379110a42579cd5bb2427f9c851637ff191be
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160876"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362675"
 ---
 # <a name="effects-for-video-capture"></a>ビデオ キャプチャの効果
 
@@ -29,17 +29,17 @@ ms.locfileid: "89160876"
 
 次の例では、カメラのプレビュー ストリームとレコード ストリームの両方に効果を追加します。 この例では、レコード ストリームとプレビュー ストリームが同じかどうかを確認する方法を示します。
 
-[!code-cs[BasicAddEffect](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetBasicAddEffect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetBasicAddEffect":::
 
 **AddVideoEffectAsync** は、追加されたビデオ効果を表す [**IMediaExtension**](/uwp/api/Windows.Media.IMediaExtension) を実装するオブジェクトを返します。 一部の効果では、[**PropertySet**](/uwp/api/Windows.Foundation.Collections.PropertySet) を [**SetProperties**](/uwp/api/windows.media.imediaextension.setproperties) メソッドに渡すことによって、効果の設定を変更できます。
 
 Windows 10 バージョン 1607 では、**AddVideoEffectAsync** によって返されるオブジェクトを [**RemoveEffectAsync**](/uwp/api/windows.media.capture.mediacapture.removeeffectasync) に渡すことによって、ビデオ パイプラインから効果を削除することもできます。 **RemoveEffectAsync** は、効果オブジェクトのパラメーターがプレビュー ストリームとレコード ストリームのどちらに追加されたかを自動的に特定するため、呼び出しの際にストリームの種類を指定する必要はありません。
 
-[!code-cs[RemoveOneEffect](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetRemoveOneEffect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetRemoveOneEffect":::
 
 また、[**ClearEffectsAsync**](/uwp/api/windows.media.capture.mediacapture.cleareffectsasync) を呼び出し、すべての効果を削除するストリームを指定して、プレビュー ストリームやキャプチャ ストリームからすべての効果を削除することもできます。
 
-[!code-cs[ClearAllEffects](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetClearAllEffects)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetClearAllEffects":::
 
 ## <a name="video-stabilization-effect"></a>ビデオ手ブレ補正効果
 
@@ -51,15 +51,15 @@ Windows 10 バージョン 1607 では、**AddVideoEffectAsync** によって返
 
 ビデオ手ブレ補正効果を使うためには、基本的なメディア キャプチャに必要な名前空間に加え、次の名前空間が必要となります。
 
-[!code-cs[VideoStabilizationEffectUsing](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetVideoStabilizationEffectUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetVideoStabilizationEffectUsing":::
 
 [**VideoStabilizationEffect**](/uwp/api/Windows.Media.Core.VideoStabilizationEffect) オブジェクトを格納するためのメンバー変数を宣言します。 効果の実装の一部として、キャプチャしたビデオをエンコードするために使うエンコードのプロパティを変更します。 後で効果が無効にされたときに入出力のエンコード プロパティを復元できるよう、初期状態のバックアップ コピーを格納するための 2 つの変数を宣言します。 最後に、[**MediaEncodingProfile**](/uwp/api/Windows.Media.MediaProperties.MediaEncodingProfile) 型のメンバー変数を宣言します。メンバー変数として宣言しているのは、コードのいたるところからこのオブジェクトにアクセスすることになるためです。
 
-[!code-cs[DeclareVideoStabilizationEffect](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetDeclareVideoStabilizationEffect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetDeclareVideoStabilizationEffect":::
 
 このシナリオでは、後からアクセスできるようメディア エンコード プロファイル オブジェクトをメンバー変数に代入する必要があります。
 
-[!code-cs[EncodingProfileMember](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetEncodingProfileMember)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetEncodingProfileMember":::
 
 ### <a name="initialize-the-video-stabilization-effect"></a>ビデオ手ブレ補正効果を初期化する
 
@@ -67,7 +67,7 @@ Windows 10 バージョン 1607 では、**AddVideoEffectAsync** によって返
 
 [**EnabledChanged**](/uwp/api/windows.media.core.videostabilizationeffect.enabledchanged) イベントのハンドラーを登録し、ヘルパー メソッド **SetUpVideoStabilizationRecommendationAsync** を呼び出します。詳細については後で説明します。 最後に、[**Enabled**](/uwp/api/windows.media.core.videostabilizationeffect.enabled) プロパティを true に設定して効果を有効にします。
 
-[!code-cs[CreateVideoStabilizationEffect](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetCreateVideoStabilizationEffect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetCreateVideoStabilizationEffect":::
 
 ### <a name="use-recommended-encoding-properties"></a>推奨エンコード プロパティを使う
 
@@ -83,7 +83,7 @@ VideoStabilizationEffect のインスタンスの [**GetRecommendedStreamConfigu
 
 **MediaEncodingProfile** オブジェクトの [**Video**](/uwp/api/windows.media.mediaproperties.mediaencodingprofile.video) プロパティを設定します。 効果を無効にしたときに設定を元に戻すことができるよう、新しいプロパティを設定する前にメンバー変数を使って初期エンコード プロパティを保存します。
 
-[!code-cs[SetUpVideoStabilizationRecommendationAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetSetUpVideoStabilizationRecommendationAsync)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetSetUpVideoStabilizationRecommendationAsync":::
 
 ### <a name="handle-the-video-stabilization-effect-being-disabled"></a>ビデオ手ブレ補正効果の無効化イベントを処理する
 
@@ -91,13 +91,13 @@ VideoStabilizationEffect のインスタンスの [**GetRecommendedStreamConfigu
 
 通常、このイベントを使ってアプリの UI を調整し、ビデオ手ブレ補正の現在の状態を示します。
 
-[!code-cs[VideoStabilizationEnabledChanged](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetVideoStabilizationEnabledChanged)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetVideoStabilizationEnabledChanged":::
 
 ### <a name="clean-up-the-video-stabilization-effect"></a>ビデオ手ブレ補正効果をクリーンアップする
 
 ビデオ手ブレ補正効果をクリーンアップするには、[**RemoveEffectAsync**](/uwp/api/windows.media.capture.mediacapture.removeeffectasync) を呼び出してビデオ パイプラインから効果を削除します。 初期エンコード プロパティを格納しているメンバー変数が null 以外であれば、それらの変数を使ってエンコード プロパティを復元します。 最後に、**EnabledChanged** イベント ハンドラーを削除し、効果を null に設定します。
 
-[!code-cs[CleanUpVisualStabilizationEffect](./code/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs#SnippetCleanUpVisualStabilizationEffect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.Effects.xaml.cs" id="SnippetCleanUpVisualStabilizationEffect":::
 
 ## <a name="related-topics"></a>関連トピック
 

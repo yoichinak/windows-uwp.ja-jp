@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e682aabea061ad89cd36e135d5c6a83245c6cbb
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 281cede94ee587cc86509a9f32ed34857a5ae620
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161076"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362925"
 ---
 # <a name="camera-independent-flashlight"></a>カメラに依存しない懐中電灯
 
@@ -23,13 +23,13 @@ ms.locfileid: "89161076"
 
 デバイスの既定のライトを取得するには、[**Lamp.GetDefaultAsync**](/uwp/api/windows.devices.lights.lamp.getdefaultasync) を呼び出します。 ライト関連 API は、[**Windows.Devices.Lights**](/uwp/api/Windows.Devices.Lights) 名前空間にあります。 これらの API にアクセスするには、この名前空間の using ディレクティブをあらかじめ追加しておく必要があります。
 
-[!code-cs[LightsNamespace](./code/Lamp/cs/MainPage.xaml.cs#SnippetLightsNamespace)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetLightsNamespace":::
 
 
-[!code-cs[DeclareLamp](./code/Lamp/cs/MainPage.xaml.cs#SnippetDeclareLamp)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetDeclareLamp":::
 
 
-[!code-cs[GetDefaultLamp](./code/Lamp/cs/MainPage.xaml.cs#SnippetGetDefaultLamp)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetGetDefaultLamp":::
 
 返されたオブジェクトが **null** の場合、そのデバイスでは **Lamp** API がサポートされていません。 一部のデバイスでは、ライトが物理的には存在していても、**Lamp** API がサポートされていないことがあります。
 
@@ -39,39 +39,39 @@ ms.locfileid: "89161076"
 
 [**DeviceInformation**](/uwp/api/Windows.Devices.Enumeration.DeviceInformation) API は [**Windows.Devices.Enumeration**](/uwp/api/Windows.Devices.Enumeration) 名前空間にあります。
 
-[!code-cs[EnumerationNamespace](./code/Lamp/cs/MainPage.xaml.cs#SnippetEnumerationNamespace)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetEnumerationNamespace":::
 
-[!code-cs[GetLampWithSelectionString](./code/Lamp/cs/MainPage.xaml.cs#SnippetGetLampWithSelectionString)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetGetLampWithSelectionString":::
 
 ## <a name="adjust-lamp-settings"></a>ライトの設定を調整する
 
 [**Lamp**](/uwp/api/Windows.Devices.Lights.Lamp) クラスのインスタンスを作成した後、[**IsEnabled**](/uwp/api/windows.devices.lights.lamp.isenabled) プロパティを **true** に設定することで、ライトをオンにします。
 
-[!code-cs[LampSettingsOn](./code/Lamp/cs/MainPage.xaml.cs#SnippetLampSettingsOn)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetLampSettingsOn":::
 
 ライトをオフにするには、[**IsEnabled**](/uwp/api/windows.devices.lights.lamp.isenabled) プロパティを **false** に設定します。
 
-[!code-cs[LampSettingsOff](./code/Lamp/cs/MainPage.xaml.cs#SnippetLampSettingsOff)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetLampSettingsOff":::
 
 デバイスによっては、ライトで色の値がサポートされていることがあります。 ライトで色がサポートされているかどうかを確認するには、[**IsColorSettable**](/uwp/api/windows.devices.lights.lamp.iscolorsettable) プロパティをチェックします。 この値が **true** であれば、[**Color**](/uwp/api/windows.devices.lights.lamp.color) プロパティを使ってライトの色を設定できます。
 
-[!code-cs[LampSettingsColor](./code/Lamp/cs/MainPage.xaml.cs#SnippetLampSettingsColor)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetLampSettingsColor":::
 
 ## <a name="register-to-be-notified-if-the-lamp-availability-changes"></a>ライトの利用状況が変化したら通知されるよう登録する
 
 ライトへのアクセス権は、アクセスを要求した最新のアプリに付与されます。 このため、別のアプリが起動され、現在のアプリで使用中のライト リソースが要求された場合は、別のアプリからリソースが解放されるまで、現在のアプリではライトを制御できなくなります。 ライトの利用状況が変化したときに通知を受け取るには、[**Lamp.AvailabilityChanged**](/uwp/api/windows.devices.lights.lamp.availabilitychanged) イベントに対するハンドラーを登録します。
 
-[!code-cs[AvailabilityChanged](./code/Lamp/cs/MainPage.xaml.cs#SnippetAvailabilityChanged)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetAvailabilityChanged":::
 
 このイベントのハンドラーでは、[**LampAvailabilityChanged.IsAvailable**](/uwp/api/windows.devices.lights.lampavailabilitychangedeventargs.isavailable) プロパティをチェックして、ライトを使用できるかどうかを確認します。 この例では、ライトの利用可能性に基づいて、ライトをオンまたはオフにするトグル スイッチが有効または無効になります。
 
-[!code-cs[AvailabilityChangedHandler](./code/Lamp/cs/MainPage.xaml.cs#SnippetAvailabilityChangedHandler)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetAvailabilityChangedHandler":::
 
 ## <a name="properly-dispose-of-the-lamp-resource-when-not-in-use"></a>使用していないライト リソースを適切に破棄する
 
 ライトの使用が終わったら、ライトを無効にして [**Lamp.Close**](/uwp/api/windows.devices.lights.lamp.close) を呼び出すことにより、他のアプリがライトにアクセスできるようリソースを解放する必要があります。 C# を使用している場合、このプロパティは **Dispose** メソッドにマップされています。 [**AvailabilityChanged**](/uwp/api/windows.devices.lights.lamp.availabilitychanged) に登録した場合は、ライト リソースを破棄するときにハンドラーの登録を解除する必要があります。 ライト リソースを破棄するコードの適切な場所は、アプリによって異なります。 ライト アクセスのスコープを単一のページに限定するには、リソースを [**OnNavigatingFrom**](/uwp/api/windows.ui.xaml.controls.page.onnavigatingfrom) イベントで解放します。
 
-[!code-cs[DisposeLamp](./code/Lamp/cs/MainPage.xaml.cs#SnippetDisposeLamp)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Lamp/cs/MainPage.xaml.cs" id="SnippetDisposeLamp":::
 
 ## <a name="related-topics"></a>関連トピック
 - [メディア再生](media-playback.md)

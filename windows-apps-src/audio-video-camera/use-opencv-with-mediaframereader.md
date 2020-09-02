@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, OpenCV
 ms.localizationpriority: medium
-ms.openlocfilehash: 2128313c48f8d279a23cf63278b3e853c00348e4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f78197b6108a81f3335dc202585127105bd94339
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175656"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363724"
 ---
 # <a name="use-the-open-source-computer-vision-library-opencv-with-mediaframereader"></a>Open Source Computer Vision Library (OpenCV) と MediaFrameReader の使用
 
@@ -37,7 +37,7 @@ ms.locfileid: "89175656"
 ## <a name="find-available-frame-source-groups"></a>利用可能なフレーム ソース グループを検索する
 最初に、メディア フレームを取得するメディア フレーム ソース グループを見つける必要があります。 **[MediaFrameSourceGroup.FindAllAsync](/uwp/api/windows.media.capture.frames.mediaframesourcegroup.FindAllAsync)** を呼び出して、現在のデバイスで利用可能なソース グループの一覧を取得します。 アプリのシナリオに必要なセンサーの種類を指定するソース グループを選択します。 この例では、RGB カメラからのフレームを提供するソース グループのみが必要です。
 
-[!code-cs[OpenCVFrameSourceGroups](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameSourceGroups)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Frames_Win10/cs/Frames_Win10/MainPage.OpenCV.xaml.cs" id="SnippetOpenCVFrameSourceGroups":::
 
 ## <a name="initialize-the-mediacapture-object"></a>MediaCapture オブジェクトを初期化する
 次に、前の手順で **MediaCaptureInitializationSettings** の **[SourceGroup](/uwp/api/windows.media.capture.mediacaptureinitializationsettings.SourceGroup)** プロパティを設定することによって選択したフレーム ソース グループを使うように、**MediaCapture** オブジェクトを初期化する必要があります。
@@ -47,20 +47,20 @@ ms.locfileid: "89175656"
 
 **MediaCapture** オブジェクトが初期化された後、**[MediaCapture.FrameSources](/uwp/api/windows.media.capture.mediacapture.FrameSources)** プロパティにアクセスして、RGB フレーム ソースへの参照を取得します。
 
-[!code-cs[OpenCVInitMediaCapture](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVInitMediaCapture)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Frames_Win10/cs/Frames_Win10/MainPage.OpenCV.xaml.cs" id="SnippetOpenCVInitMediaCapture":::
 
 ## <a name="initialize-the-mediaframereader"></a>MediaFrameReader を初期化する
 次に、前の手順で取得した RGB フレーム ソースの [**MediaFrameReader**](/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) を作成します。 適切なフレーム レートを維持するために、センサーの解像度よりも低い解像度のフレームを処理する場合があります。 この例では、省略可能な **[BitmapSize](/uwp/api/windows.graphics.imaging.bitmapsize)** 引数を、**[MediaCapture.CreateFrameReaderAsync](/uwp/api/windows.media.capture.mediacapture.createframereaderasync)** メソッドに対して指定して、フレーム リーダーによって提供されるフレームのサイズを 640 x 480 ピクセルに変更するよう要求しています。
 
 フレーム リーダーを作成した後、**[FrameArrived](/uwp/api/windows.media.capture.frames.mediaframereader.FrameArrived)** イベントのハンドラーを登録します。 次に、新しい **[SoftwareBitmapSource](/uwp/api/windows.ui.xaml.media.imaging.softwarebitmapsource)** オブジェクトを作成します。これは、**FrameRenderer** ヘルパー クラスが処理済みの画像を表示するために使用します。 次に、**FrameRenderer** のコンストラクターを呼び出します。 OpenCVBridge Windows ランタイムコンポーネントで定義されている **OpenCVHelper** クラスのインスタンスを初期化します。 このヘルパー クラスは、各フレームを処理するために **FrameArrived** ハンドラーで使用されます。 最後に、**[StartAsync](/uwp/api/windows.media.capture.frames.mediaframereader.StartAsync)** を呼び出して、フレーム リーダーを開始します。
 
-[!code-cs[OpenCVFrameReader](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameReader)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Frames_Win10/cs/Frames_Win10/MainPage.OpenCV.xaml.cs" id="SnippetOpenCVFrameReader":::
 
 
 ## <a name="handle-the-framearrived-event"></a>FrameArrived イベントを処理する
 フレーム リーダーからの新しいフレームが利用可能になると、**FrameArrived** イベントが発生します。 フレームが存在する場合は、**[TryAcquireLatestFrame](/uwp/api/windows.media.capture.frames.mediaframereader.TryAcquireLatestFrame)** を呼び出してフレームを取得します。 **[MediaFrameReference](/uwp/api/windows.media.capture.frames.mediaframereference)** から **SoftwareBitmap** を取得します。 この例で使用されている **CVHelper** クラスでは、画像がプリマルチプライ済みアルファを含む  BRGA8 ピクセル形式を使用している必要があります。 イベントに渡されたフレームが別の形式である場合は、**SoftwareBitmap** を正しい形式に変換します。 次に、ぼかし操作のターゲットとして使用される **SoftwareBitmap** を作成します。 一致する形式のビットマップを作成するために、ソース画像のプロパティがコンストラクターの引数として使用されます。 ヘルパー クラスの **Blur** メソッドを呼び出してフレームを処理します。 最後に、ぼかし操作の出力画像を **PresentSoftwareBitmap** メソッドに渡します。これは、画像が初期化された XAML **Image** コントロールに画像を表示する **FrameRenderer** ヘルパー クラスのメソッドです。
 
-[!code-cs[OpenCVFrameArrived](./code/Frames_Win10/Frames_Win10/MainPage.OpenCV.xaml.cs#SnippetOpenCVFrameArrived)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/Frames_Win10/cs/Frames_Win10/MainPage.OpenCV.xaml.cs" id="SnippetOpenCVFrameArrived":::
 
 ## <a name="related-topics"></a>関連トピック
 

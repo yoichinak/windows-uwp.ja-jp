@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 458b610ac3fcc651f68ccf07c4a3cb30813239d9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d7248b4f3fe515a164410305bac074f44cae53e6
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160986"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362865"
 ---
 # <a name="manual-camera-controls-for-photo-and-video-capture"></a>写真とビデオのキャプチャのための手動カメラ制御
 
@@ -28,7 +28,7 @@ ms.locfileid: "89160986"
 
 この記事で説明するデバイス制御 API はすべて、[**Windows.Media.Devices**](/uwp/api/Windows.Media.Devices) 名前空間のメンバーです。
 
-[!code-cs[VideoControllersUsing](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetVideoControllersUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetVideoControllersUsing":::
 
 ## <a name="exposure"></a>露出
 
@@ -36,7 +36,7 @@ ms.locfileid: "89160986"
 
 この例では、[**スライダー**](/uwp/api/Windows.UI.Xaml.Controls.Slider) コントロールを使って現在の露出値を調整し、チェック ボックスを使って自動露出調整のオンとオフを切り替えます。
 
-[!code-xml[ExposureXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetExposureXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetExposureXAML":::
 
 現在のキャプチャ デバイスで **ExposureControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.exposurecontrol.supported) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。 自動露出調整が現在アクティブであるかどうかを示すために、チェック ボックスのオンの状態を [**Auto**](/uwp/api/windows.media.devices.exposurecontrol.auto) プロパティの値に設定します。
 
@@ -44,15 +44,15 @@ ms.locfileid: "89160986"
 
 値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **ExposureControl** の現在値に設定します。
 
-[!code-cs[ExposureControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetExposureControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetExposureControl":::
 
 **ValueChanged** イベント ハンドラーで、コントロールの現在の値を取得し、[**SetValueAsync**](/uwp/api/windows.media.devices.exposurecontrol.setvalueasync) を呼び出して露出値を設定します。
 
-[!code-cs[ExposureSlider](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetExposureSlider)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetExposureSlider":::
 
 自動露出チェック ボックスの **CheckedChanged** イベント ハンドラーで、[**SetAutoAsync**](/uwp/api/windows.media.devices.exposurecontrol.setautoasync) を呼び出してブール値を渡すことにより、自動露出調整のオンとオフを切り替えます。
 
-[!code-cs[ExposureCheckBox](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetExposureCheckBox)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetExposureCheckBox":::
 
 > [!IMPORTANT]
 > 自動露出モードは、プレビュー ストリームが実行中であるときにのみサポートされます。 自動露出をオンにする前に、プレビュー ストリームが実行されていることを確認します。
@@ -63,7 +63,7 @@ ms.locfileid: "89160986"
 
 この例では、[**スライダー**](/uwp/api/Windows.UI.Xaml.Controls.Slider) コントロールを使って、現在の露出補正値を調整します。
 
-[!code-xml[EvXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetEvXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetEvXAML":::
 
 現在のキャプチャ デバイスで **ExposureCompensationControl** がサポートされているかどうかを確認するには、[Supported](supported-codecs.md) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。
 
@@ -71,11 +71,11 @@ ms.locfileid: "89160986"
 
 値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **ExposureCompensationControl** の現在値に設定します。
 
-[!code-cs[EvControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetEvControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetEvControl":::
 
 **ValueChanged** イベント ハンドラーで、コントロールの現在の値を取得し、[**SetValueAsync**](/uwp/api/windows.media.devices.exposurecompensationcontrol.setvalueasync) を呼び出して露出値を設定します。
 
-[!code-cs[EvValueChanged](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetEvValueChanged)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetEvValueChanged":::
 
 ## <a name="flash"></a>点滅
 
@@ -83,23 +83,23 @@ ms.locfileid: "89160986"
 
 この例では、一連のラジオ ボタンを使って、ユーザーがオン、オフ、自動のフラッシュ設定を切り替えることができるようにします。 赤目軽減とビデオ トーチのオンとオフを切り替えるためのチェック ボックスも用意されています。
 
-[!code-xml[FlashXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetFlashXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetFlashXAML":::
 
 現在のキャプチャ デバイスで **FlashControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.focuscontrol.supported) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。 **FlashControl** がサポートされている場合でも、自動赤目軽減はサポートされている場合とサポートされていない場合があるため、UI を有効にする前に [**RedEyeReductionSupported**](/uwp/api/windows.media.devices.flashcontrol.redeyereductionsupported) プロパティを確認します。 **TorchControl** はフラッシュ コントロールとは別であるため、使用する前にその [**Supported**](/uwp/api/windows.media.devices.torchcontrol.supported) プロパティも確認する必要があります。
 
 フラッシュの各ラジオ ボタンの [**Checked**](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、適切な対応するフラッシュの設定を有効または無効にします。 フラッシュが常に使用されるように設定するには、[**Enabled**](/uwp/api/windows.media.devices.flashcontrol.enabled) プロパティを true に、[**Auto**](/uwp/api/windows.media.devices.flashcontrol.auto) プロパティを false に設定する必要があります。
 
-[!code-cs[FlashControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFlashControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetFlashControl":::
 
-[!code-cs[FlashRadioButtons](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFlashRadioButtons)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetFlashRadioButtons":::
 
 赤目軽減チェック ボックスのハンドラーで、[**RedEyeReduction**](/uwp/api/windows.media.devices.flashcontrol.redeyereduction) プロパティを適切な値に設定します。
 
-[!code-cs[RedEye](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetRedEye)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetRedEye":::
 
 最後に、ビデオ トーチ チェック ボックスのハンドラーで、[**Enabled**](/uwp/api/windows.media.devices.torchcontrol.enabled) プロパティを適切な値に設定します。
 
-[!code-cs[Torch](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTorch)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetTorch":::
 
 > [!NOTE] 
 >  一部のデバイスでは、[**TorchControl.Enabled**](/uwp/api/windows.media.devices.torchcontrol.enabled) が true に設定されている場合でも、デバイスがプレビュー ストリームを実行中で、アクティブにビデオをキャプチャ中ではない限り、トーチは発光しません。 推奨される処理の順序は、ビデオのプレビューを有効にし、**Enabled** を true に設定してトーチを有効にした後、ビデオ キャプチャを開始するという順序です。 一部のデバイスでは、プレビューを開始した後もトーチが点灯しません。 その他のデバイスでは、トーチはビデオのキャプチャを開始するまで点灯しません。
@@ -112,17 +112,17 @@ ms.locfileid: "89160986"
 
 連続オート フォーカスを有効にすると、カメラに対して、動的にフォーカスを調整して、写真やビデオの被写体にフォーカスを合わせ続けるように指示されます。 この例では、ラジオ ボタンを使用して連続オート フォーカスのオンとオフを切り替えます。
 
-[!code-xml[CAFXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetCAFXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetCAFXAML":::
 
 現在のキャプチャ デバイスで **FocusControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.flashcontrol.supported) プロパティを確認します。 次に、連続オート フォーカスがサポートされている場合は、[**SupportedFocusModes**](/uwp/api/windows.media.devices.focuscontrol.supportedfocusmodes) の一覧を確認して値 [**FocusMode.Continuous**](/uwp/api/Windows.Media.Devices.FocusMode) が含まれていることを確認します。この値が含まれている場合は、連続オート フォーカスのラジオ ボタンを表示します。
 
-[!code-cs[CAF](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetCAF)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetCAF":::
 
 連続オート フォーカス ラジオ ボタンの [**Checked**](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、[**VideoDeviceController.FocusControl**](/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol) プロパティを使ってコントロールのインスタンスを取得します。 アプリが以前に [**LockAsync**](/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出して他のフォーカス モードのいずれかを有効にしていた場合は、[**UnlockAsync**](/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出してコントロールのロックを解除します。
 
 新しい [**FocusSettings**](/uwp/api/Windows.Media.Devices.FocusSettings) オブジェクトを作成し、[**Mode**](/uwp/api/windows.media.devices.focussettings.mode) プロパティを **Continuous** に設定します。 [**AutoFocusRange**](/uwp/api/windows.media.devices.focussettings.autofocusrange) プロパティをアプリのシナリオに適した値またはユーザーが UI で選択した値に設定します。 **FocusSettings**オブジェクトを[**Configure**](/uwp/api/windows.media.devices.focuscontrol.configure)メソッドに渡し、 [**FocusAsync**](/uwp/api/windows.media.devices.focuscontrol.focusasync)を呼び出して継続的自動フォーカスを開始します。
 
-[!code-cs[CafFocusRadioButton](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetCafFocusRadioButton)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetCafFocusRadioButton":::
 
 > [!IMPORTANT]
 > オート フォーカス モードは、プレビュー ストリームが実行中であるときにのみサポートされます。 連続オート フォーカスをオンにする前に、プレビュー ストリームが実行されていることを確認します。
@@ -133,19 +133,19 @@ ms.locfileid: "89160986"
 
 この例では、ラジオ ボタンを使って、タップしてフォーカス モードを有効または無効にします。
 
-[!code-xml[TapFocusXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetTapFocusXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetTapFocusXAML":::
 
 現在のキャプチャ デバイスで **FocusControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.flashcontrol.supported) プロパティを確認します。 この手法を使うには、**RegionsOfInterestControl** がサポートされており、少なくとも 1 つの領域をサポートしている必要があります。 [**AutoFocusSupported**](/uwp/api/windows.media.devices.regionsofinterestcontrol.autofocussupported) および [**MaxRegions**](/uwp/api/windows.media.devices.regionsofinterestcontrol.maxregions) プロパティを確認して、タップしてフォーカスのラジオ ボタンを表示するか、非表示にするかを決定します。
 
-[!code-cs[TapFocus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapFocus)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetTapFocus":::
 
 タップしてフォーカスのラジオ ボタンの [**Checked**](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベント ハンドラーで、[**VideoDeviceController.FocusControl**](/uwp/api/windows.media.devices.videodevicecontroller.focuscontrol) プロパティを使ってコントロールのインスタンスを取得します。 アプリが以前に [**UnlockAsync**](/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出して連続オート フォーカスを有効にしていた場合は、[**LockAsync**](/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出してコントロールをロックし、ユーザーが画面をタップしてフォーカスを変更するまで待機します。
 
-[!code-cs[TapFocusRadioButton](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapFocusRadioButton)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetTapFocusRadioButton":::
 
 この例は、ユーザーが画面をタップすると領域にフォーカスを合わせ、ユーザーがもう一度タップすると、トグルのように、その領域からフォーカスを削除します。 現在のトグルの状態を追跡するには、ブール変数を使います。
 
-[!code-cs[IsFocused](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetIsFocused)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetIsFocused":::
 
 次の手順では、ユーザーが画面をタップしたときのイベントをリッスンします。そのためには、現在キャプチャ プレビュー ストリームを表示している [**CaptureElement**](/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) の [**Tapped**](/uwp/api/windows.ui.xaml.uielement.tapped) イベントを処理します。 カメラが現在プレビューを表示していない場合や、タップしてフォーカス モードが無効である場合は、何もせずにハンドラーから制御を戻します。
 
@@ -153,7 +153,7 @@ ms.locfileid: "89160986"
 
 * \_ Isfocused*トグルが true に設定されている場合、ユーザータップは前の領域からフォーカスを削除する必要があります。 これは、次に示す **TapUnfocus** ヘルパー メソッドで行われます。
 
-[!code-cs[TapFocusPreviewControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapFocusPreviewControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetTapFocusPreviewControl":::
 
 **TapToFocus** helper メソッドでは、最初に* \_ isfocused*トグルを true に設定して、次の画面タップでタップされた領域からフォーカスが解放されるようにします。
 
@@ -176,25 +176,25 @@ ms.locfileid: "89160986"
 > 2. [**RegionsOfInterestControl.SetRegionsAsync**](/uwp/api/windows.media.devices.regionsofinterestcontrol.setregionsasync)
 > 3. [**FocusControl.FocusAsync**](/uwp/api/windows.media.devices.focuscontrol.focusasync)
 
-[!code-cs[TapToFocus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapToFocus)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetTapToFocus":::
 
 **TapUnfocus** ヘルパー メソッドで、**RegionsOfInterestControl** を取得し、[**ClearRegionsAsync**](/uwp/api/windows.media.devices.regionsofinterestcontrol.clearregionsasync) を呼び出して、**TapToFocus** ヘルパー メソッドでコントロールに登録された領域をクリアします。 次に、**FocusControl** を取得し、[**FocusAsync**](/uwp/api/windows.media.devices.focuscontrol.focusasync) を呼び出して、対象領域を指定せずにデバイスで再びフォーカスを設定できるようにします。
 
-[!code-cs[TapUnfocus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetTapUnfocus)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetTapUnfocus":::
 
 **GetPreviewStreamRectInControl** ヘルパー メソッドは、プレビュー ストリームの解像度とデバイスの向きを使い、コントロールがストリームの縦横比を維持するために提供する可能性があるレターボックス化されたパディングをトリミングして、プレビュー ストリームを含むプレビュー要素内の四角形を特定します。 このメソッドは、「[MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)」に示されている基本的なメディア キャプチャのコード例で定義されているクラス メンバー変数を使います。
 
-[!code-cs[GetPreviewStreamRectInControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetGetPreviewStreamRectInControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetGetPreviewStreamRectInControl":::
 
 **ConvertUiTapToPreviewRect** ヘルパー メソッドは、引数として、タップ イベントの場所、目的のフォーカス領域のサイズ、**GetPreviewStreamRectInControl** ヘルパー メソッドで取得したプレビュー ストリームを含む四角形を受け取ります。 このメソッドは、これらの値とデバイスの現在の向きを使って、目的の地域を含むプレビュー ストリーム内の四角形を計算します。 ここでも、このメソッドは、「[MediaCapture を使った写真とビデオのキャプチャ](./index.md)」に示されている基本的なメディア キャプチャのコード例で定義されているクラス メンバー変数を使います。
 
-[!code-cs[ConvertUiTapToPreviewRect](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetConvertUiTapToPreviewRect)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetConvertUiTapToPreviewRect":::
 
 ### <a name="manual-focus"></a>手動フォーカス
 
 手動フォーカスの手法では、**スライダー** コントロールを使って、キャプチャ デバイスの現在フォーカスの深度を設定します。 ラジオ ボタンを使って、手動フォーカスのオンとオフを切り替えます。
 
-[!code-xml[ManualFocusXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetManualFocusXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetManualFocusXAML":::
 
 現在のキャプチャ デバイスで **FocusControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.focuscontrol.supported) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。
 
@@ -202,29 +202,29 @@ ms.locfileid: "89160986"
 
 値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **FocusControl** の現在値に設定します。
 
-[!code-cs[Focus](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFocus)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetFocus":::
 
 アプリが以前に [**UnlockAsync**](/uwp/api/windows.media.devices.focuscontrol.unlockasync) を呼び出してフォーカスのロックを解除していた場合は、手動フォーカスのラジオ ボタンの **Checked** イベント ハンドラーで、**FocusControl** オブジェクトを取得し、[**LockAsync**](/uwp/api/windows.media.devices.focuscontrol.lockasync) を呼び出します。
 
-[!code-cs[ManualFocusChecked](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetManualFocusChecked)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetManualFocusChecked":::
 
 手動フォーカス スライダーの **ValueChanged** イベント ハンドラーで、コントロールの現在の値を取得し、[**SetValueAsync**](/uwp/api/windows.media.devices.focuscontrol.setvalueasync) を呼び出してフォーカス値を設定します。
 
-[!code-cs[FocusSlider](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFocusSlider)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetFocusSlider":::
 
 ### <a name="enable-the-focus-light"></a>フォーカス ライトの有効化
 
 サポートされているデバイスで、デバイスのフォーカスを支援するフォーカス アシスト ライトを有効にすることができます。 この例では、チェック ボックスを使って、フォーカス アシスト ライトを有効または無効にします。
 
-[!code-xml[FocusLightXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetFocusLightXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetFocusLightXAML":::
 
 現在のキャプチャ デバイスで **FlashControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.flashcontrol.supported) プロパティを確認します。 また、[**AssistantLightSupported**](/uwp/api/windows.media.devices.flashcontrol.assistantlightsupported) を確認してアシスト ライトがサポートされていることも確認します。 これらがいずれもサポートされている場合は、この機能の UI を表示し、有効にすることができます。
 
-[!code-cs[FocusLight](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFocusLight)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetFocusLight":::
 
 **CheckedChanged** イベント ハンドラーで、キャプチャ デバイスの [**FlashControl**](/uwp/api/Windows.Media.Devices.FlashControl) オブジェクトを取得します。 [**AssistantLightEnabled**](/uwp/api/windows.media.devices.flashcontrol.assistantlightenabled) プロパティを設定して、フォーカス ライトを有効または無効にします。
 
-[!code-cs[FocusLightCheckBox](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetFocusLightCheckBox)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetFocusLightCheckBox":::
 
 ## <a name="iso-speed"></a>ISO 速度
 
@@ -232,7 +232,7 @@ ms.locfileid: "89160986"
 
 この例では、[**スライダー**](/uwp/api/Windows.UI.Xaml.Controls.Slider) コントロールを使って現在の露出補正値を調整し、チェック ボックスを使って自動 ISO 速度調整のオンとオフを切り替えます。
 
-[!code-xml[IsoXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetIsoXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetIsoXAML":::
 
 現在のキャプチャ デバイスで **IsoSpeedControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.isospeedcontrol.supported) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。 自動 ISO 速度調整が現在アクティブであるかどうかを示すために、チェック ボックスのオンの状態を [**Auto**](/uwp/api/windows.media.devices.isospeedcontrol.auto) プロパティの値に設定します。
 
@@ -240,15 +240,15 @@ ISO 速度値は、デバイスでサポートされている範囲内である�
 
 値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **IsoSpeedControl** の現在値に設定します。
 
-[!code-cs[IsoControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetIsoControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetIsoControl":::
 
 **ValueChanged** イベント ハンドラーで、コントロールの現在の値を取得し、[**SetValueAsync**](/uwp/api/windows.media.devices.isospeedcontrol.setvalueasync) を呼び出して ISO 速度を設定します。
 
-[!code-cs[IsoSlider](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetIsoSlider)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetIsoSlider":::
 
 自動 ISO 速度チェック ボックスの **CheckedChanged** イベント ハンドラーで、[**SetAutoAsync**](/uwp/api/windows.media.devices.isospeedcontrol.setautoasync) を呼び出すことによって、自動 ISO 速度調整をオンにします。 自動 ISO 速度調整をオフにするには、[**SetValueAsync**](/uwp/api/windows.media.devices.isospeedcontrol.setvalueasync) を呼び出して、スライダー コントロールの現在の値を渡します。
 
-[!code-cs[IsoCheckBox](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetIsoCheckBox)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetIsoCheckBox":::
 
 ## <a name="optical-image-stabilization"></a>光学式手ブレ補正
 
@@ -260,14 +260,14 @@ OIS コントロールでは、3 つのモード (オン、オフ、自動) が�
 
 OIS を有効または無効にするには、[**OpticalImageStabilizationControl.Mode**](/uwp/api/Windows.Media.Devices.OpticalImageStabilizationMode) を目的のモードに設定します。
 
-[!code-cs[SetOpticalImageStabilizationMode](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetSetOpticalImageStabilizationMode)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetSetOpticalImageStabilizationMode":::
 
 ## <a name="powerline-frequency"></a>電源周波数
 一部のカメラ デバイスでは、現在の環境の AC 電源周波数を認識し、それに応じたアンチフリッカー処理をサポートします。 電源周波数の自動認識をサポートするデバイスもあれば、周波数を手動で設定する必要があるデバイスもあります。 次のコード例は、デバイスの電源周波数のサポートを判別し、必要に応じて、周波数を手動で設定する方法を示します。 
 
 まず [**PowerlineFrequency**](/uwp/api/Windows.Media.Capture.PowerlineFrequency) 型の出力パラメーターを渡して **VideoDeviceController** メソッド [**TryGetPowerlineFrequency**](/uwp/api/windows.media.devices.videodevicecontroller.trygetpowerlinefrequency) を呼び出します。この呼び出しが失敗した場合、現在のデバイスでは電源周波数の制御がサポートされていません。 機能がサポートされている場合、自動モードの設定を試みることで、自動モードがサポートされているかどうかを確認できます。 これを行うには、 [**TrySetPowerlineFrequency**](/uwp/api/windows.media.devices.videodevicecontroller.trysetpowerlinefrequency) を呼び出し、値 **Auto**を渡します。呼び出しが成功した場合は、自動 powerline の周波数がサポートされていることを意味します。 デバイスで電源周波数の制御はサポートされているが、周波数の自動検出はサポートされていない場合、**TrySetPowerlineFrequency** を使って周波数を手動で設定できます。 次の例で、**MyCustomFrequencyLookup** は、デバイスの現在の場所における正しい周波数を判定するために実装するカスタム メソッドです。 
 
-[!code-cs[PowerlineFrequency](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetPowerlineFrequency)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetPowerlineFrequency":::
 
 ## <a name="white-balance"></a>ホワイト バランス
 
@@ -275,7 +275,7 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 この例では、[**ComboBox**](/uwp/api/Windows.UI.Xaml.Controls.ComboBox) コントロールを使って組み込みの色温度のプリセットを選択し、[**スライダー**](/uwp/api/Windows.UI.Xaml.Controls.Slider) コントロールを使って手動でホワイト バランスを調整します。
 
-[!code-xml[WhiteBalanceXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetWhiteBalanceXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetWhiteBalanceXAML":::
 
 現在のキャプチャ デバイスで **WhiteBalanceControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.whitebalancecontrol.supported) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。 コンボ ボックスの項目を、[**ColorTemperaturePreset**](/uwp/api/Windows.Media.Devices.ColorTemperaturePreset) 列挙体の値に設定します。 また、選ばれた項目を、[**Preset**](/uwp/api/windows.media.devices.whitebalancecontrol.preset) プロパティの現在の値に設定します。
 
@@ -283,15 +283,15 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **WhiteBalanceControl** の現在値に設定します。
 
-[!code-cs[WhiteBalance](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetWhiteBalance)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetWhiteBalance":::
 
 色温度プリセットのコンボ ボックスの [**SelectionChanged**](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベント ハンドラーで、現在選択されているプリセットを取得し、[**SetPresetAsync**](/uwp/api/windows.media.devices.whitebalancecontrol.setpresetasync) を呼び出してコントロールの値を設定します。 選択されたプリセット値が **Manual** でない場合は、手動のホワイト バランス スライダーを無効にします。
 
-[!code-cs[WhiteBalanceComboBox](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetWhiteBalanceComboBox)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetWhiteBalanceComboBox":::
 
 **ValueChanged** イベント ハンドラーで、コントロールの現在の値を取得し、[**SetValueAsync**](/uwp/api/windows.media.devices.exposurecontrol.setvalueasync) を呼び出してホワイト バランス値を設定します。
 
-[!code-cs[WhiteBalanceSlider](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetWhiteBalanceSlider)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetWhiteBalanceSlider":::
 
 > [!IMPORTANT]
 > ホワイト バランスの調整は、プレビュー ストリームが実行中であるときにのみサポートされます。 ホワイト バランス値またはプリセットを設定する前に、プレビュー ストリームが実行されていることを確認します。
@@ -305,7 +305,7 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 この例では、[**スライダー**](/uwp/api/Windows.UI.Xaml.Controls.Slider) コントロールを使って、現在のズーム レベルを調整します。 次のセクションでは、画面上のピンチ ジェスチャに基づいてズームを調整する方法を示します。
 
-[!code-xml[ZoomXAML](./code/BasicMediaCaptureWin10/cs/MainPage.xaml#SnippetZoomXAML)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml" id="SnippetZoomXAML":::
 
 現在のキャプチャ デバイスで **ZoomControl** がサポートされているかどうかを確認するには、[**Supported**](/uwp/api/windows.media.devices.zoomcontrol.supported) プロパティを確認します。 コントロールがサポートされている場合は、この機能の UI を表示し、有効にすることができます。
 
@@ -313,13 +313,13 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 値が設定されたときにイベントがトリガーされないように、[**ValueChanged**](/uwp/api/windows.ui.xaml.controls.primitives.rangebase.valuechanged) イベント ハンドラーの登録を解除した後、スライダー コントロールの値を **ZoomControl** の現在値に設定します。
 
-[!code-cs[ZoomControl](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetZoomControl)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetZoomControl":::
 
 **ValueChanged** イベント ハンドラーで、[**Value**](/uwp/api/windows.media.devices.zoomsettings.value) プロパティをズーム スライダー コントロールの現在の値に設定して、[**ZoomSettings**](/uwp/api/Windows.Media.Devices.ZoomSettings) クラスの新しいインスタンスを作成します。 **ZoomControl** の [**SupportedModes**](/uwp/api/windows.media.devices.zoomcontrol.supportedmodes) プロパティに [**ZoomTransitionMode.Smooth**](/uwp/api/Windows.Media.Devices.ZoomTransitionMode) が含まれている場合、デバイスがズーム レベルのスムーズな切り替えをサポートしていることを意味します。 このモードではユーザー エクスペリエンスが向上するため、通常、**ZoomSettings** オブジェクトの [**Mode**](/uwp/api/windows.media.devices.zoomsettings.mode) プロパティにはこの値を使います。
 
 最後に、**ZoomSettings** オブジェクトを、**ZoomControl** オブジェクトの [**Configure**](/uwp/api/windows.media.devices.zoomcontrol.configure) メソッドに渡すことによって、現在のズーム設定を変更します。
 
-[!code-cs[ZoomSlider](./code/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs#SnippetZoomSlider)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.ManualControls.xaml.cs" id="SnippetZoomSlider":::
 
 ### <a name="smooth-zoom-using-pinch-gesture"></a>ピンチ ジェスチャを使ったスムーズなズーム
 
@@ -327,11 +327,11 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 まず、[**ZoomControl.Supported**](/uwp/api/windows.media.devices.zoomcontrol.supported) プロパティをチェックして、現在のデバイスでデジタル ズーム コントロールがサポートされているかどうかを確認します。 次に、[**ZoomControl.SupportedModes**](/uwp/api/windows.media.devices.zoomcontrol.supportedmodes) の値として [**ZoomTransitionMode.Smooth**](/uwp/api/Windows.Media.Devices.ZoomTransitionMode) が含まれているかどうかをチェックすることによって、スムーズ ズーム モードが利用可能かどうかを確認します。
 
-[!code-cs[IsSmoothZoomSupported](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetIsSmoothZoomSupported)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetIsSmoothZoomSupported":::
 
 マルチタッチ操作対応デバイスでは、2 本指でのピンチ ジェスチャに基づいてズーム倍率を調整するのが一般的です。 ピンチ ジェスチャを有効にするには、[**CaptureElement**](/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) コントロールの [**ManipulationMode**](/uwp/api/windows.ui.xaml.uielement.manipulationmode) プロパティを [**ManipulationModes.Scale**](/uwp/api/Windows.UI.Xaml.Input.ManipulationModes) に設定します。 次に、ピンチ ジェスチャでサイズ変更されたときに発生する [**ManipulationDelta**](/uwp/api/windows.ui.xaml.uielement.manipulationdelta) イベントを登録します。
 
-[!code-cs[RegisterPinchGestureHandler](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetRegisterPinchGestureHandler)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetRegisterPinchGestureHandler":::
 
 **ManipulationDelta** イベント用のハンドラーでは、ユーザーのピンチ ジェスチャの変化に基づいてズーム倍率を更新します。 [**ManipulationDelta.Scale**](/uwp/api/Windows.UI.Input.ManipulationDelta) 値は、ピンチ ジェスチャによるズーム倍率の変化を表します。たとえば、ピンチ サイズがわずかに大きくなった場合は 1.0 よりわずかに大きい数値、ピンチ サイズがわずかに小さくなった場合は 1.0 よりわずかに小さい数値になります。 この例では、ズーム コントロールの現在の値にスケール デルタを掛けています。
 
@@ -339,7 +339,7 @@ OIS を有効または無効にするには、[**OpticalImageStabilizationContro
 
 キャプチャ デバイスでズーム レベルを設定するには、新しい [**ZoomSettings**](/uwp/api/Windows.Media.Devices.ZoomSettings) オブジェクトを作成します。 [**Mode**](/uwp/api/windows.media.devices.zoomsettings.mode) プロパティを [**ZoomTransitionMode.Smooth**](/uwp/api/Windows.Media.Devices.ZoomTransitionMode) に設定し、[**Value**](/uwp/api/windows.media.devices.zoomsettings.value) プロパティを目的のズーム倍率に設定します。 最後に、[**ZoomControl.Configure**](/uwp/api/windows.media.devices.zoomcontrol.configure) を呼び出して、デバイスの新しいズーム値を設定します。 デバイスは新しいズーム値への切り替えをスムーズに行います。
 
-[!code-cs[ManipulationDelta](./code/BasicMediaCaptureWin10/cs/MainPage.xaml.cs#SnippetManipulationDelta)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/BasicMediaCaptureWin10/cs/MainPage.xaml.cs" id="SnippetManipulationDelta":::
 
 ## <a name="related-topics"></a>関連トピック
 

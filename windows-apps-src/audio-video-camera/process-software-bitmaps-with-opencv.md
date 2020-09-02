@@ -6,12 +6,12 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: Windows 10, UWP, OpenCV, SoftwareBitmap
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b1808c6940cbfc03c2572bd72ecf0c57cfd5010
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a917c4efc8da8fbdabbdc753aacf23724ae17055
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173676"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363805"
 ---
 # <a name="process-bitmaps-with-opencv"></a>OpenCV でのビットマップの処理
 
@@ -51,21 +51,21 @@ ms.locfileid: "89173676"
 
 OpenCVHelper.h ヘッダー ファイルに以下のコードを貼り付けます。 このコードには、インストールした *Core* パッケージと *ImgProc* パッケージの OpenCV ヘッダー ファイルが含まれており、以下の手順で示される 3 つのメソッドを宣言しています。
 
-[!code-cpp[OpenCVHelperHeader](./code/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.h#SnippetOpenCVHelperHeader)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.h" id="SnippetOpenCVHelperHeader":::
 
 OpenCVHelper.cpp ファイルの既存の内容を削除し、次の include ディレクティブを追加します。 
 
-[!code-cpp[OpenCVHelperInclude](./code/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp#SnippetOpenCVHelperInclude)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp" id="SnippetOpenCVHelperInclude":::
 
 include ディレクティブの後に、以下の **using** ディレクティブを追加します。 
 
-[!code-cpp[OpenCVHelperUsing](./code/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp#SnippetOpenCVHelperUsing)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp" id="SnippetOpenCVHelperUsing":::
 
 次に、**GetPointerToPixelData** メソッドを OpenCVHelper.cpp に追加します。 このメソッドは、**[SoftwareBitmap](/uwp/api/Windows.Graphics.Imaging.SoftwareBitmap)** を受け取り、一連の変換を経て、ピクセル データの COM インターフェイス表現を取得します。これにより、基になるデータ バッファーへのポインターを **char** 配列として取得できます。 
 
 最初に、ピクセル データを格納する **[BitmapBuffer](/uwp/api/windows.graphics.imaging.bitmapbuffer)** が、**[LockBuffer](/uwp/api/windows.graphics.imaging.softwarebitmap.lockbuffer)** を呼び出すことによって取得されます。LockBuffer は読み取り/書き込みバッファーを要求し、OpenCV ライブラリはそのピクセル データを変更できるようにします。  **[CreateReference](/uwp/api/windows.graphics.imaging.bitmapbuffer.CreateReference)** が呼び出され、**[IMemoryBufferReference](/uwp/api/windows.foundation.imemorybufferreference)** オブジェクトが取得されます。 次に、**IMemoryBufferByteAccess** インターフェイスが、すべての Windows ランタイム クラスの基本インターフェイスである **IInspectable** としてキャストされ、**[QueryInterface](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))** が呼び出されて **[IMemoryBufferByteAccess](/previous-versions/mt297505(v=vs.85))** COM インターフェイスが取得されます。これにより、ピクセル データ バッファーを **char** 配列として取得できます。 最後に、**[IMemoryBufferByteAccess::GetBuffer](/windows/desktop/WinRT/imemorybufferbyteaccess-getbuffer)** を呼び出して **char** 配列を設定します。 このメソッドの変換手順のいずれかが失敗した場合、メソッドは **false** を返し、処理が続行できないことを示します。
 
-[!code-cpp[OpenCVHelperGetPointerToPixelData](./code/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp#SnippetOpenCVHelperGetPointerToPixelData)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp" id="SnippetOpenCVHelperGetPointerToPixelData":::
 
 次に、以下に示すように **TryConvert** メソッドを追加します。 このメソッドは、**SoftwareBitmap** を受け取り、**Mat** オブジェクトへの変換を試行します。このオブジェクトは、OpenCV が画像データ バッファーを表すために使用するマトリックス オブジェクトです。 このメソッドは、上で定義した **GetPointerToPixelData** メソッドを呼び出して、ピクセル データ バッファーの **char** 配列表現を取得します。 これが成功した場合、**Mat** クラスのコンストラクターが呼び出され、ソース **SoftwareBitmap** オブジェクトから取得されたピクセルの幅と高さが渡されます。 
 
@@ -74,11 +74,11 @@ include ディレクティブの後に、以下の **using** ディレクティ�
 
 作成された **Mat** オブジェクトのシャロー コピーがこのメソッドによって返されるため、それ以降の処理は、バッファーのコピーではなく、**SoftwareBitmap** によって参照される同じデータのピクセル データ バッファーで実行されます。
 
-[!code-cpp[OpenCVHelperTryConvert](./code/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp#SnippetOpenCVHelperTryConvert)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp" id="SnippetOpenCVHelperTryConvert":::
 
 最後に、この例のヘルパー クラス メソッドは、1 つの画像処理メソッド **Blur** を実装します。これは、上で定義した **TryConvert** メソッドを使用して、ぼかし操作のソース ビットマップとターゲット ビットマップを表す **Mat** オブジェクトを取得し、OpenCV ImgProc ライブラリの **blur** メソッドを呼び出します。 **blur** のその他のパラメーターで、X および Y 方向のぼかし効果のサイズを指定します。
 
-[!code-cpp[OpenCVHelperBlur](./code/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp#SnippetOpenCVHelperBlur)]
+:::code language="cpp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/OpenCVBridge/OpenCVHelper.cpp" id="SnippetOpenCVHelperBlur":::
 
 
 ## <a name="a-simple-softwarebitmap-opencv-example-using-the-helper-component"></a>ヘルパー コンポーネントを使用するシンプルな SoftwareBitmap OpenCV の例
@@ -94,9 +94,9 @@ OpenCVBridge コンポーネントが作成されたので、OpenCV の **blur**
 
 このサンプルコードでは、既定のプロジェクトテンプレートに含まれる名前空間に加えて、次の名前空間の Api を使用します。
 
-[!code-cs[OpenCVMainPageUsing](./code/ImagingWin10/cs/MainPage.OpenCV.xaml.cs#SnippetOpenCVMainPageUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.OpenCV.xaml.cs" id="SnippetOpenCVMainPageUsing":::
 
-[!code-cs[OpenCVBlur](./code/ImagingWin10/cs/MainPage.OpenCV.xaml.cs#SnippetOpenCVBlur)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.OpenCV.xaml.cs" id="SnippetOpenCVBlur":::
 
 ## <a name="related-topics"></a>関連トピック
 

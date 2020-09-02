@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f30611d649e0485a9cc89a162ae49768b05e00d7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3487e79b689e5c47cc94ffc29a559a333fe66f47
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174506"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89363775"
 ---
 # <a name="display-the-camera-preview"></a>カメラ プレビューの表示
 
@@ -34,7 +34,7 @@ ms.locfileid: "89174506"
 
 [**CaptureElement**](/uwp/api/Windows.UI.Xaml.Controls.CaptureElement) を使って、XAML ページ内にプレビュー ストリームを表示します。
 
-[!code-xml[CaptureElement](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml#SnippetCaptureElement)]
+:::code language="xml" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml" id="SnippetCaptureElement":::
 
 
 
@@ -44,15 +44,15 @@ ms.locfileid: "89174506"
 
 ページの .cs ファイルに次の名前空間を含めるには using ディレクティブを追加します。
 
-[!code-cs[SimpleCameraPreviewUsing](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetSimpleCameraPreviewUsing)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetSimpleCameraPreviewUsing":::
 
 **MediaCapture** オブジェクトのクラス メンバー変数と、カメラが現在プレビューを表示しているかどうかを追跡するブール値を宣言します。 
 
-[!code-cs[DeclareMediaCapture](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetDeclareMediaCapture)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetDeclareMediaCapture":::
 
 プレビューの実行中にディスプレイがオフになっていないことを確認するために使用する、[**DisplayRequest**](/uwp/api/Windows.System.Display.DisplayRequest) 型の変数を宣言します。
 
-[!code-cs[DeclareDisplayRequest](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetDeclareDisplayRequest)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetDeclareDisplayRequest":::
 
 カメラのプレビューを起動するヘルパー メソッド (この例では **StartPreviewAsync**) を作成します。 アプリのシナリオによって、ページが読み込まれるときに呼び出される **OnNavigatedTo** イベント ハンドラーからこれを呼び出すことも、UI イベントへの応答でプレビューを待機して起動することもできます。
 
@@ -64,12 +64,12 @@ ms.locfileid: "89174506"
 
 [**RequestActive**](/uwp/api/windows.system.display.displayrequest.requestactive) を呼び出して、プレビューの実行中にデバイスがスリープ状態にならないことを確認します。 最後に、[**DisplayInformation.AutoRotationPreferences**](/uwp/api/windows.graphics.display.displayinformation.autorotationpreferences) プロパティを [**Landscape**](/uwp/api/Windows.Graphics.Display.DisplayOrientations) に設定して、ユーザーがデバイスの向きを変更したときに UI と **CaptureElement** が回転することを防ぎます。 デバイスの向きの変更処理について詳しくは、「[**MediaCapture を使ってデバイスの向きを処理する**](handle-device-orientation-with-mediacapture.md)」をご覧ください。  
 
-[!code-cs[StartPreviewAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetStartPreviewAsync)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetStartPreviewAsync":::
 
 ## <a name="handle-changes-in-exclusive-control"></a>排他的制御での変更を処理する
 前のセクションで説明したように、別のアプリがキャプチャ デバイスを排他的に制御している場合、**StartPreviewAsync** は **FileLoadException** をスローします。 Windows 10 Version 1703 以降では、デバイスの排他的制御の状態が変化するたびに発生する [MediaCapture.CaptureDeviceExclusiveControlStatusChanged](/uwp/api/Windows.Media.Capture.MediaCapture.CaptureDeviceExclusiveControlStatusChanged) イベントのハンドラーを登録できます。 このイベントのハンドラーで、[MediaCaptureDeviceExclusiveControlStatusChangedEventArgs.Status](/uwp/api/windows.media.capture.mediacapturedeviceexclusivecontrolstatuschangedeventargs.Status) プロパティを調べて、現在の状態を確認します。 新しい状態が **SharedReadOnlyAvailable** である場合、現在プレビューを開始できないことがわかり、UI を更新してユーザーに警告することができます。 新しい状態が **ExclusiveControlAvailable** である場合は、カメラのプレビューを再試行することができます。
 
-[!code-cs[ExclusiveControlStatusChanged](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetExclusiveControlStatusChanged)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetExclusiveControlStatusChanged":::
 
 ## <a name="shut-down-the-preview-stream"></a>プレビュー ストリームをシャットダウンする
 
@@ -81,19 +81,19 @@ ms.locfileid: "89174506"
 -   **MediaCapture** メンバー変数を null に設定します。
 -   [**RequestRelease**](/uwp/api/windows.system.display.displayrequest.requestrelease) を呼び出して、アクティブでないときに画面をオフにできるようにします。
 
-[!code-cs[CleanupCameraAsync](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetCleanupCameraAsync)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetCleanupCameraAsync":::
 
 [**OnNavigatedFrom**](/uwp/api/windows.ui.xaml.controls.page.onnavigatedfrom) メソッドをオーバーライドすることで、ユーザーがページから離れるときにプレビュー ストリームをシャットダウンする必要があります。
 
-[!code-cs[OnNavigatedFrom](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetOnNavigatedFrom)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetOnNavigatedFrom":::
 
 アプリの中断中もプレビュー ストリームを適切にシャットダウンする必要があります。 これを行うには、ページのコンストラクターで [**Application.Suspending**](/uwp/api/windows.applicationmodel.core.coreapplication.suspending) イベントのハンドラーを登録します。
 
-[!code-cs[RegisterSuspending](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetRegisterSuspending)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetRegisterSuspending":::
 
 **Suspending** イベント ハンドラーで、まずページの種類と [**CurrentSourcePageType**](/uwp/api/windows.ui.xaml.controls.frame.currentsourcepagetype) プロパティを比較することで、アプリケーションの [**Frame**](/uwp/api/Windows.UI.Xaml.Controls.Frame) にページが表示されることを確認します。 ページが現在表示されていない場合、**OnNavigatedFrom** イベントが既に発生しており、プレビュー ストリームはシャットダウンしています。 現在ページが表示されている場合、ハンドラーに渡されるイベント引数から [**SuspendingDeferral**](/uwp/api/Windows.ApplicationModel.SuspendingDeferral) オブジェクトを取得し、プレビュー ストリームがシャットダウンするまでシステムがアプリを中断しないことを確認します。 ストリームをシャットダウンした後、保留の [**Complete**](/uwp/api/windows.applicationmodel.suspendingdeferral.complete) メソッドを呼び出し、システムがアプリの中断を続行できるようにします。
 
-[!code-cs[SuspendingHandler](./code/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs#SnippetSuspendingHandler)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/SimpleCameraPreview_Win10/cs/MainPage.xaml.cs" id="SnippetSuspendingHandler":::
 
 
 ## <a name="related-topics"></a>関連トピック

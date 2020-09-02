@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a457b5eb976d1c34daa79a88113174fa664804ae
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8a65e7e8c47af2d0536cecea2725fd06d6d48868
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175156"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362826"
 ---
 # <a name="free-memory-when-your-app-moves-to-the-background"></a>アプリがバックグラウンドに移動したときのメモリの解放
 
@@ -38,11 +38,11 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 
 バックグラウンドで実行すると、アプリが保持することを許可されているメモリ リソースが減少するため、[**AppMemoryUsageIncreased**](/uwp/api/windows.system.memorymanager.appmemoryusageincreased) と [**AppMemoryUsageLimitChanging**](/uwp/api/windows.system.memorymanager.appmemoryusagelimitchanging) イベントについても登録する必要があります。これらは、アプリの現在のメモリ使用量と、現在の制限を確認するために使用できます。 これらのイベントのハンドラーを、次の例に示します。 UWP アプリのアプリケーション ライフサイクルについて詳しくは、「[アプリのライフサイクル](..//launch-resume/app-lifecycle.md)」をご覧ください。
 
-[!code-cs[RegisterEvents](./code/ReduceMemory/cs/App.xaml.cs#SnippetRegisterEvents)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetRegisterEvents":::
 
 [**EnteredBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.enteredbackground) イベントが発生したときに、現在バックグラウンドで実行していることを示す追跡変数を設定します。 これは、メモリ使用量を削減するためのコードを記述する際に役立ちます。
 
-[!code-cs[EnteredBackground](./code/ReduceMemory/cs/App.xaml.cs#SnippetEnteredBackground)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetEnteredBackground":::
 
 アプリがバックグラウンドに移行するときに、現在のフォアグラウンド アプリが応答性の高いユーザー エクスペリエンスを提供するために十分なリソースを確保できるように、システムによってアプリのメモリ制限が低減されます。
 
@@ -50,7 +50,7 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 
 この例では、この処理はヘルパー メソッド **ReduceMemoryUsage** で実行されます。このメソッドの定義については、後で説明します。
 
-[!code-cs[MemoryUsageLimitChanging](./code/ReduceMemory/cs/App.xaml.cs#SnippetMemoryUsageLimitChanging)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetMemoryUsageLimitChanging":::
 
 > [!NOTE]
 > デバイス構成によって、システム リソースが不足するまで新しいメモリ制限でアプリケーションの実行を続けることができる場合とできない場合があります。 特に Xbox では、アプリが 2 秒以内にメモリ使用量を新しい制限未満に減らさない場合、アプリは中断または終了されます。 つまり、このイベントを使用して、イベントの発生から 2 秒以内にリソースの使用量を制限未満に減らすことにより、幅広いデバイスで最適なエクスペリエンスを提供できます。
@@ -59,26 +59,26 @@ Windows 10 バージョン 1607 では、2 つ新しいアプリケーション 
 
 [**AppMemoryUsageLevel**](/uwp/api/Windows.System.AppMemoryUsageLevel) が **High** または **OverLimit** になっていないかどうかを確認し、これらの値になっている場合はメモリ使用量を減らします。 この例では、これはヘルパー メソッド **ReduceMemoryUsage** によって処理されます。 [**AppMemoryUsageDecreased**](/uwp/api/windows.system.memorymanager.appmemoryusagedecreased) イベントを受信登録して、アプリのメモリ使用量が制限未満であるかどうかを確認でき、制限未満である場合は追加のリソースを割り当てることができます。
 
-[!code-cs[MemoryUsageIncreased](./code/ReduceMemory/cs/App.xaml.cs#SnippetMemoryUsageIncreased)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetMemoryUsageIncreased":::
 
 **ReduceMemoryUsage** は、バックグラウンドで実行されているアプリがメモリ使用量の制限を超えている場合にメモリを解放するために実装できるヘルパー メソッドです。 メモリを解放する方法はアプリの仕様によって異なりますが、推奨されるメモリ解放の方法の 1 つは、UI と、アプリ ビューに関連付けられている他のリソースを破棄することです。 そのためには、バックグラウンド状態で実行されていることを確認してから、アプリのウィンドウの [**Content**](/uwp/api/windows.ui.xaml.window.content) プロパティを `null` に設定します。次に、UI イベント ハンドラーを登録解除し、存在する可能性があるそのページへのその他の参照をすべて削除します。 UI イベント ハンドラーの登録を解除しないで、存在する可能性があるそのページへのその他の参照をすべてクリアすると、ページ リソースが解放されません。 次に、**GC.Collect** を呼び出して、解放されたメモリをすぐに再利用します。 通常、ガベージ コレクションはシステムが処理するため、強制的に実行したくはありません。 この特定のケースでは、アプリケーションをバックグラウンドに移行する際にこのアプリケーションに割り当てられるメモリ量を減らすことで、メモリを再利用するためにアプリケーションを終了する必要があるとシステムが判断する可能性を減らしています。
 
-[!code-cs[UnloadViewContent](./code/ReduceMemory/cs/App.xaml.cs#SnippetUnloadViewContent)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetUnloadViewContent":::
 
 ウィンドウのコンテンツが収集されると、各フレームでは、その切断プロセスが開始されます。 ビジュアル オブジェクト ツリーで、ウィンドウのコンテンツの下に Page がある場合、これらはその Unloaded イベントを発生を開始します。 Page は、Page へのすべての参照を削除しない限り、メモリから完全には消去できません。 Unloaded コールバックでは、メモリが直ちに解放されるように次の処理を行います。
 * Page 内の大規模なデータ構造体を消去して `null` に設定します。
 * Page 内でコールバック メソッドを持つすべてのイベント ハンドラーの登録を解除します。 Page の Loaded イベント ハンドラーで、これらのコールバックを確実に登録します。 Loaded イベントは、UI が再構築され、Page がビジュアル オブジェクト ツリーに追加されたときに発生します。
 * Unloaded コールバックの最後に `GC.Collect` を呼び出して、先ほど `null` に設定した大規模なデータ構造体のガベージ コレクションをすばやく実行します。 通常、ガベージ コレクションはシステムが処理するため、強制的に実行したくはありません。 この特定のケースでは、アプリケーションをバックグラウンドに移行する際にこのアプリケーションに割り当てられるメモリ量を減らすことで、メモリを再利用するためにアプリケーションを終了する必要があるとシステムが判断する可能性を減らしています。
 
-[!code-cs[MainPageUnloaded](./code/ReduceMemory/cs/App.xaml.cs#SnippetMainPageUnloaded)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetMainPageUnloaded":::
 
 [**LeavingBackground**](/uwp/api/windows.applicationmodel.core.coreapplication.leavingbackground) イベント ハンドラーで、アプリがバックグラウンドで実行されなくなったことを示すために追跡変数 (`isInBackgroundMode`) を設定する必要があります。 次に、現在のウィンドウの [**Content**](/uwp/api/windows.ui.xaml.window.content) が `null` であるかどうかを確認します。バックグラウンドでの実行中にメモリを消去するためにアプリ ビューを破棄した場合は、null になります。 ウィンドウのコンテンツが `null` の場合は、アプリ ビューを再構築します。 この例では、ウィンドウのコンテンツは、**CreateRootFrame** ヘルパー メソッドで作成されます。
 
-[!code-cs[LeavingBackground](./code/ReduceMemory/cs/App.xaml.cs#SnippetLeavingBackground)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetLeavingBackground":::
 
 **CreateRootFrame** ヘルパー メソッドは、アプリ ビューのコンテンツを再作成します。 このメソッドのコードは、既定のプロジェクト テンプレートで提供される [**OnLaunched**](/uwp/api/windows.ui.xaml.application.onlaunched) ハンドラーのコードとほぼ同じです。 1 つ異なる点は、**Launching** ハンドラーが [**LaunchActivatedEventArgs**](/uwp/api/Windows.ApplicationModel.Activation.LaunchActivatedEventArgs) の [**PreviousExecutionState**](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs.previousexecutionstate) プロパティから以前の実行状態を特定するのに対して、**CreateRootFrame** メソッドは単に引数として渡される以前の実行状態を取得します。 重複するコードを最小限に抑えるには、既定の **Launching** イベント ハンドラーのコードをリファクタリングして、**CreateRootFrame** を呼び出します。
 
-[!code-cs[CreateRootFrame](./code/ReduceMemory/cs/App.xaml.cs#SnippetCreateRootFrame)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/launch-resume/ReduceMemory/cs/App.xaml.cs" id="SnippetCreateRootFrame":::
 
 ## <a name="guidelines"></a>ガイドライン
 

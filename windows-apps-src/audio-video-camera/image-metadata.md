@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ca2a5abe5c0a7f60246322dd81fad9af8f0def77
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c020a2ca66c81bee81813402e546fc01ce77c7f3
+ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157496"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89362565"
 ---
 # <a name="image-metadata"></a>イメージのメタデータ
 
@@ -23,11 +23,11 @@ ms.locfileid: "89157496"
 
 ファイルの内容に関連した情報には、[**StorageFile.Properties**](/uwp/api/windows.storage.storagefile.properties) プロパティから返される [**StorageItemContentProperties**](/uwp/api/Windows.Storage.FileProperties.StorageItemContentProperties) オブジェクトを使ってアクセスできます。 画像に固有のプロパティを取得するには、[**GetImagePropertiesAsync**](/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.getimagepropertiesasync) を呼び出します。 それによって返される [**ImageProperties**](/uwp/api/Windows.Storage.FileProperties.ImageProperties) オブジェクトは、画像のタイトルやキャプチャの日付など、基本的な画像メタデータのフィールドを含んだメンバーを公開します。
 
-[!code-cs[GetImageProperties](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetGetImageProperties)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetGetImageProperties":::
 
 さらに広範なファイル メタデータにアクセスするには、一意の文字列識別子で取得できるファイル メタデータ プロパティが集約された Windows プロパティ システムを使います。 文字列のリストを作成し、取得する必要のある各プロパティの識別子を追加してください。 [**ImageProperties.RetrievePropertiesAsync**](/uwp/api/windows.storage.fileproperties.imageproperties.retrievepropertiesasync) メソッドは、この文字列のリストを引数として受け取ってキー/値ペアのディクショナリを返します。このディクショナリのキーがプロパティ識別子で、ディクショナリの値がそのプロパティの値になります。
 
-[!code-cs[GetWindowsProperties](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetGetWindowsProperties)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetGetWindowsProperties":::
 
 -   各プロパティの識別子と型を含む、Windows のプロパティの完全な一覧については、「 [windows のプロパティ](/windows/desktop/properties/props)」を参照してください。
 
@@ -41,11 +41,11 @@ GeotagHelper は、地理データを含んだ画像へのタグ付けを支援�
 
 以前に位置情報 Api またはその他のソースを使用したときに、イメージ内でタグ付けする場所を表す [**Geopoint**](/uwp/api/Windows.Devices.Geolocation.Geopoint) オブジェクトが既にある場合は、 [**Geotaghelper. SetGeotagAsync**](/uwp/api/windows.storage.fileproperties.geotaghelper.setgeotagasync) を呼び出して、 [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) と **geopoint**に渡すことで、ジオタグデータを設定できます。
 
-[!code-cs[SetGeoDataFromPoint](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetSetGeoDataFromPoint)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetSetGeoDataFromPoint":::
 
 デバイスの現在位置を使って位置情報タグ データを設定するには、[**Geolocator**](/uwp/api/Windows.Devices.Geolocation.Geolocator) オブジェクトを新たに作成し、[**GeotagHelper.SetGeotagFromGeolocatorAsync**](/uwp/api/windows.storage.fileproperties.geotaghelper.setgeotagfromgeolocatorasync) の引数に **Geolocator** とタグの設定対象となるファイルとを指定して呼び出します。
 
-[!code-cs[SetGeoDataFromGeolocator](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetSetGeoDataFromGeolocator)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetSetGeoDataFromGeolocator":::
 
 -   [**SetGeotagFromGeolocatorAsync**](/uwp/api/windows.storage.fileproperties.geotaghelper.setgeotagfromgeolocatorasync) API を使うには、アプリ マニフェストに**位置情報**デバイス機能を追加する必要があります。
 
@@ -55,7 +55,7 @@ GeotagHelper は、地理データを含んだ画像へのタグ付けを支援�
 
 位置情報タグで示された画像ファイルの地理的位置を表す GeoPoint を取得するには、[**GetGeotagAsync**](/uwp/api/windows.storage.fileproperties.geotaghelper.getgeotagasync) を呼び出します。
 
-[!code-cs[GetGeoData](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetGetGeoData)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetGetGeoData":::
 
 ## <a name="decode-and-encode-image-metadata"></a>画像メタデータのデコードとエンコード
 
@@ -65,7 +65,7 @@ GeotagHelper は、地理データを含んだ画像へのタグ付けを支援�
 
 デコーダーを取得したら、文字列のリストを作成し、Windows プロパティの識別子文字列または WIC メタデータ クエリを使って、取得する各メタデータ プロパティの新しいエントリを追加します。 特定のプロパティを要求するには、デコーダーの [**BitmapProperties**](/uwp/api/Windows.Graphics.Imaging.BitmapProperties) メンバーの [**BitmapPropertiesView.GetPropertiesAsync**](/uwp/api/windows.graphics.imaging.bitmappropertiesview.getpropertiesasync) メソッドを呼び出します。 要求したプロパティが、プロパティ名 (またはパス) とプロパティ値を含んだキー/値ペアのディクショナリとして返されます。
 
-[!code-cs[ReadImageMetadata](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetReadImageMetadata)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetReadImageMetadata":::
 
 -   WIC メタデータ クエリ言語とサポートされるプロパティについては、「[WIC ネイティブ イメージ形式メタデータのクエリ](/windows/desktop/wic/-wic-native-image-format-metadata-queries)」をご覧ください。
 
@@ -76,7 +76,7 @@ GeotagHelper は、地理データを含んだ画像へのタグ付けを支援�
 
 設定対象プロパティの値を保持する [**BitmapPropertySet**](/uwp/api/Windows.Graphics.Imaging.BitmapPropertySet) オブジェクトを作成します。 プロパティの値を表す [**BitmapTypedValue**](/uwp/api/Windows.Graphics.Imaging.BitmapTypedValue) オブジェクトを作成します。 このオブジェクトでは、値の型を定義する [**PropertyType**](/uwp/api/Windows.Foundation.PropertyType) 列挙型の値およびメンバーとして **object** を使います。 **BitmapTypedValue** を **BitmapPropertySet** に追加したうえで、[**BitmapProperties.SetPropertiesAsync**](/uwp/api/windows.graphics.imaging.bitmapproperties.setpropertiesasync) を呼び出すと、エンコーダーがプロパティをストリームに書き込みます。
 
-[!code-cs[WriteImageMetadata](./code/ImagingWin10/cs/MainPage.xaml.cs#SnippetWriteImageMetadata)]
+:::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ImagingWin10/cs/MainPage.xaml.cs" id="SnippetWriteImageMetadata":::
 
 -   イメージファイルの種類でサポートされるプロパティの詳細については、「 [Windows プロパティ](/windows/desktop/properties/props)」、「 [フォトメタデータポリシー](/windows/desktop/wic/photo-metadata-policies)」、および「 [WIC イメージ形式のネイティブメタデータクエリ](/windows/desktop/wic/-wic-native-image-format-metadata-queries)」を参照してください。
 
