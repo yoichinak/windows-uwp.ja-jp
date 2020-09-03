@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, データ バインディング, 一覧
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3cebf51bdf9fa9942a0b88ed7b4cf66204671781
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 097105d16d6d17807235ab61d36ab1fe185c8ca3
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71340338"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165056"
 ---
 # <a name="display-customers-in-a-list"></a>一覧での顧客の表示
 
@@ -110,7 +110,7 @@ public sealed partial class MainPage : Page
 
 以前のコード スニペットに従った場合、行ったバインディングでは x:Bind を使用し、モードを使用しないため、1 回限りのバインディングになります。 UI から直接 Customers を編集する場合は、データからの変更が Customer オブジェクトに戻されるように、双方向のバインディングに変更する必要があります。 詳細については、「[データ バインディングの詳細](../data-binding/data-binding-in-depth.md)」を参照してください。
 
-データ ソースが変更された場合は、双方向バインディングも更新されます。 これが機能するためには、ソースで [**INotifyPropertyChanged**](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged) を実装し、そのプロパティの set アクセス操作子により **PropertyChanged** イベントが発生することを確認する必要があります。 一般的には、次に示すように **OnPropertyChanged** メソッドのようなヘルパー メソッドを呼び出すようにします。
+データ ソースが変更された場合は、双方向バインディングも更新されます。 これが機能するためには、ソースで [**INotifyPropertyChanged**](/dotnet/api/system.componentmodel.inotifypropertychanged) を実装し、そのプロパティの set アクセス操作子により **PropertyChanged** イベントが発生することを確認する必要があります。 一般的には、次に示すように **OnPropertyChanged** メソッドのようなヘルパー メソッドを呼び出すようにします。
 
 ```csharp
 public class Customer : INotifyPropertyChanged
@@ -165,13 +165,13 @@ public class Customer : INotifyPropertyChanged
 
 | API | 説明 |
 |------|---------------|
-| [データ テンプレート](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) | UI 内の特定の要素の表示を可能にするデータ オブジェクトの視覚的構造について説明します。 |
+| [データ テンプレート](/uwp/api/Windows.UI.Xaml.DataTemplate) | UI 内の特定の要素の表示を可能にするデータ オブジェクトの視覚的構造について説明します。 |
 | [x:Bind](../xaml-platform/x-bind-markup-extension.md) | 推奨される x:Bind マークアップ拡張に関するドキュメントです。 |
 | [Binding](../xaml-platform/binding-markup-extension.md) | 以前の Binding マークアップ拡張に関するドキュメントです。 |
-| [ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) | データ アイテムの垂直のスタックを表示する UI コントロールです。 |
-| [TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) | UI で編集可能なテキスト データを表示するための基本的なテキスト コントロールです。 |
-| [INotifyPropertyChanged](https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged) | データを監視可能にし、データ バインディングに提供するインターフェイスです。 |
-| [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) | このクラスの **ItemsSource** プロパティにより、ListView がデータ ソースにバインドされます。 |
+| [ListView](/uwp/api/Windows.UI.Xaml.Controls.ListView) | データ アイテムの垂直のスタックを表示する UI コントロールです。 |
+| [TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | UI で編集可能なテキスト データを表示するための基本的なテキスト コントロールです。 |
+| [INotifyPropertyChanged](/dotnet/api/system.componentmodel.inotifypropertychanged) | データを監視可能にし、データ バインディングに提供するインターフェイスです。 |
+| [ItemsControl](/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) | このクラスの **ItemsSource** プロパティにより、ListView がデータ ソースにバインドされます。 |
 
 ### <a name="useful-docs"></a>役立つドキュメント
 

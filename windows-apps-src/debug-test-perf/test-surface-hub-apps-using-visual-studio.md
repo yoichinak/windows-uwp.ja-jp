@@ -6,17 +6,17 @@ ms.date: 10/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 37c7f9edbaee008b6e16ef2ca202ff5cbcf39ca2
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5a10a8a6e5b4e5188d28c0f75aace50f7465e5f4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67317502"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163486"
 ---
 # <a name="test-surface-hub-apps-using-visual-studio"></a>Visual Studio を使った Surface Hub アプリのテスト
 Visual Studio シミュレーターは、ユニバーサル Windows プラットフォーム (UWP) アプリの設計、開発、デバッグ、テストを行える環境を提供します。これには Microsoft Surface Hub 用に作成されたアプリを含みます。 シミュレーターでは、Surface Hub と同じユーザー インターフェイスは使用されませんが、Surface Hub の画面サイズと解像度を使用してアプリの外観と動作をテストするために有用です。
 
-シミュレーター ツール全般の詳細については、「[シミュレーターで UWP アプリを実行する](https://docs.microsoft.com/visualstudio/debugger/run-windows-store-apps-in-the-simulator)」を参照してください。
+シミュレーター ツール全般の詳細については、「[シミュレーターで UWP アプリを実行する](/visualstudio/debugger/run-windows-store-apps-in-the-simulator)」を参照してください。
 
 ## <a name="add-surface-hub-resolutions-to-the-simulator"></a>Surface Hub の解像度をシミュレーターに追加する
 Surface Hub の解像度をシミュレーターに追加するには、次の手順を実行します。
@@ -90,7 +90,7 @@ Surface Hub の解像度をシミュレーターに追加するには、次の�
 3. **[開発者モード]** を選択し、警告メッセージに同意します。
 
 ### <a name="deploy-your-app-from-visual-studio"></a>Visual Studio からアプリを展開する
-展開プロセス全般の詳細については、「[UWP アプリの展開とデバッグ](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps)」を参照してください。
+展開プロセス全般の詳細については、「[UWP アプリの展開とデバッグ](./deploying-and-debugging-uwp-apps.md)」を参照してください。
 
    > [!NOTE]
    > この機能には Visual Studio 2015 Update 1 以降が必要ですが、最新バージョンの Visual Studio を使用することをお勧めします。 最新の Visual Studio インスタンスでは、最新のすべての開発およびセキュリティの更新プログラムが提供されます。

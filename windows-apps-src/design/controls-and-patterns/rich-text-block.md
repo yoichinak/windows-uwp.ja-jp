@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f90ce11c9a35200121722f3b0a0ac7d7047e819
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 4a8c7f04b42adadda2eec904f7c8796289706f25
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081557"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169446"
 ---
 # <a name="rich-text-block"></a>リッチ テキスト ブロック
 
@@ -24,7 +24,7 @@ ms.locfileid: "80081557"
 
 リッチ テキスト ブロックは、段落、インライン UI 要素、複雑なテキスト レイアウトなどのサポートが必要な場合に使用できる、高度なテキスト レイアウト用のいくつかの機能を提供します。
 
-> **プラットフォーム API**: [RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[RichTextBlockOverflow クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow)、[Paragraph クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph)、[Typography クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography)
+> **プラットフォーム API**: [RichTextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[RichTextBlockOverflow クラス](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow)、[Paragraph クラス](/uwp/api/Windows.UI.Xaml.Documents.Paragraph)、[Typography クラス](/uwp/api/Windows.UI.Xaml.Documents.Typography)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
@@ -52,18 +52,18 @@ ms.locfileid: "80081557"
 
 ## <a name="create-a-rich-text-block"></a>リッチ テキスト ブロックを作成する
 
-RichTextBlock のコンテンツ プロパティは [Blocks](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.blocks) プロパティです。このプロパティでは、[Paragraph](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素によって段落に基づくテキストがサポートされています。 アプリ内でコントロールのテキスト コンテンツに簡単にアクセスすることができる **Text** プロパティは含まれていません。 しかし、RichTextBlock には、TextBlock にはない独自の機能がいくつかあります。 
+RichTextBlock のコンテンツ プロパティは [Blocks](/uwp/api/windows.ui.xaml.controls.richtextblock.blocks) プロパティです。このプロパティでは、[Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素によって段落に基づくテキストがサポートされています。 アプリ内でコントロールのテキスト コンテンツに簡単にアクセスすることができる **Text** プロパティは含まれていません。 しかし、RichTextBlock には、TextBlock にはない独自の機能がいくつかあります。 
 
 RichTextBlock では次の機能がサポートされています。
-- 複数の段落。 段落のインデントを設定するには [TextIndent](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.textindent) プロパティを設定します。
-- インライン UI 要素。 画像などの UI 要素をテキスト内にインラインで表示するには [InlineUIContainer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.InlineUIContainer) を使います。
-- オーバーフロー コンテナー。 段組テキスト レイアウトを作成するには [RichTextBlockOverflow](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow) 要素を使います。
+- 複数の段落。 段落のインデントを設定するには [TextIndent](/uwp/api/windows.ui.xaml.controls.richtextblock.textindent) プロパティを設定します。
+- インライン UI 要素。 画像などの UI 要素をテキスト内にインラインで表示するには [InlineUIContainer](/uwp/api/Windows.UI.Xaml.Documents.InlineUIContainer) を使います。
+- オーバーフロー コンテナー。 段組テキスト レイアウトを作成するには [RichTextBlockOverflow](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow) 要素を使います。
 
 ### <a name="paragraphs"></a>段落
 
-RichTextBlock コントロール内に表示するテキストのブロックを定義するには [Paragraph](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素を使います。 すべての RichTextBlock に少なくとも 1 つの Paragraph を含める必要があります。 
+RichTextBlock コントロール内に表示するテキストのブロックを定義するには [Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素を使います。 すべての RichTextBlock に少なくとも 1 つの Paragraph を含める必要があります。 
 
-RichTextBlock のすべての段落のインデントを設定するには、[RichTextBlock.TextIndent](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.textindent) プロパティを設定します。 RichTextBlock 内の特定の段落でこの設定を上書きするには、[Paragraph.TextIndent](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.paragraph.textindent) プロパティを別の値に設定します。
+RichTextBlock のすべての段落のインデントを設定するには、[RichTextBlock.TextIndent](/uwp/api/windows.ui.xaml.controls.richtextblock.textindent) プロパティを設定します。 RichTextBlock 内の特定の段落でこの設定を上書きするには、[Paragraph.TextIndent](/uwp/api/windows.ui.xaml.documents.paragraph.textindent) プロパティを別の値に設定します。
 
 ```xaml
 <RichTextBlock TextIndent="12">
@@ -75,7 +75,7 @@ RichTextBlock のすべての段落のインデントを設定するには、[Ri
 
 ### <a name="inline-ui-elements"></a>インライン UI 要素
 
-[InlineUIContainer](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.InlineUIContainer) クラスを使うと、任意の UIElement をテキスト内にインラインで埋め込むことができます。 Image をテキスト内にインラインで配置するシナリオが一般的ですが、Button、CheckBox などの対話型の要素を使うこともできます。
+[InlineUIContainer](/uwp/api/Windows.UI.Xaml.Documents.InlineUIContainer) クラスを使うと、任意の UIElement をテキスト内にインラインで埋め込むことができます。 Image をテキスト内にインラインで配置するシナリオが一般的ですが、Button、CheckBox などの対話型の要素を使うこともできます。
 
 同じ位置に複数の要素をインラインで埋め込むには、パネルを 1 つの InlineUIContainer の子として使って、そのパネルに複数の要素を配置することを検討してください。
 
@@ -95,7 +95,7 @@ RichTextBlock のすべての段落のインデントを設定するには、[Ri
 
 ## <a name="overflow-containers"></a>オーバーフロー コンテナー
 
-[RichTextBlockOverflow](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow) 要素を持つ RichTextBlock を使って、段組などの高度なページ レイアウトを作成することができます。 RichTextBlockOverflow 要素のコンテンツは、常に RichTextBlock 要素から取得されます。 RichTextBlockOverflow 要素をリンクするには、その要素を RichTextBlock または別の RichTextBlockOverflow の OverflowContentTarget として設定します。
+[RichTextBlockOverflow](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlockOverflow) 要素を持つ RichTextBlock を使って、段組などの高度なページ レイアウトを作成することができます。 RichTextBlockOverflow 要素のコンテンツは、常に RichTextBlock 要素から取得されます。 RichTextBlockOverflow 要素をリンクするには、その要素を RichTextBlock または別の RichTextBlockOverflow の OverflowContentTarget として設定します。
 
 2 段組みのレイアウトを作成する簡単な例を次に示します。 より複雑な例については、「例」をご覧ください。
 
@@ -121,7 +121,7 @@ RichTextBlock に格納されるのはプレーン テキストですが、各�
 
 ### <a name="inline-elements"></a>インライン要素
 
-[Windows.UI.Xaml.Documents](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents) 名前空間には、テキストの書式設定に使うことができるさまざまなインライン テキスト要素が用意されています (Bold、Italic、Run、Span、LineBreak など)。 テキストのセクションに書式設定を適用する典型的な方法では、テキストを Run 要素または Span 要素に配置して、その要素のプロパティを設定します。
+[Windows.UI.Xaml.Documents](/uwp/api/Windows.UI.Xaml.Documents) 名前空間には、テキストの書式設定に使うことができるさまざまなインライン テキスト要素が用意されています (Bold、Italic、Run、Span、LineBreak など)。 テキストのセクションに書式設定を適用する典型的な方法では、テキストを Run 要素または Span 要素に配置して、その要素のプロパティを設定します。
 
 次の例では、Paragraph の最初の語句が太字、青色、16 ポイントのテキストで表示されます。
 
@@ -134,7 +134,7 @@ RichTextBlock に格納されるのはプレーン テキストですが、各�
 
 ### <a name="typography"></a>文字体裁
 
-[Typography](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography) クラスの添付プロパティは、Microsoft OpenType の一連の Typography プロパティへのアクセスを提供します。 これらの添付プロパティは、RichTextBlock で設定することも、次の例のように個々のインライン テキスト要素で設定することもできます。
+[Typography](/uwp/api/Windows.UI.Xaml.Documents.Typography) クラスの添付プロパティは、Microsoft OpenType の一連の Typography プロパティへのアクセスを提供します。 これらの添付プロパティは、RichTextBlock で設定することも、次の例のように個々のインライン テキスト要素で設定することもできます。
 
 ```xaml
 <RichTextBlock Typography.StylisticSet4="True">
@@ -159,13 +159,13 @@ RichTextBlock に格納されるのはプレーン テキストですが、各�
 
 **デザイナー向け**
 - [スペル チェックのガイドライン](text-controls.md)
-- [検索の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465231(v=win.10))
+- [検索の追加](/previous-versions/windows/apps/hh465231(v=win.10))
 - [テキスト入力のガイドライン](text-controls.md)
 
 **開発者向け (XAML)**
-- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+- [TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 
 
 **開発者向け (その他)**
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)
+- [String.Length プロパティ](/dotnet/api/system.string.length)

@@ -6,12 +6,12 @@ ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8d79d4f3394bcf8f7892f2c6dc3d4e0ca72972ab
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: c17d4c0aca4c59e18a13bf42bad16e6739938717
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970607"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168676"
 ---
 # <a name="writing-style"></a>記述スタイル
 
@@ -76,7 +76,7 @@ ms.locfileid: "82970607"
 
 ## <a name="style-conventions"></a>スタイルの規則
 
-日頃から書き慣れていない限り、これらの原則や推奨事項を実際のテキストに応用すると考えただけで、しり込みしてしまうかもしれません。 しかし心配は要りません。シンプルで率直な言葉遣いこそが、優れたユーザー エクスペリエンスへの一番の近道です。 しかしそれでもなお、テキストの作成が不安な方のために、役立つガイドラインを以下にご紹介します。 また、詳細情報が必要な場合は、「[Microsoft スタイル ガイド](https://docs.microsoft.com/style-guide/welcome/)」を参照してください。
+日頃から書き慣れていない限り、これらの原則や推奨事項を実際のテキストに応用すると考えただけで、しり込みしてしまうかもしれません。 しかし心配は要りません。シンプルで率直な言葉遣いこそが、優れたユーザー エクスペリエンスへの一番の近道です。 しかしそれでもなお、テキストの作成が不安な方のために、役立つガイドラインを以下にご紹介します。 また、詳細情報が必要な場合は、「[Microsoft スタイル ガイド](/style-guide/welcome/)」を参照してください。
 
 ### <a name="addressing-the-user"></a>ユーザーに対して話しかける
 
@@ -228,7 +228,7 @@ ms.locfileid: "82970607"
 
 ## <a name="accessibility-and-localization"></a>アクセシビリティとローカライズ
 
-アクセシビリティとローカライズを念頭に置いてテキストが作成されているアプリは、幅広いユーザーにアクセスできます。 これはテキストによってのみ達成できる側面です。率直で親しみやすい言葉遣いが成功への第一歩となります。 詳細については、弊社の[アクセシビリティの概要](https://docs.microsoft.com/windows/uwp/design/accessibility/accessibility-overview)と[ローカライズのガイドライン](https://docs.microsoft.com/windows/uwp/design/globalizing/globalizing-portal)を参照してください。
+アクセシビリティとローカライズを念頭に置いてテキストが作成されているアプリは、幅広いユーザーにアクセスできます。 これはテキストによってのみ達成できる側面です。率直で親しみやすい言葉遣いが成功への第一歩となります。 詳細については、弊社の[アクセシビリティの概要](../accessibility/accessibility-overview.md)と[ローカライズのガイドライン](../globalizing/globalizing-portal.md)を参照してください。
 
 * さまざまなエクスペリエンスを考慮に入れて、**手助けになる**ようにします。 他国のユーザーに理解できない可能性のある語句を避けます。またユーザーに何ができ、何ができないかを想定する言葉を使わないでください。
 

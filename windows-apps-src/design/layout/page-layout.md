@@ -5,18 +5,18 @@ ms.date: 03/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
-ms.openlocfilehash: 3dbdf8d006472c288369fd528e89663aca5a9e10
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 551d937836f0dcf0094e54a503d2a8cd80a2f28b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970887"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169526"
 ---
 # <a name="page-layout"></a>ページのレイアウト
 
-Windows アプリの場合、通常、各[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page)は、ナビゲーション、コマンド、コンテンツの各要素で構成されます。 
+Windows アプリの場合、通常、各[**ページ**](/uwp/api/Windows.UI.Xaml.Controls.Page)は、ナビゲーション、コマンド、コンテンツの各要素で構成されます。 
 
-アプリは複数のページで構成することができます。ユーザーが Windows アプリを起動すると、アプリケーション コードによって、[**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)が作成され、アプリケーションの[**ウィンドウ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window)内に配置されます。 フレームは、アプリケーションの[**ページ**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) インスタンス間を[移動](../basics/navigate-between-two-pages.md)できます。 
+アプリは複数のページで構成することができます。ユーザーが Windows アプリを起動すると、アプリケーション コードによって、[**フレーム**](/uwp/api/Windows.UI.Xaml.Controls.Frame)が作成され、アプリケーションの[**ウィンドウ**](/uwp/api/windows.ui.xaml.window)内に配置されます。 フレームは、アプリケーションの[**ページ**](/uwp/api/Windows.UI.Xaml.Controls.Page) インスタンス間を[移動](../basics/navigate-between-two-pages.md)できます。 
 
 ほとんどのページは一般的なレイアウト構造に従うため、この記事では、必要な UI 要素、それらのページ上の配置場所について説明します。 
 
@@ -33,7 +33,7 @@ Windows アプリの場合、通常、各[**ページ**](https://docs.microsoft.
 - アプリ設定へのエントリ ポイント
 - アカウント設定へのエントリ ポイント
 
-[NavigationView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.navigationview) コントロールは、UWP の左側のナビゲーション パターンを実装します。
+[NavigationView](/uwp/api/windows.ui.xaml.controls.navigationview) コントロールは、UWP の左側のナビゲーション パターンを実装します。
 
 ナビゲーション項目が選択されると、フレームは選択された項目のページに移動する必要があります。
 

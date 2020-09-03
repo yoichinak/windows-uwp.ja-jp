@@ -6,21 +6,21 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2293907b3088890ac01d9037609054961aa95992
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: e46393d303ac186a3a96c3dfaeb0eea335fbadad
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74259578"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168346"
 ---
 # <a name="save-a-file-with-a-picker"></a>ピッカーによるファイルの保存
 
 **重要な API**
 
--   [**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker)
--   [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)
+-   [**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker)
+-   [**StorageFile**](/uwp/api/Windows.Storage.StorageFile)
 
-[  **FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがアプリで保存するファイルの名前とその保存場所を指定できるようにします。
+[  **FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使ってユーザーがアプリで保存するファイルの名前とその保存場所を指定できるようにします。
 
 > [!NOTE]
 > 完全なサンプルについては、[ファイル ピッカーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker)に関するページをご覧ください。
@@ -32,7 +32,7 @@ ms.locfileid: "74259578"
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 -   **場所へのアクセス許可**
 
@@ -40,7 +40,7 @@ ms.locfileid: "74259578"
 
 ## <a name="filesavepicker-step-by-step"></a>FileSavePicker: 手順
 
-[  **FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使って、ユーザーが保存するファイルの名前、種類、場所を指定できるようにします。 ファイル ピッカー オブジェクトを作成、カスタマイズ、および表示し、選ばれたファイルを表す返された [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを使ってデータを保存します。
+[  **FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) を使って、ユーザーが保存するファイルの名前、種類、場所を指定できるようにします。 ファイル ピッカー オブジェクトを作成、カスタマイズ、および表示し、選ばれたファイルを表す返された [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを使ってデータを保存します。
 
 1.  **FileSavePicker を作成してカスタマイズする**
 
@@ -54,23 +54,23 @@ ms.locfileid: "74259578"
     savePicker.SuggestedFileName = "New Document";
     ```
 
-ファイル ピッカー オブジェクトの、ユーザーとアプリに関連するプロパティを設定します。 この例では、3 つのプロパティ [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation)、[**FileTypeChoices**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices)、および [**SuggestedFileName**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename) を設定します。
+ファイル ピッカー オブジェクトの、ユーザーとアプリに関連するプロパティを設定します。 この例では、3 つのプロパティ [**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation)、[**FileTypeChoices**](/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices)、および [**SuggestedFileName**](/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename) を設定します。
      
-- このサンプルでは [**LocalFolder**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder) を使って、ドキュメントまたはテキスト ファイルを保存する場所として [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation) をアプリのローカル フォルダーに設定しています。 [  **SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を保存するファイルの種類 (音楽、画像、ビデオ、ドキュメントなど) に適切な場所に設定します。 ユーザーは、開始場所から別の場所に移動できます。
+- このサンプルでは [**LocalFolder**](/uwp/api/windows.storage.applicationdata.localfolder) を使って、ドキュメントまたはテキスト ファイルを保存する場所として [**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.filesavepicker.suggestedstartlocation) をアプリのローカル フォルダーに設定しています。 [  **SuggestedStartLocation**](/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を保存するファイルの種類 (音楽、画像、ビデオ、ドキュメントなど) に適切な場所に設定します。 ユーザーは、開始場所から別の場所に移動できます。
 
-- サンプルでは、保存したファイルを確実にアプリから開くことができるように、サポートするファイルの種類 (Microsoft Word 文書とテキスト ファイル) を [**FileTypeChoices**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices) を使って指定しています。 指定したすべてのファイルの種類をアプリはサポートする必要があります。 ユーザーは、ファイルの種類を指定して保存できます。 また、別のファイルの種類を選んで、ファイルの種類を変更することもできます。 既定では、リストの先頭にあるファイルの種類が選択されます。これを制御するには、[**DefaultFileExtension**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.defaultfileextension) プロパティを設定します。
+- サンプルでは、保存したファイルを確実にアプリから開くことができるように、サポートするファイルの種類 (Microsoft Word 文書とテキスト ファイル) を [**FileTypeChoices**](/uwp/api/windows.storage.pickers.filesavepicker.filetypechoices) を使って指定しています。 指定したすべてのファイルの種類をアプリはサポートする必要があります。 ユーザーは、ファイルの種類を指定して保存できます。 また、別のファイルの種類を選んで、ファイルの種類を変更することもできます。 既定では、リストの先頭にあるファイルの種類が選択されます。これを制御するには、[**DefaultFileExtension**](/uwp/api/windows.storage.pickers.filesavepicker.defaultfileextension) プロパティを設定します。
 
     > [!NOTE]
     > また、ファイル ピッカーでは、現在選ばれているファイルの種類を使って表示されるファイルがフィルター処理され、選ばれているファイルの種類に一致するファイルの種類だけがユーザーに表示されます。
 
-- ユーザーの入力の手間を多少なりとも軽減するために、この例では [**SuggestedFileName**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename) を設定しています。 提示するファイル名は、ユーザーが保存するファイルにできる限り関係のあるものにします。 たとえば、Word のように、ファイルが既にある場合はその名前を提示し、まだ名前のないファイルを保存している場合はドキュメントの 1 行目を提示します。
+- ユーザーの入力の手間を多少なりとも軽減するために、この例では [**SuggestedFileName**](/uwp/api/windows.storage.pickers.filesavepicker.suggestedfilename) を設定しています。 提示するファイル名は、ユーザーが保存するファイルにできる限り関係のあるものにします。 たとえば、Word のように、ファイルが既にある場合はその名前を提示し、まだ名前のないファイルを保存している場合はドキュメントの 1 行目を提示します。
 
 > [!NOTE]
-> [**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) オブジェクトでは、[**PickerViewMode.List**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.PickerViewMode) 表示モードを使ってファイル ピッカーが表示されます。
+> [**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) オブジェクトでは、[**PickerViewMode.List**](/uwp/api/Windows.Storage.Pickers.PickerViewMode) 表示モードを使ってファイル ピッカーが表示されます。
 
 2.  **FileSavePicker を表示して選ばれたファイルに保存する**
 
-    ファイル ピッカーを表示するには、[**PickSaveFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.filesavepicker.picksavefileasync) メソッドを呼び出します。 ユーザーが名前、ファイルの種類、場所を指定し、ファイルの保存を確定すると、**PickSaveFileAsync** は保存するファイルを表す [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを返します。 これでファイルの読み取りおよび書き込みアクセスが付与されるため、このファイルをキャプチャして処理できます。
+    ファイル ピッカーを表示するには、[**PickSaveFileAsync**](/uwp/api/windows.storage.pickers.filesavepicker.picksavefileasync) メソッドを呼び出します。 ユーザーが名前、ファイルの種類、場所を指定し、ファイルの保存を確定すると、**PickSaveFileAsync** は保存するファイルを表す [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを返します。 これでファイルの読み取りおよび書き込みアクセスが付与されるため、このファイルをキャプチャして処理できます。
 
     ```cs
     Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();

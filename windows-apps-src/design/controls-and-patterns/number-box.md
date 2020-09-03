@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a74d98298f2c51059d8293022817e91ba573cf45
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5e3bcbfc338d629bbda1036ef722d75ed6df37cd
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970697"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169756"
 ---
 # <a name="number-box"></a>数値ボックス
 
@@ -22,18 +22,18 @@ ms.locfileid: "82970697"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NumberBox** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **NumberBox** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。 |
 
-**Windows UI ライブラリ API:** [NumberBox クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.NumberBox)
+**Windows UI ライブラリ API:** [NumberBox クラス](/uwp/api/microsoft.ui.xaml.controls.NumberBox)
 
 > [!TIP]
-> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
-NumberBox コントロールを使用して、数学的な入力を捕捉および表示することができます。 数値以外も受け付ける編集可能なテキスト ボックスが必要な場合は、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールを使用します。 パスワードやその他の機密情報の入力を受け付ける編集可能なテキスト ボックスが必要な場合は、[PasswordBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.passwordbox) を参照してください。 検索語句を入力するためのテキスト ボックスが必要な場合は、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) を参照してください。 書式を適用したテキストを入力または編集する必要がある場合は、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) を参照してください。
+NumberBox コントロールを使用して、数学的な入力を捕捉および表示することができます。 数値以外も受け付ける編集可能なテキスト ボックスが必要な場合は、[TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールを使用します。 パスワードやその他の機密情報の入力を受け付ける編集可能なテキスト ボックスが必要な場合は、[PasswordBox](/uwp/api/windows.ui.xaml.controls.passwordbox) を参照してください。 検索語句を入力するためのテキスト ボックスが必要な場合は、[AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.autosuggestbox) を参照してください。 書式を適用したテキストを入力または編集する必要がある場合は、[RichEditBox](/uwp/api/windows.ui.xaml.controls.richeditbox) を参照してください。
 
 ## <a name="examples"></a>例
 
@@ -53,7 +53,7 @@ NumberBox コントロールを使用して、数学的な入力を捕捉およ�
 
 ### <a name="create-a-simple-numberbox"></a>単純な NumberBox の作成
 
-次に示すのは、既定の外観を示す基本的な NumberBox の XAML です。 ユーザーに表示されるデータと、アプリに保存されているデータの同期が保たれていることを保証するには、[x:Bind](/windows/uwp/xaml-platform/x-bind-markup-extension#property-path) を使用します。
+次に示すのは、既定の外観を示す基本的な NumberBox の XAML です。 ユーザーに表示されるデータと、アプリに保存されているデータの同期が保たれていることを保証するには、[x:Bind](../../xaml-platform/x-bind-markup-extension.md#property-path) を使用します。
 
 ```xaml
 <muxc:NumberBox Value="{x:Bind Path=ViewModel.NumberBoxValue, Mode=TwoWay}" />

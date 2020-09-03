@@ -11,16 +11,16 @@ design-contact: kimsea
 dev-contact: kefodero
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a43c6592b5a9b243a19f3491ea54c05d10e7b0f7
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 0f2c9a80dbe821feb910636eb26e783ec7eb309a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970837"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169646"
 ---
 # <a name="person-picture-control"></a>ユーザー画像コントロール
 
-ユーザー画像コントロールは、ユーザー画像を利用できる場合はユーザーのアバター画像を表示します。利用できない場合は、ユーザーの頭文字か汎用アイコンを表示します。 このコントロールを使うと、ユーザーの連絡先情報を管理するオブジェクトである [Contact オブジェクト](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact)を表示できます。また、表示名やプロフィール画像などの連絡先情報は手動で提供することもできます。
+ユーザー画像コントロールは、ユーザー画像を利用できる場合はユーザーのアバター画像を表示します。利用できない場合は、ユーザーの頭文字か汎用アイコンを表示します。 このコントロールを使うと、ユーザーの連絡先情報を管理するオブジェクトである [Contact オブジェクト](/uwp/api/Windows.ApplicationModel.Contacts.Contact)を表示できます。また、表示名やプロフィール画像などの連絡先情報は手動で提供することもできます。
 
 ![ユーザー画像コントロール](images/person-picture/person-picture_hero.png)
 
@@ -30,9 +30,9 @@ ms.locfileid: "82970837"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **PersonPicture** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **PersonPicture** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
-> **プラットフォーム API**: [PersonPicture クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.personpicture)、[Contact クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact)、[ContactManager クラス](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
+> **プラットフォーム API**: [PersonPicture クラス](/uwp/api/windows.ui.xaml.controls.personpicture)、[Contact クラス](/uwp/api/Windows.ApplicationModel.Contacts.Contact)、[ContactManager クラス](/uwp/api/Windows.ApplicationModel.Contacts.ContactManager)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -86,7 +86,7 @@ ms.locfileid: "82970837"
 
 ## <a name="using-the-person-picture-control-to-display-a-contact-object"></a>ユーザー画像コントロールを使用して、Contact オブジェクトを表示する
 
-ユーザー選択コントロールを使用して、[Contact](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを表示できます。
+ユーザー選択コントロールを使用して、[Contact](/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを表示できます。
 
 ```xaml
 <Page
@@ -174,11 +174,11 @@ namespace SampleApp
 ```
 
 > [!NOTE]
-> コードを簡潔にするために、この例では新しい Contact オブジェクトを作成しています。 実際のアプリでは、ユーザーに連絡先を選択してもらうか、[ContactManager](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.ContactManager) を使用して連絡先リストを照会します。 連絡先の取得と管理については、[連絡先とカレンダーの記事](../../contacts-and-calendar/index.md)をご覧ください。
+> コードを簡潔にするために、この例では新しい Contact オブジェクトを作成しています。 実際のアプリでは、ユーザーに連絡先を選択してもらうか、[ContactManager](/uwp/api/Windows.ApplicationModel.Contacts.ContactManager) を使用して連絡先リストを照会します。 連絡先の取得と管理については、[連絡先とカレンダーの記事](../../contacts-and-calendar/index.md)をご覧ください。
 
 ## <a name="determining-which-info-to-display"></a>表示する情報の決定
 
-[Contact](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを指定すると、ユーザー画像コントロールによってそのオブジェクトが評価され、表示できる情報が判断されます。
+[Contact](/uwp/api/Windows.ApplicationModel.Contacts.Contact) オブジェクトを指定すると、ユーザー画像コントロールによってそのオブジェクトが評価され、表示できる情報が判断されます。
 
 画像を利用できる場合、コントロールでは次の優先順位で最初に見つかった画像が表示されます。
 

@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ee88e32ed0ce0fd193fe79e48814a11f494d062
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 9f36035bea91f39d60f44ca9e16c768eb5d75e78
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970217"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165636"
 ---
 # <a name="attached-layouts"></a>接続されているレイアウト
 
@@ -22,12 +22,12 @@ ms.locfileid: "82970217"
 
 | **Windows UI ライブラリを入手する** |
 | - |
-| このコントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](https://docs.microsoft.com/uwp/toolkits/winui/)に関するページを参照してください。 |
+| このコントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。 |
 
 > **重要な API**:
 
 > * [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)
-> * [ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater)
+> * [ItemsRepeater](../controls-and-patterns/items-repeater.md)
 > * [レイアウト](/uwp/api/microsoft.ui.xaml.controls.layout)
 >     * [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
 >     * [VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)
@@ -44,7 +44,7 @@ ms.locfileid: "82970217"
 
 2. この要素の***位置***はどうしますか?
 
-これらの質問に答える XAML のレイアウト システムについては、[カスタム パネル](/windows/uwp/design/layout/custom-panels-overview)の説明の一部として簡単に取り上げています。
+これらの質問に答える XAML のレイアウト システムについては、[カスタム パネル](./custom-panels-overview.md)の説明の一部として簡単に取り上げています。
 
 ### <a name="containers-and-context"></a>コンテナーとコンテキスト
 
@@ -55,7 +55,7 @@ ms.locfileid: "82970217"
 
 このため、XAML のパネルはレイアウトと同義にされることがよくありますが、技術的にいえば、レイアウトより多くのことを実行します。
 
-[ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater) もパネルのように動作しますが、パネルと異なり、プログラムによって UIElement の子を追加または削除できる Children プロパティを公開していません。  代わりに、その子の有効期間は、フレームワークによって、データ項目のコレクションに対応するように自動的に管理されます。  それはパネルから派生していませんが、パネルのように動作し、フレームワークから処理されます。
+[ItemsRepeater](../controls-and-patterns/items-repeater.md) もパネルのように動作しますが、パネルと異なり、プログラムによって UIElement の子を追加または削除できる Children プロパティを公開していません。  代わりに、その子の有効期間は、フレームワークによって、データ項目のコレクションに対応するように自動的に管理されます。  それはパネルから派生していませんが、パネルのように動作し、フレームワークから処理されます。
 
 > [!NOTE]
 > [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) は、パネルから派生したコンテナーであり、接続されている [Layout](/uwp/api/microsoft.ui.xaml.controls.layoutpanel.layout) オブジェクトにそのロジックをデリゲートします。  LayoutPanel は*プレビュー*段階にあり、現在、WinUI パッケージの*プレリリース*でのみ使用できます。
@@ -128,7 +128,7 @@ UI の仮想化とは、_必要になるタイミング_まで、UI オブジェ
 **注意すべき点がいくつかあります。**
 
 1. 非仮想化レイアウトの方が簡単に作成できます。 項目の数が常に少ない場合は、非仮想化レイアウトを作成することをお勧めします。
-2. プラットフォームには、一般的なニーズに対応するために、[ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater#change-the-layout-of-items) と [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) と連携する、一連の接続されているレイアウトが用意されています。  カスタム レイアウトを定義する必要があると決定する前に、それらについて理解してください。
+2. プラットフォームには、一般的なニーズに対応するために、[ItemsRepeater](../controls-and-patterns/items-repeater.md#change-the-layout-of-items) と [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) と連携する、一連の接続されているレイアウトが用意されています。  カスタム レイアウトを定義する必要があると決定する前に、それらについて理解してください。
 3. 仮想化レイアウトでは、非仮想化レイアウトと比較して、CPU とメモリのコスト/複雑さ/オーバーヘッドが常にいくらか増加します。  一般的な経験則として、レイアウトで管理する必要がある子が、ビューポートのサイズの 3 倍の領域に収まる場合、仮想化レイアウトによる利益はあまり大きくない可能性があります。 3 倍のサイズについては、このドキュメントの後で詳しく説明しますが、Windows でのスクロールの非同期的性質と、仮想化へのその影響によるものです。
 
 > [!TIP]
@@ -145,7 +145,7 @@ UI の仮想化とは、_必要になるタイミング_まで、UI オブジェ
 
 ## <a name="non-virtualizing-layout"></a>非仮想化レイアウト
 
-非仮想化レイアウトを作成する方法は、[カスタム パネル](/windows/uwp/design/layout/custom-panels-overview)を作成したことがある誰でもなじみがあると感じるはずです。  同じ概念が適用されます。  主な違いは、[NonVirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext) を使用して、[Children](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext.children) コレクションにアクセスすることと、レイアウトで状態を格納するように選択できることです。
+非仮想化レイアウトを作成する方法は、[カスタム パネル](./custom-panels-overview.md)を作成したことがある誰でもなじみがあると感じるはずです。  同じ概念が適用されます。  主な違いは、[NonVirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext) を使用して、[Children](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext.children) コレクションにアクセスすることと、レイアウトで状態を格納するように選択できることです。
 
 1. 基本型 [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout) (パネルではなく) から派生します。
 2. *(省略可能)* 変更されるとレイアウトを無効にする依存関係プロパティを定義します。
@@ -246,7 +246,7 @@ Windows でのスクロールは、UI スレッドに非同期で行われます
 
 ![realization rect](images/xaml-attached-layout-realizationrect.png)
 
-要素の作成にはコストがかかるため、仮想化コンテナー (たとえば、[ItemsRepeater](/windows/uwp/design/controls-and-patterns/items-repeater)) では、最初に、接続されているレイアウトに、ビューポートに一致する [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) が提供されます。 アイドル時に、コンテナーでは、徐々に大きい realization rect を使用して、レイアウトを繰り返し呼び出すことで、準備済みコンテンツのバッファーを大きくしていくことができます。 この動作は、高速の起動時間と優れたパン エクスペリエンスのバランスを取るように試みるパフォーマンス最適化です。 ItemsRepeater が生成する最大バッファー サイズは、その [VerticalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) プロパティと [HorizontalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) プロパティによって制御されます。
+要素の作成にはコストがかかるため、仮想化コンテナー (たとえば、[ItemsRepeater](../controls-and-patterns/items-repeater.md)) では、最初に、接続されているレイアウトに、ビューポートに一致する [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) が提供されます。 アイドル時に、コンテナーでは、徐々に大きい realization rect を使用して、レイアウトを繰り返し呼び出すことで、準備済みコンテンツのバッファーを大きくしていくことができます。 この動作は、高速の起動時間と優れたパン エクスペリエンスのバランスを取るように試みるパフォーマンス最適化です。 ItemsRepeater が生成する最大バッファー サイズは、その [VerticalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) プロパティと [HorizontalCacheLength](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) プロパティによって制御されます。
 
 **要素の再利用 (リサイクル)**
 

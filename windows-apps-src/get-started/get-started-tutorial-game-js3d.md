@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: fb4249b2-f93c-4993-9e4d-57a62c04be66
 ms.localizationpriority: medium
-ms.openlocfilehash: b4ce91e32b14bdf81b40b24e810e0bd86bcaa99b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 4ee8eb8ea34205f2e597bf41da61f5ab63714566
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67321084"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162836"
 ---
 # <a name="creating-a-3d-javascript-game-using-threejs"></a>three.js を使用して 3D JavaScript ゲームを作成する
 
@@ -42,11 +42,11 @@ Web 開発者や JavaScript 作者にとって、JavaScript で UWP アプリを
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js3d) にあります。
 
-最も簡単に始める方法は、GitHub のページで、緑色の [Clone or download]\(クローンまたはダウンロード\) ボタンをクリックし、[Open in Visual Studio]\(Visual Studio で開く\) を選択することです。 
+最も簡単に始める方法は、GitHub のページで、緑色の [Clone or download] (複製またはダウンロード) ボタンをクリックし、[Open in Visual Studio] (Visual Studio で開く) を選択することです。 
 
-![[Clone or download] (クローンまたはダウンロード) ボタン](images/3dclone.png)
+![[Clone or download] (複製またはダウンロード) ボタン](images/3dclone.png)
 
-プロジェクトをクローンしない場合は、zip ファイルとしてダウンロードすることもできます。
+プロジェクトを複製しない場合は、zip ファイルとしてダウンロードすることもできます。
 ソリューションを Visual Studio に読み込むと、次のようなファイルが表示されます。
 -   Images/ - UWP アプリに必要なさまざまなアイコンが含まれるフォルダー。
 - css/ - 使用する CSS が含まれるフォルダー。
@@ -442,7 +442,7 @@ scene.add(controls.getObject());
 
 これでカメラが接続されましたが、探検のためには、マウスとコントローラーの間でのやり取りが必要です。 
 
-このような場合は、マウスの動きとカメラを連動させる [Pointer Lock API](https://docs.microsoft.com/microsoft-edge/dev-guide/dom/pointer-lock) が役立ちます。 Pointer Lock API では、よりイマーシブなエクスペリエンスを提供するために、マウス カーソルを非表示にすることもできます。 Esc キーを押すと、マウスからカメラへの接続が終了し、マウス カーソルが再び現れます。 これには、`getPointerLock()` 関数と `lockChange()` 関数を追加します。
+このような場合は、マウスの動きとカメラを連動させる [Pointer Lock API](/microsoft-edge/dev-guide/dom/pointer-lock) が役立ちます。 Pointer Lock API では、よりイマーシブなエクスペリエンスを提供するために、マウス カーソルを非表示にすることもできます。 Esc キーを押すと、マウスからカメラへの接続が終了し、マウス カーソルが再び現れます。 これには、`getPointerLock()` 関数と `lockChange()` 関数を追加します。
 
 `getPointerLock()` 関数は、マウス クリックの発生をリッスンします。 クリックの後、レンダリングされたゲームでは、(`container` 要素内で) マウス コントロールの取得が試行されます。 コードに、イベント リスナーも追加します。これにより、プレイヤーによるロックの有効化および無効化を検出して `lockChange()` を呼び出します。 
 
@@ -648,7 +648,7 @@ function animatePlayer(delta) {
 
 ### <a name="6-load-that-dino"></a>6.恐竜を読み込む
 
-このプロジェクト リポジトリをクローンまたはダウンロードした場合は、`models` フォルダー内に `dino.json` があります。 この JSON ファイルは、Blender で作成され、エクスポートされた 3D の恐竜です。
+このプロジェクト リポジトリを複製またはダウンロードした場合は、`models` フォルダー内に `dino.json` があります。 この JSON ファイルは、Blender で作成され、エクスポートされた 3D の恐竜です。
 
 
 この恐竜を読み込むには、さらにグローバル変数を追加する必要があります。
@@ -1084,7 +1084,6 @@ function lockChange() {
 UWP アプリを作成できたため、(一番先に改善すれば) Microsoft Store に公開することもできます。このプロセスにはいくつかの手順が必要になります。
 
 1.  Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
-2.  アプリの申請[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
-3.  [認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
-詳しくは、[UWP アプリの公開](https://docs.microsoft.com/windows/uwp/publish/)に関する記事をご覧ください。
-
+2.  アプリの申請[チェックリスト](../publish/app-submissions.md)を使用する必要があります。
+3.  [認定](../publish/the-app-certification-process.md)を受けるために、アプリを提出する必要があります。
+詳しくは、[UWP アプリの公開](../publish/index.md)に関する記事をご覧ください。

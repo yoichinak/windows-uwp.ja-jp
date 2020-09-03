@@ -8,18 +8,18 @@ ms.author: drewbat
 author: drewbatgit
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 7e2d69390ac9a0f564c99a94151dd967759477a3
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: e4cec3a0493bdea1c4e232e57cdd669ba19bc5ae
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494016"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168756"
 ---
 # <a name="templated-xaml-controls-for-uwp-and-winui-3-apps-with-cwinrt"></a>C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール
 
 この記事では、C++/WinRT で WinUI 3 のテンプレート化された XAML コントロールを作成する手順について説明します。 テンプレート化されたコントロールは **Microsoft.UI.Xaml.Controls.Control** から継承され、XAML コントロール テンプレートを使用してカスタマイズできる視覚的な構造と視覚的な動作を持っています。 この記事では、記事「[C++/WinRT による XAML カスタム (テンプレート化) コントロール](/windows/uwp/cpp-and-winrt-apis/xaml-cust-ctrl)」と同じシナリオについて説明しますが、WinUI 3 を使用するように調整されています。
 
-この記事の手順を実行する前に、開発環境が WinUI 3 アプリを作成するように構成されていることを確認する必要があります。 セットアップ情報については、「[デスクトップ アプリ用の WinUI 3 の概要](/windows/apps/winui/winui3/get-started-winui3-for-desktop)」を参照してください。
+この記事の手順を実行する前に、開発環境が WinUI 3 アプリを作成するように構成されていることを確認する必要があります。 セットアップ情報については、「[デスクトップ アプリ用の WinUI 3 の概要](./get-started-winui3-for-desktop.md)」を参照してください。
 
 ## <a name="create-a-blank-app-bglabelcontrolapp"></a>空のアプリを作成する (BgLabelControlApp)
 

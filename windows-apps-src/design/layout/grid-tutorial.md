@@ -7,22 +7,22 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 9794a04d-e67f-472c-8ba8-8ebe442f6ef2
 ms.localizationpriority: medium
-ms.openlocfilehash: 9848fc9e330a725f52ce2a7fae8b13f300476cf7
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: b4cd240882b920f06d06bf1143924a075e7cde53
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970197"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165546"
 ---
 # <a name="tutorial-use-grid-and-stackpanel-to-create-a-simple-weather-app"></a>チュートリアル: Grid と StackPanel を使った単純な天気予報アプリの作成
 
 ここでは、XAML の **Grid** 要素と **StackPanel** 要素を使って単純な天気予報アプリのレイアウトを作成します。 これらのツールを使用すると、Windows 10 が実行されたすべてのデバイスで動作する魅力ある外観のアプリを作成できます。 このチュートリアルの所要時間は 10 ～ 20 分です。
 
-> **重要な API**:[Grid クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid)、[StackPanel クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.stackpanel)
+> **重要な API**:[Grid クラス](/uwp/api/windows.ui.xaml.controls.grid)、[StackPanel クラス](/uwp/api/windows.ui.xaml.controls.stackpanel)
 
 ## <a name="prerequisites"></a>前提条件
 - Windows 10 と Microsoft Visual Studio 2015 以降。 (最新の開発およびセキュリティ更新プログラムに推奨されている最新の Visual Studio) [Visual Studio を備えた環境をセットアップする方法については、こちらをクリックしてください](../../get-started/get-set-up.md)。
-- XAML と C# を使って基本的な "Hello World" アプリを作成する方法に関する知識。 必要に応じて[ここをクリックし、"Hello World" アプリの作成方法を学習してください](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
+- XAML と C# を使って基本的な "Hello World" アプリを作成する方法に関する知識。 必要に応じて[ここをクリックし、"Hello World" アプリの作成方法を学習してください](../../get-started/create-a-hello-world-app-xaml-universal.md)。
 
 ## <a name="step-1-create-a-blank-app"></a>手順 1:空のアプリの作成
 1. Visual Studio のメニューで、 **[ファイル]**  >  **[新しいプロジェクト]** を選択します。
@@ -51,7 +51,7 @@ XAML において、**Grid** は一連の行と列で構成されます。 **Gri
 
 この新しい **Grid** によって 2 行 x 2 列のセットが作成され、このアプリ インターフェイスのレイアウトが定義されます。 1 列目の **Width** は "3\*" で、2 列目は "5\*" です。したがって、水平方向の領域は、これら 2 つの列の間で 3:5 の比率で分割されます。 同様に、2 つの行はそれぞれの **Height** が "2\*" と "\*" です。したがって、この **Grid** では、1 行目に対し、2 行目の 2 倍の領域が割り当てられます ("\*" は "1\*" と同じです)。 これらの比率は、ウィンドウのサイズを変更したり、異なるデバイスを使ったりしても変わりません。
 
-行や列のサイズを指定するその他の方法については、「[XAML を使ったページ レイアウトの定義](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)」をご覧ください。
+行や列のサイズを指定するその他の方法については、「[XAML を使ったページ レイアウトの定義](./layouts-with-xaml.md)」をご覧ください。
 
 この時点では、**Grid** 領域にコンテンツがまったく含まれていないため、アプリケーションを実行しても空白のページが表示されるだけです。 そこで **Grid** を表示するために、色を付けることにします。
 
@@ -120,6 +120,6 @@ XAML において、**Grid** は一連の行と列で構成されます。 **Gri
 さらに理解を深めたい場合は、上のレイアウトを自由に変更して、天気データをさまざまな方法で表示してみてください。
 
 ## <a name="related-articles"></a>関連記事
-Windows アプリのレイアウト デザインの概要については、[Windows アプリ デザインの概要](https://docs.microsoft.com/windows/uwp/layout/design-and-ui-intro)に関するページをご覧ください。
+Windows アプリのレイアウト デザインの概要については、[Windows アプリ デザインの概要](../basics/design-and-ui-intro.md)に関するページをご覧ください。
 
-さまざまな画面サイズに適応できるレスポンシブ レイアウトの作成については、「[XAML を使ったページ レイアウトの定義](https://docs.microsoft.com/windows/uwp/layout/layouts-with-xaml)」をご覧ください。
+さまざまな画面サイズに適応できるレスポンシブ レイアウトの作成については、「[XAML を使ったページ レイアウトの定義](./layouts-with-xaml.md)」をご覧ください。

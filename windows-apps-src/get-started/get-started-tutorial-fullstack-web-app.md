@@ -5,12 +5,12 @@ keywords: ホストされた Web アプリ, HWA, REST API, 単一ページ ア�
 ms.date: 05/10/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b9a6b80034dc8272226c9563960079434dff8e41
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 3b2c8da824896b838776174cb22423181aae0e06
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684783"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168236"
 ---
 # <a name="create-a-single-page-web-app-with-rest-api-backend"></a>REST API のバックエンドを使った単一ページの Web アプリを作成する
 
@@ -274,9 +274,9 @@ for (var i=0; i < board.length; i++){
 
 次の Azure ドキュメントを参照して作業を行います。
 
- - [Azure Portal を使って、新しい *API アプリ*を登録する](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#createapiapp)
- - [API アプリの Git デプロイを設定する](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#deploy-the-api-with-git)
- - [API アプリのコードを Azure にデプロイする](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#deploy-the-api-with-git)
+ - [Azure Portal を使って、新しい *API アプリ*を登録する](/azure/app-service/app-service-web-tutorial-rest-api#createapiapp)
+ - [API アプリの Git デプロイを設定する](/azure/app-service/app-service-web-tutorial-rest-api#deploy-the-api-with-git)
+ - [API アプリのコードを Azure にデプロイする](/azure/app-service/app-service-web-tutorial-rest-api#deploy-the-api-with-git)
 
 アプリを登録する場合、*アプリ名*を他と異なるものにするようにします ( *http://memorygameapi.azurewebsites.net* URL のバリエーションを要求する、他のアプリと名前が競合しないようにします)。
 
@@ -290,7 +290,7 @@ for (var i=0; i < board.length; i++){
 
  - [Visual Studio Code を使った Node.js の高度なデバッグ](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
 
- - [Azure Web + モバイル ドキュメント](https://docs.microsoft.com/azure/#pivot=services&panel=web)
+ - [Azure Web + モバイル ドキュメント](/azure/#pivot=services&panel=web)
 
  - [Azure DocumentDB ドキュメント](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/)
 
@@ -635,13 +635,13 @@ memory\public\stylesheets の style.css ファイルを、Start フォルダー�
 Microsoft Store に公開するための基本的な手順は次のとおりです。
 
  1. [Windows デベロッパー](https://developer.microsoft.com/store/register) アカウントを作成します。
- 2. アプリの申請の[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用します。
- 3. アプリを申請して[認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けます。
+ 2. アプリの申請の[チェックリスト](../publish/app-submissions.md)を使用します。
+ 3. アプリを申請して[認定](../publish/the-app-certification-process.md)を受けます。
 
 そのために役立つ追加情報を次に示します。
 
- - [アプリケーション開発プロジェクトを Azure Web サイトにデプロイする](https://docs.microsoft.com/azure/cosmos-db/documentdb-nodejs-application#_Toc395783182)
+ - [アプリケーション開発プロジェクトを Azure Web サイトにデプロイする](/azure/cosmos-db/documentdb-nodejs-application#_Toc395783182)
 
- - [Web アプリケーションをユニバーサル Windows プラットフォーム (UWP) アプリに変換する](https://docs.microsoft.com/microsoft-edge/progressive-web-apps)
+ - [Web アプリケーションをユニバーサル Windows プラットフォーム (UWP) アプリに変換する](/microsoft-edge/progressive-web-apps)
 
- - [Windows アプリを公開する](https://docs.microsoft.com/windows/uwp/publish/)
+ - [Windows アプリを公開する](../publish/index.md)

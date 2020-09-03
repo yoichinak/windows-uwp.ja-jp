@@ -6,34 +6,34 @@ ms.date: 04/04/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: cb1ac05bdc5dcaaf31074f1b89e5bbb35e4f850d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: bec08dfa19f0adab12d6337c00e19bd98459bf3a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68682724"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89164336"
 ---
 # <a name="download-and-install-package-updates-from-the-store"></a>パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする
 
-Windows 10 バージョン 1607 以降では、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間で [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、パートナー センターで必須としてマークしたパッケージを照会し、必須の更新がインストールされるまでアプリ内の機能を無効にすることもできます。
+Windows 10 バージョン 1607 以降では、[Windows.Services.Store](/uwp/api/windows.services.store) 名前空間で [StoreContext](/uwp/api/windows.services.store.storecontext) クラスのメソッドを使用して、現在のアプリに対するパッケージ更新がないかプログラムによって Microsoft Store でチェックし、更新後のパッケージをダウンロードしてインストールすることができます。 また、パートナー センターで必須としてマークしたパッケージを照会し、必須の更新がインストールされるまでアプリ内の機能を無効にすることもできます。
 
-Windows 10 バージョン 1803 で導入された追加の [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) メソッドを使うと、パッケージの更新プログラムを背後で (ユーザーに通知 UI を表示せずに) ダウンロードおよびインストールしたり、[オプション パッケージ](/windows/msix/package/optional-packages)をアンインストールしたり、アプリのダウンロードおよびインストール キューにあるパッケージの情報を取得したりすることができます。
+Windows 10 バージョン 1803 で導入された追加の [StoreContext](/uwp/api/windows.services.store.storecontext) メソッドを使うと、パッケージの更新プログラムを背後で (ユーザーに通知 UI を表示せずに) ダウンロードおよびインストールしたり、[オプション パッケージ](/windows/msix/package/optional-packages)をアンインストールしたり、アプリのダウンロードおよびインストール キューにあるパッケージの情報を取得したりすることができます。
 
 これらの機能は、ユーザー ベースが使っているアプリ、オプション パッケージ、関連サービスを、Microsoft Store にある最新バージョンに自動的に維持するために役立ちます。
 
 ## <a name="download-and-install-package-updates-with-the-users-permission"></a>ユーザーの許可によるパッケージの更新プログラムのダウンロードとインストール
 
-このコード例は、[GetAppAndOptionalStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getappandoptionalstorepackageupdatesasync) メソッドを使って Microsoft Store から利用可能なパッケージの更新プログラムをすべて見つけ、[RequestDownloadAndInstallStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestdownloadandinstallstorepackageupdatesasync) メソッドを呼び出して更新プログラムをダウンロードおよびインストールする方法を示しています。 このメソッドを使って更新プログラムをダウンロードおよびインストールすると、更新プログラムをダウンロードする前にユーザーの許可を求めるダイアログが OS に表示されます。
+このコード例は、[GetAppAndOptionalStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.getappandoptionalstorepackageupdatesasync) メソッドを使って Microsoft Store から利用可能なパッケージの更新プログラムをすべて見つけ、[RequestDownloadAndInstallStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.requestdownloadandinstallstorepackageupdatesasync) メソッドを呼び出して更新プログラムをダウンロードおよびインストールする方法を示しています。 このメソッドを使って更新プログラムをダウンロードおよびインストールすると、更新プログラムをダウンロードする前にユーザーの許可を求めるダイアログが OS に表示されます。
 
 > [!NOTE]
 > これらのメソッドでは、アプリの必須のパッケージと[オプション パッケージ](/windows/msix/package/optional-packages)がサポートされます。 オプション パッケージは、ダウンロード可能なコンテンツ (DLC) アドオン用や、サイズ制約に対応して大規模アプリを分割する場合、コア アプリから分離して追加コンテンツを出荷する場合に便利です。 オプション パッケージ (DLC アドオンを含む) を使うアプリを Microsoft Store に提出する許可を得るには、「[Windows 開発者向けサポート](https://developer.microsoft.com/windows/support)」をご覧ください。
 
 このコード例では、次のことを前提条件としています。
 
-* コードは、[Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) のコンテキスト内で実行されます。
-* **Page** には、ダウンロード操作のステータスを提供するための、```downloadProgressBar``` という [ProgressBar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.progressbar) が含まれます。
+* コードは、[Page](/uwp/api/windows.ui.xaml.controls.page) のコンテキスト内で実行されます。
+* **Page** には、ダウンロード操作のステータスを提供するための、```downloadProgressBar``` という [ProgressBar](/uwp/api/windows.ui.xaml.controls.progressbar) が含まれます。
 * コード ファイルには、**Windows.Services.Store**、**Windows.Threading.Tasks**、および**Windows.UI.Popups** 名前空間の **using** ステートメントがあります。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](../xbox-apps/multi-user-applications.md) の場合は、[GetDefault](/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 ```csharp
 private StoreContext context = null;
@@ -83,23 +83,23 @@ public async Task DownloadAndInstallAllUpdatesAsync()
 ```
 
 > [!NOTE]
-> 利用可能なパッケージの更新プログラムをダウンロードするだけ (インストールしない) の場合は、[RequestDownloadStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestdownloadstorepackageupdatesasync) メソッドを使います。
+> 利用可能なパッケージの更新プログラムをダウンロードするだけ (インストールしない) の場合は、[RequestDownloadStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.requestdownloadstorepackageupdatesasync) メソッドを使います。
 
 ### <a name="display-download-and-install-progress-info"></a>ダウンロードとインストールの進行状況の情報を表示する
 
-[RequestDownloadStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestdownloadstorepackageupdatesasync) メソッドまたは [RequestDownloadAndInstallStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestdownloadandinstallstorepackageupdatesasync) メソッドを呼び出すときに、この要求で各パッケージのダウンロード (またはダウンロードとインストール) 処理の手順ごとに 1 回呼び出される [Progress](https://docs.microsoft.com/uwp/api/windows.foundation.iasyncoperationwithprogress-2.progress) ハンドラーを割り当てることができます。 このハンドラーは、進行状況の通知を発生させる更新パッケージに関する情報を提供する [StorePackageUpdateStatus](https://docs.microsoft.com/uwp/api/windows.services.store.storepackageupdatestatus) オブジェクトを受け取ります。 前の例では、**StorePackageUpdateStatus** オブジェクトの **PackageDownloadProgress** フィールドを使用して、ダウンロードとインストールの進行状況を表示します。
+[RequestDownloadStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.requestdownloadstorepackageupdatesasync) メソッドまたは [RequestDownloadAndInstallStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.requestdownloadandinstallstorepackageupdatesasync) メソッドを呼び出すときに、この要求で各パッケージのダウンロード (またはダウンロードとインストール) 処理の手順ごとに 1 回呼び出される [Progress](/uwp/api/windows.foundation.iasyncoperationwithprogress-2.progress) ハンドラーを割り当てることができます。 このハンドラーは、進行状況の通知を発生させる更新パッケージに関する情報を提供する [StorePackageUpdateStatus](/uwp/api/windows.services.store.storepackageupdatestatus) オブジェクトを受け取ります。 前の例では、**StorePackageUpdateStatus** オブジェクトの **PackageDownloadProgress** フィールドを使用して、ダウンロードとインストールの進行状況を表示します。
 
 **RequestDownloadAndInstallStorePackageUpdatesAsync** を呼び出して 1 つの操作でパッケージの更新プログラムをダウンロードしてインストールする場合、**PackageDownloadProgress** フィールドは、パッケージのダウンロード処理中に 0.0 から 0.8 まで増加した後、インストール時に 0.8 から 1.0 まで増加することに注意してください。 そのため、カスタム進行状況 UI に表示されるパーセンテージを、直接、**PackageDownloadProgress** フィールドの値にマップする場合、パッケージのダウンロードが完了し、OS でインストール ダイアログが表示されたときに、UI には 80% と表示されます。 パッケージがダウンロードされ、インストールの準備ができたときに、カスタム進行状況 UI で 100% と表示するには、**PackageDownloadProgress** が 0.8 に達したときに進行状況 UI に 100% を割り当てるようにコードを変更します。
 
 ## <a name="download-and-install-package-updates-silently"></a>パッケージの更新プログラムを背後でダウンロードしてインストールする
 
-Windows 10 バージョン 1803 以降では、[TrySilentDownloadStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.trysilentdownloadstorepackageupdatesasync) メソッドと [TrySilentDownloadAndInstallStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.trysilentdownloadandinstallstorepackageupdatesasync) メソッドを使って、ユーザーに通知 UI を表示せずに背後でパッケージの更新プログラムをダウンロードおよびインストールできます。 この操作は、ユーザーが Microsoft Store で **[アプリを自動的に更新]** 設定をオンにしており、ユーザーが従量制課金接続を使っていない場合のみ成功します。 これらのメソッドを呼び出す前に、まず [CanSilentlyDownloadStorePackageUpdates](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.cansilentlydownloadstorepackageupdates) プロパティを確認し、これらの条件を現在満たしているかどうかを判断します。
+Windows 10 バージョン 1803 以降では、[TrySilentDownloadStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.trysilentdownloadstorepackageupdatesasync) メソッドと [TrySilentDownloadAndInstallStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.trysilentdownloadandinstallstorepackageupdatesasync) メソッドを使って、ユーザーに通知 UI を表示せずに背後でパッケージの更新プログラムをダウンロードおよびインストールできます。 この操作は、ユーザーが Microsoft Store で **[アプリを自動的に更新]** 設定をオンにしており、ユーザーが従量制課金接続を使っていない場合のみ成功します。 これらのメソッドを呼び出す前に、まず [CanSilentlyDownloadStorePackageUpdates](/uwp/api/windows.services.store.storecontext.cansilentlydownloadstorepackageupdates) プロパティを確認し、これらの条件を現在満たしているかどうかを判断します。
 
-このコード例は、[GetAppAndOptionalStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getappandoptionalstorepackageupdatesasync) メソッドを使って利用可能なパッケージの更新プログラムをすべて見つけた後、[TrySilentDownloadStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.trysilentdownloadstorepackageupdatesasync) メソッドと [TrySilentDownloadAndInstallStorePackageUpdatesAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.trysilentdownloadandinstallstorepackageupdatesasync) メソッドを呼び出して背後で更新プログラムをダウンロードおよびインストールする方法を示しています。
+このコード例は、[GetAppAndOptionalStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.getappandoptionalstorepackageupdatesasync) メソッドを使って利用可能なパッケージの更新プログラムをすべて見つけた後、[TrySilentDownloadStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.trysilentdownloadstorepackageupdatesasync) メソッドと [TrySilentDownloadAndInstallStorePackageUpdatesAsync](/uwp/api/windows.services.store.storecontext.trysilentdownloadandinstallstorepackageupdatesasync) メソッドを呼び出して背後で更新プログラムをダウンロードおよびインストールする方法を示しています。
 
 このコード例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](../xbox-apps/multi-user-applications.md) の場合は、[GetDefault](/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 > [!NOTE]
 > この例のコードにより呼び出されている **IsNowAGoodTimeToRestartApp**、**RetryDownloadAndInstallLater**、**RetryInstallLater** の各メソッドは、アプリの設計の必要に応じて実装することを目的としたプレースホルダー メソッドです。
@@ -326,11 +326,11 @@ private void HandleMandatoryPackageError()
 
 ## <a name="uninstall-optional-packages"></a>オプション パッケージのアンインストール
 
-Windows 10 バージョン 1803 以降では、[RequestUninstallStorePackageAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) メソッドまたは [RequestUninstallStorePackageByStoreIdAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackagebystoreidasync) メソッドを使って、現在のアプリの[オプション パッケージ](/windows/msix/package/optional-packages) (DLC パッケージを含む) をアンインストールできます。 たとえば、オプション パッケージを通じてインストールされるコンテンツを持つアプリがある場合、ユーザーがオプション パッケージをアンインストールしてディスク領域を解放できる UI を用意できます。
+Windows 10 バージョン 1803 以降では、[RequestUninstallStorePackageAsync](/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) メソッドまたは [RequestUninstallStorePackageByStoreIdAsync](/uwp/api/windows.services.store.storecontext.requestuninstallstorepackagebystoreidasync) メソッドを使って、現在のアプリの[オプション パッケージ](/windows/msix/package/optional-packages) (DLC パッケージを含む) をアンインストールできます。 たとえば、オプション パッケージを通じてインストールされるコンテンツを持つアプリがある場合、ユーザーがオプション パッケージをアンインストールしてディスク領域を解放できる UI を用意できます。
 
-次のコード例は、[RequestUninstallStorePackageAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) を呼び出す方法を示しています。 この例では、次のことを前提条件としています。
+次のコード例は、[RequestUninstallStorePackageAsync](/uwp/api/windows.services.store.storecontext.requestuninstallstorepackageasync) を呼び出す方法を示しています。 この例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](../xbox-apps/multi-user-applications.md) の場合は、[GetDefault](/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 ```csharp
 public async Task UninstallPackage(Windows.ApplicationModel.Package package)
@@ -369,11 +369,11 @@ public async Task UninstallPackage(Windows.ApplicationModel.Package package)
 
 ## <a name="get-download-queue-info"></a>ダウンロード キューの情報の取得
 
-Windows 10 バージョン 1803 以降では、[GetAssociatedStoreQueueItemsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getassociatedstorequeueitemsasync) メソッドと [GetStoreQueueItemsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getstorequeueitemsasync) メソッドを使い、現在のダウンロードおよびインストール キューにあるパッケージの情報を Microsoft Store から取得することができます。 これらのメソッドは、ダウンロードとインストールに数時間から数日かかる可能性がある大規模なオプション パッケージ (DLC を含む) がアプリやゲームでサポートされており、ダウンロードおよびインストール プロセスが完了する前にユーザーがアプリやゲームを閉じるケースを適切に処理する必要がある場合に役立ちます。 ユーザーがアプリやゲームを再度起動すると、コードはこれらのメソッドを使ってダウンロードおよびインストール キューにまだ残っているパッケージの状態に関する情報を取得できるため、各パッケージのステータスをユーザーに表示できます。
+Windows 10 バージョン 1803 以降では、[GetAssociatedStoreQueueItemsAsync](/uwp/api/windows.services.store.storecontext.getassociatedstorequeueitemsasync) メソッドと [GetStoreQueueItemsAsync](/uwp/api/windows.services.store.storecontext.getstorequeueitemsasync) メソッドを使い、現在のダウンロードおよびインストール キューにあるパッケージの情報を Microsoft Store から取得することができます。 これらのメソッドは、ダウンロードとインストールに数時間から数日かかる可能性がある大規模なオプション パッケージ (DLC を含む) がアプリやゲームでサポートされており、ダウンロードおよびインストール プロセスが完了する前にユーザーがアプリやゲームを閉じるケースを適切に処理する必要がある場合に役立ちます。 ユーザーがアプリやゲームを再度起動すると、コードはこれらのメソッドを使ってダウンロードおよびインストール キューにまだ残っているパッケージの状態に関する情報を取得できるため、各パッケージのステータスをユーザーに表示できます。
 
-次のコード例は、[GetAssociatedStoreQueueItemsAsync](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.getassociatedstorequeueitemsasync) を呼び出し、現在のアプリの進行中のパッケージ更新プログラムの一覧を取得して、各パッケージのステータス情報を表示する方法を示しています。 この例では、次のことを前提条件としています。
+次のコード例は、[GetAssociatedStoreQueueItemsAsync](/uwp/api/windows.services.store.storecontext.getassociatedstorequeueitemsasync) を呼び出し、現在のアプリの進行中のパッケージ更新プログラムの一覧を取得して、各パッケージのステータス情報を表示する方法を示しています。 この例では、次のことを前提条件としています。
 * コード ファイルに **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間を使うための **using** ステートメントがある。
-* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](https://docs.microsoft.com/windows/uwp/xbox-apps/multi-user-applications) の場合は、[GetDefault](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
+* アプリは、アプリを起動したユーザーのコンテキストでのみ動作するシングル ユーザー アプリです。 [マルチ ユーザー アプリ](../xbox-apps/multi-user-applications.md) の場合は、[GetDefault](/uwp/api/windows.services.store.storecontext.GetDefault) メソッドの代わりに [GetForUser](/uwp/api/windows.services.store.storecontext.User) メソッドを使用して、**StoreContext** オブジェクトを取得してください。
 
 > [!NOTE]
 > この例のコードにより呼び出されている **MarkUpdateInProgressInUI**、**RemoveItemFromUI**、**MarkInstallCompleteInUI**、**MarkInstallErrorInUI**、**MarkInstallPausedInUI** の各メソッドは、アプリの設計の必要に応じて実装することを目的としてプレースホルダー メソッドです。

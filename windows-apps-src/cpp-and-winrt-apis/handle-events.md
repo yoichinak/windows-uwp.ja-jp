@@ -5,16 +5,16 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
-ms.openlocfilehash: cd67ea63fc633716cabf9a293a5faeeed6d24b70
-ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
+ms.openlocfilehash: 2d2470b1aa52f8aa4be7e07bf1dfe5213054b005
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296172"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166246"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
-このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用したイベント処理デリゲートの登録方法と取り消し方法について説明します。 標準的な C++ 関数のようなオブジェクトを使用してイベントを処理できます。
+このトピックでは、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) を使用したイベント処理デリゲートの登録方法と取り消し方法について説明します。 標準的な C++ 関数のようなオブジェクトを使用してイベントを処理できます。
 
 > [!NOTE]
 > C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
@@ -314,6 +314,6 @@ winrt::hstring f(ListView listview)
 * [winrt::implements::get_strong 関数](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)
-* [C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)
-* [C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references)
+* [C++/WinRT でのイベントの作成](./author-events.md)
+* [C++/WinRT を使用した同時開催操作と非同期操作](./concurrency.md)
+* [C++/WinRT の強参照と弱参照](./weak-references.md)

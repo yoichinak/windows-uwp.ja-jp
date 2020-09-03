@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2e385f6b9977eead6aed52215080588e4f9d8c27
-ms.sourcegitcommit: cc645386b996f6e59f1ee27583dcd4310f8fb2a6
+ms.openlocfilehash: 32a66c92d4c079c99aed213d0e1aeae66b808d56
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262773"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169406"
 ---
 #  <a name="screen-sizes-and-breakpoints"></a>画面のサイズとブレークポイント
 
@@ -90,7 +90,7 @@ UWP アプリは、すべての Windows 10 デバイスでアプリが判読可�
 - 最大で 2 つの列/領域を使用します。
 - 検索ボックスを表示します。
 - アイコンの幅の狭いストリップが常に表示されるように[ナビゲーション ウィンドウ](../controls-and-patterns/navigationview.md)を小片モードにします。
-- [テレビのエクスペリエンス](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)の調整を検討します。
+- [テレビのエクスペリエンス](../devices/designing-for-tv.md)の調整を検討します。
 
 ### <a name="large"></a>大
 - ウィンドウの左右の余白を 24 ピクセルに設定して、アプリ ウィンドウの左右の端の間で視覚的な区切りを作成します。

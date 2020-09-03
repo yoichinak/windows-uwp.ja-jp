@@ -9,23 +9,23 @@ pm-contact: chphilip
 design-contact: ''
 dev-contact: stevenki
 ms.localizationpriority: medium
-ms.openlocfilehash: 098c46499e65c34e3699b09e137ea94c40590ef7
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 6afed2347bb3944c8ea5bd9b43e83d429973dc15
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968008"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169166"
 ---
 # <a name="reveal-focus"></a>表示フォーカス
 
 ![ヒーロー イメージ](images/header-reveal-focus.svg)
 
-表示フォーカスは、Xbox One やテレビ画面などの [10 フィート エクスペリエンス](/windows/uwp/design/devices/designing-for-tv)を想定した発光効果です。 ユーザーがゲームパッドやキーボードのフォーカスをボタンなどのフォーカス可能な要素に移動したときに、その要素の境界線がアニメーション化されます。 表示フォーカスは既定で無効になっていますが、簡単に有効にできます。 
+表示フォーカスは、Xbox One やテレビ画面などの [10 フィート エクスペリエンス](../devices/designing-for-tv.md)を想定した発光効果です。 ユーザーがゲームパッドやキーボードのフォーカスをボタンなどのフォーカス可能な要素に移動したときに、その要素の境界線がアニメーション化されます。 表示フォーカスは既定で無効になっていますが、簡単に有効にできます。 
 
-(対話型要素を発光効果で強調する表示ハイライト効果については、「[表示ハイライト](/windows/uwp/design/style/reveal)」の記事をご覧ください。)
+(対話型要素を発光効果で強調する表示ハイライト効果については、「[表示ハイライト](./reveal.md)」の記事をご覧ください。)
 
 
-> **重要な API**:[Application.FocusVisualKind プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.FocusVisualKind)、[FocusVisualKind 列挙型](https://docs.microsoft.com/uwp/api/windows.ui.xaml.focusvisualkind)、[Control.UseSystemFocusVisuals プロパティ](/uwp/api/Windows.UI.Xaml.Controls.Control.UseSystemFocusVisuals)
+> **重要な API**:[Application.FocusVisualKind プロパティ](/uwp/api/windows.ui.xaml.application.FocusVisualKind)、[FocusVisualKind 列挙型](/uwp/api/windows.ui.xaml.focusvisualkind)、[Control.UseSystemFocusVisuals プロパティ](/uwp/api/Windows.UI.Xaml.Controls.Control.UseSystemFocusVisuals)
 
 ## <a name="how-it-works"></a>しくみ
 表示フォーカスでは、フォーカスが置かれた要素に注意が向くように、要素の境界線の周囲にアニメーション化されたグロー (蛍光ライト効果) が追加されます。
@@ -70,7 +70,7 @@ ms.locfileid: "82968008"
 
 ## <a name="customizing-reveal-focus"></a>表示フォーカスのカスタマイズ
 
-表示フォーカス効果は、各コントロールのフォーカス視覚効果プロパティ ([FocusVisualPrimaryThickness](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryThickness)、[FocusVisualSecondaryThickness](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryThickness)、[FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush)、[FocusVisualSecondaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush)) を変更することによってカスタマイズできます。 これらのプロパティでは、フォーカスの四角形の色と太さをカスタマイズできます。 (これらは、[視認性の高いフォーカスの視覚効果](https://docs.microsoft.com/windows/uwp/design/input/guidelines-for-visualfeedback#high-visibility-focus-visuals)を作成する場合と同じプロパティです。) 
+表示フォーカス効果は、各コントロールのフォーカス視覚効果プロパティ ([FocusVisualPrimaryThickness](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryThickness)、[FocusVisualSecondaryThickness](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryThickness)、[FocusVisualPrimaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush)、[FocusVisualSecondaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush)) を変更することによってカスタマイズできます。 これらのプロパティでは、フォーカスの四角形の色と太さをカスタマイズできます。 (これらは、[視認性の高いフォーカスの視覚効果](../input/guidelines-for-visualfeedback.md#high-visibility-focus-visuals)を作成する場合と同じプロパティです。) 
 
 カスタマイズを開始する前に、表示フォーカスを構成しているコンポーネントについてもう少し詳しく知っておくと便利です。
 
@@ -86,8 +86,8 @@ ms.locfileid: "82968008"
 
 | 境界線の種類 | プロパティ |
 | --- | --- |
-| プライマリ、グロー   | [FocusVisualPrimaryThickness](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryThickness)<br/> (プライマリ境界線を変更すると、グロー部分の幅も比例して変化します。)   |
-| セカンダリ   | [FocusVisualSecondaryThickness](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryThickness)   |
+| プライマリ、グロー   | [FocusVisualPrimaryThickness](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryThickness)<br/> (プライマリ境界線を変更すると、グロー部分の幅も比例して変化します。)   |
+| セカンダリ   | [FocusVisualSecondaryThickness](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryThickness)   |
 
 
 この例では、ボタンのフォーカス視覚効果で、境界線の幅を変更しています。
@@ -98,7 +98,7 @@ ms.locfileid: "82968008"
 
 ## <a name="customize-the-margin"></a>余白のカスタマイズ
 
-余白とは、コントロールの視覚的な境界線と、フォーカスの視覚効果で示されるセカンダリ境界線の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から 1 px の幅になります。 この余白は、[FocusVisualMargin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualMargin) プロパティを変更することでコントロールごとに変更できます。
+余白とは、コントロールの視覚的な境界線と、フォーカスの視覚効果で示されるセカンダリ境界線の開始点との間にあるスペースです。 既定の余白は、コントロールの境界線から 1 px の幅になります。 この余白は、[FocusVisualMargin](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualMargin) プロパティを変更することでコントロールごとに変更できます。
 
 ```xaml
 <Button FocusVisualPrimaryThickness="2" FocusVisualSecondaryThickness="1" FocusVisualMargin="-3"/>
@@ -108,12 +108,12 @@ ms.locfileid: "82968008"
 
 ## <a name="customize-the-color"></a>色のカスタマイズ
 
-表示フォーカス視覚効果の色を変更するには、[FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティと [FocusVisualSecondaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush) プロパティを使用します。
+表示フォーカス視覚効果の色を変更するには、[FocusVisualPrimaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティと [FocusVisualSecondaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush) プロパティを使用します。
 
 | プロパティ | 既定のリソース | 既定のリソースの値 |
 | ---- | ---- | --- | 
-| [FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) | SystemControlRevealFocusVisualBrush  | SystemAccentColor |
-| [FocusVisualSecondaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush)  | SystemControlFocusVisualSecondaryBrush  | SystemAltMediumColor |
+| [FocusVisualPrimaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) | SystemControlRevealFocusVisualBrush  | SystemAccentColor |
+| [FocusVisualSecondaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryBrush)  | SystemControlFocusVisualSecondaryBrush  | SystemAltMediumColor |
 
 (FocusPrimaryBrush プロパティに既定の **SystemControlRevealFocusVisualBrush** リソースが使用されるのは、**FocusVisualKind** が **Reveal** に設定されている場合のみです。 それ以外の場合は、**SystemControlFocusVisualPrimaryBrush** が使用されます。)
 
@@ -145,12 +145,12 @@ ms.locfileid: "82968008"
 </Application.Resources>
 ```
 
-フォーカス視覚効果の色の変更について詳しくは、「[色のブランド化とカスタマイズ](https://docs.microsoft.com/windows/uwp/design/input/guidelines-for-visualfeedback#color-branding--customizing)」をご覧ください。
+フォーカス視覚効果の色の変更について詳しくは、「[色のブランド化とカスタマイズ](../input/guidelines-for-visualfeedback.md#color-branding--customizing)」をご覧ください。
 
 
 ## <a name="show-just-the-glow"></a>グロー部分のみを表示する
 
-プライマリまたはセカンダリのフォーカス視覚効果は使用せず、グローのみを使用する場合は、コントロールの [FocusVisualPrimaryBrush](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティを `Transparent` に設定し、[FocusVisualSecondaryThickness](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryThickness) を `0` に設定します。 この場合は、グローにコントロールの背景色が使用され、境界線がない外観になります。 [FocusVisualPrimaryThickness](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryThickness) を使用して、グローの幅を変更することもできます。
+プライマリまたはセカンダリのフォーカス視覚効果は使用せず、グローのみを使用する場合は、コントロールの [FocusVisualPrimaryBrush](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryBrush) プロパティを `Transparent` に設定し、[FocusVisualSecondaryThickness](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualSecondaryThickness) を `0` に設定します。 この場合は、グローにコントロールの背景色が使用され、境界線がない外観になります。 [FocusVisualPrimaryThickness](/uwp/api/windows.ui.xaml.frameworkelement.FocusVisualPrimaryThickness) を使用して、グローの幅を変更することもできます。
 
 ```xaml
 
@@ -172,10 +172,10 @@ ms.locfileid: "82968008"
 
 ## <a name="related-articles"></a>関連記事
 
-- [表示ハイライト](https://docs.microsoft.com/windows/uwp/design/style/reveal)
-- [Xbox およびテレビ向け設計](/windows/uwp/design/devices/designing-for-tv)
-- [ゲームパッドとリモコンの操作](https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions)
+- [表示ハイライト](./reveal.md)
+- [Xbox およびテレビ向け設計](../devices/designing-for-tv.md)
+- [ゲームパッドとリモコンの操作](../input/gamepad-and-remote-interactions.md)
 - [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
-- [コンポジション効果](https://docs.microsoft.com/windows/uwp/graphics/composition-effects)
+- [コンポジション効果](../../composition/composition-effects.md)
 - [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
 - [システムの科学:Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

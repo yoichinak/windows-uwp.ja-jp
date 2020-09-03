@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 489215c0289695832cb895d8566063a93ae2336c
-ms.sourcegitcommit: 577a54d36145f91c8ade8e4509d4edddd8319137
+ms.openlocfilehash: f59bb821b65eda89aa1fbc88e9c38d5789f61f6e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83867352"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163426"
 ---
 # <a name="tabview"></a>TabView
 
@@ -24,12 +24,12 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TabView** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TabView** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API**: [TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、[TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
 
 > [!TIP]
-> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
@@ -44,7 +44,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 - ユーザーが、ドキュメントや Web ページを直接タブで開くことができる。
 - ユーザーが、ウィンドウ間でタブをドラッグ アンド ドロップできる。
 
-TabView がアプリに適していない場合は、[Pivot](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/pivot) や [NavigationView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview) などのコントロールの使用を検討してください。
+TabView がアプリに適していない場合は、[Pivot](./pivot.md) や [NavigationView](./navigationview.md) などのコントロールの使用を検討してください。
 
 ## <a name="anatomy"></a>構造
 
@@ -104,7 +104,7 @@ private void TabView_TabCloseRequested(muxc.TabView sender, muxc.TabViewTabClose
 
 ユーザーはウィンドウをタイトル バーでドラッグしてウィンドウの位置を変更できるため、タイトル バーをタブで完全に埋めないことが重要です。 そのため、タイトル バーにタブを表示する場合は、ドラッグ可能な領域として確保するタイトル バーの部分を指定する必要があります。 ドラッグ可能な領域を指定しないと、タイトル バー全体がドラッグ可能になり、タブが入力イベントを受信できなくなります。 TabView をウィンドウのタイトルバーに表示する場合は、常に [TabStripFooter](/uwp/api/microsoft.ui.xaml.controls.tabview.tabstripfooter) を [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) に含めて、それをドラッグ可能な領域としてマークする必要があります。
 
-詳しくは、「[タイトル バーのカスタマイズ](https://docs.microsoft.com/windows/uwp/design/shell/title-bar)」をご覧ください
+詳しくは、「[タイトル バーのカスタマイズ](../shell/title-bar.md)」をご覧ください
 
 ![タイトル バーのタブ](images/tabview/tab-extend-to-title.png)
 
@@ -329,6 +329,6 @@ private void NavigateToNumberedTabKeyboardAccelerator_Invoked(KeyboardAccelerato
 
 ## <a name="related-articles"></a>関連記事
 
-- [MasterDetails](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/master-details)
-- [NavigationView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview)
-- [ピボット](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/pivot)
+- [MasterDetails](./master-details.md)
+- [NavigationView](./navigationview.md)
+- [ピボット](./pivot.md)

@@ -5,12 +5,12 @@ ms.date: 06/01/2018
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル、アプリ マネージャー、デプロイ、sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7bf3dab97be67a3b97aca4b3132bd9fe18691d15
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0fd5bf6be691974d956de0c71f4a1d11aa1a229f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75681933"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166096"
 ---
 # <a name="deploy-an-app-through-loose-file-registration"></a>ルーズ ファイルの登録によるアプリの展開 
 
@@ -31,10 +31,10 @@ ms.locfileid: "75681933"
 
 ## <a name="how-to-register-a-loose-file-layout"></a>ルーズ ファイル レイアウトを登録する方法
 
-Windows には、ルーズ ファイル レイアウトをローカル デバイスやリモート デバイスに登録する開発者向けツールが複数用意されています。 選択肢には、`WinDeployAppCmd` (Windows SDK ツール)、Windows デバイス ポータル、PowerShell および [Visual Studio](https://docs.microsoft.com/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps#register-layout-from-network) があります。 以下では、これらのツールを使用して、ルーズ ファイルを登録する方法について説明します。 しかし、まず次の設定を確実に完了させてください。
+Windows には、ルーズ ファイル レイアウトをローカル デバイスやリモート デバイスに登録する開発者向けツールが複数用意されています。 選択肢には、`WinDeployAppCmd` (Windows SDK ツール)、Windows デバイス ポータル、PowerShell および [Visual Studio](./deploying-and-debugging-uwp-apps.md#register-layout-from-network) があります。 以下では、これらのツールを使用して、ルーズ ファイルを登録する方法について説明します。 しかし、まず次の設定を確実に完了させてください。
 
 - お使いのデバイスは、Windows 10 Creators Update (ビルド 14965) 以降を使用している必要があります。
-- すべてのデバイスで、[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)と[デバイスの検出](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#device-discovery)が有効になっている必要があります。
+- すべてのデバイスで、[開発者モード](../get-started/enable-your-device-for-development.md)と[デバイスの検出](../get-started/enable-your-device-for-development.md#device-discovery)が有効になっている必要があります。
 
 > [!IMPORTANT]
 > ルーズ ファイルの登録は、ネットワーク共有 (SMB) プロトコルをサポートする次のデバイスでのみ使用できます。デスクトップと Xbox。 
@@ -51,7 +51,7 @@ WinAppDeployCmd.exe registerfiles -remotedeploydir <Network Path> -ip <IP Addres
 
 **IP Address**: ターゲット マシンの IP アドレス。
 
-**target machine PIN**: ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 認証が必要な場合には、`-pin` オプションを指定し、再試行が求められます。 PIN を取得する方法については、「[デバイスの検出](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#device-discovery)」を参照してください。
+**target machine PIN**: ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 認証が必要な場合には、`-pin` オプションを指定し、再試行が求められます。 PIN を取得する方法については、「[デバイスの検出](../get-started/enable-your-device-for-development.md#device-discovery)」を参照してください。
 
 ### <a name="windows-device-portal"></a>Windows デバイス ポータル
 

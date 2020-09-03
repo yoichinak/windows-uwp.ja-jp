@@ -6,12 +6,12 @@ ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, 設定, 設定の保存, 設定の読み込み
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 490dd8f0f3841fae089626ec9c283d54cc0d8cd9
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 32594d14a9da62f9abeca81c048e4169a7e99029
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66370494"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168156"
 ---
 # <a name="save-and-load-settings-in-a-uwp-app"></a>UWP アプリでの設定の保存と読み込み
 
@@ -25,14 +25,14 @@ ms.locfileid: "66370494"
 
 アプリの設定を使用して、ユーザー設定やアプリの状態などの構成データを保存します。  デバイスに固有の設定は、ローカルに保存されます。 アプリがインストールされているデバイスで適用される設定は、ローミング データ ストアに保存されます。 設定は、ユーザーが同じ Microsoft アカウントでサインインし、同じバージョンのアプリがインストールされているデバイス間でローミングされます。
 
-次のデータ型は、整数、倍精度浮動小数点数、浮動小数点値、文字型、文字列、Points、DateTimes などの設定と一緒に使用できます。 1 つの単位として扱う必要がある複数の設定があるときに役立つ、[ApplicationDataCompositeValue](https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationDataCompositeValue) クラスのインスタンスも保存できます。 たとえば、アプリの閲覧ウィンドウでテキストを表示するためのフォント名とポイント サイズは、1 つの単位として保存/復元する必要があります。 これにより、ある設定が別の設定の前にローミングするときに遅延のために別の設定と同期されなくなることを防ぐことができます。
+次のデータ型は、整数、倍精度浮動小数点数、浮動小数点値、文字型、文字列、Points、DateTimes などの設定と一緒に使用できます。 1 つの単位として扱う必要がある複数の設定があるときに役立つ、[ApplicationDataCompositeValue](/uwp/api/Windows.Storage.ApplicationDataCompositeValue) クラスのインスタンスも保存できます。 たとえば、アプリの閲覧ウィンドウでテキストを表示するためのフォント名とポイント サイズは、1 つの単位として保存/復元する必要があります。 これにより、ある設定が別の設定の前にローミングするときに遅延のために別の設定と同期されなくなることを防ぐことができます。
 
 アプリの設定の保存または読み込みについて知っておく必要がある主な API を次に示します。
 
-- [Windows.Storage.ApplicationData.Current.LocalSettings](https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationData#Windows_Storage_ApplicationData_LocalSettings) は、ローカル アプリ データ ストアからアプリケーションの設定コンテナーを取得します。 デバイス間でローミングするのに適切ではない設定は、このデバイスに固有の状態を表すか、または長すぎるため、ここに保存します。
-- [Windows.Storage.ApplicationData.Current.RoamingSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.roamingsettings#Windows_Storage_ApplicationData_RoamingSettings) は、ローミング アプリ データ ストアからアプリケーションの設定コンテナーを取得します。 このデータは、デバイス間でローミングします。
-- [Windows.Storage.ApplicationDataContainer](https://docs.microsoft.com/uwp/api/windows.storage.applicationdatacontainer) は、アプリの設定をキーと値のペアとして表すコンテナーです。 このクラスを使用して設定値を作成して取得します。
-- [Windows.Storage.ApplicationDataCompositeValue](https://docs.microsoft.com/uwp/api/Windows.Storage.ApplicationDataCompositeValue) は、単位としてシリアル化する必要がある複数のアプリの設定を表します。 これは、ある設定を別の設定とは別に更新するべきではない場合に役立ちます。
+- [Windows.Storage.ApplicationData.Current.LocalSettings](/uwp/api/Windows.Storage.ApplicationData#Windows_Storage_ApplicationData_LocalSettings) は、ローカル アプリ データ ストアからアプリケーションの設定コンテナーを取得します。 デバイス間でローミングするのに適切ではない設定は、このデバイスに固有の状態を表すか、または長すぎるため、ここに保存します。
+- [Windows.Storage.ApplicationData.Current.RoamingSettings](/uwp/api/windows.storage.applicationdata.roamingsettings#Windows_Storage_ApplicationData_RoamingSettings) は、ローミング アプリ データ ストアからアプリケーションの設定コンテナーを取得します。 このデータは、デバイス間でローミングします。
+- [Windows.Storage.ApplicationDataContainer](/uwp/api/windows.storage.applicationdatacontainer) は、アプリの設定をキーと値のペアとして表すコンテナーです。 このクラスを使用して設定値を作成して取得します。
+- [Windows.Storage.ApplicationDataCompositeValue](/uwp/api/Windows.Storage.ApplicationDataCompositeValue) は、単位としてシリアル化する必要がある複数のアプリの設定を表します。 これは、ある設定を別の設定とは別に更新するべきではない場合に役立ちます。
 
 ## <a name="save-app-settings"></a>アプリの設定の保存
 
@@ -86,17 +86,17 @@ API の簡単な概要と、アプリの設定の保存と読み込みを開始�
 
 | API | 説明 |
 |------|---------------|
-| [ApplicationData.LocalSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.temporaryfolder) | ローカル アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
-| [ApplicationData.RoamingSettings](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.roamingsettings) | ローミング アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
-| [ApplicationDataContainer](https://docs.microsoft.com/uwp/api/windows.storage.applicationdatacontainer) | コンテナー階層の作成、削除、列挙、および移動をサポートするアプリの設定のコンテナーです。 |
-| [Windows.UI.ApplicationSettings 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.applicationsettings) | Windows シェルの設定ウィンドウに表示されるアプリの設定を定義するために使用するクラスを指定します。 |
+| [ApplicationData.LocalSettings](/uwp/api/windows.storage.applicationdata.temporaryfolder) | ローカル アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
+| [ApplicationData.RoamingSettings](/uwp/api/windows.storage.applicationdata.roamingsettings) | ローミング アプリ データ ストアからアプリケーション設定コンテナーを取得します。 |
+| [ApplicationDataContainer](/uwp/api/windows.storage.applicationdatacontainer) | コンテナー階層の作成、削除、列挙、および移動をサポートするアプリの設定のコンテナーです。 |
+| [Windows.UI.ApplicationSettings 名前空間](/uwp/api/windows.ui.applicationsettings) | Windows シェルの設定ウィンドウに表示されるアプリの設定を定義するために使用するクラスを指定します。 |
 
 ### <a name="useful-docs"></a>役立つドキュメント
 
 | トピック | 説明 |
 |-------|----------------|
-| [アプリ設定のガイドライン](https://docs.microsoft.com/windows/uwp/design/app-settings/guidelines-for-app-settings) | アプリ設定を作成し表示する際のベスト プラクティスについて説明します。 |
-| [設定と他のアプリ データを保存して取得する](https://docs.microsoft.com/windows/uwp/design/app-settings/store-and-retrieve-app-data#create-and-read-a-local-file) | ローミング設定など、設定の保存と取得に関するチュートリアルです。 |
+| [アプリ設定のガイドライン](../design/app-settings/guidelines-for-app-settings.md) | アプリ設定を作成し表示する際のベスト プラクティスについて説明します。 |
+| [設定と他のアプリ データを保存して取得する](../design/app-settings/store-and-retrieve-app-data.md#create-and-read-a-local-file) | ローミング設定など、設定の保存と取得に関するチュートリアルです。 |
 
 ## <a name="useful-code-samples"></a>役立つコード サンプル
 

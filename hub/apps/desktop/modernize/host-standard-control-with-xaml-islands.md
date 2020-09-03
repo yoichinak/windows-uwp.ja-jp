@@ -8,20 +8,20 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 1a2b5722ab836e715bce1b4c94fab97e6a28646e
-ms.sourcegitcommit: cee2060bfc8489236e00e5951751bcc5bd632b0a
+ms.openlocfilehash: 0e8972a71feacd593edf98853ae1dcc0f88002fd
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84614908"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168896"
 ---
 # <a name="host-a-standard-uwp-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリで標準 UWP コントロールをホストする
 
 この記事では、[XAML Islands](xaml-islands.md) を使用して、WPF アプリで標準 UWP コントロール (つまり、Windows SDK によって提供されるファーストパーティ UWP コントロール) をホストする 2 つの方法について説明します。
 
-* Windows Community Toolkit の[ラップされたコントロール](xaml-islands.md#wrapped-controls)を使用して、UWP の [InkCanvas](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールをホストする方法を示します。 これらのコントロールでは、便利な UWP コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
+* Windows Community Toolkit の[ラップされたコントロール](xaml-islands.md#wrapped-controls)を使用して、UWP の [InkCanvas](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと [InkToolbar](/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールをホストする方法を示します。 これらのコントロールでは、便利な UWP コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
 
-* また、Windows Community Toolkit の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用して、UWP の [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールをホストする方法についても説明します。 ラップされたコントロールとして使用できるのは少数の UWP コントロールだけであり、他の標準 UWP コントロールをホストするには [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用できます。
+* また、Windows Community Toolkit の [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用して、UWP の [CalendarView](/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールをホストする方法についても説明します。 ラップされたコントロールとして使用できるのは少数の UWP コントロールだけであり、他の標準 UWP コントロールをホストするには [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用できます。
 
 この記事では、WPF アプリで UWP コントロールをホストする方法について説明しますが、Windows フォーム アプリでもプロセスはほぼ同じです。
 
@@ -29,7 +29,7 @@ ms.locfileid: "84614908"
 
 WPF (または Windows フォーム) アプリで UWP コントロールをホストするには、ソリューションに次のコンポーネントが必要です。 この記事では、これらの各コンポーネントを作成する手順について説明します。
 
-* **アプリのプロジェクトとソース コード**。 [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用した標準ファーストパーティ UWP コントロールのホストは、.NET Framework または .NET Core 3 をターゲットとするアプリでサポートされています。
+* **アプリのプロジェクトとソース コード**。 [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用した標準ファーストパーティ UWP コントロールのホストは、.NET Framework または .NET Core 3 をターゲットとするアプリでサポートされています。
 
 * **XamlApplication から派生するルート Application クラスが定義されている UWP アプリ プロジェクト**。 WPF プロジェクトまたは Windows フォーム プロジェクトでは、カスタムの UWP XAML コントロールを検出て読み込めるように、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF アプリまたは Windows フォーム アプリのソリューションの一部である別の UWP アプリ プロジェクト内でこのオブジェクトを定義することをお勧めします。 
 
@@ -45,7 +45,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 1. Visual Studio 2019 で、新しい **WPF アプリ (.NET Framework)** プロジェクトまたは **WPF アプリ (.NET Core)** プロジェクトを作成します。 **WPF アプリ (.NET Core)** プロジェクトを作成する場合は、最初に最新バージョンの [.NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) をインストールする必要があります。
 
-2. [パッケージ参照](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files)が有効になっていることを確認します。
+2. [パッケージ参照](/nuget/consume-packages/package-references-in-project-files)が有効になっていることを確認します。
 
     1. Visual Studio で、 **[ツール] -> [NuGet パッケージ マネージャー] -> [パッケージ マネージャー設定]** の順にクリックします。
     2. **[既定のパッケージ管理形式]** で **[PackageReference]** が選択されていることを確認します。
@@ -54,7 +54,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 4. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[プレリリースを含める]** が選択されていることを確認します。
 
-5. **[参照]** タブを選択し、[Microsoft.Toolkit.Wpf.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.Controls) パッケージ (バージョン v 6.0.0 以降) を見つけて、パッケージをインストールします。 このパッケージでは、WPF でラップされた UWP コントロールを使用するために必要なものがすべて提供されています ([InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)、[InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)、[WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールなど)。
+5. **[参照]** タブを選択し、[Microsoft.Toolkit.Wpf.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.Controls) パッケージ (バージョン v 6.0.0 以降) を見つけて、パッケージをインストールします。 このパッケージでは、WPF でラップされた UWP コントロールを使用するために必要なものがすべて提供されています ([InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)、[InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールなど)。
     > [!NOTE]
     > Windows フォーム アプリでは、[Microsoft.Toolkit.Forms.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Forms.UI.Controls) パッケージ (バージョン v6.0.0 以降) を使用する必要があります。
 
@@ -67,7 +67,7 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 ## <a name="define-a-xamlapplication-class-in-a-uwp-app-project"></a>UWP アプリ プロジェクトで XamlApplication クラスを定義する
 
-次に、UWP アプリ プロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。
+次に、UWP アプリ プロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。
 
 > [!NOTE]
 > このステップはファーストパーティの UWP コントロールをホストするには必要ありませんが、アプリでは、カスタム UWP コントロールのホストなど、XAML Island の全範囲のシナリオをサポートするために、`XamlApplication` オブジェクトが必要です。 したがって、XAML Islands を使用するすべてのソリューションでは、常に `XamlApplication` オブジェクトを定義することをお勧めします。
@@ -143,11 +143,11 @@ WPF (または Windows フォーム) アプリで UWP コントロールをホ�
 
 ## <a name="host-an-inkcanvas-and-inktoolbar-by-using-wrapped-controls"></a>ラップされたコントロールを使用して InkCanvas と InkToolbar をホストする
 
-UWP XAML Islands を使用するようにプロジェクトを構成したので、ラップされた UWP コントロール [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) および [InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) をアプリに追加できます。
+UWP XAML Islands を使用するようにプロジェクトを構成したので、ラップされた UWP コントロール [InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) および [InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) をアプリに追加できます。
 
 1. **ソリューション エクスプローラー**で、**MainWindow.xaml** ファイルを開きます。
 
-2. XAML ファイルの先頭近くにある **Window** 要素に、次の属性を追加します。 これにより、ラップされた UWP コントロール [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) および [InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) の XAML 名前空間が参照されるようになります。
+2. XAML ファイルの先頭近くにある **Window** 要素に、次の属性を追加します。 これにより、ラップされた UWP コントロール [InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) および [InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) の XAML 名前空間が参照されるようになります。
 
     ```xml
     xmlns:Controls="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls"
@@ -167,7 +167,7 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
             Title="MainWindow" Height="800" Width="800">
     ```
 
-3. **MainWindow.xaml** ファイルで、既存の `<Grid>` 要素を次の XAML に置き換えます。 この XAML により、[InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) コントロールと [InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) コントロール (名前空間として前に定義した **Controls** キーワードが前に付いているもの) が `<Grid>` に追加されます。
+3. **MainWindow.xaml** ファイルで、既存の `<Grid>` 要素を次の XAML に置き換えます。 この XAML により、[InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) コントロールと [InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) コントロール (名前空間として前に定義した **Controls** キーワードが前に付いているもの) が `<Grid>` に追加されます。
 
     ```xml
     <Grid Margin="10,50,10,10">
@@ -209,14 +209,14 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
 
 ## <a name="host-a-calendarview-by-using-the-host-control"></a>ホスト コントロールを使用して CalendarView をホストする
 
-ラップされた UWP コントロール [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) と [InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) をアプリに追加したので、[WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用して、アプリに [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) を追加できるようになりました。
+ラップされた UWP コントロール [InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) と [InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) をアプリに追加したので、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用して、アプリに [CalendarView](/uwp/api/Windows.UI.Xaml.Controls.CalendarView) を追加できるようになりました。
 
 > [!NOTE]
-> [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールは、[Microsoft.Toolkit.Wpf.UI.XamlHost](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.XamlHost) パッケージによって提供されます。 このパッケージは、前にインストールした [Microsoft.Toolkit.Wpf.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.Controls) パッケージに含まれています。
+> [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールは、[Microsoft.Toolkit.Wpf.UI.XamlHost](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.XamlHost) パッケージによって提供されます。 このパッケージは、前にインストールした [Microsoft.Toolkit.Wpf.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.Controls) パッケージに含まれています。
 
 1. **ソリューション エクスプローラー**で、**MainWindow.xaml** ファイルを開きます。
 
-2. XAML ファイルの先頭近くにある **Window** 要素に、次の属性を追加します。 これにより、[WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールの XAML 名前空間が参照されるようになります。
+2. XAML ファイルの先頭近くにある **Window** 要素に、次の属性を追加します。 これにより、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールの XAML 名前空間が参照されるようになります。
 
     ```xml
     xmlns:xamlhost="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
@@ -237,7 +237,7 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
             Title="MainWindow" Height="800" Width="800">
     ```
 
-4. **MainWindow.xaml** ファイルで、既存の `<Grid>` 要素を次の XAML に置き換えます。 この XAML では、グリッドに行が追加され、最後の行に [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) オブジェクトが追加されます。 UWP の [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールをホストするため、この XAML では `InitialTypeName` プロパティにコントロールの完全修飾名を設定します。 この XAML では、ホストされているコントロールがレンダリングされると発生する `ChildChanged` イベントのイベント ハンドラーも定義されています。
+4. **MainWindow.xaml** ファイルで、既存の `<Grid>` 要素を次の XAML に置き換えます。 この XAML では、グリッドに行が追加され、最後の行に [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) オブジェクトが追加されます。 UWP の [CalendarView](/uwp/api/Windows.UI.Xaml.Controls.CalendarView) コントロールをホストするため、この XAML では `InitialTypeName` プロパティにコントロールの完全修飾名を設定します。 この XAML では、ホストされているコントロールがレンダリングされると発生する `ChildChanged` イベントのイベント ハンドラーも定義されています。
 
     ```xml
     <Grid Margin="10,50,10,10">
@@ -291,14 +291,14 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
 
 ## <a name="package-the-app"></a>アプリをパッケージ化する
 
-必要に応じて、配置用に WPF アプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化することもできます。 MSIX は、Windows 向けの最新のアプリ パッケージ化テクノロジであり、MSI、.appx、App-V、ClickOnce インストールの各テクノロジの組み合わせが基になっています。
+必要に応じて、配置用に WPF アプリを [MSIX パッケージ](/windows/msix)にパッケージ化することもできます。 MSIX は、Windows 向けの最新のアプリ パッケージ化テクノロジであり、MSI、.appx、App-V、ClickOnce インストールの各テクノロジの組み合わせが基になっています。
 
-次の手順では、Visual Studio 2019 で [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、ソリューションのすべてのコンポーネントを MSIX パッケージにパッケージ化する方法について説明します。 これらの手順は、WPF アプリを MSIX パッケージにパッケージ化する場合にのみ必要です。
+次の手順では、Visual Studio 2019 で [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、ソリューションのすべてのコンポーネントを MSIX パッケージにパッケージ化する方法について説明します。 これらの手順は、WPF アプリを MSIX パッケージにパッケージ化する場合にのみ必要です。
 
 > [!NOTE]
-> 配置用に [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にアプリケーションをパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
+> 配置用に [MSIX パッケージ](/windows/msix)にアプリケーションをパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
-1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
+1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
 
 2. パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 プロジェクトの一覧でソリューション内の WPF プロジェクトを選択し、 **[OK]** をクリックします。
 
@@ -316,6 +316,6 @@ UWP XAML Islands を使用するようにプロジェクトを構成したので
 
 * [デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)](xaml-islands.md)
 * [XAML Islands コード サンプル](https://github.com/microsoft/Xaml-Islands-Samples)
-* [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)
-* [InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)
-* [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)
+* [InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)
+* [InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)
+* [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost)

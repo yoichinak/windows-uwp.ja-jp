@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 59397f12ec66bfa2864d830eaf80a9dcaaf06592
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 51786f907da5ddf0b4a52b8c9bea61a8756c78d9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74257882"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163506"
 ---
 # <a name="planning-for-performance"></a>パフォーマンスの計画
 
@@ -82,15 +82,15 @@ ms.locfileid: "74257882"
 **UI**
 
 -   [XAML マークアップを最適化](optimize-xaml-loading.md)することで、アプリの UI の各ページ (特に最初のページ) の解析と読み込みの時間とメモリの効率を最大化します。 簡単に言うと、必要になるまで UI とコードの読み込みを遅らせます。
--   [  **ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) と [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) では、すべての項目を同じサイズにし、できるだけ多くの [ListView と GridView の最適化手法](optimize-gridview-and-listview.md)を使います。
+-   [  **ListView**](/uwp/api/Windows.UI.Xaml.Controls.ListView) と [**GridView**](/uwp/api/Windows.UI.Xaml.Controls.GridView) では、すべての項目を同じサイズにし、できるだけ多くの [ListView と GridView の最適化手法](optimize-gridview-and-listview.md)を使います。
 -   UI は、コード内で命令を使って構築するのではなく、フレームワークが読み込んでチャンクで再利用できるマークアップ形式で宣言します。
 -   ユーザーが必要とするまで UI 要素の作成を遅らせます。 [  **x:Load**](../xaml-platform/x-load-attribute.md) 属性をご覧ください。
--   ストーリーボードに設定されたアニメーションよりテーマ切り替えやテーマ アニメーションを優先的に使います。 詳しくは、「[アニメーションの概要](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)」をご覧ください。 ストーリーボードに設定されたアニメーションでは、画面を定期的に更新して CPU とグラフィックス パイプラインを常にアクティブにしておく必要があることを忘れないようにします。 バッテリーを節約するために、ユーザーがアプリを操作していない場合はアニメーションを実行しないようにします。
--   読み込む画像は、[**GetThumbnailAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getthumbnailasync) メソッドを使って、そのときのビューに適したサイズで読み込む必要があります。
+-   ストーリーボードに設定されたアニメーションよりテーマ切り替えやテーマ アニメーションを優先的に使います。 詳しくは、「[アニメーションの概要](../design/motion/xaml-animation.md)」をご覧ください。 ストーリーボードに設定されたアニメーションでは、画面を定期的に更新して CPU とグラフィックス パイプラインを常にアクティブにしておく必要があることを忘れないようにします。 バッテリーを節約するために、ユーザーがアプリを操作していない場合はアニメーションを実行しないようにします。
+-   読み込む画像は、[**GetThumbnailAsync**](/uwp/api/windows.storage.storagefile.getthumbnailasync) メソッドを使って、そのときのビューに適したサイズで読み込む必要があります。
 
 **CPU、メモリ、電源**
 
--   優先度の低い作業は、優先度の低いスレッドやコアで実行するようにスケジュールを設定します。 [非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-universal-windows-platform-apps)、[**Dispatcher**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.dispatcher) プロパティ、[**CoreDispatcher**](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher) クラスをご覧ください。
+-   優先度の低い作業は、優先度の低いスレッドやコアで実行するようにスケジュールを設定します。 [非同期プログラミング](../threading-async/asynchronous-programming-universal-windows-platform-apps.md)、[**Dispatcher**](/uwp/api/windows.ui.xaml.window.dispatcher) プロパティ、[**CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher) クラスをご覧ください。
 -   一時停止中のメモリ使用量の多いリソース (メディアなど) を解放することで、アプリのメモリ使用量を最小限に抑えます。
 -   コードのワーキング セットを最小限に抑えます。
 -   イベント ハンドラーを登録解除し、UI 要素を逆参照して、できるだけメモリ リークを避けます。
@@ -98,29 +98,29 @@ ms.locfileid: "74257882"
 
 **データ アクセス**
 
--   可能であれば、コンテンツをプリフェッチします。 自動的プリフェッチについては、[**ContentPrefetcher**](https://docs.microsoft.com/uwp/api/Windows.Networking.BackgroundTransfer.ContentPrefetcher) クラスをご覧ください。 手動プリフェッチについては、[**Windows.ApplicationModel.Background**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background) 名前空間と [**MaintenanceTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.MaintenanceTrigger) クラスをご覧ください。
--   可能であれば、アクセスするときに負荷がかかるコンテンツはキャッシュしておきます。 [  **LocalFolder**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder) プロパティと [**LocalSettings**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localsettings) プロパティをご覧ください。
+-   可能であれば、コンテンツをプリフェッチします。 自動的プリフェッチについては、[**ContentPrefetcher**](/uwp/api/Windows.Networking.BackgroundTransfer.ContentPrefetcher) クラスをご覧ください。 手動プリフェッチについては、[**Windows.ApplicationModel.Background**](/uwp/api/Windows.ApplicationModel.Background) 名前空間と [**MaintenanceTrigger**](/uwp/api/Windows.ApplicationModel.Background.MaintenanceTrigger) クラスをご覧ください。
+-   可能であれば、アクセスするときに負荷がかかるコンテンツはキャッシュしておきます。 [  **LocalFolder**](/uwp/api/windows.storage.applicationdata.localfolder) プロパティと [**LocalSettings**](/uwp/api/windows.storage.applicationdata.localsettings) プロパティをご覧ください。
 -   キャッシュが失われた場合は、できるだけ早くプレース ホルダー UI を表示して、アプリがコンテンツを読み込み中であることを示します。 ユーザーに不快感を与えないような方法で、プレースホルダーからライブ コンテンツに切り替えます。 たとえば、アプリがライブ コンテンツを読み込む際に、ユーザーの指またはマウス ポインターの下にあるコンテンツの位置を変更しないようにします。
 
 **アプリの起動と再開**
 
--   アプリのスプラッシュ画面の表示を遅らせ、必要ない場合は拡張しません。 詳しくは、「[高速で滑らかな起動エクスペリエンスを作り上げる](https://blogs.msdn.com/b/windowsappdev/archive/2012/05/21/creating-a-fast-and-fluid-app-launch-experience.aspx)」と「[スプラッシュ画面の表示時間の延長](https://docs.microsoft.com/windows/uwp/launch-resume/create-a-customized-splash-screen)」をご覧ください。
+-   アプリのスプラッシュ画面の表示を遅らせ、必要ない場合は拡張しません。 詳しくは、「[高速で滑らかな起動エクスペリエンスを作り上げる](https://blogs.msdn.com/b/windowsappdev/archive/2012/05/21/creating-a-fast-and-fluid-app-launch-experience.aspx)」と「[スプラッシュ画面の表示時間の延長](../launch-resume/create-a-customized-splash-screen.md)」をご覧ください。
 -   スプラッシュ画面が消えた直後に発生するアニメーションは無効にします。アプリの起動が遅くなるように感じられるためです。
 
 **アダプティブ UI と向き**
 
--   [  **VisualStateManager**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualStateManager) クラスを使います。
+-   [  **VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) クラスを使います。
 -   必要な処理だけをすぐに完了し、負荷の大きなアプリの作業は後回しにします。処理を完了し、アプリの UI がトリミングされた状態で表示されるまでに 200 ～ 800 ミリ秒かかります。
 
 パフォーマンス関連の設計が整ったら、アプリのコーディングを始めることができます。
 
 ## <a name="instrument-for-performance"></a>パフォーマンスを計測する
 
-アプリをコーディングする際に、アプリの実行中のある時点におけるメッセージやイベントをログに記録するコードを追加します。 アプリを後でテストする際に、Windows Performance Recorder や Windows Performance Analyzer (どちらも [Windows Performance Toolkit](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh162945(v=win.10)) に含まれています) などのプロファイリング ツールを使って、アプリのパフォーマンスに関するレポートを作成して閲覧できます。 このレポートでメッセージやイベントを確認して、レポートの結果を簡単に解析できます。
+アプリをコーディングする際に、アプリの実行中のある時点におけるメッセージやイベントをログに記録するコードを追加します。 アプリを後でテストする際に、Windows Performance Recorder や Windows Performance Analyzer (どちらも [Windows Performance Toolkit](/previous-versions/windows/it-pro/windows-8.1-and-8/hh162945(v=win.10)) に含まれています) などのプロファイリング ツールを使って、アプリのパフォーマンスに関するレポートを作成して閲覧できます。 このレポートでメッセージやイベントを確認して、レポートの結果を簡単に解析できます。
 
-ユニバーサル Windows プラットフォーム (UWP) には、[Windows イベント トレーシング (ETW)](https://docs.microsoft.com/windows/desktop/ETW/event-tracing-portal) と連動するログ記録 API が用意されており、イベント ログの記録とトレースを行う高機能なソリューションを提供します。 これらの API は [**Windows.Foundation.Diagnostics**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Diagnostics) 名前空間の一部であり、[**FileLoggingSession**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Diagnostics.FileLoggingSession) クラス、[**LoggingActivity**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Diagnostics.LoggingActivity) クラス、[**LoggingChannel**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Diagnostics.LoggingChannel) クラス、および [**LoggingSession**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Diagnostics.LoggingSession) クラスが含まれます。
+ユニバーサル Windows プラットフォーム (UWP) には、[Windows イベント トレーシング (ETW)](/windows/desktop/ETW/event-tracing-portal) と連動するログ記録 API が用意されており、イベント ログの記録とトレースを行う高機能なソリューションを提供します。 これらの API は [**Windows.Foundation.Diagnostics**](/uwp/api/Windows.Foundation.Diagnostics) 名前空間の一部であり、[**FileLoggingSession**](/uwp/api/Windows.Foundation.Diagnostics.FileLoggingSession) クラス、[**LoggingActivity**](/uwp/api/Windows.Foundation.Diagnostics.LoggingActivity) クラス、[**LoggingChannel**](/uwp/api/Windows.Foundation.Diagnostics.LoggingChannel) クラス、および [**LoggingSession**](/uwp/api/Windows.Foundation.Diagnostics.LoggingSession) クラスが含まれます。
 
-アプリ実行中の特定の時点でレポートにメッセージが記録するには、**LoggingChannel** オブジェクトを作成し、オブジェクトの [**LogMessage**](https://docs.microsoft.com/uwp/api/windows.foundation.diagnostics.loggingchannel.logmessage) メソッドを、次のように呼び出します。
+アプリ実行中の特定の時点でレポートにメッセージが記録するには、**LoggingChannel** オブジェクトを作成し、オブジェクトの [**LogMessage**](/uwp/api/windows.foundation.diagnostics.loggingchannel.logmessage) メソッドを、次のように呼び出します。
 
 ```csharp
 // using Windows.Foundation.Diagnostics;
@@ -133,7 +133,7 @@ myLoggingChannel.LogMessage(LoggingLevel.Information, "Here' s my logged message
 // ...
 ```
 
-アプリ実行中の特定の期間にわたってレポートに開始イベントと停止イベントを記録するには、**LoggingActivity** オブジェクトを作成し、オブジェクトの [**LoggingActivity**](https://docs.microsoft.com/uwp/api/windows.foundation.diagnostics.loggingactivity.loggingactivity) コンストラクターを次のように呼び出します。
+アプリ実行中の特定の期間にわたってレポートに開始イベントと停止イベントを記録するには、**LoggingActivity** オブジェクトを作成し、オブジェクトの [**LoggingActivity**](/uwp/api/windows.foundation.diagnostics.loggingactivity.loggingactivity) コンストラクターを次のように呼び出します。
 
 ```csharp
 // using Windows.Foundation.Diagnostics;
@@ -171,13 +171,13 @@ using (myLoggingActivity = new LoggingActivity("MyLoggingActivity"), myLoggingCh
     -   一貫性のある測定結果が得られるように、アプリを複数回実行して、テストのランダム要素を排除します。
 -   低電力での利用可能性をテストします。 ユーザーのデバイスは、開発用のコンピューターに比べ、大幅に低電力である可能性があります。 Windows は、モバイル デバイスなどの低電力デバイスでの動作を考慮して設計されています。 プラットフォームで動作するアプリが、これらのデバイスでも高いパフォーマンスを発揮できるようにする必要があります。 経験則として、低電力デバイスでの実行速度はデスクトップ コンピューターの約 1/4 であると考えられるため、これに応じて目標を設定します。
 -   アプリのパフォーマンスを測定するには、Microsoft Visual Studio や Windows Performance Analyzer のようなツールを組み合わせて使います。 Visual Studio は、ソース コードのリンク設定など、アプリに焦点を当てた分析を行うように設計されています。 Windows Performance Analyzer は、システム情報、タッチ操作イベントに関する情報、ディスクの入出力 (I/O) に関する情報、グラフィックス処理ユニット (GPU) のコストに関する情報の提供など、システムに焦点を当てた分析を行うように設計されています。 どちらのツールでも、トレースをキャプチャしてエクスポートし、共有トレースと事後検証トレースを再開することができます。
--   認定を受けるためにアプリをストアに提出する前に、[Windows アプリ認定キット テスト](windows-app-certification-kit-tests.md)の「パフォーマンスのテスト」セクションと [UWP アプリのテスト ケース](https://docs.microsoft.com/previous-versions/windows/apps/dn275879(v=win.10))の「パフォーマンスと安定性」セクションの説明に従って、パフォーマンス関連のテスト ケースをテスト プランに組み込みます。
+-   認定を受けるためにアプリをストアに提出する前に、[Windows アプリ認定キット テスト](windows-app-certification-kit-tests.md)の「パフォーマンスのテスト」セクションと [UWP アプリのテスト ケース](/previous-versions/windows/apps/dn275879(v=win.10))の「パフォーマンスと安定性」セクションの説明に従って、パフォーマンス関連のテスト ケースをテスト プランに組み込みます。
 
 詳しくは、次のリソースとプロファイリング ツールをご覧ください。
 
--   [Windows Performance Analyzer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10))
--   [Windows パフォーマンス ツールキット](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh162945(v=win.10))
--   [Visual Studio 診断ツールを使用してパフォーマンスを分析する](https://docs.microsoft.com/visualstudio/profiling/profiling-tools?view=vs-2015)
+-   [Windows Performance Analyzer](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10))
+-   [Windows パフォーマンス ツールキット](/previous-versions/windows/it-pro/windows-8.1-and-8/hh162945(v=win.10))
+-   [Visual Studio 診断ツールを使用してパフォーマンスを分析する](/visualstudio/profiling/profiling-tools?view=vs-2015)
 -   //build/ セッション「[XAML Performance (XAML のパフォーマンス)](https://channel9.msdn.com/Events/Build/2015/3-698)」
 -   //build/ セッション「[New XAML Tools in Visual Studio 2015 (Visual Studio 2015 の新しい XAML ツール)](https://channel9.msdn.com/Events/Build/2015/2-697)」
 

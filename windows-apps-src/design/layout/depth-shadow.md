@@ -9,12 +9,12 @@ ms.custom: 19H1
 keywords: windows 10, uwp
 pm-contact: chigy
 ms.localizationpriority: medium
-ms.openlocfilehash: 2655abd69f0f02efada9de5bab22e463c86b5d7e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: fc2adb295df97cf1af49608d15c135b9f56b4594
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970187"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165566"
 ---
 # <a name="z-depth-and-shadow"></a>Z 深度とシャドウ
 
@@ -54,7 +54,7 @@ ThemeShadow が MenuFlyout 上にどのように実装されているかを、�
 次のコモン コントロールでは、特に指定されていない限り、ThemeShadow が自動的に使用されて 32 px の深度からシャドウが投影されます。
 
 - [コンテキスト メニュー](../controls-and-patterns/menus.md)、[コマンド バー](../controls-and-patterns/app-bars.md)、[コマンド バー ポップアップ](../controls-and-patterns/command-bar-flyout.md)、[MenuBar](../controls-and-patterns/menus.md#create-a-menu-bar)
-- [ダイアログとポップアップ](../controls-and-patterns/dialogs.md) (64 px でのダイアログ)
+- [ダイアログとポップアップ](../controls-and-patterns/dialogs-and-flyouts/index.md) (64 px でのダイアログ)
 - [NavigationView](../controls-and-patterns/navigationview.md)
 - [ComboBox](../controls-and-patterns/combo-box.md)、[DropDownButton、SplitButton、ToggleSplitButton](../controls-and-patterns/buttons.md)
 - [TeachingTip](../controls-and-patterns/dialogs-and-flyouts/teaching-tip.md)
@@ -96,9 +96,9 @@ PopupRectangle.Translation += new Vector3(0, 0, 32);
 
 ### <a name="disabling-default-themeshadow-on-custom-flyout-controls"></a>カスタム ポップアップ コントロール上の既定の ThemeShadow を無効にする
 
-[Flyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.flyout)、[DatePickerFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.datepickerflyout)、[MenuFlyout](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.menuflyout) または [TimePickerFlyout](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.timepickerflyout) に基づくコントロールでは、自動的に ThemeShadow が使用されてシャドウが投影されます。
+[Flyout](/uwp/api/Windows.UI.Xaml.Controls.flyout)、[DatePickerFlyout](/uwp/api/windows.ui.xaml.controls.datepickerflyout)、[MenuFlyout](/uwp/api/Windows.UI.Xaml.Controls.menuflyout) または [TimePickerFlyout](/uwp/api/windows.ui.xaml.controls.timepickerflyout) に基づくコントロールでは、自動的に ThemeShadow が使用されてシャドウが投影されます。
 
-既定のシャドウがコントロールのコンテンツに対して正しく表示されない場合は、関連付けられている FlyoutPresenter 上で [IsDefaultShadowEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flyoutpresenter.isdefaultshadowenabled) プロパティを `false` に設定することで、無効にすることができます。
+既定のシャドウがコントロールのコンテンツに対して正しく表示されない場合は、関連付けられている FlyoutPresenter 上で [IsDefaultShadowEnabled](/uwp/api/windows.ui.xaml.controls.flyoutpresenter.isdefaultshadowenabled) プロパティを `false` に設定することで、無効にすることができます。
 
 ```xaml
 <Flyout>
@@ -154,7 +154,7 @@ Rectangle2.Translation += new Vector3(120, 0, 32);
 
 ## <a name="drop-shadow"></a>ドロップ シャドウ
 
-DropShadow では自動的な環境への応答は行われず、光源を使用しません。 実装の例については、「[DropShadow クラス](https://docs.microsoft.com/uwp/api/windows.ui.composition.dropshadow)」を参照してください。
+DropShadow では自動的な環境への応答は行われず、光源を使用しません。 実装の例については、「[DropShadow クラス](/uwp/api/windows.ui.composition.dropshadow)」を参照してください。
 
 ## <a name="which-shadow-should-i-use"></a>どのシャドウを使用すればよいか
 

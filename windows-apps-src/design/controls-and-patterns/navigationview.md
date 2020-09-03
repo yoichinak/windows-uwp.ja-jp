@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: b1f3881081b22fd98e9956f3c2fe45922531677b
-ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
+ms.openlocfilehash: 7f71a11c76bc6318c9000a9468c7bd9574e0c5d0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85448412"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170036"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -152,7 +152,7 @@ NavigationView ウィンドウには、次のものを含めることができ�
 - [NavigationViewItemSeparator](/uwp/api/windows.ui.xaml.controls.navigationviewitemseparator) オブジェクト。 ナビゲーション項目をグループ化するための区切り記号。 [Opacity](/uwp/api/windows.ui.xaml.uielement.opacity) プロパティを 0 に設定して区切り記号を空白としてレンダリングします。
 - [NavigationViewItemHeader](/uwp/api/windows.ui.xaml.controls.navigationviewitemheader) オブジェクト。 項目グループへのラベル付けのためのヘッダー。
 - オプションの [AutoSuggestBox](auto-suggest-box.md) を含めると、アプリ レベルの検索が可能になります。 コントロールを [NavigationView.AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.navigationview.autosuggestbox) プロパティに割り当てます。
-- [アプリ設定](../app-settings/app-settings-and-data.md)のエントリ ポイント (オプション)。 設定項目を非表示にするには、[IsSettingsVisible](/uwp/api/windows.ui.xaml.controls.navigationview.IsSettingsVisible) プロパティを **false** に設定します。
+- [アプリ設定](../app-settings/guidelines-for-app-settings.md)のエントリ ポイント (オプション)。 設定項目を非表示にするには、[IsSettingsVisible](/uwp/api/windows.ui.xaml.controls.navigationview.IsSettingsVisible) プロパティを **false** に設定します。
 
 また、左側のウィンドウには次のものが含まれています。
 
@@ -639,7 +639,7 @@ private void On_Navigated(object sender, NavigationEventArgs e)
 ```
 
 > [!NOTE]
-> このコード例の [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/index) バージョンについては、最初に**空のアプリ (C++/WinRT)** プロジェクト テンプレートに基づいて新しいプロジェクトを作成してから、登録情報内のコードを指定されたソース コード ファイルに追加します。 登録情報に示されているとおりにソース コードを使用するには、新しいプロジェクトに *NavigationViewCppWinRT* という名前を付けます
+> このコード例の [C++/WinRT](../../cpp-and-winrt-apis/index.md) バージョンについては、最初に**空のアプリ (C++/WinRT)** プロジェクト テンプレートに基づいて新しいプロジェクトを作成してから、登録情報内のコードを指定されたソース コード ファイルに追加します。 登録情報に示されているとおりにソース コードを使用するには、新しいプロジェクトに *NavigationViewCppWinRT* という名前を付けます
 
 ```cppwinrt
 // MainPage.idl
@@ -945,7 +945,7 @@ namespace winrt::NavigationViewCppWinRT::implementation
 
 上記の C# および C++ /WinRT コードは、両方のバージョンで同じ XAML マークアップを使用できるように設計されています。 ただし、このセクションに記載されている C++/WinRT バージョンを実装する別の方法があり、これが適切である場合もあります。
 
-次に示すのは、**NavView_ItemInvoked** ハンドラーの別のバージョンです。 このバージョンのハンドラーの手法では、移動先のページの完全な型名を ([**NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem) のタグに) 最初に格納する必要があります。 ハンドラーでは、その値のボックス化を解除し、それを [**Windows::UI::Xaml::Interop::TypeName**](/uwp/api/windows.ui.xaml.interop.typename) オブジェクトに変換し、それを使用して目的のページに移動します。 上記の例に示した `_pages` という名前のマッピング変数は必要ありません。また、ご利用のタグ内の値が有効な型であることを確認するための単体テストを作成することができます。 「[C++/WinRT を使用した IInspectable へのスカラー値のボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)」も参照してください。
+次に示すのは、**NavView_ItemInvoked** ハンドラーの別のバージョンです。 このバージョンのハンドラーの手法では、移動先のページの完全な型名を ([**NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem) のタグに) 最初に格納する必要があります。 ハンドラーでは、その値のボックス化を解除し、それを [**Windows::UI::Xaml::Interop::TypeName**](/uwp/api/windows.ui.xaml.interop.typename) オブジェクトに変換し、それを使用して目的のページに移動します。 上記の例に示した `_pages` という名前のマッピング変数は必要ありません。また、ご利用のタグ内の値が有効な型であることを確認するための単体テストを作成することができます。 「[C++/WinRT を使用した IInspectable へのスカラー値のボックス化とボックス化解除](../../cpp-and-winrt-apis/boxing.md)」も参照してください。
 
 ```cppwinrt
 void MainPage::NavView_ItemInvoked(
@@ -1575,7 +1575,7 @@ MainPage::MainPage()
 
 ### <a name="keyboarding-within-hierarchical-navigationview"></a>階層型 NavigationView 内でのキーボード操作
 
-ユーザーは、[キーボード](/windows/uwp/design/input/keyboard-interactions)を使用してナビゲーション ビューの周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](/windows/uwp/design/controls-and-patterns/tree-view)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
+ユーザーは、[キーボード](../input/keyboard-interactions.md)を使用してナビゲーション ビューの周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](./tree-view.md)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
 
 | キー      |      Left モード      |  Top モード | ポップアップ  |
 |----------|------------------------|--------------|------------|
@@ -1659,7 +1659,7 @@ Space または Enter キーでは常に項目の呼び出しまたは選択を�
 
 > `IsTitleBarAutoPaddingEnabled` プロパティには、[Windows UI ライブラリ](/uwp/toolkits/winui/) 2.2 以降が必要です。
 
-一部のアプリでは、[そのウィンドウのタイトル バーをカスタマイズ](/windows/uwp/design/shell/title-bar)するように選択できるため、そのアプリのコンテンツがタイトル バー領域に拡張される可能性があります。 NavigationView が、 **[ExtendViewIntoTitleBar](/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.extendviewintotitlebar) API を使用**してタイトル バーに拡張されるアプリ内のルート要素である場合、[ドラッグ可能な領域](/windows/uwp/design/shell/title-bar#draggable-regions)との重なりを避けるためその対話型要素の位置が自動的に調整されます。
+一部のアプリでは、[そのウィンドウのタイトル バーをカスタマイズ](../shell/title-bar.md)するように選択できるため、そのアプリのコンテンツがタイトル バー領域に拡張される可能性があります。 NavigationView が、 **[ExtendViewIntoTitleBar](/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.extendviewintotitlebar) API を使用**してタイトル バーに拡張されるアプリ内のルート要素である場合、[ドラッグ可能な領域](../shell/title-bar.md#draggable-regions)との重なりを避けるためその対話型要素の位置が自動的に調整されます。
 
 ![アプリのタイトル バーへの拡張](images/navigation-view-with-titlebar-padding.png)
 

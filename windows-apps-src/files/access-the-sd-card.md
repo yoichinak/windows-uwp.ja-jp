@@ -6,12 +6,12 @@ ms.date: 03/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, SD カード, ストレージ
 ms.localizationpriority: medium
-ms.openlocfilehash: a6f94f0f417225ae154fc65c6beb5a6e2c1812fb
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d41eb13bd153206f6140d869fa19558725bbc94b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72282383"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89163196"
 ---
 # <a name="access-the-sd-card"></a>SD カードへのアクセス
 
@@ -23,7 +23,7 @@ ms.locfileid: "72282383"
 
 次の方法を使って、オプションの SD カードに対してファイルの保存とアクセスを行うことができます。
 - ファイル ピッカー
-- [  **Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) API
+- [  **Windows.Storage**](/uwp/api/Windows.Storage) API
 
 ## <a name="what-you-can-and-cant-access-on-the-sd-card"></a>SD カードでアクセスできるデータとアクセスできないデータ
 
@@ -36,7 +36,7 @@ ms.locfileid: "72282383"
 
 - アプリでは、システム フォルダーとそのフォルダー内のファイルを参照したり、アクセスしたりすることはできません。
 - 隠し属性でマークされたファイルを参照することはできません。 通常、隠し属性は、データを誤って削除するというリスクを減らすために使われます。
-- [  **KnownFolders.DocumentsLibrary**](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.documentslibrary) を使ってドキュメント ライブラリを参照したり、ドキュメント ライブラリにアクセスしたりすることはできません。 ただしファイル システムを走査することによって、SD カード上のドキュメント ライブラリにアクセスすることはできます。
+- [  **KnownFolders.DocumentsLibrary**](/uwp/api/windows.storage.knownfolders.documentslibrary) を使ってドキュメント ライブラリを参照したり、ドキュメント ライブラリにアクセスしたりすることはできません。 ただしファイル システムを走査することによって、SD カード上のドキュメント ライブラリにアクセスすることはできます。
 
 ## <a name="security-and-privacy-considerations"></a>セキュリティとプライバシーに関する考慮事項
 
@@ -45,7 +45,7 @@ ms.locfileid: "72282383"
 - SD カードがデバイスに挿入されている間、SD カード上のファイルは、同じファイルの種類を処理対象として登録している他のアプリからアクセスすることができます。
 - SD カードをデバイスから取り外し、PC で開くと、ファイルはエクスプローラーに表示されるため、他のアプリからアクセスすることができます。
 
-アプリを SD カードにインストールし、ファイルを SD カードの [**LocalFolder**](https://docs.microsoft.com/uwp/api/windows.storage.applicationdata.localfolder) に保存する場合、それらのファイルは暗号化されるため、他のアプリからアクセスすることはできません。
+アプリを SD カードにインストールし、ファイルを SD カードの [**LocalFolder**](/uwp/api/windows.storage.applicationdata.localfolder) に保存する場合、それらのファイルは暗号化されるため、他のアプリからアクセスすることはできません。
 
 ## <a name="requirements-for-accessing-files-on-the-sd-card"></a>SD カード上のファイルへアクセスするための要件
 
@@ -62,9 +62,9 @@ SD カードのファイルにアクセスするには通常、次のことを�
 
 ### <a name="getting-a-reference-to-the-sd-card"></a>SD カードへの参照の取得
 
-[  **KnownFolders.RemovableDevices**](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.removabledevices) フォルダーは、デバイスに現在接続されている一連のリムーバブル デバイスに対する論理ルートである [**StorageFolder**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFolder) です。 SD カードが取り付けられている場合は、**KnownFolders.RemovableDevices** フォルダーの下にある、最初の (唯一の) **StorageFolder** が SD カードを表します。
+[  **KnownFolders.RemovableDevices**](/uwp/api/windows.storage.knownfolders.removabledevices) フォルダーは、デバイスに現在接続されている一連のリムーバブル デバイスに対する論理ルートである [**StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) です。 SD カードが取り付けられている場合は、**KnownFolders.RemovableDevices** フォルダーの下にある、最初の (唯一の) **StorageFolder** が SD カードを表します。
 
-次のようなコードを使って、SD カードが存在するかどうかを判断し、SD カードへの参照を [**StorageFolder**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFolder) として取得します。
+次のようなコードを使って、SD カードが存在するかどうかを判断し、SD カードへの参照を [**StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) として取得します。
 
 ```csharp
 using Windows.Storage;
@@ -90,16 +90,16 @@ else
 
 ### <a name="querying-the-contents-of-the-sd-card"></a>SD カードのコンテンツの照会
 
-SD カードには、既知のフォルダーとして認識されないさまざまなフォルダーやファイルを含めることができますが、[**KnownFolders**](https://docs.microsoft.com/uwp/api/Windows.Storage.KnownFolders) の場所の情報を使って照会することはできません。 ファイルを検索するには、アプリでファイル システムを再帰的に走査して、SD カードのコンテンツを列挙する必要があります。 SD カードのコンテンツを効率的に取得するには、[**GetFilesAsync (CommonFileQuery.DefaultQuery)** ](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfilesasync) と [**GetFoldersAsync (CommonFolderQuery.DefaultQuery)** ](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfoldersasync) を使います。
+SD カードには、既知のフォルダーとして認識されないさまざまなフォルダーやファイルを含めることができますが、[**KnownFolders**](/uwp/api/Windows.Storage.KnownFolders) の場所の情報を使って照会することはできません。 ファイルを検索するには、アプリでファイル システムを再帰的に走査して、SD カードのコンテンツを列挙する必要があります。 SD カードのコンテンツを効率的に取得するには、[**GetFilesAsync (CommonFileQuery.DefaultQuery)** ](/uwp/api/windows.storage.storagefolder.getfilesasync) と [**GetFoldersAsync (CommonFolderQuery.DefaultQuery)** ](/uwp/api/windows.storage.storagefolder.getfoldersasync) を使います。
 
 SD カードを走査するにはバックグラウンド スレッドを使うことをお勧めします。 SD カードには、かなりのギガバイト数のデータを格納できる場合があります。
 
 また、アプリでは、ユーザーに対してフォルダー ピッカーを使って特定のフォルダーを選ぶように要求することもできます。
 
-[  **KnownFolders.RemovableDevices**](https://docs.microsoft.com/uwp/api/windows.storage.knownfolders.removabledevices) から取得したパスを使って SD カード上のファイル システムにアクセスした場合のメソッドの動作を次に示します。
+[  **KnownFolders.RemovableDevices**](/uwp/api/windows.storage.knownfolders.removabledevices) から取得したパスを使って SD カード上のファイル システムにアクセスした場合のメソッドの動作を次に示します。
 
--   [  **GetFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfilesasync) メソッドは、処理対象として登録したファイル拡張子と、指定したメディア ライブラリ機能に関連付けられているファイル拡張子との和集合を返します。
--   アクセスしようとするファイルの拡張子を処理対象として登録しなかった場合、[**GetFileFromPathAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getfilefrompathasync) メソッドは失敗します。
+-   [  **GetFilesAsync**](/uwp/api/windows.storage.storagefolder.getfilesasync) メソッドは、処理対象として登録したファイル拡張子と、指定したメディア ライブラリ機能に関連付けられているファイル拡張子との和集合を返します。
+-   アクセスしようとするファイルの拡張子を処理対象として登録しなかった場合、[**GetFileFromPathAsync**](/uwp/api/windows.storage.storagefile.getfilefrompathasync) メソッドは失敗します。
 
 ## <a name="identifying-the-individual-sd-card"></a>個々の SD カードの識別
 

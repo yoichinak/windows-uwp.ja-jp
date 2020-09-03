@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: cf2eebdc97a1052dd3f4a3e00dd3a911cb80bace
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: bcd8fe289ce1539605ccb454e0994d02563688c5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970667"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169496"
 ---
 # <a name="rich-edit-box"></a>リッチ エディット ボックス
 
@@ -26,14 +26,14 @@ ms.locfileid: "82970667"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
-> **プラットフォーム API**: [RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
+> **プラットフォーム API**: [RichEditBox クラス](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 **RichEditBox** を使用して、テキスト ファイルを表示および編集します。 その他の標準的なテキスト入力ボックスを使用するように、RichEditBox を使用してアプリにユーザー入力を行わないでください。 代わりに、アプリとは別のテキスト ファイルを操作するために使用します。 通常は、RichEditBox に入力されたテキストを .rtf ファイルに保存します。
--   複数行テキスト ボックスの主な目的が読み取り専用ドキュメントの作成 (ブログのエントリ、メール メッセージのコンテンツなど) であり、ドキュメントでリッチ テキストが必要な場合は、代わりに[リッチ テキスト ブロック](/windows/uwp/design/controls-and-patterns/rich-text-block)を使います。
+-   複数行テキスト ボックスの主な目的が読み取り専用ドキュメントの作成 (ブログのエントリ、メール メッセージのコンテンツなど) であり、ドキュメントでリッチ テキストが必要な場合は、代わりに[リッチ テキスト ブロック](./rich-text-block.md)を使います。
 -   内部的に使うだけで、ユーザーに再表示しないテキストを取得する場合は、プレーンテキスト入力コントロールを使います。
 -   他のすべてのシナリオでは、プレーンテキスト入力コントロールを使います。
 
@@ -61,9 +61,9 @@ ms.locfileid: "82970667"
 
 ## <a name="create-a-rich-edit-box"></a>リッチ エディット ボックスを作成します。
 
-既定では、RichEditBox はスペル チェックをサポートします。 スペル チェックを無効にするには、[IsSpellCheckEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled) プロパティを **false** に設定します。 詳しくは、「[スペル チェックのガイドライン](text-controls.md)」をご覧ください。
+既定では、RichEditBox はスペル チェックをサポートします。 スペル チェックを無効にするには、[IsSpellCheckEnabled](/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled) プロパティを **false** に設定します。 詳しくは、「[スペル チェックのガイドライン](text-controls.md)」をご覧ください。
 
-RichEditBox のコンテンツを取得するには、このコントロールの [Document](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox.document) プロパティを使います。 RichTextBlock コントロールと異なり、RichEditBox のコンテンツは [Windows.UI.Text.ITextDocument](https://docs.microsoft.com/windows/desktop/api/tom/nn-tom-itextdocument) オブジェクトです。このコンテンツは、[Windows.UI.Xaml.Documents.Block](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Block) オブジェクトをそのコンテンツとして使います。 ITextDocument インターフェイスは、ドキュメントの読み込みとストリームへの保存、テキスト範囲の取得、アクティブな選択内容の取得、変更の取り消しとやり直し、既定の書式設定属性の設定などに利用できます。
+RichEditBox のコンテンツを取得するには、このコントロールの [Document](/uwp/api/windows.ui.xaml.controls.richeditbox.document) プロパティを使います。 RichTextBlock コントロールと異なり、RichEditBox のコンテンツは [Windows.UI.Text.ITextDocument](/windows/desktop/api/tom/nn-tom-itextdocument) オブジェクトです。このコンテンツは、[Windows.UI.Xaml.Documents.Block](/uwp/api/Windows.UI.Xaml.Documents.Block) オブジェクトをそのコンテンツとして使います。 ITextDocument インターフェイスは、ドキュメントの読み込みとストリームへの保存、テキスト範囲の取得、アクティブな選択内容の取得、変更の取り消しとやり直し、既定の書式設定属性の設定などに利用できます。
 
 この例では、RichEditBox でリッチ テキスト形式 (.rtf) ファイルの編集、読み込み、保存を行う方法を示します。
 
@@ -208,7 +208,7 @@ private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 
 ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。 通常、既定のキーボード レイアウトは、リッチ テキスト ドキュメントを扱う場合に適しています。
 
-入力値の種類の使い方について詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」をご覧ください。
+入力値の種類の使い方について詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](../input/use-input-scope-to-change-the-touch-keyboard.md)」をご覧ください。
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -229,5 +229,5 @@ private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 - [スペル チェックのガイドライン](text-controls.md)
 - [検索の追加](search.md)
 - [テキスト入力のガイドライン](text-controls.md)
-- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+- [TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
