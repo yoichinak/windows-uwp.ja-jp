@@ -11,18 +11,18 @@ design-contact: minah.kim
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ccd21481a8488a101ee79ae0b0224651a94461a7
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: e7c25a77b552ffc187a4e49a02b7facd771e8258
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967967"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175586"
 ---
 # <a name="text-input-with-the-handwriting-view"></a>手書きビューでのテキスト入力
 
 ![ペンでタップするとテキスト ボックスが展開する](images/handwritingview/handwritingview2.gif)
 
-[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) などの Windows テキスト コントロール、および [AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) などから派生したコントロールによってサポートされる、手書き入力用の手書きビューをカスタマイズします。
+[TextBox](/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](/uwp/api/windows.ui.xaml.controls.richeditbox) などの Windows テキスト コントロール、および [AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.autosuggestbox) などから派生したコントロールによってサポートされる、手書き入力用の手書きビューをカスタマイズします。
 
 ## <a name="overview"></a>概要
 
@@ -50,7 +50,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 ご利用のアプリケーションで同等のインクをテキストに変換する機能を既に提供している場合、または、テキスト入力エクスペリエンスが手書きによって使用できない何らかの書式または特殊文字 (タブなど) に依存する場合、手書きビューを無効にする必要がある可能性があります。
 
-この例では、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) コントロールの [IsHandwritingViewEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.ishandwritingviewenabled) プロパティを false に設定することで、手書きビューを無効にします。 手書きビューをサポートするすべてのテキスト コントロールで、同様のプロパティがサポートされます。
+この例では、[TextBox](/uwp/api/windows.ui.xaml.controls.textbox) コントロールの [IsHandwritingViewEnabled](/uwp/api/windows.ui.xaml.controls.textbox.ishandwritingviewenabled) プロパティを false に設定することで、手書きビューを無効にします。 手書きビューをサポートするすべてのテキスト コントロールで、同様のプロパティがサポートされます。
 
 ```xaml
 <TextBox Name="SampleTextBox"
@@ -67,7 +67,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 アプリケーション UI はより大きなコントロールに対応するためにリフローされないので、システムによってビューで重要な UI が見えなくなる可能性があります。
 
-ここで、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) [HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の [PlacementAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.placementalignment) プロパティを使用する方法を示し、手書きビューを整列するために使用される基になるテキスト コントロール上のアンカーを指定します。
+ここで、[TextBox](/uwp/api/windows.ui.xaml.controls.textbox) [HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の [PlacementAlignment](/uwp/api/windows.ui.xaml.controls.handwritingview.placementalignment) プロパティを使用する方法を示し、手書きビューを整列するために使用される基になるテキスト コントロール上のアンカーを指定します。
 
 ```xaml
 <TextBox Name="SampleTextBox"
@@ -84,7 +84,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 上位のインク認識の一覧を提供するために、既定で入力ヒントのポップアップは有効にされています。上位の候補が正しくない場合、ユーザーはここから選択することができます。
 
-ご利用のアプリケーションで既に堅牢なカスタムの認識機能が提供されている場合、次の例に示すように、[AreCandidatesEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.arecandidatesenabled) プロパティを使用して組み込みの修正候補を無効にすることができます。
+ご利用のアプリケーションで既に堅牢なカスタムの認識機能が提供されている場合、次の例に示すように、[AreCandidatesEnabled](/uwp/api/windows.ui.xaml.controls.handwritingview.arecandidatesenabled) プロパティを使用して組み込みの修正候補を無効にすることができます。
 
 ```xaml
 <TextBox Name="SampleTextBox"
@@ -107,7 +107,7 @@ XAML テキスト入力ボックスでは、[Windows Ink](../input/pen-and-stylu
 
 ご利用のアプリでは、この設定にアクセスし、テキスト コントロールで認識されたテキスト用に選択されたフォントを使用することができます。
 
-この例では、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) の [TextChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.textchanged) イベントをリッスンし、テキストの変更が HandwritingView から発生した場合、ユーザーが選択したフォントが適用されます (または、選択していない場合は、既定のフォントが適用されます)。
+この例では、[TextBox](/uwp/api/windows.ui.xaml.controls.textbox) の [TextChanged](/uwp/api/windows.ui.xaml.controls.textbox.textchanged) イベントをリッスンし、テキストの変更が HandwritingView から発生した場合、ユーザーが選択したフォントが適用されます (または、選択していない場合は、既定のフォントが適用されます)。
 
 ```csharp
 private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -121,11 +121,11 @@ private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
 
 ## <a name="access-the-handwritingview-in-composite-controls"></a>複合コントロールで HandwritingView にアクセスする
 
-[TextBox ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox) コントロールまたは [RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox) コントロールを使用する複合コントロール ([AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) など) では、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) もサポートされます。
+[TextBox ](/uwp/api/windows.ui.xaml.controls.textbox) コントロールまたは [RichEditBox](/uwp/api/windows.ui.xaml.controls.richeditbox) コントロールを使用する複合コントロール ([AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.autosuggestbox) など) では、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) もサポートされます。
 
-複合コントロールで [HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) にアクセスするには、[VisualTreeHelper](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.visualtreehelper) API を使用します。
+複合コントロールで [HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) にアクセスするには、[VisualTreeHelper](/uwp/api/windows.ui.xaml.media.visualtreehelper) API を使用します。
 
-次の XAML スニペットでは、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) コントロールが表示されます。
+次の XAML スニペットでは、[AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.autosuggestbox) コントロールが表示されます。
 
 ```xaml
 <AutoSuggestBox Name="SampleAutoSuggestBox" 
@@ -136,7 +136,7 @@ private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
 </AutoSuggestBox>
 ```
 
-対応するコードビハインドでは、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) で [HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) を無効にする方法を示しています。
+対応するコードビハインドでは、[AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.autosuggestbox) で [HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) を無効にする方法を示しています。
 
 1. まず、FindInnerTextBox 関数を呼び出すアプリケーションで読み込まれたイベントを処理して、視覚的なツリー走査を開始します。
 
@@ -190,17 +190,17 @@ private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
 
 ## <a name="reposition-the-handwritingview"></a>HandwritingView の位置を変更する
 
-場合によっては、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) 以外ではカバーできない可能性のある UI 要素が確実にカバーされるようにする必要があります。
+場合によっては、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) 以外ではカバーできない可能性のある UI 要素が確実にカバーされるようにする必要があります。
 
 ここで、ディクテーションをサポートする TextBox を作成します (TextBox とディクテーション ボタンを StackPanel に配置することで実装されます)。
 
 ![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation.png)
 
-StackPanel が TextBox より大きくなったため、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) によってすべての複合コントロールが遮られるとは限りません。
+StackPanel が TextBox より大きくなったため、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) によってすべての複合コントロールが遮られるとは限りません。
 
 ![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation-handwritingview.png)
 
-これに対処するには、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の PlacementTarget プロパティに整列される必要がある UI 要素を設定します。
+これに対処するには、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の PlacementTarget プロパティに整列される必要がある UI 要素を設定します。
 
 ```xaml
 <StackPanel Name="DictationBox" 
@@ -227,7 +227,7 @@ StackPanel が TextBox より大きくなったため、[HandwritingView](https:
 
 ## <a name="resize-the-handwritingview"></a>HandwritingView のサイズを変更する
 
-ビューにより重要な UI が遮られないことを確実にする必要があるときに便利な場合がある、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) のサイズを設定することもできます。
+ビューにより重要な UI が遮られないことを確実にする必要があるときに便利な場合がある、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) のサイズを設定することもできます。
 
 前の例のように、ディクテーションをサポートする TextBox を作成します (TextBox とディクテーション ボタンを StackPanel に配置することで実装されます)。
 
@@ -237,7 +237,7 @@ StackPanel が TextBox より大きくなったため、[HandwritingView](https:
 
 ![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation-handwritingview-resize.png)
 
-これを行うには、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の MaxWidth プロパティを、見えなくなる UI 要素の幅にバインドします。
+これを行うには、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の MaxWidth プロパティを、見えなくなる UI 要素の幅にバインドします。
 
 ```xaml
 <StackPanel Name="DictationBox" 
@@ -275,7 +275,7 @@ StackPanel が TextBox より大きくなったため、[HandwritingView](https:
 
 ![カスタム UI を含む TextBox](images/handwritingview/textbox-with-customui.png)
 
-次の例では、[ポップアップ](https://docs.microsoft.com/uwp/api/windows.ui.popups)の位置を設定するために、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の [Opened](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.opened)、[Closed](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview.closed)、[SizeChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) イベントをリッスンする方法を示します。
+次の例では、[ポップアップ](/uwp/api/windows.ui.popups)の位置を設定するために、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の [Opened](/uwp/api/windows.ui.xaml.controls.handwritingview.opened)、[Closed](/uwp/api/windows.ui.xaml.controls.handwritingview.closed)、[SizeChanged](/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) イベントをリッスンする方法を示します。
 
 ```csharp
 private void Search_HandwritingViewOpened(
@@ -313,10 +313,9 @@ private double GetPopupVerticalOffset()
 
 ## <a name="retemplate-the-handwritingview-control"></a>HandwritingView コントロールの再テンプレート化
 
-すべての XAML フレームワーク コントロールで、特定の要件のために、[HandwritingView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.handwritingview) の視覚的な構造と視覚的な動作の両方をカスタマイズできます。
+すべての XAML フレームワーク コントロールで、特定の要件のために、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の視覚的な構造と視覚的な動作の両方をカスタマイズできます。
 
-カスタム テンプレートを作成する完全な例を表示するには、「[カスタム トランスポート コントロールを作成する](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/custom-transport-controls)」の方法または「[Custom Edit Control sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)」 (カスタムの編集コントロールのサンプル) を確認してください。
-
+カスタム テンプレートを作成する完全な例を表示するには、「[カスタム トランスポート コントロールを作成する](./custom-transport-controls.md)」の方法または「[Custom Edit Control sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)」 (カスタムの編集コントロールのサンプル) を確認してください。
 
 
 

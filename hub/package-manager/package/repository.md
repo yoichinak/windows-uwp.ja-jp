@@ -4,12 +4,12 @@ description: アプリケーションを記述するパッケージ マニフェ
 ms.date: 04/29/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 19a66b2d0724eb0f4f8c3f171033e4e616751717
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: ef94a77d5012adcedf31ae1ecfddc036bcc3a059
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334596"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166506"
 ---
 # <a name="submit-your-manifest-to-the-repository"></a>リポジトリにマニフェストを送信する
 
@@ -122,7 +122,7 @@ Windows パッケージ マネージャー リポジトリへのすべてのア�
 
 * **Needs: author feedback (必要: 作成者フィードバック)** :送信でエラーが発生しています。 プル要求はユーザー再割り当てされます。 10 日以内に問題に対処しない場合、プル要求は終了されます。
 * **Manifest-Validation-Error**:送信されたマニフェストに構文エラーが含まれています。
-* **URL-Validation-Error**:送信内の 1 つ以上の URL が [SmartScreen](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-smartscreen/microsoft-defender-smartscreen-overview) 検証に失敗しました。
+* **URL-Validation-Error**:送信内の 1 つ以上の URL が [SmartScreen](/windows/security/threat-protection/microsoft-defender-smartscreen/microsoft-defender-smartscreen-overview) 検証に失敗しました。
 * **Binary-Validation-Error**:送信されたアプリケーション インストーラがウイルス スキャン テストに失敗したか、またはハッシュが一致していません。
 * **Pull-Request-Error**:プル要求に問題があります。 たとえば、フォルダー構造に[必要な形式](#step-3-add-your-manifest-to-the-local-repository)がありません。
 * **Validation-Error**:送信されたアプリケーションは、一般的な検証テストに失敗しました。

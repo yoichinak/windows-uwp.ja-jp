@@ -9,12 +9,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c91053197cff231ec9fac85263b33306a3735ccd
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0663f9947249f54a888bf2d3f52f522ceb885604
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82034216"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175786"
 ---
 # <a name="segoe-mdl2-icons"></a>Segoe MDL2 アイコン
 
@@ -22,7 +22,7 @@ ms.locfileid: "82034216"
 
 この記事では、Segoe MDL2 アセット フォントによって提供されるアイコンの一覧を示します。 
 
-> **重要な API**:[**Symbol 列挙型**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)、[**FontIcon クラス**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)
+> **重要な API**:[**Symbol 列挙型**](/uwp/api/windows.ui.xaml.controls.symbol)、[**FontIcon クラス**](/uwp/api/windows.ui.xaml.controls.fonticon)
 
 ## <a name="about-segoe-mdl2-assets"></a>Segoe MDL2 アセットについて
 
@@ -43,13 +43,13 @@ Windows 10 のリリースにより、従来の Windows 8/8.1 Segoe UI Symbol �
 また、アイコンの多くは、アラビア語、ペルシア語、ヘブライ語などの右から左に書く文字を使う言語でも利用できるように、左右が反転した形式も作成されています。
 
 ## <a name="using-the-icons"></a>アイコンの使用
-C#/VB/C++ と XAML を使ってアプリを開発している場合、[Symbol 列挙型](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)で Segoe MDL2 Assets のグリフを指定できます。 
+C#/VB/C++ と XAML を使ってアプリを開発している場合、[Symbol 列挙型](/uwp/api/windows.ui.xaml.controls.symbol)で Segoe MDL2 Assets のグリフを指定できます。 
 
 ```xaml
 <SymbolIcon Symbol="GlobalNavigationButton"/>
 ```
 
-Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォントのグリフを使用する場合は、[**FontIcon**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon) を使用します。
+Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォントのグリフを使用する場合は、[**FontIcon**](/uwp/api/windows.ui.xaml.controls.fonticon) を使用します。
 
 ```xaml
 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"/>
@@ -5521,7 +5521,5 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 ## <a name="related-articles"></a>関連記事
 
 * [アイコンのガイドライン](../style/icons.md)
-* [Symbol 列挙型](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Symbol)
-* [FontIcon クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)
-
-
+* [Symbol 列挙型](/uwp/api/Windows.UI.Xaml.Controls.Symbol)
+* [FontIcon クラス](/uwp/api/windows.ui.xaml.controls.fonticon)

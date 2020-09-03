@@ -7,16 +7,16 @@ ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 705b0ecb474c0bb821c3a21f4b8b66073984827f
-ms.sourcegitcommit: 015291bdf2e7d67076c1c85fc025f49c840ba475
+ms.openlocfilehash: fe9cbb9fdc9d73a38642a4f5894b1ef0f8182e69
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85469577"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174516"
 ---
 # <a name="navigation-history-and-backwards-navigation-for-windows-apps"></a>Windows アプリでのナビゲーション履歴と前に戻る移動
 
-> **重要な API**:[BackRequested イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager.BackRequested)、[SystemNavigationManager クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Core.SystemNavigationManager)、[OnNavigatedTo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto#Windows_UI_Xaml_Controls_Page_OnNavigatedTo_Windows_UI_Xaml_Navigation_NavigationEventArgs_)
+> **重要な API**:[BackRequested イベント](/uwp/api/Windows.UI.Core.SystemNavigationManager.BackRequested)、[SystemNavigationManager クラス](/uwp/api/Windows.UI.Core.SystemNavigationManager)、[OnNavigatedTo](/uwp/api/windows.ui.xaml.controls.page.onnavigatedto#Windows_UI_Xaml_Controls_Page_OnNavigatedTo_Windows_UI_Xaml_Navigation_NavigationEventArgs_)
 
 Windows アプリでは、アプリ内でのユーザーのナビゲーション履歴の横断や、デバイスによってはアプリ間の移動が可能な、一貫性のある "戻る" ナビゲーション システムが提供されています。
 
@@ -74,7 +74,7 @@ Windows アプリでは、アプリ内でのユーザーのナビゲーション
 
 ## <a name="code-example"></a>コードの例
 
-次のコード例は、戻るボタンで前に戻る移動の動作を実装する方法を示しています。 このコードでは、Button の [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.Click) イベントに応答し、新しいページに移動したときに呼び出される [**OnNavigatedTo**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.onnavigatedto#Windows_UI_Xaml_Controls_Page_OnNavigatedTo_Windows_UI_Xaml_Navigation_NavigationEventArgs_) でボタンの表示を無効/有効にします。 このコード例では、[**BackRequested**](https://docs.microsoft.com/uwp/api/windows.ui.core.systemnavigationmanager.BackRequested) イベントのリスナーを登録することで、ハードウェアおよびソフトウェア システムの戻るキーからの入力も処理しています。
+次のコード例は、戻るボタンで前に戻る移動の動作を実装する方法を示しています。 このコードでは、Button の [**Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.Click) イベントに応答し、新しいページに移動したときに呼び出される [**OnNavigatedTo**](/uwp/api/windows.ui.xaml.controls.page.onnavigatedto#Windows_UI_Xaml_Controls_Page_OnNavigatedTo_Windows_UI_Xaml_Navigation_NavigationEventArgs_) でボタンの表示を無効/有効にします。 このコード例では、[**BackRequested**](/uwp/api/windows.ui.core.systemnavigationmanager.BackRequested) イベントのリスナーを登録することで、ハードウェアおよびソフトウェア システムの戻るキーからの入力も処理しています。
 
 ```xaml
 <!-- MainPage.xaml -->
@@ -194,7 +194,7 @@ namespace winrt::PageNavTest::implementation
 
 上の例では、単一ページに対する戻る移動を処理しています。 戻る移動から特定のページを除外する場合や、ページを表示する前にページ レベルのコードを実行する場合は、各ページで移動を処理できます。
 
-アプリ全体について戻る移動を処理するには、`App.xaml` 分離コード ファイル内で [**BackRequested**](https://docs.microsoft.com/uwp/api/windows.ui.core.systemnavigationmanager.BackRequested) イベントに対するグローバル リスナーを登録します。
+アプリ全体について戻る移動を処理するには、`App.xaml` 分離コード ファイル内で [**BackRequested**](/uwp/api/windows.ui.core.systemnavigationmanager.BackRequested) イベントに対するグローバル リスナーを登録します。
 
 App.xaml 分離コード:
 
@@ -307,9 +307,9 @@ bool App::On_BackRequested()
 
 ## <a name="system-back-behavior-for-backward-compatibilities"></a>下位互換性のためのシステムの戻る動作
 
-以前、UWP アプリは前に戻る移動のために [AppViewBackButtonVisibility](https://docs.microsoft.com/uwp/api/windows.ui.core.appviewbackbuttonvisibility) を使用しました。 その API は下位互換性を確保するため引き続きサポートされますが、[AppViewBackButtonVisibility](https://docs.microsoft.com/uwp/api/windows.ui.core.appviewbackbuttonvisibility) に依存することはもうお勧めできません。 代わりに、アプリで独自のアプリ内の戻るボタンを描画してください。
+以前、UWP アプリは前に戻る移動のために [AppViewBackButtonVisibility](/uwp/api/windows.ui.core.appviewbackbuttonvisibility) を使用しました。 その API は下位互換性を確保するため引き続きサポートされますが、[AppViewBackButtonVisibility](/uwp/api/windows.ui.core.appviewbackbuttonvisibility) に依存することはもうお勧めできません。 代わりに、アプリで独自のアプリ内の戻るボタンを描画してください。
 
-アプリで [AppViewBackButtonVisibility](https://docs.microsoft.com/uwp/api/windows.ui.core.appviewbackbuttonvisibility) の使用を続けた場合、システム UI では、タイトル バーの内部に戻るボタンがレンダリングされます。 (戻るボタンの外観とユーザー操作は以前のビルドと変わりありません。)
+アプリで [AppViewBackButtonVisibility](/uwp/api/windows.ui.core.appviewbackbuttonvisibility) の使用を続けた場合、システム UI では、タイトル バーの内部に戻るボタンがレンダリングされます。 (戻るボタンの外観とユーザー操作は以前のビルドと変わりありません。)
 
 ![タイトル バーの戻るボタン](images/nav-back-pc.png)
 

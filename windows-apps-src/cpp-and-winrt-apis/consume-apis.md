@@ -5,16 +5,16 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、投影、プロジェクション、実装、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: de461f94897110aaf1ff06b3863a7112c61fda1f
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 81c8edc65f78de14c1c42611ea1e8d97046128ae
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492947"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170366"
 ---
 # <a name="consume-apis-with-cwinrt"></a>C++/WinRT での API の使用
 
-このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) の API が Windows に含まれるかどうか、サード パーティ コンポーネント ベンダーで実装するかどうか、またはユーザー自身が実装するかどうかに応じて、その使用方法について説明します。
+このトピックでは、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) の API が Windows に含まれるかどうか、サード パーティ コンポーネント ベンダーで実装するかどうか、またはユーザー自身が実装するかどうかに応じて、その使用方法について説明します。
 
 ## <a name="if-the-api-is-in-a-windows-namespace"></a>API が Windows 名前空間に含まれる場合
 これは Windows ランタイム API を使用する際に最も一般的なケースです。 メタデータで定義される Windows 名前空間のすべての型について、C++/WinRT は C++ 対応の同等の型を定義します (*投影された型*と呼ばれます)。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ の構文を使用して **winrt** 名前空間に配置されます。 たとえば、[**Windows::Foundation::Uri**](/uwp/api/windows.foundation.uri) は **winrt::Windows::Foundation::Uri** として C++/WinRT に投影されます。
@@ -43,7 +43,7 @@ int main()
 
 上記のコード例では、C++/WinRT の初期化後、公開されているいずれかのコンストラクターを介して投影される型 **winrt::Windows::Foundation::Uri** の値をスタックに割り当てます (この場合は、[**Uri(String)** ](/uwp/api/windows.foundation.uri.-ctor#Windows_Foundation_Uri__ctor_System_String_))。 このため、最も一般的な使用事例を使用します。 C++/WinRT 投影型の値を取得したら、それにはすべての同じメンバーが含まれるため、実際の Windows ランタイム型のインスタンスのように扱うことができます。
 
-実際に、投影される値はプロキシです。基本的には、バッキング オブジェクトへのスマート ポインターに過ぎません。 投影された値のコンストラクターは [**RoActivateInstance**](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roactivateinstance) を呼び出し、Windows ランタイムのバッキング クラスのインスタンス (この場合は **Windows.Foundation.Uri**) を作成し、投影された新しい値の内部にそのオブジェクトの既定のインターフェイスを保存します。 次に示すように、投影された値のメンバーへの呼び出しは実際にはスマート ポインターを介して、状態変更が発生するバッキング オブジェクトに委任されます。
+実際に、投影される値はプロキシです。基本的には、バッキング オブジェクトへのスマート ポインターに過ぎません。 投影された値のコンストラクターは [**RoActivateInstance**](/windows/desktop/api/roapi/nf-roapi-roactivateinstance) を呼び出し、Windows ランタイムのバッキング クラスのインスタンス (この場合は **Windows.Foundation.Uri**) を作成し、投影された新しい値の内部にそのオブジェクトの既定のインターフェイスを保存します。 次に示すように、投影された値のメンバーへの呼び出しは実際にはスマート ポインターを介して、状態変更が発生するバッキング オブジェクトに委任されます。
 
 ![投影された Windows::Foundation::Uri 型](images/uri.png)
 
@@ -166,7 +166,7 @@ std::map<int, TextBlock> lookup;
 lookup.insert_or_assign(2, value);
 ```
 
-「[既定のコンストラクターによるコレクションへの影響](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx#how-the-default-constructor-affects-collections)」も参照してください。
+「[既定のコンストラクターによるコレクションへの影響](./move-to-winrt-from-cx.md#how-the-default-constructor-affects-collections)」も参照してください。
 
 ### <a name="dont-delay-initialize-by-mistake"></a>誤って遅延初期化しない
 
@@ -268,7 +268,7 @@ auto smallBox{
 
 アプリケーション プロジェクトで、Windows ランタイム コンポーネントの Windows ランタイム メタデータ (`.winmd`) ファイルを参照してビルドします。 作成中、`cppwinrt.exe` ツールで、コンポーネントの API サーフェイスをすべて定義する ("*投影する*") 標準的な C++ ライブラリを生成します。 つまり、生成されたライブラリにはコンポーネントに投影された型が含まれます。
 
-次に、Windows 名前空間の型と同じように、いずれかのコンストラクターを介してヘッダーを追加し、投影された型を作成します。 アプリケーション プロジェクトのスタートアップ コードにより、ランタイム クラスが登録され、投影された型のコンストラクターは [**RoActivateInstance**](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roactivateinstance) を呼び出し、参照するコンポーネントからランタイム クラスをアクティブ化します。
+次に、Windows 名前空間の型と同じように、いずれかのコンストラクターを介してヘッダーを追加し、投影された型を作成します。 アプリケーション プロジェクトのスタートアップ コードにより、ランタイム クラスが登録され、投影された型のコンストラクターは [**RoActivateInstance**](/windows/desktop/api/roapi/nf-roapi-roactivateinstance) を呼び出し、参照するコンポーネントからランタイム クラスをアクティブ化します。
 
 ```cppwinrt
 #include <winrt/BankAccountWRC.h>
@@ -280,7 +280,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 };
 ```
 
-Windows ランタイム コンポーネントで実装された API の使用に関する詳細、コード、チュートリアルについては、「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」および「[C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)」を参照してください。
+Windows ランタイム コンポーネントで実装された API の使用に関する詳細、コード、チュートリアルについては、「[C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」および「[C++/WinRT でのイベントの作成](./author-events.md)」を参照してください。
 
 ## <a name="if-the-api-is-implemented-in-the-consuming-project"></a>API が使用中のプロジェクトに実装される場合
 XAML UI で使用する型が XAML と同じプロジェクト内にある場合でも、ランタイム クラスを指定する必要があります。
@@ -336,7 +336,7 @@ myrc2 = winrt::make<MyProject::implementation::MyRuntimeClass>();
 
 - 投影された型のすべてのインターフェイスのメンバーにアクセスできます。
 - 投影された型を呼び出し元に返すことができます。
-- 投影される型とインターフェイスは [**winrt::Windows::Foundation::IUnknown**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown) から取得します。 そのため、投影された型またはインターフェイスで [**IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) を呼び出すと、投影された他のインターフェイスもクエリされるため、使用するか、呼び出し元に戻すことができます。 **as** メンバー関数は [**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) と同じように動作します。
+- 投影される型とインターフェイスは [**winrt::Windows::Foundation::IUnknown**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown) から取得します。 そのため、投影された型またはインターフェイスで [**IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) を呼び出すと、投影された他のインターフェイスもクエリされるため、使用するか、呼び出し元に戻すことができます。 **as** メンバー関数は [**QueryInterface**](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) と同じように動作します。
 
 ```cppwinrt
 void f(MyProject::MyRuntimeClass const& myrc)
@@ -441,16 +441,16 @@ struct MyPage : Page
 `Visibility()` への呼び出しは、[**UIElement.Visibility**](/uwp/api/windows.ui.xaml.uielement.visibility) メンバー関数名に解決されます。 ただし、パラメーター `Visibility::Collapsed` は単語 `Visibility` の後に `::` が続くため、メソッド名は無視され、コンパイラは列挙型クラスを検出します。
 
 ## <a name="important-apis"></a>重要な API
-* [QueryInterface インターフェイス](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
-* [RoActivateInstance 関数](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roactivateinstance)
+* [QueryInterface インターフェイス](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
+* [RoActivateInstance 関数](/windows/desktop/api/roapi/nf-roapi-roactivateinstance)
 * [Windows::Foundation::Uri クラス](/uwp/api/windows.foundation.uri)
 * [winrt::get_activation_factory 関数テンプレート](/uwp/cpp-ref-for-winrt/get-activation-factory)
 * [winrt::make 関数テンプレート](/uwp/cpp-ref-for-winrt/make)
 * [winrt::Windows::Foundation::IUnknown 構造体](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)
-* [C++/WinRT と ABI 間の相互運用](/windows/uwp/cpp-and-winrt-apis/interop-winrt-abi)
-* [C++/WinRT の概要](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt)
-* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)
-* [XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)
+* [C++/WinRT でのイベントの作成](./author-events.md)
+* [C++/WinRT と ABI 間の相互運用](./interop-winrt-abi.md)
+* [C++/WinRT の概要](./intro-to-using-cpp-with-winrt.md)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)
+* [XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)

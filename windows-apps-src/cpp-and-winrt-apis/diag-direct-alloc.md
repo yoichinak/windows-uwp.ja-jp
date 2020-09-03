@@ -5,16 +5,16 @@ ms.date: 07/19/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、直接、スタック、割り当て、投影、実装
 ms.localizationpriority: medium
-ms.openlocfilehash: 7fe8ff6653b8655ee25cd9adc0c11acb22d42a11
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 199b62d96685e207e55e6dff7cd310752617d1d2
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68372793"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170256"
 ---
 # <a name="diagnosing-direct-allocations"></a>直接割当ての診断
 
-「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」で説明されているように、実装型のオブジェクトを作成する場合は、ヘルパーの [**winrt::make**](/uwp/cpp-ref-for-winrt/make) ファミリを使用して作成する必要があります。 このトピックでは、スタック上に実装型のオブジェクトを直接割り当てるという間違いを診断するのに役立つ C++/WinRT 2.0 機能について詳しく説明します。
+「[C++/WinRT での API の作成](./author-apis.md)」で説明されているように、実装型のオブジェクトを作成する場合は、ヘルパーの [**winrt::make**](/uwp/cpp-ref-for-winrt/make) ファミリを使用して作成する必要があります。 このトピックでは、スタック上に実装型のオブジェクトを直接割り当てるという間違いを診断するのに役立つ C++/WinRT 2.0 機能について詳しく説明します。
 
 このような間違いによって、デバッグするのが難しく時間がかかる不可解なクラッシュや破損が発生する可能性があります。 これは重要な機能なので、背景について理解しておくことをお勧めします。
 
@@ -138,4 +138,4 @@ C++/WinRT 2.0 では、実装型を直接割り当てようとするすべての
 
 ## <a name="related-topics"></a>関連トピック
 * [C++/WinRT で API を使用する](consume-apis.md)
-* [C++/WinRT で API を作成する](/windows/uwp/cpp-and-winrt-apis/author-apis)
+* [C++/WinRT で API を作成する](./author-apis.md)

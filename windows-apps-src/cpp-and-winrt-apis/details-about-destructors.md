@@ -5,16 +5,16 @@ ms.date: 09/26/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、遅延破棄、安全な照会
 ms.localizationpriority: medium
-ms.openlocfilehash: 76068ffc655c20aa13b50cce9ac49af9afd50805
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 6b15c32bb35bec1f6a8e8d59e6aefe17ebf74b5d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71329565"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170329"
 ---
 # <a name="extension-points-for-your-implementation-types"></a>実装の種類の拡張ポイント
 
-[winrt::implements 構造体テンプレート](/uwp/cpp-ref-for-winrt/implements)は、(ランタイム クラスとアクティベーション ファクトリの) 独自の [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) 実装の直接的または間接的な派生元です。
+[winrt::implements 構造体テンプレート](/uwp/cpp-ref-for-winrt/implements)は、(ランタイム クラスとアクティベーション ファクトリの) 独自の [C++/WinRT](./intro-to-using-cpp-with-winrt.md) 実装の直接的または間接的な派生元です。
 
 このトピックでは、C++/WinRT 2.0 の **winrt::implements** の拡張ポイントについて説明します。 検査可能ブジェクト([IInspectable](/windows/win32/api/inspectable/nn-inspectable-iinspectable) インターフェイスの意味での*検査可能*) の既定の動作をカスタマイズするために、これらの拡張ポイントを実装の種類に実装することを選択できます。
 
@@ -22,7 +22,7 @@ ms.locfileid: "71329565"
 
 ## <a name="deferred-destruction"></a>遅延破棄
 
-「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」のトピックでは、実装型でプライベート デストラクターを使用できないことを説明しました。
+「[直接割当ての診断](./diag-direct-alloc.md)」のトピックでは、実装型でプライベート デストラクターを使用できないことを説明しました。
 
 パブリック デストラクターを使用する利点は、遅延破棄が有効になることです。これは、オブジェクト上で最後の [**IUnknown::Release**](/windows/win32/api/unknwn/nf-unknwn-iunknown-release) 呼び出しを検出し、そのオブジェクトの所有権を取得してその破棄を無期限に延期する機能です。
 

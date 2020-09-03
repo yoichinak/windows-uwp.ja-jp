@@ -6,12 +6,12 @@ ms.date: 01/22/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bc080a58bc3e381fc26ddcc6a42af28e2dacaa65
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 9c2fd792b9652e38637810b4ccd0aee94075895b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970447"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174696"
 ---
 # <a name="two-pane-view"></a>2 つのペインからなるビュー
 
@@ -23,18 +23,18 @@ ms.locfileid: "82970447"
 TwoPaneView コントロールは、すべての Windows デバイス上で動作します。さらに、特別なコーディングを必要とせずに、デュアルスクリーン デバイスを自動的に最大限に活用できるように設計されています。 デュアルスクリーン デバイスでは、2 ペイン ビューを使うことで、ユーザー インターフェイス (UI) が画面間のすき間にまたがる場合でもきれいに分割され、コンテンツがすき間の両側に表示されます。
 
 > [!NOTE]
-> "_デュアルスクリーン デバイス_" は、固有の機能を持つ特殊な種類のデバイスです。 これは、複数のモニターが搭載されたデスクトップ デバイスとは同じではありません。 デュアルスクリーン デバイスの詳細については、「[デュアルスクリーン デバイスの概要](/dual-screen/introduction)」を参照してください。 (複数のモニターに合わせてアプリを最適化する方法の詳細については、「[Show multiple views](/windows/uwp/design/layout/show-multiple-views)」 (複数のビューの表示) を参照してください。)
+> "_デュアルスクリーン デバイス_" は、固有の機能を持つ特殊な種類のデバイスです。 これは、複数のモニターが搭載されたデスクトップ デバイスとは同じではありません。 デュアルスクリーン デバイスの詳細については、「[デュアルスクリーン デバイスの概要](/dual-screen/introduction)」を参照してください。 (複数のモニターに合わせてアプリを最適化する方法の詳細については、「[Show multiple views](../layout/show-multiple-views.md)」 (複数のビューの表示) を参照してください。)
 
 **Windows UI ライブラリを入手する**
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TwoPaneView** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TwoPaneView** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TwoPaneView クラス](/uwp/api/microsoft.ui.xaml.controls.twopaneview)
 
 > [!TIP]
-> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
@@ -74,7 +74,7 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 
 2 ペイン ビューを構成するには、[PanePriority](/uwp/api/microsoft.ui.xaml.controls.twopaneview.panepriority) を設定して、1 つのペインのみに空間がある場合に表示するペインを指定します。 次に、`Pane1` を縦長ウィンドウの上または下に表示するか、横長ウィンドウの左または右に表示するかを指定します。
 
-2 ペイン ビューでは、ペインのサイズと配置が処理されますが、ペイン内のコンテンツをサイズと向きの変更に適応させる必要があります。 アダプティブ UI の作成の詳細については、「[XAML でのレスポンシブ レイアウト](/windows/uwp/design/layout/layouts-with-xaml)」と「[レイアウト パネル](/windows/uwp/design/layout/layout-panels)」を参照してください。
+2 ペイン ビューでは、ペインのサイズと配置が処理されますが、ペイン内のコンテンツをサイズと向きの変更に適応させる必要があります。 アダプティブ UI の作成の詳細については、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md)」と「[レイアウト パネル](../layout/layout-panels.md)」を参照してください。
 
 [TwoPaneView](/uwp/api/microsoft.ui.xaml.controls.twopaneview) を使用して、アプリのスパン状態に基づいてペインの表示を管理します。
 
@@ -92,7 +92,7 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 
 ### <a name="add-content-to-the-panes"></a>ペインにコンテンツを追加する
 
-2 ペイン ビューの各ペインには、1 つの XAML `UIElement` を保持できます。 コンテンツを追加するには、通常、各ペインに XAML レイアウト パネルを配置し、他のコントロールとコンテンツをパネルに追加します。 ペインのサイズを変更し、横長モードと縦長モードを切り替えることができるため、各ペインのコンテンツがこのような変更に適応できることを確認する必要があります。 アダプティブ UI の作成の詳細については、「[XAML でのレスポンシブ レイアウト](/windows/uwp/design/layout/layouts-with-xaml)」と「[レイアウト パネル](/windows/uwp/design/layout/layout-panels)」を参照してください。
+2 ペイン ビューの各ペインには、1 つの XAML `UIElement` を保持できます。 コンテンツを追加するには、通常、各ペインに XAML レイアウト パネルを配置し、他のコントロールとコンテンツをパネルに追加します。 ペインのサイズを変更し、横長モードと縦長モードを切り替えることができるため、各ペインのコンテンツがこのような変更に適応できることを確認する必要があります。 アダプティブ UI の作成の詳細については、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md)」と「[レイアウト パネル](../layout/layout-panels.md)」を参照してください。
 
 この例では、前述の「_例_」セクションで示したシンプルな画像と情報アプリ UI を作成します。 アプリがデュアルスクリーンにまたがっている場合、画像と情報は別々の画面に表示されます。 シングル スクリーン上では、使用可能な空間の大きさに応じて、コンテンツを 2 つのペインに表示するか、1 つのペインに結合することができます。 (1 つのペインにのみ空間がある場合、Pane2 のコンテンツを Pane1 に移動し、ユーザー スクロールで非表示のコンテンツを表示できるようにします。 このコードについては、後述する「_モードの変更への対応_」を参照してください)。
 
@@ -190,7 +190,7 @@ MyTwoPaneView.PanePriority = Microsoft.UI.Xaml.Controls.TwoPaneViewPriority.Pane
 
 ### <a name="pane-sizing"></a>ペインのサイズ設定
 
-シングル スクリーン上では、ペインのサイズは、[Pane1Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane1length) および [Pane2Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane2length) プロパティによって決まります。 これらには、_auto_ および _star_(\*) のサイズ設定をサポートする [GridLength](/uwp/api/windows.ui.xaml.gridlength) 値が使用されます。 自動サイズ設定と比例サイズ設定の詳細については、「[XAML でのレスポンシブ レイアウト](/windows/uwp/design/layout/layouts-with-xaml#layout-properties)」の「_レイアウト プロパティ_」を参照してください。
+シングル スクリーン上では、ペインのサイズは、[Pane1Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane1length) および [Pane2Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane2length) プロパティによって決まります。 これらには、_auto_ および _star_(\*) のサイズ設定をサポートする [GridLength](/uwp/api/windows.ui.xaml.gridlength) 値が使用されます。 自動サイズ設定と比例サイズ設定の詳細については、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md#layout-properties)」の「_レイアウト プロパティ_」を参照してください。
 
 既定では、`Pane1Length` は `Auto` に設定され、コンテンツに合わせてサイズが自動調整されます。 `Pane2Length` は `*` に設定され、残りのすべての空間が使用されます。
 

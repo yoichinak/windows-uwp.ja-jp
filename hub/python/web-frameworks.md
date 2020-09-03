@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 3ae3b04738152ff1a142e1599cc05357006456b9
-ms.sourcegitcommit: 2af814b7f94ee882f42fae8f61130b9cc9833256
+ms.openlocfilehash: fedfb42e4c1604b3570c2b4db21b12926bea3762
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83717141"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174566"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 
@@ -29,14 +29,14 @@ Web 開発以外に Python を使用している場合は、Microsoft Store を�
 
 WSL を使用すると、Windows と、Visual Studio Code、Outlook などの使い慣れたツールと直接統合された GNU/Linux コマンド ライン環境を実行できます。
 
-WSL (または WSL 2) を有効にしてインストールするには、[WSL インストール ドキュメント](https://docs.microsoft.com/windows/wsl/install-win10)の手順に従います。 これらの手順には、Linux ディストリビューション (Ubuntu など) の選択が含まれています。
+WSL (または WSL 2) を有効にしてインストールするには、[WSL インストール ドキュメント](/windows/wsl/install-win10)の手順に従います。 これらの手順には、Linux ディストリビューション (Ubuntu など) の選択が含まれています。
 
 WSL と Linux ディストリビューションをインストールしたら、Linux ディストリビューション (Windows の [スタート] メニューにあります) を開き、コマンド `lsb_release -dc` を使用してバージョンとコードネームを確認します。
 
 最新のパッケージであることを確認するために、インストールした直後も含めて、Linux ディストリビューションを定期的に更新することをお勧めします。 Windows はこの更新を自動的に処理しません。 使用中のディストリビューションを更新するには、コマンド `sudo apt update && sudo apt upgrade` を使用します。  
 
 > [!TIP]
-> 複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) の有効化、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) の作成、検索機能の使用、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) の設定を行うために、[新しい Windows ターミナルを Microsoft Store からインストールする](https://www.microsoft.com/store/apps/9n0dx20hk701)ことを検討してください。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/windows/terminal)。
+> 複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) の有効化、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) の作成、検索機能の使用、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) の設定を行うために、[新しい Windows ターミナルを Microsoft Store からインストールする](https://www.microsoft.com/store/apps/9n0dx20hk701)ことを検討してください。 [詳しくはこちらをご覧ください](/windows/terminal)。
 
 ## <a name="set-up-visual-studio-code"></a>Visual Studio Code を設定する
 
@@ -321,5 +321,5 @@ Python はインタープリター言語であり、さまざまな種類のイ�
 
 - [VS Code の Python チュートリアル](https://code.visualstudio.com/docs/python/python-tutorial):Python 環境としての VS Code の入門チュートリアル。コードを編集、実行、デバッグする方法が主な内容です。
 - [VS Code の Git サポート](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support):VS Code で基本的な Git バージョン管理を使用する方法について説明します。  
-- [近日提供の WSL 2 での更新内容について](https://docs.microsoft.com/windows/wsl/wsl2-index):この新しいバージョンでは、Linux ディストリビューションと Windows の対話方法が変わり、ファイル システムのパフォーマンスが向上し、システム コールの完全な互換性が追加されます。
-- [Windows で複数の Linux ディストリビューションを使用する](https://docs.microsoft.com/windows/wsl/wsl-config):Windows コンピューターで複数の異なる Linux ディストリビューションを管理する方法について説明します。
+- [近日提供の WSL 2 での更新内容について](/windows/wsl/wsl2-index):この新しいバージョンでは、Linux ディストリビューションと Windows の対話方法が変わり、ファイル システムのパフォーマンスが向上し、システム コールの完全な互換性が追加されます。
+- [Windows で複数の Linux ディストリビューションを使用する](/windows/wsl/wsl-config):Windows コンピューターで複数の異なる Linux ディストリビューションを管理する方法について説明します。

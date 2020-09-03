@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, microsoft, windows 10, チュートリアル, オンライン コース, ブログ, イベント
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 136da1d69a61cb90c9c80cab5d7ecd822d64820d
-ms.sourcegitcommit: b6138f9565252460ace6fa0acdc2a902e591681a
+ms.openlocfilehash: e5ae3eb09a015a5ae1385612d5410c41a43b005b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243244"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175776"
 ---
 # <a name="resources-for-developing-with-python-on-windows"></a>Windows での Python を使用した開発に関するリソース
 
@@ -27,7 +27,7 @@ Windows 10 を実行するコンピューターで作業している Python 開�
 
 - [Windows での Python の使用](https://docs.python.org/3/using/windows.html):この Python.org のドキュメントでは、Microsoft Windows で Python を使用する際に知っておく必要がある Windows 固有の動作について、概要を説明しています。
 
-- [Python クラウド開発者向けの Azure](https://docs.microsoft.com/azure/python/):Python Web アプリの構築と Azure への配置から、サーバーレス機能としての Python コードの実行まで、すべてを網羅したドキュメントです。
+- [Python クラウド開発者向けの Azure](/azure/python/):Python Web アプリの構築と Azure への配置から、サーバーレス機能としての Python コードの実行まで、すべてを網羅したドキュメントです。
 
 - ["python" と "windows" を含む StackOverflow の投稿](https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows/12476379):StackOverflow コミュニティは、問題への対処法を探す上で非常に役立ちます。 Microsoft では、このコミュニティを積極的に注視し、支援することを目指しています。
 
@@ -39,7 +39,7 @@ Windows 10 を実行するコンピューターで作業している Python 開�
 
 - [各国語の Python ドキュメント](https://wiki.python.org/moin/Languages):英語以外の Python ドキュメントのリンクです。
 
-- [Python API ブラウザー](https://docs.microsoft.com/python/api/?view=azure-python):Microsoft の Python ベース API のすべてを調べることができます。
+- [Python API ブラウザー](/python/api/?view=azure-python):Microsoft の Python ベース API のすべてを調べることができます。
 
 - [Python を使用した Azure コード サンプル](https://azure.microsoft.com/resources/samples/?platform=python&sort=0):Python コードを使用して Azure サービスと対話する方法を学びます。
 
@@ -47,7 +47,7 @@ Windows 10 を実行するコンピューターで作業している Python 開�
 
 ## <a name="online-courses"></a>オンライン コース
 
-- [Microsoft Learn の Python 入門](https://docs.microsoft.com/learn/modules/intro-to-python/):対話型の Microsoft Learn プラットフォームで、簡単な Python コードを記述し、変数を宣言し、コンソール入出力を操作する方法を基礎から学びましょう。このモジュールを完了すると経験ポイントを獲得できます。 Python 開発環境をまだセットアップしていない場合、対話型のサンドボックス環境は学習を始めるのに最適な場所です。
+- [Microsoft Learn の Python 入門](/learn/modules/intro-to-python/):対話型の Microsoft Learn プラットフォームで、簡単な Python コードを記述し、変数を宣言し、コンソール入出力を操作する方法を基礎から学びましょう。このモジュールを完了すると経験ポイントを獲得できます。 Python 開発環境をまだセットアップしていない場合、対話型のサンドボックス環境は学習を始めるのに最適な場所です。
 
 - [Pluralsight で Python を学ぶ:8 コース、29 時間](https://app.pluralsight.com/paths/skills/python):Pluralsight の Python ラーニング パスは、スキルを測定してギャップを見つけるためのツールなど、Python 関連のさまざまなトピックをカバーしたオンライン コースを提供します。
 
@@ -67,14 +67,14 @@ Windows 10 を実行するコンピューターで作業している Python 開�
 
 - [その他の Python Web フレームワーク](https://wiki.python.org/moin/WebFrameworks):Python.org から入手できる Python Web フレームワークの、簡単な説明付きの一覧です。
 
-- [チュートリアル: Azure Cognitive Services を使用した Flask アプリの作成](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis):Azure Cognitive Services を使用してテキストの翻訳、感情分析、翻訳済みテキストの音声合成を行う Flask Web アプリを作成します。
+- [チュートリアル: Azure Cognitive Services を使用した Flask アプリの作成](/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis):Azure Cognitive Services を使用してテキストの翻訳、感情分析、翻訳済みテキストの音声合成を行う Flask Web アプリを作成します。
 
-- [Azure Stack 内の VM に Python Web アプリをデプロイする](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-vm-python):Python Web アプリを Azure Stack でホストするための VM を作成します。
+- [Azure Stack 内の VM に Python Web アプリをデプロイする](/azure-stack/user/azure-stack-dev-start-howto-vm-python):Python Web アプリを Azure Stack でホストするための VM を作成します。
 
-- [Azure Cosmos DB の MongoDB 用 API を使用して Python アプリをビルドする](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask):Azure Cosmos DB エミュレーターと Azure Cosmos DB の MongoDB 用 API を使用して、簡単な To-Do Flask アプリを作成します。
+- [Azure Cosmos DB の MongoDB 用 API を使用して Python アプリをビルドする](/azure/cosmos-db/create-mongodb-flask):Azure Cosmos DB エミュレーターと Azure Cosmos DB の MongoDB 用 API を使用して、簡単な To-Do Flask アプリを作成します。
 
-- [Azure App Service で Python と PostgreSQL アプリを構築する](https://docs.microsoft.com/azure/app-service/containers/tutorial-python-postgresql-app):PostgreSQL をデータベース バックエンドとして使用して、データドリブン Django アプリケーションを作成し、Linux 上の App Service で実行します。
+- [Azure App Service で Python と PostgreSQL アプリを構築する](/azure/app-service/containers/tutorial-python-postgresql-app):PostgreSQL をデータベース バックエンドとして使用して、データドリブン Django アプリケーションを作成し、Linux 上の App Service で実行します。
 
-- [Microsoft Graph を使用して Python Django アプリを作成する](https://docs.microsoft.com/graph/tutorials/python):Microsoft Graph API を使用してユーザーのカレンダー情報を取得する Python Django Web アプリを作成します。
+- [Microsoft Graph を使用して Python Django アプリを作成する](/graph/tutorials/python):Microsoft Graph API を使用してユーザーのカレンダー情報を取得する Python Django Web アプリを作成します。
 
-- [チュートリアル: Python 版の Bing Ads API Web アプリケーション](https://docs.microsoft.com/advertising/guides/walkthrough-web-application-python?view=bingads-13):Bing Ads Python SDK、Visual Studio Code IDE、および Django Web フレームワークを使用して、Microsoft Advertising Web アプリケーションの実行を開始します。
+- [チュートリアル: Python 版の Bing Ads API Web アプリケーション](/advertising/guides/walkthrough-web-application-python?view=bingads-13):Bing Ads Python SDK、Visual Studio Code IDE、および Django Web フレームワークを使用して、Microsoft Advertising Web アプリケーションの実行を開始します。

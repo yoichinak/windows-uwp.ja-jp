@@ -6,12 +6,12 @@ ms.date: 06/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 764f5b1d0ab73eea1afe523404958f1714496476
-ms.sourcegitcommit: 0f2ae8f97daac440c8e86dc07d11d356de29515c
+ms.openlocfilehash: e352e5c60290252694a913a32ffc360a74aa67f8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83280292"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174916"
 ---
 # <a name="network-communications-in-the-background"></a>バックグラウンドでのネットワーク通信
 
@@ -23,17 +23,17 @@ ms.locfileid: "83280292"
 - コントロール チャネル トリガー。 
 
 ## <a name="performing-network-operations-in-background-tasks"></a>バックグラウンド タスクでのネットワーク操作の実行
-- パケットを受信し、有効期間が短いタスクを実行する必要がある場合は、[SocketActivityTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.socketactivitytrigger) を使用して、バックグラウンド タスクをアクティブにします。 タスクを実行すると、電力を節約するためにバックグラウンド タスクが終了します。
-- パケットを受信し、有効期間が長いタスクを実行する必要がある場合は、[ControlChannelTrigger](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使用して、バックグラウンド タスクをアクティブにします。
+- パケットを受信し、有効期間が短いタスクを実行する必要がある場合は、[SocketActivityTrigger](/uwp/api/windows.applicationmodel.background.socketactivitytrigger) を使用して、バックグラウンド タスクをアクティブにします。 タスクを実行すると、電力を節約するためにバックグラウンド タスクが終了します。
+- パケットを受信し、有効期間が長いタスクを実行する必要がある場合は、[ControlChannelTrigger](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使用して、バックグラウンド タスクをアクティブにします。
 
 **ネットワーク関連の条件とフラグ**
 
-- バックグラウンド タスク [BackgroundTaskBuilder.AddCondition](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) に **InternetAvailable** 条件を追加して、ネットワーク スタックが実行されるまで、バックグラウンド タスクのトリガーを遅らせます。 この条件では、ネットワークが起動するまでバックグラウンド タスクが実行されないため、電力が節約されます。 この条件では、リアルタイムのアクティブ化は行われません。
+- バックグラウンド タスク [BackgroundTaskBuilder.AddCondition](/uwp/api/Windows.ApplicationModel.Background.BackgroundTaskBuilder) に **InternetAvailable** 条件を追加して、ネットワーク スタックが実行されるまで、バックグラウンド タスクのトリガーを遅らせます。 この条件では、ネットワークが起動するまでバックグラウンド タスクが実行されないため、電力が節約されます。 この条件では、リアルタイムのアクティブ化は行われません。
 
-使用するトリガーに関係なく、バックグラウンド タスクで [IsNetworkRequested](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder) を設定すると、バックグラウンド タスクが実行されている間、ネットワークは稼働状態のままになります。 これによって、デバイスがコネクト スタンバイ モードに入っている場合でも、タスクの実行中はネットワークを稼働状態に保つようにバックグラウンド タスク インフラストラクチャに指示されます。 バックグラウンド タスクが **IsNetworkRequested** を使用しない場合、そのバックグラウンド タスクはコネクト スタンバイ モードのとき (たとえば電話の画面がオフになっているとき) にネットワークにアクセスできません。
+使用するトリガーに関係なく、バックグラウンド タスクで [IsNetworkRequested](/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder) を設定すると、バックグラウンド タスクが実行されている間、ネットワークは稼働状態のままになります。 これによって、デバイスがコネクト スタンバイ モードに入っている場合でも、タスクの実行中はネットワークを稼働状態に保つようにバックグラウンド タスク インフラストラクチャに指示されます。 バックグラウンド タスクが **IsNetworkRequested** を使用しない場合、そのバックグラウンド タスクはコネクト スタンバイ モードのとき (たとえば電話の画面がオフになっているとき) にネットワークにアクセスできません。
 
 ## <a name="socket-broker-and-the-socketactivitytrigger"></a>ソケット ブローカーと SocketActivityTrigger
-アプリが [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)、または [**StreamSocketListener**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketListener) 接続を使う場合、[**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) とソケット ブローカーを使って、フォアグラウンドでないときにトラフィックがアプリに到着したという通知を受け取る必要があります。
+アプリが [**DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket)、[**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket)、または [**StreamSocketListener**](/uwp/api/Windows.Networking.Sockets.StreamSocketListener) 接続を使う場合、[**SocketActivityTrigger**](/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) とソケット ブローカーを使って、フォアグラウンドでないときにトラフィックがアプリに到着したという通知を受け取る必要があります。
 
 アプリがアクティブでないときにソケットでデータを受け取って処理するには、アプリは起動時に 1 回限りのセットアップをいくつか実行した後、アクティブでない状態に移行するときにソケットの所有権をソケット ブローカーに転送する必要があります。
 
@@ -63,9 +63,9 @@ ms.locfileid: "83280292"
 ソケットが正しくセットアップされたら、アプリが中断する直前に、ソケットで **TransferOwnership** を呼び出してソケット ブローカーに転送します。 ブローカーはソケットを監視し、データが受信されたらバックグラウンド タスクをアクティブにします。 次の例には、**StreamSocketListener** ソケットの転送を実行する **TransferOwnership** ユーティリティ関数が含まれています (さまざまな種類の各ソケットに独自の **TransferOwnership** メソッドがあるため、転送する所有権を持つソケットに適したメソッドを呼び出す必要があります。 **OnSuspending** コードの読みやすさを維持するため、コードにはオーバーロードされた **TransferOwnership** ヘルパーを含め、使用するソケットの種類ごとに 1 つずつ実装することをお勧めします)。
 
 アプリは、次のうち適切なメソッドを使って、ソケットの所有権をソケット ブローカーに転送し、バックグラウンド タスクの ID を渡します。
--   [  **DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket) の [**TransferOwnership**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.datagramsocket.transferownership) メソッドのいずれか
--   [  **StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) の [**TransferOwnership**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocket.transferownership) メソッドのいずれか
--   [  **StreamSocketListener**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketListener) の [**TransferOwnership**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamsocketlistener.transferownership) メソッドのいずれか
+-   [  **DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket) の [**TransferOwnership**](/uwp/api/windows.networking.sockets.datagramsocket.transferownership) メソッドのいずれか
+-   [  **StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket) の [**TransferOwnership**](/uwp/api/windows.networking.sockets.streamsocket.transferownership) メソッドのいずれか
+-   [  **StreamSocketListener**](/uwp/api/Windows.Networking.Sockets.StreamSocketListener) の [**TransferOwnership**](/uwp/api/windows.networking.sockets.streamsocketlistener.transferownership) メソッドのいずれか
 
 ```csharp
 
@@ -154,34 +154,34 @@ case SocketActivityTriggerReason.SocketClosed:
   deferral.Complete();
 ```
 
-[  **SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) とソケット ブローカーの使い方を示す詳しいサンプルについては、[SocketActivityStreamSocket のサンプルに関するページ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SocketActivityStreamSocket)をご覧ください。 Scenario1\_Connect.xaml.cs ではソケットの初期化が実行され、SocketActivityTask.cs ではバックグラウンド タスクが実装されます。
+[  **SocketActivityTrigger**](/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) とソケット ブローカーの使い方を示す詳しいサンプルについては、[SocketActivityStreamSocket のサンプルに関するページ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SocketActivityStreamSocket)をご覧ください。 Scenario1\_Connect.xaml.cs ではソケットの初期化が実行され、SocketActivityTask.cs ではバックグラウンド タスクが実装されます。
 
-サンプルを見ると、新しいソケットが作成されるか、既存のソケットが取得されると、すぐに **TransferOwnership** が呼び出されることがわかります。このトピックで説明したように **OnSuspending** イベント ハンドラーを使って行われるのではありません。 これは、このサンプルが [**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) の使い方を示すことに重点を置いており、実行中に他のアクティビティにソケットを使っていないためです。 実際のアプリはより複雑と思われるため、**OnSuspending** を使って **TransferOwnership** を呼び出すタイミングを判断してください。
+サンプルを見ると、新しいソケットが作成されるか、既存のソケットが取得されると、すぐに **TransferOwnership** が呼び出されることがわかります。このトピックで説明したように **OnSuspending** イベント ハンドラーを使って行われるのではありません。 これは、このサンプルが [**SocketActivityTrigger**](/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) の使い方を示すことに重点を置いており、実行中に他のアクティビティにソケットを使っていないためです。 実際のアプリはより複雑と思われるため、**OnSuspending** を使って **TransferOwnership** を呼び出すタイミングを判断してください。
 
 ## <a name="control-channel-triggers"></a>コントロール チャネル トリガー
-まず、コントロール チャネル トリガー (CCT) を適切に使っていることを確認します。 [**DatagramSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.DatagramSocket)、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket)、または [**StreamSocketListener**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocketListener) 接続を使っている場合は、[**SocketActivityTrigger**](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) を使うことをお勧めします。 **StreamSocket** には CCT を使うことができますが、リソースを多く使うため、コネクト スタンバイ モードでは動作しない可能性があります。
+まず、コントロール チャネル トリガー (CCT) を適切に使っていることを確認します。 [**DatagramSocket**](/uwp/api/Windows.Networking.Sockets.DatagramSocket)、[**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket)、または [**StreamSocketListener**](/uwp/api/Windows.Networking.Sockets.StreamSocketListener) 接続を使っている場合は、[**SocketActivityTrigger**](/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger) を使うことをお勧めします。 **StreamSocket** には CCT を使うことができますが、リソースを多く使うため、コネクト スタンバイ モードでは動作しない可能性があります。
 
-WebSocket、[**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2)、[**System.Net.Http.HttpClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Http.HttpClient)、または [**Windows.Web.Http.HttpClient**](/uwp/api/windows.web.http.httpclient) を使っている場合は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う必要があります。
+WebSocket、[**IXMLHTTPRequest2**](/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2)、[**System.Net.Http.HttpClient**](/uwp/api/Windows.Web.Http.HttpClient)、または [**Windows.Web.Http.HttpClient**](/uwp/api/windows.web.http.httpclient) を使っている場合は、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う必要があります。
 
 ## <a name="controlchanneltrigger-with-websockets"></a>ControlChannelTrigger と WebSocket
 
 > [!IMPORTANT]
 > このセクションで説明される機能 (**ControlChannelTrigger と WebSockets**) は、10.0.15063.0 およびそれ以前のバージョンの SDK でサポートされています。 また、これはプレリリース バージョンの [Windows 10 Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK) でもサポートされています。
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で **MessageWebSocket** または **StreamWebSocket** を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 また、**StreamWebSocket** でパケットを受け取る要求の処理方法にも、これらの注意事項が関係します。 **MessageWebSocket** でパケットを受け取るための要求には影響しません。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で **MessageWebSocket** または **StreamWebSocket** を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 また、**StreamWebSocket** でパケットを受け取る要求の処理方法にも、これらの注意事項が関係します。 **MessageWebSocket** でパケットを受け取るための要求には影響しません。
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う際に従う必要のある使用パターンとベスト プラクティスを次に示します。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う際に従う必要のある使用パターンとベスト プラクティスを次に示します。
 
 -   未処理のソケット受信は、常にポストされ続ける必要があります。 これは、プッシュ通知タスクの実行を許可するために必要です。
--   WebSocket プロトコルで、キープアライブ メッセージの標準モデルを定義します。 [  **WebSocketKeepAlive**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.WebSocketKeepAlive) クラスは、クライアント側から開始される WebSocket プロトコルのキープアライブ メッセージをサーバーに送信することができます。 **WebSocketKeepAlive** クラスは、アプリによって KeepAliveTrigger の TaskEntryPoint として登録される必要があります。
+-   WebSocket プロトコルで、キープアライブ メッセージの標準モデルを定義します。 [  **WebSocketKeepAlive**](/uwp/api/Windows.Networking.Sockets.WebSocketKeepAlive) クラスは、クライアント側から開始される WebSocket プロトコルのキープアライブ メッセージをサーバーに送信することができます。 **WebSocketKeepAlive** クラスは、アプリによって KeepAliveTrigger の TaskEntryPoint として登録される必要があります。
 
-いくつかの特別な注意事項は、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) でパケットを受け取る要求の処理方法にかかわってきます。 特に、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で **StreamWebSocket** を使うアプリは、読み取り処理に、**await** モデル (C# と VB.NET) やタスク (C++) ではなく、生の非同期パターンを使う必要があります。 生の非同期パターンは、このセクションで後述するサンプル コードに示しています。
+いくつかの特別な注意事項は、[**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) でパケットを受け取る要求の処理方法にかかわってきます。 特に、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で **StreamWebSocket** を使うアプリは、読み取り処理に、**await** モデル (C# と VB.NET) やタスク (C++) ではなく、生の非同期パターンを使う必要があります。 生の非同期パターンは、このセクションで後述するサンプル コードに示しています。
 
-生の非同期パターンを使うことによって、Windows は、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドを、受信完了コールバックの戻りと同期させることができます。 **Run** メソッドは、完了コールバックから制御が戻った後に呼び出されます。 これによって、**Run** メソッドが呼び出される前に、アプリはデータ/エラーを確実に受け取ることができます。
+生の非同期パターンを使うことによって、Windows は、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドを、受信完了コールバックの戻りと同期させることができます。 **Run** メソッドは、完了コールバックから制御が戻った後に呼び出されます。 これによって、**Run** メソッドが呼び出される前に、アプリはデータ/エラーを確実に受け取ることができます。
 
-アプリは、完了コールバックから制御を戻す前に別の読み取りをポストしなければならない点に注意してください。 また、[**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) トランスポートで [**DataReader**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.DataReader) を直接使うことはできません。上で説明した同期に支障をきたします。 トランスポートで直接 [**DataReader.LoadAsync**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.loadasync) メソッドを使うことはサポートされません。 別の方法として、[**StreamWebSocket.InputStream**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.streamwebsocket.inputstream) プロパティの [**IInputStream.ReadAsync**](https://docs.microsoft.com/uwp/api/windows.storage.streams.iinputstream.readasync) メソッドから返された [**IBuffer**](https://docs.microsoft.com/uwp/api/Windows.Storage.Streams.IBuffer) を後で [**DataReader.FromBuffer**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datareader.frombuffer) メソッドに渡して処理することはできます。
+アプリは、完了コールバックから制御を戻す前に別の読み取りをポストしなければならない点に注意してください。 また、[**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) トランスポートで [**DataReader**](/uwp/api/Windows.Storage.Streams.DataReader) を直接使うことはできません。上で説明した同期に支障をきたします。 トランスポートで直接 [**DataReader.LoadAsync**](/uwp/api/windows.storage.streams.datareader.loadasync) メソッドを使うことはサポートされません。 別の方法として、[**StreamWebSocket.InputStream**](/uwp/api/windows.networking.sockets.streamwebsocket.inputstream) プロパティの [**IInputStream.ReadAsync**](/uwp/api/windows.storage.streams.iinputstream.readasync) メソッドから返された [**IBuffer**](/uwp/api/Windows.Storage.Streams.IBuffer) を後で [**DataReader.FromBuffer**](/uwp/api/windows.storage.streams.datareader.frombuffer) メソッドに渡して処理することはできます。
 
-次のサンプルでは、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) の読み取りを生の非同期パターンを使って処理しています。
+次のサンプルでは、[**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) の読み取りを生の非同期パターンを使って処理しています。
 
 ```csharp
 void PostSocketRead(int length)
@@ -224,9 +224,9 @@ void PostSocketRead(int length)
 }
 ```
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドが呼び出される前に確実に読み取り完了ハンドラーが呼び出されます。 Windows は、読み取り完了コールバックからのアプリの復帰を待機する内部的な同期機構を備えています。 通常、アプリは、[**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) からのデータやエラーを読み取り完了コールバックですぐに処理します。 メッセージそのものは、**IBackgroundTask.Run** メソッドのコンテキスト内で処理されます。 以下のサンプルでは、この点をメッセージ キューを使って示しています。メッセージは、読み取り完了ハンドラーによってメッセージ キューに挿入され、バックグラウンド タスクによって後から処理されます。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドが呼び出される前に確実に読み取り完了ハンドラーが呼び出されます。 Windows は、読み取り完了コールバックからのアプリの復帰を待機する内部的な同期機構を備えています。 通常、アプリは、[**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) からのデータやエラーを読み取り完了コールバックですぐに処理します。 メッセージそのものは、**IBackgroundTask.Run** メソッドのコンテキスト内で処理されます。 以下のサンプルでは、この点をメッセージ キューを使って示しています。メッセージは、読み取り完了ハンドラーによってメッセージ キューに挿入され、バックグラウンド タスクによって後から処理されます。
 
-次のサンプルは、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) の読み取りを処理するための生の非同期パターンで使う読み取り完了ハンドラーを示しています。
+次のサンプルは、[**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) の読み取りを処理するための生の非同期パターンで使う読み取り完了ハンドラーを示しています。
 
 ```csharp
 public void OnDataReadCompletion(uint bytesRead, DataReader readPacket)
@@ -267,9 +267,9 @@ public void OnDataReadCompletion(uint bytesRead, DataReader readPacket)
 
 WebSocket に関連して、キープアライブ ハンドラーについても詳しく説明します。 WebSocket プロトコルで、キープアライブ メッセージの標準モデルを定義します。
 
-[  **MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う場合、アプリの中断状態を解除し、キープアライブ メッセージをサーバー (リモート エンドポイント) に定期的に送信するためには、[**WebSocketKeepAlive**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.WebSocketKeepAlive) クラス インスタンスを KeepAliveTrigger の [**TaskEntryPoint**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.taskentrypoint) として登録する必要があります。 これは、アプリのバックグラウンド登録コードとパッケージ マニフェストで行う必要があります。
+[  **MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う場合、アプリの中断状態を解除し、キープアライブ メッセージをサーバー (リモート エンドポイント) に定期的に送信するためには、[**WebSocketKeepAlive**](/uwp/api/Windows.Networking.Sockets.WebSocketKeepAlive) クラス インスタンスを KeepAliveTrigger の [**TaskEntryPoint**](/uwp/api/windows.applicationmodel.background.backgroundtaskbuilder.taskentrypoint) として登録する必要があります。 これは、アプリのバックグラウンド登録コードとパッケージ マニフェストで行う必要があります。
 
-[  **Windows.Sockets.WebSocketKeepAlive**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.WebSocketKeepAlive) のタスク エントリ ポイントは、次の 2 か所で指定する必要があります。
+[  **Windows.Sockets.WebSocketKeepAlive**](/uwp/api/Windows.Networking.Sockets.WebSocketKeepAlive) のタスク エントリ ポイントは、次の 2 か所で指定する必要があります。
 
 -   ソース コードで KeepAliveTrigger トリガーを作成する部分 (以下の例を参照)。
 -   キープアライブのバックグラウンド タスクが宣言されているアプリ パッケージ マニフェスト。
@@ -295,9 +295,9 @@ WebSocket に関連して、キープアライブ ハンドラーについても
   </Extensions>
 ```
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) と [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket)、[**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket)、または [**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) に対する非同期操作のコンテキストで **await** ステートメントを使う際には、特に注意する必要があります。 Task**Task&lt;bool&gt;** オブジェクトを使うと、プッシュ通知と WebSocket キープアライブの **ControlChannelTrigger** を **StreamWebSocket** に対して登録し、このトランスポートを接続できます。 この登録の一環として、**StreamWebSocket** トランスポートが **ControlChannelTrigger** のトランスポートとして設定され、読み取りがポストされます。 **Task.Result** は、タスクのすべてのステップが実行されてメッセージ本文でステートメントが返されるまで現在のスレッドをブロックします。 タスクは、このメソッドが true または false を返すまで解決されません。 これにより、メソッド全体が実行されることが保証されます。 **Task** には、**Task** によって保護される **await** ステートメントを複数含めることができます。 **ControlChannelTrigger** オブジェクトで **StreamWebSocket** または **MessageWebSocket** をトランスポートとして使う場合はこのパターンを使う必要があります。 完了までに長時間かかる可能性がある操作 (一般的な非同期読み取り操作など) に対しては、既に説明した生の非同期パターンを使う必要があります。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) と [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket)、[**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket)、または [**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket) に対する非同期操作のコンテキストで **await** ステートメントを使う際には、特に注意する必要があります。 Task**Task&lt;bool&gt;** オブジェクトを使うと、プッシュ通知と WebSocket キープアライブの **ControlChannelTrigger** を **StreamWebSocket** に対して登録し、このトランスポートを接続できます。 この登録の一環として、**StreamWebSocket** トランスポートが **ControlChannelTrigger** のトランスポートとして設定され、読み取りがポストされます。 **Task.Result** は、タスクのすべてのステップが実行されてメッセージ本文でステートメントが返されるまで現在のスレッドをブロックします。 タスクは、このメソッドが true または false を返すまで解決されません。 これにより、メソッド全体が実行されることが保証されます。 **Task** には、**Task** によって保護される **await** ステートメントを複数含めることができます。 **ControlChannelTrigger** オブジェクトで **StreamWebSocket** または **MessageWebSocket** をトランスポートとして使う場合はこのパターンを使う必要があります。 完了までに長時間かかる可能性がある操作 (一般的な非同期読み取り操作など) に対しては、既に説明した生の非同期パターンを使う必要があります。
 
-次のサンプルは、プッシュ通知と WebSocket キープアライブの [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) に対して登録します。
+次のサンプルは、プッシュ通知と WebSocket キープアライブの [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) に対して登録します。
 
 ```csharp
 private bool RegisterWithControlChannelTrigger(string serverUri)
@@ -433,21 +433,21 @@ async Task<bool> RegisterWithCCTHelper(string serverUri)
 }
 ```
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う方法について詳しくは、[ControlChannelTrigger StreamWebSocket のサンプルに関するページ](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20StreamSocket%20sample%20(Windows%208))をご覧ください。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket) または [**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) を使う方法について詳しくは、[ControlChannelTrigger StreamWebSocket のサンプルに関するページ](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20StreamSocket%20sample%20(Windows%208))をご覧ください。
 
 ## <a name="controlchanneltrigger-with-httpclient"></a>ControlChannelTrigger と HttpClient
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 また、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) でパケットを受信する要求の処理方法にも、これらの注意事項が関係します。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](/dotnet/api/system.net.http.httpclient) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で [HttpClient](/dotnet/api/system.net.http.httpclient) を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 また、[HttpClient](/dotnet/api/system.net.http.httpclient) でパケットを受信する要求の処理方法にも、これらの注意事項が関係します。
 
-**注**  SSL を使う   [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) では、ネットワーク トリガー機能と [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) の使用は現在サポートされていません。
+**注**  SSL を使う   [HttpClient](/dotnet/api/system.net.http.httpclient) では、ネットワーク トリガー機能と [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) の使用は現在サポートされていません。
  
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を使う際に従う必要のある使用パターンとベスト プラクティスを次に示します。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](/dotnet/api/system.net.http.httpclient) を使う際に従う必要のある使用パターンとベスト プラクティスを次に示します。
 
--   アプリで、特定の URI に要求を送る前に、[System.Net.Http](https://msdn.microsoft.com/library/system.net.http(VS.110).aspx) 名前空間の [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) オブジェクトまたは [HttpClientHandler](https://msdn.microsoft.com/library/system.net.http.httpclienthandler(VS.110).aspx) オブジェクトにさまざまなプロパティやヘッダーを設定する必要がある場合があります。
--   アプリには、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で使う [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) トランスポートを作る前に、トランスポートをテストし、正しく設定するための初期要求が必要な場合があります。 トランスポートを正しく設定できることがアプリによって確認されると、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) オブジェクトを **ControlChannelTrigger** オブジェクトで使うトランスポート オブジェクトとして構成できます。 このプロセスは、一部のシナリオでトランスポートを使って確立された接続が中断されないようにするためのものです。 SSL と証明書を使う場合、アプリには、PIN 入力用、または選択する証明書が複数ある場合に表示されるダイアログが必要になる場合があります。 プロキシ認証とサーバー認証が必要になる場合があります。 プロキシ認証またはサーバー認証の期限が切れると、接続が閉じる場合があります。 これらの認証期限の問題に対処する 1 つの方法として、タイマーを設定できます。 HTTP リダイレクトが必要な場合、2 回目の接続は正しく確立できないことがあります。 初期テスト要求により、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) オブジェクトを **ControlChannelTrigger** オブジェクトでトランスポートとして使う前にアプリが最新のリダイレクト URL を使用できることが確認されます。
+-   アプリで、特定の URI に要求を送る前に、[System.Net.Http](/dotnet/api/system.net.http) 名前空間の [HttpClient](/dotnet/api/system.net.http.httpclient) オブジェクトまたは [HttpClientHandler](/dotnet/api/system.net.http.httpclienthandler) オブジェクトにさまざまなプロパティやヘッダーを設定する必要がある場合があります。
+-   アプリには、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で使う [HttpClient](/dotnet/api/system.net.http.httpclient) トランスポートを作る前に、トランスポートをテストし、正しく設定するための初期要求が必要な場合があります。 トランスポートを正しく設定できることがアプリによって確認されると、[HttpClient](/dotnet/api/system.net.http.httpclient) オブジェクトを **ControlChannelTrigger** オブジェクトで使うトランスポート オブジェクトとして構成できます。 このプロセスは、一部のシナリオでトランスポートを使って確立された接続が中断されないようにするためのものです。 SSL と証明書を使う場合、アプリには、PIN 入力用、または選択する証明書が複数ある場合に表示されるダイアログが必要になる場合があります。 プロキシ認証とサーバー認証が必要になる場合があります。 プロキシ認証またはサーバー認証の期限が切れると、接続が閉じる場合があります。 これらの認証期限の問題に対処する 1 つの方法として、タイマーを設定できます。 HTTP リダイレクトが必要な場合、2 回目の接続は正しく確立できないことがあります。 初期テスト要求により、[HttpClient](/dotnet/api/system.net.http.httpclient) オブジェクトを **ControlChannelTrigger** オブジェクトでトランスポートとして使う前にアプリが最新のリダイレクト URL を使用できることが確認されます。
 
-他のネットワーク トランスポートとは異なり、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) オブジェクトの [**UsingTransport**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.controlchanneltrigger.usingtransport) メソッドに直接 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) オブジェクトを渡すことはできません。 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) オブジェクトと **ControlChannelTrigger** 用に特別な方法で [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage) オブジェクトを構築する必要があります。 [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage) オブジェクトは、[RtcRequestFactory.Create](https://msdn.microsoft.com/library/system.net.http.rtcrequestfactory.create) メソッドを使って作成します。 そのうえで、作成した [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage) オブジェクトを **UsingTransport** メソッドに渡します。
+他のネットワーク トランスポートとは異なり、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) オブジェクトの [**UsingTransport**](/uwp/api/windows.networking.sockets.controlchanneltrigger.usingtransport) メソッドに直接 [HttpClient](/dotnet/api/system.net.http.httpclient) オブジェクトを渡すことはできません。 [HttpClient](/dotnet/api/system.net.http.httpclient) オブジェクトと **ControlChannelTrigger** 用に特別な方法で [HttpRequestMessage](/previous-versions/visualstudio/hh159020(v=vs.118)) オブジェクトを構築する必要があります。 [HttpRequestMessage](/previous-versions/visualstudio/hh159020(v=vs.118)) オブジェクトは、[RtcRequestFactory.Create](/dotnet/api/system.net.http.rtcrequestfactory.create) メソッドを使って作成します。 そのうえで、作成した [HttpRequestMessage](/previous-versions/visualstudio/hh159020(v=vs.118)) オブジェクトを **UsingTransport** メソッドに渡します。
 
-次のサンプルでは、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) オブジェクトと [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で使う [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage) オブジェクトを構築しています。
+次のサンプルでは、[HttpClient](/dotnet/api/system.net.http.httpclient) オブジェクトと [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で使う [HttpRequestMessage](/previous-versions/visualstudio/hh159020(v=vs.118)) オブジェクトを構築しています。
 
 ```csharp
 using System;
@@ -489,13 +489,13 @@ private void SetupHttpRequestAndSendToHttpServer()
 }
 ```
 
-いくつかの特別な注意事項は、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) で HTTP 要求を送信して応答の受け取りを開始するための要求の処理方法にかかわってきます。 特に、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を使うアプリは、送信処理に、**await** モデルではなく、Task を使う必要があります。
+いくつかの特別な注意事項は、[HttpClient](/dotnet/api/system.net.http.httpclient) で HTTP 要求を送信して応答の受け取りを開始するための要求の処理方法にかかわってきます。 特に、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [HttpClient](/dotnet/api/system.net.http.httpclient) を使うアプリは、送信処理に、**await** モデルではなく、Task を使う必要があります。
 
-[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を使った場合、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドと、受信完了コールバックの戻りとの同期が生じません。 したがって、アプリは、ブロックする HttpResponseMessage を **Run** メソッドで使い、応答全体を受け取るまで待機するしかありません。
+[HttpClient](/dotnet/api/system.net.http.httpclient) を使った場合、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) のバックグラウンド タスクの [**IBackgroundTask.Run**](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドと、受信完了コールバックの戻りとの同期が生じません。 したがって、アプリは、ブロックする HttpResponseMessage を **Run** メソッドで使い、応答全体を受け取るまで待機するしかありません。
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) での [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) の使用は、[**StreamSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamSocket) や [**MessageWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.MessageWebSocket)、[**StreamWebSocket**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.StreamWebSocket) のトランスポートとは大きく異なります。 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) 受信コールバックは、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) コード以後、Task を介してアプリに送られます。 つまり、データまたはエラーがアプリにディスパッチされるとすぐに **ControlChannelTrigger** プッシュ通知タスクが作動します。 以下のサンプル コードは、[HttpClient.SendAsync](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) メソッドから返された responseTask をグローバルなストレージに格納します。プッシュ通知タスクがそれを取り出し、インラインで処理します。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) での [HttpClient](/dotnet/api/system.net.http.httpclient) の使用は、[**StreamSocket**](/uwp/api/Windows.Networking.Sockets.StreamSocket) や [**MessageWebSocket**](/uwp/api/Windows.Networking.Sockets.MessageWebSocket)、[**StreamWebSocket**](/uwp/api/Windows.Networking.Sockets.StreamWebSocket) のトランスポートとは大きく異なります。 [HttpClient](/dotnet/api/system.net.http.httpclient) 受信コールバックは、[HttpClient](/dotnet/api/system.net.http.httpclient) コード以後、Task を介してアプリに送られます。 つまり、データまたはエラーがアプリにディスパッチされるとすぐに **ControlChannelTrigger** プッシュ通知タスクが作動します。 以下のサンプル コードは、[HttpClient.SendAsync](/dotnet/api/system.net.http.httpclient) メソッドから返された responseTask をグローバルなストレージに格納します。プッシュ通知タスクがそれを取り出し、インラインで処理します。
 
-次のサンプルは、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) と組み合わせて使い、送信要求を処理しています。
+次のサンプルは、[HttpClient](/dotnet/api/system.net.http.httpclient) を [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) と組み合わせて使い、送信要求を処理しています。
 
 ```csharp
 using System;
@@ -540,7 +540,7 @@ private void SendHttpRequest()
 }
 ```
 
-次のサンプルは、[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) を [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) と組み合わせて使い、受け取った応答を読み取っています。
+次のサンプルは、[HttpClient](/dotnet/api/system.net.http.httpclient) を [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) と組み合わせて使い、受け取った応答を読み取っています。
 
 ```csharp
 using System.Net;
@@ -581,18 +581,18 @@ public string ReadResponse(Task<HttpResponseMessage> httpResponseTask)
 }
 ```
 
-[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) と [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う方法について詳しくは、[ControlChannelTrigger HttpClient のサンプルに関するページ](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20XMLHTTPRequest%20sample%20(Windows%208))をご覧ください。
+[HttpClient](/dotnet/api/system.net.http.httpclient) と [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う方法について詳しくは、[ControlChannelTrigger HttpClient のサンプルに関するページ](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20XMLHTTPRequest%20sample%20(Windows%208))をご覧ください。
 
 ## <a name="controlchanneltrigger-with-ixmlhttprequest2"></a>ControlChannelTrigger と IXMLHttpRequest2
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で **IXMLHTTPRequest2** を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 **ControlChannelTrigger** の使用が、**IXMLHTTPRequest2** で HTTP 要求を送受信するための要求の処理方法に影響することはありません。
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**IXMLHTTPRequest2**](/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) を使う場合は、特別な注意事項がいくつかあります。 **ControlChannelTrigger** で **IXMLHTTPRequest2** を使う際には、トランスポート固有の使用パターンとベスト プラクティスに従う必要があります。 **ControlChannelTrigger** の使用が、**IXMLHTTPRequest2** で HTTP 要求を送受信するための要求の処理方法に影響することはありません。
 
-[  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) を使う際の使用パターンとベスト プラクティス
+[  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で [**IXMLHTTPRequest2**](/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) を使う際の使用パターンとベスト プラクティス
 
--   トランスポートとして使われる [**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) オブジェクトの有効期限は、1 つの要求/応答のみで構成されます。 [  **ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) オブジェクトと併用する場合は、**ControlChannelTrigger** オブジェクトを一度作って設定してから [**UsingTransport**](https://docs.microsoft.com/uwp/api/windows.networking.sockets.controlchanneltrigger.usingtransport) メソッドを繰り返し呼び出して、そのたびに新しい **IXMLHTTPRequest2** オブジェクトを関連付けると便利です。 アプリは、新しい **IXMLHTTPRequest2** オブジェクトを提供する前に以前の **IXMLHTTPRequest2** オブジェクトを削除して、割り当てられたリソース制限を超えないようにする必要があります。
--   アプリは、[**Send**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-send) メソッドを呼び出す前に、[**SetProperty**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-setproperty) メソッドと [**SetRequestHeader**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-setrequestheader) メソッドを呼び出して HTTP トランスポートを設定する必要がある場合があります。
--   アプリには、[**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で使うトランスポートを作る前に、トランスポートをテストし、正しく設定するための初期 [**Send**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-send) 要求が必要な場合があります。 アプリによってトランスポートが正しく設定されていることが確認されると、[**IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) オブジェクトを **ControlChannelTrigger** で使うトランスポート オブジェクトとして構成できます。 このプロセスは、一部のシナリオでトランスポートを使って確立された接続が中断されないようにするためのものです。 SSL と証明書を使う場合、アプリには、PIN 入力用、または選択する証明書が複数ある場合に表示されるダイアログが必要になる場合があります。 プロキシ認証とサーバー認証が必要になる場合があります。 プロキシ認証またはサーバー認証の期限が切れると、接続が閉じる場合があります。 これらの認証期限の問題に対処する 1 つの方法として、タイマーを設定できます。 HTTP リダイレクトが必要な場合、2 回目の接続は正しく確立できないことがあります。 初期テスト要求により、**IXMLHTTPRequest2** オブジェクトを **ControlChannelTrigger** オブジェクトでトランスポートとして使う前にアプリが最新のリダイレクト URL を使用できることが確認されます。
+-   トランスポートとして使われる [**IXMLHTTPRequest2**](/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) オブジェクトの有効期限は、1 つの要求/応答のみで構成されます。 [  **ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) オブジェクトと併用する場合は、**ControlChannelTrigger** オブジェクトを一度作って設定してから [**UsingTransport**](/uwp/api/windows.networking.sockets.controlchanneltrigger.usingtransport) メソッドを繰り返し呼び出して、そのたびに新しい **IXMLHTTPRequest2** オブジェクトを関連付けると便利です。 アプリは、新しい **IXMLHTTPRequest2** オブジェクトを提供する前に以前の **IXMLHTTPRequest2** オブジェクトを削除して、割り当てられたリソース制限を超えないようにする必要があります。
+-   アプリは、[**Send**](/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-send) メソッドを呼び出す前に、[**SetProperty**](/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-setproperty) メソッドと [**SetRequestHeader**](/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-setrequestheader) メソッドを呼び出して HTTP トランスポートを設定する必要がある場合があります。
+-   アプリには、[**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) で使うトランスポートを作る前に、トランスポートをテストし、正しく設定するための初期 [**Send**](/previous-versions/windows/desktop/api/msxml6/nf-msxml6-ixmlhttprequest2-send) 要求が必要な場合があります。 アプリによってトランスポートが正しく設定されていることが確認されると、[**IXMLHTTPRequest2**](/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) オブジェクトを **ControlChannelTrigger** で使うトランスポート オブジェクトとして構成できます。 このプロセスは、一部のシナリオでトランスポートを使って確立された接続が中断されないようにするためのものです。 SSL と証明書を使う場合、アプリには、PIN 入力用、または選択する証明書が複数ある場合に表示されるダイアログが必要になる場合があります。 プロキシ認証とサーバー認証が必要になる場合があります。 プロキシ認証またはサーバー認証の期限が切れると、接続が閉じる場合があります。 これらの認証期限の問題に対処する 1 つの方法として、タイマーを設定できます。 HTTP リダイレクトが必要な場合、2 回目の接続は正しく確立できないことがあります。 初期テスト要求により、**IXMLHTTPRequest2** オブジェクトを **ControlChannelTrigger** オブジェクトでトランスポートとして使う前にアプリが最新のリダイレクト URL を使用できることが確認されます。
 
-[  **IXMLHTTPRequest2**](https://docs.microsoft.com/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) と [**ControlChannelTrigger**](https://docs.microsoft.com/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う方法について詳しくは、[ControlChannelTrigger と IXMLHTTPRequest2 のサンプルに関するページ](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20XMLHTTPRequest%20sample%20(Windows%208))をご覧ください。
+[  **IXMLHTTPRequest2**](/previous-versions/windows/desktop/api/msxml6/nn-msxml6-ixmlhttprequest2) と [**ControlChannelTrigger**](/uwp/api/Windows.Networking.Sockets.ControlChannelTrigger) を使う方法について詳しくは、[ControlChannelTrigger と IXMLHTTPRequest2 のサンプルに関するページ](https://github.com/microsoft/VCSamples/tree/master/VC2012Samples/Windows%208%20samples/C%2B%2B/Windows%208%20app%20samples/ControlChannelTrigger%20XMLHTTPRequest%20sample%20(Windows%208))をご覧ください。
 
 ## <a name="important-apis"></a>重要な API
 * [SocketActivityTrigger](/uwp/api/Windows.ApplicationModel.Background.SocketActivityTrigger)

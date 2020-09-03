@@ -10,16 +10,16 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: bb3d8fc251a357f4251552ba80e4c922878fe805
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: a927e7fa81499ef9eb5a8b798679f13b6d838d17
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970817"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174456"
 ---
 # <a name="pivot"></a>Pivot
 
-[Pivot](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot) コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
+[Pivot](/uwp/api/Windows.UI.Xaml.Controls.Pivot) コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
 
 ![既定のフォーカスでは選択されたヘッダーが下線付きで表示される](images/pivot_focus_selectedHeader.png)
 
@@ -27,9 +27,9 @@ ms.locfileid: "82970817"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
-> **プラットフォーム API**: [Pivot クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[NavigationView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
+> **プラットフォーム API**: [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[NavigationView クラス](/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
 
 ## <a name="examples"></a>例
 
@@ -145,15 +145,15 @@ private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvoke
 
 ### <a name="pivot-items"></a>ピボット項目
 
-Pivot は [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) であるため、あらゆる種類の項目のコレクションを含めることができます。 ピボットに追加する項目が明示的に [PivotItem](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PivotItem) ではない場合、PivotItem で暗黙的にラップされます。 ピボットは通常コンテンツのページ間を移動するために使用されるため、XAML UI 要素を使用して直接 [Items](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションを設定するのが一般的です。 または、[ItemsSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ ソースに設定することもできます。 ItemsSource にバインドされている項目は、任意の型にすることができますが、明示的に PivotItem ではない場合は、[ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)と [HeaderTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot.headertemplate) を定義して、項目を表示する方法を指定する必要があります。
+Pivot は [ItemsControl](/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) であるため、あらゆる種類の項目のコレクションを含めることができます。 ピボットに追加する項目が明示的に [PivotItem](/uwp/api/Windows.UI.Xaml.Controls.PivotItem) ではない場合、PivotItem で暗黙的にラップされます。 ピボットは通常コンテンツのページ間を移動するために使用されるため、XAML UI 要素を使用して直接 [Items](/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションを設定するのが一般的です。 または、[ItemsSource](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ ソースに設定することもできます。 ItemsSource にバインドされている項目は、任意の型にすることができますが、明示的に PivotItem ではない場合は、[ItemTemplate](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)と [HeaderTemplate](/uwp/api/windows.ui.xaml.controls.pivot.headertemplate) を定義して、項目を表示する方法を指定する必要があります。
 
-[SelectedItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot.selecteditem) プロパティを使って、ピボットのアクティブな項目を取得または設定できます。 アクティブな項目のインデックスを取得または設定するには、[SelectedIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot.selectedindex) プロパティを使います。
+[SelectedItem](/uwp/api/windows.ui.xaml.controls.pivot.selecteditem) プロパティを使って、ピボットのアクティブな項目を取得または設定できます。 アクティブな項目のインデックスを取得または設定するには、[SelectedIndex](/uwp/api/windows.ui.xaml.controls.pivot.selectedindex) プロパティを使います。
 
 ### <a name="pivot-headers"></a>ピボット ヘッダー
 
-[LeftHeader](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot.leftheader) プロパティと [RightHeader](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pivot.rightheader) プロパティを使って、ピボット ヘッダーに他のコントロールを追加できます。
+[LeftHeader](/uwp/api/windows.ui.xaml.controls.pivot.leftheader) プロパティと [RightHeader](/uwp/api/windows.ui.xaml.controls.pivot.rightheader) プロパティを使って、ピボット ヘッダーに他のコントロールを追加できます。
 
-たとえば、[CommandBar](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/app-bars) をピボットの RightHeader に追加できます。
+たとえば、[CommandBar](./app-bars.md) をピボットの RightHeader に追加できます。
 
 ```xaml
 <Pivot>
@@ -191,7 +191,7 @@ Pivot は [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Cont
 - ピボット ラベルをタップすると対応するページに移動し、アクティブなピボット ラベルは最初の位置までカルーセル表示されます。
 - カルーセル内のピボット項目は、最後のピボット セクションから最初のピボット セクションにループします。
 
-> **注** ピボット ヘッダーを [10 フィート環境](../devices/designing-for-tv.md)でカルーセル表示しないでください。 Xbox 上でアプリを実行する場合は、[IsHeaderItemsCarouselEnabled](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot.IsHeaderItemsCarouselEnabled) プロパティを **false** に設定します。
+> **注** ピボット ヘッダーを [10 フィート環境](../devices/designing-for-tv.md)でカルーセル表示しないでください。 Xbox 上でアプリを実行する場合は、[IsHeaderItemsCarouselEnabled](/uwp/api/Windows.UI.Xaml.Controls.Pivot.IsHeaderItemsCarouselEnabled) プロパティを **false** に設定します。
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -203,5 +203,5 @@ Pivot は [ItemsControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Cont
 
 ## <a name="related-topics"></a>関連トピック
 
-- [Pivot クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Pivot)
+- [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)
 - [ナビゲーション デザインの基本](../basics/navigation-basics.md)

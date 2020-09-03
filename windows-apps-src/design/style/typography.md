@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3a5b6df7a5d8333e0f4834c256a38fc912f8f51e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 555459d427eae045d3cf7eda45a97ec806717380
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970627"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175516"
 ---
 # <a name="typography-in-windows-apps"></a>Windows アプリの文字体裁
 
@@ -106,7 +106,7 @@ Windows 書体見本は、ユーザーがコンテンツを読みやすいよう
 
 ## <a name="alignment"></a>配置
 
-既定の [TextAlignment](https://docs.microsoft.com/uwp/api/windows.ui.xaml.textalignment) (行揃え) は Left (左揃え) です。ほとんどの場合、左揃え、右不揃いの形式でコンテンツを一貫してアンカー設定することで、均一なレイアウトが実現します。 RTL 言語については、[グローバリゼーションをサポートするためのレイアウトとフォントの調整に関するページ](../globalizing/adjust-layout-and-fonts--and-support-rtl.md)をご覧ください。
+既定の [TextAlignment](/uwp/api/windows.ui.xaml.textalignment) (行揃え) は Left (左揃え) です。ほとんどの場合、左揃え、右不揃いの形式でコンテンツを一貫してアンカー設定することで、均一なレイアウトが実現します。 RTL 言語については、[グローバリゼーションをサポートするためのレイアウトとフォントの調整に関するページ](../globalizing/adjust-layout-and-fonts--and-support-rtl.md)をご覧ください。
 
 ![左揃えテキストを示します。](images/type/alignment.svg)
 
@@ -152,7 +152,7 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 
 ### <a name="globalizinglocalizing-fonts"></a>フォントのグローバリゼーション/ローカライズ
 
-特定言語の推奨フォント ファミリー、サイズ、太さ、スタイルにプログラムを使ってアクセスする場合は、[LanguageFont フォント マッピング API](https://docs.microsoft.com/uwp/api/Windows.Globalization.Fonts.LanguageFont) を使ってください。 LanguageFont オブジェクトを使うと、コンテンツのさまざまなカテゴリ (UI ヘッダー、通知、本文のテキスト、ユーザー自身で編集できるドキュメント本文のフォントなど) の正しいフォント情報にアクセスできます。 詳しくは、「[レイアウトとグローバリゼーションをサポートするフォントの調整](../globalizing/adjust-layout-and-fonts--and-support-rtl.md)」をご覧ください。
+特定言語の推奨フォント ファミリー、サイズ、太さ、スタイルにプログラムを使ってアクセスする場合は、[LanguageFont フォント マッピング API](/uwp/api/Windows.Globalization.Fonts.LanguageFont) を使ってください。 LanguageFont オブジェクトを使うと、コンテンツのさまざまなカテゴリ (UI ヘッダー、通知、本文のテキスト、ユーザー自身で編集できるドキュメント本文のフォントなど) の正しいフォント情報にアクセスできます。 詳しくは、「[レイアウトとグローバリゼーションをサポートするフォントの調整](../globalizing/adjust-layout-and-fonts--and-support-rtl.md)」をご覧ください。
 
 ### <a name="fonts-for-non-latin-languages"></a>ラテン語以外の言語用のフォント
 
@@ -340,4 +340,4 @@ Segoe UI は、英語、ヨーロッパの各言語、ギリシャ語、ヘブ�
 * [テキスト コントロール](../controls-and-patterns/text-controls.md)
 * [XAML テーマ リソース](../controls-and-patterns/xaml-theme-resources.md#the-xaml-type-ramp)
 * [XAML スタイル](../controls-and-patterns/xaml-styles.md)
-* [Microsoft の文字体裁](https://docs.microsoft.com/typography/)
+* [Microsoft の文字体裁](/typography/)

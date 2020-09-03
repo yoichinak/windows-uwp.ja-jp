@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 07/28/2020
-ms.openlocfilehash: ce4e736751d5586c6ab4489e976fc397b1be0301
-ms.sourcegitcommit: 6b83f1854a113490dcd4f52425ecade9e66e0b44
+ms.openlocfilehash: 1b44cc51ecbb83e52a16ab7e5c577578c8765cb9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87333796"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166557"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 
@@ -26,7 +26,7 @@ ms.locfileid: "87333796"
 
 ## <a name="install-wsl-2"></a>WSL 2 のインストール
 
-WSL 2 を有効にしてインストールするには、[WSL インストール ドキュメント](https://docs.microsoft.com/windows/wsl/install-win10)の手順に従います。 これらの手順には、Linux ディストリビューション (Ubuntu など) の選択が含まれています。
+WSL 2 を有効にしてインストールするには、[WSL インストール ドキュメント](/windows/wsl/install-win10)の手順に従います。 これらの手順には、Linux ディストリビューション (Ubuntu など) の選択が含まれています。
 
 WSL 2 と Linux ディストリビューションをインストールしたら、Linux ディストリビューション (Windows の [スタート] メニューにあります) を開き、コマンド `lsb_release -dc` を使用してバージョンとコードネームを確認します。
 
@@ -34,7 +34,7 @@ WSL 2 と Linux ディストリビューションをインストールしたら�
 
 ## <a name="install-windows-terminal-optional"></a>Windows ターミナルをインストールする (省略可能)
 
-新しい Windows ターミナルでは、複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) が有効になり、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) を作成でき、検索機能、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) を使用できます。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/windows/terminal)。
+新しい Windows ターミナルでは、複数のタブ (コマンド プロンプト、PowerShell、複数の Linux ディストリビューション間をすばやく切り替える) が有効になり、カスタム キー バインド (タブを開くまたは閉じる、コピーと貼り付けを行うなどのためのショートカット キー) を作成でき、検索機能、カスタム テーマ (配色、フォント スタイルとサイズ、背景画像/ぼかし/透明度) を使用できます。 [詳しくはこちらをご覧ください](/windows/terminal)。
 
 1. [Microsoft Store で Windows ターミナル](https://www.microsoft.com/store/apps/9n0dx20hk701)を取得します: ストアを介してインストールすると、更新プログラムが自動的に処理されます。
 
@@ -78,7 +78,7 @@ NVM を使用して Node.js と NPM をインストールする場合は、SUDO 
 nvm は現在、最も一般的なノード用バージョン マネージャーですが、考慮すべき代替がいくつかあります。
 
 - [n](https://www.npmjs.com/package/n#installation) は従来から用いられてきた `nvm` の代替です。同じことを実現しますがコマンドが若干異なります。また、Bash スクリプトではなく、`npm` を介してインストールされます。
-- [fnm](https://github.com/Schniz/fnm#using-a-script) はより新しいバージョン マネージャーであり、`nvm` よりもはるかに高速であると言われています ([Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) も使用されます)。
+- [fnm](https://github.com/Schniz/fnm#using-a-script) はより新しいバージョン マネージャーであり、`nvm` よりもはるかに高速であると言われています ([Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) も使用されます)。
 - [Volta](https://github.com/volta-cli/volta#installing-volta) は LinkedIn チームからの新しいバージョン マネージャーであり、速度の向上とクロスプラットフォーム サポートを特長として挙げています。
 - [asdf-vm](https://asdf-vm.com/#/core-manage-asdf-vm) は、ike gvm、nvm、rbenv、pyenv (その他多数) などの複数の言語を 1 つにまとめた単一の CLI です。
 - [nvs](https://github.com/jasongin/nvs) (Node Version Switcher) は、クロスプラットフォームの `nvm` の代わりであり、[VS Code との統合](https://github.com/jasongin/nvs/blob/master/doc/VSCODE.md)が可能です。
@@ -135,7 +135,7 @@ Node.js 拡張パックをインストールするには、次の手順を行い
 
 ## <a name="set-up-git-optional"></a>Git を設定する (省略可能)
 
-WSL で NodeJS プロジェクトの Git をセットアップするには、WSL ドキュメントの「[Linux 用 Windows サブシステムで Git の使用を開始する](https://docs.microsoft.com/windows/wsl/tutorials/wsl-git)」の記事を参照してください。
+WSL で NodeJS プロジェクトの Git をセットアップするには、WSL ドキュメントの「[Linux 用 Windows サブシステムで Git の使用を開始する](/windows/wsl/tutorials/wsl-git)」の記事を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 
@@ -143,5 +143,5 @@ WSL で NodeJS プロジェクトの Git をセットアップするには、WSL
 
 - [初心者向けの Node.js 概要](./beginners.md)
 - [Windows での Node.js Web フレームワークの概要](./web-frameworks.md)
-- [Node.js アプリのデータベースへの接続の概要](https://docs.microsoft.com/windows/wsl/tutorials/wsl-database)
+- [Node.js アプリのデータベースへの接続の概要](/windows/wsl/tutorials/wsl-database)
 - [Node.js で Docker コンテナーを使ってみる](./containers.md)

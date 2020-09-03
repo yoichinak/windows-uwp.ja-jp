@@ -6,22 +6,22 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b3143247eab0bd8ed4266b78e34ec54dafa4dd7e
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8a438c5c0fa0e3dbe932c393291afe05b28b3e4a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74259565"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175426"
 ---
 # <a name="open-files-and-folders-with-a-picker"></a>ピッカーでファイルやフォルダーを開く
 
 **重要な API**
 
--   [**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker)
--   [**FolderPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FolderPicker)
--   [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)
+-   [**FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker)
+-   [**FolderPicker**](/uwp/api/Windows.Storage.Pickers.FolderPicker)
+-   [**StorageFile**](/uwp/api/Windows.Storage.StorageFile)
 
-ユーザーがピッカーを操作してファイルやフォルダーにアクセスできるようにします。 ファイルへのアクセスには [**FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスと [**FileSavePicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileSavePicker) クラス、フォルダーへのアクセスには [**FolderPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FolderPicker) を使います。
+ユーザーがピッカーを操作してファイルやフォルダーにアクセスできるようにします。 ファイルへのアクセスには [**FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) クラスと [**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) クラス、フォルダーへのアクセスには [**FolderPicker**](/uwp/api/Windows.Storage.Pickers.FolderPicker) を使います。
 
 > [!NOTE]
 > 完全なサンプルについては、「[File picker sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FilePicker)」 (ファイル ピッカーのサンプル) を参照してください。
@@ -31,7 +31,7 @@ ms.locfileid: "74259565"
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 -   **場所へのアクセス許可**
 
@@ -55,9 +55,9 @@ ms.locfileid: "74259565"
 ## <a name="how-pickers-work"></a>ピッカーのしくみ
 
 
-アプリでは、ファイル ピッカーを使ってユーザーのシステム上のファイルとフォルダーにアクセスします。 アプリではこれらの選択を [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトと [**StorageFolder**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFolder) オブジェクトとして受け取ることにより、それらを操作できます。
+アプリでは、ファイル ピッカーを使ってユーザーのシステム上のファイルとフォルダーにアクセスします。 アプリではこれらの選択を [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトと [**StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) オブジェクトとして受け取ることにより、それらを操作できます。
 
-ピッカーは単一の統一されたインターフェイスを使用して、ユーザーがファイル システムや他のアプリからファイルやフォルダーを選べるように表示します。 他のアプリから選ばれたファイルは、ファイル システムから選ばれたファイルと同様に、[**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトとして返されます。 通常、アプリはそれらのオブジェクトも、他のオブジェクトと同じ方法で操作できます。 他のアプリは、ファイル ピッカー コントラクトに参加することで、ユーザーにファイルを表示します。 ファイル、保存場所、またはファイルの更新を他のアプリに提供する場合は、「[ファイル ピッカー コントラクトとの統合](https://docs.microsoft.com/previous-versions/windows/apps/hh465192(v=win.10))」をご覧ください。
+ピッカーは単一の統一されたインターフェイスを使用して、ユーザーがファイル システムや他のアプリからファイルやフォルダーを選べるように表示します。 他のアプリから選ばれたファイルは、ファイル システムから選ばれたファイルと同様に、[**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトとして返されます。 通常、アプリはそれらのオブジェクトも、他のオブジェクトと同じ方法で操作できます。 他のアプリは、ファイル ピッカー コントラクトに参加することで、ユーザーにファイルを表示します。 ファイル、保存場所、またはファイルの更新を他のアプリに提供する場合は、「[ファイル ピッカー コントラクトとの統合](/previous-versions/windows/apps/hh465192(v=win.10))」をご覧ください。
 
 たとえば、ユーザーがファイルを開けるように、アプリでファイル ピッカーを呼び出すとします。 この場合、アプリは呼び出し元アプリになります。 ファイル ピッカーは、システムや他のアプリと情報をやり取りして、ユーザーがファイルを探して選べるようにします。 ユーザーがファイルを選ぶと、ファイル ピッカーはそのファイルをアプリに返します。 ここでは、ユーザーが OneDrive のような提供元アプリからファイルを選ぶ場合のプロセスを示しています。
 
@@ -103,13 +103,13 @@ else
     ```
     ファイル ピッカー オブジェクトの、ユーザーとアプリに関連するプロパティを設定します。
 
-    この例では、3 つのプロパティを設定し、ユーザーが選べる画像の視覚的に優れた表示を作成し、使いやすい場所に配置します:[**ViewMode**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.viewmode)、[**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation)、および [**FileTypeFilter**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter)。
+    この例では、3 つのプロパティを設定し、ユーザーが選べる画像の視覚的に優れた表示を作成し、使いやすい場所に配置します:[**ViewMode**](/uwp/api/windows.storage.pickers.fileopenpicker.viewmode)、[**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation)、および [**FileTypeFilter**](/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter)。
 
-    -   [**ViewMode**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.viewmode) を [**PickerViewMode**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.PickerViewMode) **Thumbnail** 列挙値に設定すると、ファイル ピッカーでファイルを表すために画像のサムネイルを使用して、視覚的に優れた表示が作成されます。 これは、画像やビデオなどの視覚的なファイルを選ぶ場合に設定します。 それ以外の場合は、[**PickerViewMode.List**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.PickerViewMode) を使います。 **画像またはビデオの添付**機能と**ドキュメントの添付**機能がある架空のメール アプリでは、ファイル ピッカーを表示する前に **ViewMode** をそれらの機能に対応させます。
+    -   [**ViewMode**](/uwp/api/windows.storage.pickers.fileopenpicker.viewmode) を [**PickerViewMode**](/uwp/api/Windows.Storage.Pickers.PickerViewMode) **Thumbnail** 列挙値に設定すると、ファイル ピッカーでファイルを表すために画像のサムネイルを使用して、視覚的に優れた表示が作成されます。 これは、画像やビデオなどの視覚的なファイルを選ぶ場合に設定します。 それ以外の場合は、[**PickerViewMode.List**](/uwp/api/Windows.Storage.Pickers.PickerViewMode) を使います。 **画像またはビデオの添付**機能と**ドキュメントの添付**機能がある架空のメール アプリでは、ファイル ピッカーを表示する前に **ViewMode** をそれらの機能に対応させます。
 
-    -   [  **PickerLocationId.PicturesLibrary**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.PickerLocationId) を使って [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を Pictures に設定すると、画像を見つけられる可能性が高い場所が最初に表示されます。 選ぶファイルの種類 (音楽、画像、ビデオ、ドキュメントなど) に合わせて **SuggestedStartLocation** を設定します。 ユーザーは、開始場所から別の場所に移動できます。
+    -   [  **PickerLocationId.PicturesLibrary**](/uwp/api/Windows.Storage.Pickers.PickerLocationId) を使って [**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を Pictures に設定すると、画像を見つけられる可能性が高い場所が最初に表示されます。 選ぶファイルの種類 (音楽、画像、ビデオ、ドキュメントなど) に合わせて **SuggestedStartLocation** を設定します。 ユーザーは、開始場所から別の場所に移動できます。
 
-    -   [  **FileTypeFilter**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter) を使うと、関連性の高いファイルの種類に絞ってユーザーがファイルを選ぶことができます。 **FileTypeFilter** の以前のファイルの種類を新しいエントリに置き換えるには、[**Add**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.append) ではなく [**ReplaceAll**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileextensionvector.replaceall) メソッドを使います。
+    -   [  **FileTypeFilter**](/uwp/api/windows.storage.pickers.fileopenpicker.filetypefilter) を使うと、関連性の高いファイルの種類に絞ってユーザーがファイルを選ぶことができます。 **FileTypeFilter** の以前のファイルの種類を新しいエントリに置き換えるには、[**Add**](/uwp/api/windows.storage.pickers.fileextensionvector.append) ではなく [**ReplaceAll**](/uwp/api/windows.storage.pickers.fileextensionvector.replaceall) メソッドを使います。
 
 2.  **FileOpenPicker を表示する**
 
@@ -173,4 +173,4 @@ else
 ```
 
 > [!TIP]
-> アプリがピッカーでファイルまたはフォルダーにアクセスするたびに、ファイルやフォルダーをアプリの [**FutureAccessList**](https://docs.microsoft.com/uwp/api/windows.storage.accesscache.storageapplicationpermissions.futureaccesslist) または [**MostRecentlyUsedList**](https://docs.microsoft.com/uwp/api/windows.storage.accesscache.storageapplicationpermissions.mostrecentlyusedlist) に追加して、ファイルやフォルダーを追跡します。 これらのリストの使用の詳細については、「[最近使ったファイルやフォルダーを追跡する方法](how-to-track-recently-used-files-and-folders.md)」をご覧ください。
+> アプリがピッカーでファイルまたはフォルダーにアクセスするたびに、ファイルやフォルダーをアプリの [**FutureAccessList**](/uwp/api/windows.storage.accesscache.storageapplicationpermissions.futureaccesslist) または [**MostRecentlyUsedList**](/uwp/api/windows.storage.accesscache.storageapplicationpermissions.mostrecentlyusedlist) に追加して、ファイルやフォルダーを追跡します。 これらのリストの使用の詳細については、「[最近使ったファイルやフォルダーを追跡する方法](how-to-track-recently-used-files-and-folders.md)」をご覧ください。

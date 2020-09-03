@@ -10,12 +10,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ed38be070263bbd619e44daf5c747a97299b3cf7
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 01ccd7a7ead6bd79b79e8beb3de7f3208b616b7c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233857"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174536"
 ---
 # <a name="navigation-design-basics-for-windows-apps"></a>Windows アプリのナビゲーション デザインの基本
 
@@ -168,7 +168,7 @@ ms.locfileid: "83233857"
         ![フレーム画像](images/nav/thumbnail-frame.svg)
     :::column-end:::
     :::column span="2":::
-        [**フレーム**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame)
+        [**フレーム**](/uwp/api/Windows.UI.Xaml.Controls.Frame)
 
 少数の例外を除き、複数のページがあるアプリではフレームを使用します。 通常、アプリにはフレームと、ナビゲーション ビュー コントロールなどの主要なナビゲーション要素を含むメイン ページがあります。 ユーザーがページを選択すると、フレームがページを読み込んで表示します。
 :::row-end:::

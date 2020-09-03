@@ -8,12 +8,12 @@ ms.topic: article
 keywords: ''
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 9467224814b1e26f18031662f5e8d994a8fae1ac
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a1bd1b0f2916ccf44cc79d83f0335f55cf3863e4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75683675"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166626"
 ---
 # <a name="get-started-using-docker-containers-with-nodejs"></a>Node.js で Docker コンテナーを使ってみる
 
@@ -35,7 +35,7 @@ Node.js アプリで Docker コンテナーの使用を開始する際に役立�
 
 Docker コンテナーは仮想マシンに似ていますが、仮想オペレーティング システム全体を作成するわけではありません。 代わりに、Docker により、アプリが実行されているシステムと同じ Linux カーネルを使用することができます。 これにより、アプリ パッケージにはホスト コンピューター上にまだ存在しない部分だけが必要になるため、パッケージ サイズが減り、パフォーマンスを向上させることができます。
 
-[Kubernetes](https://docs.microsoft.com/azure/aks/) などのツールで Docker コンテナーを使用する、継続的な可用性が、コンテナーの人気のもう 1 つの理由です。 これにより、複数のバージョンのアプリ コンテナーを異なるタイミングで作成できます。 更新またはメンテナンスのためにシステム全体を停止するのではなく、各コンテナー (およびその特定のマイクロサービス) をすぐに置き換えることができます。 すべての更新プログラムが含まれた新しいコンテナーを準備し、運用環境用にコンテナーを設定して、新しいコンテナーの準備ができたら、それをポイントするだけです。 また、コンテナーを使用して異なるバージョンのアプリをアーカイブし、必要に応じて安全のフォールバックとしてそれらを実行し続けることもできます。
+[Kubernetes](/azure/aks/) などのツールで Docker コンテナーを使用する、継続的な可用性が、コンテナーの人気のもう 1 つの理由です。 これにより、複数のバージョンのアプリ コンテナーを異なるタイミングで作成できます。 更新またはメンテナンスのためにシステム全体を停止するのではなく、各コンテナー (およびその特定のマイクロサービス) をすぐに置き換えることができます。 すべての更新プログラムが含まれた新しいコンテナーを準備し、運用環境用にコンテナーを設定して、新しいコンテナーの準備ができたら、それをポイントするだけです。 また、コンテナーを使用して異なるバージョンのアプリをアーカイブし、必要に応じて安全のフォールバックとしてそれらを実行し続けることもできます。
 
 ## <a name="install-docker-desktop-wsl-2-tech-preview"></a>Docker Desktop WSL 2 Tech Preview のインストール
 
@@ -159,23 +159,23 @@ Docker Hub でホストされているリポジトリに新しいコンテナー
 
 6. "my-nextjs-app:v1" コンテナーがポート 3333-> 3000/tcp でアクティブになっていることを確認してください。 ここには、自分の "CONTAINER ID" も一覧表示されます。 コンテナーの実行を停止するには、次のコマンドを入力します。`docker stop <container ID>`
 
-7. 通常、コンテナーが停止されたら、削除する必要もあります。 コンテナーを削除すると、残されたすべてのリソースがクリーンアップされます。 コンテナーを削除すると、そのイメージ ファイルシステム内で加えられた変更はすべて完全に失われます。 変更を反映するには、新しいイメージを作成する必要があります。 コンテナーを削除するには、`docker rm <container ID>` コマンドを使用します。
+7. 通常、コンテナーが停止すると、削除もされるはずです。 コンテナーを削除すると、残されたすべてのリソースがクリーンアップされます。 コンテナーを削除すると、そのイメージ ファイルシステム内で加えられた変更はすべて完全に失われます。 変更を反映するには、新しいイメージを作成する必要があります。 コンテナーを削除するには、`docker rm <container ID>` コマンドを使用します。
 
-Docker を使用してコンテナー化された Web アプリケーションをビルドする詳細については、[こちら](https://docs.microsoft.com/learn/modules/intro-to-containers/)をご覧ください。
+Docker を使用してコンテナー化された Web アプリケーションをビルドする詳細については、[こちら](/learn/modules/intro-to-containers/)をご覧ください。
 
 ## <a name="deploy-to-azure-container-registry"></a>Azure コンテナー レジストリへのデプロイ
 
-[**Azure Container Registry**](https://azure.microsoft.com/services/container-registry/) (ACR) を使用すると、プライベートの認証されたリポジトリでコンテナー イメージを安全に格納、管理、保管することができます。 ACR は、標準の Docker コマンドと互換性があるため、コンテナーの正常性の監視、メンテナンス、[Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes) とのペアリングなどの重要なタスクを処理して、スケーラブルなオーケストレーション システムを作成することができます。 オンデマンドでビルドするか、ソース コードのコミットや基本イメージの更新などのトリガーを使用してビルドを完全に自動化します。 また、ACR は、膨大な Azure クラウド ネットワークを活用してネットワーク待機時間、グローバル デプロイを管理し、[Azure App Service](https://docs.microsoft.com/azure/app-service/) (Web ホスティング、モバイル バックエンド、REST API) や[その他の Azure Cloud Services](https://azure.microsoft.com/product-categories/containers/) を使用するすべての人にとってシームレスなネイティブ エクスペリエンスを作成します。
+[**Azure Container Registry**](https://azure.microsoft.com/services/container-registry/) (ACR) を使用すると、プライベートの認証されたリポジトリでコンテナー イメージを安全に格納、管理、保管することができます。 ACR は、標準の Docker コマンドと互換性があるため、コンテナーの正常性の監視、メンテナンス、[Kubernetes](/azure/aks/intro-kubernetes) とのペアリングなどの重要なタスクを処理して、スケーラブルなオーケストレーション システムを作成することができます。 必要に応じてビルドするか､またはソースコードのコミットやベース イメージの更新などのトリガーでビルドを完全に自動化します｡ また、ACR は、膨大な Azure クラウド ネットワークを活用してネットワーク待機時間、グローバル デプロイを管理し、[Azure App Service](/azure/app-service/) (Web ホスティング、モバイル バックエンド、REST API) や[その他の Azure Cloud Services](https://azure.microsoft.com/product-categories/containers/) を使用するすべての人にとってシームレスなネイティブ エクスペリエンスを作成します。
 
 > [!IMPORTANT]
-> コンテナーを Azure にデプロイするには、独自の Azure サブスクリプションが必要です。料金が発生する場合があります。 Azure サブスクリプションをまだお持ちでない場合は、開始する前に[無料アカウントを作成](https://azure.microsoft.com/free/)してください。
+> コンテナーを Azure にデプロイするには、独自の Azure サブスクリプションが必要です。料金が発生する場合があります。 Azure サブスクリプションをお持ちでない場合は、開始する前に[無料アカウントを作成](https://azure.microsoft.com/free/)してください。
 
-Azure Container Registry を作成してアプリ コンテナー イメージをデプロイするためのヘルプについては、演習「[Azure コンテナー インスタンスに Docker イメージをデプロイする](https://docs.microsoft.com/learn/modules/intro-to-containers/7-exercise-deploy-docker-image-to-container-instance)」を参照してください。
+Azure Container Registry を作成してアプリ コンテナー イメージをデプロイするためのヘルプについては、演習「[Azure コンテナー インスタンスに Docker イメージをデプロイする](/learn/modules/intro-to-containers/7-exercise-deploy-docker-image-to-container-instance)」を参照してください。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
-- [Azure の Node.js](https://azure.microsoft.com/develop/nodejs/)
-- クイック スタート:[Azure で Node.js Web アプリを作成する](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)
-- オンライン コース:[Azure でコンテナーを管理する](https://docs.microsoft.com/learn/paths/administer-containers-in-azure/)
+- [Azure での Node.js](https://azure.microsoft.com/develop/nodejs/)
+- クイック スタート:[Azure で Node.js Web アプリを作成する](/azure/app-service/app-service-web-get-started-nodejs)
+- オンライン コース:[Azure でコンテナーを管理する](/learn/paths/administer-containers-in-azure/)
 - VS Code の使用:[Docker を使用する](https://code.visualstudio.com/docs/azure/docker)
 - Docker ドキュメント:[Docker Desktop WSL 2 Tech Preview](https://docs.docker.com/docker-for-windows/wsl-tech-preview/)

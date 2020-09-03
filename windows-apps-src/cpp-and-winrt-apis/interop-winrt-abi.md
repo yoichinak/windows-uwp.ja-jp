@@ -5,16 +5,16 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: db66e276ffa0337da943917543a0065ac160e468
-ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
+ms.openlocfilehash: 71ae6245fe217277c7408a7eb6b5150900cc45d9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296176"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170176"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
-このトピックでは、SDK アプリケーション バイナリ インターフェイス (ABI) と [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) オブジェクト間の変換方法について説明します。 これらの手法を使用すると、Windows ランタイムでこれら 2 つの手法によるプログラミングを使用するコード間を相互運用するか、ABI から C++/WinRT にコードを徐々に移動することができます。
+このトピックでは、SDK アプリケーション バイナリ インターフェイス (ABI) と [C++/WinRT](./intro-to-using-cpp-with-winrt.md) オブジェクト間の変換方法について説明します。 これらの手法を使用すると、Windows ランタイムでこれら 2 つの手法によるプログラミングを使用するコード間を相互運用するか、ABI から C++/WinRT にコードを徐々に移動することができます。
 
 一般に、C++/WinRT では ABI 型は **void\*** として公開されるので、プラットフォームのヘッダー ファイルをインクルードする必要はありません。
 
@@ -106,7 +106,7 @@ int main()
 }
 ```
 
-**as** 関数を実装すると、[**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) が呼び出されます。 [  **AddRef**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref) のみを呼び出す下位レベルの変換を行う場合は、[**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-to-abi) と [**winrt::copy_from_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) のヘルパー関数を使用できます。 次に、この下位レベル変換を上記のコード例に追加するコード例を示します。
+**as** 関数を実装すると、[**QueryInterface**](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) が呼び出されます。 [  **AddRef**](/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref) のみを呼び出す下位レベルの変換を行う場合は、[**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-to-abi) と [**winrt::copy_from_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) のヘルパー関数を使用できます。 次に、この下位レベル変換を上記のコード例に追加するコード例を示します。
 
 > [!IMPORTANT]
 > ABI 型と相互運用する場合は、使用される ABI 型が C++/WinRT オブジェクトの既定のインターフェイスに対応していることが重要です。 対応していない場合、ABI 型でメソッドを呼び出すと、既定のインターフェイスの同じ vtable スロットにあるメソッドが呼び出され、予期しない結果が発生します。 [**winrt::copy_to_abi**](/uwp/cpp-ref-for-winrt/copy-from-abi) では、すべての ABI 型に対して **void\*** が使用され、呼び出し元が一致しない型を誤って使用することはないものと想定しているため、コンパイル時にこれを防ぐことはできないことにご注意ください。 これは、ABI 型がまったく使用されない可能性があるのに、C++/WinRT ヘッダーに ABI ヘッダーを参照することを要求するのを避けるためです。
@@ -180,7 +180,7 @@ T convert_from_abi(::IUnknown* from)
 }
 ```
 
-この関数は、[**QueryInterface**](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) を呼び出し、要求された C++/WinRT 型の既定のインターフェイスを照会するだけです。
+この関数は、[**QueryInterface**](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_)) を呼び出し、要求された C++/WinRT 型の既定のインターフェイスを照会するだけです。
 
 既に説明したように、C++/WinRT オブジェクトから同等の ABI インターフェイス ポインターへの変換には、ヘルパー関数は必要ありません。 [  **winrt::Windows::Foundation::IUnknown::as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) (または [**try_as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknowntry_as-function)) メンバー関数を使用して、要求されたインターフェイスを照会するだけです。 **as** 関数と **try_as** 関数は、要求された ABI 型をラップする [**winrt::com_ptr**](/uwp/cpp-ref-for-winrt/com-ptr) オブジェクトを返します。
 
@@ -286,7 +286,7 @@ To to_winrt(wil::com_ptr_t<From, ErrorPolicy> const& ptr)
 }
 ```
 
-「[C++/WinRT での COM コンポーネントの使用](/windows/uwp/cpp-and-winrt-apis/consume-com)」も参照してください。
+「[C++/WinRT での COM コンポーネントの使用](./consume-com.md)」も参照してください。
 
 ### <a name="unsafe-interop-with-abi-com-interface-pointers"></a>ABI の COM インターフェイス ポインターとの安全でない相互運用
 
@@ -364,8 +364,8 @@ void GetString(_Out_ HSTRING* value);
 | **hstring** を **HSTRING** にコピーする | `copy_to_abi(s, reinterpret_cast<void*&>(h));` | *h* は文字列のコピーを受け取ります。 *h* によって前に所有されていたすべての文字列はリークされます。 |
 
 ## <a name="important-apis"></a>重要な API
-* [AddRef 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref)
-* [QueryInterface 関数](https://docs.microsoft.com/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
+* [AddRef 関数](/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref)
+* [QueryInterface 関数](/windows/desktop/api/unknwn/nf-unknwn-iunknown-queryinterface(q_))
 * [winrt::attach_abi 関数](/uwp/cpp-ref-for-winrt/attach-abi)
 * [winrt::com_ptr 構造体テンプレート](/uwp/cpp-ref-for-winrt/com-ptr)
 * [winrt::copy_from_abi 関数](/uwp/cpp-ref-for-winrt/copy-from-abi)

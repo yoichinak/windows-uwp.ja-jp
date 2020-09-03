@@ -5,15 +5,15 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: 23f1733f5710d86c8481899f5865d0c190e21885
-ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
+ms.openlocfilehash: e37f5b585554f4ec214f7f72a896545d66dde3d5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296192"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170206"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
-[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) での Windows ランタイム API の作成と使用に関する質問への回答です。
+[C++/WinRT](./intro-to-using-cpp-with-winrt.md) での Windows ランタイム API の作成と使用に関する質問への回答です。
 
 > [!IMPORTANT]
 > C++/WinRT に関するリリース ノートについては、「[C++/WinRT 2.0 の新機能と変更点](news.md#news-and-changes-in-cwinrt-20)」を参照してください。
@@ -54,7 +54,7 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 ## <a name="why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error"></a>リンカーで "LNK2019:Unresolved external symbol" (外部シンボルは未解決です) エラーが発生するのはなぜですか?
 未解決のシンボルが (**winrt** 名前空間内の) C++/WinRT プロジェクションの Windows 名前空間ヘッダーからの API である場合、その API は含まれているヘッダー内で事前宣言されていますが、その定義は含まれていないヘッダー内にあります。 API の名前空間で付けられた名前のヘッダーを含めてから、リビルドしてください。 詳細については、「[C++/WinRT プロジェクション ヘッダー](consume-apis.md#cwinrt-projection-headers)」を参照してください。
 
-未解決のシンボルが [RoInitialize](https://docs.microsoft.com/windows/desktop/api/roapi/nf-roapi-roinitialize) などの Windows ランタイムの自由関数である場合、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) の包括的なライブラリを明示的にプロジェクトにリンクする必要があります。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
+未解決のシンボルが [RoInitialize](/windows/desktop/api/roapi/nf-roapi-roinitialize) などの Windows ランタイムの自由関数である場合、[WindowsApp.lib](/uwp/win32-and-com/win32-apis) の包括的なライブラリを明示的にプロジェクトにリンクする必要があります。 C++/WinRT プロジェクションは、これらの一部の自由 (非メンバー) 関数とエントリ ポイントに依存します。 アプリケーションでいずれかの [C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) プロジェクト テンプレートを使用する場合は、`WindowsApp.lib` が自動的にリンクされます。 それ以外の場合、プロジェクトのリンク設定を使用して含めるか、またはソース コードでそれを行うことができます。
 
 ```cppwinrt
 #pragma comment(lib, "windowsapp")
@@ -70,7 +70,7 @@ Windows ランタイム クラス (ランタイム クラス) を*使用*する�
 
 ### <a name="uniform-construction"></a>均一の構築
 
-このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 その機能にオプトインする場合は、詳細とコード例について、「[均一コンストラクション、実装への直接アクセス](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)」を参照してください。
+このエラーは、投影された型のコンストラクターのいずれか (**std::nullptr_t** コンストラクター以外) を使ってローカルに実装されているランタイム クラスをインスタンス化しようとした場合にも、発生する可能性があります。 それを行うには、均一の構築と呼ばれることがよくある C++/WinRT 2.0 の機能が必要です。 その機能にオプトインする場合は、詳細とコード例について、「[均一コンストラクション、実装への直接アクセス](./author-apis.md#opt-in-to-uniform-construction-and-direct-implementation-access)」を参照してください。
 
 均一の構築を必要と "*しない*" ローカルに実装されたランタイム クラスをインスタンス化する方法については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」をご覧ください。
 
@@ -177,7 +177,7 @@ a.f();
 上記の推奨パターンは、C++/WinRT だけでなく、すべての Windows ランタイム言語のプロジェクションにも当てはまります。
 
 ## <a name="how-do-i-turn-a-string-into-a-typemdashfor-navigation-for-example"></a>(たとえばナビゲーションのために) 文字列を型に変換するにはどうすればよいですか?
-[ナビゲーション ビューのコード例](/windows/uwp/design/controls-and-patterns/navigationview#code-example) (主に C#) の末尾には、この実行方法を示す C++/WinRT コード スニペットがあります。
+[ナビゲーション ビューのコード例](../design/controls-and-patterns/navigationview.md#code-example) (主に C#) の末尾には、この実行方法を示す C++/WinRT コード スニペットがあります。
 
 ## <a name="how-do-i-resolve-ambiguities-with-getcurrenttime-andor-try"></a>GetCurrentTime および TRY でのあいまいさを解決するにはどうすればよいですか?
 

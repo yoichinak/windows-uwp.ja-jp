@@ -5,12 +5,12 @@ ms.date: 01/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, WinRT API, インデクサー, 検索
 localizationpriority: medium
-ms.openlocfilehash: 2a77bfc37d853efd28bde9bc3043d072888822f2
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 3103074e7d691897e9a8982a254ba36ee331a2b6
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66369264"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175396"
 ---
 # <a name="using-supplemental-properties"></a>補足プロパティの使用  
 
@@ -27,7 +27,7 @@ ms.locfileid: "66369264"
 何十年もの間、Windows での高速検索のためのソリューションはインデクサーであり、Creators Update では、これらの新しいシナリオをサポートするために更新されています。 アプリでは現在、システムで抽出されるもの以外の追加のプロパティでファイルにタグを付けることができます。 これらのプロパティは最優先として扱われます  
 
 ## <a name="windows-properties"></a>Windows プロパティ 
-[Windows プロパティ システム](https://docs.microsoft.com/windows/desktop/properties/windows-properties-system)は、何年もの間、ファイルとのやりとりの重要な部分となっています。 これにより、アプリでは、ファイルで使用される可能性のあるすべてのさまざまなファイル形式または言語の内部構造を理解しなくても、ファイルからプロパティを読み取ることができます。 すべて開発者向けに抽象化されており、必要な作業はリストの要求と昇順または降順の指定だけです。  
+[Windows プロパティ システム](/windows/desktop/properties/windows-properties-system)は、何年もの間、ファイルとのやりとりの重要な部分となっています。 これにより、アプリでは、ファイルで使用される可能性のあるすべてのさまざまなファイル形式または言語の内部構造を理解しなくても、ファイルからプロパティを読み取ることができます。 すべて開発者向けに抽象化されており、必要な作業はリストの要求と昇順または降順の指定だけです。  
 
 プロパティ システムは Windows インデクサーと連動しており、そのスコープ内のファイルからすべてのプロパティを読み取り、格納します。 後で、John Smith によって作成されたものを除く、フォルダー内のすべての .docx のリストを変更日別に並べ替えるようにアプリで求められた場合、インデクサーではそのリストをすぐに返すことができます。  
 
@@ -158,4 +158,4 @@ UWP 変更通知と変更追跡は、標準プロパティの場合と同じよ�
 ## <a name="conclusions"></a>結論 
 これで終わりです。補足プロパティは、より多くのファイル プロパティをシステムに格納するための簡単な方法です。 それらの使用はもちろん省略可能ですが、データを迅速に並べ替えて検索できない他のアプリより、自分のアプリを優れたものにすることができます。 
 
-アプリでぜひ、これらのプロパティの使用を開始してください。 方法についてご不明な点がある場合は、ヘッダーを使用し、以下のコメントでお知らせください 
+アプリでぜひ、これらのプロパティの使用を開始してください。 方法についてご不明な点がある場合は、ヘッダーを使用し、以下のコメントでお知らせください

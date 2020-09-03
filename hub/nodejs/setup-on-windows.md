@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Node.js, windows 10, ネイティブ Windows, Windows 上に直接
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: fe1943da8c1de4f4fced5dec67079522d83f9a19
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8c865610ba2678c1c5ab1b25ff7a2c7410d11f15
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82173468"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166586"
 ---
 # <a name="set-up-your-nodejs-development-environment-directly-on-windows"></a>Node.js 開発環境を Windows 上に直接設定する
 
@@ -64,7 +64,7 @@ windows-nvm は、現在最も一般的なノード バージョン マネージ
 (windows-nvm ではなく) Volta をバージョン マネージャーとしてインストールするには、「[Getting Started guide](https://docs.volta.sh/guide/getting-started)」 (入門ガイド) の「**Windows Installation**」 (Windows へのインストール) セクションを参照し、セットアップ手順に従って Windows インストーラーをダウンロードして実行します。
 
 > [!IMPORTANT]
-> Volta をインストールする前に、Windows コンピューターで確実に [[開発者モード]](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development#accessing-settings-for-developers) を有効にする必要があります。
+> Volta をインストールする前に、Windows コンピューターで確実に [[開発者モード]](/windows/uwp/get-started/enable-your-device-for-development#accessing-settings-for-developers) を有効にする必要があります。
 
 Volta を使用して複数のバージョンの Node.js を Windows にインストールする方法の詳細については、[Volta Docs](https://docs.volta.sh/guide/understanding#managing-your-toolchain) を参照してください。
 
@@ -101,4 +101,4 @@ Node.js 拡張パックをインストールするには、次の手順を行い
 Node.js を Windows で直接使用することは、何ができるかを学習し、体験するのに最適です。 通常は Linux ベースのサーバーに展開される運用環境対応の Web アプリを構築する準備ができたら、Linux 用 Windows サブシステムのバージョン 2 (WSL 2) を使用して Node.js Web アプリを開発することをお勧めします。 多くの Node.js パッケージおよびフレームワークは、*nix 環境を念頭に置いて作成され、ほとんどの Node.js アプリは Linux に展開されるため、WSL で開発すると、開発環境と運用環境の間で一貫性が確保されます。 WSL 開発環境を設定するには、「[WSL 2 を使用して node.js 開発環境を設定する](./setup-on-wsl2.md)」を参照してください。
 
 > [!NOTE]
-> Node.js アプリを Windows サーバーでホストする必要がある (まれな) 状況では、最も一般的なシナリオとして、[リバース プロキシの使用](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca)が考えられます。 これには、1) [iisnode を使用する](https://harveywilliams.net/blog/installing-iisnode) または [直接使用する](https://dev.to/petereysermans/hosting-a-node-js-application-on-windows-with-iis-as-reverse-proxy-397b)という 2 つの方法があります。 Microsoft では、これらのリソースを保持していないので、[Linux サーバーを使用して Node.js アプリをホストする](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)ことをお勧めします。
+> Node.js アプリを Windows サーバーでホストする必要がある (まれな) 状況では、最も一般的なシナリオとして、[リバース プロキシの使用](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca)が考えられます。 これには、1) [iisnode を使用する](https://harveywilliams.net/blog/installing-iisnode) または [直接使用する](https://dev.to/petereysermans/hosting-a-node-js-application-on-windows-with-iis-as-reverse-proxy-397b)という 2 つの方法があります。 Microsoft では、これらのリソースを保持していないので、[Linux サーバーを使用して Node.js アプリをホストする](/azure/app-service/app-service-web-get-started-nodejs)ことをお勧めします。

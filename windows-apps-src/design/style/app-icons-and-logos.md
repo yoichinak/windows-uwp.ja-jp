@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 0ad8b78538a2b047501361072a017658ba152e73
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5c39ded4157181581412f01e54772db2bf9a1732
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82971007"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174626"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -52,7 +52,7 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 | バッジ ロゴ | アプリのタイル | BadgeLogo.png  |
 | パッケージ ロゴ/Microsoft Store ロゴ | アプリ インストーラー、パートナー センター、Microsoft Store の [Report an app]\(アプリを報告)\ オプション、Microsoft Store の [Write a review]\(レビューを書く)\ オプション | StoreLogo.png  |
 
-\*[アップロードした画像のみを Microsoft Store で表示](/windows/uwp/publish/app-screenshots-and-images#display-only-uploaded-logo-images-in-the-store)することを選択しなかった場合に使用されます。 
+\*[アップロードした画像のみを Microsoft Store で表示](../../publish/app-screenshots-and-images.md#display-only-uploaded-logo-images-in-the-store)することを選択しなかった場合に使用されます。 
 
 これらのアイコンがどの画面でも鮮明に表示されるようにするには、同じアイコンに、異なる表示倍率に対応する複数のバージョンを作成します。 
 
@@ -75,13 +75,13 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
 
 "Microsoft Store で自分のアプリの登録情報の画像を指定するにはどうしたらいいでしょうか。"
 
-このページの上部の表で説明しているように、Microsoft Store では既定でパッケージ内の画像が使用されます ([申請プロセスで指定したその他の画像](https://docs.microsoft.com/windows/uwp/publish/app-screenshots-and-images)とともに)。 ただし、Windows 10 (Xbox を含む) ユーザーに Microsoft Store 登録情報が表示されるときに、アプリのパッケージのロゴ画像ではなく、アップロードした画像のみが使用されるようにすることもできます。 これにより、ストアのさまざまな画面でアプリがどのように表示されるかをさらに細かく制御できます。 (製品が以前の OS バージョンをサポートしている場合は、このオプションを使用してもパッケージの画像が引き続きユーザーに表示される場合があるので注意してください。)これは、申請プロセスの **[Store 登録情報]** の手順の **[Microstore Store ロゴ]** セクションで行うことができます。
+このページの上部の表で説明しているように、Microsoft Store では既定でパッケージ内の画像が使用されます ([申請プロセスで指定したその他の画像](../../publish/app-screenshots-and-images.md)とともに)。 ただし、Windows 10 (Xbox を含む) ユーザーに Microsoft Store 登録情報が表示されるときに、アプリのパッケージのロゴ画像ではなく、アップロードした画像のみが使用されるようにすることもできます。 これにより、ストアのさまざまな画面でアプリがどのように表示されるかをさらに細かく制御できます。 (製品が以前の OS バージョンをサポートしている場合は、このオプションを使用してもパッケージの画像が引き続きユーザーに表示される場合があるので注意してください。)これは、申請プロセスの **[Store 登録情報]** の手順の **[Microstore Store ロゴ]** セクションで行うことができます。
 
 ![アプリ申請プロセスでの Microsoft Store ロゴの指定](images/app-icons/storelogodisplay.png)
 
 このチェック ボックスをオンにすると、 **[Microsoft Store 表示用の画像]** という新しいセクションが表示されます。 ここでは、Microsoft Store でアプリのパッケージのロゴ画像に代わって使用される次の 3 つの画像サイズをアップロードできます: 300 x 300、150 x 150、71 x 71 ピクセル。 必須なのは 300 x 300 サイズだけですが、3 つのサイズをすべて指定することをお勧めします。
 
-詳細については、[アップロードしたロゴ画像のみを Microsoft Store で表示する方法に関する記事](/windows/uwp/publish/app-screenshots-and-images#display-only-uploaded-logo-images-in-the-store)をご覧ください。
+詳細については、[アップロードしたロゴ画像のみを Microsoft Store で表示する方法に関する記事](../../publish/app-screenshots-and-images.md#display-only-uploaded-logo-images-in-the-store)をご覧ください。
 
 <!-- ### Fallback images for the Store
 
@@ -96,7 +96,7 @@ If these images aren't provided, the Store will search all matching images of th
 
 The Store may also use your app's tile and other images that you include in your app's package. 
 
-For more information, see [App screenshots, images, and trailers in the Microsoft Store](/windows/uwp/publish/app-screenshots-and-images). -->
+For more information, see [App screenshots, images, and trailers in the Microsoft Store](../../publish/app-screenshots-and-images.md). -->
 
 
 ## <a name="managing-app-icons-with-the-visual-studio-manifest-designer"></a>Visual Studio マニフェスト デザイナーでのアプリ アイコンの管理
@@ -185,7 +185,7 @@ Visual Studio で画像ファイルが生成され、プロジェクトに追加
 
 Square150x150Logo-scale-100.png、Square150x150Logo-scale-200.png、Square150x150Logo-scale-400.png
 
-Visual Studio では既定でバッジ ロゴが生成されません。 これは、バッジ ロゴが独特であり、他のアプリ アイコンと一致していることがまずないためです。 詳しくは、「[Windows アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。 
+Visual Studio では既定でバッジ ロゴが生成されません。 これは、バッジ ロゴが独特であり、他のアプリ アイコンと一致していることがまずないためです。 詳しくは、「[Windows アプリ向けのバッジ通知](../shell/tiles-and-notifications/badges.md)」をご覧ください。 
 
 
 ## <a name="more-about-app-icon-assets"></a>アプリ アイコン アセットの詳細
@@ -253,13 +253,13 @@ Windows では、ターゲット ベースのアセットが既定で色付き�
 
 
 ## <a name="more-about-splash-screen-assets"></a>スプラッシュ スクリーン アセットの詳細
-スプラッシュ スクリーンについて詳しくは、[Windows アプリのスプラッシュ スクリーン](/windows/uwp/launch-resume/splash-screens)に関する記事をご覧ください。
+スプラッシュ スクリーンについて詳しくは、[Windows アプリのスプラッシュ スクリーン](../../launch-resume/splash-screens.md)に関する記事をご覧ください。
 
 ## <a name="more-about-badge-logo-assets"></a>バッジ ロゴ アセットの詳細
 
 資産ジェネレーターを使用して必要なアセットをすべて生成する場合、バッジ ロゴは既定で生成されません。これは、バッジ ロゴが他のアプリ アセットと大きく異なっているからです。 バッジ ロゴは、通知やアプリのタイルに表示される状態の画像です。 
 
-詳しくは、「[Windows アプリ向けのバッジ通知](/windows/uwp/design/shell/tiles-and-notifications/badges)」をご覧ください。
+詳しくは、「[Windows アプリ向けのバッジ通知](../shell/tiles-and-notifications/badges.md)」をご覧ください。
 
 
 ## <a name="customizing-asset-padding"></a>アセットの埋め込みのカスタマイズ
@@ -313,16 +313,3 @@ Visual Studio の資産ジェネレーターでは、どの画像にも既定で
 この記事では、特定の倍率に対応したアセットを作成する方法について説明しましたが、各種の条件やさまざまな組み合わせの条件に合わせてアセットを作成することもできます。 たとえば、ハイ コントラスト表示や、ライト テーマとダーク テーマに対応したアイコンを作成できます。 特定の言語に対応したアセットを作成することもできます。
 
 手順については、「[言語、スケール、ハイコントラスト、その他の修飾子用にリソースを調整する](../../app-resources/tailor-resources-lang-scale-contrast.md)」をご覧ください。
-
-
-
-
-
-
-
-
-
-
-
-
-

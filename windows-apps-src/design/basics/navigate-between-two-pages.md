@@ -13,18 +13,18 @@ dev_langs:
 - csharp
 - cppwinrt
 - cpp
-ms.openlocfilehash: 50211600931fc67c43aa577fabe23f1277a0e897
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 99d3084827e8c5b42ee1b413639300097b82a518
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233824"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174496"
 ---
 # <a name="implement-navigation-between-two-pages"></a>2 ページ間でのナビゲーションを実装する
 
 フレームおよびページを使用した、アプリでの基本的なピア ツー ピアのナビゲーションについて説明します。 
 
-> **重要な API**:[**Windows.UI.Xaml.Controls.Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) クラス、[**Windows.UI.Xaml.Controls.Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) クラス、[**Windows.UI.Xaml.Navigation**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Navigation) 名前空間
+> **重要な API**:[**Windows.UI.Xaml.Controls.Frame**](/uwp/api/Windows.UI.Xaml.Controls.Frame) クラス、[**Windows.UI.Xaml.Controls.Page**](/uwp/api/Windows.UI.Xaml.Controls.Page) クラス、[**Windows.UI.Xaml.Navigation**](/uwp/api/Windows.UI.Xaml.Navigation) 名前空間
 
 ![ピア ツー ピアのナビゲーション](images/peertopeer.png)
 
@@ -82,19 +82,19 @@ ms.locfileid: "83233824"
 
 Page1.xaml に次のコンテンツを追加します。
 
--   `pageTitle` という名前を付けた [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を、ルートの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として追加します。 [  **Text**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティを `Page 1` に変更します。
+-   `pageTitle` という名前を付けた [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を、ルートの [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として追加します。 [  **Text**](/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティを `Page 1` に変更します。
 ```xaml
 <TextBlock x:Name="pageTitle" Text="Page 1" />
 ```
 
--   [  **HyperlinkButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 要素を、ルートの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として `pageTitle` [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素の後に追加します。
+-   [  **HyperlinkButton**](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 要素を、ルートの [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として `pageTitle` [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素の後に追加します。
 ```xaml
 <HyperlinkButton Content="Click to go to page 2"
                  Click="HyperlinkButton_Click"
                  HorizontalAlignment="Center"/>
 ```
 
-Page1.xaml 分離コード ファイルに、Page2.xaml に移動するために追加した [**HyperlinkButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) の `Click` イベントを処理する次のコードを追加します。
+Page1.xaml 分離コード ファイルに、Page2.xaml に移動するために追加した [**HyperlinkButton**](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) の `Click` イベントを処理する次のコードを追加します。
 
 ```csharp
 private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
@@ -119,19 +119,19 @@ void Page1::HyperlinkButton_Click(Platform::Object^ sender, RoutedEventArgs^ e)
 
 Page2.xaml に次のコンテンツを追加します。
 
--   `pageTitle` という名前を付けた [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を、ルートの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として追加します。 [  **Text**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を `Page 2` に変更します。
+-   `pageTitle` という名前を付けた [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素を、ルートの [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として追加します。 [  **Text**](/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を `Page 2` に変更します。
 ```xaml
 <TextBlock x:Name="pageTitle" Text="Page 2" />
 ```
 
--   [  **HyperlinkButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 要素を、ルートの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として `pageTitle` [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素の後に追加します。
+-   [  **HyperlinkButton**](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 要素を、ルートの [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) の子要素として `pageTitle` [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素の後に追加します。
 ```xaml
 <HyperlinkButton Content="Click to go to page 1" 
                  Click="HyperlinkButton_Click"
                  HorizontalAlignment="Center"/>
 ```
 
-Page2.xaml 分離コード ファイルに、Page1.xaml に移動するための [**HyperlinkButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) の `Click` イベントを処理する次のコードを追加します。
+Page2.xaml 分離コード ファイルに、Page1.xaml に移動するための [**HyperlinkButton**](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) の `Click` イベントを処理する次のコードを追加します。
 
 ```csharp
 private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
@@ -161,7 +161,7 @@ void Page2::HyperlinkButton_Click(Platform::Object^ sender, RoutedEventArgs^ e)
 
 App.xaml 分離コードファイルを開き、`OnLaunched` ハンドラーを変更します。
 
-次に、[**Frame.Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) の呼び出しに、`MainPage` ではなく `Page1` を追加します。
+次に、[**Frame.Navigate**](/uwp/api/windows.ui.xaml.controls.frame.navigate) の呼び出しに、`MainPage` ではなく `Page1` を追加します。
 
 ```csharp
 protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -296,7 +296,7 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 ```
 
 > [!NOTE]
-> このコードは、アプリの初期ウィンドウ フレームへのナビゲーションが失敗した場合に、[**Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) の戻り値を使ってアプリの例外をスローします。 **Navigate** が **true** を返す場合は、ナビゲーションが行われます。
+> このコードは、アプリの初期ウィンドウ フレームへのナビゲーションが失敗した場合に、[**Navigate**](/uwp/api/windows.ui.xaml.controls.frame.navigate) の戻り値を使ってアプリの例外をスローします。 **Navigate** が **true** を返す場合は、ナビゲーションが行われます。
 
 次に、アプリをビルドして実行します。 "Click to go to page 2" と書かれているリンクをクリックします。 上部に "Page 2" と書かれた 2 番目のページが読み込まれ、フレームに表示される必要があります。
 
@@ -304,21 +304,21 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 
 アプリにさらに機能を加える前に、追加したページに用意されているアプリ内のナビゲーションについて見てみましょう。
 
-まず、App.xaml 分離コード ファイルの `App.OnLaunched` メソッドで、アプリの [**Frame**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Frame) (`rootFrame`) が作成されます。 **Frame** クラスは、[**Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate)、[**GoBack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goback)、[**GoForward**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.goforward) などのさまざまなナビゲーション メソッドと、[**BackStack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.backstack)、[**ForwardStack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.forwardstack)、[**BackStackDepth**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.backstackdepth) などのプロパティをサポートしています。
+まず、App.xaml 分離コード ファイルの `App.OnLaunched` メソッドで、アプリの [**Frame**](/uwp/api/Windows.UI.Xaml.Controls.Frame) (`rootFrame`) が作成されます。 **Frame** クラスは、[**Navigate**](/uwp/api/windows.ui.xaml.controls.frame.navigate)、[**GoBack**](/uwp/api/windows.ui.xaml.controls.frame.goback)、[**GoForward**](/uwp/api/windows.ui.xaml.controls.frame.goforward) などのさまざまなナビゲーション メソッドと、[**BackStack**](/uwp/api/windows.ui.xaml.controls.frame.backstack)、[**ForwardStack**](/uwp/api/windows.ui.xaml.controls.frame.forwardstack)、[**BackStackDepth**](/uwp/api/windows.ui.xaml.controls.frame.backstackdepth) などのプロパティをサポートしています。
  
-[  **Navigate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) メソッドを使って、この **Frame** にコンテンツが表示されます。 既定では、このメソッドは MainPage.xaml を読み込みます。 この例では、`Page1` が **Navigate** メソッドに渡されるため、メソッドは **Frame** に `Page1` を読み込みます。 
+[  **Navigate**](/uwp/api/windows.ui.xaml.controls.frame.navigate) メソッドを使って、この **Frame** にコンテンツが表示されます。 既定では、このメソッドは MainPage.xaml を読み込みます。 この例では、`Page1` が **Navigate** メソッドに渡されるため、メソッドは **Frame** に `Page1` を読み込みます。 
 
-`Page1` は [**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) クラスのサブクラスです。 **Page** クラスには、**Page** が含まれる **Frame** を取得する読み取り専用の **Frame** プロパティがあります。 `Page1` で **HyperlinkButton** の **Click** イベント ハンドラーが `this.Frame.Navigate(typeof(Page2))` を呼び出すと、**Frame** に Page2.xaml のコンテンツが表示されます。
+`Page1` は [**Page**](/uwp/api/Windows.UI.Xaml.Controls.Page) クラスのサブクラスです。 **Page** クラスには、**Page** が含まれる **Frame** を取得する読み取り専用の **Frame** プロパティがあります。 `Page1` で **HyperlinkButton** の **Click** イベント ハンドラーが `this.Frame.Navigate(typeof(Page2))` を呼び出すと、**Frame** に Page2.xaml のコンテンツが表示されます。
 
-最後に、フレームにページが読み込まれるたびに、そのページが [**PageStackEntry**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Navigation.PageStackEntry) として、[**Frame**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.frame) の [**BackStack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.backstack) または [**ForwardStack**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.forwardstack) に追加され、[履歴と前に戻る移動](navigation-history-and-backwards-navigation.md)が可能になります。
+最後に、フレームにページが読み込まれるたびに、そのページが [**PageStackEntry**](/uwp/api/Windows.UI.Xaml.Navigation.PageStackEntry) として、[**Frame**](/uwp/api/windows.ui.xaml.controls.page.frame) の [**BackStack**](/uwp/api/windows.ui.xaml.controls.frame.backstack) または [**ForwardStack**](/uwp/api/windows.ui.xaml.controls.frame.forwardstack) に追加され、[履歴と前に戻る移動](navigation-history-and-backwards-navigation.md)が可能になります。
 
 ## <a name="3-pass-information-between-pages"></a>3.ページ間での情報の受け渡し
 
 このアプリでは、ページ間の移動は行いますが、実際に何かの処理を行うわけではありません。 多くの場合、アプリに複数のページがあれば、ページ間で情報を共有する必要があります。 最初のページから 2 番目のページへ情報を渡してみましょう。
 
-Page1.xaml で、前に追加した **HyperlinkButton** を次の [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) に置き換えます。
+Page1.xaml で、前に追加した **HyperlinkButton** を次の [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) に置き換えます。
 
-次に、テキスト文字列を入力するための [**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) ラベルと [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) `name` を追加します。
+次に、テキスト文字列を入力するための [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) ラベルと [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) `name` を追加します。
 
 ```xaml
 <StackPanel>
@@ -355,7 +355,7 @@ void Page1::HyperlinkButton_Click(Platform::Object^ sender, RoutedEventArgs^ e)
 
 Page2.xaml で、前に追加した **HyperlinkButton** を次の **StackPanel** に置き換えます。
 
-次に、[**TextBlock**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を追加して、Page1 から渡された文字列を表示します。
+次に、[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を追加して、Page1 から渡された文字列を表示します。
 
 ```xaml
 <StackPanel>
@@ -422,9 +422,9 @@ void Page2::OnNavigatedTo(NavigationEventArgs^ e)
 
 ページのコンテンツと状態は既定ではキャッシュされないため、情報をキャッシュする場合は、アプリの各ページでキャッシュを有効にする必要があります。
 
-この基本的なピア ツー ピアの例では、戻るボタンはありませんが (戻るナビゲーションは「[前に戻る移動](navigation-history-and-backwards-navigation.md)」で示しました)、`Page2` で戻るボタンをクリックした場合、`Page1` の **TextBox** (およびその他のすべてのフィールド) は既定の状態に設定されます。 これを回避する方法の 1 つは、[**NavigationCacheMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.navigationcachemode) プロパティを使って、ページがフレームのページ キャッシュに追加されるように指定することです。 
+この基本的なピア ツー ピアの例では、戻るボタンはありませんが (戻るナビゲーションは「[前に戻る移動](navigation-history-and-backwards-navigation.md)」で示しました)、`Page2` で戻るボタンをクリックした場合、`Page1` の **TextBox** (およびその他のすべてのフィールド) は既定の状態に設定されます。 これを回避する方法の 1 つは、[**NavigationCacheMode**](/uwp/api/windows.ui.xaml.controls.page.navigationcachemode) プロパティを使って、ページがフレームのページ キャッシュに追加されるように指定することです。 
 
-`Page1` のコンストラクターで、**NavigationCacheMode** を **Enabled** に設定して、フレームのページ キャッシュを超えるまでページのすべてのコンテンツと状態の値を保持することができます。 [  **CacheSize**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.cachesize) の制限を無視する場合は、[**NavigationCacheMode**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page.navigationcachemode) を [**Required**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Navigation.NavigationCacheMode) に設定します。これで、フレームにキャッシュできる、ナビゲーション履歴内のページ数を指定します。 ただし、キャッシュ サイズの制限は、デバイスのメモリの制限に依存しており、重要である可能性があることに注意してください。
+`Page1` のコンストラクターで、**NavigationCacheMode** を **Enabled** に設定して、フレームのページ キャッシュを超えるまでページのすべてのコンテンツと状態の値を保持することができます。 [  **CacheSize**](/uwp/api/windows.ui.xaml.controls.frame.cachesize) の制限を無視する場合は、[**NavigationCacheMode**](/uwp/api/windows.ui.xaml.controls.page.navigationcachemode) を [**Required**](/uwp/api/Windows.UI.Xaml.Navigation.NavigationCacheMode) に設定します。これで、フレームにキャッシュできる、ナビゲーション履歴内のページ数を指定します。 ただし、キャッシュ サイズの制限は、デバイスのメモリの制限に依存しており、重要である可能性があることに注意してください。
 
 ```csharp
 public Page1()
@@ -451,6 +451,6 @@ Page1::Page1()
 ```
 
 ## <a name="related-articles"></a>関連記事
-* [Windows アプリのナビゲーション デザインの基本](https://docs.microsoft.com/windows/uwp/layout/navigation-basics)
+* [Windows アプリのナビゲーション デザインの基本](./navigation-basics.md)
 * [ピボット](../controls-and-patterns/pivot.md)
 * [ナビゲーション ビュー](../controls-and-patterns/navigationview.md)

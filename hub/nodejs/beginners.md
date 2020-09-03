@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS、Node.js、windows 10、microsoft、nodejs 学習、windows のノード、windows のノード (初心者向け)、windows でノード開発、windows で nodejs 開発
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: d40d701dc3ae973e0834d0b329527e69854b9e36
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 5737316ae2de0520e5443f69cefaec25679a228f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492867"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166636"
 ---
 # <a name="get-started-using-nodejs-on-windows-for-beginners"></a>Windows で Node.js を使ってみる (初心者向け)
 
@@ -67,9 +67,9 @@ Node.js は、Web アプリケーションの作成に主に使用される Java
 > [!TIP]
 > 複数のコマンド ライン (Ubuntu、PowerShell、Windows コマンド プロンプトなど) を使用する予定がある場合や、テキスト、背景色、キー バインド、複数のウィンドウ ペインなど、[ターミナルをカスタマイズする](https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md)場合は、新しい [Windows ターミナル](https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md)を試してみてください。
 
-## <a name="set-up-a-basic-web-app-framework-by-using-express"></a>Express を使用し、基本的な Web アプリ フレームワークを設定する
+## <a name="set-up-a-basic-web-app-framework-by-using-express"></a>Express を使って基本的な Web アプリ フレームワークを設定する
 
-Express は最小限で柔軟かつ合理化された Node.js フレームワークであり、GET、PUT、POST、DELETE など、さまざまな種類の要求を処理できる Web アプリを簡単に開発できます。 Express には、アプリのファイル アーキテクチャを自動的に作成するアプリケーション ジェネレーターが付属しています。
+Express は、柔軟かつ簡単な最小限の Node.js フレームワークであり、GET、PUT、POST、DELETE などの複数の種類の要求を処理できる Web アプリを簡単に開発できます。 Express には、ご自分のアプリ用のファイル アーキテクチャを自動的に作成するアプリケーション ジェネレーターが付属しています。
 
 Express.js でプロジェクトを作成する方法:
 
@@ -78,18 +78,18 @@ Express.js でプロジェクトを作成する方法:
 3. Express を使用して HelloWorld プロジェクトテンプレートを作成します (`npx express-generator HelloWorld --view=pug`)。
 
 >[!NOTE]
-> 今回は `npx` コマンドを使用し、Express.js Node パッケージを実際にインストールすることなく実行しています (一時的にインストールしていると考えることもできます)。 `express` コマンドを使用するか、インストールされている Express のバージョンを確認してみると (`express --version`)、Express が見つからないという応答が届きます。 Express をグローバルにインストールして繰り返し使用する場合は、`npm install -g express-generator` を使用します。 `npm list` を使用すれば、インストールされているパッケージの一覧を表示できます。 深さ (奥の方に入れ子になっているディレクトリの数) 別に一覧表示されます。 自分でインストールしたパッケージの深度は 0 になります。 そのパッケージに依存するものの深度が 1 で、それにさらに依存するものの深度が 2 というふうに続きます。 詳細については、Stackoverflow の「[Difference between npx and npm?](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm)」 (npx と npm の違いとは?) を参照してください。
+> 今回は `npx` コマンドを使用し、Express.js Node パッケージを実際にインストールすることなく実行しています (一時的にインストールしていると考えることもできます)。 `express` コマンドを使用するか、インストールされている Express のバージョンを確認してみると (`express --version`)、Express が見つからないという応答が届きます。 Express をグローバルにインストールして繰り返し使用する場合は、`npm install -g express-generator` を使用します。 `npm list` を使用すれば、インストールされているパッケージの一覧を表示できます。 それらは深さ (入れ子になっているディレクトリの数) 別に表示されます。 自分でインストールしたパッケージは、深さ 0 になります。 そのパッケージの依存関係は深さ 1 になり、そのまた依存関係は深さ 2 になり、以下同様になります。 詳細については、Stackoverflow の「[Difference between npx and npm?](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm)」 (npx と npm の違いとは?) を参照してください。
 
 4. VS Code でプロジェクトを開き、Express で追加されたファイルとフォルダーを調べます (`code .`)。
 
-   Express によって生成されたファイルからは Web アプリが生成されますが、そのアプリで使用されるアーキテクチャは、初めは少し圧倒的に見えるかもしれません。 次のファイルとフォルダーが生成されたことが VS Code **Explorer** ウィンドウでわかります (Ctrl + Shift + E で表示)。
+   Express により生成されるファイルによって Web アプリを作成します。使われているアーキテクチャを見て、最初は圧倒されるかもしれません。 次のファイルとフォルダーが生成されたことが VS Code **Explorer** ウィンドウでわかります (Ctrl + Shift + E で表示)。
 
-   - `bin` の順にクリックします。 アプリを起動する実行可能ファイルが含まれます。 (代替が指定されていない場合、ポート 3000 で) サーバーが起動し、基本的なエラー処理がセットアップされます。 
-   - `public` の順にクリックします。 JavaScript ファイル、CSS スタイルシート、フォント ファイル、画像、人が Web サイトに接続するときに必要となるその他のアセットなど、誰でもアクセスできるファイルがすべて含まれます。
-   - `routes` の順にクリックします。 アプリケーションのルート ハンドラーがすべて含まれます。 このフォルダーには `index.js` と `users.js` という 2 つのファイルが自動生成され、アプリケーションのルート構成を区別する方法の例として役立ちます。
-   - `views` の順にクリックします。 テンプレート エンジンによって使用されたファイルが含まれます。 Express は、レンダー メソッドが呼び出されたとき、一致するビューを探すように構成されています。 既定のテンプレート エンジンは Jade ですが、Jade は Pug を優先するために非推奨となっています。そのため、`--view` フラグを使用し、ビュー (テンプレート) エンジンを変更しました。 `express --help` を使用すると、`--view` フラグ オプションやその他が表示されます。
-   - `app.js` の順にクリックします。 アプリの開始点。 すべてを読み込み、ユーザーの要求に応え始めます。 これは基本的にすべて部品をくっつける糊です。
-   - `package.json` の順にクリックします。 プロジェクトの説明、スクリプト マネージャー、アプリ マニフェストが含まれます。 その主たる目的は、アプリの依存関係とそのそれぞれのバージョンを追跡記録することです。
+   - `bin`. アプリを起動する実行可能ファイルが含まれています。 これにより、(他のものを指定しない場合はポート 3000 で) サーバーを起動し、基本的なエラー処理を設定します。 
+   - `public`. パブリックにアクセスできるすべてのファイルが含まれています (JavaScript ファイル、CSS スタイルシート、フォント ファイル、画像、自分の Web サイトに接続した人が必要とするその他のあらゆる資産など)。
+   - `routes`. アプリケーション用のルート ハンドラーがすべて含まれています。 アプリケーションのルート構成を分離させる方法の例として機能する 2 つのファイル (`index.js` と `users.js`) が、このフォルダー内に自動的に生成されます。
+   - `views`. テンプレート エンジンで使用するファイルが含まれています。 Express は、レンダリング メソッドが呼び出されたときに、ここを調べて一致するビューを探すように構成されています。 既定のテンプレート エンジンは Jade ですが、Jade は廃止されて Pug に代えられているため、`--view` フラグを使ってビュー (テンプレート) エンジンが変更されています。 `express --help` を使用して、`--view` フラグ オプションとその他のオプションを表示できます。
+   - `app.js`. アプリの始点です。 これによりすべてが読み込まれ、ユーザー要求の処理が開始されます。 これは基本的に、すべてのパーツをまとめて保持する接着剤です。
+   - `package.json`. プロジェクトの説明、スクリプト マネージャー、およびアプリ マニフェストが含まれています。 その主な目的は、アプリの依存関係とそれらの各バージョンを追跡することです。
 
 5. 次に、HelloWorld Express アプリを構築して実行する目的で Express で使用される依存関係をインストールする必要があります (`package.json` ファイルに定義されているとおり、サーバーの実行などのタスクに使用されるパッケージ)。 VS Code 内で、 **[表示]** から **[ターミナル]** を選択し (あるいは Ctrl を押しながらバックティック文字 ` を選択し)、"HelloWorld" プロジェクト ディレクトリにまだいることを確認します。 次を使用して Express パッケージの依存関係をインストールします。
 
@@ -97,7 +97,7 @@ Express.js でプロジェクトを作成する方法:
 npm install
 ```
 
-6. この時点で、API と HTTP の多様なユーティリティ メソッドとミドルウェアを利用できる、複数のページからなる Web アプリ用のフレームワークが設定されます。堅牢な API を簡単に作成できます。 次を入力し、仮想サーバー上で Express アプリを起動します。
+6. この時点で、多種多様の API や HTTP ユーティリティ メソッド、およびミドルウェアにアクセスできる、複数ページの Web アプリ用のフレームワークが設定されています。これで堅固な API を簡単に作成できます。 次を入力し、仮想サーバー上で Express アプリを起動します。
 
 ```bash
 npx cross-env DEBUG=HelloWorld:* npm start
@@ -108,27 +108,27 @@ npx cross-env DEBUG=HelloWorld:* npm start
 
 7. これで Web ブラウザーを起動し、**localhost:3000** に移動することで実行中のアプリを表示できます。
 
-   ![ブラウザーで実行されている Express アプリのスクリーンショット](../images/express-app.png)
+   ![ブラウザー内で実行中の Express アプリのスクリーンショット](../images/express-app.png)
 
 8. これで HelloWorld Express アプリがブラウザーでローカル実行されたので、プロジェクト ディレクトリで "views" フォルダーを開き、"index.pug" ファイルを選択し、変更を加えてみてください。 開いたら、`h1= title` を `h1= "Hello World!"` に変更し、 **[保存]** (Ctrl + S) を選択します。 Web ブラウザーで **localhost:3000** URL を更新し、変更内容を表示します。
 
 9. Express アプリの実行を停止するには、ターミナルに **Ctrl + C** を入力します。
 
-## <a name="try-using-a-nodejs-module"></a>Node.js モジュールを試す
+## <a name="try-using-a-nodejs-module"></a>Node.js モジュールを使ってみる
 
-Node.js には、サーバー側 Web アプリの開発に役立つツールがあります。組み込み済みのツールもあれば、npm から入手できるさまざまなツールもあります。 これらのモジュールはさまざまなタスクで役立ちます。
+Node.js には、サーバー側の Web アプリ開発を支援するツールが用意されています。一部は組み込みであり、npm 経由でさらに多くを入手できます。 これらのモジュールは多くのタスクに役立ちます。
 
 |ツール               |使用目的                                                                                                  |
 |:----------------- |:---------------------------------------------------------------------------------------------------------|
-|gm、sharp          |編集、サイズ変更、圧縮など、JavaScript コードで直接、画像を操作する |
-|PDFKit             |PDF 生成                                                                                            |
-|validator.js       |文字列検証                                                                                         |
+|gm、sharp          |JavaScript コード内で直接画像を操作する (編集、サイズ変更、圧縮など) |
+|PDFKit             |PDF の生成                                                                                            |
+|validator.js       |文字列の検証                                                                                         |
 |imagemin、UglifyJS2|縮小                                                                                              |
-|spritesmith        |スプライト シート生成                                                                                   |
-|winston            |ログ記録                                                                                                  |
+|spritesmith        |スプライト シートの生成                                                                                   |
+|winston            |ログの記録                                                                                                  |
 |commander.js       |コマンド ライン アプリケーションの作成                                                                       |
 
-組み込み OS モジュールを利用し、お使いのコンピューターのオペレーティング システムに関する情報を取得してみましょう。
+組み込みの OS モジュールを使用して、コンピューターのオペレーティング システムに関する情報を取得してみましょう。
 
 1) コマンド ラインで、Node.js CLI を開きます。 `node` の入力後、`>` プロンプトが表示され、Node.js を使用していることがわかります。
 
@@ -138,15 +138,15 @@ Node.js には、サーバー側 Web アプリの開発に役立つツールが�
 
 4) システムで使用可能な CPU を表示するには、`os.cpus()` を入力します。
 
-5) `.exit` を入力するか、Ctrl + C を 2 回押して、Node.js CLI を終了します。
+5) `.exit` と入力するか、Ctrl + C キーを 2 回選択して、Node.js の CLI を終了します。
 
    > [!TIP]
    > Node.js OS モジュールを使用してプラットフォームを確認したり、プラットフォーム固有の変数を返したりすることができます(Windows 開発の Win32/.bat や Mac/Unix、Linux、SunOS の darwin/.sh など) を返したりすることができます (たとえば、`var isWin = process.platform === "win32";`)。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このガイドでは、Node.js でできる基本的なことをいくつか学習し、VS Code で Node.js コマンド ラインの使用を試し、Express.js で簡単な Web アプリを作成してそれを Web ブラウザーでローカル実行し、いくつかの組み込み Node.js モジュールの使用を試しました。 いくつかの人気のある Node.js Web フレームワークをインストールして使用する方法の詳細については、次のガイドに進んでください。Next.js (React を基盤とし、サーバー側でレンダリングする Web フレームワーク)、Nuxt.js (Vue を基盤とし、サーバー側でレンダリングする Web フレームワーク)、Gatsby (React を基盤とし、静的にレンダリングする Web フレームワーク) について取り上げています。 これを飛ばして、MongoDB、PostgreSQL データベース、または Docker コンテナーを使用する方法を学習することもできます。
 
 - [Windows での Node.js Web フレームワークの概要](./web-frameworks.md)
-- [Node.js アプリのデータベースへの接続の概要](https://docs.microsoft.com/windows/wsl/tutorials/wsl-database)
+- [Node.js アプリのデータベースへの接続の概要](/windows/wsl/tutorials/wsl-database)
 - [Node.js で Docker コンテナーを使ってみる](./containers.md)

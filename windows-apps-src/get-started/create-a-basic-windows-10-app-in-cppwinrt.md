@@ -5,26 +5,26 @@ ms.date: 07/11/2020
 ms.topic: article
 keywords: windows 10, uwp, cppwinrt, C++/WinRT
 ms.localizationpriority: medium
-ms.openlocfilehash: e2f4e6b808d0169f4c9f8f7142f218c00f124ae3
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: bb6a76f2e8096d63907daf5ededdb6a22eb72a6c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493746"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175206"
 ---
 # <a name="create-a-hello-world-app-using-cwinrt"></a>"Hello, World!" アプリを C++/WinRT を使用して作成する
 
 このトピックでは、Windows 10 ユニバーサル Windows プラットフォーム (UWP) の "Hello, World!" アプリを、C++/WinRT を使用して作成する手順を説明します。 アプリのユーザー インターフェイス (UI) は、Extensible Application Markup Language (XAML) を使用して定義します。
 
-C++/WinRT は、Windows ランタイム (WinRT) API 用に完全に標準化された最新の C++17 言語プロジェクションです。 詳細情報、他のチュートリアル、コード例については、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/) のドキュメントを参照してください。 まずは、「[C++/WinRT の使用を開始する](/windows/uwp/cpp-and-winrt-apis/get-started)」をご覧ください。
+C++/WinRT は、Windows ランタイム (WinRT) API 用に完全に標準化された最新の C++17 言語プロジェクションです。 詳細情報、他のチュートリアル、コード例については、[C++/WinRT](../cpp-and-winrt-apis/index.md) のドキュメントを参照してください。 まずは、「[C++/WinRT の使用を開始する](../cpp-and-winrt-apis/get-started.md)」をご覧ください。
 
 ## <a name="set-up-visual-studio-for-cwinrt"></a>C++/WinRT 用に Visual Studio をセットアップする
 
-&mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+&mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 Visual Studio をダウンロードするには、「[のダウンロード](https://visualstudio.microsoft.com/downloads/)」を参照してください。
 
-XAML の概要については、「[XAML の概要](/windows/uwp/xaml-platform/xaml-overview)」を参照してください
+XAML の概要については、「[XAML の概要](../xaml-platform/xaml-overview.md)」を参照してください
 
 ## <a name="create-a-blank-app-helloworldcppwinrt"></a>空のアプリ (HelloWorldCppWinRT) を作成する
 
@@ -38,7 +38,7 @@ XAML の概要については、「[XAML の概要](/windows/uwp/xaml-platform/x
 
 通常、プロジェクト フォルダーでは、`.xaml` (XAML マークアップ) ファイルごとに、対応する `.idl`、`.h`、`.cpp` ファイルがあります。 これらのファイルはまとめて、XAML ページ型にコンパイルされます。
 
-UI 要素が作成されるように XAML マークアップ ファイルを変更したり、それらの要素をデータ ソースにバインドしたり ([データ バインディング](/windows/uwp/data-binding/)と呼ばれるタスク) することができます。 `.h` ファイルと `.cpp` ファイル (および場合によっては `.idl` ファイル) を変更して、XAML ページのカスタム ロジック (イベント ハンドラーなど) を追加します。
+UI 要素が作成されるように XAML マークアップ ファイルを変更したり、それらの要素をデータ ソースにバインドしたり ([データ バインディング](../data-binding/index.md)と呼ばれるタスク) することができます。 `.h` ファイルと `.cpp` ファイル (および場合によっては `.idl` ファイル) を変更して、XAML ページのカスタム ロジック (イベント ハンドラーなど) を追加します。
 
 プロジェクト ファイルをいくつか見てみましょう。
 
@@ -52,7 +52,7 @@ UI 要素が作成されるように XAML マークアップ ファイルを変�
 
 ご存じかもしれませんが、C# で記述されたユニバーサル Windows プラットフォーム (UWP) アプリのすべてのクラスは、Windows ランタイム型です。 ただし、C++/WinRT アプリケーションで型を作成するときは、その型が Windows ランタイム型であるか、または通常の C++ クラス、構造体、列挙であるかを選択できます。
 
-プロジェクト内のすべての XAML ページ型は、Windows ランタイム型である必要があります。 したがって、**MainPage** は Windows ランタイム型です。 具体的には、それは "*ランタイム クラス*" です。 XAML ページによって使用されるすべての型も、Windows ランタイム型である必要があります。 [Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)を作成していて、別のアプリから使用できる型を作成する場合は、Windows ランタイム型を作成します。 それ以外の場合の型は、標準の C++ 型でかまいません。 一般に、Windows ランタイム型は、任意の Windows ランタイム言語で使用できます。
+プロジェクト内のすべての XAML ページ型は、Windows ランタイム型である必要があります。 したがって、**MainPage** は Windows ランタイム型です。 具体的には、それは "*ランタイム クラス*" です。 XAML ページによって使用されるすべての型も、Windows ランタイム型である必要があります。 [Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)を作成していて、別のアプリから使用できる型を作成する場合は、Windows ランタイム型を作成します。 それ以外の場合の型は、標準の C++ 型でかまいません。 一般に、Windows ランタイム型は、任意の Windows ランタイム言語で使用できます。
 
 型が Windows ランタイム型であることは、たとえば、それがインターフェイス定義言語 (`.idl`) ファイル内の [Microsoft インターフェイス定義言語 (MIDL)](/uwp/midl-3/) で定義されていることでわかります。 例として、**MainPage** を見てみましょう。
 
@@ -94,7 +94,7 @@ namespace winrt::HelloWorldCppWinRT::factory_implementation
 }
 ```    
 
-指定した型に対してランタイム クラスを作成するかどうかについて詳しくは、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」をご覧ください。 ランタイム クラスと IDL (`.idl` ファイル) の間の接続に関する情報については、「[XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)」トピックを参照して従ってください。 そのトピックでは、新しいランタイム クラスを作成する手順が示されています。その最初のステップでは、新しい **Midl ファイル (.idl)** 項目をプロジェクトに追加します。
+指定した型に対してランタイム クラスを作成するかどうかについて詳しくは、「[C++/WinRT での API の作成](../cpp-and-winrt-apis/author-apis.md)」をご覧ください。 ランタイム クラスと IDL (`.idl` ファイル) の間の接続に関する情報については、「[XAML コントロール: C++/WinRT プロパティへのバインド](../cpp-and-winrt-apis/binding-property.md)」トピックを参照して従ってください。 そのトピックでは、新しいランタイム クラスを作成する手順が示されています。その最初のステップでは、新しい **Midl ファイル (.idl)** 項目をプロジェクトに追加します。
 
 次に、**HelloWorldCppWinRT** プロジェクトにいくつかの機能を追加します。
 
@@ -159,7 +159,7 @@ namespace winrt::HelloWorldCppWinRT::implementation
 }
 ```
 
-詳細については、[デリゲートを使用したイベントの処理](/windows/uwp/cpp-and-winrt-apis/handle-events)に関するページを参照してください。
+詳細については、[デリゲートを使用したイベントの処理](../cpp-and-winrt-apis/handle-events.md)に関するページを参照してください。
 
 実装では、テキスト ボックスからユーザーの名前が取得され、それを使用してあいさつ文が作成されて、*greetingOutput* テキスト ブロックに表示されます。
 

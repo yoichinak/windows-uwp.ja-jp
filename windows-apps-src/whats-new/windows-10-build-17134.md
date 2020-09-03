@@ -5,12 +5,12 @@ keywords: Windows 10, 17134, 1803
 ms.date: 04/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 12c788cae02cdc5a0cf8e26f02ea03264960ce49
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 2007389f8571d29d687d94a41e7dd00bba10dc26
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234372"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89167026"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17134"></a>Windows 10 ビルド 17134 の開発者向け新着情報
 
@@ -22,11 +22,11 @@ Windows 10 ビルド 17134 (April Update またはバージョン 1803 とも呼
 
 機能 | 説明
  :------ | :------
-アダプティブ トースト通知と対話型トースト通知 | アダプティブ トースト通知と対話型トースト通知で、アプリを強化できます。 まず[トースト通知に関する最新のガイダンス](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)で、イメージ サイズの制限、進行状況バー、入力オプションの最新情報をご確認ください。<br><br>[ExpirationTime](https://docs.microsoft.com/uwp/api/windows.ui.notifications.scheduledtoastnotification.expirationtime#Windows_UI_Notifications_ScheduledToastNotification_ExpirationTime) が、スケジュールされたトースト通知でサポートされるようになりました。
+アダプティブ トースト通知と対話型トースト通知 | アダプティブ トースト通知と対話型トースト通知で、アプリを強化できます。 まず[トースト通知に関する最新のガイダンス](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)で、イメージ サイズの制限、進行状況バー、入力オプションの最新情報をご確認ください。<br><br>[ExpirationTime](/uwp/api/windows.ui.notifications.scheduledtoastnotification.expirationtime#Windows_UI_Notifications_ScheduledToastNotification_ExpirationTime) が、スケジュールされたトースト通知でサポートされるようになりました。
 コンテンツ リンク | 新しい[コンテンツ リンク](../design/controls-and-patterns/content-links.md) コントロールを使用すると、テキスト コントロールにリッチ データを埋め込むことができます。これによってユーザーは、アプリのコンテキストから離れることなく、人物や場所に関する詳しい情報を見つけることができます。
 設計のサンプル | [設計ツールキットとサンプル](../design/downloads/index.md)のページに、BuildCast サンプルが追加されました。 BuildCast は、Fluent Design System と、ユニバーサル Windows プラットフォームの他の機能を示すために組み込まれているエンド ツー エンドのサンプルです。
 埋め込みの手書き入力機能 | [テキスト コントロール](../design/controls-and-patterns/text-controls.md)にペン入力機能が追加されました。ユーザーは Windows Ink を使用して、テキスト ボックスに手書きで直接入力できます。 ユーザーが手書きで入力すると、文字は自然な手書き感を維持して活字に変換されます。
-Fluent Design の更新 | 多くの Fluent Design ページが新しい情報とガイダンスで更新されました。 </br> * [Fluent Design の概要](../design/fluent-design-system/index.md)ページも、最新の Fluent 機能を反映して更新されています。 </br> * 「[表示ハイライト](../design/style/reveal.md)」には、テーマおよびカスタム コントロールに関する新しいガイダンスが追加されています。 </br> * 「[ナビゲーション履歴と前に戻る移動](../design/basics/navigation-history-and-backwards-navigation.md)」が刷新され、詳しい例、デバイス最適化のガイダンス、カスタム動作に関するガイドラインが掲載されています。
+Fluent Design の更新 | 多くの Fluent Design ページが新しい情報とガイダンスで更新されました。 </br> * [Fluent Design の概要](/windows/apps/fluent-design-system)ページも、最新の Fluent 機能を反映して更新されています。 </br> * 「[表示ハイライト](../design/style/reveal.md)」には、テーマおよびカスタム コントロールに関する新しいガイダンスが追加されています。 </br> * 「[ナビゲーション履歴と前に戻る移動](../design/basics/navigation-history-and-backwards-navigation.md)」が刷新され、詳しい例、デバイス最適化のガイダンス、カスタム動作に関するガイドラインが掲載されています。
 フォーカス ナビゲーション | 新しい「[フォーカス ナビゲーション](../design/input/focus-navigation.md)」のトピックでは、非ポインティングの入力タイプ (キーボード、ゲームパッド、リモコンなど) を必要としているユーザー向けに UWP アプリケーションを最適化する方法について説明しています。 また、「[プログラムによるフォーカス ナビゲーション](../design/input/focus-navigation-programmatic.md)」では、エクスペリエンスを強化するために使用できる API について説明します。
 キーボード ショートカット | 「[キーボード アクセラレータ](../design/input/keyboard-accelerators.md)」のガイダンスが、操作性に関する新しい情報で更新されました。 ヒントをキーボード アクセラレータに追加したり、ラベルをコントロールに付けたりして、キーボード アクセラレータやコントロールを見つけやすくすることができます。また、新しい API を使用して、キーボード アクセラレータの既定の動作を上書きできます。
 ページ レイアウト | [XAML ページ レイアウト](../design/layout/layouts-with-xaml.md)に関するドキュメントが更新され、柔軟なレイアウトと表示状態の情報が新しく追加されました。 これらの機能を使用すると、使用できる表示領域に合わせてアプリ内の要素の位置がどのように呼応するかをさらに細かく制御できます。
@@ -42,34 +42,34 @@ Tiles | [追跡可能なタイル通知](../design/shell/tiles-and-notifications
 機能 | 説明
  :------ | :------
 ゲーム開発の概要 | Windows 10 用のゲーム開発に関心をお持ちですか? 新しい[ゲーム開発の作業の概要](../gaming/getting-started.md)ページでは、セットアップ、登録、アプリとゲームの申請準備のために必要な作業全体の概要を示します。
-グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nn-dxgi1_6-idxgifactory6) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/nf-dxgi1_6-dxgideclareadapterremovalsupport) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](https://docs.microsoft.com/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference) 列挙では、アプリを実行する GPU の基本設定を記述します。
+グラフィックス アダプター | 以下の DXGI API が追加されました。これらは、グラフィックス アダプターの基本設定と削除に関連しています。 </br> * [IDXGIFactory6](/windows/desktop/api/dxgi1_6/nn-dxgi1_6-idxgifactory6) インターフェイスでは、GPU 基本設定に基づいてグラフィックス アダプターを列挙する単一のメソッドが有効になります。 </br> * [DXGIDeclareAdapterRemovalSupport](/windows/desktop/api/dxgi1_6/nf-dxgi1_6-dxgideclareadapterremovalsupport) 関数を使用すると、グラフィックス デバイスの削除に対してプロセスで対応可能であると示すことができます。 </br> * [DXGI_GPU_PREFERENCE](/windows/desktop/api/dxgi1_6/ne-dxgi1_6-dxgi_gpu_preference) 列挙では、アプリを実行する GPU の基本設定を記述します。
 
 ## <a name="develop-windows-apps"></a>Windows アプリの開発
 
 機能 | 説明
  :------ | :------
-アダプティブ カード | [アダプティブ カード](https://docs.microsoft.com/adaptive-cards/)は、カード交換のオープン フォーマットであり、開発者は一貫性のある共通した方法で UI コンテンツを交換できます。 アダプティブ カードでは JSON オブジェクトとしてコンテンツを記述し、ホスト アプリケーションの外観に自動的に適合するようにレンダリングできます。
-アプリ リソース グループ | [AppResourceGroupInfo](https://docs.microsoft.com/uwp/api/windows.system.appresourcegroupinfo) クラスには、アプリの状態を中断、アクティブ (再開済み)、または終了の状態に移行する処理を開始するための新しいメソッドが含まれています。
+アダプティブ カード | [アダプティブ カード](/adaptive-cards/)は、カード交換のオープン フォーマットであり、開発者は一貫性のある共通した方法で UI コンテンツを交換できます。 アダプティブ カードでは JSON オブジェクトとしてコンテンツを記述し、ホスト アプリケーションの外観に自動的に適合するようにレンダリングできます。
+アプリ リソース グループ | [AppResourceGroupInfo](/uwp/api/windows.system.appresourcegroupinfo) クラスには、アプリの状態を中断、アクティブ (再開済み)、または終了の状態に移行する処理を開始するための新しいメソッドが含まれています。
 ファイル システムへの幅広いアクセス | **broadFileSystemAccess** 機能を使用すると、ファイル ピッカー スタイルのプロンプトを使用しなくても、アプリはファイル システムに対して、アプリを実行中のユーザーと同じアクセス許可を獲得できます。 詳しくは、「[ファイル アクセス許可](../files/file-access-permissions.md)」と、「[アプリ機能の宣言](../packaging/app-capability-declarations.md)」の **broadFileSystemAccess** をご覧ください。
-C++/WinRT | [C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/) は、Windows ランタイム (WinRT) API 用に新しく完全に標準化された、最新の C++17 言語プロジェクションです。 ヘッダー ファイルに単独で実装され、最新の Windows API への最上位のアクセス権を提供するように設計されています。 C++/WinRT を使うと、標準に準拠した C++17 のコンパイラを使用して WinRT API を作成し利用することができます。 C++ アプリケーション (Win32 から UWP への変換) では、C++/WinRT を使用することで、コードを標準として維持し、最新でクリーンなコードを保つことができます。また、アプリケーションを軽量かつ高速なアプリケーションとしてそのまま利用できます。
+C++/WinRT | [C++/WinRT](../cpp-and-winrt-apis/index.md) は、Windows ランタイム (WinRT) API 用に新しく完全に標準化された、最新の C++17 言語プロジェクションです。 ヘッダー ファイルに単独で実装され、最新の Windows API への最上位のアクセス権を提供するように設計されています。 C++/WinRT を使うと、標準に準拠した C++17 のコンパイラを使用して WinRT API を作成し利用することができます。 C++ アプリケーション (Win32 から UWP への変換) では、C++/WinRT を使用することで、コードを標準として維持し、最新でクリーンなコードを保つことができます。また、アプリケーションを軽量かつ高速なアプリケーションとしてそのまま利用できます。
 コンソール UWP アプリ | C++ /WinRT または /CX の UWP コンソール アプリを作成して、DOS や PowerShell などのコンソール ウィンドウで実行できるようになりました。 コンソール アプリでは、入出力にコンソール ウィンドウを使用します。 UWP コンソール アプリは、Microsoft Store に公開することも、アプリの一覧に追加することもできます。また、プライマリ タイルとしてスタート メニューにピン留めすることもできます。 詳しくは、「[ユニバーサル Windows プラットフォーム コンソール アプリの作成](../launch-resume/console-uwp.md)」をご覧ください。
-拡張されたアプリ マニフェスト機能 | アプリ パッケージ マニフェストのスキーマに、機能がいくつか追加されました。それらの機能には、ファイル システムへの広範なアクセス、店舗販売時点管理 (POS) デバイスでのバーコード スキャナーの有効化、UWP コンソール アプリの定義などがあります。 詳しくは、「[app manifest changes in Windows 10](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/what-s-changed-in-windows-10)」(Windows 10 でのアプリ マニフェストの変更) をご覧ください。
+拡張されたアプリ マニフェスト機能 | アプリ パッケージ マニフェストのスキーマに、機能がいくつか追加されました。それらの機能には、ファイル システムへの広範なアクセス、店舗販売時点管理 (POS) デバイスでのバーコード スキャナーの有効化、UWP コンソール アプリの定義などがあります。 詳しくは、「[app manifest changes in Windows 10](/uwp/schemas/appxpackage/uapmanifestschema/what-s-changed-in-windows-10)」(Windows 10 でのアプリ マニフェストの変更) をご覧ください。
 アクセシビリティ対応技術 (AT) 用にサポートされているランドマークと見出し | ランドマークと見出しは、ユーザー インターフェイスのセクションを定義し、スクリーン リーダーなどのアクセシビリティ対応技術のユーザーの効率的なナビゲーションに役立ちます。 詳しくは、[ランドマークと見出し](../design/accessibility/landmarks-and-headings.md)に関するページをご覧ください。
-Machine Learning | Windows Machine Learning を使用すると、ローカルの事前学習済み機械学習モデルを Windows 10 デバイス上で評価するアプリを構築できます。 このプラットフォームについて詳しくは、「[Windows Machine Learning](https://docs.microsoft.com/windows/ai/)」をご覧ください。 </br> [MachineLearning](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning.preview) 名前空間には、機械学習モデルを読み込み、データを入力としてバインドし、結果を評価するためのアプリを有効にするクラスが含まれています。
-マップ コントロール | [MapControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapcontrol) クラスには、**Region** という名前の新しいプロパティが含まれています。これを使用すると、特定の地域 (州や県など) の言語に基づいてマップ コントロールにコンテンツを表示できます。
-マップ要素 | [MapElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapelement) クラスには、**IsEnabled** という名前の新しいプロパティが含まれています。これを使用すると、ユーザーによる [MapElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.maps.mapelement) との対話が可能かどうかを指定できます。
-マップの場所の情報 | [PlaceInfo](https://docs.microsoft.com/uwp/api/windows.services.maps.placeinfo) クラスには、**CreateFromAddress** という新しいメソッドが含まれています。このメソッドでは、住所と表示名を使用して、[PlaceInfo](https://docs.microsoft.com/uwp/api/windows.services.maps.placeinfo) を作成できます。
-マップ サービス | [MapRouteDrivingOptions](https://docs.microsoft.com/uwp/api/windows.services.maps.maproutedrivingoptions) クラスには、**DepartureTime** という名前の新しいプロパティが含まれています。これを使用すると、指定の日時に一般的な交通条件でルートを計算できます。
+Machine Learning | Windows Machine Learning を使用すると、ローカルの事前学習済み機械学習モデルを Windows 10 デバイス上で評価するアプリを構築できます。 このプラットフォームについて詳しくは、「[Windows Machine Learning](/windows/ai/)」をご覧ください。 </br> [MachineLearning](/uwp/api/windows.ai.machinelearning.preview) 名前空間には、機械学習モデルを読み込み、データを入力としてバインドし、結果を評価するためのアプリを有効にするクラスが含まれています。
+マップ コントロール | [MapControl](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol) クラスには、**Region** という名前の新しいプロパティが含まれています。これを使用すると、特定の地域 (州や県など) の言語に基づいてマップ コントロールにコンテンツを表示できます。
+マップ要素 | [MapElement](/uwp/api/windows.ui.xaml.controls.maps.mapelement) クラスには、**IsEnabled** という名前の新しいプロパティが含まれています。これを使用すると、ユーザーによる [MapElement](/uwp/api/windows.ui.xaml.controls.maps.mapelement) との対話が可能かどうかを指定できます。
+マップの場所の情報 | [PlaceInfo](/uwp/api/windows.services.maps.placeinfo) クラスには、**CreateFromAddress** という新しいメソッドが含まれています。このメソッドでは、住所と表示名を使用して、[PlaceInfo](/uwp/api/windows.services.maps.placeinfo) を作成できます。
+マップ サービス | [MapRouteDrivingOptions](/uwp/api/windows.services.maps.maproutedrivingoptions) クラスには、**DepartureTime** という名前の新しいプロパティが含まれています。これを使用すると、指定の日時に一般的な交通条件でルートを計算できます。
 マルチインスタンスの UWP アプリ | UWP アプリでは、マルチインスタンスのサポートを選択できます。 マルチインスタンス UWP アプリのインスタンスが実行されていて、後続のライセンス認証要求が行われた場合、既存のインスタンスはアクティブ化されません。 代わりに、別のプロセスで実行される、新しいインスタンスが作成されます。 詳しくは、[マルチインスタンスのユニバーサル Windows アプリの作成](../launch-resume/multi-instance-uwp.md)に関するページをご覧ください。
-パッケージ リソース インデックス API とカスタム ビルド システム | [パッケージ リソース インデックス (PRI) API](https://docs.microsoft.com/windows/uwp/app-resources/pri-apis-custom-build-systems) を使用して、UWP アプリのリソース用のカスタム ビルド システムを開発できます。 ビルド システムでは、UWP アプリで必要となる複雑さのレベルにかかわらず、PRI ファイルの作成やバージョン管理を行ったり、PRI ファイルをダンプしたりすることができます。 現在 MakePri.exe コマンドライン ツールを使用するカスタム ビルド システムを利用している場合は、代わりに PRI API を呼び出すように切り替えることをお勧めします。これらの API によって、パフォーマンスと制御が向上するためです。
-PlayReady | Microsoft PlayReady は、デジタル コンテンツを保護して不正使用を防止するための一連のテクノロジです。 PlayReady は、デバイスやアプリの種類を問わず、あらゆるオペレーティング システム間で動作します。 [アプリに PlayReady を組み込む方法をご確認ください。](https://docs.microsoft.com/playready/)
+パッケージ リソース インデックス API とカスタム ビルド システム | [パッケージ リソース インデックス (PRI) API](../app-resources/pri-apis-custom-build-systems.md) を使用して、UWP アプリのリソース用のカスタム ビルド システムを開発できます。 ビルド システムでは、UWP アプリで必要となる複雑さのレベルにかかわらず、PRI ファイルの作成やバージョン管理を行ったり、PRI ファイルをダンプしたりすることができます。 現在 MakePri.exe コマンドライン ツールを使用するカスタム ビルド システムを利用している場合は、代わりに PRI API を呼び出すように切り替えることをお勧めします。これらの API によって、パフォーマンスと制御が向上するためです。
+PlayReady | Microsoft PlayReady は、デジタル コンテンツを保護して不正使用を防止するための一連のテクノロジです。 PlayReady は、デバイスやアプリの種類を問わず、あらゆるオペレーティング システム間で動作します。 [アプリに PlayReady を組み込む方法をご確認ください。](/playready/)
 プライベート対象ユーザー | アプリの Store 登録情報が選択したユーザーにのみ表示されるようにする場合は、新しい **[Private audience]** (プライベート対象ユーザー) オプションを使用します。 このオプションを使用すると、指定したグループのユーザー以外はアプリを見つけたり、入手したりすることができなくなります。 このオプションは、ベータ版のテストで役立ちます。このオプションによって、アプリをテスターのみに配布し、他のユーザーはアプリを入手したり、Store 登録情報を閲覧したりすることができなくなるためです。 詳しくは、「[表示オプションを選択する](../publish/choose-visibility-options.md)」をご覧ください。
-プログレッシブ Web アプリ | Microsoft Edge や UWP Web アプリでは、[プログレッシブ Web アプリ (PWA)](https://docs.microsoft.com/microsoft-edge/progressive-web-apps) がサポートされるようになりました。 </br> * [標準ベースの Web テクノロジ](https://developer.mozilla.org/Apps/Progressive)と[機能検出](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/windows-features)を使用して、まだ PWA テクノロジをサポートしていないブラウザーやプラットフォームで Web アプリの優れた基本エクスペリエンスを提供しながら、プッシュ通知、オフライン サポート、OS の統合など、ネイティブ アプリのエクスペリエンスが実現されるように Web アプリを強化できます。 </br> * アプリに[マニフェスト ファイルを追加すること](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/get-started)によって、UWP デバイス ファミリ全体 (セキュリティで保護された [Windows 10 S モード デバイス](https://www.microsoft.com/windows/windows-10-s)を含む) にアプリをインストールしたり、[Microsoft Store](https://docs.microsoft.com/microsoft-edge/progressive-web-apps/microsoft-store) からアプリを配布したりすることができます。 </br> PWA は*ホストされた Web アプリ*から自然な流れで進化したものですが、*サービス ワーカー*、*キャッシュ*、*プッシュ API* を利用できるため、オフライン シナリオも標準ベースでサポートしています。
-画面の取り込み | [Windows.Graphics.Capture 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.capture) には、ディスプレイまたはアプリケーション ウィンドウからフレームを取得する API が用意されています。これにより、ビデオ ストリームやスナップショットを作成して、コラボレーティブでインタラクティブなエクスペリエンスを構築できます。 詳しくは、「[画面の取り込み](../audio-video-camera/screen-capture.md)」をご覧ください。
-システム トリガー | [CustomSystemEventTrigger](https://docs.microsoft.com/uwp/api/windows.applicationmodel.background.customsystemeventtrigger) を使用すると、必要なシステム トリガーが OS から提供されない場合に、システム トリガーを定義できます。 ハードウェア ドライバーと UWP アプリの両方がサード パーティ製であり、ハードウェア ドライバーでカスタム イベントを生成し、アプリで処理する必要がある場合などに必要になります。 例として、オーディオ ジャックが接続されたときに、オーディオ カードからユーザーに通知する場合などが該当します。
-ユーザー アクティビティ | 新しい [UserActivity に関するドキュメント](../launch-resume/useractivities.md)では、前回ユーザーがアプリで実行していた状態から再開できるようにする方法 (複数のデバイス間で再開する場合にも対応) について説明します。</br>**UserActivitySessionHistoryItem** クラスには、最近のユーザー アクティビティを取得する新しいメソッドが含まれています。 詳しくは、[GetRecentUserActivitiesAsync](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivitychannel.getrecentuseractivitiesasync) およびそのオーバーロードの説明をご覧ください。
-Windows Mixed Reality API | 拡張中の Windows Mixed Reality プラットフォームをサポートするために、[Windows.Graphic.Holographic](https://docs.microsoft.com/uwp/api/Windows.Graphics.Holographic) 名前空間と [Windows.UI.Input.Spatial](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Spatial) 名前空間に新しい API が追加されました。
-Windows Mixed Reality に関するドキュメント | Windows Mixed Reality 開発者向けガイダンスは、[docs.microsoft.com で提供されるようになりました。](https://docs.microsoft.com/windows/mixed-reality/) UWP のドキュメントの場合と同様に、フィードバックを GitHub の問題に登録したり、プル要求を使用してユーザー独自の投稿を提出したりすることができます。
+プログレッシブ Web アプリ | Microsoft Edge や UWP Web アプリでは、[プログレッシブ Web アプリ (PWA)](/microsoft-edge/progressive-web-apps) がサポートされるようになりました。 </br> * [標準ベースの Web テクノロジ](https://developer.mozilla.org/Apps/Progressive)と[機能検出](/microsoft-edge/progressive-web-apps/windows-features)を使用して、まだ PWA テクノロジをサポートしていないブラウザーやプラットフォームで Web アプリの優れた基本エクスペリエンスを提供しながら、プッシュ通知、オフライン サポート、OS の統合など、ネイティブ アプリのエクスペリエンスが実現されるように Web アプリを強化できます。 </br> * アプリに[マニフェスト ファイルを追加すること](/microsoft-edge/progressive-web-apps/get-started)によって、UWP デバイス ファミリ全体 (セキュリティで保護された [Windows 10 S モード デバイス](https://www.microsoft.com/windows/windows-10-s)を含む) にアプリをインストールしたり、[Microsoft Store](/microsoft-edge/progressive-web-apps/microsoft-store) からアプリを配布したりすることができます。 </br> PWA は*ホストされた Web アプリ*から自然な流れで進化したものですが、*サービス ワーカー*、*キャッシュ*、*プッシュ API* を利用できるため、オフライン シナリオも標準ベースでサポートしています。
+画面の取り込み | [Windows.Graphics.Capture 名前空間](/uwp/api/windows.graphics.capture) には、ディスプレイまたはアプリケーション ウィンドウからフレームを取得する API が用意されています。これにより、ビデオ ストリームやスナップショットを作成して、コラボレーティブでインタラクティブなエクスペリエンスを構築できます。 詳しくは、「[画面の取り込み](../audio-video-camera/screen-capture.md)」をご覧ください。
+システム トリガー | [CustomSystemEventTrigger](/uwp/api/windows.applicationmodel.background.customsystemeventtrigger) を使用すると、必要なシステム トリガーが OS から提供されない場合に、システム トリガーを定義できます。 ハードウェア ドライバーと UWP アプリの両方がサード パーティ製であり、ハードウェア ドライバーでカスタム イベントを生成し、アプリで処理する必要がある場合などに必要になります。 例として、オーディオ ジャックが接続されたときに、オーディオ カードからユーザーに通知する場合などが該当します。
+ユーザー アクティビティ | 新しい [UserActivity に関するドキュメント](../launch-resume/useractivities.md)では、前回ユーザーがアプリで実行していた状態から再開できるようにする方法 (複数のデバイス間で再開する場合にも対応) について説明します。</br>**UserActivitySessionHistoryItem** クラスには、最近のユーザー アクティビティを取得する新しいメソッドが含まれています。 詳しくは、[GetRecentUserActivitiesAsync](/uwp/api/windows.applicationmodel.useractivities.useractivitychannel.getrecentuseractivitiesasync) およびそのオーバーロードの説明をご覧ください。
+Windows Mixed Reality API | 拡張中の Windows Mixed Reality プラットフォームをサポートするために、[Windows.Graphic.Holographic](/uwp/api/Windows.Graphics.Holographic) 名前空間と [Windows.UI.Input.Spatial](/uwp/api/Windows.UI.Input.Spatial) 名前空間に新しい API が追加されました。
+Windows Mixed Reality に関するドキュメント | Windows Mixed Reality 開発者向けガイダンスは、[docs.microsoft.com で提供されるようになりました。](/windows/mixed-reality/) UWP のドキュメントの場合と同様に、フィードバックを GitHub の問題に登録したり、プル要求を使用してユーザー独自の投稿を提出したりすることができます。
 
 ## <a name="publish--monetize-windows-apps"></a>Windows アプリを公開および収益化する
 
@@ -77,7 +77,7 @@ Windows Mixed Reality に関するドキュメント | Windows Mixed Reality 開
  :------ | :------
 パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする | 「[パッケージの更新プログラムを Microsoft Store からダウンロードしてインストールする](../packaging/self-install-package-updates.md)」が更新され、通知 UI をユーザーに表示せずにパッケージの更新プログラムをダウンロードしてインストールする方法、オプションのパッケージをアンインストールする方法、およびアプリのダウンロード キューやインストール キュー内にあるパッケージの情報を取得する方法についての新しいガイダンスや例が記載されています。
 特定市場の現地通貨で自由設定価格を入力する | 特定市場に対してアプリの基本価格を上書きすると、いずれかの標準価格帯を選択するという制約がなくなり、その市場の現地通貨で自由設定価格を入力できます。 詳しくは、「[アプリの価格の設定とスケジュール](../publish/set-and-schedule-app-pricing.md)」をご覧ください。 **この機能はすべての Windows 開発者が利用でき、更新された SDK は必要ありません。**
-Microsoft Store コンテンツ | [StoreContext](https://docs.microsoft.com/uwp/api/windows.services.store.storecontext) クラスが更新され、新しいメソッドが追加されました。 これらのメソッドでは、アプリのパッケージ更新プログラムおよびアドオンのダウンロードとインストールを管理します。
+Microsoft Store コンテンツ | [StoreContext](/uwp/api/windows.services.store.storecontext) クラスが更新され、新しいメソッドが追加されました。 これらのメソッドでは、アプリのパッケージ更新プログラムおよびアドオンのダウンロードとインストールを管理します。
 すべての開発者がサブスクリプション アドオンを利用できるようになりました | サブスクリプション アドオンを作成して公開すると、定期的な自動課金期間を設定して、アプリ内やゲーム内でデジタル製品 (アプリの機能やデジタル コンテンツなど) を販売できます。 詳しくは、「[アプリのサブスクリプション アドオンの有効化](../monetize/enable-subscription-add-ons-for-your-app.md)」をご覧ください。 **この機能はすべての Windows 開発者が利用でき、更新された SDK は必要ありません。**
 
 ## <a name="videos"></a>ビデオ
@@ -98,15 +98,15 @@ PowerShell や DOS のコンソール ウィンドウで実行される UWP ア�
 
 ### <a name="how-to-use-windows-ml-in-your-app"></a>Windows ML をアプリに追加する方法
 
-Windows Machine Learning を使用すると、ローカルの事前学習済み機械学習モデルを Windows 10 デバイス上で評価するアプリを構築できます。 簡単なチュートリアルについては、[ビデオをご覧ください](https://www.youtube.com/watch?v=8MCDSlm326U&index=2&list=PLWs4_NfqMtoycBFndriDmkQlMLwflyoFF)。完全な説明については、[ドキュメントをご覧ください](https://docs.microsoft.com/windows/uwp/machine-learning/)。
+Windows Machine Learning を使用すると、ローカルの事前学習済み機械学習モデルを Windows 10 デバイス上で評価するアプリを構築できます。 簡単なチュートリアルについては、[ビデオをご覧ください](https://www.youtube.com/watch?v=8MCDSlm326U&index=2&list=PLWs4_NfqMtoycBFndriDmkQlMLwflyoFF)。完全な説明については、[ドキュメントをご覧ください](/windows/uwp/machine-learning/)。
 
 ### <a name="motion-controller-tracking"></a>モーション コントローラーの追跡
 
-Windows Mixed Reality では、モーション コントローラーがユーザーの手を表します。 モーション コントローラーが Mixed Reality ヘッドセットの視野の内外にあるときの動作については、[ビデオをご覧ください](https://www.youtube.com/watch?v=rkDpRllbLII)。[コントローラーのトラッキングについて詳しくは、こちらをご覧ください。](https://docs.microsoft.com/windows/mixed-reality/motion-controllers#controller_tracking_state%E2%80%9D)
+Windows Mixed Reality では、モーション コントローラーがユーザーの手を表します。 モーション コントローラーが Mixed Reality ヘッドセットの視野の内外にあるときの動作については、[ビデオをご覧ください](https://www.youtube.com/watch?v=rkDpRllbLII)。[コントローラーのトラッキングについて詳しくは、こちらをご覧ください。](/windows/mixed-reality/motion-controllers#controller_tracking_state%E2%80%9D)
 
 ### <a name="package-a-net-app-in-visual-studio"></a>Visual Studio で .NET アプリをパッケージ化する
 
-デスクトップ アプリをこれまで以上に簡単にユニバーサル Windows プラットフォームに移行できます。 [ビデオ](https://www.youtube.com/watch?v=fJkbYPyd08w)で、配布用の .NET アプリをパッケージ化する方法をご覧ください。その後、[このページで詳細情報を確認](../porting/desktop-to-uwp-packaging-dot-net.md)してください。
+デスクトップ アプリをこれまで以上に簡単にユニバーサル Windows プラットフォームに移行できます。 [ビデオ](https://www.youtube.com/watch?v=fJkbYPyd08w)で、配布用の .NET アプリをパッケージ化する方法をご覧ください。その後、[このページで詳細情報を確認](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)してください。
 
 ### <a name="xbox-live-creators-program"></a>Xbox Live クリエーターズ プログラム
 
@@ -125,4 +125,4 @@ Documents and Settings ディレクトリの名前が変更された理由を知
 
 ### <a name="photo-lab"></a>写真ラボ
 
-[写真ラボのサンプル](https://github.com/Microsoft/Windows-appsample-photo-lab)では、多数のファイルがある場合にパフォーマンスを向上させるために、データ仮想化を使用して画像ライブラリから画像を読み込むように更新されました。 また、サンプルの画像編集ページでは、[XamlCompositionBrushBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase) クラスを使用して効果を適用しています。
+[写真ラボのサンプル](https://github.com/Microsoft/Windows-appsample-photo-lab)では、多数のファイルがある場合にパフォーマンスを向上させるために、データ仮想化を使用して画像ライブラリから画像を読み込むように更新されました。 また、サンプルの画像編集ページでは、[XamlCompositionBrushBase](/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase) クラスを使用して効果を適用しています。

@@ -6,12 +6,12 @@ ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, hello world
 ms.localizationpriority: medium
-ms.openlocfilehash: 7c4d4ba374c68509c0378e769262afda0dae7422
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 9b39efb7aa90499f6d238306ad079f1969907f46
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492837"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89175256"
 ---
 # <a name="create-a-hello-world-app-xaml"></a>"Hello, World!" アプリを作成する (XAML)
 
@@ -74,7 +74,7 @@ ms.locfileid: "86492837"
 
 プロジェクトのファイルを表示して編集するには、**ソリューション エクスプローラー**でファイルをダブルクリックします。 フォルダーと同様、XAML ファイルを展開して、関連するコード ファイルを表示します。 XAML ファイルは、デザイン サーフェスと XAML エディターの両方を表示する分割ビューで開きます。
 > [!NOTE]
-> XAML とは Extensible Application Markup Language (XAML) は、アプリのユーザー インターフェイスを定義するための言語です。 XAML は、手動で入力することも、Visual Studio のデザイン ツールを使って作成することもできます。 .xaml ファイルには、ロジックが格納される .xaml.cs 分離コード ファイルがあります。 XAML と分離コードがまとまって、完全なクラスが作成されます。 詳しくは、「[XAML の概要](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-overview)」をご覧ください。
+> XAML とは Extensible Application Markup Language (XAML) は、アプリのユーザー インターフェイスを定義するための言語です。 XAML は、手動で入力することも、Visual Studio のデザイン ツールを使って作成することもできます。 .xaml ファイルには、ロジックが格納される .xaml.cs 分離コード ファイルがあります。 XAML と分離コードがまとまって、完全なクラスが作成されます。 詳しくは、「[XAML の概要](../xaml-platform/xaml-overview.md)」をご覧ください。
 
 *App.xaml と App.xaml.cs*
 
@@ -87,7 +87,7 @@ ms.locfileid: "86492837"
 
 -   MainPage.xaml は、アプリの UI を定義する場所です。 要素の追加は、XAML マークアップを使って直接行うことも、Visual Studio のデザイン ツールを使って行うこともできます。
 -   MainPage.xaml.cs は、MainPage.xaml のコード ビハインド ページです。 ここには、アプリのロジックとイベント ハンドラーを追加します。
--   これら 2 つのファイルで、[**Page**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Page) から継承される `MainPage` という新しいクラスを `HelloWorld` 名前空間に定義します。
+-   これら 2 つのファイルで、[**Page**](/uwp/api/Windows.UI.Xaml.Controls.Page) から継承される `MainPage` という新しいクラスを `HelloWorld` 名前空間に定義します。
 
 *Package.appxmanifest*
 -   名前、説明、タイル、開始ページなど、アプリを説明するマニフェスト ファイルです。
@@ -224,7 +224,7 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 ### <a name="what-did-we-just-do"></a>ここで実行したこと
 
-このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](https://docs.microsoft.com/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
+このコードでは、いくつか Windows API を使用して音声合成オブジェクトを作成し、読み上げるテキストを指定します (SpeechSynthesis の使い方について詳しくは、[SpeechSynthesis 名前空間](/uwp/api/windows.media.speechsynthesis)のドキュメントをご覧ください)。
 
 アプリを実行し、ボタンをクリックすると、コンピューター (または電話) が "Hello, World!" を文字どおりにしゃべります。
 
@@ -233,13 +233,13 @@ private async void Button_Click(object sender, RoutedEventArgs e)
 
 これで、Windows 10 と UWP 用の初めてのアプリを作成しました。
 
-アプリで使うコントロールを XAML によってレイアウトする方法については、[グリッドに関するチュートリアル](../design/layout/grid-tutorial.md)で学習するか、直接[次のステップ](learn-more.md)に進んでください。
+アプリで使うコントロールを XAML によってレイアウトする方法については、[グリッドに関するチュートリアル](../design/layout/grid-tutorial.md)で学習するか、直接[次のステップ](./create-uwp-apps.md)に進んでください。
 
 ## <a name="see-also"></a>参照
 
 * [初めてのアプリ](your-first-app.md)
-* [UWP アプリを公開する](https://docs.microsoft.com/windows/uwp/publish/)
-* [UWP アプリの開発に関するハウツー記事](https://docs.microsoft.com/windows/uwp/develop/)
+* [UWP アプリを公開する](../publish/index.md)
+* [UWP アプリの開発に関するハウツー記事](../develop/index.md)
 * [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
 * [ユニバーサル Windows アプリとは?](universal-application-platform-guide.md)
 * [Windows アカウントのサインアップ](sign-up.md)
