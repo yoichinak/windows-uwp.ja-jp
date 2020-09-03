@@ -6,18 +6,18 @@ ms.date: 08/3/2020
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: 84766bb8d3fe22f947add2a3694e546738fc67a3
-ms.sourcegitcommit: dccba7256765116f06cf96143eb3cbaa12d7fe0b
+ms.openlocfilehash: 95f11f5bd9ff756611dfef96f260489a881fdd6d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87523528"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173706"
 ---
 # <a name="latest-updates-to-the-windows-developer-docs"></a>Windows 開発者向けドキュメントの最新の更新
 
 Windows 開発者向けドキュメントは、新しい強化された情報とコンテンツによって定期的に更新されます。 次のドキュメントは最近、2020 年 8 月 3 日の時点で重要な更新が行われたもののいくつかです。
 
-注: Windows 10 ビルド19041 (2004 とも呼ばれます) の一部として追加された API の特定のリストについては、[こちらのリスト](https://docs.microsoft.com/windows/uwp/whats-new/windows-10-build-19041-api-diff)を参照してください。
+注: Windows 10 ビルド19041 (2004 とも呼ばれます) の一部として追加された API の特定のリストについては、[こちらのリスト](/windows/uwp/whats-new/windows-10-build-19041-api-diff)を参照してください。
 
 ## <a name="winrt-conceptual"></a>WinRT の概念
 <ul>

@@ -8,23 +8,23 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 4175fdf2cbb10912c22e0b0058629819c87dbc63
-ms.sourcegitcommit: d0f479f1955881afb62c2af249db5d0b053b63e5
+ms.openlocfilehash: 019121441daa5c40157471d48be19cd29f2b3a77
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83579919"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174176"
 ---
 # <a name="host-uwp-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)
 
 Windows 10 バージョン 1903 以降では、"*XAML Islands*" という機能を使用して、UWP 以外のデスクトップ アプリケーションで UWP コントロールをホストできるようになりました。 この機能を使用すると、既存の WPF、Windows フォーム、およびC++ Win32 アプリケーションの外観、操作性、および機能を、UWP コントロールでのみ使用できる最新の Windows 10 UI 機能を使用して強化することができます。 つまり、既存の WPF、Windows フォーム、C++ Win32 アプリケーションで [Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートする [Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) やコントロールなどの UWP 機能を使用できます。
 
-次のような [Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) から派生した任意の UWP コントロールをホストできます。
+次のような [Windows.UI.Xaml.UIElement](/uwp/api/windows.ui.xaml.uielement) から派生した任意の UWP コントロールをホストできます。
 
 * Windows SDK で提供されるファーストパーティ UWP コントロール。
 * 任意のカスタム UWP コントロール (たとえば、連携して動作する複数の UWP コントロールで構成されるユーザー コントロール)。 アプリケーションと共にコンパイルできるように、カスタム コントロールのソース コードを用意する必要があります。
 
-基本的に、XAML Islands は *UWP XAML ホスティング API* を使用して作成されています。 この API は、Windows 10 バージョン 1903 SDK で導入されたいくつかの Windows ランタイム クラスと COM インターフェイスで構成されています。 また、[Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) には、UWP XAML ホスティング API を内部的に使用する一連の XAML Island .NET コントロールも用意されており、WPF と Windows フォーム アプリの開発環境がより便利になります。
+基本的に、XAML Islands は *UWP XAML ホスティング API* を使用して作成されています。 この API は、Windows 10 バージョン 1903 SDK で導入されたいくつかの Windows ランタイム クラスと COM インターフェイスで構成されています。 また、[Windows Community Toolkit](/windows/uwpcommunitytoolkit/) には、UWP XAML ホスティング API を内部的に使用する一連の XAML Island .NET コントロールも用意されており、WPF と Windows フォーム アプリの開発環境がより便利になります。
 
 XAML Island の使用方法は、アプリケーションの種類と、ホストする UWP コントロールの種類によって異なります。
 
@@ -36,7 +36,7 @@ XAML Island の使用方法は、アプリケーションの種類と、ホス�
 XAML Islands には、次のような実行時の要件があります。
 
 * Windows 10 バージョン 1903 以降のリリース。
-* 展開用に [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にアプリケーションをパッケージ化しない場合は、コンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
+* 展開用に [MSIX パッケージ](/windows/msix)にアプリケーションをパッケージ化しない場合は、コンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
 ## <a name="wpf-and-windows-forms-applications"></a>WPF と Windows フォーム アプリケーション
 
@@ -52,21 +52,21 @@ WPF および Windows フォーム アプリケーションには、特定の UW
 
 | Control | サポートされる最小 OS | 説明 |
 |-----------------|-------------------------------|-------------|
-| [InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)<br>[InkToolbar](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションで Windows Ink ベースのユーザーとの対話に使用する、画面と関連するツールバーを提供します。 |
-| [MediaPlayerElement](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mediaplayerelement) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションでビデオなどのメディア コンテンツをストリーミングおよびレンダリングするビューを埋め込みます。 |
-| [MapControl](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションで、シンボリックまたはフォト マップを表示できるようにします。 |
+| [InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)<br>[InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションで Windows Ink ベースのユーザーとの対話に使用する、画面と関連するツールバーを提供します。 |
+| [MediaPlayerElement](/windows/communitytoolkit/controls/wpf-winforms/mediaplayerelement) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションでビデオなどのメディア コンテンツをストリーミングおよびレンダリングするビューを埋め込みます。 |
+| [MapControl](/windows/communitytoolkit/controls/wpf-winforms/mapcontrol) | Windows 10 バージョン 1903 | Windows フォームまたは WPF デスクトップ アプリケーションで、シンボリックまたはフォト マップを表示できるようにします。 |
 
 ラップされた UWP コントロールの使用方法を示すチュートリアルについては、[WPF アプリでの標準 UWP コントロールのホスト](host-standard-control-with-xaml-islands.md)に関する記事を参照してください。
 
 ### <a name="host-controls"></a>ホスト コントロール
 
-使用できるラップされたコントロールに含まれていないカスタム コントロールやその他のシナリオでは、Windows Community Toolkit で使用できる [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを WPF および Windows フォーム アプリケーションに使用することもできます。
+使用できるラップされたコントロールに含まれていないカスタム コントロールやその他のシナリオでは、Windows Community Toolkit で使用できる [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを WPF および Windows フォーム アプリケーションに使用することもできます。
 
 | Control | サポートされる最小 OS | 説明 |
 |-----------------|-------------------------------|-------------|
-| [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) | Windows 10 バージョン 1903 | [Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) から派生した UWP コントロールをホストできます。たとえば、Windows SDK で提供されるファーストパーティ UWP コントロールや、カスタム コントロールなどです。 |
+| [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) | Windows 10 バージョン 1903 | [Windows.UI.Xaml.UIElement](/uwp/api/windows.ui.xaml.uielement) から派生した UWP コントロールをホストできます。たとえば、Windows SDK で提供されるファーストパーティ UWP コントロールや、カスタム コントロールなどです。 |
 
-**WindowsXamlHost** コントロールの使用方法を示すチュートリアルについては、[WPF アプリでの標準 UWP コントロールのホスト](host-standard-control-with-xaml-islands.md)に関する記事と「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
+**WindowsXamlHost** コントロールの使用方法を示すチュートリアルについては、[WPF アプリでの標準 UWP コントロールのホスト](host-standard-control-with-xaml-islands.md)に関する記事と「[XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
 > [!NOTE]
 > **WindowsXamlHost** コントロールを使用したカスタム UWP コントロールのホストは、.NET Core 3 をターゲットとする WPF および Windows フォーム アプリでのみサポートされています。 Windows SDK で提供されるファーストパーティ UWP コントロールのホストは、.NET Framework または .NET Core 3 をターゲットとするアプリでサポートされています。
@@ -86,7 +86,7 @@ XAML Island .NET コントロールには、Windows 10 バージョン 1903 以�
 
 * ホスト コントロール パッケージは、ラップされたコントロール パッケージにも含まれています。 ラップされたコントロール パッケージをインストールすると、両方のコントロール セットを使用できます。
 
-* カスタム UWP コントロールをホストしている場合、WPF または Windows フォーム プロジェクトは .NET Core 3 をターゲットにする必要があります。 .NET Framework をターゲットとするアプリでは、カスタム UWP コントロールのホストはサポートされません。 また、カスタム コントロールを参照するには、いくつかの追加の手順を実行する必要があります。 詳細については、「[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
+* カスタム UWP コントロールをホストしている場合、WPF または Windows フォーム プロジェクトは .NET Core 3 をターゲットにする必要があります。 .NET Framework をターゲットとするアプリでは、カスタム UWP コントロールのホストはサポートされません。 また、カスタム コントロールを参照するには、いくつかの追加の手順を実行する必要があります。 詳細については、「[XAML アイランドを使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)」を参照してください。
 
 ### <a name="web-view-controls"></a>Web ビュー コントロール
 
@@ -94,8 +94,8 @@ Windows Community Toolkit には、WPF および Windows フォーム アプリ�
 
 | Control | サポートされる最小 OS | 説明 |
 |-----------------|-------------------------------|-------------|
-| [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview) | Windows 10 バージョン 1803 | Microsoft Edge レンダリング エンジンを使用して、Web コンテンツを表示します。 |
-| [WebViewCompatible](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webviewcompatible) | Windows 7 | より多くの OS バージョンと互換性がある **WebView** のバージョンが用意されています。 このコントロールには、Windows 10 バージョン 1803 以降で Web コンテンツを表示するために Microsoft Edge レンダリング エンジンが使用され、Windows 10、Windows 8.x、および Windows 7 の以前のバージョンで Web コンテンツを表示するために Internet Explorer レンダリング エンジンが使用されます。 |
+| [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) | Windows 10 バージョン 1803 | Microsoft Edge レンダリング エンジンを使用して、Web コンテンツを表示します。 |
+| [WebViewCompatible](/windows/communitytoolkit/controls/wpf-winforms/webviewcompatible) | Windows 7 | より多くの OS バージョンと互換性がある **WebView** のバージョンが用意されています。 このコントロールには、Windows 10 バージョン 1803 以降で Web コンテンツを表示するために Microsoft Edge レンダリング エンジンが使用され、Windows 10、Windows 8.x、および Windows 7 の以前のバージョンで Web コンテンツを表示するために Internet Explorer レンダリング エンジンが使用されます。 |
 
 これらのコントロールを使用するには、次のいずれかの NuGet パッケージをインストールします。
 
@@ -106,7 +106,7 @@ Windows Community Toolkit には、WPF および Windows フォーム アプリ�
 
 XAML Island .NET コントロールは、C++ Win32 アプリケーションではサポートされていません。 これらのアプリケーションでは、Windows 10 SDK (バージョン 1903 以降) で提供される *UWP XAML ホスティング API* を代わりに使用する必要があります。
 
-UWP XAML ホスティング API は、いくつかの Windows ランタイム クラスと COM インターフェイスで構成されています。C++ Win32 アプリケーションではこれらを使用して [Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) から派生した任意の UWP コントロールをホストできます。 関連するウィンドウ ハンドル (HWND) を持つアプリケーションの任意の UI 要素で UWP コントロールをホストできます。 この API の詳細については、次の記事を参照してください。
+UWP XAML ホスティング API は、いくつかの Windows ランタイム クラスと COM インターフェイスで構成されています。C++ Win32 アプリケーションではこれらを使用して [Windows.UI.Xaml.UIElement](/uwp/api/windows.ui.xaml.uielement) から派生した任意の UWP コントロールをホストできます。 関連するウィンドウ ハンドル (HWND) を持つアプリケーションの任意の UI 要素で UWP コントロールをホストできます。 この API の詳細については、次の記事を参照してください。
 
 * [C++ Win32 アプリでの UWP XAML ホスティング API の使用](using-the-xaml-hosting-api.md)
 * [C++ Win32 アプリで標準 UWP コントロールをホストする](host-standard-control-with-xaml-islands-cpp.md)
@@ -129,50 +129,50 @@ UWP XAML ホスティング API は、いくつかの Windows ランタイム �
 
 ### <a name="supported-only-with-workarounds"></a>回避策を使用した場合にのみサポートされる
 
-:heavy_check_mark:XAML Island の [WinUI 2.x ライブラリ](../../winui/index.md)のコントロールをホストすることは、XAML Island の現在のリリースで条件付きでサポートされています。 デスクトップ アプリで [MSIX パッケージ](https://docs.microsoft.com/windows/msix)を使用して展開している場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンからの WinUI コントロールをホスティングできます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールしている場合にのみ、WinUI コントロールをホスティングできます。 [WinUI 3.0 ライブラリ](../../winui/winui3/index.md)のコントロールのホストは、今後のリリースでサポートされる予定です。
+:heavy_check_mark:XAML Island の [WinUI 2.x ライブラリ](../../winui/index.md)のコントロールをホストすることは、XAML Island の現在のリリースで条件付きでサポートされています。 デスクトップ アプリで [MSIX パッケージ](/windows/msix)を使用して展開している場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンからの WinUI コントロールをホスティングできます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールしている場合にのみ、WinUI コントロールをホスティングできます。 [WinUI 3.0 ライブラリ](../../winui/winui3/index.md)のコントロールのホストは、今後のリリースでサポートされる予定です。
 
-:heavy_check_mark:XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するために、[CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow)、[ApplicationView](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、[Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) クラスを使用しないでください。 代わりに、[XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 詳しくは、[このセクション](#window-host-context-for-xaml-islands)をご覧ください。
+:heavy_check_mark:XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するために、[CoreWindow](/uwp/api/windows.ui.core.corewindow)、[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)、[Window](/uwp/api/windows.ui.xaml.window) クラスを使用しないでください。 代わりに、[XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 詳しくは、[このセクション](#window-host-context-for-xaml-islands)をご覧ください。
 
-:heavy_check_mark:WPF、Windows フォーム、または C++ Win32 アプリからの[共有コントラクト](/windows/uwp/app-to-app/share-data)をサポートするには、アプリで [IDataTransferManagerInterop](https://docs.microsoft.com/windows/win32/api/shobjidl_core/nn-shobjidl_core-idatatransfermanagerinterop) インターフェイスを使用して、特定のウィンドウの共有操作を開始するために [DataTransferManager](https://docs.microsoft.com/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager) オブジェクトを取得する必要があります。 このインターフェイスを WPF アプリで使用する方法を示すサンプルについては、[ShareSource サンプル](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/ShareSource)を参照してください。
+:heavy_check_mark:WPF、Windows フォーム、または C++ Win32 アプリからの[共有コントラクト](/windows/uwp/app-to-app/share-data)をサポートするには、アプリで [IDataTransferManagerInterop](/windows/win32/api/shobjidl_core/nn-shobjidl_core-idatatransfermanagerinterop) インターフェイスを使用して、特定のウィンドウの共有操作を開始するために [DataTransferManager](/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager) オブジェクトを取得する必要があります。 このインターフェイスを WPF アプリで使用する方法を示すサンプルについては、[ShareSource サンプル](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/ShareSource)を参照してください。
 
 :heavy_check_mark:XAML Islands でホストされたコントロールと共に `x:Bind` を使用することは、サポートされていません。 .NET Standard ライブラリ内でデータ モデルを宣言する必要があります。
 
 ### <a name="not-supported"></a>サポートされていません。
 
-:no_entry_sign: .NET Framework をターゲットとする WPF および Windows フォーム アプリで C# ベースのサード パーティ UWP コントロールをホストするための、[WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールの使用。 .NET Core 3 をターゲットとするアプリでのみ、このシナリオはサポートされています。
+:no_entry_sign: .NET Framework をターゲットとする WPF および Windows フォーム アプリで C# ベースのサード パーティ UWP コントロールをホストするための、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールの使用。 .NET Core 3 をターゲットとするアプリでのみ、このシナリオはサポートされています。
 
 :no_entry_sign: XAML Islands の UWP XAML コンテンツは、実行時の濃いから薄い、またはその逆の Windows テーマの変更には対応していません。 コンテンツは実行時にハイ コントラストの変更に対応します。
 
 :no_entry_sign: カスタム ユーザー コントロールへの **WebView** コントロールの追加 (スレッド上、オフ スレッド、プロセス外のいずれか)。
 
-:no_entry_sign: [MediaPlayer](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) コントロールと [MediaPlayerElement](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mediaplayerelement) ホスト コントロールは、全画面表示モードではサポートされていません。
+:no_entry_sign: [MediaPlayer](/uwp/api/Windows.Media.Playback.MediaPlayer) コントロールと [MediaPlayerElement](/windows/communitytoolkit/controls/wpf-winforms/mediaplayerelement) ホスト コントロールは、全画面表示モードではサポートされていません。
 
-:no_entry_sign: 手書きビューでのテキスト入力。 この機能について詳しくは、[この記事](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/text-handwriting-view)をご覧ください。
+:no_entry_sign: 手書きビューでのテキスト入力。 この機能について詳しくは、[この記事](/windows/uwp/design/controls-and-patterns/text-handwriting-view)をご覧ください。
 
-:no_entry_sign: `@Places` および `@People` コンテンツ リンクを使用するテキスト コントロール。 この機能について詳しくは、[この記事](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/content-links)をご覧ください。
+:no_entry_sign: `@Places` および `@People` コンテンツ リンクを使用するテキスト コントロール。 この機能について詳しくは、[この記事](/windows/uwp/design/controls-and-patterns/content-links)をご覧ください。
 
-:no_entry_sign: XAML Islands では、[TextBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richeditbox)、[AutoSuggestBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.autosuggestbox) などのテキスト入力を受け入れるコントロールを含む [ContentDialog](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) のホストはサポートされていません。 これを行うと、入力コントロールはキーが押されても適切に応答しません。 XAML Island を使用して同様の機能を実現するには、入力コントロールを含む [Popup](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.Popup) をホストすることをお勧めします。
+:no_entry_sign: XAML Islands では、[TextBox](/uwp/api/windows.ui.xaml.controls.textbox)、[RichEditBox](/uwp/api/windows.ui.xaml.controls.richeditbox)、[AutoSuggestBox](/uwp/api/windows.ui.xaml.controls.autosuggestbox) などのテキスト入力を受け入れるコントロールを含む [ContentDialog](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) のホストはサポートされていません。 これを行うと、入力コントロールはキーが押されても適切に応答しません。 XAML Island を使用して同様の機能を実現するには、入力コントロールを含む [Popup](/uwp/api/Windows.UI.Xaml.Controls.Primitives.Popup) をホストすることをお勧めします。
 
-:no_entry_sign: 現在、XAML Island では、ホストされた [Windows.UI.Xaml.Controls.Image](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Image) コントロール内、または [Windows.UI.Xaml.Media.Imaging.SvgImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.svgimagesource) オブジェクトを使用した SVG ファイルの表示はサポートされていません。 回避策として、表示したい画像ファイルを、JPG や PNG などのラスターベース形式に変換してください。
+:no_entry_sign: 現在、XAML Island では、ホストされた [Windows.UI.Xaml.Controls.Image](/uwp/api/Windows.UI.Xaml.Controls.Image) コントロール内、または [Windows.UI.Xaml.Media.Imaging.SvgImageSource](/uwp/api/windows.ui.xaml.media.imaging.svgimagesource) オブジェクトを使用した SVG ファイルの表示はサポートされていません。 回避策として、表示したい画像ファイルを、JPG や PNG などのラスターベース形式に変換してください。
 
 ### <a name="window-host-context-for-xaml-islands"></a>XAML Islands のウィンドウ ホスト コンテキスト
 
-デスクトップ アプリで XAML Islands をホストすると、XAML コンテンツの複数のツリーを同じスレッド上で同時に実行できます。 XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するには、[XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 [CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow)、[ApplicationView](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview)、および [Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) クラスでは、XAML Islands に関する正しい情報が提供されません。 [CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow) オブジェクトおよび [Window](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window) オブジェクトはスレッドに存在し、アプリからアクセスできますが、意味のある境界と表示は返されません (常に非表示で、サイズは 1x1 です)。 詳細については、[ウィンドウ化ホスト](/windows/uwp/design/layout/show-multiple-views#windowing-hosts)に関するページを参照してください。
+デスクトップ アプリで XAML Islands をホストすると、XAML コンテンツの複数のツリーを同じスレッド上で同時に実行できます。 XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するには、[XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 [CoreWindow](/uwp/api/windows.ui.core.corewindow)、[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)、および [Window](/uwp/api/windows.ui.xaml.window) クラスでは、XAML Islands に関する正しい情報が提供されません。 [CoreWindow](/uwp/api/windows.ui.core.corewindow) オブジェクトおよび [Window](/uwp/api/windows.ui.xaml.window) オブジェクトはスレッドに存在し、アプリからアクセスできますが、意味のある境界と表示は返されません (常に非表示で、サイズは 1x1 です)。 詳細については、[ウィンドウ化ホスト](/windows/uwp/design/layout/show-multiple-views#windowing-hosts)に関するページを参照してください。
 
-たとえば、XAML Island でホストされている UWP コントロールが含まれるウィンドウの境界を示す四角形を取得するには、コントロールの [XamlRoot.Size](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot.size) プロパティを使用します。 XAML Island でホストできるすべての UWP コントロールは、[Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) から派生するため、コントロールの [XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを使用して、**XamlRoot** オブジェクトにアクセスできます。
+たとえば、XAML Island でホストされている UWP コントロールが含まれるウィンドウの境界を示す四角形を取得するには、コントロールの [XamlRoot.Size](/uwp/api/windows.ui.xaml.xamlroot.size) プロパティを使用します。 XAML Island でホストできるすべての UWP コントロールは、[Windows.UI.Xaml.UIElement](/uwp/api/windows.ui.xaml.uielement) から派生するため、コントロールの [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを使用して、**XamlRoot** オブジェクトにアクセスできます。
 
 ```csharp
 Size windowSize = myUWPControl.XamlRoot.Size;
 ```
 
-境界を示す四角形を取得するために [CoreWindows.Bounds](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow.bounds) プロパティを使用しないでください。
+境界を示す四角形を取得するために [CoreWindows.Bounds](/uwp/api/windows.ui.core.corewindow.bounds) プロパティを使用しないでください。
 
 ```csharp
 // This will return incorrect information for a UWP control that is hosted in a XAML Island.
 Rect windowSize = CoreWindow.GetForCurrentThread().Bounds;
 ```
 
-XAML Islands のコンテキストで避ける必要がある一般的なウィンドウ関連 API の表と、推奨される [XamlRoot](https://docs.microsoft.com/uwp/api/windows.ui.xaml.xamlroot) の置換については、[こちらのセクション](/windows/uwp/design/layout/show-multiple-views#make-code-portable-across-windowing-hosts)の表を参照してください。
+XAML Islands のコンテキストで避ける必要がある一般的なウィンドウ関連 API の表と、推奨される [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) の置換については、[こちらのセクション](/windows/uwp/design/layout/show-multiple-views#make-code-portable-across-windowing-hosts)の表を参照してください。
 
 このインターフェイスを WPF アプリで使用する方法を示すサンプルについては、[ShareSource](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/ShareSource) サンプルを参照してください。
 

@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 07/05/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 65c3c2fb4b7a5a7f0b5f4b3c89773f3e21bd654d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: acec4384b5ce04548818a512270e66d7b4500e16
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684739"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174406"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-july-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 7 月
 
@@ -98,21 +98,21 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="media-playback"></a>メディア再生
 
-メディア再生の基本について説明する記事に、新しいセクション「[MediaPlayer を使ったオーディオとビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」が追加されました。 「[MediaPlayer を使った球面ビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」セクションでは、球状にエンコードされたビデオの再生方法を示します。サポートされる形式に合わせて視野やビューの向きを調整する方法についても説明しています。 「[フレーム サーバー モードでの MediaPlayer の使用](../audio-video-camera/play-audio-and-video-with-mediaplayer.md#use-mediaplayer-in-frame-server-mode)」セクションでは、[MediaPlayer](https://docs.microsoft.com/uwp/api/Windows.Media.Playback.MediaPlayer) で再生されるメディアから Direct3D サーフェスにフレームをコピーする方法を示します。 これにより、ピクセル シェーダーを使ってリアルタイムの効果を適用するといったシナリオを実現できます。 コード例では、Win2D を使ってビデオ再生にぼかし効果を適用する簡単な実装を紹介しています。
+メディア再生の基本について説明する記事に、新しいセクション「[MediaPlayer を使ったオーディオとビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」が追加されました。 「[MediaPlayer を使った球面ビデオの再生](../audio-video-camera/play-audio-and-video-with-mediaplayer.md)」セクションでは、球状にエンコードされたビデオの再生方法を示します。サポートされる形式に合わせて視野やビューの向きを調整する方法についても説明しています。 「[フレーム サーバー モードでの MediaPlayer の使用](../audio-video-camera/play-audio-and-video-with-mediaplayer.md#use-mediaplayer-in-frame-server-mode)」セクションでは、[MediaPlayer](/uwp/api/Windows.Media.Playback.MediaPlayer) で再生されるメディアから Direct3D サーフェスにフレームをコピーする方法を示します。 これにより、ピクセル シェーダーを使ってリアルタイムの効果を適用するといったシナリオを実現できます。 コード例では、Win2D を使ってビデオ再生にぼかし効果を適用する簡単な実装を紹介しています。
 
 ### <a name="media-capture"></a>メディアのキャプチャ
 
-「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、新しい [MultiSourceMediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.multisourcemediaframereader) クラスの使用方法が追加されました。このクラスを使うと、複数のメディア ソースから時間相関フレームを取得できます。 これは、深度カメラやカラー カメラなどのさまざまなソースからのフレームを処理する必要があり、各ソースからのフレームが時間的に近くなるようにキャプチャする必要がある場合に便利です。 詳細については、「[MultiSourceMediaFrameReader を使用して複数のソースから時間相関フレームを取得する](../audio-video-camera/process-media-frames-with-mediaframereader.md#use-multisourcemediaframereader-to-get-time-corellated-frames-from-multiple-sources)」セクションを参照してください。
+「[MediaFrameReader を使ったメディア フレームの処理](../audio-video-camera/process-media-frames-with-mediaframereader.md)」が更新され、新しい [MultiSourceMediaFrameReader](/uwp/api/windows.media.capture.frames.multisourcemediaframereader) クラスの使用方法が追加されました。このクラスを使うと、複数のメディア ソースから時間相関フレームを取得できます。 これは、深度カメラやカラー カメラなどのさまざまなソースからのフレームを処理する必要があり、各ソースからのフレームが時間的に近くなるようにキャプチャする必要がある場合に便利です。 詳細については、「[MultiSourceMediaFrameReader を使用して複数のソースから時間相関フレームを取得する](../audio-video-camera/process-media-frames-with-mediaframereader.md#use-multisourcemediaframereader-to-get-time-corellated-frames-from-multiple-sources)」セクションを参照してください。
 
 ### <a name="scoped-search"></a>スコープを指定した検索
 
-docs.microsoft.com の [UWP の概念](../get-started/universal-application-platform-guide.md)と [API リファレンス](https://docs.microsoft.com/uwp/api/)のドキュメントに、"UWP" というスコープが追加されました。 このスコープを解除しない限り、これらの領域から検索を行うと UWP のドキュメントだけが返されます。
+docs.microsoft.com の [UWP の概念](../get-started/universal-application-platform-guide.md)と [API リファレンス](/uwp/api/)のドキュメントに、"UWP" というスコープが追加されました。 このスコープを解除しない限り、これらの領域から検索を行うと UWP のドキュメントだけが返されます。
 
 ![スコープを指定した検索](images/scoped-search.png)
 
 ### <a name="test-your-windows-app-for-windows-10-s"></a>Windows アプリの Windows 10 S 対応のテスト
 
-Windows アプリをテストして、Windows S を実行するデバイスで正しく動作することを確認します。方法については、[新しいガイド](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-test-windows-s)をご覧ください。
+Windows アプリをテストして、Windows S を実行するデバイスで正しく動作することを確認します。方法については、[新しいガイド](/windows/msix/desktop/desktop-to-uwp-test-windows-s)をご覧ください。
 
 ## <a name="samples"></a>サンプル
 
@@ -124,7 +124,7 @@ Windows アプリをテストして、Windows S を実行するデバイスで�
 
 ### <a name="shopping-app-sample"></a>ショッピング アプリのサンプル
 
-[ユーザーが絵文字を購入できる基本的なショッピング エクスペリエンスを提供するミニ アプリ](https://github.com/Microsoft/Windows-appsample-shopping)です。 このアプリでは、[Payment Request API](https://docs.microsoft.com/uwp/api/windows.applicationmodel.payments) を使ってチェックアウト処理を実装する方法を示しています。
+[ユーザーが絵文字を購入できる基本的なショッピング エクスペリエンスを提供するミニ アプリ](https://github.com/Microsoft/Windows-appsample-shopping)です。 このアプリでは、[Payment Request API](/uwp/api/windows.applicationmodel.payments) を使ってチェックアウト処理を実装する方法を示しています。
 
 ![ショッピング アプリのサンプルのスクリーンショット](images/shoppingcart.png)  
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: fb9cd2861fe826d9e8d112f2729d2922c68194ce
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: ff94c34c61dee4de8450ed0f4f89a1dfc6537f83
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72281892"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173596"
 ---
 # <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
 
@@ -84,4 +84,4 @@ Windows Mobile Device Portal には、任意のプロセスを強制終了する
 ## <a name="see-also"></a>関連項目
 
 * [Windows Device Portal の概要](device-portal.md)
-* [デバイス ポータル コア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)
+* [デバイス ポータル コア API リファレンス](./device-portal-api-core.md)

@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 824cdb74a809ae3f9ae2ed202a9889535021f711
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: cbaf2726e8f3e517fd0664c3d00b9a82ca018fbc
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684720"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174416"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 8 月
 
@@ -32,7 +32,7 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 
 ### <a name="game-mode"></a>ゲーム モード
 
-ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](https://docs.microsoft.com/previous-versions/windows/desktop/gamemode/game-mode-portal) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
+ユニバーサル Windows プラットフォーム (UWP) 用の[ゲーム モード](/previous-versions/windows/desktop/gamemode/game-mode-portal) API では、Windows 10 のゲーム モードを利用することで最適化されたゲーム エクスペリエンスを実現できます。 これらの API は **&lt;expandedresources.h&gt;** ヘッダーに含まれています。
 
 ![ゲーム モード](images/game-mode.png)
 
@@ -45,29 +45,29 @@ Visual Studio 2019 用の新しい [Windows Template Studio](https://marketplace
 
 ### <a name="data-schemas-for-store-products"></a>Store 製品のデータ スキーマ
 
-記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](https://docs.microsoft.com/uwp/api/windows.services.store.storeproduct) や [StoreAppLicense](https://docs.microsoft.com/uwp/api/windows.services.store.storeapplicense) など、[Windows.Services.Store](https://docs.microsoft.com/uwp/api/windows.services.store) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
+記事「[ストア製品のデータ スキーマ](../monetize/data-schemas-for-store-products.md)」が追加されました。 この記事では、[StoreProduct](/uwp/api/windows.services.store.storeproduct) や [StoreAppLicense](/uwp/api/windows.services.store.storeapplicense) など、[Windows.Services.Store](/uwp/api/windows.services.store) 名前空間のいくつかのオブジェクトで利用できるストア関連のデータ用のスキーマを示します。
 
 ### <a name="desktop-bridge"></a>デスクトップ ブリッジ
 
 Windows 10 ユーザーの利便性を高める最新のエクスペリエンスを実装するために役立つ 2 つのガイドが追加されました。
 
-「[Windows 10 向けのデスクトップ アプリを強化する](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-enhance)」では、適切なファイルを見つけて参照し、Windows 10 ユーザーの UWP エクスペリエンスを向上させるコードを記述する方法について説明します。  
+「[Windows 10 向けのデスクトップ アプリを強化する](/windows/apps/desktop/modernize/desktop-to-uwp-enhance)」では、適切なファイルを見つけて参照し、Windows 10 ユーザーの UWP エクスペリエンスを向上させるコードを記述する方法について説明します。  
 
-「[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-extend)」では、UWP アプリ コンテナーで実行される最新の XAML UI やその他の UWP エクスペリエンスを組み込む方法について説明します。
+「[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](/windows/apps/desktop/modernize/desktop-to-uwp-extend)」では、UWP アプリ コンテナーで実行される最新の XAML UI やその他の UWP エクスペリエンスを組み込む方法について説明します。
 
 ### <a name="getting-started-with-point-of-service"></a>POS (店舗販売時点管理) の概要
 
-[POS (店舗販売時点管理) サービス](https://docs.microsoft.com/windows/uwp/devices-sensors/pos-get-started)を利用する場合に役立つ新しいガイドが追加されました。 このガイドでは、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有といったトピックについて説明します。 
+[POS (店舗販売時点管理) サービス](../devices-sensors/pos-get-started.md)を利用する場合に役立つ新しいガイドが追加されました。 このガイドでは、デバイスの列挙、デバイス機能の確認、デバイスの要求、デバイスの共有といったトピックについて説明します。 
 
 ### <a name="xbox-live"></a>Xbox Live
 
 Xbox Live 開発者向けに、UWP ゲームと Xbox 開発キット (XDK) のゲームの両方に関するドキュメントが追加されました。
 
-「[Xbox Live 開発者向けガイド](https://docs.microsoft.com//gaming/xbox-live/index)」では、Xbox Live API を使ってゲームを Xbox Live ソーシャル ゲーミング ネットワークに接続する方法について説明します。
+「[Xbox Live 開発者向けガイド](//gaming/xbox-live/index)」では、Xbox Live API を使ってゲームを Xbox Live ソーシャル ゲーミング ネットワークに接続する方法について説明します。
 
-[Xbox Live クリエーターズ プログラム](https://docs.microsoft.com//gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)を利用すると、UWP ゲーム開発者はだれでも、PC と Xbox One の両方で Xbox Live 対応ゲームを開発して公開できます。
+[Xbox Live クリエーターズ プログラム](//gaming/xbox-live/get-started-with-creators/get-started-with-xbox-live-creators)を利用すると、UWP ゲーム開発者はだれでも、PC と Xbox One の両方で Xbox Live 対応ゲームを開発して公開できます。
 
-Xbox Live 開発者向けに提供されているプログラムと機能については、「[Xbox Live 開発者プログラムの概要](https://docs.microsoft.com//gaming/xbox-live/developer-program-overview)」をご覧ください。
+Xbox Live 開発者向けに提供されているプログラムと機能については、「[Xbox Live 開発者プログラムの概要](//gaming/xbox-live/developer-program-overview)」をご覧ください。
 
 ## <a name="videos"></a>ビデオ
 

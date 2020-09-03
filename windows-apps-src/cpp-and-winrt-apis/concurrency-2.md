@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: ff00264d0806e7fbdfcabd000ec68857b1485dcd
-ms.sourcegitcommit: 1e8f51d5730fe748e9fe18827895a333d94d337f
+ms.openlocfilehash: e916465d664b5658eeb155874dfa00795a772622
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296155"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170396"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -24,7 +24,7 @@ ms.locfileid: "87296155"
 
 そのため、コルーチンで計算処理にかかる処理を行う前に、呼び出し元がブロックされないように呼び出し元に実行を返す必要があります (つまり、一時停止ポイントを導入します)。 その他の操作を `co_await` することでこれをまだ行っていない場合は、[**winrt::resume_background**](/uwp/cpp-ref-for-winrt/resume-background) 関数を `co_await` できます。 これにより、呼び出し元に制御が返され、スレッド プールのスレッドですぐに実行が再開されます。
 
-実装で使用されているスレッド プールは低レベルの [Windows スレッド プール](https://docs.microsoft.com/windows/desktop/ProcThread/thread-pool-api)であるため、最適に効率化されます。
+実装で使用されているスレッド プールは低レベルの [Windows スレッド プール](/windows/desktop/ProcThread/thread-pool-api)であるため、最適に効率化されます。
 
 ```cppwinrt
 IAsyncOperation<uint32_t> DoWorkOnThreadPoolAsync()
@@ -639,7 +639,7 @@ int main()
 }
 ```
 
-**winrt::fire_and_forget** は、イベント ハンドラーの中で非同期操作を実行する必要があるときのイベント ハンドラーの戻り値の型としても役に立ちます。 次に例を示します (「[C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」もご覧ください)。
+**winrt::fire_and_forget** は、イベント ハンドラーの中で非同期操作を実行する必要があるときのイベント ハンドラーの戻り値の型としても役に立ちます。 次に例を示します (「[C++/WinRT の強参照と弱参照](./weak-references.md#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」もご覧ください)。
 
 ```cppwinrt
 winrt::fire_and_forget MyClass::MyMediaBinder_OnBinding(MediaBinder const&, MediaBindingEventArgs args)

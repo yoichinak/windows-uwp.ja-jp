@@ -5,27 +5,27 @@ ms.date: 02/06/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dcbeffc7e3db8f3df9c197e8c388f30faf7ad03d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 844e1da1a4108673c353e91b8624376d9b98e976
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75685247"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173256"
 ---
 # <a name="best-practices-for-writing-to-files"></a>ファイルへの書き込みに関するベスト プラクティス
 
 **重要な API**
 
-* [**FileIO クラス**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileIO)
-* [**PathIO クラス**](https://docs.microsoft.com/uwp/api/windows.storage.pathio)
+* [**FileIO クラス**](/uwp/api/Windows.Storage.FileIO)
+* [**PathIO クラス**](/uwp/api/windows.storage.pathio)
 
-開発者がファイル システム I/O 操作を実行するために [**FileIO**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileIO) および [**PathIO**](https://docs.microsoft.com/uwp/api/windows.storage.pathio) クラスの **Write** メソッドを使用するときに、一般的な一連の問題が発生することがあります。 たとえば、一般的な問題には以下のようなものが含まれます。
+開発者がファイル システム I/O 操作を実行するために [**FileIO**](/uwp/api/Windows.Storage.FileIO) および [**PathIO**](/uwp/api/windows.storage.pathio) クラスの **Write** メソッドを使用するときに、一般的な一連の問題が発生することがあります。 たとえば、一般的な問題には以下のようなものが含まれます。
 
 * ファイルが部分的に書き込まれる。
 * アプリで、メソッドのいずれかを呼び出すときに例外を受け取る。
 * 操作で、ターゲット ファイルの名前と似たようなファイル名の .TMP ファイルが残る。
 
-[**FileIO**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileIO) および [**PathIO**](https://docs.microsoft.com/uwp/api/windows.storage.pathio) クラスの **Write** メソッドには、以下のものが含まれます。
+[**FileIO**](/uwp/api/Windows.Storage.FileIO) および [**PathIO**](/uwp/api/windows.storage.pathio) クラスの **Write** メソッドには、以下のものが含まれます。
 
 * **WriteBufferAsync**
 * **WriteBytesAsync**
@@ -39,31 +39,31 @@ ms.locfileid: "75685247"
 
 ## <a name="convenience-vs-control"></a>利便性と制御
 
-[**StorageFile**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile) オブジェクトは、ネイティブの Win32 プログラミング モデルのようなファイル ハンドルではありません。 むしろ、[**StorageFile**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile) は、コンテンツを操作するためのメソッドを含むファイルを表したものです。
+[**StorageFile**](/uwp/api/windows.storage.storagefile) オブジェクトは、ネイティブの Win32 プログラミング モデルのようなファイル ハンドルではありません。 むしろ、[**StorageFile**](/uwp/api/windows.storage.storagefile) は、コンテンツを操作するためのメソッドを含むファイルを表したものです。
 
 この概念を理解することは、**StorageFile** で I/O を実行する場合に役立ちます。 たとえば、「[ファイルへの書き込み](quickstart-reading-and-writing-files.md#writing-to-a-file)」セクションでは、ファイルへの 3 とおりの書き込み方法が示されています。
 
-* [**FileIO.WriteTextAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileio.writetextasync) メソッドを使用する。
-* バッファーを作成してから、[**FileIO.WriteBufferAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileio.writebufferasync) メソッドを呼び出す。
+* [**FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) メソッドを使用する。
+* バッファーを作成してから、[**FileIO.WriteBufferAsync**](/uwp/api/windows.storage.fileio.writebufferasync) メソッドを呼び出す。
 * ストリームを使用する 4 ステップのモデル:
-  1. ファイルを[開き](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.openasync)、ストリームを取得します。
-  2. 出力ストリームを[取得](https://docs.microsoft.com/uwp/api/windows.storage.streams.irandomaccessstream.getoutputstreamat)します。
-  3. [**DataWriter**](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter) オブジェクトを作成し、対応する **Write** メソッドを呼び出します。
-  4. データ ライターでデータを[コミット](https://docs.microsoft.com/uwp/api/windows.storage.streams.datawriter.storeasync)し、出力ストリームを[フラッシュ](https://docs.microsoft.com/uwp/api/windows.storage.streams.ioutputstream.flushasync)します。
+  1. ファイルを[開き](/uwp/api/windows.storage.storagefile.openasync)、ストリームを取得します。
+  2. 出力ストリームを[取得](/uwp/api/windows.storage.streams.irandomaccessstream.getoutputstreamat)します。
+  3. [**DataWriter**](/uwp/api/windows.storage.streams.datawriter) オブジェクトを作成し、対応する **Write** メソッドを呼び出します。
+  4. データ ライターでデータを[コミット](/uwp/api/windows.storage.streams.datawriter.storeasync)し、出力ストリームを[フラッシュ](/uwp/api/windows.storage.streams.ioutputstream.flushasync)します。
 
 最初の 2 つのシナリオは、アプリで最もよく使用されるものです。 単一操作でのファイルへの書き込みは、コーディングして保守するより簡単です。また、アプリでファイル I/O の多くの複雑さに対処しなくても済むようになります。 しかし、この利便性の代償として、操作全体の制御と、特定の時点のエラーのキャッチができなくなります。
 
 ## <a name="the-transactional-model"></a>トランザクション モデル
 
-[**FileIO**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileIO) および [**PathIO**](https://docs.microsoft.com/uwp/api/windows.storage.pathio) クラスの **Write** メソッドでは、レイヤーが追加され、上記の 3 番目の書き込みモデルの手順がラップされます。 このレイヤーは、ストレージ トランザクションでカプセル化されます。
+[**FileIO**](/uwp/api/Windows.Storage.FileIO) および [**PathIO**](/uwp/api/windows.storage.pathio) クラスの **Write** メソッドでは、レイヤーが追加され、上記の 3 番目の書き込みモデルの手順がラップされます。 このレイヤーは、ストレージ トランザクションでカプセル化されます。
 
-データの書き込み中に問題が発生した場合に元のファイルの整合性を保護するために、**Write** メソッドでは [**OpenTransactedWriteAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.opentransactedwriteasync) を使ってファイルを開き、トランザクション モデルを使用します。 このプロセスで [**StorageStreamTransaction**](https://docs.microsoft.com/uwp/api/windows.storage.storagestreamtransaction) オブジェクトが作成されます。 このトランザクション オブジェクトが作成された後、API では、[ファイル アクセス](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess) サンプル、または [**StorageStreamTransaction**](https://docs.microsoft.com/uwp/api/windows.storage.storagestreamtransaction) に関する記事のコード例と同じような方法に従って、データを書き込みます。
+データの書き込み中に問題が発生した場合に元のファイルの整合性を保護するために、**Write** メソッドでは [**OpenTransactedWriteAsync**](/uwp/api/windows.storage.storagefile.opentransactedwriteasync) を使ってファイルを開き、トランザクション モデルを使用します。 このプロセスで [**StorageStreamTransaction**](/uwp/api/windows.storage.storagestreamtransaction) オブジェクトが作成されます。 このトランザクション オブジェクトが作成された後、API では、[ファイル アクセス](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess) サンプル、または [**StorageStreamTransaction**](/uwp/api/windows.storage.storagestreamtransaction) に関する記事のコード例と同じような方法に従って、データを書き込みます。
 
 次の図では、成功した書き込み操作の**WriteTextAsync** メソッドで実行された基になるタスクを示しています。 この図では、操作の簡易ビューを提供しています。 たとえば、さまざまなスレッドでテキストのエンコードや非同期完了などの手順は省略されています。
 
 ![ファイルへの書き込みに関する UWP API 呼び出しのシーケンス図](images/file-write-call-sequence.svg)
 
-ストリームを使用する、より複雑な 4 ステップ モデルではなく、[**FileIO**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileIO) および [**PathIO**](https://docs.microsoft.com/uwp/api/windows.storage.pathio) クラスの **Write** メソッドを使用する利点は、次のとおりです。
+ストリームを使用する、より複雑な 4 ステップ モデルではなく、[**FileIO**](/uwp/api/Windows.Storage.FileIO) および [**PathIO**](/uwp/api/windows.storage.pathio) クラスの **Write** メソッドを使用する利点は、次のとおりです。
 
 * エラーを含む、すべての中間ステップを処理する 1 回の API 呼び出し。
 * 問題が発生した場合に、元のファイルが保持される。
@@ -94,11 +94,11 @@ ms.locfileid: "75685247"
 
 ### <a name="readers"></a>Readers
 
-書き込まれているファイルが正当な閲覧者によって使用もされている (つまり、[**FileAccessMode.Read**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileAccessMode) で開かれている) 場合、以降の読み取りは ERROR_OPLOCK_HANDLE_CLOSED (0x80070323) エラーで失敗します。 アプリでは、**書き込み**操作の進行中に、再度読み取るファイルを開くために再試行される場合があります。 これにより、競合状態となる可能性があり、元のファイルを置換できないため、そのファイルの上書きが試行されると、**書き込み**は最終的に失敗します。
+書き込まれているファイルが正当な閲覧者によって使用もされている (つまり、[**FileAccessMode.Read**](/uwp/api/Windows.Storage.FileAccessMode) で開かれている) 場合、以降の読み取りは ERROR_OPLOCK_HANDLE_CLOSED (0x80070323) エラーで失敗します。 アプリでは、**書き込み**操作の進行中に、再度読み取るファイルを開くために再試行される場合があります。 これにより、競合状態となる可能性があり、元のファイルを置換できないため、そのファイルの上書きが試行されると、**書き込み**は最終的に失敗します。
 
 ### <a name="files-from-knownfolders"></a>KnownFolders からのファイル
 
-自分のアプリが、[**KnownFolders**](https://docs.microsoft.com/uwp/api/Windows.Storage.KnownFolders) のいずれかに存在するファイルにアクセスしようとしている唯一のアプリではない場合があります。 操作が成功しても、アプリでファイルに書き込まれた内容が、ファイルの読み取りの次回の試行時に一定のままである保証はありません。 また、このシナリオでは、共有またはアクセス拒否エラーがより一般的になります。
+自分のアプリが、[**KnownFolders**](/uwp/api/Windows.Storage.KnownFolders) のいずれかに存在するファイルにアクセスしようとしている唯一のアプリではない場合があります。 操作が成功しても、アプリでファイルに書き込まれた内容が、ファイルの読み取りの次回の試行時に一定のままである保証はありません。 また、このシナリオでは、共有またはアクセス拒否エラーがより一般的になります。
 
 ### <a name="conflicting-io"></a>競合する I/O
 
@@ -114,7 +114,7 @@ ms.locfileid: "75685247"
 
 * アプリのローカル データ フォルダーで、ユーザーによって作成および編集されたファイル。 これらはアプリの使用時にのみ、作成および編集され、アプリ内にのみ存在します。
 * アプリのメタデータ。 アプリではこれらのファイルを使用して、自身の状態を追跡します。
-* アプリでアクセスする機能が宣言された、ファイル システムの場所にあるその他のファイル。 これらは、[**KnownFolders**](https://docs.microsoft.com/uwp/api/Windows.Storage.KnownFolders) のいずれかに最も一般的に配置されます。
+* アプリでアクセスする機能が宣言された、ファイル システムの場所にあるその他のファイル。 これらは、[**KnownFolders**](/uwp/api/Windows.Storage.KnownFolders) のいずれかに最も一般的に配置されます。
 
 アプリでは最初の 2 つのカテゴリのファイルを完全に制御できます。これらは、アプリのパッケージ ファイルの一部であり、アプリのみでアクセスされるためです。 最後のカテゴリのファイルの場合、アプリでは、他のアプリと OS サービスによってファイルに同時にアクセスされる可能性があることに注意する必要があります。
 

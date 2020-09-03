@@ -6,12 +6,12 @@ ms.date: 01/03/2019
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 059ce14f85ebe7d955ba2da8897ab47109f74a72
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5cf8dc0912420895091815e54f6399235fca552f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79401971"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173586"
 ---
 # <a name="device-portal-for-hololens"></a>HoloLens 用 Device Portal
 
@@ -21,8 +21,8 @@ ms.locfileid: "79401971"
 ### <a name="enable-device-portal"></a>Device Portal を有効にする
 
 1. HoloLens の電源を入れ、デバイスを装着します。
-2. [スタート ジェスチャ](https://docs.microsoft.com/hololens/hololens2-basic-usage#start-gesture)または HoloLens (第 1 世代) の[ブルーム](https://developer.microsoft.com/mixed-reality#Bloom) ジェスチャを実行して、メイン メニューを起動します。
-3. HoloLens (第 1 世代) では **[設定]** タイルを見つめて[タップ](https://developer.microsoft.com/mixed-reality#Press_and_release) ジェスチャを実行し、HoloLens 2 では[タッチするかハンド レイを使用](https://docs.microsoft.com/hololens/hololens2-basic-usage)してそれを選択します。 選択すると、設定アプリが起動します。
+2. [スタート ジェスチャ](/hololens/hololens2-basic-usage#start-gesture)または HoloLens (第 1 世代) の[ブルーム](https://developer.microsoft.com/mixed-reality#Bloom) ジェスチャを実行して、メイン メニューを起動します。
+3. HoloLens (第 1 世代) では **[設定]** タイルを見つめて[タップ](https://developer.microsoft.com/mixed-reality#Press_and_release) ジェスチャを実行し、HoloLens 2 では[タッチするかハンド レイを使用](/hololens/hololens2-basic-usage)してそれを選択します。 選択すると、設定アプリが起動します。
 4. **[Update]** (更新) メニュー項目を選択します。
 5. **[For developers]** (開発者向け) メニュー項目を選択します。
 6. **[Developer Mode]** (開発者モード) を有効にします。
@@ -177,5 +177,5 @@ HoloLens の System Performance (システム パフォーマンス) ツール�
 ## <a name="see-also"></a>関連項目
 
 * [Windows Device Portal の概要](device-portal.md)
-* [デバイス ポータル コア API リファレンス](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-api-core)(すべての Windows 10 デバイスに共通する API)
-* [デバイス ポータル Mixed Reality API リファレンス](https://docs.microsoft.com/windows/mixed-reality/device-portal-api-reference)(HoloLens で利用できるすべての REST API の拡張リスト)
+* [デバイス ポータル コア API リファレンス](./device-portal-api-core.md)(すべての Windows 10 デバイスに共通する API)
+* [デバイス ポータル Mixed Reality API リファレンス](/windows/mixed-reality/device-portal-api-reference)(HoloLens で利用できるすべての REST API の拡張リスト)

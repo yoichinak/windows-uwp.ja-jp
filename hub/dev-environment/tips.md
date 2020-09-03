@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: 8c094e7871e9de4fdf7eca2e0e1b425af295f252
-ms.sourcegitcommit: 5ba2524d237be82d3621551e48cac938fe81d2ea
+ms.openlocfilehash: 1135be4797893a74e398e69fcbc1c43d60e9fdb9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87255043"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172666"
 ---
 # <a name="tips-for-improving-performance-and-development-workflows"></a>パフォーマンスと開発ワークフローを改善するためのヒント
 
@@ -28,7 +28,7 @@ ms.locfileid: "87255043"
 
 ## <a name="use-the-credential-manager-to-your-streamline-authentication-process"></a>資格情報マネージャーを使用して、認証プロセスを効率化する
 
-バージョン管理とコラボレーションに Git を使用している場合は、[Git Credential Manager を設定](https://docs.microsoft.com/windows/wsl/tutorials/wsl-git#git-credential-manager-setup)してトークンを Windows 資格情報マネージャーに格納することで、認証プロセスを効率化できます。 また、プロジェクトに [.gitignore ファイルを追加する](https://docs.microsoft.com/windows/wsl/tutorials/wsl-git#adding-a-git-ignore-file)ことをお勧めします。
+バージョン管理とコラボレーションに Git を使用している場合は、[Git Credential Manager を設定](/windows/wsl/tutorials/wsl-git#git-credential-manager-setup)してトークンを Windows 資格情報マネージャーに格納することで、認証プロセスを効率化できます。 また、プロジェクトに [.gitignore ファイルを追加する](/windows/wsl/tutorials/wsl-git#adding-a-git-ignore-file)ことをお勧めします。
 
 ## <a name="use-wsl-for-testing-your-production-pipeline-before-deploying-to-the-cloud"></a>クラウドにデプロイする前に、WSL を使用して運用パイプラインをテストする
 
@@ -40,17 +40,17 @@ WSL を使用する他の方法については、[WSL 2 でのタブとスペー
 
 ## <a name="improve-performance-speed-for-wsl-by-not-crossing-over-file-systems"></a>ファイル システムをまたがないことで、WSL のパフォーマンスの速度を改善する
 
-Windows と Linux 用 Windows サブシステムの両方を使用している場合は、次の 2 つのファイル システムがインストールされます: NTSF (Windows) と WSL (お使いの Linux ディストリビューション)。 パフォーマンスを向上させるには、使用しているツールと同じシステムにプロジェクト ファイルを格納してください。 詳細については、[パフォーマンスを向上させるための適切なファイル システムの選択](https://docs.microsoft.com/windows/wsl/compare-versions#use-the-linux-file-system-for-faster-performance)に関するページを参照してください。
+Windows と Linux 用 Windows サブシステムの両方を使用している場合は、次の 2 つのファイル システムがインストールされます: NTSF (Windows) と WSL (お使いの Linux ディストリビューション)。 パフォーマンスを向上させるには、使用しているツールと同じシステムにプロジェクト ファイルを格納してください。 詳細については、[パフォーマンスを向上させるための適切なファイル システムの選択](/windows/wsl/compare-versions#use-the-linux-file-system-for-faster-performance)に関するページを参照してください。
 
 ## <a name="improve-build-speeds-by-adding-windows-defender-exclusions"></a>Windows Defender の除外を追加して、ビルドの速度を改善する
 
-Windows Defender の設定を更新し、セキュリティ脅威のスキャンを避けるのに十分であると信じられるプロジェクト フォルダーまたはファイルの種類の除外を追加することで、ビルドの速度を向上させることができます。 詳細については、「[パフォーマンスを向上させるための Windows Defender 設定の更新](https://docs.microsoft.com/windows/android/defender-settings)」を参照してください。
+Windows Defender の設定を更新し、セキュリティ脅威のスキャンを避けるのに十分であると信じられるプロジェクト フォルダーまたはファイルの種類の除外を追加することで、ビルドの速度を向上させることができます。 詳細については、「[パフォーマンスを向上させるための Windows Defender 設定の更新](../android/defender-settings.md)」を参照してください。
 
 ![Windows Defender のスクリーンショット](../images/windows-defender-exclusions.png)
 
 ## <a name="launch-all-your-command-lines-in-windows-terminal-at-once"></a>すべてのコマンド ラインを Windows ターミナルで一度に起動する
 
-* [Windows ターミナルのコマンド ライン引数](https://docs.microsoft.com/windows/terminal/command-line-arguments?tabs=powershell#multiple-panes)を使用することで、PowerShell、Ubuntu、Azure CLI など、複数のコマンド ラインをすべて、単一のウィンドウの複数のペインで起動することができます。 [Windows ターミナル](https://docs.microsoft.com/windows/terminal/get-started)、[WSL/Ubuntu](https://docs.microsoft.com/windows/wsl/install-win10)、[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) をインストールした後、PowerShell で次のコマンドを入力して、新しい複数ペイン ウィンドウで 3 つをすべて開きます。
+* [Windows ターミナルのコマンド ライン引数](/windows/terminal/command-line-arguments?tabs=powershell#multiple-panes)を使用することで、PowerShell、Ubuntu、Azure CLI など、複数のコマンド ラインをすべて、単一のウィンドウの複数のペインで起動することができます。 [Windows ターミナル](/windows/terminal/get-started)、[WSL/Ubuntu](/windows/wsl/install-win10)、[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) をインストールした後、PowerShell で次のコマンドを入力して、新しい複数ペイン ウィンドウで 3 つをすべて開きます。
 
     ```powershell
     wt -p "Command Prompt" `; split-pane -p "Windows PowerShell" `; split-pane -H wsl.exe

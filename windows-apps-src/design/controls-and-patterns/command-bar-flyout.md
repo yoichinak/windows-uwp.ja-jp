@@ -12,12 +12,12 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: bdd18fea2fe563fcee835e6b61e24d6a9b03d029
-ms.sourcegitcommit: f945df77f8a19961ba053ee62e593ec8e015038f
+ms.openlocfilehash: f7f273f3eb92efd30b432691f9faa05db0d6d013
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82989825"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173506"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
@@ -36,13 +36,13 @@ ms.locfileid: "82989825"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **CommandBarFlyout** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **CommandBarFlyout** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 >**Windows UI ライブラリ API**: [CommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.textcommandbarflyout)
 >
 >**プラットフォーム API**: [CommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.textcommandbarflyout)、[AppBarButton クラス](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton クラス](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator クラス](/uwp/api/windows.ui.xaml.controls.appbarseparator)
 >
-> CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+> CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](/uwp/toolkits/winui/)が必要です。
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -160,7 +160,7 @@ CommandBarFlyout コントロールには、コマンドおよびコンテンツ
 
 ### <a name="app-bar-buttons"></a>アプリ バーのボタン
 
-PrimaryCommands と SecondaryCommands には、[AppBarButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton)、[AppBarToggleButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarToggleButton)、[AppBarSeparator](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarSeparator) の各コントロールを直接入力できます。
+PrimaryCommands と SecondaryCommands には、[AppBarButton](/uwp/api/Windows.UI.Xaml.Controls.AppBarButton)、[AppBarToggleButton](/uwp/api/Windows.UI.Xaml.Controls.AppBarToggleButton)、[AppBarSeparator](/uwp/api/Windows.UI.Xaml.Controls.AppBarSeparator) の各コントロールを直接入力できます。
 
 アプリ バーのボタン コントロールは、アイコンとテキスト ラベルによって特徴付けられます。 これらのコントロールは、コマンド バーで使うように最適化されており、コマンド バーとオーバーフロー メニューのどちらに表示されるかに応じて外観が変化します。
 
@@ -181,7 +181,7 @@ PrimaryCommands と SecondaryCommands には、[AppBarButton](https://docs.micro
 > [!TIP]
 > 既定では、アプリ キャンバス用に設計された要素は、コマンド バーで正しく表示されない可能性があります。 AppBarElementContainer を使用して要素を追加するときには、その要素を他のコマンド バー要素と一致させるために実行する必要がある、いくつかの手順があります。
 >
-> - 既定のブラシを [lightweight styling](/windows/uwp/design/controls-and-patterns/xaml-styles#lightweight-styling) でオーバーライドして、要素の背景と境界線をアプリ バーのボタンと一致させます。
+> - 既定のブラシを [lightweight styling](./xaml-styles.md#lightweight-styling) でオーバーライドして、要素の背景と境界線をアプリ バーのボタンと一致させます。
 > - 要素のサイズと位置を調整します。
 > - 16 ピクセルの Width と Height を持つ Viewbox にアイコンをラップします。
 
@@ -418,4 +418,4 @@ TextCommandBarFlyout はカスタマイズできず、各テキスト コント�
 ## <a name="related-articles"></a>関連記事
 
 - [Windows アプリのコマンド デザインの基本](../basics/commanding-basics.md)
-- [CommandBar クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar)
+- [CommandBar クラス](/uwp/api/Windows.UI.Xaml.Controls.CommandBar)

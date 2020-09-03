@@ -7,12 +7,12 @@ ms.date: 04/19/2019
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e091cc7ad62f69b9e76541101555493609b8a06
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: c8615620e09d6f00881c1bb229d98f876a95978c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75955308"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173616"
 ---
 # <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
 
@@ -73,7 +73,7 @@ ms.locfileid: "75955308"
 
 **要求**
 
-次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をインストールできます。
+次の要求形式を使用して、[関連セット](/windows/msix/)をインストールできます。
 
 | 認証方法      | 要求 URI |
 | :------     | :------ |
@@ -174,7 +174,7 @@ ms.locfileid: "75955308"
 
 **要求**
 
-次の要求形式を使用して、[関連セット](https://blogs.msdn.microsoft.com/appinstaller/2017/05/12/tooling-to-create-a-related-set/)をルース フォルダーに登録できます。
+次の要求形式を使用して、[関連セット](/windows/msix/)をルース フォルダーに登録できます。
 
 | 認証方法      | 要求 URI |
 | :------     | :----- |
@@ -1373,7 +1373,7 @@ ms.locfileid: "75955308"
 | URI パラメーター | 説明 |
 | :---          | :--- |
 | autoreboot   | (**オプション**) true または false。 これは、エラーやロックの発生後に、システムが自動的に再起動するかどうかを示します。 |
-| dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](https://docs.microsoft.com/previous-versions/azure/reference/dn802457(v=azure.100))」をご覧ください。|
+| dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](/previous-versions/azure/reference/dn802457(v=azure.100))」をご覧ください。|
 | maxdumpcount   | (**オプション**) 保存するダンプの最大数。 |
 | overwrite   | (**オプション**) true または false。 これは、*maxdumpcount*で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
 

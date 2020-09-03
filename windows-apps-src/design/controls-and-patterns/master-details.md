@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ae8094ac3fbb1de8958b1cc138953d3e1b887cc
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: b414a1177bbfad670e3b623babce068a299a713e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970387"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172596"
 ---
 # <a name="masterdetails-pattern"></a>マスターと詳細パターン
 
@@ -21,7 +21,7 @@ ms.locfileid: "82970387"
 
 マスターと詳細パターンには、コンテンツのマスター ウィンドウ (通常は[リスト ビュー](lists.md)を含む) と詳細ウィンドウがあります。 マスター リストの項目を選ぶと、詳細ウィンドウが更新されます。 このパターンは、メールやアドレス帳によく使われます。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[SplitView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.splitview)
+> **重要な API**:[ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)、[SplitView クラス](/uwp/api/windows.ui.xaml.controls.splitview)
 
 ![マスターと詳細パターンの例](images/HIGSecOne_MasterDetail.png)
 
@@ -91,7 +91,7 @@ ms.locfileid: "82970387"
 ![アダプティブのマスター詳細レイアウト](images/patterns_masterdetail.png)
 
 ### <a name="create-an-adaptive-masterdetails-pattern"></a>アダプティブのマスターと詳細パターンの作成
-アダプティブ レイアウトを作成するには、UI にさまざまな [**VisualStates**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.visualstate) を定義し、[**AdaptiveTriggers**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使用してさまざまな状態のブレークポイントを宣言します。
+アダプティブ レイアウトを作成するには、UI にさまざまな [**VisualStates**](/uwp/api/windows.ui.xaml.visualstate) を定義し、[**AdaptiveTriggers**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使用してさまざまな状態のブレークポイントを宣言します。
 
 ## <a name="get-the-sample-code"></a>サンプル コードの入手
 
@@ -110,5 +110,5 @@ ms.locfileid: "82970387"
 - [リスト](lists.md)
 - [検索](search.md)
 - [アプリ バーとコマンド バー](app-bars.md)
-- [ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)
-- [SplitView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.splitview)
+- [ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)
+- [SplitView クラス](/uwp/api/windows.ui.xaml.controls.splitview)

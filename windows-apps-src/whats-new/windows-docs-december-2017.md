@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 12/14/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: f785ad5d7898f838435e0a05cf8dea5c778e70f3
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8d58fe1662c5ba13c2952fbd96414ab201f5ba27
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684751"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174386"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-december-2017"></a>Windows 開発者向けドキュメントの最新情報、2017 年 12 月
 
@@ -22,7 +22,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="windows-mixed-reality-enthusiasts-guide"></a>Windows Mixed Reality: 技術者向けガイド
 
-Mixed Reality の世界に入ろうとしている技術者を対象とした[技術者向けガイド](https://docs.microsoft.com/windows/mixed-reality/enthusiast-guide/)では、Windows Mixed Reality に関してよくある質問の回答を示しています。 
+Mixed Reality の世界に入ろうとしている技術者を対象とした[技術者向けガイド](/windows/mixed-reality/enthusiast-guide/)では、Windows Mixed Reality に関してよくある質問の回答を示しています。 
 
 このガイドの内容は次のとおりです。 
 - 購入前の FAQ 
@@ -38,13 +38,13 @@ Mixed Reality の世界に入ろうとしている技術者を対象とした[�
 
 更新された[キーボード操作](../design/input/keyboard-interactions.md)によって、アクセシビリティ対応エクスペリエンスとパワー ユーザー向け機能の両方が提供される UWP アプリを設計し、最適化できます。 Fall Creators Update で追加されたこれらの操作に対する新しい機能強化が反映されるように、推奨事項とガイダンスが更新されました。
 
-アプリのキーボード機能を拡張するには、「[キーボード アクセラレータ](../design/input/keyboard-accelerators.md)」と、[カスタムのキーボード操作](../design/input/custom-keyboard-interactions.md)に関するページをご覧ください。
+アプリのキーボード機能を拡張するには、「[キーボード アクセラレータ](../design/input/keyboard-accelerators.md)」と、[カスタムのキーボード操作](../design/input/focus-navigation.md)に関するページをご覧ください。
 
 タッチ操作をサポートするデバイスで、「[タッチ キーボードの表示への応答](../design/input/respond-to-the-presence-of-the-touch-keyboard.md)」と「[入力値の種類を使ったタッチ キーボードの変更](../design/input/use-input-scope-to-change-the-touch-keyboard.md)」を使ってキーボード機能を追加します。
 
 ### <a name="microsoft-collaborate"></a>Microsoft Collaborate
 
-Microsoft Collaborate ポータルには、エンジニアリング システムの作業項目 (バグ、機能に関するご要望など) の共有とコンテンツ (ビルド、ドキュメント、仕様) の配布を可能にすることで、Microsoft エコシステム内でのエンジニアリング コラボレーションを簡素化するツールとサービスが用意されています。 [詳しくはこちらをご覧ください](https://docs.microsoft.com/collaborate/)。
+Microsoft Collaborate ポータルには、エンジニアリング システムの作業項目 (バグ、機能に関するご要望など) の共有とコンテンツ (ビルド、ドキュメント、仕様) の配布を可能にすることで、Microsoft エコシステム内でのエンジニアリング コラボレーションを簡素化するツールとサービスが用意されています。 [詳しくはこちらをご覧ください](/collaborate/)。
 
 ![パートナー センターでの Microsoft Collaborate](images/microsoft_collaborate_screenshot.PNG)
 
@@ -52,9 +52,9 @@ Microsoft Collaborate ポータルには、エンジニアリング システム
 
 Visual Studio 2017 バージョン 15.5 では、**Windows アプリケーション パッケージ プロジェクト** テンプレートが更新されており、UWP プロジェクトがかなり追加しやすくなっています。 JavaScript ベースのパッケージ プロジェクトを使い、パッケージ マニフェストを手動で調整する必要がなくなりました。  
 
-この新しいテンプレートを使ってデスクトップ アプリケーションをパッケージ化する方法については、[Visual Studio を使ったアプリのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)に関するページをご覧ください。
+この新しいテンプレートを使ってデスクトップ アプリケーションをパッケージ化する方法については、[Visual Studio を使ったアプリのパッケージ化](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)に関するページをご覧ください。
 
-UWP プロジェクトをパッケージに追加する方法については、[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](https://docs.microsoft.com/windows/uwp/porting/desktop-to-uwp-extend)に関するページをご覧ください。
+UWP プロジェクトをパッケージに追加する方法については、[最新の UWP コンポーネントによるデスクトップ アプリケーションの拡張](/windows/apps/desktop/modernize/desktop-to-uwp-extend)に関するページをご覧ください。
 
 ### <a name="subscription-add-ons-are-now-available-to-developers-in-the-windows-dev-center-insider-program"></a>サブスクリプション アドオンを Windows デベロッパー センター Insider program の開発者が利用できるようになりました
 
@@ -97,4 +97,4 @@ UWP プロジェクトをパッケージに追加する方法については、[
 
 ### <a name="package-a-net-app-in-visual-studio"></a>Visual Studio で .NET アプリをパッケージ化する
 
-デスクトップ アプリをこれまで以上に簡単にユニバーサル Windows プラットフォームに移行できます。 [ビデオ](https://www.youtube.com/watch?v=fJkbYPyd08w)で、配布用の .NET アプリをパッケージ化する方法をご覧ください。その後、[このページで詳細情報を確認](../porting/desktop-to-uwp-packaging-dot-net.md)してください。
+デスクトップ アプリをこれまで以上に簡単にユニバーサル Windows プラットフォームに移行できます。 [ビデオ](https://www.youtube.com/watch?v=fJkbYPyd08w)で、配布用の .NET アプリをパッケージ化する方法をご覧ください。その後、[このページで詳細情報を確認](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)してください。

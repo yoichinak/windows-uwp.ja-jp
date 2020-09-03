@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 9de761a0b127d7218c7dc2bb4c6862626b7c60e4
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: bb647d844c32286a2d612231b3069430f11fcad0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77089428"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174016"
 ---
 # <a name="windows-app-certification-kit-tests"></a>Windows アプリ認定キットのテスト
 
@@ -34,7 +34,7 @@ ms.locfileid: "77089428"
 
 認定テストを通じて、アプリの復元性や安定性をテストします。
 
-Windows アプリ認定キットで [**IApplicationActivationManager::ActivateApplication**](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) を呼び出し、アプリを起動します。 **ActivateApplication** でアプリを起動する場合は、ユーザー アカウント制御 (UAC) を有効にし、画面解像度を 1024 x 768 または 768 x 1024 以上にする必要があります。 どちらの条件も満たされない場合は、アプリはこのテストに合格しません。
+Windows アプリ認定キットで [**IApplicationActivationManager::ActivateApplication**](/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) を呼び出し、アプリを起動します。 **ActivateApplication** でアプリを起動する場合は、ユーザー アカウント制御 (UAC) を有効にし、画面解像度を 1024 x 768 または 768 x 1024 以上にする必要があります。 どちらの条件も満たされない場合は、アプリはこのテストに合格しません。
 
 ### <a name="corrective-actions"></a>問題への対応
 
@@ -42,7 +42,7 @@ Windows アプリ認定キットで [**IApplicationActivationManager::ActivateAp
 
 十分な大きさの画面を備えたコンピューターでテストを実行していることを確認します。
 
-テスト プラットフォームが [**ActivateApplication**](https://docs.microsoft.com/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) の前提条件を満たしているにもかかわらずアプリの起動に失敗する場合は、アクティブ化イベント ログを確認して問題のトラブルシューティングを行うことができます。 イベント ログでこのようなエントリを見つけるには、次の手順を実行します。
+テスト プラットフォームが [**ActivateApplication**](/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iapplicationactivationmanager-activateapplication) の前提条件を満たしているにもかかわらずアプリの起動に失敗する場合は、アクティブ化イベント ログを確認して問題のトラブルシューティングを行うことができます。 イベント ログでこのようなエントリを見つけるには、次の手順を実行します。
 
 1.  eventvwr.exe を開き、アプリケーションとサービス ログ\\Microsoft\\Windows\\Immersive-Shell フォルダーに移動します。
 2.  ビューをフィルター処理してイベント ID 5900 ～ 6000 を表示します。
@@ -64,7 +64,7 @@ Windows アプリ認定キットは、HighVersionLie を使って、アプリが
 
 ### <a name="corrective-action"></a>問題への対応
 
-アプリは、バージョン API ヘルパー関数を使ってこれを確認する必要があります。 詳しくは、「[オペレーティング システムのバージョン](https://docs.microsoft.com/windows/desktop/SysInfo/operating-system-version)」をご覧ください。
+アプリは、バージョン API ヘルパー関数を使ってこれを確認する必要があります。 詳しくは、「[オペレーティング システムのバージョン](/windows/desktop/SysInfo/operating-system-version)」をご覧ください。
 
 ## <a name="background-tasks-cancellation-handler-validation"></a>バックグラウンド タスクの取り消しハンドラーの検証
 
@@ -80,7 +80,7 @@ Windows アプリ認定キットは、HighVersionLie を使って、アプリが
 
 ### <a name="corrective-action"></a>問題への対応
 
-アプリに取り消しハンドラーを追加します。 詳しくは、「[バックグラウンド タスクによるアプリのサポート](https://docs.microsoft.com/windows/uwp/launch-resume/support-your-app-with-background-tasks)」をご覧ください。
+アプリに取り消しハンドラーを追加します。 詳しくは、「[バックグラウンド タスクによるアプリのサポート](../launch-resume/support-your-app-with-background-tasks.md)」をご覧ください。
 
 ## <a name="app-count"></a>アプリ カウント
 
@@ -110,7 +110,7 @@ Windows 10 アプリの場合は、テストでは、バンドルのバージョ
 
 ### <a name="test-details"></a>テストの詳細
 
-「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」の説明に従って、アプリ マニフェストを調べてコンテンツが正しいかどうかを確認します。
+「[アプリ パッケージの要件](../publish/app-package-requirements.md)」の説明に従って、アプリ マニフェストを調べてコンテンツが正しいかどうかを確認します。
 
 -   **ファイル拡張子とプロトコル**
 
@@ -124,11 +124,11 @@ Windows 10 アプリの場合は、テストでは、バンドルのバージョ
 
 -   **プロセス間通信 (IPC) の確認**
 
-    このテストでは、UWP アプリがアプリ コンテナーの外部でデスクトップ コンポーネントと通信しないという要件が適用されます。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 DesktopApplicationPath と同じ名前で [**ActivatableClassAttribute**](https://docs.microsoft.com/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute) を指定しているアプリは、このテストに合格しません。
+    このテストでは、UWP アプリがアプリ コンテナーの外部でデスクトップ コンポーネントと通信しないという要件が適用されます。 プロセス間通信は、サイドローディングが行われたアプリのみを対象としています。 DesktopApplicationPath と同じ名前で [**ActivatableClassAttribute**](/uwp/schemas/appxpackage/appxmanifestschema/element-activatableclassattribute) を指定しているアプリは、このテストに合格しません。
 
 ### <a name="corrective-action"></a>問題への対応
 
-「[アプリ パッケージの要件](https://docs.microsoft.com/windows/uwp/publish/app-package-requirements)」で説明されている要件に照らして、アプリのマニフェストを確認します。
+「[アプリ パッケージの要件](../publish/app-package-requirements.md)」で説明されている要件に照らして、アプリのマニフェストを確認します。
 
 ## <a name="windows-security-features-test"></a>Windows のセキュリティ機能のテスト
 
@@ -224,11 +224,11 @@ DEP 対応の CPU でアプリをテストし、DEP の結果として見つか�
 
 **Windows アプリ認定キットのエラー メッセージ:** SharedSectionsCheck Test failed.
 
-共有されている書き込み可能なセクションがあるバイナリ ファイルは、セキュリティの脅威です。 共有する書き込み可能なセクションを含むアプリは、必須の場合を除き、ビルドしないでください。 [  **CreateFileMapping**](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](https://docs.microsoft.com/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を使って適切に保護された共有メモリ オブジェクトを作成します。
+共有されている書き込み可能なセクションがあるバイナリ ファイルは、セキュリティの脅威です。 共有する書き込み可能なセクションを含むアプリは、必須の場合を除き、ビルドしないでください。 [  **CreateFileMapping**](/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を使って適切に保護された共有メモリ オブジェクトを作成します。
 
 **アプリがこのテストに合格しなかった場合の対処方法**
 
-アプリからすべての共有セクションを削除し、適切なセキュリティ属性を指定した [**CreateFileMapping**](https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](https://docs.microsoft.com/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を呼び出して共有メモリ オブジェクトを作成し、アプリをリビルドします。
+アプリからすべての共有セクションを削除し、適切なセキュリティ属性を指定した [**CreateFileMapping**](/windows/desktop/api/winbase/nf-winbase-createfilemappinga) または [**MapViewOfFile**](/windows/desktop/api/memoryapi/nf-memoryapi-mapviewoffile) を呼び出して共有メモリ オブジェクトを作成し、アプリをリビルドします。
 
 **注釈**
 
@@ -315,11 +315,11 @@ Microsoft Store で認定されるためには、アプリで UWP アプリ用 A
 
 アプリが、デバッグ用のビルドではなくリリース用ビルドとしてコンパイルされていることを確認します。
 
-> **注**  アプリで [UWP アプリ用の API](https://docs.microsoft.com/uwp/) のみが使われている場合でも、デバッグ用ビルドのアプリではこのテストに合格しません。
+> **注**  アプリで [UWP アプリ用の API](/uwp/) のみが使われている場合でも、デバッグ用ビルドのアプリではこのテストに合格しません。
 
-エラー メッセージを確認して、アプリで使われている、[UWP アプリ用 API](https://docs.microsoft.com/uwp/) ではない API を特定します。
+エラー メッセージを確認して、アプリで使われている、[UWP アプリ用 API](/uwp/) ではない API を特定します。
 
-> **注**  構成で UWP アプリ用 Windows SDK のみを使っている場合でも、デバッグ構成内でビルドされた C++ アプリではこのテストに合格しません。 詳細については、[UWP アプリでの代替の Windows API](https://msdn.microsoft.com/library/windows/apps/hh464945.aspx) に関するページを参照してください。
+> **注**  構成で UWP アプリ用 Windows SDK のみを使っている場合でも、デバッグ構成内でビルドされた C++ アプリではこのテストに合格しません。 詳細については、[UWP アプリでの代替の Windows API](/uwp/win32-and-com/win32-and-com-for-uwp-apps) に関するページを参照してください。
 
 ## <a name="performance-tests"></a>パフォーマンスのテスト
 
@@ -543,7 +543,7 @@ Microsoft Store では、すべてのアプリケーションで、Direct3D を�
 
 ### <a name="corrective-action"></a>問題への対応
 
-より高い機能レベルで実行されると予想される場合でも、アプリで、Direct3D 機能レベル 9\-1 で正しくレンダリングされることを確認します。 詳しくは、「[機能レベルが異なる Direct3D の開発](https://msdn.microsoft.com/library/windows/apps/hh994923.aspx)」をご覧ください。
+より高い機能レベルで実行されると予想される場合でも、アプリで、Direct3D 機能レベル 9\-1 で正しくレンダリングされることを確認します。 詳しくは、「[機能レベルが異なる Direct3D の開発](/previous-versions/windows/apps/hh994923(v=win.10))」をご覧ください。
 
 ### <a name="direct3d-trim-after-suspend"></a>中断後の Direct3D トリミング
 
@@ -551,15 +551,15 @@ Microsoft Store では、すべてのアプリケーションで、Direct3D を�
 
 ### <a name="background"></a>背景
 
-アプリが Direct3D デバイスで [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) を呼び出さない場合は、アプリは前の 3D 作業に割り当てられたメモリを解放しません。 この結果、システムのメモリ不足のためにアプリが終了するリスクが増加します。
+アプリが Direct3D デバイスで [**Trim**](/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) を呼び出さない場合は、アプリは前の 3D 作業に割り当てられたメモリを解放しません。 この結果、システムのメモリ不足のためにアプリが終了するリスクが増加します。
 
 ### <a name="test-details"></a>テストの詳細
 
-アプリが d3d 要件を満たしているかどうか、そして中断コールバック時に新しい [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出すかどうかを確認します。
+アプリが d3d 要件を満たしているかどうか、そして中断コールバック時に新しい [**Trim**](/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出すかどうかを確認します。
 
 ### <a name="corrective-action"></a>問題への対応
 
-アプリは中断されそうになった時は常に [**Trim**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
+アプリは中断されそうになった時は常に [**Trim**](/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3) インターフェイスで [**IDXGIDevice3**](/windows/desktop/api/dxgi1_3/nf-dxgi1_3-idxgidevice3-trim) API を呼び出す必要があります。
 
 ## <a name="app-capabilities-test"></a>アプリ機能のテスト
 
@@ -668,5 +668,5 @@ JavaScript のバックグラウンド タスクがあるアプリは、バッ�
 ## <a name="related-topics"></a>関連トピック
 
 * [Windows デスクトップ ブリッジ アプリのテスト](windows-desktop-bridge-app-tests.md)
-* [Microsoft Store ポリシー](https://docs.microsoft.com/legal/windows/agreements/store-policies)
+* [Microsoft Store ポリシー](/legal/windows/agreements/store-policies)
  

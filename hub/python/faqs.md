@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, pip, py.exe, ファイル パス, PYTHONPATH, python 開発, python パッケージ化
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 2541186a1dd0f205d88e1e14c146934490afff55
-ms.sourcegitcommit: b6138f9565252460ace6fa0acdc2a902e591681a
+ms.openlocfilehash: 4504e7550d19d2cc713284abebed43b6305b5dbd
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243264"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174126"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用についてよく寄せられる質問
 
@@ -65,7 +65,7 @@ PowerShell からこの変数を設定するには、Python を起動する直�
 
 [Docker](https://code.visualstudio.com/docs/azure/docker):[VSCode 拡張機能](https://code.visualstudio.com/docs/azure/docker)を使用すると、Dockerfile および docker-compose.yml テンプレートを使用して迅速にパッケージ化および配置する (プロジェクトに適した Docker ファイルを生成する) ことができます。
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) を使用すると、コンテナー化されたアプリケーションを配置および管理しながら、必要に応じてリソースを規模拡張できます。
+[Azure Kubernetes Service (AKS)](/azure/aks/) を使用すると、コンテナー化されたアプリケーションを配置および管理しながら、必要に応じてリソースを規模拡張できます。
 
 ## <a name="what-if-i-need-to-work-across-different-machines"></a>複数のコンピューターにまたがって作業する必要がある場合はどうすればよいですか?
 

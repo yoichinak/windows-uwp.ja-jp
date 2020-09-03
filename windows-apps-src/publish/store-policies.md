@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
-ms.openlocfilehash: a68247637395c3f68bf1140479bc94cb8e0fcc33
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 4d7c30b49ea0e6276e1d7959a17086f7ff829915
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79209357"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170912"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー
 
@@ -113,7 +113,7 @@ Web を閲覧する製品では、Windows プラットフォームによって�
 
 **10.2.3**
 
-[望ましくないソフトウェアと悪意のあるソフトウェア](https://docs.microsoft.com/windows/security/threat-protection/intelligence/criteria)に関する Microsoft の条件で定義されているマルウェアを、製品に含めたり、製品で有効にしたりすることはできません。
+[望ましくないソフトウェアと悪意のあるソフトウェア](/windows/security/threat-protection/intelligence/criteria)に関する Microsoft の条件で定義されているマルウェアを、製品に含めたり、製品で有効にしたりすることはできません。
 
 **10.2.4**
 
@@ -296,7 +296,7 @@ WNS または MPNS によって提供される通知は、製品のコンテン�
 
 製品が表示する広告コンテンツは、Microsoft の[広告掲載基準 (Creative Acceptance Policy)](https://about.ads.microsoft.com/solutions/ad-products/display-advertising/creative-acceptance-policies) に従う必要があります。
 
-製品に広告を表示する場合、表示されるすべてのコンテンツは、以下の要件を含む[アプリ開発者契約書](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)の広告要件に従う必要があります。
+製品に広告を表示する場合、表示されるすべてのコンテンツは、以下の要件を含む[アプリ開発者契約書](/legal/windows/agreements/app-developer-agreement)の広告要件に従う必要があります。
 
 **10.10.4**
 
@@ -355,7 +355,7 @@ Xbox Live を使用するゲーム製品は、次のことを行う必要があ�
 
 Xbox Live を使用し、マルチプレイヤー ゲームプレイ、ユーザー作成コンテンツ、またはユーザー通信を提供するゲーム製品:
 - ユーザーが Xbox Live にサインインするまでゲームプレイを許可してはなりません。
-- [保護者による制限およびサービス コントロール](https://docs.microsoft.com/gaming/xbox-live/get-started/setup-ide/creators/unity-win10/check-user-privileges-in-unity)を尊重する必要があります。
+- [保護者による制限およびサービス コントロール](/gaming/xbox-live/get-started/setup-ide/creators/unity-win10/check-user-privileges-in-unity)を尊重する必要があります。
 
 **10.13.7**
 
@@ -477,4 +477,4 @@ Microsoft Store での配布のために提供されるコンテンツおよび�
 
 - [Microsoft Store のポリシーの変更履歴](store-policies-change-history.md)
 - [Microsoft Store のポリシーと倫理規定](store-policies-and-code-of-conduct.md)
-- [アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)
+- [アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)

@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 01/17/2019
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7947fb6e71a9f2ddbedcd8e3ee8bab7b720dc444
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: f1811e3b99077a3be676c57dc3420e88658f1d73
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74902473"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174366"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-january-2019"></a>Windows 開発者向けドキュメントの最新情報、2019 年 1 月
 
@@ -64,7 +64,7 @@ Microsoft は [WinML API のランディング ページ](/windows/ai/api-refere
 
 ### <a name="japanese-era-change"></a>日本の元号の変更
 
-「[アプリケーションの新元号対応](../design/globalizing/japanese-era-change.md)」では、2019 年 5 月 1 日に実施された日本の元号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示しています。 [このページは日本語でもご覧いただけます](/windows/uwp/design/globalizing/japanese-era-change)。
+「[アプリケーションの新元号対応](../design/globalizing/japanese-era-change.md)」では、2019 年 5 月 1 日に実施された日本の元号の変更にご利用の Windows アプリケーションが確実に対応できるようにする方法を示しています。 [このページは日本語でもご覧いただけます](../design/globalizing/japanese-era-change.md)。
 
 ## <a name="videos"></a>ビデオ
 

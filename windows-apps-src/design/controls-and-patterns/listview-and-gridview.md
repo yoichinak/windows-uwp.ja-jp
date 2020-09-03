@@ -12,21 +12,21 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c130505ec79ca83698fd79df26464969afe79c36
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 988400ae16d19525acc1dc811c91fc5af9fd97d0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80893472"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172626"
 ---
 # <a name="list-view-and-grid-view"></a>リスト ビューとグリッド ビュー
 
 ほとんどのアプリでは、イメージ ギャラリー、メール メッセージなどのデータのセットを操作および表示します。 XAML UI フレームワークでは、アプリ内でデータを簡単に表示、操作するための ListView コントロールと GridView コントロールが用意されています。  
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)、[ItemsSource プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[Items プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items)
+> **重要な API**:[ListView クラス](/uwp/api/windows.ui.xaml.controls.listview)、[GridView クラス](/uwp/api/windows.ui.xaml.controls.gridview)、[ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[Items プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.items)
 
 > [!NOTE]
-> ListView と GridView はどちらも [ListViewBase](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの "*List*" を "*Grid*" に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 
+> ListView と GridView はどちらも [ListViewBase](/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため、同じ機能を持ちますが、データの表示方法が異なります。 この記事では、特に指定がない限り、リスト ビューについての説明は ListView コントロールにも GridView コントロールにも適用されます。 ListView や ListViewItem などのクラスの説明については、プレフィックスの "*List*" を "*Grid*" に置き換えることで、対応するグリッド クラス (GridView または GridViewItem) に適用できます。 
 
 ListView と GridView は、コレクションと併用すると多くのメリットがあります。 この 2 つはどちらも実装が容易で、基本的な UI、対話、スクロール処理が提供されるだけでなく、簡単にカスタマイズすることもできます。 ListView と GridView は、既存の動的データ ソース、あるいは XAML 自体またはコードビハインドで提供されるハードコーディングされたデータにバインドできます。 
 
@@ -36,7 +36,7 @@ ListView と GridView は、コレクションと併用すると多くのメリ�
 ## <a name="differences-between-listview-and-gridview"></a>ListView と GridView の違い
 
 ### <a name="listview"></a>ListView
-ListView では、データを縦方向の 1 列に並べて表示します。 ListView は、焦点としてテキストが含まれる項目や、アルファベット順など、上から下へ読み取ることを意図したコレクションの場合に適しています。 ListView の一般的な使用例としては、メッセージや検索結果の一覧などがあります。 複数の列またはテーブルのような形式で表示する必要があるコレクションでは、ListView を使用しては "_ならず_"、代わりに [DataGrid](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid) を使用する必要があります。
+ListView では、データを縦方向の 1 列に並べて表示します。 ListView は、焦点としてテキストが含まれる項目や、アルファベット順など、上から下へ読み取ることを意図したコレクションの場合に適しています。 ListView の一般的な使用例としては、メッセージや検索結果の一覧などがあります。 複数の列またはテーブルのような形式で表示する必要があるコレクションでは、ListView を使用しては "_ならず_"、代わりに [DataGrid](/windows/communitytoolkit/controls/datagrid) を使用する必要があります。
 
 ![グループ化されたデータを表示するリスト ビュー](images/listview-grouped-example-resized-final.png)
 
@@ -47,13 +47,13 @@ GridView は、縦方向にスクロールできる複数行と複数列で項�
 
 ## <a name="which-collection-control-should-you-use-a-comparison-with-itemsrepeater"></a>どのコレクション コントロールを使用するべきか? ItemsRepeater との比較
 
-ListView と GridView は、組み込みの UI と UX を使用して任意のコレクションを表示するためにすぐに使用できるコントロールです。 [ItemsRepeater](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/items-repeater) コントロールも、コレクションを表示するために使用されますが、UI のニーズに的確に対応したカスタム コントロールを作成するための構成要素として作成されています。 最終的にどのコントロールを使用するかに影響を与える最も重要な相違点を次に示します。
+ListView と GridView は、組み込みの UI と UX を使用して任意のコレクションを表示するためにすぐに使用できるコントロールです。 [ItemsRepeater](./items-repeater.md) コントロールも、コレクションを表示するために使用されますが、UI のニーズに的確に対応したカスタム コントロールを作成するための構成要素として作成されています。 最終的にどのコントロールを使用するかに影響を与える最も重要な相違点を次に示します。
 
 -   ListView と GridView は、豊富な機能を備えたコントロールで、カスタマイズをほとんど必要としませんが、多くのカスタマイズも可能です。 ItemsRepeater は、独自のレイアウト コントロールを作成するための構成要素であり、同じ組み込み機能は備えていません。必要な機能や相互作用を自分で実装する必要があります。
 -   ItemsRepeater は、ListView または GridView では作成できない高度なカスタム UI の場合、または項目ごとに大幅に異なる動作を必要とするデータ ソースがある場合に使用する必要があります。
 
 
-ItemsRepeater の詳細については、[ガイドライン](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/items-repeater)と [API ドキュメント](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)のページをご覧ください。
+ItemsRepeater の詳細については、[ガイドライン](./items-repeater.md)と [API ドキュメント](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)のページをご覧ください。
 
 ## <a name="examples"></a>例
 
@@ -73,7 +73,7 @@ ItemsRepeater の詳細については、[ガイドライン](https://docs.micro
 
 ## <a name="create-a-listview-or-gridview"></a>ListView または GridView を作成する
 
-ListView と GridView はどちらも [ItemsControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol) 型であるため、任意の型の項目のコレクションを含めることができます。 ListView または GridView を使って画面に項目を表示するには、あらかじめ [Items](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに項目を追加しておく必要があります。 ビューのデータを設定するには、項目を直接 [Items](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに追加するか、データ ソースに [ItemsSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティを設定します。 
+ListView と GridView はどちらも [ItemsControl](/uwp/api/windows.ui.xaml.controls.itemscontrol) 型であるため、任意の型の項目のコレクションを含めることができます。 ListView または GridView を使って画面に項目を表示するには、あらかじめ [Items](/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに項目を追加しておく必要があります。 ビューのデータを設定するには、項目を直接 [Items](/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに追加するか、データ ソースに [ItemsSource](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティを設定します。 
 
 > [!IMPORTANT]
 > リストにデータを設定するときには Items または ItemsSource を使用しますが、同時に両方を使用することはできません。 ItemsSource プロパティを設定して XAML で項目を追加した場合、追加された項目は無視されます。 ItemsSource プロパティを設定してコードで Items コレクションに項目を追加した場合、例外がスローされます。
@@ -82,7 +82,7 @@ ListView と GridView はどちらも [ItemsControl](https://docs.microsoft.com/
 
 ### <a name="add-items-to-a-listview-or-gridview"></a>ListView または GridView に項目を追加する
 
-XAML またはコードを使用して ListView または GridView の [Items](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに項目を追加すると、同じ結果が得られます。 通常、項目が少数で変わらず、簡単に定義できる場合や、実行時にコードで項目を生成する場合は、XAML を使用して項目を追加します。 
+XAML またはコードを使用して ListView または GridView の [Items](/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに項目を追加すると、同じ結果が得られます。 通常、項目が少数で変わらず、簡単に定義できる場合や、実行時にコードで項目を生成する場合は、XAML を使用して項目を追加します。 
 
 <u>方法 1:Items コレクションに項目を追加する</u>
 #### <a name="option-1-add-items-through-xaml"></a>オプション 1:XAML を使用した項目の追加
@@ -125,7 +125,7 @@ FruitsPanel.Children.Add(Fruits);
 <br/>
 <u>方法 2:ItemsSource を設定して項目を追加する</u>
 
-通常、ListView または GridView では、データベースやインターネットなどのソースからデータを表示します。 データ ソースから ListView/GridView にデータを設定するには、[ItemsSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ項目のコレクションに設定します。 この方法は、次の例に示すように、ListView または GridView にカスタム クラスのオブジェクトを保持する場合に適しています。
+通常、ListView または GridView では、データベースやインターネットなどのソースからデータを表示します。 データ ソースから ListView/GridView にデータを設定するには、[ItemsSource](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ項目のコレクションに設定します。 この方法は、次の例に示すように、ListView または GridView にカスタム クラスのオブジェクトを保持する場合に適しています。
 
 #### <a name="option-1-set-itemssource-in-c"></a>オプション 1:C# で ItemsSource を設定する
 以下の例では、コードでコレクションのインスタンスに直接リスト ビューの ItemsSource を設定しています。 
@@ -196,23 +196,23 @@ protected override void OnNavigatedTo(NavigationEventArgs e)
 ![ItemsSource で設定した単純なリスト ビュー](images/listview-basic-code-example-final.png)
 
 > [!IMPORTANT]
-> データ テンプレートを定義しない場合、カスタム クラス オブジェクトで ListView に文字列値が表示されるのは、[ToString ()](https://docs.microsoft.com/uwp/api/windows.foundation.istringable.tostring) メソッドが定義されている場合のみです。
+> データ テンプレートを定義しない場合、カスタム クラス オブジェクトで ListView に文字列値が表示されるのは、[ToString ()](/uwp/api/windows.foundation.istringable.tostring) メソッドが定義されている場合のみです。
 
  次のセクションでは、ListView または GridView で、単純なカスタム クラス項目を視覚的に表現する方法について詳しく説明します。
 
-データ バインディングについて詳しくは、「[データ バインディングの概要](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。
+データ バインディングについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。
 
 > [!NOTE]
-> リスト ビューにグループ化されたデータを表示する必要がある場合は、[CollectionViewSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) にバインドします。 CollectionViewSource は XAML のコレクション クラスのプロキシとして機能し、グループ化サポートを有効にします。 詳しくは、[CollectionViewSource](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) をご覧ください。
+> リスト ビューにグループ化されたデータを表示する必要がある場合は、[CollectionViewSource](/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) にバインドします。 CollectionViewSource は XAML のコレクション クラスのプロキシとして機能し、グループ化サポートを有効にします。 詳しくは、[CollectionViewSource](/uwp/api/Windows.UI.Xaml.Data.CollectionViewSource) をご覧ください。
 
 ## <a name="customizing-the-look-of-items-with-a-datatemplate"></a>DataTemplate を使用して項目の外観をカスタマイズする
 
-ListView または GridView のデータ テンプレートでは、項目やデータをどのように視覚化するかを定義します。 既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現として ListView に表示されます。 データ項目の特定のプロパティに [DisplayMemberPath](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.displaymemberpath) を設定すると、そのプロパティの文字列表現を表示できます。
+ListView または GridView のデータ テンプレートでは、項目やデータをどのように視覚化するかを定義します。 既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現として ListView に表示されます。 データ項目の特定のプロパティに [DisplayMemberPath](/uwp/api/windows.ui.xaml.controls.itemscontrol.displaymemberpath) を設定すると、そのプロパティの文字列表現を表示できます。
 
-しかし、通常はもっとリッチな表現でデータを表示する必要があります。 ListView/GridView で項目を表示する方法を正確に指定するには、[DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールでは、データ オブジェクトのプロパティにバインドすることも、静的コンテンツをインラインで定義することもできます。 
+しかし、通常はもっとリッチな表現でデータを表示する必要があります。 ListView/GridView で項目を表示する方法を正確に指定するには、[DataTemplate](/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールでは、データ オブジェクトのプロパティにバインドすることも、静的コンテンツをインラインで定義することもできます。 
 
 > [!NOTE]
-> DataTemplate で [x:Bind マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
+> DataTemplate で [x:Bind マークアップ拡張](../../xaml-platform/x-bind-markup-extension.md)を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
 
 #### <a name="simple-listview-data-template"></a>単純な ListView データ テンプレート
 この例では、データ項目は単純な文字列です。 DataTemplate は ListView 定義内にインラインで定義し、文字列の左側に画像を追加し、文字列を青緑色で表示します。 これは、上記の方法 1 とオプション 1 を使用して作成したものと同じ ListView です。
@@ -281,32 +281,32 @@ ListView または GridView のデータ テンプレートでは、項目やデ
 
 データ テンプレートは、ListView の外観を定義する主要な方法です。 また、リストに多数の項目が含まれている場合、パフォーマンスが大幅に低下することがあります。  
 
-データ テンプレートは、前述のように ListView/GridView 定義内にインラインで定義できるほか、リソース セクション内で別個に定義することもできます。 ListView/GridView 自体の外部で定義する場合、DataTemplate には [x:Key](https://docs.microsoft.com/windows/uwp/xaml-platform/x-key-attribute) 属性を指定する必要があり、そのキーを使用して ListView または GridView の [ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに DataTemplate を割り当てる必要があります。
+データ テンプレートは、前述のように ListView/GridView 定義内にインラインで定義できるほか、リソース セクション内で別個に定義することもできます。 ListView/GridView 自体の外部で定義する場合、DataTemplate には [x:Key](../../xaml-platform/x-key-attribute.md) 属性を指定する必要があり、そのキーを使用して ListView または GridView の [ItemTemplate](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに DataTemplate を割り当てる必要があります。
 
 データ テンプレートと項目コンテナーを使用してリストまたはグリッドの項目の外観を定義する詳しい方法とその例については、「[項目コンテナーやテンプレート](item-containers-templates.md)」をご覧ください。 
 
 ## <a name="change-the-layout-of-items"></a>項目のレイアウト変更
 
-ListView または GridView に項目を追加すると、コントロールによって項目コンテナー内で各項目が自動的に折り返され、すべての項目コンテナーがレイアウトされます。 この項目コンテナーのレイアウト方法は、コントロールの [ItemsPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) によって決まります。  
-- **ListView** では既定で [ItemsStackPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel) が使用され、次のような縦 1 列のリストが生成されます。
+ListView または GridView に項目を追加すると、コントロールによって項目コンテナー内で各項目が自動的に折り返され、すべての項目コンテナーがレイアウトされます。 この項目コンテナーのレイアウト方法は、コントロールの [ItemsPanel](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) によって決まります。  
+- **ListView** では既定で [ItemsStackPanel](/uwp/api/windows.ui.xaml.controls.itemsstackpanel) が使用され、次のような縦 1 列のリストが生成されます。
 
 ![単純なリスト ビュー](images/listview-simple.png)
 
-- **GridView** では [ItemsWrapGrid](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemswrapgrid) が使用されます。次のように、項目が水平方向に追加され、折り返されて縦方向にスクロールします。
+- **GridView** では [ItemsWrapGrid](/uwp/api/windows.ui.xaml.controls.itemswrapgrid) が使用されます。次のように、項目が水平方向に追加され、折り返されて縦方向にスクロールします。
 
 ![単純なグリッド ビュー](images/gridview-simple.png)
 
 項目のレイアウトを変更するには、項目パネルのプロパティを調整するか、既定のパネルを別のパネルに置き換えます。
 
 > [!NOTE]
-> ItemsPanel を変更する場合、仮想化を無効にしないようにご注意ください。 **ItemsStackPanel** と **ItemsWrapGrid** はどちらも仮想化をサポートしており、安全に使用できます。 他のパネルを使用すると、仮想化が無効になり、リスト ビューのパフォーマンスが低下する場合があります。 詳しくは、「[Performance (パフォーマンス)](https://docs.microsoft.com/windows/uwp/debug-test-perf/performance-and-xaml-ui)」のリスト ビューに関する記事をご覧ください。 
+> ItemsPanel を変更する場合、仮想化を無効にしないようにご注意ください。 **ItemsStackPanel** と **ItemsWrapGrid** はどちらも仮想化をサポートしており、安全に使用できます。 他のパネルを使用すると、仮想化が無効になり、リスト ビューのパフォーマンスが低下する場合があります。 詳しくは、「[Performance (パフォーマンス)](../../debug-test-perf/performance-and-xaml-ui.md)」のリスト ビューに関する記事をご覧ください。 
 
-この例では、**ItemsStackPanel** の [Orientation](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel.orientation) プロパティを変更することで、**ListView** に項目コンテナーを横 1 列にレイアウトする方法を示しています。
-リスト ビューは既定で縦方向にスクロールするため、横方向にスクロールさせるには、リスト ビュー内部の [ScrollViewer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer) のプロパティもいくつか調整する必要があります。
-- [ScrollViewer.HorizontalScrollMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollmode) を **Enabled** または **Auto** に設定
-- [ScrollViewer.HorizontalScrollBarVisibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollbarvisibility) を **Auto** に設定 
-- [ScrollViewer.VerticalScrollMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollmode) を **Disabled** に設定 
-- [ScrollViewer.VerticalScrollBarVisibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollbarvisibility) を **Hidden** に設定 
+この例では、**ItemsStackPanel** の [Orientation](/uwp/api/windows.ui.xaml.controls.itemsstackpanel.orientation) プロパティを変更することで、**ListView** に項目コンテナーを横 1 列にレイアウトする方法を示しています。
+リスト ビューは既定で縦方向にスクロールするため、横方向にスクロールさせるには、リスト ビュー内部の [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer) のプロパティもいくつか調整する必要があります。
+- [ScrollViewer.HorizontalScrollMode](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollmode) を **Enabled** または **Auto** に設定
+- [ScrollViewer.HorizontalScrollBarVisibility](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollbarvisibility) を **Auto** に設定 
+- [ScrollViewer.VerticalScrollMode](/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollmode) を **Disabled** に設定 
+- [ScrollViewer.VerticalScrollBarVisibility](/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollbarvisibility) を **Hidden** に設定 
 
 > [!IMPORTANT]
 > ここに示す例ではリスト ビューの幅が規定されていないため、水平スクロール バーは表示されません。 このコードを実行する場合、ListView に `Width="180"` を設定してスクロール バーを表示することができます。
@@ -370,19 +370,19 @@ ListView または GridView に項目を追加すると、コントロールに�
 
 ## <a name="item-selection-and-interaction"></a>項目の選択と操作
 
-ユーザーがリスト ビューを操作する方法は、いくつか選ぶことができます。 既定では、ユーザーは 1 つの項目を選択できます。 [SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) プロパティを変更することで、複数選択を有効にしたり、選択を無効にしたりできます。 [IsItemClickEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) プロパティを設定することで、ユーザーが項目をクリックしたときに項目を選択するのではなく、ボタンと同じように操作を呼び出すことができます。
+ユーザーがリスト ビューを操作する方法は、いくつか選ぶことができます。 既定では、ユーザーは 1 つの項目を選択できます。 [SelectionMode](/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) プロパティを変更することで、複数選択を有効にしたり、選択を無効にしたりできます。 [IsItemClickEnabled](/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) プロパティを設定することで、ユーザーが項目をクリックしたときに項目を選択するのではなく、ボタンと同じように操作を呼び出すことができます。
 
-> **注**&nbsp;&nbsp; ListView と GridView のどちらも、SelectionMode プロパティについては [ListViewSelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewselectionmode) 列挙値を使用します。 IsItemClickEnabled は既定で **False** であるため、設定する必要があるのはクリック モードを有効にする場合のみです。
+> **注**&nbsp;&nbsp; ListView と GridView のどちらも、SelectionMode プロパティについては [ListViewSelectionMode](/uwp/api/windows.ui.xaml.controls.listviewselectionmode) 列挙値を使用します。 IsItemClickEnabled は既定で **False** であるため、設定する必要があるのはクリック モードを有効にする場合のみです。
 
 次の表に、ユーザーがリスト ビューを操作する方法と、その操作に対する応答方法を示します。
 
 有効にする操作: | 使用する設定: | 処理するイベント: | 選択された項目の取得に使うプロパティ:
 ----------------------------|---------------------|--------------------|--------------------------------------------
-操作なし | [SelectionMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) = **None**、[IsItemClickEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) = **False** | なし | なし 
-単一選択 | SelectionMode = **Single**、IsItemClickEnabled = **False** | [SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem)、[SelectedIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex)  
-複数選択 | SelectionMode = **Multiple**、IsItemClickEnabled = **False** | [SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems)  
-拡張選択 | SelectionMode = **Extended**、IsItemClickEnabled = **False** | [SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems)  
-クリック | SelectionMode = **None**、IsItemClickEnabled = **True** | [ItemClick](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.itemclick) | なし 
+操作なし | [SelectionMode](/uwp/api/windows.ui.xaml.controls.listviewbase.selectionmode) = **None**、[IsItemClickEnabled](/uwp/api/windows.ui.xaml.controls.listviewbase.isitemclickenabled) = **False** | なし | なし 
+単一選択 | SelectionMode = **Single**、IsItemClickEnabled = **False** | [SelectionChanged](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItem](/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem)、[SelectedIndex](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex)  
+複数選択 | SelectionMode = **Multiple**、IsItemClickEnabled = **False** | [SelectionChanged](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItems](/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems)  
+拡張選択 | SelectionMode = **Extended**、IsItemClickEnabled = **False** | [SelectionChanged](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) | [SelectedItems](/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems)  
+クリック | SelectionMode = **None**、IsItemClickEnabled = **True** | [ItemClick](/uwp/api/windows.ui.xaml.controls.listviewbase.itemclick) | なし 
 
 > **注**&nbsp;&nbsp;Windows 10 以降では、IsItemClickEnabled を有効にして ItemClick イベントを発生させる場合でも、SelectionMode を Single、Multiple、Extended のいずれにも設定できます。 その場合、ItemClick イベントが最初に発生し、次に SelectionChanged イベントが発生します。 ただし ItemClick イベント ハンドラーで別のページに移動するような場合では、SelectionChanged イベントが発生せず、項目が選択されません。
 
@@ -416,7 +416,7 @@ SelectionMode プロパティを **ListViewSelectionMode.None** に設定する�
 None | <li>ユーザーはスペース バー、マウスのクリック、タッチ操作のタップを使って 1 つの項目を選択できます。</li>
 Ctrl | <li>ユーザーはスペース バー、マウスのクリック、タッチ操作のタップを使って 1 つの項目の選択を解除できます。</li><li>方向キーを使うと、選択した項目とは関係なくフォーカスを移動できます。</li>
 
-SelectionMode が **Single** の場合、[SelectedItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) プロパティから選択したデータ項目を取得できます。 [SelectedIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex) プロパティを使って、選択した項目のコレクション内のインデックスを取得できます。 項目が選択されていない場合、SelectedItem は **null** になり、SelectedIndex は -1 になります。 
+SelectionMode が **Single** の場合、[SelectedItem](/uwp/api/windows.ui.xaml.controls.primitives.selector.selecteditem) プロパティから選択したデータ項目を取得できます。 [SelectedIndex](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectedindex) プロパティを使って、選択した項目のコレクション内のインデックスを取得できます。 項目が選択されていない場合、SelectedItem は **null** になり、SelectedIndex は -1 になります。 
  
 **Items** コレクションに含まれない項目を **SelectedItem** として設定しようとすると、その操作は無視され、SelectedItem が **null** になります。 ただし、リスト内の **Items** の範囲外のインデックスを **SelectedIndex** に設定しようとすると、**System.ArgumentException** 例外が発生します。 
 
@@ -439,7 +439,7 @@ None | <li>**Single** の選択と同じです。</li>
 Ctrl | <li>ユーザーは、スペース バー、マウスのクリック、タッチ操作のタップを使って、フォーカスのある項目の選択状態を切り替えることで、複数の項目を選択できます。</li><li>方向キーを使うと、選択した項目とは関係なくフォーカスを移動できます。</li>
 Shift キー | <li>ユーザーは、選択する最初の項目をクリックまたはタップした後、選択する最後の項目をクリックまたはタップすることで、複数の項目を連続的に選択できます。</li><li>方向キーを使用すると、Shift キーが押されたときに選択された項目を起点として連続的に選択することができます。</li>
 
-SelectionMode が **Multiple** または **Extended** の場合、選択したデータ項目を [SelectedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems) プロパティから取得できます。 
+SelectionMode が **Multiple** または **Extended** の場合、選択したデータ項目を [SelectedItems](/uwp/api/windows.ui.xaml.controls.listviewbase.selecteditems) プロパティから取得できます。 
 
 **SelectedIndex**、**SelectedItem**、**SelectedItems** の各プロパティは同期されます。 たとえば、SelectedIndex を -1 に設定すると、SelectedItem は **null** に設定され、SelectedItems が空になります。SelectedItem を **null** に設定すると、SelectedIndex が -1 に設定され、SelectedItems が空になります。
 
@@ -447,7 +447,7 @@ SelectionMode が **Multiple** または **Extended** の場合、選択した�
 
 ### <a name="respond-to-selection-changes"></a>選択範囲の変更への対応
 
-リスト ビューにおける選択内容の変更に対応するには、[SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントを処理します。 イベント ハンドラーのコードでは、[SelectionChangedEventArgs.AddedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.selectionchangedeventargs.addeditems) プロパティから選ばれた項目の一覧を取得できます。 選択が解除された項目は、[SelectionChangedEventArgs.RemovedItems](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.selectionchangedeventargs.removeditems) プロパティから取得できます。 ユーザーが Shift キーを押しながら一連の項目を選択しない限り、AddedItems コレクションと RemovedItems コレクションに含まれる項目の数は 1 個までになります。
+リスト ビューにおける選択内容の変更に対応するには、[SelectionChanged](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントを処理します。 イベント ハンドラーのコードでは、[SelectionChangedEventArgs.AddedItems](/uwp/api/windows.ui.xaml.controls.selectionchangedeventargs.addeditems) プロパティから選ばれた項目の一覧を取得できます。 選択が解除された項目は、[SelectionChangedEventArgs.RemovedItems](/uwp/api/windows.ui.xaml.controls.selectionchangedeventargs.removeditems) プロパティから取得できます。 ユーザーが Shift キーを押しながら一連の項目を選択しない限り、AddedItems コレクションと RemovedItems コレクションに含まれる項目の数は 1 個までになります。
 
 次の例では、**SelectionChanged** イベントを処理してさまざまな項目コレクションにアクセスする方法を示します。
 
@@ -553,16 +553,16 @@ private void ListView1_ItemClick(object sender, ItemClickEventArgs e)
 
 場合によっては、プログラムからリスト ビューの項目の選択を操作する必要があります。 たとえば、ユーザーがリスト内のすべての項目を選択できるように、 **[すべて選択]** ボタンを用意する場合があります。 この場合、SelectedItems コレクションの項目を 1 つずつ追加したり削除したりすることは、一般的に効率的とは言えません。 各項目を変更するたびに SelectionChanged イベントが発生し、インデックス値を操作するのではなく項目を直接操作すると、項目の仮想化が解除されます。
 
-[SelectAll](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectall)、[SelectRange](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectrange)、[DeselectRange](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.deselectrange) の各メソッドを使用すると、SelectedItems プロパティを使用する場合よりも効率的に選択内容を変更できます。 このメソッドでは、項目インデックスの範囲を使って選択と選択解除を行います。 インデックスのみを使うため、仮想化された項目は仮想化の状態を維持します。 元の選択状態に関係なく、指定範囲のすべての項目が選択 (または選択解除) されます。 SelectionChanged イベントは、このメソッドを 1 回呼び出すたびに 1 回のみ発生します。
+[SelectAll](/uwp/api/windows.ui.xaml.controls.listviewbase.selectall)、[SelectRange](/uwp/api/windows.ui.xaml.controls.listviewbase.selectrange)、[DeselectRange](/uwp/api/windows.ui.xaml.controls.listviewbase.deselectrange) の各メソッドを使用すると、SelectedItems プロパティを使用する場合よりも効率的に選択内容を変更できます。 このメソッドでは、項目インデックスの範囲を使って選択と選択解除を行います。 インデックスのみを使うため、仮想化された項目は仮想化の状態を維持します。 元の選択状態に関係なく、指定範囲のすべての項目が選択 (または選択解除) されます。 SelectionChanged イベントは、このメソッドを 1 回呼び出すたびに 1 回のみ発生します。
 
 > [!IMPORTANT]
 > このメソッドは、SelectionMode プロパティが Multiple または Extended に設定されているときにのみ呼び出してください。 SelectionMode が Single または None のときに SelectRange を呼び出すと、例外がスローされます。
 
-インデックスの範囲を使って項目を選択する場合、[SelectedRanges](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listviewbase.selectedranges) プロパティを使って、リスト内の選択範囲をすべて取得します。
+インデックスの範囲を使って項目を選択する場合、[SelectedRanges](/uwp/api/windows.ui.xaml.controls.listviewbase.selectedranges) プロパティを使って、リスト内の選択範囲をすべて取得します。
 
-ItemsSource に [IItemsRangeInfo](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.iitemsrangeinfo) を実装し、このようなメソッドを使って選択内容を変更する場合、SelectionChangedEventArgs には **AddedItems** プロパティと **RemovedItems** プロパティが設定されません。 このプロパティを設定するには、項目オブジェクトの仮想化を解除する必要があります。 代わりに **SelectedRanges** プロパティを使って項目を取得します。
+ItemsSource に [IItemsRangeInfo](/uwp/api/windows.ui.xaml.data.iitemsrangeinfo) を実装し、このようなメソッドを使って選択内容を変更する場合、SelectionChangedEventArgs には **AddedItems** プロパティと **RemovedItems** プロパティが設定されません。 このプロパティを設定するには、項目オブジェクトの仮想化を解除する必要があります。 代わりに **SelectedRanges** プロパティを使って項目を取得します。
 
-SelectAll メソッドを呼び出すと、コレクション内のすべての項目を選択できます。 ただし、すべての項目の選択を解除するメソッドはありません。 すべての項目の選択を解除するには、DeselectRange を呼び出して [ItemIndexRange](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.itemindexrange) を渡します。このとき、[FirstIndex](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.itemindexrange.firstindex) 値を 0 とし、[Length](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.itemindexrange.length) 値をコレクション内の項目数と同じ値にします。 次の例では、すべての項目を選択するためのオプションが示されています。
+SelectAll メソッドを呼び出すと、コレクション内のすべての項目を選択できます。 ただし、すべての項目の選択を解除するメソッドはありません。 すべての項目の選択を解除するには、DeselectRange を呼び出して [ItemIndexRange](/uwp/api/windows.ui.xaml.data.itemindexrange) を渡します。このとき、[FirstIndex](/uwp/api/windows.ui.xaml.data.itemindexrange.firstindex) 値を 0 とし、[Length](/uwp/api/windows.ui.xaml.data.itemindexrange.length) 値をコレクション内の項目数と同じ値にします。 次の例では、すべての項目を選択するためのオプションが示されています。
 
 **XAML**
 ```xml

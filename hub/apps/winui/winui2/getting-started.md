@@ -4,12 +4,12 @@ description: Windows UI ライブラリをインストールして使用する�
 ms.topic: reference
 ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk
-ms.openlocfilehash: 336439d35c74073db490772dbfdae4ca3e580625
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 94c23ab9573df576af89d9211ced70938fd5105f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492957"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174136"
 ---
 # <a name="getting-started-with-the-windows-ui-2x-library"></a>Windows UI 2.x ライブラリの概要
 
@@ -64,7 +64,7 @@ ms.locfileid: "86492957"
     ```
 
     > [!IMPORTANT]
-    > ResourceDictionary にリソースが追加される順序は、それらが適用される順序に影響します。 `XamlControlsResources` ディクショナリによって多くの既定リソース キーがオーバーライドされるため、アプリ内の他のカスタム スタイルやリソースがオーバーライドされないように、まずこのディクショナリを `Application.Resources` に追加する必要があります。 リソースの読み込みについて詳しくは、「[ResourceDictionary と XAML リソースの参照](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)」をご覧ください。
+    > ResourceDictionary にリソースが追加される順序は、それらが適用される順序に影響します。 `XamlControlsResources` ディクショナリによって多くの既定リソース キーがオーバーライドされるため、アプリ内の他のカスタム スタイルやリソースがオーバーライドされないように、まずこのディクショナリを `Application.Resources` に追加する必要があります。 リソースの読み込みについて詳しくは、「[ResourceDictionary と XAML リソースの参照](/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)」をご覧ください。
 
 5. ツールキットへの参照を XAML ページと分離コード ページに追加します。
 

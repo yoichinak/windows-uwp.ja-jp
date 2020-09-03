@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3fca2695cbb57375964beff0f8a3fd9be603228c
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 5c5784490da53f15f4b7ac79d83b59391031748d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968927"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173566"
 ---
 # <a name="check-boxes"></a>チェック ボックス
 
@@ -29,7 +29,7 @@ ms.locfileid: "82968927"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](/windows/uwp/design/style/rounded-corner)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **プラットフォーム API:** [CheckBox クラス](/uwp/api/Windows.UI.Xaml.Controls.CheckBox)、[Checked イベント](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked)、[IsChecked プロパティ](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked)
 
@@ -71,7 +71,7 @@ ms.locfileid: "82968927"
 
 ## <a name="create-a-checkbox"></a>チェック ボックスの作成
 
-チェック ボックスにラベルを割り当てるには、[Content](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentcontrol.content) プロパティを設定します。 ラベルはチェック ボックスの横に表示されます。
+チェック ボックスにラベルを割り当てるには、[Content](/uwp/api/windows.ui.xaml.controls.contentcontrol.content) プロパティを設定します。 ラベルはチェック ボックスの横に表示されます。
 
 次の XAML は、フォームの送信前にサービス条件に同意するために使う単一のチェック ボックスを作成します。 
 
@@ -89,14 +89,14 @@ checkBox1.Content = "I agree to the terms of service.";
 
 ### <a name="bind-to-ischecked"></a>IsChecked にバインドする
 
-チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。
-ただし、IsChecked は [Null 許容](https://docs.microsoft.com/dotnet/api/system.nullable-1)のブール値であるため、キャストまたは値コンバーターを使ってブール型プロパティにバインドする必要があります。 これは、使用している実際のバインディングの種類によって異なります。考えられる各型については、次の例を参照してください。 
+チェック ボックスがオンになっているかオフになっているかを判断するには、[IsChecked](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.ischecked) プロパティを使います。 IsChecked プロパティの値を他のバイナリ値にバインドできます。
+ただし、IsChecked は [Null 許容](/dotnet/api/system.nullable-1)のブール値であるため、キャストまたは値コンバーターを使ってブール型プロパティにバインドする必要があります。 これは、使用している実際のバインディングの種類によって異なります。考えられる各型については、次の例を参照してください。 
 
-次の例では、サービス条件に同意するためのチェック ボックスの **IsChecked** プロパティが送信ボタンの [IsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.isenabled) プロパティにバインドされます。 送信ボタンは、サービス条件に同意した場合にのみ有効です。
+次の例では、サービス条件に同意するためのチェック ボックスの **IsChecked** プロパティが送信ボタンの [IsEnabled](/uwp/api/windows.ui.xaml.controls.control.isenabled) プロパティにバインドされます。 送信ボタンは、サービス条件に同意した場合にのみ有効です。
 
 #### <a name="using-xbind"></a>x:Bind の使用
 
-> 注&nbsp;&nbsp;ここには関連するコードのみ掲載しています。 データ バインディングについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。 特定の {x:Bind} の情報 (キャストなど) について詳しくは[こちら](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)をご覧ください。
+> 注&nbsp;&nbsp;ここには関連するコードのみ掲載しています。 データ バインディングについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。 特定の {x:Bind} の情報 (キャストなど) について詳しくは[こちら](../../xaml-platform/x-bind-markup-extension.md)をご覧ください。
 
 ```xaml
 <StackPanel Grid.Column="2" Margin="40">
@@ -106,7 +106,7 @@ checkBox1.Content = "I agree to the terms of service.";
 </StackPanel>
 ```
 
-チェック ボックスを**不確定**状態にもできる場合は、バインディングの [FallbackValue](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.binding.fallbackvalue) プロパティを使用して、この状態を表すブール値を指定します。 この場合、[送信] ボタンも有効にしないようにします。
+チェック ボックスを**不確定**状態にもできる場合は、バインディングの [FallbackValue](/uwp/api/windows.ui.xaml.data.binding.fallbackvalue) プロパティを使用して、この状態を表すブール値を指定します。 この場合、[送信] ボタンも有効にしないようにします。
 
 ```xaml
 <Button Content="Submit" 
@@ -157,7 +157,7 @@ public class NullableBooleanToBooleanConverter : IValueConverter
 
 ### <a name="handle-click-and-checked-events"></a>Click イベントと Checked イベントを処理する
 
-チェック ボックスの状態が変化したときにアクションを実行するには、[Click](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント、または [Checked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベントと [Unchecked](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.unchecked) イベントを処理できます。 
+チェック ボックスの状態が変化したときにアクションを実行するには、[Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント、または [Checked](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.checked) イベントと [Unchecked](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.unchecked) イベントを処理できます。 
 
 **Click** イベントはオンの状態が変化するたびに発生します。 Click イベントを処理する場合は、**IsChecked** プロパティを使ってチェック ボックスの状態を確認します。
 
@@ -210,7 +210,7 @@ private void toppingsCheckbox_Click(object sender, RoutedEventArgs e)
 
 ### <a name="use-the-indeterminate-state"></a>不確定の状態を使用する
 
-CheckBox コントロールは [ToggleButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) を継承します。また、このコントロールには 3 つの状態を指定できます。 
+CheckBox コントロールは [ToggleButton](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton) を継承します。また、このコントロールには 3 つの状態を指定できます。 
 
 State | プロパティ | 値
 ------|----------|------
@@ -218,7 +218,7 @@ State | プロパティ | 値
 オフ | IsChecked | **false** 
 不確定 | IsChecked | **null** 
 
-不確定の状態を報告するチェック ボックスの場合、[IsThreeState](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.isthreestate) プロパティを **true** に設定する必要があります。 
+不確定の状態を報告するチェック ボックスの場合、[IsThreeState](/uwp/api/windows.ui.xaml.controls.primitives.togglebutton.isthreestate) プロパティを **true** に設定する必要があります。 
 
 オプションをグループ化できる場合は、不確定状態のチェック ボックスを使ってグループ全体を表すことができます。 グループ内のすべてでなく一部のサブ項目をユーザーが選択する場合は、チェック ボックスの不確定の状態を使います。
 
@@ -331,6 +331,6 @@ private void SetCheckedState()
 
 ## <a name="related-articles"></a>関連記事
 
-- [CheckBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CheckBox) 
+- [CheckBox クラス](/uwp/api/Windows.UI.Xaml.Controls.CheckBox) 
 - [ラジオ ボタン](radio-button.md)
 - [トグル スイッチ](toggles.md)

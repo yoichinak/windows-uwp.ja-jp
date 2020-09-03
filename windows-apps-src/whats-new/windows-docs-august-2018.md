@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 723cae783ba16fe5be9bb2076f96d4a5f823d733
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: eb6900b4d5ad529ee2e94f09439dda6abcaebac8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258832"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174396"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 8 月
 
@@ -24,7 +24,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 次の機能が Windows Insider Preview ビルドに追加されました。これらは、[Windows Insider](https://insider.windows.com/) プログラムを通じて使用できます。
 
-* [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
+* [Windows UI ライブラリ](/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
 * [DropDownButton](../design/controls-and-patterns/buttons.md#create-a-drop-down-button)、[SplitButton](../design/controls-and-patterns/buttons.md#create-a-split-button)、および [ToggleSplitButton](../design/controls-and-patterns/buttons.md#create-a-toggle-split-button) は、アプリのユーザー インターフェイスを強化するための特別な機能を持つボタン コントロールを提供します。
 
@@ -38,7 +38,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 パッケージ サポート フレームワークは、ソース コードにアクセスできないときに win32 アプリケーションに修正を適用して、win32 アプリケーションが MSIX コンテナー内で実行できるようにするのに役立つオープン ソース キットです。
 
-詳細については、[パッケージ サポート フレームワークを使用した MSIX パッケージへのランタイム修正の適用](../porting/package-support-framework.md)に関するページをご覧ください。
+詳細については、[パッケージ サポート フレームワークを使用した MSIX パッケージへのランタイム修正の適用](/windows/msix/psf/package-support-framework)に関するページをご覧ください。
 
 ## <a name="developer-guidance"></a>開発者ガイド
 
@@ -52,7 +52,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="project-rome"></a>Project Rome
 
-[Project Rome ドキュメント](https://docs.microsoft.com/windows/project-rome/) サイトが、機能ファーストの方式に再編成されました。 これにより、開発者は、自分が探しているものを見つけやすくなり、また選択した機能を複数のプラットフォームにわたって実装しやすくなります。
+[Project Rome ドキュメント](/windows/project-rome/) サイトが、機能ファーストの方式に再編成されました。 これにより、開発者は、自分が探しているものを見つけやすくなり、また選択した機能を複数のプラットフォームにわたって実装しやすくなります。
 
 ## <a name="videos"></a>ビデオ
 

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 8c2133c4f1132b55d62149ad5aaf42e04fc5da5b
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: d61abe8b59f916ed56c1fefe0bda4b9f25b673a4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493324"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173726"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -29,7 +29,7 @@ ms.locfileid: "86493324"
 
 * Visual Studio 2019 バージョン 16.4.3 以降。
 * Windows 10 バージョン 1903 SDK (バージョン 10.0.18362) 以降。
-* Visual Studio と共にインストールされる [C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 詳しくは、「[C++/WinRT](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/)」をご覧ください。
+* Visual Studio と共にインストールされる [C++/WinRT Visual Studio Extension (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264)。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。 詳しくは、「[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/)」をご覧ください。
 
 ## <a name="create-a-desktop-application-project"></a>デスクトップ アプリケーション プロジェクトを作成する
 
@@ -176,7 +176,7 @@ ms.locfileid: "86493324"
 
 ### <a name="define-a-xamlapplication-class"></a>XamlApplication クラスを定義する
 
-次に、**MyUWPApp** プロジェクトの既定の **App** クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 このチュートリアルの後の方で、デスクトップ プロジェクトを更新して、このクラスのインスタンスを作成します。
+次に、**MyUWPApp** プロジェクトの既定の **App** クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 このチュートリアルの後の方で、デスクトップ プロジェクトを更新して、このクラスのインスタンスを作成します。
 
   > [!NOTE]
   > `XamlApplication` オブジェクトは、XAML Islands を使用する各ソリューション内の 1 つのプロジェクトだけで、定義されている必要があります。 アプリ内のすべてのカスタム UWP XAML コントロールで、同じ `XamlApplication` オブジェクトを共有します。 
@@ -307,19 +307,19 @@ ms.locfileid: "86493324"
 
 ### <a name="option-1-package-the-app-using-msix"></a>オプション 1:MSIX を使用してアプリをパッケージ化する
 
-配置用にアプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化できます。 MSIX は、Windows 向けの最新のアプリ パッケージ化テクノロジであり、MSI、.appx、App-V、ClickOnce インストールの各テクノロジの組み合わせが基になっています。
+配置用にアプリを [MSIX パッケージ](/windows/msix)にパッケージ化できます。 MSIX は、Windows 向けの最新のアプリ パッケージ化テクノロジであり、MSI、.appx、App-V、ClickOnce インストールの各テクノロジの組み合わせが基になっています。
 
-1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、名前を **MyDesktopWin32Project** にして、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
+1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、名前を **MyDesktopWin32Project** にして、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
 
 2. パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 プロジェクトの一覧で、**MyDesktopWin32App** プロジェクトの横のチェック ボックスをオンにして、 **[OK]** をクリックします。
     ![プロジェクトを参照する](images/xaml-islands/xaml-island-cpp-6.png)
 
 > [!NOTE]
-> 配置用に [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にアプリケーションをパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
+> 配置用に [MSIX パッケージ](/windows/msix)にアプリケーションをパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
 ### <a name="option-2-create-an-application-manifest"></a>オプション 2:アプリケーション マニフェストを作成する
 
-[アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)をアプリに追加できます。
+[アプリケーション マニフェスト](/windows/desktop/SbsCs/application-manifests)をアプリに追加できます。
 
 1. **MyDesktopWin32App** プロジェクトを右クリックし、 **[追加]**  ->  **[新しい項目]** を選択します。 
 2. **[新しい項目の追加]** ダイアログで、左側のペインの **[Web]** をクリックし、 **[XML ファイル (.xml)]** を選択します。 
@@ -514,16 +514,16 @@ ms.locfileid: "86493324"
 
 ## <a name="add-a-control-from-the-winui-library-to-the-custom-control"></a>WinUI ライブラリのコントロールをカスタム コントロールに追加する
 
-従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、開発者は Windows SDK を通じてそれを使用できました。 [WinUI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/) はそれに代わる方法であり、Windows SDK の UWP コントロールの更新バージョンが、Windows SDK のリリースに関連付けられていない NuGet パッケージで配布されます。 また、このライブラリには、Windows SDK および既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳しくは、[WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)をご覧ください。
+従来、UWP コントロールは Windows 10 OS の一部としてリリースされ、開発者は Windows SDK を通じてそれを使用できました。 [WinUI ライブラリ](/uwp/toolkits/winui/) はそれに代わる方法であり、Windows SDK の UWP コントロールの更新バージョンが、Windows SDK のリリースに関連付けられていない NuGet パッケージで配布されます。 また、このライブラリには、Windows SDK および既定の UWP プラットフォームの一部ではない新しいコントロールも含まれています。 詳しくは、[WinUI ライブラリのロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)をご覧ください。
 
 このセクションでは、WinUI ライブラリからユーザー コントロールに UWP コントロールを追加する方法について説明します。
 
 1. **MyUWPApp** プロジェクトで、最新のプレリリースまたはリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールします。
 
     > [!NOTE]
-    > お使いのデスクトップ アプリが [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化されている場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンのいずれかを使用できます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールする必要があります。
+    > お使いのデスクトップ アプリが [MSIX パッケージ](/windows/msix)にパッケージ化されている場合は、[Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NugGet パッケージのプレリリースまたはリリース バージョンのいずれかを使用できます。 お使いのデスクトップ アプリが MSIX を使用してパッケージ化されていない場合は、プレリリース バージョンの [Microsoft.UI.Xaml](https://www.nuget.org/packages/Microsoft.UI.Xaml) NuGet パッケージをインストールする必要があります。
 
-2. このプロジェクトの pch.h ファイルで、次の `#include` ステートメントを追加し、変更を保存します。 これらのステートメントは、一連の必要なプロジェクション ヘッダーを WinUI ライブラリからプロジェクトに取り込みます。 この手順は、WinUI ライブラリを使用する任意の C++/WinRT プロジェクトに必要です。 詳しくは、[こちらの記事](https://docs.microsoft.com/uwp/toolkits/winui/getting-started#additional-steps-for-a-cwinrt-project)をご覧ください。
+2. このプロジェクトの pch.h ファイルで、次の `#include` ステートメントを追加し、変更を保存します。 これらのステートメントは、一連の必要なプロジェクション ヘッダーを WinUI ライブラリからプロジェクトに取り込みます。 この手順は、WinUI ライブラリを使用する任意の C++/WinRT プロジェクトに必要です。 詳しくは、[こちらの記事](/uwp/toolkits/winui/getting-started#additional-steps-for-a-cwinrt-project)をご覧ください。
 
     ```cpp
     #include "winrt/Microsoft.UI.Xaml.Automation.Peers.h"

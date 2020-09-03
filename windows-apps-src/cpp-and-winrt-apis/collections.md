@@ -6,16 +6,16 @@ ms.topic: article
 keywords: Windows 10, uwp, 標準, c++, cpp, winrt ,プロジェクション, コレクション
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 4f1b15ec377b030a467dded634abe3fdde717896
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 886086dbc9e39490c87ee289623d9540910cf08d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68270148"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170406"
 ---
 # <a name="collections-with-cwinrt"></a>C++/WinRT でのコレクション
 
-Windows ランタイム コレクションには、内部的に複雑な移動パーツが多数あります。 ただし、コレクション オブジェクトを Windows ランタイム関数に渡したり、独自のコレクション プロパティやコレクション型を実装したりする場合は、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) に役に立つ関数と基底クラスがあります。 これらの機能を利用すると、複雑さが解消され、時間と労力の点で多くのオーバーヘッドがなくなります。
+Windows ランタイム コレクションには、内部的に複雑な移動パーツが多数あります。 ただし、コレクション オブジェクトを Windows ランタイム関数に渡したり、独自のコレクション プロパティやコレクション型を実装したりする場合は、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) に役に立つ関数と基底クラスがあります。 これらの機能を利用すると、複雑さが解消され、時間と労力の点で多くのオーバーヘッドがなくなります。
 
 [**IVector**](/uwp/api/windows.foundation.collections.ivector_t_) は、要素の任意のランダムアクセス コレクションによって実装される Windows ランタイム インターフェイスです。 ご自分で **IVector** を実装する場合は、[**IIterable**](/uwp/api/windows.foundation.collections.iiterable_t_)、[**IVectorView**](/uwp/api/windows.foundation.collections.ivectorview_t_)、および[**IIterator**](/uwp/api/windows.foundation.collections.iiterator_t_) も実装する必要があります。 カスタム コレクション型が*必要*な場合でも、大変な作業です。 ただし、**std::vector** (または **std::map**、または **std::unordered_map**) にデータがあり、必要な操作がそれを Windows ランタイム API に渡すことのみの場合、可能であれば、そのレベルの作業を行わないようにします。 また、それを回避することは*可能です*。C++/WinRT を使用すると、コレクションを効率的に、またわずかな労力で作成できるからです。
 

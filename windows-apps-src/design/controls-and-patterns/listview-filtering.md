@@ -7,15 +7,15 @@ ms.date: 12/3/2019
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: anawish
-ms.openlocfilehash: 24669b81c244339509e30a43a0da8a2b27e67eeb
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: b1ffa6374753343321f34d388eb994a62614cb15
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75302656"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172606"
 ---
 # <a name="filtering-collections-and-lists-through-user-input"></a>ユーザー入力によるコレクションとリストのフィルター処理
-コレクションの表示項目数が多い場合や、コレクションがユーザーの対話に強く紐付いている場合、フィルター処理は実装すると便利な機能です。 この記事で説明する方法を使用したフィルター処理は、[ListView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.gridview)、[ItemsRepeater](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2) など、ほとんどのコレクション コントロールに実装できます。 コレクションのフィルター処理には、チェック ボックス、ラジオ ボタン、スライダーなど、さまざまなユーザー入力を使用できますが、この記事では、テキスト ベースのユーザー入力を取得し、それを使用して、ユーザーの検索に従って ListView をリアルタイムで更新する方法について説明します。 
+コレクションの表示項目数が多い場合や、コレクションがユーザーの対話に強く紐付いている場合、フィルター処理は実装すると便利な機能です。 この記事で説明する方法を使用したフィルター処理は、[ListView](/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView](/uwp/api/windows.ui.xaml.controls.gridview)、[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2) など、ほとんどのコレクション コントロールに実装できます。 コレクションのフィルター処理には、チェック ボックス、ラジオ ボタン、スライダーなど、さまざまなユーザー入力を使用できますが、この記事では、テキスト ベースのユーザー入力を取得し、それを使用して、ユーザーの検索に従って ListView をリアルタイムで更新する方法について説明します。 
 
 > [!NOTE]
 > この記事では、ListView を使用したフィルター処理に焦点を当てます。 フィルター処理の手法は、GridView、ItemsRepeater、TreeView など、その他のコレクション コントロールにも応用できることに注意してください。
@@ -64,7 +64,7 @@ ms.locfileid: "75302656"
 </Grid>
 ```
 ## <a name="filtering-the-data"></a>データへのフィルター適用
-[Linq](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) クエリを使用して、コレクションの特定の項目をグループ化、順序付け、および選択できます。 リストをフィルター処理するために、`FilterByLName` TextBox にユーザーが入力した検索クエリ/フィルター条件に一致する項目のみを選択する Linq クエリを作成します。 クエリ結果は [IEnumerable<T>](https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1) コレクション オブジェクトに割り当てることができます。 このコレクションを取得したら、それを使用して元のリストと比較し、一致しない項目を削除し、一致する項目を追加し直します (バックスペースの場合)。
+[Linq](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) クエリを使用して、コレクションの特定の項目をグループ化、順序付け、および選択できます。 リストをフィルター処理するために、`FilterByLName` TextBox にユーザーが入力した検索クエリ/フィルター条件に一致する項目のみを選択する Linq クエリを作成します。 クエリ結果は [IEnumerable<T>](/dotnet/api/system.collections.generic.ienumerable-1) コレクション オブジェクトに割り当てることができます。 このコレクションを取得したら、それを使用して元のリストと比較し、一致しない項目を削除し、一致する項目を追加し直します (バックスペースの場合)。
 
 > [!NOTE]
 > 項目を増減するとき、最も直感的に ListView をアニメーション表示するためには、フィルター処理されたオブジェクトの新しいコレクションを作成して ListView の ItemsSource プロパティに割り当てるのではなく、ListView の ItemsSource コレクション自体の項目を削除または追加することが重要です。

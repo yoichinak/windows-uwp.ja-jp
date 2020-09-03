@@ -5,32 +5,32 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: 048d6fe455f7c3e77922ef8b937a9cb1d6cbb21c
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a10962740d3f723a855914595ea02d0688ff9707
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81266900"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170376"
 ---
 # <a name="concurrency-and-asynchronous-operations-with-cwinrt"></a>C++/WinRT を使用した同時実行操作と非同期操作
 
 > [!IMPORTANT]
 > このトピックでは、"*コルーチン*" と `co_await` の概念について説明します。これは、UI "*および*" UI のないアプリケーションの両方で使用することをお勧めします。 わかりやすくするために、この入門トピックのコード例のほとんどは、**Windows コンソール アプリケーション (C++/WinRT)** プロジェクトを示しています。 このトピック内の後述のコード例でコルーチンを使用しますが、便宜上、コンソール アプリケーションの例では、終了する直前にブロッキング **get** 関数呼び出しも使用して、出力の印刷を完了する前にアプリケーションが終了しないようにしています。 それ (ブロッキング **get** 関数の呼び出し) は、UI スレッドからは行いません。 代わりに、`co_await` ステートメントを使用します。 UI アプリケーションで使用する手法の詳細については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」を参照してください。
 
-この入門トピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用した Windows ランタイムの非同期オブジェクトを作成および利用する方法について少し説明します。 このトピックを読んだ後、特に UI アプリケーションで使用する方法については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」も参照してください。
+この入門トピックでは、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) を使用した Windows ランタイムの非同期オブジェクトを作成および利用する方法について少し説明します。 このトピックを読んだ後、特に UI アプリケーションで使用する方法については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」も参照してください。
 
 ## <a name="asynchronous-operations-and-windows-runtime-async-functions"></a>非同期操作と Windows ランタイムの "非同期" 関数
 
 完了までの時間が 50 ミリ秒を超える可能性がある Windows ランタイム API は、非同期の関数 (末尾が "Async") として実装されます。 非同期関数を実装すると、別のスレッドの作業が開始され、非同期操作を表すオブジェクトがすぐに返されます。 非同期操作が完了すると、作業結果が含まれるオブジェクトが返されます。 **Windows::Foundation** Windows ランタイムの名前空間には 4 種類の非同期操作オブジェクトが含まれます。
 
 - [**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction)
-- [**IAsyncActionWithProgress&lt;TProgress&gt;** ](/uwp/api/windows.foundation.iasyncactionwithprogress-1)
-- [**IAsyncOperation&lt;TResult&gt;** ](/uwp/api/windows.foundation.iasyncoperation-1)
-- [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress-2)
+- [**IAsyncActionWithProgress&lt;TProgress&gt;**](/uwp/api/windows.foundation.iasyncactionwithprogress-1)
+- [**IAsyncOperation&lt;TResult&gt;**](/uwp/api/windows.foundation.iasyncoperation-1)
+- [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;**](/uwp/api/windows.foundation.iasyncoperationwithprogress-2)
 
 各非同期操作は、**winrt::Windows::Foundation** C++/WinRT の名前空間で対応する型に投影されます。 また、C++/WinRT には内部 await アダプター構造体も含まれます。 これを直接使用することはありませんが、この構造体により、これらの非同期操作型のいずれかを返す関数の結果を一緒に待機するように `co_await` ステートメントを記述することができます。 その後、これらの型を返す独自のコルーチンを作成できます。
 
-たとえば、非同期の Windows 関数である [**SyndicationClient::RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) は、[**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress-2) 型の非同期操作オブジェクトを返します。
+たとえば、非同期の Windows 関数である [**SyndicationClient::RetrieveFeedAsync**](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) は、[**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;**](/uwp/api/windows.foundation.iasyncoperationwithprogress-2) 型の非同期操作オブジェクトを返します。
 
 それでは、C++/WinRT を使用してそのような API を呼び出すためのいくつかの方法 (最初はブロック、次に非ブロック) を見てみましょう。 基本的なアイデアを示すために、次の複数のコード例では、**Windows コンソールアプリケーション (C++/WinRT)** プロジェクトを使用します。 UI アプリケーションにより適した手法については、「[より高度な同時実行操作と非同期操作](concurrency-2.md)」を参照してください。
 
@@ -158,7 +158,7 @@ int main()
 
 次の例では、**RetrieveBlogFeedAsync** は進捗状況と戻り値の両方が含まれる **IAsyncOperationWithProgress** を返します。 **RetrieveBlogFeedAsync** が自分の処理を行い、フィードを取得している間は、他の作業を行うことができます。 次に、非同期操作オブジェクトで **get** を呼び出し、ブロックするか完了まで待機して、操作結果を取得します。
 
-Windows ランタイム型を非同期的に返す場合は、[**IAsyncOperation&lt;TResult&gt;** ](/uwp/api/windows.foundation.iasyncoperation-1) または [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;** ](/uwp/api/windows.foundation.iasyncoperationwithprogress-2) を返す必要があります。 ファースト パーティ製またはサード パーティ製のランタイム クラス、または Windows ランタイム関数との間で受け渡しできる任意の型 (例、`int` または **winrt::hstring**) がこれに適合します。 コンパイラは、Windows ランタイム型以外でこれらの非同期操作型のいずれかを使用しようとすると表示される "*WinRT 型である必要があります*" というエラーをサポートします。
+Windows ランタイム型を非同期的に返す場合は、[**IAsyncOperation&lt;TResult&gt;**](/uwp/api/windows.foundation.iasyncoperation-1) または [**IAsyncOperationWithProgress&lt;TResult, TProgress&gt;**](/uwp/api/windows.foundation.iasyncoperationwithprogress-2) を返す必要があります。 ファースト パーティ製またはサード パーティ製のランタイム クラス、または Windows ランタイム関数との間で受け渡しできる任意の型 (例、`int` または **winrt::hstring**) がこれに適合します。 コンパイラは、Windows ランタイム型以外でこれらの非同期操作型のいずれかを使用しようとすると表示される "*WinRT 型である必要があります*" というエラーをサポートします。
 
 コルーチンに 1 つ以上の `co_await` ステートメントがない場合、コルーチンであると認められるために、1 つ以上の `co_return` または 1 つの `co_yield` ステートメントが必要です。 非同期操作を必要とせず、そのためにコンテキストのブロックや切り替えを行わずに、コルーチンが値を返すことができる場合があります。 値をキャッシュすることでそれを行う例を次に示します (2 回目以降は呼び出されます)。
 
@@ -287,7 +287,7 @@ IASyncAction DoWorkAsync(Param const& value)
 
 ## <a name="safely-accessing-the-this-pointer-in-a-class-member-coroutine"></a>class-member コルーチンで *this* ポインターに安全にアクセスする
 
-「[C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」をご覧ください。
+「[C++/WinRT の強参照と弱参照](./weak-references.md#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」をご覧ください。
 
 ## <a name="important-apis"></a>重要な API
 * [concurrency::task クラス](/cpp/parallel/concrt/reference/task-class)

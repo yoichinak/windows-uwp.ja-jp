@@ -14,22 +14,22 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: d5308f49499f4bdec9db0087cef54ac2fa0bb805
-ms.sourcegitcommit: 69b7fe203d8384d0ade37122ae9d2c4568f6d168
+ms.openlocfilehash: 0d13572d5fabea14090c4908442355491623cbde
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85267169"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173876"
 ---
 # <a name="treeview"></a>TreeView
 
-XAML の [TreeView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview) コントロールを使用すると、階層リストが有効になり、入れ子になった項目を含むノードを展開したり、折りたたんだりすることができるようになります。 フォルダー構造や入れ子になった関係を UI で視覚的に示すために使用できます。
+XAML の [TreeView](/uwp/api/windows.ui.xaml.controls.treeview) コントロールを使用すると、階層リストが有効になり、入れ子になった項目を含むノードを展開したり、折りたたんだりすることができるようになります。 フォルダー構造や入れ子になった関係を UI で視覚的に示すために使用できます。
 
 **TreeView** API では、以下の機能がサポートされています。
 
 - N レベルの入れ子
 - 1 つまたは複数のノードの選択
-- **TreeView** および [TreeViewItem](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeviewitem) での **ItemsSource** プロパティへのデータ バインディング
+- **TreeView** および [TreeViewItem](/uwp/api/windows.ui.xaml.controls.treeviewitem) での **ItemsSource** プロパティへのデータ バインディング
 - **TreeView** 項目テンプレートのルートとしての **TreeViewItem**
 - **TreeViewItem** 内の任意の型のコンテンツ
 - ツリー ビュー間のドラッグ アンド ドロップ
@@ -38,14 +38,14 @@ XAML の [TreeView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、Windows アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、Windows アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TreeView クラス](/uwp/api/microsoft.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/microsoft.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/microsoft.ui.xaml.controls.treeview.itemssource)
 >
 > **プラットフォーム API:** [TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/windows.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.treeview.itemssource)
 
 > [!TIP]
-> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
@@ -85,12 +85,12 @@ XAML の [TreeView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.
 
 [ItemsSource](/uwp/api/windows.ui.xaml.controls.treeview.itemssource) を階層データ ソースにバインドしてツリー ビューを作成することができます。または、**TreeViewNode** オブジェクトを自分で作成して管理することもできます。
 
-ツリー ビューを作成するには、[TreeView](/uwp/api/windows.ui.xaml.controls.treeview) コントロールと [TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode) オブジェクトの階層を使用します。 ノード階層を作成するには、**TreeView** コントロールの [RootNodes](/uwp/api/windows.ui.xaml.controls.treeview.rootnodes) コレクションに 1 つまたは複数のルート ノードを追加します。 各 **TreeViewNode** では、より多くのノードをその [Children](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeviewnode.children) コレクションに追加することができます。 ツリー ビュー ノードは、必要な任意の深さまで入れ子にすることができます。
+ツリー ビューを作成するには、[TreeView](/uwp/api/windows.ui.xaml.controls.treeview) コントロールと [TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode) オブジェクトの階層を使用します。 ノード階層を作成するには、**TreeView** コントロールの [RootNodes](/uwp/api/windows.ui.xaml.controls.treeview.rootnodes) コレクションに 1 つまたは複数のルート ノードを追加します。 各 **TreeViewNode** では、より多くのノードをその [Children](/uwp/api/windows.ui.xaml.controls.treeviewnode.children) コレクションに追加することができます。 ツリー ビュー ノードは、必要な任意の深さまで入れ子にすることができます。
 
-[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) の **ItemsSource** の場合と同様に、階層データ ソースを [ItemsSource](/uwp/api/windows.ui.xaml.controls.treeview.itemssource) プロパティにバインドしてツリー ビューのコンテンツを提供することができます。 同様に、[ItemTemplate](/uwp/api/windows.ui.xaml.controls.treeview.itemtemplate) (および省略可能な [ItemTemplateSelector](/uwp/api/windows.ui.xaml.controls.treeview.itemtemplate)) を使用して、項目をレンダリングする [DataTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.datatemplate) を提供します。
+[ListView](/uwp/api/windows.ui.xaml.controls.listview) の **ItemsSource** の場合と同様に、階層データ ソースを [ItemsSource](/uwp/api/windows.ui.xaml.controls.treeview.itemssource) プロパティにバインドしてツリー ビューのコンテンツを提供することができます。 同様に、[ItemTemplate](/uwp/api/windows.ui.xaml.controls.treeview.itemtemplate) (および省略可能な [ItemTemplateSelector](/uwp/api/windows.ui.xaml.controls.treeview.itemtemplate)) を使用して、項目をレンダリングする [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate) を提供します。
 
 > [!IMPORTANT]
-> **ItemsSource** およびその関連 API には、Windows 10 Version 1809 ([SDK 17763 以降](https://developer.microsoft.com/windows/downloads/windows-10-sdk))、または [Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)が必要です。
+> **ItemsSource** およびその関連 API には、Windows 10 Version 1809 ([SDK 17763 以降](https://developer.microsoft.com/windows/downloads/windows-10-sdk))、または [Windows UI ライブラリ](/uwp/toolkits/winui/)が必要です。
 >
 > **ItemsSource** は、**TreeView** コントロール内にコンテンツを配置するための、**TreeView.RootNodes** の代替手段です。 **ItemsSource** と **RootNodes** の両方を同時に設定することはできません。 **ItemsSource** を使用すると、ノードは自動的に作成され、**TreeView.RootNodes** プロパティからアクセスできます。
 
@@ -211,7 +211,7 @@ Dim pictureNode As New muxc.TreeViewNode With {.Content = picturesFolder}
 ```
 
 > [!NOTE]
-> **Pictures** フォルダーにアクセスするには、アプリ マニフェストで**ピクチャ ライブラリ**機能を指定する必要があります。 詳しくは、「[アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」をご覧ください。
+> **Pictures** フォルダーにアクセスするには、アプリ マニフェストで**ピクチャ ライブラリ**機能を指定する必要があります。 詳しくは、「[アプリ機能の宣言](../../packaging/app-capability-declarations.md)」をご覧ください。
 
 [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate) を指定して、ツリー ビューでのデータ項目の表示方法を指定することができます。
 
@@ -220,7 +220,7 @@ Dim pictureNode As New muxc.TreeViewNode With {.Content = picturesFolder}
 
 ### <a name="item-container-style"></a>項目コンテナーのスタイル
 
-**ItemsSource** を使用するか、**RootNodes** を使用するかにかかわらず、各ノードの表示に使用される実際の要素 ("コンテナー" と呼ばれる) は、[TreeViewItem](/uwp/api/windows.ui.xaml.controls.treeviewitem) オブジェクトです。 **TreeViewItem** のプロパティを変更して、**TreeView** の [ItemContainerStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview.itemcontainerstyle) または [ItemContainerStyleSelector](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview.itemcontainerstyleselector) プロパティを使用するコンテナーのスタイルを設定できます。
+**ItemsSource** を使用するか、**RootNodes** を使用するかにかかわらず、各ノードの表示に使用される実際の要素 ("コンテナー" と呼ばれる) は、[TreeViewItem](/uwp/api/windows.ui.xaml.controls.treeviewitem) オブジェクトです。 **TreeViewItem** のプロパティを変更して、**TreeView** の [ItemContainerStyle](/uwp/api/windows.ui.xaml.controls.treeview.itemcontainerstyle) または [ItemContainerStyleSelector](/uwp/api/windows.ui.xaml.controls.treeview.itemcontainerstyleselector) プロパティを使用するコンテナーのスタイルを設定できます。
 
 この例では、展開/折りたたみグリフをオレンジ色の +/- 記号に変更する方法を示します。 既定の **TreeViewItem** テンプレートでは、これらのグリフは `Segoe MDL2 Assets` フォントを使用するように設定されています。 XAML で使用される形式で Unicode 文字の値を指定することで、**Setter.Value** プロパティを設定できます (例: `Value="&#xE948;"`) 。
 
@@ -1349,6 +1349,6 @@ namespace TreeViewTest
 
 ## <a name="related-articles"></a>関連記事
 
-- [TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)
-- [ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)
+- [TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)
+- [ListView クラス](/uwp/api/windows.ui.xaml.controls.listview)
 - [ListView と GridView](listview-and-gridview.md)

@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: b97041e305cfaac2a5fe202212741a282dccdb54
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 8138256dbde751768e5d9a707ffc1ad23ace7494
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968877"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173526"
 ---
 # <a name="contextual-commanding-for-collections-and-lists"></a>コレクションとリストのコンテキスト コマンドの実行
 
@@ -25,7 +25,7 @@ ms.locfileid: "82968877"
 
 多くのアプリに、リスト、グリッド、ツリーの形で、ユーザーが操作できるコンテンツのコレクションが含まれています。 たとえば、ユーザーは、項目の削除、名前の変更、フラグ付け、更新ができる可能性があります。 この記事では、どのような種類の入力でも、最善のエクスペリエンスが得られるように、そのような操作をコンテキスト コマンドを使って実装する方法を説明します。  
 
-> **重要な API**:[ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
+> **重要な API**:[ICommand インターフェイス](/uwp/api/Windows.UI.Xaml.Input.ICommand)、[UIElement.ContextFlyout プロパティ](/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout)、[INotifyPropertyChanged インターフェイス](/uwp/api/windows.ui.xaml.data.inotifypropertychanged)
 
 ![各種入力方法で、お気に入りのコマンドを実行する](images/ContextualCommand_AddFavorites.png)
 
@@ -94,13 +94,13 @@ public class PodcastObject : INotifyPropertyChanged
 }
 ```
 
-PodcastObject は [INotifyPropertyChanged](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Data.INotifyPropertyChanged) を実装して、ユーザーが IsFavorite プロパティの設定を切り替えたときに、プロパティの変更に応答するようにしています。
+PodcastObject は [INotifyPropertyChanged](/uwp/api/Windows.UI.Xaml.Data.INotifyPropertyChanged) を実装して、ユーザーが IsFavorite プロパティの設定を切り替えたときに、プロパティの変更に応答するようにしています。
 
 ## <a name="defining-commands-with-the-icommand-interface"></a>ICommand インターフェイスを使ったコマンドの定義
 
-[ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) を使うと、複数の入力の種類に利用できるコマンドを定義できます。 たとえば、Delete キーが押されたときと、コンテキスト メニューで [削除] が右クリックされたときの 2 種類のイベント ハンドラーで同じ削除コマンドのコードを記述するのではなく、[ICommand](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) として削除ロジックを 1 度実装したら、各種入力方法でこの削除ロジックを利用可能にできます。
+[ICommand インターフェイス](/uwp/api/Windows.UI.Xaml.Input.ICommand) を使うと、複数の入力の種類に利用できるコマンドを定義できます。 たとえば、Delete キーが押されたときと、コンテキスト メニューで [削除] が右クリックされたときの 2 種類のイベント ハンドラーで同じ削除コマンドのコードを記述するのではなく、[ICommand](/uwp/api/Windows.UI.Xaml.Input.ICommand) として削除ロジックを 1 度実装したら、各種入力方法でこの削除ロジックを利用可能にできます。
 
-"お気に入り" の操作を表す ICommand を定義する必要があります。 ポッドキャストをお気に入りに追加するには、コマンドの [Execute](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand.Execute) メソッドを使います。 特定のポッドキャストがコマンドのパラメーターを介して実行メソッドに渡されます。これは、CommandParameter プロパティを使ってバインドできます。
+"お気に入り" の操作を表す ICommand を定義する必要があります。 ポッドキャストをお気に入りに追加するには、コマンドの [Execute](/uwp/api/Windows.UI.Xaml.Input.ICommand.Execute) メソッドを使います。 特定のポッドキャストがコマンドのパラメーターを介して実行メソッドに渡されます。これは、CommandParameter プロパティを使ってバインドできます。
 
 ```csharp
 public class FavoriteCommand: ICommand
@@ -127,7 +127,7 @@ public class FavoriteCommand: ICommand
 </Application.Resources>
 ```
 
-コマンドを実行するには、コマンドの [Execute](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand.Execute) メソッドを呼び出します。
+コマンドを実行するには、コマンドの [Execute](/uwp/api/Windows.UI.Xaml.Input.ICommand.Execute) メソッドを呼び出します。
 
 ```csharp
 // Favorite the item using the defined command
@@ -138,7 +138,7 @@ favoriteCommand.Execute(PodcastObject);
 
 ## <a name="creating-a-usercontrol-to-respond-to-a-variety-of-inputs"></a>さまざまな入力に応答する UserControl の作成
 
-項目のリストがあり、各項目が複数の入力方法に応答する場合、項目の [UserControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UserControl) を定義し、これを使って項目のコンテキスト メニューとイベント ハンドラーを定義することで、コードを簡潔にできます。 
+項目のリストがあり、各項目が複数の入力方法に応答する場合、項目の [UserControl](/uwp/api/Windows.UI.Xaml.Controls.UserControl) を定義し、これを使って項目のコンテキスト メニューとイベント ハンドラーを定義することで、コードを簡潔にできます。 
 
 Visual Studio で UserControl を作る手順は次のとおりです。
 1. ソリューション エクスプローラーで、プロジェクトを右クリックします。 コンテキスト メニューが表示されます。
@@ -151,7 +151,7 @@ Visual Studio で UserControl を作る手順は次のとおりです。
 - ホバー ボタンの表示
 - スワイプ ジェスチャの実行
 
-これらの動作をカプセル化して、FavoriteCommand を使えるように、リスト内のポッドキャストを表す "PodcastUserControl" という名前の新しい [UserControl](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.UserControl) を作りましょう。
+これらの動作をカプセル化して、FavoriteCommand を使えるように、リスト内のポッドキャストを表す "PodcastUserControl" という名前の新しい [UserControl](/uwp/api/Windows.UI.Xaml.Controls.UserControl) を作りましょう。
 
 PodcastUserControl は PodcastObject のフィールドを TextBlocks として表示し、さまざまなユーザーの操作に応答します。 この記事では、この PodcastUserControl を参照し、拡張していきます。
 
@@ -246,7 +246,7 @@ public sealed partial class PodcastUserControl : UserControl
 
 ### <a name="contextflyout"></a>ContextFlyout
 
-UIElement クラスによって定義される [ContextFlyout プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout) を利用すると、すべての入力の種類で使えるコンテキスト メニューを簡単に作成できます。 コンテキスト メニューを表すポップアップは MenuFlyout を使って提供します。上記で定義した “コンテキスト操作” をユーザーが実行すると、項目に対応する MenuFlyout が表示されます。
+UIElement クラスによって定義される [ContextFlyout プロパティ](/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout) を利用すると、すべての入力の種類で使えるコンテキスト メニューを簡単に作成できます。 コンテキスト メニューを表すポップアップは MenuFlyout を使って提供します。上記で定義した “コンテキスト操作” をユーザーが実行すると、項目に対応する MenuFlyout が表示されます。
 
 ContextFlyout を PodcastUserControl に追加します。 ContextFlyout として指定された MenuFlyout には、ポッドキャストをお気に入りに追加するための項目が 1 つだけ含まれています。 この MenuFlyoutItem では上記で定義した favoriteCommand を使い、CommandParamter が PodcastObject にバインドされていることに注意してください。
 
@@ -265,7 +265,7 @@ ContextFlyout を PodcastUserControl に追加します。 ContextFlyout とし�
 
 ```
 
-また、[ContextRequested イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.ContextRequested) を使って、コンテキスト操作に応答することもできます。 ContextRequested イベントは、ContextFlyout が指定されている場合は発生しません。
+また、[ContextRequested イベント](/uwp/api/Windows.UI.Xaml.UIElement.ContextRequested) を使って、コンテキスト操作に応答することもできます。 ContextRequested イベントは、ContextFlyout が指定されている場合は発生しません。
 
 ## <a name="creating-input-accelerators"></a>入力アクセラレータの作成
 
@@ -281,7 +281,7 @@ ContextFlyout を PodcastUserControl に追加します。 ContextFlyout とし�
 
 コンテンツの種類に応じて、操作を実行する特定のキーの組み合わせを明らかにします。 たとえば、メール アプリでは、選択されたメールの削除に Del キーが使われる可能性があります。 ポッドキャスト アプリでは、Ctrl + S や F キーによって、後で視聴するためにポッドキャストをお気に入りに追加する可能性があります。 Del キーで削除するなど、よく知られた一般的なキーボード ショートカットがあるコマンドもあれば、アプリまたはドメイン固有のショートカットがあるコマンドもあります。 できればよく知られているショートカットを使用してください。または、ヒントでリマインダー テキストを表示してショートカット コマンドをユーザーに伝えることを検討してください。
 
-[KeyDown](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.KeyDownEvent) イベントを使うことで、アプリはユーザーがキーを押したときに応答できます。 通常ユーザーは、押したキーを放すときではなく、キーを最初に押したときにアプリが応答するものと考えます。
+[KeyDown](/uwp/api/Windows.UI.Xaml.UIElement.KeyDownEvent) イベントを使うことで、アプリはユーザーがキーを押したときに応答できます。 通常ユーザーは、押したキーを放すときではなく、キーを最初に押したときにアプリが応答するものと考えます。
 
 次の例では、KeyDown ハンドラーを PodcastUserControl に追加して、ユーザーが Ctrl + S または F キーを押したときにポッドキャストをお気に入りに追加する方法を示しています。このコードでは、前と同じコマンドを使っています。
 
@@ -343,7 +343,7 @@ protected override void OnKeyDown(KeyRoutedEventArgs e)
 </UserControl>
 ```
 
-ホバー ボタンは、マウス ポインターが項目に重なったら表示し、項目から外れたら非表示にします。 マウス イベントに応答するには、PodcastUserControl で [PointerEntered](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.PointerEnteredEvent) イベントと [PointerExited](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement.PointerExitedEvent) イベントを使います。
+ホバー ボタンは、マウス ポインターが項目に重なったら表示し、項目から外れたら非表示にします。 マウス イベントに応答するには、PodcastUserControl で [PointerEntered](/uwp/api/Windows.UI.Xaml.UIElement.PointerEnteredEvent) イベントと [PointerExited](/uwp/api/Windows.UI.Xaml.UIElement.PointerExitedEvent) イベントを使います。
 
 **PodcastUserControl.xaml.cs**
 ```csharp
@@ -448,10 +448,10 @@ private void SwipeItem_Invoked(SwipeItem sender, SwipeItemInvokedEventArgs args)
 * どの種類の Windows デバイスでも、ユーザーがすべてのコマンドにアクセスできるようにします。
 * コレクション項目に対するコマンド全部にアクセスできるコンテキスト メニューを含めます。 
 * 頻繁に使われるコマンドについては、入力アクセラレータを提供します。 
-* コマンドの実装には [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand) を使う。 
+* コマンドの実装には [ICommand インターフェイス](/uwp/api/Windows.UI.Xaml.Input.ICommand) を使う。 
 
 ## <a name="related-topics"></a>関連トピック
-* [ICommand インターフェイス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Input.ICommand)
+* [ICommand インターフェイス](/uwp/api/Windows.UI.Xaml.Input.ICommand)
 * [メニューとコンテキスト メニュー](menus.md)
 * [スワイプ](swipe.md)
 * [引っ張って更新](pull-to-refresh.md)

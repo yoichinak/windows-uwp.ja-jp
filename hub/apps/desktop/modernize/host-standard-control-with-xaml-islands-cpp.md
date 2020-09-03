@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 08308c7bca3cd7f39b08c836e43d791a3fda048f
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0842046419402bbfacc24331d0521efa9510153a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80226276"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174196"
 ---
 # <a name="host-a-standard-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリで標準 UWP コントロールをホストする
 
@@ -41,7 +41,7 @@ ms.locfileid: "80226276"
     1. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[プレリリースを含める]** が選択されていることを確認します。
     2. **[参照]** タブを選択し、**Microsoft.Toolkit.Win32.UI.SDK** パッケージを見つけて、このパッケージの v6.0.0 以降のバージョンをインストールします。 このパッケージでは、XAML Islands がアプリで動作できるようにする、いくつかのビルド資産と実行時資産が提供されています。
 
-5. [アプリケーション マニフェスト](https://docs.microsoft.com/windows/desktop/SbsCs/application-manifests)内に `maxVersionTested` 値を設定して、アプリケーションが Windows 10 バージョン 1903 以降と互換性があることを指定します。
+5. [アプリケーション マニフェスト](/windows/desktop/SbsCs/application-manifests)内に `maxVersionTested` 値を設定して、アプリケーションが Windows 10 バージョン 1903 以降と互換性があることを指定します。
 
     1. プロジェクトにアプリケーション マニフェストがまだない場合は、新しい XML ファイルをプロジェクトに追加し、**app.manifest** という名前を付けます。
     2. 次の例に示すように、**compatibility** 要素と子要素をアプリケーション マニフェストに含めます。 **maxVersionTested** 要素の **Id** 属性を、ターゲットとしている Windows 10 のバージョン番号に置き換えます (これは Windows 10 バージョン 1903 以降のリリースである必要があります)。
@@ -63,16 +63,16 @@ ms.locfileid: "80226276"
 
 XAML ホスティング API を使用して UWP コントロールをホストする基本的なプロセスでは、次の一般的な手順に従います。
 
-1. アプリで、現在のスレッド用に UWP XAML フレームワークを初期化してから、それによってホストされる [Windows.UI.Xaml.UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) オブジェクトを作成します。 これを行うには、コントロールをホストする [DesktopWindowXamlSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトをいつ作成する予定かによって、複数の方法があります。
+1. アプリで、現在のスレッド用に UWP XAML フレームワークを初期化してから、それによってホストされる [Windows.UI.Xaml.UIElement](/uwp/api/windows.ui.xaml.uielement) オブジェクトを作成します。 これを行うには、コントロールをホストする [DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトをいつ作成する予定かによって、複数の方法があります。
 
     * アプリケーションで **DesktopWindowXamlSource** オブジェクトを作成し、その後に、そのオブジェクトによってホストされるいずれかの **Windows.UI.Xaml.UIElement** オブジェクトを作成する場合は、**DesktopWindowXamlSource** オブジェクトをインスタンス化するときに、このフレームワークが初期化されます。 このシナリオでは、フレームワークを初期化するためにご自身のコードを追加する必要はありません。
 
-    * ただし、アプリケーションで **Windows.UI.Xaml.UIElement** オブジェクトを先に作成し、それらのオブジェクトをホストする **DesktopWindowXamlSource** オブジェクトをその後に作成する場合は、アプリケーションで静的な [WindowsXamlManager.InitializeForCurrentThread](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread) メソッドを呼び出して、**Windows.UI.Xaml.UIElement** オブジェクトがインスタンス化される前に UWP XAML フレームワークを明示的に初期化する必要があります。 アプリケーションでは一般的に、**DesktopWindowXamlSource** をホストする親 UI 要素がインスタンス化されるときに、このメソッドを呼び出す必要があります。
+    * ただし、アプリケーションで **Windows.UI.Xaml.UIElement** オブジェクトを先に作成し、それらのオブジェクトをホストする **DesktopWindowXamlSource** オブジェクトをその後に作成する場合は、アプリケーションで静的な [WindowsXamlManager.InitializeForCurrentThread](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread) メソッドを呼び出して、**Windows.UI.Xaml.UIElement** オブジェクトがインスタンス化される前に UWP XAML フレームワークを明示的に初期化する必要があります。 アプリケーションでは一般的に、**DesktopWindowXamlSource** をホストする親 UI 要素がインスタンス化されるときに、このメソッドを呼び出す必要があります。
 
     > [!NOTE]
-    > このメソッドからは、UWP XAML フレームワークへの参照を含む [WindowsXamlManager](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager) オブジェクトが返されます。 任意の 1 つのスレッドで **WindowsXamlManager** オブジェクトを必要な数だけ作成できます。 ただし、各オブジェクトが UWP XAML フレームワークへの参照を保持しているため、オブジェクトを破棄して、最終的に XAML リソースが確実に解放されるようにする必要があります。
+    > このメソッドからは、UWP XAML フレームワークへの参照を含む [WindowsXamlManager](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager) オブジェクトが返されます。 任意の 1 つのスレッドで **WindowsXamlManager** オブジェクトを必要な数だけ作成できます。 ただし、各オブジェクトが UWP XAML フレームワークへの参照を保持しているため、オブジェクトを破棄して、最終的に XAML リソースが確実に解放されるようにする必要があります。
 
-2. [DesktopWindowXamlSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトを作成し、アプリケーション内のウィンドウ ハンドルに関連付けられている親 UI 要素にアタッチします。
+2. [DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトを作成し、アプリケーション内のウィンドウ ハンドルに関連付けられている親 UI 要素にアタッチします。
 
     これを行うには、次の手順に従う必要があります。
 
@@ -84,7 +84,7 @@ XAML ホスティング API を使用して UWP コントロールをホスト�
 
     3. **DesktopWindowXamlSource** に含まれる内部の子ウィンドウの初期サイズを設定します。 既定では、この内部の子ウィンドウは、幅と高さが 0 に設定されています。 ウィンドウのサイズを設定しない場合、**DesktopWindowXamlSource** に追加した UWP コントロールは表示されません。 **DesktopWindowXamlSource** の内部の子ウィンドウにアクセスするには、**IDesktopWindowXamlSourceNative** または **IDesktopWindowXamlSourceNative2** インターフェイスの **WindowHandle** プロパティを使用します。
 
-3. 最後に、ホストする対象の **Windows.UI.Xaml.UIElement** を **DesktopWindowXamlSource** オブジェクトの [Content](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content) プロパティに割り当てます。
+3. 最後に、ホストする対象の **Windows.UI.Xaml.UIElement** を **DesktopWindowXamlSource** オブジェクトの [Content](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content) プロパティに割り当てます。
 
 次の手順とコード例は、上記のプロセスを実装する方法を示しています。
 
@@ -215,7 +215,7 @@ XAML ホスティング API を使用して UWP コントロールをホスト�
     }
     ```
 
-4. 前のセクションの後に次のコードをコピーします。 このコードでは、ウィンドウの[ウィンドウ プロシージャ](https://docs.microsoft.com/windows/win32/learnwin32/writing-the-window-procedure)を定義します。
+4. 前のセクションの後に次のコードをコピーします。 このコードでは、ウィンドウの[ウィンドウ プロシージャ](/windows/win32/learnwin32/writing-the-window-procedure)を定義します。
 
     ```cppwinrt
     LRESULT CALLBACK WindowProc(HWND hWnd, UINT messageCode, WPARAM wParam, LPARAM lParam)
@@ -280,14 +280,14 @@ XAML ホスティング API を使用して UWP コントロールをホスト�
 
 ## <a name="package-the-app"></a>アプリをパッケージ化する
 
-必要に応じて、配置用にアプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化することもできます。 MSIX は、Windows 向けの最新のアプリ パッケージ化テクノロジであり、MSI、.appx、App-V、ClickOnce の各インストール テクノロジの組み合わせに基づいています。
+必要に応じて、配置用にアプリを [MSIX パッケージ](/windows/msix)にパッケージ化することもできます。 MSIX は、Windows 向けの最新のアプリ パッケージ化テクノロジであり、MSI、.appx、App-V、ClickOnce の各インストール テクノロジの組み合わせに基づいています。
 
-次の手順では、Visual Studio 2019 で [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、ソリューションのすべてのコンポーネントを MSIX パッケージにパッケージ化する方法について説明します。 これらの手順は、アプリを MSIX パッケージにパッケージ化する場合にのみ必要です。
+次の手順では、Visual Studio 2019 で [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を使用して、ソリューションのすべてのコンポーネントを MSIX パッケージにパッケージ化する方法について説明します。 これらの手順は、アプリを MSIX パッケージにパッケージ化する場合にのみ必要です。
 
 > [!NOTE]
-> 展開用にアプリケーションを [MSIX パッケージ](https://docs.microsoft.com/windows/msix)にパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
+> 展開用にアプリケーションを [MSIX パッケージ](/windows/msix)にパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
-1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
+1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
 
 2. パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 プロジェクトの一覧でソリューション内の C++/Win32 デスクトップ アプリケーション プロジェクトを選択し、 **[OK]** をクリックします。
 

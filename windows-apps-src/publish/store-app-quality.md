@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: B15D4F19-4E6A-4C27-AD64-F03014D11BA9
-ms.openlocfilehash: d093a7b49a8c5ac00ca927614365d1b548e2f63a
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: ae4ade3cd7bef5434c8f5c9d9c6905c039e7e806
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77607262"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172846"
 ---
 # <a name="app-quality"></a>アプリの品質
 
@@ -42,7 +42,7 @@ Store ページに掲載されたメタデータ (アイコン、タイトル、
 
 - 独創的で他のアプリとは明らかに異なるタイトルを考案してください。 たとえば、別のアプリのスペルを少し変えただけのタイトルは混乱を招くおそれがあります。逆に、独創的なタイトルは、ユーザーの目を引きます。
 - アプリの把握に役立つタイトルを付けてください。 たとえば、"私の初めてのアプリ" や "クライアント アプリ” などのタイトルは意味が広すぎます。
-- タイトルの付け方について詳しくは、「[アプリ名の選択](https://docs.microsoft.com/windows/uwp/publish/create-your-app-by-reserving-a-name#choosing-your-apps-name)」のセクションをご覧ください。
+- タイトルの付け方について詳しくは、「[アプリ名の選択](./create-your-app-by-reserving-a-name.md#choosing-your-apps-name)」のセクションをご覧ください。
 
 **説明**には、アプリの主な機能を記載することができます。 明確かつ簡潔で、説得力のある説明文を作成してください。
 
@@ -51,7 +51,7 @@ Store ページに掲載されたメタデータ (アイコン、タイトル、
 - メタデータの機能のセクションにアプリの機能の一覧を記載し、アプリの説明で特に役立つ機能を要約すると、お客様がアプリについて把握しやすくなります。 たとえば、天文アプリについて説明する場合、単に惑星の一覧を表示するのではなく、アプリが持つ特別な衛星追尾機能についてお客様に説明します。 Store で同種のアプリが数多く提供されている場合、自分が提供するアプリの独自性や優位性がユーザーに伝わるように特に努力を払ってください。
 - ユーザーには真実を伝えます。 アプリに実際に含まれている機能を記載してください。 たとえば、アプリにまだ搭載されていない機能について説明しないでください (その機能が搭載予定であることを明記する場合を除きます)。
 - アプリを使用するために別のアプリが必要な場合は、説明の冒頭にそのことを記載します。 これにより、お客様はそのアプリを使用するために必要な他のアプリについて知ることができます。
-- 「[人の心をつかむアプリの説明を書く](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)」の記事には、いくつかの役立つヒントが紹介されています。
+- 「[人の心をつかむアプリの説明を書く](./write-a-great-app-description.md)」の記事には、いくつかの役立つヒントが紹介されています。
 
 **スクリーンショット**と**トレーラー**を使うと、アプリのすばらしい機能のプレビューをユーザーに示すことができます。 うまく使って、アプリの品質を強調しましょう。
 
@@ -88,4 +88,4 @@ Store ページに掲載されたメタデータ (アイコン、タイトル、
 ### <a name="see-also"></a>関連項目
 
 - [Microsoft Store のポリシーと倫理規定](store-policies-and-code-of-conduct.md)
-- [アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)
+- [アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)

@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 05/07/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: cd84892f9d90a69379ac5a7f84dfa188adf1211e
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d9864c59a8bb8569861e9c239710a09602ffdcba
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258784"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174356"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-may-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 5 月
 
@@ -38,7 +38,7 @@ Fluent Design System でのモーションの使用が進化しています。�
 * [配置、埋め込み、余白](../design/layout/alignment-margin-padding.md)
 * [色](../design/style/color.md)
 * [コマンドの基本](../design/basics/commanding-basics.md)
-* [Windows アプリ用の Fluent Design](../design/fluent-design-system/index.md)
+* [Windows アプリ用の Fluent Design](/windows/apps/fluent-design-system)
 * [アプリ設計の概要](../design/basics/design-and-ui-intro.md)
 * [ナビゲーションの基本](../design/basics/navigation-basics.md)
 * [レスポンシブ デザインの手法](../design/layout/responsive-design.md)
@@ -55,13 +55,13 @@ Fluent Design System でのモーションの使用が進化しています。�
 
 ### <a name="app-installer-files-in-visual-studio"></a>Visual Studio でのアプリ インストーラー ファイル
 
-Visual Studio 2017 Update 15.7 以降のバージョンでは、アプリ インストーラー ファイルを作成できるようになりました。 [Visual Studio を使ってアプリ インストーラー ファイルを作成する方法](../packaging/create-appinstallerfile-vs.md)と、自動更新を有効にする方法をご確認ください。 問題が発生した場合は、「[アプリ インストーラー ファイルを使ったインストールに関する問題のトラブルシューティング](../packaging/troubleshoot-appinstaller-issues.md)」を参照して一般的な問題と解決方法を確認してください。
+Visual Studio 2017 Update 15.7 以降のバージョンでは、アプリ インストーラー ファイルを作成できるようになりました。 [Visual Studio を使ってアプリ インストーラー ファイルを作成する方法](/windows/msix/app-installer/create-appinstallerfile-vs)と、自動更新を有効にする方法をご確認ください。 問題が発生した場合は、「[アプリ インストーラー ファイルを使ったインストールに関する問題のトラブルシューティング](/windows/msix/app-installer/troubleshoot-appinstaller-issues)」を参照して一般的な問題と解決方法を確認してください。
 
 ### <a name="edge-webview-control-for-windows-forms-and-wpf-applications"></a>Windows フォームと WPF アプリケーション用の Edge の WebView コントロール
 
-WebView コントロールを使用して、Web コンテンツをデスクトップ アプリケーションに表示できます (以前は UWP アプリケーションでのみ使用可能でした)。 このコントロールによって、Microsoft Edge レンダリング エンジンを使用して、リモート Web サーバーにあるリッチな書式設定の HTML コンテンツ、動的に生成されたコード、またはコンテンツ ファイルをレンダリングするビューを埋め込むことができます。 [Windows Community Toolkit](https://docs.microsoft.com/windows/uwpcommunitytoolkit/) の最新リリースで WebView コントロールを参照できます。
+WebView コントロールを使用して、Web コンテンツをデスクトップ アプリケーションに表示できます (以前は UWP アプリケーションでのみ使用可能でした)。 このコントロールによって、Microsoft Edge レンダリング エンジンを使用して、リモート Web サーバーにあるリッチな書式設定の HTML コンテンツ、動的に生成されたコード、またはコンテンツ ファイルをレンダリングするビューを埋め込むことができます。 [Windows Community Toolkit](/windows/uwpcommunitytoolkit/) の最新リリースで WebView コントロールを参照できます。
 
-Windows Community Toolkit の今後のリリースで WebView のような他のコントロールを確認してください。 詳細については、[WPF および Windows フォーム アプリケーションでの UWP コントロールのホスト](https://docs.microsoft.com/windows/uwp/xaml-platform/xaml-host-controls)に関するページを参照してください。
+Windows Community Toolkit の今後のリリースで WebView のような他のコントロールを確認してください。 詳細については、[WPF および Windows フォーム アプリケーションでの UWP コントロールのホスト](/windows/apps/desktop/modernize/xaml-islands)に関するページを参照してください。
 
 ### <a name="gaze-input-and-interactions"></a>視線入力と操作
 
@@ -91,7 +91,7 @@ MSIX パッケージ形式は、Microsoft のパートナーが自身のツー�
 
 ### <a name="project-rome"></a>Project Rome
 
-Project Rome チームは、iOS と Android の SDK を徹底的に見直しました。ユーザー アクティビティなどの新機能を追加し、さまざまな SDK 間で一貫したプログラミング エクスペリエンスを提供するために、コードの大部分をリファクタリングしました。 [まったく新しい API リファレンスと使い方のドキュメント](https://docs.microsoft.com/windows/project-rome/)が、Build 2018 開発者カンファレンス中に公開されます。
+Project Rome チームは、iOS と Android の SDK を徹底的に見直しました。ユーザー アクティビティなどの新機能を追加し、さまざまな SDK 間で一貫したプログラミング エクスペリエンスを提供するために、コードの大部分をリファクタリングしました。 [まったく新しい API リファレンスと使い方のドキュメント](/windows/project-rome/)が、Build 2018 開発者カンファレンス中に公開されます。
 
 ### <a name="sets"></a>Sets
 

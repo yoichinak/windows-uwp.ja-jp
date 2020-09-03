@@ -6,16 +6,16 @@ ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: 2B84B877-794A-468F-A478-DA09E4694513
-ms.openlocfilehash: d81333b38908a10f88d886d766353aae455b1f47
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: 5eab37c828483cea1e8343c953d155edab422e0f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77607238"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170986"
 ---
 # <a name="developer-code-of-conduct"></a>開発者倫理規定
 
-お客様は、Microsoft Store のアプリの開発者として、[アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)およびお客様と Microsoft の間で締結されたその他のライセンスまたは契約の条件に従うものとします。 本倫理規定は、参照のために提供されるものであり、契約を置き換えるものではありません。
+お客様は、Microsoft Store のアプリの開発者として、[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)およびお客様と Microsoft の間で締結されたその他のライセンスまたは契約の条件に従うものとします。 本倫理規定は、参照のために提供されるものであり、契約を置き換えるものではありません。
 
 
 ## <a name="1-publisher-name"></a>1. 発行者名
@@ -36,4 +36,4 @@ Microsoft Store またはパートナー センターでは一切の不正行為
 ### <a name="see-also"></a>関連項目
 
 - [Microsoft Store のポリシーと倫理規定](store-policies-and-code-of-conduct.md)
-- [アプリ開発者契約](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement)
+- [アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)

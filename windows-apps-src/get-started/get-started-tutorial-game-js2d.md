@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 01af8254-b073-445e-af4c-e474528f8aa3
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ef4255c8ea1eb9db34f652e5974a4f341e5500d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: ac9e572da995da644cab1fbc997ee79fc3a11560
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80759451"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172016"
 ---
 # <a name="create-a-uwp-game-in-javascript"></a>JavaScript で UWP ゲームを作成する
 
@@ -48,11 +48,11 @@ Microsoft Store にアプリを公開するには、そのアプリを UWP (ユ�
 
 アプリの完全なソース コードは、[GitHub](https://github.com/Microsoft/Windows-appsample-get-started-js2d) にあります。
 
-最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]**\(クローンまたはダウンロード\) ボタンをクリックし、 **[Open in Visual Studio]**\(Visual Studio で開く\) を選択することです。 
+最も簡単に始める方法は、GitHub のページで、緑色の **[Clone or download]** (複製またはダウンロード) ボタンをクリックし、 **[Open in Visual Studio]** (Visual Studio で開く) を選択することです。 
 
-![リポジトリをクローンする](images/JS2D_2.png)
+![リポジトリを複製する](images/JS2D_2.png)
 
-[GitHub プロジェクト](https://docs.microsoft.com/windows/uwp/get-started/get-uwp-app-samples)は、zip ファイルとしてダウンロードすることも、その他の標準的な方法で操作することもできます。
+[GitHub プロジェクト](./get-app-samples.md)は、zip ファイルとしてダウンロードすることも、その他の標準的な方法で操作することもできます。
 
 ソリューションを Visual Studio に読み込むと、次のようなファイルが表示されます。
 
@@ -261,10 +261,10 @@ UWP アプリを作成できたため、(一番先に改善すれば) Microsoft 
 このプロセスにはいくつかの手順が必要になります。
 
 1. Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
-2. アプリの申請[チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
-3. [認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
+2. アプリの申請[チェックリスト](../publish/app-submissions.md)を使用する必要があります。
+3. [認定](../publish/the-app-certification-process.md)を受けるために、アプリを提出する必要があります。
 
-詳しくは、[UWP アプリの公開](https://docs.microsoft.com/windows/uwp/publish/)に関する記事をご覧ください。
+詳しくは、[UWP アプリの公開](../publish/index.md)に関する記事をご覧ください。
 
 ## <a name="suggestions-for-other-features"></a>その他のおすすめ機能
 

@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f2421316be30d24ef44784974fc2c6c199a6570
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 9b06767e5009a4d7654fa7937498319a1bbed671
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081486"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173886"
 ---
 # <a name="text-controls"></a>テキスト コントロール
 
@@ -25,7 +25,7 @@ ms.locfileid: "80081486"
 - 読み取り専用テキストを表示するためのコントロールは、[TextBlock](text-block.md) および [RichTextBlock](rich-text-block.md) です。
 - テキストの入力および編集用のコントロールは次のとおりです:[TextBox](text-box.md)、[RichEditBox](rich-edit-box.md)、[AutoSuggestBox](auto-suggest-box.md)、[PasswordBox](password-box.md)。
 
-> **重要な API**:[TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[RichTextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[RichEditBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[AutoSuggestBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、[PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+> **重要な API**:[TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[RichTextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[RichEditBox クラス](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[AutoSuggestBox クラス](/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、[PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
@@ -35,17 +35,17 @@ ms.locfileid: "80081486"
 
 **TextBlock** を使用して、アプリ内の読み取り専用テキストの大半を表示します。 これを使用すると、単一行または複数行のテキスト、インライン ハイパーリンク、書式 (太字、斜体、下線付きなど) が設定されたテキストを表示できます。
 
-TextBlock は、一般的に、RichTextBlock より使い方が簡単で、テキスト レンダリングのパフォーマンスが優れているため、ほとんどのアプリで UI テキストに適しています。 [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を取得することによって、アプリ内で TextBlock のテキストに容易にアクセスして使用することができます。
+TextBlock は、一般的に、RichTextBlock より使い方が簡単で、テキスト レンダリングのパフォーマンスが優れているため、ほとんどのアプリで UI テキストに適しています。 [Text](/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を取得することによって、アプリ内で TextBlock のテキストに容易にアクセスして使用することができます。
 
 テキストのレンダリング方法をカスタマイズするための書式設定オプションも、同じものが数多く用意されています。 テキスト内に改行を配置することはできますが、TextBlock は単一の段落を表示するために設計されており、テキストのインデントはサポートされていません。
 
 複数の段落、段組テキスト、インライン UI 要素 (画像など) をサポートする必要がある場合は、**RichTextBlock** を使います。 RichTextBlock には、高度なテキスト レイアウトのための機能がいくつか用意されています。
 
-RichTextBlock のコンテンツ プロパティは [Blocks](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.richtextblock.blocks) プロパティです。このプロパティでは、[Paragraph](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素によって段落に基づくテキストがサポートされています。 アプリ内でコントロールのテキスト コンテンツに簡単にアクセスすることができる **Text** プロパティは含まれていません。  
+RichTextBlock のコンテンツ プロパティは [Blocks](/uwp/api/windows.ui.xaml.controls.richtextblock.blocks) プロパティです。このプロパティでは、[Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素によって段落に基づくテキストがサポートされています。 アプリ内でコントロールのテキスト コンテンツに簡単にアクセスすることができる **Text** プロパティは含まれていません。  
 
 ### <a name="text-input"></a>テキスト入力
 
-フォームなどで書式設定されていないテキストをユーザーが入力、編集できるようにするには、**TextBox** コントロールを使用します。 TextBox 内のテキストの取得と設定には、[Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用します。
+フォームなどで書式設定されていないテキストをユーザーが入力、編集できるようにするには、**TextBox** コントロールを使用します。 TextBox 内のテキストの取得と設定には、[Text](/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用します。
 
 TextBox を読み取り専用にすることはできますが、これは一時的な条件付きの状態である必要があります。 テキストを編集可能にしない場合は、代わりに TextBlock を使用することを検討してください。
 
@@ -64,7 +64,7 @@ TextBox を読み取り専用にすることはできますが、これは一時
 -   **有効なすべての値を効率的に列挙することは現実的か。** そうである場合は、いずれかの選択コントロールを使うことを検討します。考えられる選択コントロールは、[チェック ボックス](checkbox.md)、[ドロップダウン リスト](lists.md)、リスト ボックス、[ラジオ ボタン](radio-button.md)、[スライダー](slider.md)、[トグル スイッチ](toggles.md)、[日付の選択コントロール](date-and-time.md)、または時刻の選択コントロールです。
 -   **有効な値は比較的少数か。** 少数の場合は、[ドロップダウン リスト](lists.md)またはリスト ボックス (値の文字数が多い場合) をお勧めします。
 -   **有効なデータに、何も制約がないか。または、形式の制約 (長さや文字の種類による制約) だけがあるか。** これに該当する場合は、テキスト入力コントロールを使います。 入力できる文字数を制限したり、アプリ コードで形式を検証したりすることができます。
--   **値は、専用の共通コントロールがあるデータ型を表しているか。** そうである場合は、テキスト入力コントロールではなく、適切なコントロールを使います。 たとえば、データ入力を受け付けるには、テキスト入力コントロールの代わりに [DatePicker](https://docs.microsoft.com/previous-versions/windows/apps/br211681(v=win.10)) を使います。
+-   **値は、専用の共通コントロールがあるデータ型を表しているか。** そうである場合は、テキスト入力コントロールではなく、適切なコントロールを使います。 たとえば、データ入力を受け付けるには、テキスト入力コントロールの代わりに [DatePicker](/previous-versions/windows/apps/br211681(v=win.10)) を使います。
 -   数値データのみに制限されている場合:
     -   **入力される値は、同じページの別の数量の近似値および相対値、またはそのいずれかか。** そうである場合は、[スライダー](slider.md)を使います。
     -   **設定の変更による効果をすぐに確認できると、ユーザーにとって便利か?** そうである場合は、 [スライダー](slider.md)を使い、必要であれば付随するコントロールも使います。
@@ -135,12 +135,12 @@ Windows 10 バージョン 1803 以降では、XAML テキスト入力ボック�
 
 タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使用できます。 タッチ キーボードは、TextBox または RichEditBox などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの入力値の種類を設定することで、ユーザーがより速く簡単にアプリにデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
 
-たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、[InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
+たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、[InputScope](/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
 
 >重要  
 >入力スコープの設定によって、入力の検証が実行されるわけではありません。また、ユーザーが、ハードウェア キーボードやその他の入力デバイスから入力できなくなることもありません。 必要に応じて、コードで入力を検証する必要があります。
 
-詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](https://docs.microsoft.com/windows/uwp/design/input/use-input-scope-to-change-the-touch-keyboard)」をご覧ください。
+詳しくは、「[入力値の種類を使ったタッチ キーボードの変更](../input/use-input-scope-to-change-the-touch-keyboard.md)」をご覧ください。
 
 ## <a name="color-fonts"></a>カラー フォント
 
@@ -158,7 +158,7 @@ Windows には、フォントに各グリフの複数の色付きレイヤーを
 
 ![カラー フォントを使用したテキスト ブロック](images/text-block-color-fonts.png)
 
-詳しくは、[IsColorFontEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.iscolorfontenabled) プロパティに関するトピックをご覧ください。
+詳しくは、[IsColorFontEnabled](/uwp/api/windows.ui.xaml.controls.textblock.iscolorfontenabled) プロパティに関するトピックをご覧ください。
 
 ## <a name="guidelines-for-line-and-paragraph-separators"></a>行と段落の区切り記号のガイドライン
 
@@ -203,9 +203,9 @@ TextBox コントロールおよび RichEditBox コントロールでは、ス�
 **デザイナー向け**
 - [文字体裁のガイドライン](../style/typography.md)
 - [Segoe MDL2 アイコンの一覧とガイドライン](../style/segoe-ui-symbol-font.md)
-- [検索の追加](https://docs.microsoft.com/previous-versions/windows/apps/hh465231(v=win.10))
+- [検索の追加](/previous-versions/windows/apps/hh465231(v=win.10))
 
 **開発者向け (XAML)**
-- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)
+- [TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+- [String.Length プロパティ](/dotnet/api/system.string.length)

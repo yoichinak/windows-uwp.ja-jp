@@ -6,12 +6,12 @@ ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 2292d97166d34905bb895aa3f53f864510a21f46
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a4fc5cc5b8bc99e830d3c31604e581f8e57c1007
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74254763"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173636"
 ---
 # <a name="windows-device-portal-overview"></a>Windows Device Portal の概要
 
@@ -45,8 +45,8 @@ Xbox | 開発者モードで有効化する | 無効 | 11443 | なし
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
 
-- [HoloLens 用 Device Portal](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-hololens)
-- [IoT 用 Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/DevicePortal)
+- [HoloLens 用 Device Portal](./device-portal-hololens.md)
+- [IoT 用 Device Portal](/windows/iot-core/manage-your-device/DevicePortal)
 - [モバイル用 Device Portal](device-portal-mobile.md)
 - [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
 - [デスクトップ用 Device Portal](device-portal-desktop.md#set-up-device-portal-on-windows-desktop)
@@ -169,7 +169,7 @@ ETW ログの使用について詳しくは、[デバイス ポータルを使�
 
 ### <a name="performance-tracing"></a>パフォーマンス トレース
 
-[パフォーマンスのトレース] ページでは、ホスト デバイスからの [Windows パフォーマンス レコーダー (WPR)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448205(v=win.10)) トレースを表示できます。
+[パフォーマンスのトレース] ページでは、ホスト デバイスからの [Windows パフォーマンス レコーダー (WPR)](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448205(v=win.10)) トレースを表示できます。
 
 ![デバイス ポータルの [パフォーマンスのトレース] ページ](images/device-portal/mob-device-portal-perf-tracing.png)
 
@@ -178,7 +178,7 @@ ETW ログの使用について詳しくは、[デバイス ポータルを使�
 
 トレースを停止するには、 **[Stop]** (停止) をクリックします。 トレース ファイル (.ETL) のダウンロードが完了するまで、このページを閉じないでください。
 
-キャプチャした .ETL ファイルは、[Windows Performance Analyzer](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10)) で開いて分析に使用できます。
+キャプチャした .ETL ファイルは、[Windows Performance Analyzer](/previous-versions/windows/it-pro/windows-8.1-and-8/hh448170(v=win.10)) で開いて分析に使用できます。
 
 ### <a name="device-manager"></a>デバイス マネージャー
 

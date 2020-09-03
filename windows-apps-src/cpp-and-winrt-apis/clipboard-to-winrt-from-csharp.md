@@ -1,22 +1,22 @@
 ---
 title: C# から C++/WinRT への Clipboard サンプルの移植 (ケース スタディ)
-description: このトピックでは、[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/microsoft/Windows-universal-samples)のいずれかを [C#](/visualstudio/get-started/csharp) から [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) へ移植するケース スタディについて説明します。
+description: このトピックでは、[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/microsoft/Windows-universal-samples)のいずれかを [C#](/visualstudio/get-started/csharp) から [C++/WinRT](./intro-to-using-cpp-with-winrt.md) へ移植するケース スタディについて説明します。
 ms.date: 04/13/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#, サンプル, クリップボード, ケース, スタディ
 ms.localizationpriority: medium
-ms.openlocfilehash: 660eac0cb2b0679815d628f60b77bc5ac01d042f
-ms.sourcegitcommit: 8eae7aec4c4ffb8a0c30e9d03744942fb23958d9
+ms.openlocfilehash: 5a7ec46b28a8ddf0b4accadb37b40e786ac8c47a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84334237"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170416"
 ---
 # <a name="porting-the-clipboard-sample-tocwinrtfromcmdasha-case-study"></a>C# から C++/WinRT への Clipboard サンプルの移植 &mdash; ケース スタディ
 
-このトピックでは、[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/microsoft/Windows-universal-samples)のいずれかを [C#](/visualstudio/get-started/csharp) から [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) へ移植するケース スタディについて説明します。 チュートリアルの手順を実行し、サンプルを自分で移植することにより、移植を練習し経験を得ることができます。
+このトピックでは、[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/microsoft/Windows-universal-samples)のいずれかを [C#](/visualstudio/get-started/csharp) から [C++/WinRT](./intro-to-using-cpp-with-winrt.md) へ移植するケース スタディについて説明します。 チュートリアルの手順を実行し、サンプルを自分で移植することにより、移植を練習し経験を得ることができます。
 
-C# から C++/WinRT への移植に関する技術的な詳細の総合的な分類については、関連トピック「[C# から C++/WinRT への移行](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp)」を参照してください。
+C# から C++/WinRT への移植に関する技術的な詳細の総合的な分類については、関連トピック「[C# から C++/WinRT への移行](./move-to-winrt-from-csharp.md)」を参照してください。
 
 ## <a name="a-brief-preface-about-c-and-c-source-code-files"></a>C# と C++ のソース コード ファイルに関する簡単な概要
 
@@ -104,9 +104,9 @@ C# ユニバーサル Windows プラットフォーム (UWP) アプリケーシ�
 
 プロジェクトの XAML ページが Windows ランタイム型である必要があるため、**MainPage** は Windows ランタイム型にする必要があります。 C++/WinRT プロジェクトでは、**MainPage** は既に Windows ランタイム型であるため、その部分を変更する必要はありません。 具体的には、それは "*ランタイム クラス*" です。
 
-- 指定した型に対してランタイム クラスを作成するかどうかについて詳しくは、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」をご覧ください。
-- C++/WinRT では、ランタイム クラスの内部実装と、その投影される (パブリックな) 部分が、2 つの異なるクラスの形式で存在します。 これらは、"*実装型*" および "*投影型*" と呼ばれます。 これらの詳細については、上の箇条書きで説明したトピックのほか、「[C++/WinRT での API の使用](/windows/uwp/cpp-and-winrt-apis/consume-apis)」を参照してください。
-- ランタイム クラスと IDL (`.idl` ファイル) の間の接続に関する情報については、「[XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)」トピックを参照して従ってください。 そのトピックでは、新しいランタイム クラスを作成する手順が示されています。その最初のステップでは、新しい **Midl ファイル (.idl)** 項目をプロジェクトに追加します。
+- 指定した型に対してランタイム クラスを作成するかどうかについて詳しくは、「[C++/WinRT での API の作成](./author-apis.md)」をご覧ください。
+- C++/WinRT では、ランタイム クラスの内部実装と、その投影される (パブリックな) 部分が、2 つの異なるクラスの形式で存在します。 これらは、"*実装型*" および "*投影型*" と呼ばれます。 これらの詳細については、上の箇条書きで説明したトピックのほか、「[C++/WinRT での API の使用](./consume-apis.md)」を参照してください。
+- ランタイム クラスと IDL (`.idl` ファイル) の間の接続に関する情報については、「[XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)」トピックを参照して従ってください。 そのトピックでは、新しいランタイム クラスを作成する手順が示されています。その最初のステップでは、新しい **Midl ファイル (.idl)** 項目をプロジェクトに追加します。
 
 **MainPage** の場合、実際は必要な `MainPage.idl` ファイルが C++/WinRT プロジェクトに既に存在しています。 これは、プロジェクト テンプレートによって作成されたためです。 ただし、このチュートリアルでは、後でさらに `.idl` ファイルをプロジェクトに追加します。
 
@@ -131,7 +131,7 @@ C# ユニバーサル Windows プラットフォーム (UWP) アプリケーシ�
 - メソッド **BuildClipboardFormatsOutputString**、**DisplayToast**、**EnableClipboardContentChangedNotifications** は、メイン ページというよりサンプルの一般的な状態に関係するユーティリティ関数です。 そのため、移植では、これら 3 つのメソッドを **SampleState** という名前の新しいユーティリティ型にリファクタリングします (これは、Windows ランタイム型である必要はありません)。 したがって、これら 3 つのメソッドは IDL には移動されません。
 - **NotifyUser** メソッドは、静的 *Current* フィールドから返される **MainPage** のインスタンス上の個々のシナリオ XAML ページ内から呼び出されます。 (既に説明したように) **Current** は投影型のインスタンスであるため、IDL で **NotifyUser** を宣言する必要があります。 **NotifyUser** は、**NotifyType** 型のパラメーターを受け取ります。 それについては、次のサブセクションで説明します。
 
-データ バインドするメンバーも IDL で宣言する必要があります (`{x:Bind}` または `{Binding}` のどちらを使用しているかに関係なく)。 詳しくは、「[データ バインディング](/windows/uwp/data-binding/)」をご覧ください。
+データ バインドするメンバーも IDL で宣言する必要があります (`{x:Bind}` または `{Binding}` のどちらを使用しているかに関係なく)。 詳しくは、「[データ バインディング](../data-binding/index.md)」をご覧ください。
 
 作業は進んでいます。`MainPage.idl` ファイルに追加するメンバーと追加しないメンバーの一覧を作成しています。 ただし、**Scenarios** プロパティと、**NotifyType** 型についてまだ検討する必要があります。 そこで、次にそれを行います。
 
@@ -207,7 +207,7 @@ Visual Studio の C++/WinRT プロジェクトで、プロジェクトのプロ�
 
 ### <a name="save-the-idl-and-re-generate-stub-files"></a>IDL を保存してスタブ ファイルを再生成する
 
-「[XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)」トピックでは、"*スタブ ファイル*" の概念を紹介し、それらの動作について説明しています。 このトピックでも、C++/WinRT のビルド システムでは `.idl` ファイルの内容を Windows メタデータに変換し、そのメタデータから実装のベースとなるスタブが `cppwinrt.exe` というツールによって生成されることを説明した前のところで、スタブについて説明しました。
+「[XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)」トピックでは、"*スタブ ファイル*" の概念を紹介し、それらの動作について説明しています。 このトピックでも、C++/WinRT のビルド システムでは `.idl` ファイルの内容を Windows メタデータに変換し、そのメタデータから実装のベースとなるスタブが `cppwinrt.exe` というツールによって生成されることを説明した前のところで、スタブについて説明しました。
 
 IDL の内容を追加、削除、または変更し、ビルドを行うたびに、これらのスタブ ファイルのスタブ実装はビルド システムによって更新されます。 そのため、IDL を変更してビルドを行うたびに、これらのスタブ ファイルを確認し、変更されたシグネチャをコピーして、それらをご自分のプロジェクトに貼り付けることをお勧めします。 これを実行する正確な方法の詳細と例については、後で説明します。 ただし、これを実行するメリットは、実装型のあるべき形とそのメソッドの必要なシグネチャをいつでも間違いなく把握できることです。
 
@@ -277,9 +277,9 @@ namespace winrt::SDKTemplate::implementation
 }
 ```
 
-文字列の場合、C# では **System.String** が使用されます。 例については、**MainPage.NotifyUser** メソッドを参照してください。 この IDL では、文字列は **String** で宣言されており、`cppwinrt.exe` ツールによる C++/WinRT のコードの自動生成では、[**winrt::hstring**](/uw/cpp-ref-for-winrt/hstring) 型が使用されます。 C# のコードで文字列が使用されている場合は常に、それを **winrt::hstring** に移植します。 詳しくは、「[C++/WinRT での文字列の処理](/windows/uwp/cpp-and-winrt-apis/strings)」をご覧ください。
+文字列の場合、C# では **System.String** が使用されます。 例については、**MainPage.NotifyUser** メソッドを参照してください。 この IDL では、文字列は **String** で宣言されており、`cppwinrt.exe` ツールによる C++/WinRT のコードの自動生成では、[**winrt::hstring**](/uw/cpp-ref-for-winrt/hstring) 型が使用されます。 C# のコードで文字列が使用されている場合は常に、それを **winrt::hstring** に移植します。 詳しくは、「[C++/WinRT での文字列の処理](./strings.md)」をご覧ください。
 
-メソッドのシグネチャでの `const&` パラメーターについては、「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」をご覧ください。
+メソッドのシグネチャでの `const&` パラメーターについては、「[パラメーターの引き渡し](./concurrency.md#parameter-passing)」をご覧ください。
 
 ### <a name="update-all-remaining-namespace-declarationsreferences-and-build"></a>残りのすべての名前空間の宣言と参照を更新してビルドする
 
@@ -410,7 +410,7 @@ hstring implementation::MainPage::FEATURE_NAME()
 - 実装型のメンバー内で `this` ポインターを使用するときは、当然、`this` ポインターは "*実装型へのポインターです*"。
 - `this` ポインターを対応する投影型に変換するには、それを逆参照します。 (ここで行ったように) IDL から実装型を生成すると、実装型にはそれを投影型に変換する変換演算子があります。 そのため、ここでは割り当てが機能します。
 
-それらについて詳しくは、「[実装型とインターフェイスをインスタンス化して返す](/windows/uwp/cpp-and-winrt-apis/author-apis#instantiating-and-returning-implementation-types-and-interfaces)」をご覧ください。
+それらについて詳しくは、「[実装型とインターフェイスをインスタンス化して返す](./author-apis.md#instantiating-and-returning-implementation-types-and-interfaces)」をご覧ください。
 
 また、コンストラクターでも `SampleTitle().Text(FEATURE_NAME());` です。 `SampleTitle()` の部分は、**SampleTitle** という名前の簡単なアクセサー関数の呼び出しであり、XAML に追加した **TextBlock** が返されます。 XAML 要素 `x:Name` を使用するたびに、XAML コンパイラによってその要素の名前が付けられたアクセサーが自動的に生成されます。 `.Text(...)` の部分では、**SampleTitle** アクセサーから返された **TextBlock** オブジェクトに対して、**Text** ミューテーター関数を呼び出します。 `FEATURE_NAME()` では、静的な **MainPage::FEATURE_NAME** アクセサー関数が呼び出されて、文字列リテラルが返されます。 全体として、そのコード行では、*SampleTitle* という名前の **TextBlock** の **Text** プロパティが設定されます。
 
@@ -456,9 +456,9 @@ public partial class MainPage : Page
 - ランタイム クラス
 - [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)
 
-**IInspectable** のケースでは、要素自体がランタイム クラスでない場合、それらの要素は [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) との間でボックス化およびボックス化解除できる種類である必要があります。 これは、それらが Windows ランタイム型である必要があることを意味します (「[IInspectable へのスカラー値のボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)」を参照)。
+**IInspectable** のケースでは、要素自体がランタイム クラスでない場合、それらの要素は [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) との間でボックス化およびボックス化解除できる種類である必要があります。 これは、それらが Windows ランタイム型である必要があることを意味します (「[IInspectable へのスカラー値のボックス化とボックス化解除](./boxing.md)」を参照)。
 
-このケース スタディでは、**Scenario** をランタイム クラスにしませんでした。 ただし、それでも適切なオプションです。 また、実際の移植作業では、ランタイム クラスを使用する必要がある場合もあります。 たとえば、要素の型を "*監視可能*" にする必要がある場合 (「[XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)」を参照)、または他の理由によって要素がメソッドを持つ必要があり、それが単なるデータ メンバーのセットではない場合などです。
+このケース スタディでは、**Scenario** をランタイム クラスにしませんでした。 ただし、それでも適切なオプションです。 また、実際の移植作業では、ランタイム クラスを使用する必要がある場合もあります。 たとえば、要素の型を "*監視可能*" にする必要がある場合 (「[XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)」を参照)、または他の理由によって要素がメソッドを持つ必要があり、それが単なるデータ メンバーのセットではない場合などです。
 
 このチュートリアルでは、**Scenario** 型に対してランタイム クラスを使用 "*しない*" ため、ボックス化について考える必要があります。 **Scenario** を C++ の通常の `struct` にした場合は、それをボックス化することはできません。 しかし、**Scenario** を IDL で `struct` として宣言したので、それをボックス化 "*できます*"。
 
@@ -504,7 +504,7 @@ IVector<Scenario> implementation::MainPage::scenariosInner = winrt::single_threa
 
 ご覧のように、`SampleConfiguration.cpp` では、[winrt::single_threaded_observable_vector](/uwp/cpp-ref-for-winrt/single-threaded-observable-vector) という名前の C++/WinRT ヘルパー関数を呼び出すことによって、静的データ メンバー *scenariosInner* を初期化します。 その関数では、新しい Windows ランタイム コレクション オブジェクトが自動的に作成されて、[**IObservableVector**](/uwp/api/windows.foundation.collections.iobservablevector_t_) インターフェイスとして返されます。 このサンプルでは、コレクションは "*監視可能*" ではないため (初期化後に要素の追加や削除を行わないので、必要ありません)、代わりに [winrt::single_threaded_vector](/uwp/cpp-ref-for-winrt/single-threaded-vector) を呼び出すことができます。 その関数からは、[**IVector**](/uwp/api/windows.foundation.collections.ivector_t_) インターフェイスとしてコレクションが返されます。
 
-コレクションおよびそれらへのバインドの詳細については、「[XAML アイテム コントロール: C++/WinRT コレクションへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-collection)」および「[C++/WinRT でのコレクション](/windows/uwp/cpp-and-winrt-apis/collections)」を参照してください。
+コレクションおよびそれらへのバインドの詳細については、「[XAML アイテム コントロール: C++/WinRT コレクションへのバインド](./binding-collection.md)」および「[C++/WinRT でのコレクション](./collections.md)」を参照してください。
 
 追加した初期化コードは、まだプロジェクトにない型が参照されています (**winrt::SDKTemplate::CopyText** など)。 それを解決するため、プロジェクトに新しい空の XAML ページを 5 つ追加してみましょう。
 
@@ -538,7 +538,7 @@ private void UpdateStatus(string strMessage, NotifyType type) { ... }{
 ...
 ```
 
-**NotifyUser** では、[**Windows.UI.Core.CoreDispatcherPriority**](/uwp/api/windows.ui.core.coredispatcherpriority) 列挙型が使用されます。 C++/WinRT では、Windows 名前空間の型を使用する場合は常に、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを含める必要があります (詳細については、「[C++/WinRT の使用を開始する](/windows/uwp/cpp-and-winrt-apis/get-started)」を参照)。 この例では、次のコード リストに示すように、ヘッダーは `winrt/Windows.UI.Core.h` であり、それを `pch.h` にインクルードします。
+**NotifyUser** では、[**Windows.UI.Core.CoreDispatcherPriority**](/uwp/api/windows.ui.core.coredispatcherpriority) 列挙型が使用されます。 C++/WinRT では、Windows 名前空間の型を使用する場合は常に、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを含める必要があります (詳細については、「[C++/WinRT の使用を開始する](./get-started.md)」を参照)。 この例では、次のコード リストに示すように、ヘッダーは `winrt/Windows.UI.Core.h` であり、それを `pch.h` にインクルードします。
 
 **UpdateStatus** はプライベートです。 そのため、それを **Mainpage.xaml** 実装型でプライベート メソッドにします。 **UpdateStatus** はランタイム クラスで呼び出されないため、IDL では宣言しません。
 
@@ -591,7 +591,7 @@ C# では、*dot into* の入れ子になったプロパティにドット表記
 |-|-|
 |`Dispatcher.HasThreadAccess`|`Dispatcher().HasThreadAccess()`|
 
-C# バージョンの **NotifyUser** で [**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出すと、非同期コールバック デリゲートがラムダ関数として実装されます。 C++/WinRT バージョンでも同じことが行われますが、構文は少し異なります。 C++/WinRT では、後で使用する 2 つのパラメーターと `this` ポインター (メンバー関数を呼び出すため) を " *キャプチャ*" します。 ラムダとしてのデリゲートの実装に関する詳細とコード例については、「[C++/WinRT でのデリゲートを使用したイベントの処理](/windows/uwp/cpp-and-winrt-apis/handle-events)」を参照してください。 また、この特定のケースでは、`var task =` の部分を無視することもできます。 非同期で返されるオブジェクトを待機しないため、保存する必要はありません。 
+C# バージョンの **NotifyUser** で [**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出すと、非同期コールバック デリゲートがラムダ関数として実装されます。 C++/WinRT バージョンでも同じことが行われますが、構文は少し異なります。 C++/WinRT では、後で使用する 2 つのパラメーターと `this` ポインター (メンバー関数を呼び出すため) を " *キャプチャ*" します。 ラムダとしてのデリゲートの実装に関する詳細とコード例については、「[C++/WinRT でのデリゲートを使用したイベントの処理](./handle-events.md)」を参照してください。 また、この特定のケースでは、`var task =` の部分を無視することもできます。 非同期で返されるオブジェクトを待機しないため、保存する必要はありません。 
 
 ### <a name="implement-the-remaining-mainpage-members"></a>**MainPage** の残りのメンバーを実装する
 
@@ -708,11 +708,11 @@ C++/WinRT で **Clipboard** 型と **DataPackageView** 型を使用するには�
 
 C# では、**DataPackageView.AvailableFormats** プロパティは **IReadOnlyList** であるため、その **Count** プロパティにアクセスできます。 C++/WinRT では、**DataPackageView::AvailableFormats** アクセサー関数から返される **IVectorView** に、呼び出すことができる **Size** アクセサー関数が含まれます。
 
-C# の **System.Text.StringBuilder** 型の使用を移植するには、C++ の標準型 [**std::wostringstream**](/cpp/standard-library/sstream-typedefs#wostringstream) を使用します。 その型は、ワイド文字列の出力ストリームです (それを使用するには、`sstream` ヘッダー ファイルをインクルードする必要があります)。 **StringBuilder** で行うように **Append** メソッドを使用するのではなく、**wostringstream** などの出力ストリームでは[挿入演算子](/cpp/standard-library/using-insertion-operators-and-controlling-format) (`<<`) を使用します。 詳細については、「[iostream プログラミング](/cpp/standard-library/iostream-programming)」および [C++/WinRT の文字列の書式設定](/windows/uwp/cpp-and-winrt-apis/strings#formatting-strings)に関する記事を参照してください。
+C# の **System.Text.StringBuilder** 型の使用を移植するには、C++ の標準型 [**std::wostringstream**](/cpp/standard-library/sstream-typedefs#wostringstream) を使用します。 その型は、ワイド文字列の出力ストリームです (それを使用するには、`sstream` ヘッダー ファイルをインクルードする必要があります)。 **StringBuilder** で行うように **Append** メソッドを使用するのではなく、**wostringstream** などの出力ストリームでは[挿入演算子](/cpp/standard-library/using-insertion-operators-and-controlling-format) (`<<`) を使用します。 詳細については、「[iostream プログラミング](/cpp/standard-library/iostream-programming)」および [C++/WinRT の文字列の書式設定](./strings.md#formatting-strings)に関する記事を参照してください。
 
 C# のコードでは、`new` キーワードを使用して **StringBuilder** を構築します。 C# では、オブジェクトは既定では参照型であり、`new` を使用してヒープで宣言されます。 最新の標準 C++ では、オブジェクトは既定では値型であり、(`new` を使用せずに) スタックで宣言されています。 そのため、`StringBuilder output = new StringBuilder();` は、単純な `std::wostringstream output;` として C++/WinRT に移植します。
 
-C# の `var` キーワードは、コンパイラに型を推定するように要求します。 `var` は、C++/WinRT では `auto` に移植します。 ただし、C++/WinRT では、(コピーを回避するために) 推定 (推測) された型を "*参照*" し、`auto&` で推論された型への lvalue 参照を表します。 また、*lvalue* または *rvalue* で初期化されるかどうかにかかわらず、適切にバインドされる特殊な参照が必要な場合もあります。 それは、`auto&&` で表します。 次に示す移植されたコードの `for` ループで、この形式が使用されています。 *lvalues* と *rvalues* の概要については、「[値のカテゴリと、その参照](/windows/uwp/cpp-and-winrt-apis/cpp-value-categories)」を参照してください。
+C# の `var` キーワードは、コンパイラに型を推定するように要求します。 `var` は、C++/WinRT では `auto` に移植します。 ただし、C++/WinRT では、(コピーを回避するために) 推定 (推測) された型を "*参照*" し、`auto&` で推論された型への lvalue 参照を表します。 また、*lvalue* または *rvalue* で初期化されるかどうかにかかわらず、適切にバインドされる特殊な参照が必要な場合もあります。 それは、`auto&&` で表します。 次に示す移植されたコードの `for` ループで、この形式が使用されています。 *lvalues* と *rvalues* の概要については、「[値のカテゴリと、その参照](./cpp-value-categories.md)」を参照してください。
 
 以下のリストと一致するように、`pch.h`、`SampleConfiguration.h`、`SampleConfiguration.cpp` を編集します。
 
@@ -778,7 +778,7 @@ using namespace Windows::UI::Notifications;
 - ヒープではなく、スタックで C++/WinRT オブジェクトを構築します。
 - プロパティの get アクセサーの呼び出しを、関数呼び出しの構文 (`()`) に置き換えます。
 
-コンパイラやリンカーのエラーのよくある原因は、必要な C++/WinRT Windows 名前空間ヘッダー ファイルのインクルードを忘れることです。 可能性のあるエラーについて詳しくは、「[リンカーで "LNK2019: 外部シンボルは未解決です" というエラーが発生するのはなぜですか?](/windows/uwp/cpp-and-winrt-apis/faq#why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error)」を参照してください。
+コンパイラやリンカーのエラーのよくある原因は、必要な C++/WinRT Windows 名前空間ヘッダー ファイルのインクルードを忘れることです。 可能性のあるエラーについて詳しくは、「[リンカーで "LNK2019: 外部シンボルは未解決です" というエラーが発生するのはなぜですか?](./faq.md#why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error)」を参照してください。
 
 チュートリアルに従って **DisplayToast** を自分で移植したい場合は、自分の結果と、ダウンロードした [Clipboard サンプル](/samples/microsoft/windows-universal-samples/clipboard/) ZIP に含まれる C++/WinRT バージョンのソース コードを比較できます。
 
@@ -817,7 +817,7 @@ private void OnWindowActivated(object sender, WindowActivatedEventArgs e) { ... 
 
 C++/WinRT では、それを **SampleState** のパブリック静的メソッドにします。
 
-C# では、`+=` と `-=` の演算子構文を使用して、イベント処理デリゲートの登録と取り消しを行います。 C++/WinRT では、「[C++/WinRT でのデリゲートを使用したイベントの処理](/windows/uwp/cpp-and-winrt-apis/handle-events)」で説明されているように、デリゲートの登録と取り消しを行うための構文オプションがいくつかあります。 ただし、一般的な形式では、イベントの名前が付いた関数のペアを呼び出すことによって、登録と取り消しを行います。 登録するには、デリゲートを登録関数に渡し、返される取り消しトークンを取得します ([**winrt::event_token**](/uwp/cpp-ref-for-winrt/event-token))。 取り消すには、そのトークンを取り消し関数に渡します。 この場合、ハンドラーは静的であり (次のコード リストを参照)、関数の呼び出し構文は簡単です。
+C# では、`+=` と `-=` の演算子構文を使用して、イベント処理デリゲートの登録と取り消しを行います。 C++/WinRT では、「[C++/WinRT でのデリゲートを使用したイベントの処理](./handle-events.md)」で説明されているように、デリゲートの登録と取り消しを行うための構文オプションがいくつかあります。 ただし、一般的な形式では、イベントの名前が付いた関数のペアを呼び出すことによって、登録と取り消しを行います。 登録するには、デリゲートを登録関数に渡し、返される取り消しトークンを取得します ([**winrt::event_token**](/uwp/cpp-ref-for-winrt/event-token))。 取り消すには、そのトークンを取り消し関数に渡します。 この場合、ハンドラーは静的であり (次のコード リストを参照)、関数の呼び出し構文は簡単です。
 
 同様のトークンは、実際には C# の内側で*使用されています*。 しかし、言語によってその詳細が暗黙になります。 C++/WinRT では、暗黙になります。
 
@@ -1067,7 +1067,7 @@ async void Footer_Click(object sender, RoutedEventArgs e)
 
 技術的には、メソッドは非同期であり、`await` の後は何も行われないため、`await` (または `async` キーワード) は必要ありません。 Visual Studio で IntelliSense メッセージが表示されないようにするために使用されることがよくあります。
 
-C++/WinRT の同等のメソッドも非同期です ([**Launcher.LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) を呼び出すため)。 ただし、`co_await` を行ったり、非同期オブジェクトを返したりする必要はありません。 `co_await` および非同期オブジェクトについては、「[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」を参照してください。
+C++/WinRT の同等のメソッドも非同期です ([**Launcher.LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) を呼び出すため)。 ただし、`co_await` を行ったり、非同期オブジェクトを返したりする必要はありません。 `co_await` および非同期オブジェクトについては、「[C++/WinRT を使用した同時実行操作と非同期操作](./concurrency.md)」を参照してください。
 
 次に、メソッドの動作について説明します。 これは、**HyperlinkButton** の **Click** イベントに対するイベント ハンドラーであるため、*sender* という名前のオブジェクトは実際には **HyperlinkButton** です。 そのため、型変換は安全です (代わりに、この変換を `sender as HyperlinkButton` と表すこともできます)。 次に、**Tag** プロパティの値を取得します (C# プロジェクトの XAML マークアップを確認すると、これが Web URL を表す文字列に設定されていることがわかります)。 **FrameworkElement.Tag** プロパティ (**HyperlinkButton** は **FrameworkElement** です) は **object** 型ですが、C# では [**Object.ToString**](/dotnet/api/system.object.tostring) を使用してこれを文字列化できます。 結果の文字列から、**Uri** オブジェクトを構築します。 そして最後に、(シェルの助けを借りて) ブラウザーを起動し、URL に移動します。
 
@@ -1099,7 +1099,7 @@ void MainPage::Footer_Click(Windows::Foundation::IInspectable const& sender, Win
 }
 ```
 
-いつもと同じように、イベント ハンドラーは `public` にします。 *sender* オブジェクトで [**as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) 関数を使用して、それを **HyperlinkButton** に変換します。 C++/WinRT では、**Tag** プロパティは [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) です ([**Object**](/dotnet/api/system.object) と同等)。 ただし、**IInspectable** には **Tostring** はありません。 代わりに、**IInspectable** をスカラー値 (この場合は文字列) にボックス化解除する必要があります。 ここでも、ボックス化とボックス化解除の詳細については、「[IInspectable へのスカラー値のボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)」を参照してください。
+いつもと同じように、イベント ハンドラーは `public` にします。 *sender* オブジェクトで [**as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) 関数を使用して、それを **HyperlinkButton** に変換します。 C++/WinRT では、**Tag** プロパティは [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) です ([**Object**](/dotnet/api/system.object) と同等)。 ただし、**IInspectable** には **Tostring** はありません。 代わりに、**IInspectable** をスカラー値 (この場合は文字列) にボックス化解除する必要があります。 ここでも、ボックス化とボックス化解除の詳細については、「[IInspectable へのスカラー値のボックス化とボックス化解除](./boxing.md)」を参照してください。
 
 最後の 2 行では前に見た移植パターンが繰り返されており、C# バージョンがほぼ反映されています。
 
@@ -1149,7 +1149,7 @@ C++/WinRT プロジェクトのプロジェクト ノードのすぐ下に、`St
 
 Clipboard サンプルには、UI に対する標準の `MainPage.xaml` 開始ポイントに加えて、他に 5 つのシナリオ固有の XAML ページと、対応する分離コード ファイルがあります。 プロジェクトの C++/WinRT バージョンでは、これらすべてのページの実際の XAML マークアップを、変更しないで再利用します。 ここでは、以下のいくつかの大きなセクションでは、分離コードを移植する方法について説明します。 ただし、その前に、IDL について説明しましょう。
 
-ランタイム クラスを 1 つの IDL ファイルにまとめるとメリットがあります (「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照)。 そこで次に、`CopyFiles.idl`、`CopyImage.idl`、`CopyText.idl`、`HistoryAndRoaming.idl`、`OtherScenarios.idl` の内容を、その IDL を `Project.idl` という名前の 1 つのファイルに移動することによって (そして、元のファイルを削除して) 統合します。
+ランタイム クラスを 1 つの IDL ファイルにまとめるとメリットがあります (「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](./author-apis.md#factoring-runtime-classes-into-midl-files-idl)」を参照)。 そこで次に、`CopyFiles.idl`、`CopyImage.idl`、`CopyText.idl`、`HistoryAndRoaming.idl`、`OtherScenarios.idl` の内容を、その IDL を `Project.idl` という名前の 1 つのファイルに移動することによって (そして、元のファイルを削除して) 統合します。
 
 それを行う間に、それらの 5 つの XAML ページ型から自動生成されたダミー プロパティ (`Int32 MyProperty;` とその実装) も削除してみましょう。
 
@@ -1240,11 +1240,11 @@ C++/WinRT プロジェクトの **CopyFiles** 型には、必要なコードが�
 
 ### <a name="copybutton_click"></a>**CopyButton_Click**
 
-C# の **CopyButton_Click** メソッドはイベント ハンドラーであり、シグネチャの `async` キーワードから、メソッドが非同期で動作することがわかります。 C++/WinRT では、非同期メソッドを "*コルーチン*" として実装します。 C++/WinRT での同時実行の概要と、"*コルーチン*" の説明については、「[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」を参照してください。
+C# の **CopyButton_Click** メソッドはイベント ハンドラーであり、シグネチャの `async` キーワードから、メソッドが非同期で動作することがわかります。 C++/WinRT では、非同期メソッドを "*コルーチン*" として実装します。 C++/WinRT での同時実行の概要と、"*コルーチン*" の説明については、「[C++/WinRT を使用した同時実行操作と非同期操作](./concurrency.md)」を参照してください。
 
-コルーチンが完了した後で他の作業をスケジュールするのが一般的であり、そのような場合は、コルーチンで待機可能な非同期オブジェクト型を返し、必要に応じて進行状況を報告します。 ただし、これらの考慮事項は、通常、イベント ハンドラーには適用されません。 したがって、非同期操作を実行するイベント ハンドラーがある場合は、**winrt::fire_and_forget** を返すコルーチンとして実装できます。 詳細については、「[ファイア アンド フォーゲット](/windows/uwp/cpp-and-winrt-apis/concurrency-2#fire-and-forget)」を参照してください。
+コルーチンが完了した後で他の作業をスケジュールするのが一般的であり、そのような場合は、コルーチンで待機可能な非同期オブジェクト型を返し、必要に応じて進行状況を報告します。 ただし、これらの考慮事項は、通常、イベント ハンドラーには適用されません。 したがって、非同期操作を実行するイベント ハンドラーがある場合は、**winrt::fire_and_forget** を返すコルーチンとして実装できます。 詳細については、「[ファイア アンド フォーゲット](./concurrency-2.md#fire-and-forget)」を参照してください。
 
-ただし、ファイア アンド フォーゲット コルーチンのアイデアは、その完了を気にする必要がなく、処理はバックグラウンドで続行されている (または、中断されて再開を待機している) ということです。 C# の実装からは、**CopyButton_Click** が `this` ポインターに依存していることがわかります (インスタンス データ メンバー `rootPage` にアクセスします)。 したがって、`this` ポインター (**CopyFiles** オブジェクトへのポインター) が **CopyButton_Click** コルーチンより長く存在していることを確認する必要があります。 このサンプル アプリケーションのような、ユーザーが UI ページ間を移動する状況では、それらのページの有効期間を直接制御することはできません。 **CopyButton_Click** がバックグラウンド スレッドでまだ実行している間に、**CopyFiles** ページを (他の場所に移動することによって) 破棄した場合、`rootPage` へのアクセスが安全ではなくなります。 コルーチンを正しくするには、`this` ポインターへの強参照を取得し、コルーチンが継続している間、その参照を保持する必要があります。 詳しくは、「[C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references)」をご覧ください。
+ただし、ファイア アンド フォーゲット コルーチンのアイデアは、その完了を気にする必要がなく、処理はバックグラウンドで続行されている (または、中断されて再開を待機している) ということです。 C# の実装からは、**CopyButton_Click** が `this` ポインターに依存していることがわかります (インスタンス データ メンバー `rootPage` にアクセスします)。 したがって、`this` ポインター (**CopyFiles** オブジェクトへのポインター) が **CopyButton_Click** コルーチンより長く存在していることを確認する必要があります。 このサンプル アプリケーションのような、ユーザーが UI ページ間を移動する状況では、それらのページの有効期間を直接制御することはできません。 **CopyButton_Click** がバックグラウンド スレッドでまだ実行している間に、**CopyFiles** ページを (他の場所に移動することによって) 破棄した場合、`rootPage` へのアクセスが安全ではなくなります。 コルーチンを正しくするには、`this` ポインターへの強参照を取得し、コルーチンが継続している間、その参照を保持する必要があります。 詳しくは、「[C++/WinRT の強参照と弱参照](./weak-references.md)」をご覧ください。
 
 サンプルの C++/WinRT バージョンを見ると、**CopyFiles::CopyButton_Click** において、それがスタックの単純な宣言を使用して実行されていることがわかります。
 
@@ -1264,7 +1264,7 @@ fire_and_forget CopyFiles::CopyButton_Click(IInspectable const&, RoutedEventArgs
 filePicker.FileTypeFilter().ReplaceAll({ L"*" });
 ```
 
-渡している値 (`{ L"*" }`) は、C++ の標準の "*初期化子リスト*" です。 この例ではそれには 1 つのオブジェクトが含まれていますが、初期化子リストには任意の数のコンマ区切りオブジェクトを含めることができます。 このようなメソッドに初期化子リストを渡すことができる C++/WinRT の便利な機能については、「[標準的な初期化子リスト](/windows/uwp/cpp-and-winrt-apis/std-cpp-data-types#standard-initializer-lists)」で説明されています。
+渡している値 (`{ L"*" }`) は、C++ の標準の "*初期化子リスト*" です。 この例ではそれには 1 つのオブジェクトが含まれていますが、初期化子リストには任意の数のコンマ区切りオブジェクトを含めることができます。 このようなメソッドに初期化子リストを渡すことができる C++/WinRT の便利な機能については、「[標準的な初期化子リスト](./std-cpp-data-types.md#standard-initializer-lists)」で説明されています。
 
 C# の `await` キーワードは、C++/WinRT では `co_await` に移植します。 コードの例を次に示します。
 
@@ -1290,7 +1290,7 @@ C# では `null` キーワードを使用する場所で (例: `Clipboard.SetCon
 
 これは、ファイア アンド フォーゲット コルーチンの形式になっているもう 1 つのイベント ハンドラーです。 移植されたコードの注目すべき点を見てみましょう。
 
-サンプルの C# バージョンでは、`catch (Exception ex)` で例外をキャッチしています。 移植された C++/WinRT のコードでは、`catch (winrt::hresult_error const& ex)` という式になっています。 [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) およびその使用方法の詳細については、「[C++/WinRT でのエラー処理](/windows/uwp/cpp-and-winrt-apis/error-handling)」を参照してください。
+サンプルの C# バージョンでは、`catch (Exception ex)` で例外をキャッチしています。 移植された C++/WinRT のコードでは、`catch (winrt::hresult_error const& ex)` という式になっています。 [**winrt::hresult_error**](/uwp/cpp-ref-for-winrt/error-handling/hresult-error) およびその使用方法の詳細については、「[C++/WinRT でのエラー処理](./error-handling.md)」を参照してください。
 
 C# オブジェクトが `null` かどうかをテストする例は、`if (storageItems != null)` です。 C++/WinRT では、`bool` への変換演算子を使用できます。そこでは、内部的に `nullptr` のテストが行われます。
 
@@ -1352,7 +1352,7 @@ if (imageReceived)
 }
 ```
 
-C++/WinRT のオブジェクトでは、主として確定的な終了処理を持たない言語のメリットのために、**IClosable** が実装されています。 C++/WinRT には確定的な終了処理があるため、C++/WinRT を記述するときは、**IClosable::Close** を呼び出す必要がないことがよくあります。 ただし、それを呼び出すことが適切な場合もあり、これはそのような場合の 1 つです。 ここで、*imageStream* 識別子は、基になる Windows ランタイム オブジェクト (この場合は、[**IRandomAccessStreamWithContentType**](/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype) を実装するオブジェクト) に対する参照カウント ラッパーです。 *imageStream* (そのデストラクター) のファイナライザーが外側のスコープの最後 (中かっこ) に実行されることは確認できますが、そのファイナライザーで **Close** が呼び出されることは確実ではありません。 これは、*imageStream* を他の API に渡しても、基になる Windows ランタイム オブジェクトの参照カウントに加算される可能性があるためです。 そのため、このような場合は、**Close** を明示的に呼び出すことをお勧めします。 詳しくは、「[使用するランタイム クラスで IClosable::Close を読み出す必要性](/windows/uwp/cpp-and-winrt-apis/faq#do-i-need-to-call-iclosableclose-on-runtime-classes-that-i-consume)」をご覧ください。
+C++/WinRT のオブジェクトでは、主として確定的な終了処理を持たない言語のメリットのために、**IClosable** が実装されています。 C++/WinRT には確定的な終了処理があるため、C++/WinRT を記述するときは、**IClosable::Close** を呼び出す必要がないことがよくあります。 ただし、それを呼び出すことが適切な場合もあり、これはそのような場合の 1 つです。 ここで、*imageStream* 識別子は、基になる Windows ランタイム オブジェクト (この場合は、[**IRandomAccessStreamWithContentType**](/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype) を実装するオブジェクト) に対する参照カウント ラッパーです。 *imageStream* (そのデストラクター) のファイナライザーが外側のスコープの最後 (中かっこ) に実行されることは確認できますが、そのファイナライザーで **Close** が呼び出されることは確実ではありません。 これは、*imageStream* を他の API に渡しても、基になる Windows ランタイム オブジェクトの参照カウントに加算される可能性があるためです。 そのため、このような場合は、**Close** を明示的に呼び出すことをお勧めします。 詳しくは、「[使用するランタイム クラスで IClosable::Close を読み出す必要性](./faq.md#do-i-need-to-call-iclosableclose-on-runtime-classes-that-i-consume)」をご覧ください。
 
 次に、C# の式 `(uint)(imageDecoder.OrientedPixelWidth * 0.5)` について考えます。これは、**OnDeferredImageRequestedHandler** イベント ハンドラーにあります。 その式では、`uint` と `double` を乗算し、`double` を得ています。 その後、それを `uint` にキャストします。 C++/WinRT では、同様の C スタイルのキャスト (`(uint32_t)(imageDecoder.OrientedPixelWidth() * 0.5)`) を使用することも "*できます*" が、意図するキャストの種類を正確に明示することをお勧めします。この例では `static_cast<uint32_t>(imageDecoder.OrientedPixelWidth() * 0.5)` を使用します。
 
@@ -1370,7 +1370,7 @@ C# バージョンの **CopyImage.OnDeferredImageRequestedHandler** には、`fi
 
 まず、C# のソース コードを見て、**OnNavigatedTo** から **OnHistoryEnabledChanged** イベント ハンドラーを経て最後に非同期関数 **CheckHistoryAndRoaming** (これは待機しないため、基本的にファイア アンド フォーゲットです) に至る、制御の流れを辿ってください。 **CheckHistoryAndRoaming** は非同期であるため、C++/WinRT では `this` ポインターの有効期間について注意する必要があります。 `HistoryAndRoaming.cpp` ソース コード ファイルの実装を見ると、結果を確認できます。 まず、**Clipboard::HistoryEnabledChanged** イベントと **Clipboard::RoamingEnabledChanged** イベントにデリゲートをアタッチするときは、**HistoryAndRoaming** ページ オブジェクトへの弱参照のみを取得します。 それを行うには、`this` ポインターへの依存関係ではなく、[**winrt::get_weak**](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function) から返された値に対する依存関係でデリゲートを作成します。 つまり、最終的に非同期コードを呼び出すデリゲート自体では、**HistoryAndRoaming** ページから余所に移動するときに、ページは保持されません。
 
-2 番目として、最終的にファイア アンド フォーゲットの **CheckHistoryAndRoaming** コルーチンに達したときに、最初に行うことは、少なくともコルーチンが最後に完了するまで **HistoryAndRoaming** ページが確実に存在するように、`this` への強参照を取得することです。 ここで説明した両方の点の詳細については、「[C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references)」を参照してください。
+2 番目として、最終的にファイア アンド フォーゲットの **CheckHistoryAndRoaming** コルーチンに達したときに、最初に行うことは、少なくともコルーチンが最後に完了するまで **HistoryAndRoaming** ページが確実に存在するように、`this` への強参照を取得することです。 ここで説明した両方の点の詳細については、「[C++/WinRT の強参照と弱参照](./weak-references.md)」を参照してください。
 
 **CheckHistoryAndRoaming** の移植には、もう 1 つ興味深い点があります。 それには UI を更新するためのコードが含まれるので、それがメイン UI スレッドで実行されていることを確認する必要があります。 最初にイベント ハンドラーを呼び出すスレッドは、メイン UI スレッドです。 ただし、通常、非同期メソッドは任意のスレッドで実行または再開できます。 C# でそれを解決するには、[**CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) を呼び出し、ラムダ関数内から UI を更新します。 C++/WinRT では、[**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) 関数を `this` ポインターの [**Dispatcher**](/uwp/api/windows.ui.xaml.dependencyobject.dispatcher) と共に使用して、コルーチンを中断し、メイン UI スレッドですぐに再開することができます。
 
@@ -1387,4 +1387,4 @@ C# バージョンの **CopyImage.OnDeferredImageRequestedHandler** には、`fi
 このチュートリアルでは、移植に関する十分な情報と手法を説明したので、今度はご自分の C# アプリケーションを C++/WinRT に移植できるはずです。 復習するには、引き続き Cliboard サンプルの移植前 (C#) と移植後 (C++/WinRT) のバージョンのソース コードを並べて比較し、対応を確認することができます。
 
 ## <a name="related-topics"></a>関連トピック
-* [C# から C++/WinRT への移行](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp)
+* [C# から C++/WinRT への移行](./move-to-winrt-from-csharp.md)
