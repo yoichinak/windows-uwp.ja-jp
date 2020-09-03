@@ -1,16 +1,16 @@
 ---
-Description: パッケージが正しくアップロードされると、特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージをランキング順に示すテーブルが表示されます。
+description: パッケージが正しくアップロードされると、特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージをランキング順に示すテーブルが表示されます。
 title: デバイス ファミリの利用可否
 ms.date: 03/21/2019
 ms.topic: article
 keywords: windows 10, uwp, パッケージ, アップロード, デバイス ファミリの利用可否
 ms.localizationpriority: medium
-ms.openlocfilehash: f0b30b5805ffaf0cd591147bcfed9744b64afdb7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 48cbb0fd9ecf27c9926d55e22abc17d039d3674b
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161976"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89411966"
 ---
 # <a name="device-family-availability"></a>デバイス ファミリの利用可否
 
@@ -55,7 +55,7 @@ Windows 10 IoT Core の UWP アプリを申請する場合、パッケージを�
 
 **[デバイス ファミリの利用可否]** セクションで行った選択は新しい取得のみに適用されることにも注意することが重要です。 ここでデバイス ファミリを削除した場合でも、アプリを既に持っているユーザーは使い続けることができ、提出された更新プログラムを取得します。 これは、Windows 10 にアップグレードする前にアプリを取得したユーザーにも当てはまります。 たとえば、Windows Phone 8.1 パッケージを含む発行されたアプリがあり、windows のユニバーサルデバイスファミリを対象とする Windows 10 (UWP) パッケージを追加した場合、windows 10 **mobile**のチェックボックスをオフにした場合でも、Windows Phone 8.1 パッケージがある windows 10 mobile のお客様には、この windows 10 (uwp) パッケージの更新が提供されます
 
-デバイス ファミリについて詳しくは、[**デバイス ファミリの概要に関する記事**](/uwp/extension-sdks/device-families-overview)をご覧ください。
+デバイスファミリの詳細については、「 [拡張 sdk を使用したプログラミング](/uwp/extension-sdks/device-families-overview)」を参照してください。
 
 
 ## <a name="understanding-ranking"></a>ランク付けの概要

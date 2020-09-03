@@ -1,17 +1,17 @@
 ---
-Description: アプリのパッケージをユーザーが使用できるようになるしくみと、特定のパッケージ シナリオを管理する方法について説明します。
+description: アプリのパッケージをユーザーが使用できるようになるしくみと、特定のパッケージ シナリオを管理する方法について説明します。
 title: アプリ パッケージ管理のガイダンス
 ms.assetid: 55405D0B-5C1E-43C8-91A1-4BFDD336E6AB
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ecd8cc96196c31615eac032183956de3bee9e4b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6035f5f21cd1b704415193c393ae0637d3e5dc37
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171056"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89411976"
 ---
 # <a name="guidance-for-app-package-management"></a>アプリ パッケージ管理のガイダンス
 
@@ -49,15 +49,13 @@ ms.locfileid: "89171056"
 > [!NOTE]
 > アプリの提供は継続しながら、特定の OS バージョンで新しいユーザーへの提供を終了する場合は、新しい申請を作成して、新規の取得を許可しない OS バージョン用のパッケージをすべて削除できます。 たとえば、以前に Windows Phone 8.1 と Windows 10 用のパッケージを提供していて、Windows Phone 8.1 の新しいユーザーへのアプリの提供を終了する場合は、申請から Windows Phone 8.1 用のパッケージを削除します。 更新プログラムの公開後、Windows Phone 8.1 では新しいユーザーがアプリを入手できなくなります (ただし、既に取得しているユーザーは使い続けることができます)。 ただし、Windows 10 では、引き続き新しいユーザーにアプリが提供されます。
 
-
 ## <a name="removing-packages-for-a-previously-supported-device-family"></a>これまでサポートされていたデバイス ファミリ用のパッケージを削除する
 
-アプリで以前にサポートされていた特定の [デバイスファミリ](/uwp/extension-sdks/device-families-overview) のすべてのパッケージを削除すると、[ **パッケージ** ] ページに変更を保存する前に、これが目的であることを確認するメッセージが表示されます。
+アプリで以前にサポートされていた特定のデバイスファミリ ( [拡張 sdk を使用](/uwp/extension-sdks/device-families-overview)したプログラミングに関するページを参照) のすべてのパッケージを削除した場合は、[ **パッケージ** ] ページで変更を保存する前に、これが目的であることを確認するメッセージが表示されます。
 
 アプリが以前にサポートしていたデバイスファミリで実行可能なすべてのパッケージを削除する送信を発行すると、新しい顧客はそのデバイスファミリでアプリを取得できなくなります。 そのデバイス ファミリ向けのパッケージを提供するための別の更新プログラムは、後でいつでも公開することができます。
 
 特定のデバイス ファミリをサポートするパッケージをすべて削除した場合でも、該当する種類のデバイスにアプリを既にインストールしているユーザーは、そのアプリを使うことができますが、後で提供される更新プログラムを入手することになります。
-
 
 <a name="adding-packages-for-windows-10-to-a-previously-published-app"></a>
 

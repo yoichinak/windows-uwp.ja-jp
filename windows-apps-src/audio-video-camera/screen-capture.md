@@ -9,12 +9,12 @@ dev_langs:
 - vb
 keywords: Windows 10, UWP, 画面キャプチャ
 ms.localizationpriority: medium
-ms.openlocfilehash: b57be844e5ee10d384046aac651ab4f198f37d9e
-ms.sourcegitcommit: 14c0b1ea2447a81ddf31982b40e19a74ecc6d59e
+ms.openlocfilehash: 96b8c52d8c1c6b6947b7b151df0b1b8bbfe42869
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310073"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89411926"
 ---
 # <a name="screen-capture"></a>画面の取り込み
 
@@ -688,9 +688,9 @@ End Class
 
 ## <a name="record-a-video"></a>ビデオを録画します
 
-アプリケーションのビデオを記録する場合は、記事「 [ビデオへのキャプチャ](screen-capture-video.md)」に記載されているチュートリアルに従ってください。 または、Windows の " [名前空間](/uwp/api/windows.media.apprecording)" を使用することもできます。 これはデスクトップ拡張 SDK の一部であるため、デスクトップ上でのみ機能し、プロジェクトから参照を追加する必要があります。 詳細については、「 [デバイスファミリの概要](/uwp/extension-sdks/device-families-overview) 」を参照してください。
+アプリケーションのビデオを記録する場合は、記事「 [ビデオへのキャプチャ](screen-capture-video.md)」に記載されているチュートリアルに従ってください。 または、Windows の " [名前空間](/uwp/api/windows.media.apprecording)" を使用することもできます。 これはデスクトップ拡張 SDK の一部であるため、デスクトップ上でのみ機能し、プロジェクトから参照を追加する必要があります。 詳細については、「 [拡張機能 sdk を使用したプログラミング](/uwp/extension-sdks/device-families-overview) 」を参照してください。
 
-## <a name="see-also"></a>こちらもご覧ください
+## <a name="see-also"></a>関連項目
 
 * [Windows.Graphics.Capture 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.capture)
 * [ビデオへの画面の取り込み](screen-capture-video.md)

@@ -1,17 +1,17 @@
 ---
-Description: このトピックでは、修飾子の一般概念、使用方法、各修飾子名の目的について説明します。
+description: このトピックでは、修飾子の一般概念、使用方法、各修飾子名の目的について説明します。
 title: 言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する
 template: detail.hbs
 ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 3678d525fa00df07408b9d85af34a3dd825b4fcf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 59f0b636384ba133e985f0704e2033c1acc5f15e
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161336"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89412016"
 ---
 # <a name="tailor-your-resources-for-language-scale-high-contrast-and-other-qualifiers"></a>言語、スケール、ハイ コントラスト、その他の修飾子用にリソースを調整する
 
@@ -128,7 +128,7 @@ ms.locfileid: "89161336"
 
 `contrast` 修飾子は、ハイ コントラスト設定と最も一致するリソースを提供するために使用します。
 
-## <a name="custom"></a>カスタム
+## <a name="custom"></a>Custom
 
 アプリで `custom` 修飾子の値を設定すると、その値に最も一致するリソースが読み込まれます。 たとえば、アプリのライセンスに基づいてリソースを読み込む必要があるとします。 アプリは、起動するとライセンスを確認し、[SetGlobalQualifierValue](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.setglobalqualifiervalue) を呼び出すことによって、ライセンスを `custom` 修飾子の値として使用します。コード例をご覧ください。
 
@@ -286,7 +286,7 @@ Windows では、ディスプレイの DPI (1 インチあたりのドット数)
 * [リソース管理システム](resource-management-system.md)
 * [ローカライズの準備をする方法](/previous-versions/windows/apps/hh967762(v=win.10))
 * [アプリが実行されているプラットフォームの検出](../porting/wpsl-to-uwp-input-and-sensors.md#detecting-the-platform-your-app-is-running-on)
-* [デバイス ファミリの概要](/uwp/extension-sdks/device-families-overview)
+* [拡張機能 Sdk を使用したプログラミング](/uwp/extension-sdks/device-families-overview)
 * [UI 文字列のローカライズ](localize-strings-ui-manifest.md)
 * [BCP-47](https://tools.ietf.org/html/bcp47)
 * [国連統計部 M49 地域番号構成](https://unstats.un.org/unsd/methods/m49/m49regin.htm)

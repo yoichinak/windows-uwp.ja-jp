@@ -6,20 +6,20 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: a7b82570-1f99-4bc3-ac78-412f6360e936
 ms.localizationpriority: medium
-ms.openlocfilehash: 52421d17de5f26fe29060c39d33b51cc85fa197a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 7867b26849019c517c0e3d2e3ad9aa0cf86158fc
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174556"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89411996"
 ---
 # <a name="known-issues-with-uwp-on-xbox-developer-program"></a>Xbox 開発者プログラムの UWP の既知の問題
 
 このトピックでは、Xbox One 開発者プログラムの UWP の既知の問題について説明します。 このプログラムについて詳しくは、「[Xbox One の UWP](index.md)」をご覧ください。 
 
-\[API リファレンストピックのリンクから、ユニバーサルデバイスファミリ API 情報を探している場合は、「 [Xbox でまだサポートされていない UWP 機能](/uwp/extension-sdks/uwp-limitations-on-xbox)」を参照してください。\]
+\[API リファレンストピックのリンクから、ユニバーサルデバイスファミリ API 情報を探している場合は、「 [Xbox でサポートされていない UWP 機能](/uwp/extension-sdks/uwp-limitations-on-xbox)」を参照してください。\]
 
-以下では、発生する可能性のある既知の問題を示していますが、すべての問題は網羅されていません。 
+以下では、発生する可能性のある既知の問題を示していますが、すべての問題は網羅されていません。
 
 **お客様からのフィードバックは重要ですので**、問題が見つかりましたら[ユニバーサル Windows プラットフォーム アプリの開発](https://social.msdn.microsoft.com/forums/windowsapps/home?forum=wpdevelop)フォーラムでご報告ください。 
 
@@ -60,8 +60,7 @@ Xbox One デバイスでは、範囲 [57344, 65535] に含まれるポートへ�
 
 ## <a name="windows-runtime-api-coverage"></a>Windows ランタイム API カバレッジ
 
-すべての Windows ランタイム Api が Xbox でサポートされているわけではありません。 動作しないことが確認されている API の一覧については、「[Xbox でまだサポートされていない UWP 機能](/uwp/extension-sdks/uwp-limitations-on-xbox)」をご覧ください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。 
-
+すべての Windows ランタイム Api が Xbox でサポートされているわけではありません。 機能しないことがわかっている Api の一覧については、「 [Xbox でサポートされていない UWP 機能](/uwp/extension-sdks/uwp-limitations-on-xbox)」を参照してください。 他の API に問題が見つかった場合は、フォーラムでご報告ください。
 
 ## <a name="navigating-to-wdp-causes-a-certificate-warning"></a>WDP に移動すると証明書の警告が表示される
 
