@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Mac から Windows、ショートカット キーのマッピング、Unix から Windows への移行、Mac から Windows への移行、MacBook から Surface への移行のサポート、Macintosh ユーザーの Windows の使用方法、Macintosh から Windows への切り替え、開発環境の変更のサポート、Mac OS X から Windows へ、Mac から PC への移行のサポート
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: fa137ab51f0bb53e2907fa319d79ed77eb7ed655
-ms.sourcegitcommit: 1e06168ada5ce6013b1d07c428548f084464a286
+ms.openlocfilehash: 1d94944037caf7cd909ea4799867f83bd4a6f887
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87363711"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157586"
 ---
 # <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>開発環境を Mac から Windows に変更するためのガイド
 
@@ -74,14 +74,14 @@ Windows はいくつかのコマンドライン シェルとターミナルを�
 
 Windows には、2 つの主なコマンドライン シェルがあります。
 
-1. **[PowerShell](https://docs.microsoft.com/powershell/scripting/overview?view=powershell-7)** - PowerShell は、クロスプラットフォームのタスク自動化および構成管理フレームワークであり、.NET で構築されたコマンドライン シェルとスクリプト言語で構成されています。 PowerShell を使用することにより、管理者、開発者、パワー ユーザーは、複雑なプロセスを管理するタスクや、それが実行されている環境やオペレーティング システムのさまざまな側面を、迅速に制御および自動化することができます。 PowerShell は[完全にオープンソース](https://github.com/powershell/powershell)であり、またクロスプラットフォームであるため、[Mac と Linux でも利用できます](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7)。
+1. **[PowerShell](/powershell/scripting/overview?view=powershell-7)** - PowerShell は、クロスプラットフォームのタスク自動化および構成管理フレームワークであり、.NET で構築されたコマンドライン シェルとスクリプト言語で構成されています。 PowerShell を使用することにより、管理者、開発者、パワー ユーザーは、複雑なプロセスを管理するタスクや、それが実行されている環境やオペレーティング システムのさまざまな側面を、迅速に制御および自動化することができます。 PowerShell は[完全にオープンソース](https://github.com/powershell/powershell)であり、またクロスプラットフォームであるため、[Mac と Linux でも利用できます](/powershell/scripting/install/installing-powershell?view=powershell-7)。
 
     **Mac および Linux の BASH シェル ユーザー**:PowerShell は、使い慣れた多くのコマンド エイリアスもサポートしています。 たとえば、次のように入力します。
     - 現在のディレクトリの内容を一覧表示する: `ls`
     - ファイルを移動する： `mv`
     - 新しいディレクトリに移動する: `cd <path>`
 
-    コマンドと引数のいくらかの相違点が、PowerShell とBASH の間に存在します。 詳細については、PowerShell で [`get-help`](https://docs.microsoft.com/powershell/scripting/learn/ps101/02-help-system?view=powershell-7) と入力するか、ドキュメントの中に含まれている、[互換性のあるエイリアス](https://docs.microsoft.com/powershell/scripting/samples/appendix-1---compatibility-aliases?view=powershell-7)についての記事を参照してください。
+    コマンドと引数のいくらかの相違点が、PowerShell とBASH の間に存在します。 詳細については、PowerShell で [`get-help`](/powershell/scripting/learn/ps101/02-help-system?view=powershell-7) と入力するか、ドキュメントの中に含まれている、[互換性のあるエイリアス](/powershell/scripting/samples/appendix-1---compatibility-aliases?view=powershell-7)についての記事を参照してください。
 
     管理者として PowerShell を実行するには、Windows スタート メニューで "PowerShell" と入力し、[管理者として実行] を選択します。
 
@@ -89,7 +89,7 @@ Windows には、2 つの主なコマンドライン シェルがあります。
 
 ### <a name="linux-shells"></a>Linux のシェル
 
-Linux 用 Windows サブシステム (WSL) をインストールして、Windows 内で Linux シェルを実行できるようになりました。 このことは、選択した特定の Linux ディストリビューションを使用して、Windows 内で統合された **bash** を実行できることを意味しています。 WSL を使用すると、Mac ユーザーに最もなじみがある種類の環境を提供できます。 たとえば、現在のディレクトリ内のファイルを一覧表示するには、従来の Windows Cmd シェルで使用する **dir** ではなく、**ls** を実行できます。 WSL のインストールと使用の詳細については、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](https://docs.microsoft.com/windows/wsl/install-win10)」を参照してください。 WSL で Windows にインストールできる Linux ディストリビューションには、次のものがあります。
+Linux 用 Windows サブシステム (WSL) をインストールして、Windows 内で Linux シェルを実行できるようになりました。 このことは、選択した特定の Linux ディストリビューションを使用して、Windows 内で統合された **bash** を実行できることを意味しています。 WSL を使用すると、Mac ユーザーに最もなじみがある種類の環境を提供できます。 たとえば、現在のディレクトリ内のファイルを一覧表示するには、従来の Windows Cmd シェルで使用する **dir** ではなく、**ls** を実行できます。 WSL のインストールと使用の詳細については、「[Windows 10 用 Windows Subsystem for Linux のインストール ガイド](/windows/wsl/install-win10)」を参照してください。 WSL で Windows にインストールできる Linux ディストリビューションには、次のものがあります。
 
 1. [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9n6svws3rx71)
 2. [Kali Linux](https://www.microsoft.com/store/apps/9PKR34TNCV07)
@@ -97,17 +97,17 @@ Linux 用 Windows サブシステム (WSL) をインストールして、Windows
 4. [openSUSE Leap 15.1](https://www.microsoft.com/store/apps/9NJFZK00FGKV)
 5. [SUSE Linux Enterprise Server 15 SP1](https://www.microsoft.com/store/apps/9PN498VPMF3Z)
 
-これは一部にすぎません。 詳細については [WSL のインストール ドキュメント](https://docs.microsoft.com/windows/wsl/install-win10#install-your-linux-distribution-of-choice)を参照して、[Microsoft Store](https://www.microsoft.com/search/shop/apps?q=linux&category=Developer+tools) から直接インストールしてください。
+これは一部にすぎません。 詳細については [WSL のインストール ドキュメント](/windows/wsl/install-win10#install-your-linux-distribution-of-choice)を参照して、[Microsoft Store](https://www.microsoft.com/search/shop/apps?q=linux&category=Developer+tools) から直接インストールしてください。
 
 ## <a name="windows-terminals"></a>Windows のターミナル
 
 多くのサード パーティ製品に加えて、Microsoft から 2 つの "ターミナル" が提供されています。コマンドラインのシェルとアプリケーションへのアクセスを提供する GUI アプリケーションです。
 
-1. **[Windows ターミナル](https://docs.microsoft.com/windows/terminal/)** :Windows ターミナルは高度な構成が可能な最新のコマンドライン ターミナル アプリケーションであり、高パフォーマンス、低遅延のコマンドライン ユーザー エクスペリエンス、複数のタブ、分割されたウィンドウ ペイン、カスタムのテーマとスタイル、異なるシェルまたはコマンドライン アプリ用の複数の "プロファイル"、さらにコマンドライン ユーザー エクスペリエンスのさまざまな側面を構成してカスタマイズするための非常に多くの機能を特徴としています。
+1. **[Windows ターミナル](/windows/terminal/)** :Windows ターミナルは高度な構成が可能な最新のコマンドライン ターミナル アプリケーションであり、高パフォーマンス、低遅延のコマンドライン ユーザー エクスペリエンス、複数のタブ、分割されたウィンドウ ペイン、カスタムのテーマとスタイル、異なるシェルまたはコマンドライン アプリ用の複数の "プロファイル"、さらにコマンドライン ユーザー エクスペリエンスのさまざまな側面を構成してカスタマイズするための非常に多くの機能を特徴としています。
 
     Windows ターミナルを使用して、PowerShell、WSL シェル (Ubuntu や Debian)、従来の Windows コマンド プロンプト、その他のコマンドライン アプリ (SSH、Azure CLI、Git Bash など) に接続されたタブを開くことができます。
 
-2. **[コンソール](https://docs.microsoft.com/windows/console/)** :Mac や Linux では、ユーザーは通常、まず好みのターミナル アプリケーションを開き、そこでユーザーの既定のシェル (BASH など) を作成して接続します。
+2. **[コンソール](/windows/console/)** :Mac や Linux では、ユーザーは通常、まず好みのターミナル アプリケーションを開き、そこでユーザーの既定のシェル (BASH など) を作成して接続します。
 
     しかし、歴史の気まぐれのせいで、Windows ユーザーは伝統的に、シェルを開始して、その後 Windows から自動的に GUI コンソール アプリを開始して接続していました。
 

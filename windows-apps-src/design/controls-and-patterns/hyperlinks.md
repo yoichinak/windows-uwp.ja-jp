@@ -12,18 +12,18 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: fa4ff0cbc2bd361b241f660f9c6b28f03bc7c24c
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 471e17199d6a1858625ce418ea756d79cf8600f9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80080893"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160136"
 ---
 # <a name="hyperlinks"></a>ハイパーリンク
 
 ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。 XAML アプリにハイパーリンクを追加するには 2 つの方法、**ハイパーリンク** テキスト要素と **HyperlinkButton** コントロールがあります。
 
-> **プラットフォーム API**: [ハイパーリンク テキスト要素](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、[HyperlinkButton コントロール](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
+> **プラットフォーム API**: [ハイパーリンク テキスト要素](/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、[HyperlinkButton コントロール](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
 
 ![ハイパーリンク ボタン](images/controls/hyperlink-button.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "80080893"
 
 -   テキスト コントロール内でインライン **ハイパーリンク** テキスト要素を使用します。 ハイパーリンク要素は他のテキスト要素とともに表示され、すべて InlineCollection で使うことができます。 自動テキスト折り返しを必要とするが、大きいサイズのヒット ターゲットを必要としない場合は、テキスト ハイパーリンクを使います。 ハイパーリンク テキストのサイズは小さく、ターゲットとして使うのが難しくなることがあります (特にタッチ操作の場合)。
 -   スタンドアロンのハイパーリンクには **HyperlinkButton** を使用します。 HyperlinkButton は、ボタンを使用する任意の場所で使用できる特殊なボタン コントロールです。
--   クリック可能なイメージを作成するには[イメージ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image) と一緒にそのコンテンツとして **HyperlinkButton** を使用します。
+-   クリック可能なイメージを作成するには[イメージ](/uwp/api/windows.ui.xaml.controls.image) と一緒にそのコンテンツとして **HyperlinkButton** を使用します。
 
 ## <a name="examples"></a>例
 
@@ -56,7 +56,7 @@ ms.locfileid: "80080893"
 
 ## <a name="create-a-hyperlink-text-element"></a>ハイパーリンク テキスト要素を作成する
 
-この例では、[TextBlock](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock) 内のハイパーリンク テキスト要素の使用方法を示します。
+この例では、[TextBlock](/uwp/api/windows.ui.xaml.controls.textblock) 内のハイパーリンク テキスト要素の使用方法を示します。
 
 ```xml
 <StackPanel Width="200">
@@ -71,7 +71,7 @@ ms.locfileid: "80080893"
 
 ![テキスト要素としてのハイパーリンクの例](images/controls_hyperlink-element.png) 
 
-> **ヒント**&nbsp;&nbsp;テキスト コントロールでハイパーリンクを XAML のその他のテキスト要素と一緒に使用する場合、[スパン](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ハイパーリンクとその他の要素間に空白を保持します。
+> **ヒント**&nbsp;&nbsp;テキスト コントロールでハイパーリンクを XAML のその他のテキスト要素と一緒に使用する場合、[スパン](/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ハイパーリンクとその他の要素間に空白を保持します。
 
 ## <a name="create-a-hyperlinkbutton"></a>HyperlinkButton を作成する
 
@@ -112,9 +112,9 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 ハイパーリンクを使用して URI に移動するには、NavigateUri プロパティを設定します。 ユーザーがハイパーリンクをクリックしてまたはタップすると、指定された URI が既定のブラウザーで開きます。 既定のブラウザーは、アプリと別のプロセスで実行されます。
 
 > [!NOTE]
-> URI は [Windows.Foundation.Uri](/uwp/api/windows.foundation.uri) クラスで表されます。 .NET を使用したプログラミングでは、このクラスは表示されないため、[System.Uri](https://docs.microsoft.com/dotnet/api/system.uri)クラスを使用する必要があります。 詳しくは、これらのクラスのリファレンス ページをご覧ください。
+> URI は [Windows.Foundation.Uri](/uwp/api/windows.foundation.uri) クラスで表されます。 .NET を使用したプログラミングでは、このクラスは表示されないため、[System.Uri](/dotnet/api/system.uri)クラスを使用する必要があります。 詳しくは、これらのクラスのリファレンス ページをご覧ください。
 
-**http:** または **https:** スキームを使用する必要はありません。 ブラウザーに読み込むのに適したリソース コンテンツがこれらの場所にある場合は、**ms-appx:** 、**ms-appdata:** 、または **ms-resources:** などのスキームを使うことができます。 ただし、**file:** スキームは明確に禁止されます。 詳しくは、「[URI スキーム](https://docs.microsoft.com/previous-versions/windows/apps/jj655406(v=win.10))」 をご覧ください。
+**http:** または **https:** スキームを使用する必要はありません。 ブラウザーに読み込むのに適したリソース コンテンツがこれらの場所にある場合は、**ms-appx:** 、**ms-appdata:** 、または **ms-resources:** などのスキームを使うことができます。 ただし、**file:** スキームは明確に禁止されます。 詳しくは、「[URI スキーム](/previous-versions/windows/apps/jj655406(v=win.10))」 をご覧ください。
 
 ユーザーがハイパーリンクをクリックすると、URI の種類とスキームのシステムのハンドラーに NavigateUri プロパティの値が渡されます。 システムは、NavigateUri の指定された URI のスキームに対して登録されているアプリを起動します。
 
@@ -123,7 +123,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 **Click イベントの処理**
 
-アプリ内のナビゲーションなど、ブラウザーの URI の起動以外の操作に Click イベントを使用します。 たとえば、ブラウザーを開くのではなく、新しいアプリのページを読み込む場合は、クリック イベント ハンドラー内で [Frame.Navigate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.frame.navigate) メソッドを呼び出して新しいアプリのページに移動します。 同様にアプリ内にある [WebView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview) コントロール内で外部の絶対 URI を読み込む場合は、[WebView.Navigate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.webview.navigate) を Click ハンドラーのロジックの一部として呼び出します。
+アプリ内のナビゲーションなど、ブラウザーの URI の起動以外の操作に Click イベントを使用します。 たとえば、ブラウザーを開くのではなく、新しいアプリのページを読み込む場合は、クリック イベント ハンドラー内で [Frame.Navigate](/uwp/api/windows.ui.xaml.controls.frame.navigate) メソッドを呼び出して新しいアプリのページに移動します。 同様にアプリ内にある [WebView](/uwp/api/windows.ui.xaml.controls.webview) コントロール内で外部の絶対 URI を読み込む場合は、[WebView.Navigate](/uwp/api/windows.ui.xaml.controls.webview.navigate) を Click ハンドラーのロジックの一部として呼び出します。
 
 通常は、これらはハイパーリンク要素を使用する別の 2 つの方法に相当するので、Click イベントの処理は行わず、NavigateUri 値も指定しません。 既定のブラウザーで URI を開き、NavigateUri の値を指定した場合は、クリック イベントは処理しません。 逆に、クリック イベントを処理する場合は、NavigateUri を指定しないでください。
 
@@ -134,15 +134,15 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 **ハイパーリンク テキスト要素**
 
-[UnderlineStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.hyperlink.underlinestyle) プロパティを設定すると下線の表示を無効にすることができます。 これを行う場合は、リンクを表すテキストを区別するために [FontWeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.textelement.fontweight) または [FontStyle](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.textelement.fontstyle) を使うことを検討します。
+[UnderlineStyle](/uwp/api/windows.ui.xaml.documents.hyperlink.underlinestyle) プロパティを設定すると下線の表示を無効にすることができます。 これを行う場合は、リンクを表すテキストを区別するために [FontWeight](/uwp/api/windows.ui.xaml.documents.textelement.fontweight) または [FontStyle](/uwp/api/windows.ui.xaml.documents.textelement.fontstyle) を使うことを検討します。
 
 **HyperlinkButton** 
 
-既定では、HyperlinkButton は、[Content](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentcontrol.content) プロパティの値として文字列を設定すると、下線付きテキストとして表示されます。
+既定では、HyperlinkButton は、[Content](/uwp/api/windows.ui.xaml.controls.contentcontrol.content) プロパティの値として文字列を設定すると、下線付きテキストとして表示されます。
 
 次の場合、テキストは下線付きで表示されません。
-- コンテンツのプロパティの値として [TextBlock](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock) を設定し、TextBlock の [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティを設定した場合。
-- HyperlinkButton を再テンプレートして [ContentPresenter](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.contentpresenter) テンプレート パーツの名前を変更した場合。
+- コンテンツのプロパティの値として [TextBlock](/uwp/api/windows.ui.xaml.controls.textblock) を設定し、TextBlock の [Text](/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティを設定した場合。
+- HyperlinkButton を再テンプレートして [ContentPresenter](/uwp/api/windows.ui.xaml.controls.contentpresenter) テンプレート パーツの名前を変更した場合。
 
 下線の無いテキストとして表示されるボタンが必要な場合は、標準のボタン コントロールを使い、そのスタイルのプロパティに組み込みの `TextBlockButtonStyle` システム リソースを適用することを検討してください。
 
@@ -152,17 +152,17 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 **入力イベント**
 
-ハイパーリンクは [UIElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement) ではないため、Tapped、PointerPressed などの UI 要素の入力イベントのセットはありません。 代わりに、ハイパーリンクには、独自の Click イベントに加えて、NavigateUri として指定されている任意の URI を読み込むシステムの暗黙的な動作があります。 システムは、ハイパーリンクのアクションを呼び出し、応答で Click イベントを発生させる必要があるすべての入力動作を処理します。
+ハイパーリンクは [UIElement](/uwp/api/windows.ui.xaml.uielement) ではないため、Tapped、PointerPressed などの UI 要素の入力イベントのセットはありません。 代わりに、ハイパーリンクには、独自の Click イベントに加えて、NavigateUri として指定されている任意の URI を読み込むシステムの暗黙的な動作があります。 システムは、ハイパーリンクのアクションを呼び出し、応答で Click イベントを発生させる必要があるすべての入力動作を処理します。
 
 **コンテンツ**
 
-ハイパーリンクには、その [Inlines](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.span.inlines) コレクション内にあるコンテンツの制限があります。 具体的には、ハイパーリンクは、[実行](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.run)および別のハイパーリンクではないその他の[スパン](/uwp/api/windows.ui.xaml.documents.span) タイプのみ許可します。 [InlineUIContainer](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.inlineuicontainer) は、ハイパーリンクの Inlines コレクション内にはありません。 制限されたコンテンツを追加しようとすると、無効な引数の例外、または XAML 解析例外がスローされます。
+ハイパーリンクには、その [Inlines](/uwp/api/windows.ui.xaml.documents.span.inlines) コレクション内にあるコンテンツの制限があります。 具体的には、ハイパーリンクは、[実行](/uwp/api/windows.ui.xaml.documents.run)および別のハイパーリンクではないその他の[スパン](/uwp/api/windows.ui.xaml.documents.span) タイプのみ許可します。 [InlineUIContainer](/uwp/api/windows.ui.xaml.documents.inlineuicontainer) は、ハイパーリンクの Inlines コレクション内にはありません。 制限されたコンテンツを追加しようとすると、無効な引数の例外、または XAML 解析例外がスローされます。
 
 **ハイパーリンクとテーマまたはスタイルの動作**
 
-ハイパーリンクは [コントロール](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control) から継承しないため、[Style](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.style) プロパティまたは [Template](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.template) がありません。 Foreground または FontFamily など、[TextElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.textelement) から継承されたプロパティを編集してハイパーリンクの外観を変更できますが、一般的なスタイルまたはテンプレートを使用して変更を適用することはできません。 テンプレートを使う代わりに、一貫性を保つためにハイパーリンクのプロパティの値の一般的なリソースの使用を検討してください。 一部のプロパティのハイパーリンクは、システムによって提供される {themeresource} マークアップ拡張機能の値から既定の設定を使用します。 これにより、ハイパーリンクの外観は、実行時にシステム テーマが変更されると、適切な方法で切り替わります。
+ハイパーリンクは [コントロール](/uwp/api/windows.ui.xaml.controls.control) から継承しないため、[Style](/uwp/api/windows.ui.xaml.frameworkelement.style) プロパティまたは [Template](/uwp/api/windows.ui.xaml.controls.control.template) がありません。 Foreground または FontFamily など、[TextElement](/uwp/api/windows.ui.xaml.documents.textelement) から継承されたプロパティを編集してハイパーリンクの外観を変更できますが、一般的なスタイルまたはテンプレートを使用して変更を適用することはできません。 テンプレートを使う代わりに、一貫性を保つためにハイパーリンクのプロパティの値の一般的なリソースの使用を検討してください。 一部のプロパティのハイパーリンクは、システムによって提供される {themeresource} マークアップ拡張機能の値から既定の設定を使用します。 これにより、ハイパーリンクの外観は、実行時にシステム テーマが変更されると、適切な方法で切り替わります。
 
-ハイパーリンクの既定の色は、システムのアクセント カラーです。 [Foreground](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.textelement.foreground)  プロパティを設定するとこれを上書きできます。
+ハイパーリンクの既定の色は、システムのアクセント カラーです。 [Foreground](/uwp/api/windows.ui.xaml.documents.textelement.foreground)  プロパティを設定するとこれを上書きできます。
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -181,5 +181,5 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 - [ヒントのガイドライン](tooltips.md)
 
 **開発者向け (XAML)**
-- [Windows.UI.Xaml.Documents.Hyperlink クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)
-- [Windows.UI.Xaml.Controls.HyperlinkButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
+- [Windows.UI.Xaml.Documents.Hyperlink クラス](/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)
+- [Windows.UI.Xaml.Controls.HyperlinkButton クラス](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)

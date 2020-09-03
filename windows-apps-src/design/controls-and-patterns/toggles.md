@@ -12,20 +12,20 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d9cb44c91bcd556a10059005a8f19a75f90d3d9
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5c8df28335bf67c00f0429d6967e9013c73ec351
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081472"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154196"
 ---
 # <a name="toggle-switches"></a>トグル スイッチ
 
 トグル スイッチは、ユーザーが項目をオンまたはオフに切り替えることができる、電気のスイッチのような物理的なスイッチを表します。 トグル スイッチ コントロールを使うと、ユーザーに 2 つの相互排他的なオプション (オン/オフのように) を表示できます。オプションの選択によって、即座に結果が提供されます。
 
-トグル スイッチ コントロールを作成するには、[ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)を使用します。
+トグル スイッチ コントロールを作成するには、[ToggleSwitch クラス](/uwp/api/windows.ui.xaml.controls.toggleswitch)を使用します。
 
-> **プラットフォーム API**: [ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)、[IsOn プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.ison)、[Toggled イベント](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled)
+> **プラットフォーム API**: [ToggleSwitch クラス](/uwp/api/windows.ui.xaml.controls.toggleswitch)、[IsOn プロパティ](/uwp/api/windows.ui.xaml.controls.toggleswitch.ison)、[Toggled イベント](/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
@@ -97,7 +97,7 @@ stackPanel1.Children.Add(lightToggle);
 
 ### <a name="ison"></a>IsOn
 
-スイッチはオンまたはオフにできます。 [IsOn](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.ison) プロパティを使って、スイッチの状態を判断します。 スイッチを使って別のバイナリ プロパティの状態を制御している場合、次に示すようにバインドを使うことができます。
+スイッチはオンまたはオフにできます。 [IsOn](/uwp/api/windows.ui.xaml.controls.toggleswitch.ison) プロパティを使って、スイッチの状態を判断します。 スイッチを使って別のバイナリ プロパティの状態を制御している場合、次に示すようにバインドを使うことができます。
 
 ```xaml
 <StackPanel Orientation="Horizontal">
@@ -108,7 +108,7 @@ stackPanel1.Children.Add(lightToggle);
 
 ### <a name="toggled"></a>Toggled
 
-状況によっては、[Toggled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled) イベントを処理して状態の変化に対応することができます。
+状況によっては、[Toggled](/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled) イベントを処理して状態の変化に対応することができます。
 
 この例は、XAML とコードに Toggled イベント ハンドラーを追加する方法を示しています。 Toggled イベントを処理すると、進行状況リングのオフとオフが切り替えられ、表示が変更されます。
 
@@ -152,7 +152,7 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 
 ### <a name="onoff-labels"></a>オン/オフ ラベル
 
-既定では、トグル スイッチにはリテラルのオン/オフ ラベルが含まれており、自動的にローカライズされます。 これらのラベルは、[OnContent](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.oncontent) プロパティと [OffContent](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.offcontent) プロパティを設定して置き換えることができます。
+既定では、トグル スイッチにはリテラルのオン/オフ ラベルが含まれており、自動的にローカライズされます。 これらのラベルは、[OnContent](/uwp/api/windows.ui.xaml.controls.toggleswitch.oncontent) プロパティと [OffContent](/uwp/api/windows.ui.xaml.controls.toggleswitch.offcontent) プロパティを設定して置き換えることができます。
 
 この例では、オン/オフ ラベルを表示/非表示ラベルに置き換えます。
 
@@ -162,7 +162,7 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
               Toggled="ToggleSwitch_Toggled"/>
 ```
 
-[OnContentTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.oncontenttemplate) プロパティと [OffContentTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch.offcontenttemplate) プロパティを設定することで、より複雑なコンテンツを使うこともできます。
+[OnContentTemplate](/uwp/api/windows.ui.xaml.controls.toggleswitch.oncontenttemplate) プロパティと [OffContentTemplate](/uwp/api/windows.ui.xaml.controls.toggleswitch.offcontenttemplate) プロパティを設定することで、より複雑なコンテンツを使うこともできます。
 
 ## <a name="recommendations"></a>推奨事項
 
@@ -175,7 +175,7 @@ private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
 
 ## <a name="related-articles"></a>関連記事
 
-- [ToggleSwitch クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.toggleswitch)
+- [ToggleSwitch クラス](/uwp/api/windows.ui.xaml.controls.toggleswitch)
 - [ラジオ ボタン](radio-button.md)
 - [トグル スイッチ](toggles.md)
 - [チェック ボックス](checkbox.md)

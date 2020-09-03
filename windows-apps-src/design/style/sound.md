@@ -12,12 +12,12 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ed1344b5ee49244a6c1afcbb873b54fcc28624f
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 6c479a47a53c5f52bab1febf490957355264bfc4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684884"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159877"
 ---
 # <a name="sound"></a>サウンド
 
@@ -45,7 +45,7 @@ ms.locfileid: "75684884"
 
 UWP には使いやすいサウンド システムが用意されていて、"スイッチを切り替える" だけで、アプリ全体にイマーシブなオーディオ エクスペリエンスを実装することができます。
 
-[**ElementSoundPlayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.elementsoundplayer) は、XAML 内の統合的なサウンド システムで、オンにすると、すべての既定のコントロールで自動的にサウンドが再生されます。
+[**ElementSoundPlayer**](/uwp/api/windows.ui.xaml.elementsoundplayer) は、XAML 内の統合的なサウンド システムで、オンにすると、すべての既定のコントロールで自動的にサウンドが再生されます。
 ```C#
 ElementSoundPlayer.State = ElementSoundPlayerState.On;
 ```
@@ -64,12 +64,12 @@ ElementSoundPlayer.SpatialAudioMode = ElementSpatialAudioMode.Off
 - **Off**: サウンドがオンでも、空間オーディオは常にオフです。
 - **On**: 空間オーディオが常に再生されます。
 
-空間オーディオと XAML による空間オーディオの処理方法について詳しくは、[「オーディオ グラフ」の「空間オーディオ」](/windows/uwp/audio-video-camera/audio-graphs#spatial-audio)をご覧ください。
+空間オーディオと XAML による空間オーディオの処理方法について詳しくは、[「オーディオ グラフ」の「空間オーディオ」](../../audio-video-camera/audio-graphs.md#spatial-audio)をご覧ください。
 
 ### <a name="sound-for-tv-and-xbox"></a>テレビや Xbox のサウンド
 
 サウンドは 10 フィート エクスペリエンスの重要なパーツであるため、既定では、**ElementSoundPlayer** の状態が **Auto**、つまり、アプリが Xbox で実行されているときにのみサウンドが再生されます。
-Xbox やテレビ向けの設計について詳しくは、「[Xbox およびテレビ向け設計](https://docs.microsoft.com/windows/uwp/design/devices/designing-for-tv?redirectedfrom=MSDN)」の記事をご覧ください。
+Xbox やテレビ向けの設計について詳しくは、「[Xbox およびテレビ向け設計](../devices/designing-for-tv.md)」の記事をご覧ください。
 
 ## <a name="sound-volume-override"></a>音量設定のオーバーライド
 
@@ -173,5 +173,5 @@ ElementSoundPlayer.Play(ElementSoundKind.Focus);
 
 ## <a name="related-articles"></a>関連記事
 
-* [Xbox およびテレビ向け設計](/windows/uwp/design/devices/designing-for-tv)
+* [Xbox およびテレビ向け設計](../devices/designing-for-tv.md)
 * [ElementSoundPlayer クラスのドキュメント](/uwp/api/windows.ui.xaml.elementsoundplayer)

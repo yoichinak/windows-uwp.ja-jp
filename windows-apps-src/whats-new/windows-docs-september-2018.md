@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 09/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 85e41a26343c9e4c6eb239cbfdd74dc946d5b657
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d15cd0289b3de0c086a3ddc974e1b121447188c5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258802"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89155226"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 9 月
 
@@ -22,9 +22,9 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="windows-machine-learning"></a>Windows Machine Learning
 
-[Windows Machine Learning のドキュメント](https://docs.microsoft.com/windows/ai/)は現在、専用のサイトに置かれ、最新の Windows Insider SDK に対応するように更新されています。 C++ と C# でのデスクトップおよび UWP のチュートリアルが用意されており、ご利用のアプリケーションへの WinML の追加を容易に開始できます。
+[Windows Machine Learning のドキュメント](/windows/ai/)は現在、専用のサイトに置かれ、最新の Windows Insider SDK に対応するように更新されています。 C++ と C# でのデスクトップおよび UWP のチュートリアルが用意されており、ご利用のアプリケーションへの WinML の追加を容易に開始できます。
 
-[Windows.AI.MachineLearning API リファレンス](https://docs.microsoft.com/uwp/api/windows.ai.machinelearning)は、最新の Windows Insider SDK に対応するように更新されました。
+[Windows.AI.MachineLearning API リファレンス](/uwp/api/windows.ai.machinelearning)は、最新の Windows Insider SDK に対応するように更新されました。
 
 [Windows Machine Learning GitHub リポジトリ](https://github.com/Microsoft/Windows-Machine-Learning)は更新され、最新の SDK で動作する新しいサンプルが掲載されています。
 
@@ -32,9 +32,9 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="windows-ui-library"></a>Windows UI ライブラリ
 
-[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
+[Windows UI ライブラリ](/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
-Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](https://docs.microsoft.com/uwp/api/overview/winui/)を参照してください。
+Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](/uwp/api/overview/winui/)を参照してください。
 
 ## <a name="developer-guidance"></a>開発者ガイド
 

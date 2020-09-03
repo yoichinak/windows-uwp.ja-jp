@@ -5,18 +5,18 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、データ、型
 ms.localizationpriority: medium
-ms.openlocfilehash: 8cb62f8386798fcb78a11be35ba951616c47039c
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: d61de7acdfa2fc3b563aa77630a9eb8043bce3d7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68270071"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154336"
 ---
 # <a name="standard-c-data-types-and-cwinrt"></a>標準的な C++ のデータ型と C++/WinRT
 
-[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) では、標準的な C++ データ型 (いくつかの C++ 標準ライブラリのデータ型を含む) を使用して Windows ランタイム API を呼び出すことができます。 API に標準文字列を渡すことができるほか (「[C++/WinRT での文字列の処理](strings.md)」を参照)、意味的に等価なコレクションを期待する API に初期化リストと標準コンテナーを渡すこともできます。
+[C++/WinRT](./intro-to-using-cpp-with-winrt.md) では、標準的な C++ データ型 (いくつかの C++ 標準ライブラリのデータ型を含む) を使用して Windows ランタイム API を呼び出すことができます。 API に標準文字列を渡すことができるほか (「[C++/WinRT での文字列の処理](strings.md)」を参照)、意味的に等価なコレクションを期待する API に初期化リストと標準コンテナーを渡すこともできます。
 
-また、「[ABI 境界へのパラメーターの受け渡し](/windows/uwp/cpp-and-winrt-apis/pass-parms-to-abi)」もご覧ください。
+また、「[ABI 境界へのパラメーターの受け渡し](./pass-parms-to-abi.md)」もご覧ください。
 
 ## <a name="standard-initializer-lists"></a>標準的な初期化子リスト
 初期化子リスト (**std::initializer_list**) は、C++ 標準ライブラリのコンストラクトです。 Windows ランタイムの特定のコンストラクターやメソッドを呼び出すときに初期化子リストを使用することができます。 たとえば、[**DataWriter::WriteBytes**](/uwp/api/windows.storage.streams.datawriter.writebytes) を呼び出すことができます。

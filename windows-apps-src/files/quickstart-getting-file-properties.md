@@ -6,22 +6,22 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 81fcb4b62f9a10e8ff1fcb233c95317746cdb3b0
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 1812908319bed81ab776e8e66753f4f881a8728f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74259584"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156546"
 ---
 # <a name="get-file-properties"></a>ファイルのプロパティの取得
 
 **重要な API**
 
--   [**StorageFile.GetBasicPropertiesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getbasicpropertiesasync)
--   [**StorageFile.Properties**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.properties)
--   [**StorageItemContentProperties.RetrievePropertiesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.retrievepropertiesasync)
+-   [**StorageFile.GetBasicPropertiesAsync**](/uwp/api/windows.storage.storagefile.getbasicpropertiesasync)
+-   [**StorageFile.Properties**](/uwp/api/windows.storage.storagefile.properties)
+-   [**StorageItemContentProperties.RetrievePropertiesAsync**](/uwp/api/windows.storage.fileproperties.storageitemcontentproperties.retrievepropertiesasync)
 
-[  **StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトで表されるファイルのプロパティ (最上位、基本、拡張) を取得します。
+[  **StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトで表されるファイルのプロパティ (最上位、基本、拡張) を取得します。
 
 > [!NOTE]
 > 完全なサンプルについては、[ファイル アクセスのサンプルに関するページ](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileAccess)をご覧ください。
@@ -30,7 +30,7 @@ ms.locfileid: "74259584"
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 -   **場所へのアクセス許可**
 
@@ -38,7 +38,7 @@ ms.locfileid: "74259584"
 
 ## <a name="getting-a-files-top-level-properties"></a>ファイルの最上位プロパティの取得
 
-多くの最上位ファイル プロパティは、[**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) クラスのメンバーとしてアクセスできます。 これらのプロパティには、ファイル属性、コンテンツの種類、作成日、表示名、ファイルの種類などがあります。
+多くの最上位ファイル プロパティは、[**StorageFile**](/uwp/api/Windows.Storage.StorageFile) クラスのメンバーとしてアクセスできます。 これらのプロパティには、ファイル属性、コンテンツの種類、作成日、表示名、ファイルの種類などがあります。
 
 > [!NOTE]
 > 必ず **picturesLibrary** 機能を宣言してください。
@@ -63,7 +63,7 @@ foreach (Windows.Storage.StorageFile file in files)
 
 ## <a name="getting-a-files-basic-properties"></a>ファイルの基本プロパティの取得
 
-多くの基本ファイル プロパティは、最初に [**StorageFile.GetBasicPropertiesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.getbasicpropertiesasync) メソッドを呼び出して取得します。 このメソッドは、項目 (ファイルまたはフォルダー) のサイズや最終変更日のプロパティを定義する [**BasicProperties**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileProperties.BasicProperties) オブジェクトを返します。
+多くの基本ファイル プロパティは、最初に [**StorageFile.GetBasicPropertiesAsync**](/uwp/api/windows.storage.storagefile.getbasicpropertiesasync) メソッドを呼び出して取得します。 このメソッドは、項目 (ファイルまたはフォルダー) のサイズや最終変更日のプロパティを定義する [**BasicProperties**](/uwp/api/Windows.Storage.FileProperties.BasicProperties) オブジェクトを返します。
 
 この例では、画像ライブラリ内のすべてのファイルを列挙して、各ファイルの基本プロパティの一部にアクセスします。
 
@@ -88,11 +88,11 @@ foreach (Windows.Storage.StorageFile file in files)
 
 ## <a name="getting-a-files-extended-properties"></a>ファイルの拡張プロパティの取得
 
-最上位と基本ファイル プロパティのほかに、ファイルの内容に関連付けられている多くのプロパティがあります。 これらの拡張プロパティは、[**BasicProperties.RetrievePropertiesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.retrievepropertiesasync) メソッドを呼び出してアクセスします  ([**BasicProperties**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileProperties.BasicProperties) オブジェクトは、[**StorageFile.Properties**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.properties) プロパティを呼び出して取得します)。最上位と基本ファイル プロパティは、クラス (それぞれ [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) と **BasicProperties**) のプロパティとしてアクセスできます。拡張プロパティは、取得するプロパティの名前を表す [String](https://msdn.microsoft.com/library/system.string.aspx) オブジェクトの [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) コレクションを **BasicProperties.RetrievePropertiesAsync** メソッドに渡して取得します。 このメソッドは、[IDictionary](https://msdn.microsoft.com/library/system.collections.idictionary.aspx) コレクションを返します。 各拡張プロパティは、コレクションから名前またはインデックスで取得します。
+最上位と基本ファイル プロパティのほかに、ファイルの内容に関連付けられている多くのプロパティがあります。 これらの拡張プロパティは、[**BasicProperties.RetrievePropertiesAsync**](/uwp/api/windows.storage.fileproperties.basicproperties.retrievepropertiesasync) メソッドを呼び出してアクセスします  ([**BasicProperties**](/uwp/api/Windows.Storage.FileProperties.BasicProperties) オブジェクトは、[**StorageFile.Properties**](/uwp/api/windows.storage.storagefile.properties) プロパティを呼び出して取得します)。最上位と基本ファイル プロパティは、クラス (それぞれ [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) と **BasicProperties**) のプロパティとしてアクセスできます。拡張プロパティは、取得するプロパティの名前を表す [String](/dotnet/api/system.string) オブジェクトの [IEnumerable](/dotnet/api/system.collections.ienumerable) コレクションを **BasicProperties.RetrievePropertiesAsync** メソッドに渡して取得します。 このメソッドは、[IDictionary](/dotnet/api/system.collections.idictionary) コレクションを返します。 各拡張プロパティは、コレクションから名前またはインデックスで取得します。
 
-この例では、画像ライブラリ内のすべてのファイルを列挙し、[List](https://msdn.microsoft.com/library/6sh2ey19.aspx) オブジェクトで目的のプロパティの名前 (**DataAccessed** と **FileOwner**) を指定して、その [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) オブジェクトを [**BasicProperties.RetrievePropertiesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.basicproperties.retrievepropertiesasync) に渡すことでそれらのプロパティを取得します。その後、返された [IDictionary](https://msdn.microsoft.com/library/system.collections.idictionary.aspx) オブジェクトから名前でそれらのプロパティを取得します。
+この例では、画像ライブラリ内のすべてのファイルを列挙し、[List](/dotnet/api/system.collections.generic.list-1) オブジェクトで目的のプロパティの名前 (**DataAccessed** と **FileOwner**) を指定して、その [List](/dotnet/api/system.collections.generic.list-1) オブジェクトを [**BasicProperties.RetrievePropertiesAsync**](/uwp/api/windows.storage.fileproperties.basicproperties.retrievepropertiesasync) に渡すことでそれらのプロパティを取得します。その後、返された [IDictionary](/dotnet/api/system.collections.idictionary) オブジェクトから名前でそれらのプロパティを取得します。
 
-ファイルの拡張プロパティの完全な一覧については、「[Windows コア プロパティ](https://docs.microsoft.com/windows/desktop/properties/core-bumper)」をご覧ください。
+ファイルの拡張プロパティの完全な一覧については、「[Windows コア プロパティ](/windows/desktop/properties/core-bumper)」をご覧ください。
 
 ```csharp
 const string dateAccessedProperty = "System.DateAccessed";

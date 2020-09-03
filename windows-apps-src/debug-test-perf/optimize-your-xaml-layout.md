@@ -6,25 +6,25 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 92dca27a4cfb02f5d1bcb722683eca89ec16a6d6
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 29bf53560759b8e691ac016987efb0226ace9309
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66362223"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154176"
 ---
 # <a name="optimize-your-xaml-layout"></a>XAML レイアウトの最適化
 
 
 **重要な API**
 
--   [**Panel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Panel)
+-   [**Panel**](/uwp/api/Windows.UI.Xaml.Controls.Panel)
 
 レイアウトは、UI の視覚的な構造を定義するプロセスです。 XAML でレイアウトを記述するための主要なメカニズムはパネルです。パネルは、UI 要素を内部に配置して整列できるコンテナー オブジェクトです。 レイアウトは、CPU 使用率とメモリ オーバーヘッドの両方で、XAML アプリの負荷の高い部分です。 ここでは、XAML アプリのレイアウトのパフォーマンスを向上させるための簡単な手順を示します。
 
 ## <a name="reduce-layout-structure"></a>レイアウトの構造を減らす
 
-レイアウトのパフォーマンス向上の効果が最も大きいのは、UI 要素のツリーの階層構造を簡略化することです。 パネルはビジュアル ツリーに存在しますが、これらは構造型の要素であり、[**Button**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) や [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) などの*ピクセル生成要素*ではありません。 通常、非ピクセル生成要素の数を減らすことによりツリーを簡略化すると、パフォーマンスの大幅な向上につながります。
+レイアウトのパフォーマンス向上の効果が最も大きいのは、UI 要素のツリーの階層構造を簡略化することです。 パネルはビジュアル ツリーに存在しますが、これらは構造型の要素であり、[**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button) や [**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) などの*ピクセル生成要素*ではありません。 通常、非ピクセル生成要素の数を減らすことによりツリーを簡略化すると、パフォーマンスの大幅な向上につながります。
 
 多くの UI は、パネルを入れ子にすることによって実装されており、結果として、パネルと要素のツリーが深くて複雑な構造になっています。 パネルを入れ子にすると便利ですが、多くの場合は、同じ UI をより複雑な 1 つのパネルを使って実現することができます。 1 つのパネルを使用すると、パフォーマンスが向上します。
 
@@ -32,7 +32,7 @@ ms.locfileid: "66362223"
 
 単純な方法でレイアウトの構造を減らす (たとえば、トップレベルのページから、入れ子になったパネルを 1 つ減らす) だけでは、大きな効果は得られません。
 
-パフォーマンスの向上が最も大きいのは、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) や [**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) などの UI 内で繰り返されるレイアウト構造を減らすことです。 これらの [**ItemsControl**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) 要素は [**DataTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。これは、何度もをインスタンス化される UI 要素のサブツリーを定義します。 同じサブツリーがアプリ内で何度も複製されている場合、そのサブツリーのパフォーマンスが少しでも向上すれば、アプリの全体的なパフォーマンスへの効果は何倍にもなります。
+パフォーマンスの向上が最も大きいのは、[**ListView**](/uwp/api/Windows.UI.Xaml.Controls.ListView) や [**GridView**](/uwp/api/Windows.UI.Xaml.Controls.GridView) などの UI 内で繰り返されるレイアウト構造を減らすことです。 これらの [**ItemsControl**](/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) 要素は [**DataTemplate**](/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。これは、何度もをインスタンス化される UI 要素のサブツリーを定義します。 同じサブツリーがアプリ内で何度も複製されている場合、そのサブツリーのパフォーマンスが少しでも向上すれば、アプリの全体的なパフォーマンスへの効果は何倍にもなります。
 
 ### <a name="examples"></a>例
 
@@ -42,7 +42,7 @@ ms.locfileid: "66362223"
 
 これらの例では、同じ UI を実装するための 3 つの方法を示しています。 どの実装を選択した場合も画面上のピクセル数をほぼ同じ結果になりますが、実装の詳細は大きく異なります。
 
-オプション 1:入れ子になった [**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) 要素
+オプション 1:入れ子になった [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) 要素
 
 これは最も簡単なモデルですが、5 つのパネル要素を使用し、大きなオーバーヘッドが生じます。
 
@@ -70,9 +70,9 @@ ms.locfileid: "66362223"
 </StackPanel>
 ```
 
-オプション 2:1 つの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)
+オプション 2:1 つの [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid)
 
-[  **Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) は多少複雑になりますが、1 つのパネル要素のみを使用します。
+[  **Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) は多少複雑になりますが、1 つのパネル要素のみを使用します。
 
 ```xml
 <Grid>
@@ -103,9 +103,9 @@ ms.locfileid: "66362223"
 </Grid>
 ```
 
-オプション 3: 1 つの [**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel):
+オプション 3: 1 つの [**RelativePanel**](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel):
 
-この 1 つのパネルも、入れ子になったパネルを使用する場合よりも少し複雑ですが、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) よりも理解しやすく、保守が容易になる可能性があります。
+この 1 つのパネルも、入れ子になったパネルを使用する場合よりも少し複雑ですが、[**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) よりも理解しやすく、保守が容易になる可能性があります。
 
 ```xml
 <RelativePanel>
@@ -132,9 +132,9 @@ ms.locfileid: "66362223"
 
 ## <a name="use-single-cell-grids-for-overlapping-ui"></a>重なり合った UI としての単一セルのグリッドの使用
 
-一般的な UI 要件として、要素が互いに重なり合ったレイアウトがあります。 通常、この方法で要素を配置するために、パディング、余白、整列、変換が使用されます。 XAML [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) コントロールは、重なり合った要素のレイアウトのパフォーマンスを向上させるために最適化されています。
+一般的な UI 要件として、要素が互いに重なり合ったレイアウトがあります。 通常、この方法で要素を配置するために、パディング、余白、整列、変換が使用されます。 XAML [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) コントロールは、重なり合った要素のレイアウトのパフォーマンスを向上させるために最適化されています。
 
-**重要**  パフォーマンスの向上を確認するために、単一セルの [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用します。 [  **RowDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) や [**ColumnDefinitions**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) は定義しないでください。
+**重要**  パフォーマンスの向上を確認するために、単一セルの [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用します。 [  **RowDefinitions**](/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) や [**ColumnDefinitions**](/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) は定義しないでください。
 
 ### <a name="examples"></a>例
 
@@ -160,9 +160,9 @@ ms.locfileid: "66362223"
 
 ## <a name="use-a-panels-built-in-border-properties"></a>パネルの組み込みの境界線プロパティを使う
 
-[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)、[**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)、[**ContentPresenter**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ContentPresenter) の各コントロールには組み込みの境界線プロパティがあり、XAML に [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) 要素を追加せずに周囲に境界線を描画できます。 組み込みの境界線をサポートする新しいプロパティは、**BorderBrush**、**BorderThickness**、**CornerRadius**、**Padding** です。 これらはそれぞれ [**DependencyProperty**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DependencyProperty) であり、バインディングやアニメーションで使用することができます。 これらは、個別の **Border** 要素を完全に置き換えるように設計されています。
+[**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel)、[**RelativePanel**](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)、[**ContentPresenter**](/uwp/api/Windows.UI.Xaml.Controls.ContentPresenter) の各コントロールには組み込みの境界線プロパティがあり、XAML に [**Border**](/uwp/api/Windows.UI.Xaml.Controls.Border) 要素を追加せずに周囲に境界線を描画できます。 組み込みの境界線をサポートする新しいプロパティは、**BorderBrush**、**BorderThickness**、**CornerRadius**、**Padding** です。 これらはそれぞれ [**DependencyProperty**](/uwp/api/Windows.UI.Xaml.DependencyProperty) であり、バインディングやアニメーションで使用することができます。 これらは、個別の **Border** 要素を完全に置き換えるように設計されています。
 
-UI でこれらのパネルの周囲に [**Border**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Border) 要素を使っている場合は、代わりに組み込みの境界線を使うことによって、アプリのレイアウト構造内で余分な要素を削減できます。 既に説明したように、特に繰り返される UI の場合は、大幅に要素を削減できます。
+UI でこれらのパネルの周囲に [**Border**](/uwp/api/Windows.UI.Xaml.Controls.Border) 要素を使っている場合は、代わりに組み込みの境界線を使うことによって、アプリのレイアウト構造内で余分な要素を削減できます。 既に説明したように、特に繰り返される UI の場合は、大幅に要素を削減できます。
 
 ### <a name="examples"></a>例
 
@@ -175,15 +175,14 @@ UI でこれらのパネルの周囲に [**Border**](https://docs.microsoft.com/
 
 ## <a name="use-sizechanged-events-to-respond-to-layout-changes"></a>**SizeChanged** イベントを使ってレイアウトの変更に応答する
 
-[**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) クラスは、レイアウト変更に応答するための次の 2 つの類似したイベントを公開します。[**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) と [**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged)。 レイアウト時に、要素のサイズが変更された場合、これらのイベントのいずれかを使用して通知を受信していることがあります。 2 つのイベントのセマンティクスは異なり、どちらを選択するかは、パフォーマンスに関する重要な考慮事項です。
+[**FrameworkElement**](/uwp/api/Windows.UI.Xaml.FrameworkElement) クラスは、レイアウト変更に応答するための次の 2 つの類似したイベントを公開します。[**LayoutUpdated**](/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) と [**SizeChanged**](/uwp/api/windows.ui.xaml.frameworkelement.sizechanged)。 レイアウト時に、要素のサイズが変更された場合、これらのイベントのいずれかを使用して通知を受信していることがあります。 2 つのイベントのセマンティクスは異なり、どちらを選択するかは、パフォーマンスに関する重要な考慮事項です。
 
-パフォーマンスを向上させるには、ほとんどの場合 [**SizeChanged**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) が適切な選択肢です。 **SizeChanged** のセマンティクスは直感的です。 このイベントは、レイアウト中に [**FrameworkElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.FrameworkElement) のサイズが更新されたときに発生します。
+パフォーマンスを向上させるには、ほとんどの場合 [**SizeChanged**](/uwp/api/windows.ui.xaml.frameworkelement.sizechanged) が適切な選択肢です。 **SizeChanged** のセマンティクスは直感的です。 このイベントは、レイアウト中に [**FrameworkElement**](/uwp/api/Windows.UI.Xaml.FrameworkElement) のサイズが更新されたときに発生します。
 
-[**LayoutUpdated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) もレイアウト時に発生しますが、そのセマンティクスはグローバルです。任意の要素が更新されるたびにすべての要素について発生します。 イベント ハンドラーではローカルな処理のみを行うことが一般的であり、この場合、コードは必要以上に頻繁に実行されます。 **LayoutUpdated** は、サイズを変更せずに要素が再配置されたことを知る必要がある場合 (一般的ではありません) にのみ使用します。
+[**LayoutUpdated**](/uwp/api/windows.ui.xaml.frameworkelement.layoutupdated) もレイアウト時に発生しますが、そのセマンティクスはグローバルです。任意の要素が更新されるたびにすべての要素について発生します。 イベント ハンドラーではローカルな処理のみを行うことが一般的であり、この場合、コードは必要以上に頻繁に実行されます。 **LayoutUpdated** は、サイズを変更せずに要素が再配置されたことを知る必要がある場合 (一般的ではありません) にのみ使用します。
 
 ## <a name="choosing-between-panels"></a>パネルの選択
 
-通常、パフォーマンスは、個々のパネルを選択するときの検討事項ではありません。 パネルの選択は、実装しようとする UI に最も近いレイアウトの動作を実現するパネルを検討することによって行われます。 たとえば、[**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel)、[**RelativePanel**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel) のいずれかを選択する場合、実装の概念的モデルに最も近いマッピングを提供するパネルを選択する必要があります。
+通常、パフォーマンスは、個々のパネルを選択するときの検討事項ではありません。 パネルの選択は、実装しようとする UI に最も近いレイアウトの動作を実現するパネルを検討することによって行われます。 たとえば、[**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid)、[**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel)、[**RelativePanel**](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel) のいずれかを選択する場合、実装の概念的モデルに最も近いマッピングを提供するパネルを選択する必要があります。
 
 どの XAML パネルもパフォーマンスが高くなるように最適化されており、同様の UI ではどのパネルのパフォーマンスも同様です。
-

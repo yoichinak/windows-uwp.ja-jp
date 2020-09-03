@@ -6,29 +6,29 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 36835a198d03a8ad5f5e811a74e120c9bbd25c08
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8eda7226547706cb7a8a4ef69d04407d749a0c86
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258589"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159446"
 ---
 # <a name="determining-availability-of-microsoft-onedrive-files"></a>Microsoft OneDrive ファイルが利用可能かどうかの確認
 
 
 **重要な API**
 
--   [**FileIO クラス**](https://docs.microsoft.com/uwp/api/Windows.Storage.FileIO)
--   [**StorageFile クラス**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile)
--   [**StorageFile.IsAvailable プロパティ**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.isavailable)
+-   [**FileIO クラス**](/uwp/api/Windows.Storage.FileIO)
+-   [**StorageFile クラス**](/uwp/api/Windows.Storage.StorageFile)
+-   [**StorageFile.IsAvailable プロパティ**](/uwp/api/windows.storage.storagefile.isavailable)
 
-[  **StorageFile.IsAvailable**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.isavailable) プロパティを使って、Microsoft OneDrive ファイルが利用可能かどうかを確認します。
+[  **StorageFile.IsAvailable**](/uwp/api/windows.storage.storagefile.isavailable) プロパティを使って、Microsoft OneDrive ファイルが利用可能かどうかを確認します。
 
 ## <a name="prerequisites"></a>必要条件
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 -   **アプリ機能の宣言**
 
@@ -38,7 +38,7 @@ ms.locfileid: "74258589"
 
 ユーザーは、OneDrive ファイルを "オフラインで利用可能" (既定) または "オンラインのみ" とマークできます。 この機能を使うと、大容量のファイル (写真やビデオなど) を自分の OneDrive に移動し、オンラインのみとマークすることで、ディスク領域を節約できます (ローカルに保存されるのはメタデータ ファイルのみです)。
 
-[**StorageFile.IsAvailable**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.isavailable) は、ファイルが現在利用可能であるかどうかを判別するために使われます。 次の表に、さまざまなシナリオでの **StorageFile.IsAvailable** プロパティの値を示します。
+[**StorageFile.IsAvailable**](/uwp/api/windows.storage.storagefile.isavailable) は、ファイルが現在利用可能であるかどうかを判別するために使われます。 次の表に、さまざまなシナリオでの **StorageFile.IsAvailable** プロパティの値を示します。
 
 | ファイルの種類                              | オンライン | 従量制課金接続        | オフライン |
 |-------------------------------------------|--------|------------------------|---------|
@@ -52,11 +52,11 @@ ms.locfileid: "74258589"
 次の手順では、ファイルが現在利用できるかどうかを判別する方法を示しています。
 
 1.  アクセスするライブラリに適した機能を宣言します。
-2.  [  **Windows.Storage**](https://docs.microsoft.com/uwp/api/Windows.Storage) 名前空間を含めます。 この名前空間には、ファイル、フォルダー、アプリケーション設定を管理するための型が含まれています。 また、必要な [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) 型も含まれています。
-3.  必要なファイルの [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。 ライブラリを列挙する場合、通常、この手順は [**StorageFolder.CreateFileQuery**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.createfilequery) メソッドを呼び出し、結果の [**StorageFileQueryResult**](https://docs.microsoft.com/uwp/api/Windows.Storage.Search.StorageFileQueryResult) オブジェクトの [**GetFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfilesasync) メソッドを呼び出して行います。 **GetFilesAsync** メソッドは、**StorageFile** オブジェクトの [IReadOnlyList](https://msdn.microsoft.com/library/hh192385.aspx) コレクションを返します。
-4.  目的のファイルを表す [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトにアクセスできるようになると、[**StorageFile.IsAvailable**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.isavailable) プロパティの値は、ファイルが利用できるかどうかを表します。
+2.  [  **Windows.Storage**](/uwp/api/Windows.Storage) 名前空間を含めます。 この名前空間には、ファイル、フォルダー、アプリケーション設定を管理するための型が含まれています。 また、必要な [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) 型も含まれています。
+3.  必要なファイルの [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトを取得します。 ライブラリを列挙する場合、通常、この手順は [**StorageFolder.CreateFileQuery**](/uwp/api/windows.storage.storagefolder.createfilequery) メソッドを呼び出し、結果の [**StorageFileQueryResult**](/uwp/api/Windows.Storage.Search.StorageFileQueryResult) オブジェクトの [**GetFilesAsync**](/uwp/api/windows.storage.storagefolder.getfilesasync) メソッドを呼び出して行います。 **GetFilesAsync** メソッドは、**StorageFile** オブジェクトの [IReadOnlyList](/dotnet/api/system.collections.generic.ireadonlylist-1) コレクションを返します。
+4.  目的のファイルを表す [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトにアクセスできるようになると、[**StorageFile.IsAvailable**](/uwp/api/windows.storage.storagefile.isavailable) プロパティの値は、ファイルが利用できるかどうかを表します。
 
-次の汎用的なメソッドは、フォルダーを列挙し、そのフォルダーの [**StorageFile**](https://docs.microsoft.com/uwp/api/Windows.Storage.StorageFile) オブジェクトのコレクションを返す方法を示しています。 その後、呼び出し元メソッドで、各ファイルの [**StorageFile.IsAvailable**](https://docs.microsoft.com/uwp/api/windows.storage.storagefile.isavailable) プロパティを参照する返されたコレクションを反復処理します。
+次の汎用的なメソッドは、フォルダーを列挙し、そのフォルダーの [**StorageFile**](/uwp/api/Windows.Storage.StorageFile) オブジェクトのコレクションを返す方法を示しています。 その後、呼び出し元メソッドで、各ファイルの [**StorageFile.IsAvailable**](/uwp/api/windows.storage.storagefile.isavailable) プロパティを参照する返されたコレクションを反復処理します。
 
 ```cs
 /// <summary>

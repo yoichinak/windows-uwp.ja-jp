@@ -3,22 +3,22 @@ title: WinUI 2.1 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.1 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: f362c4ae7654d6ef3b888b908c4779fce62af5fe
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 02e870209486a271e0455d61070cf5403333e1df
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493087"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154886"
 ---
 # <a name="windows-ui-library-21"></a>Windows UI ライブラリ 2.1
 
 Windows UI ライブラリの最新の公式バージョンである WinUI 2.1 は、2019 年 4 月 8 日にリリースされました 
 
-WinUI では、最新の Fluent コントロールやスタイルなど、最新の Windows UX プラットフォーム機能の多くがすぐに使用できる方法で提供され、Windows 10 Anniversary Update (14393) と互換性があります。 [XAML コントロール ギャラリー](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/#xaml-controls-gallery)には、ライブラリに追加されたすべてのクールな新機能を調べるためのサンプルが用意されています。
+WinUI では、最新の Fluent コントロールやスタイルなど、最新の Windows UX プラットフォーム機能の多くがすぐに使用できる方法で提供され、Windows 10 Anniversary Update (14393) と互換性があります。 [XAML コントロール ギャラリー](/windows/uwp/design/controls-and-patterns/#xaml-controls-gallery)には、ライブラリに追加されたすべてのクールな新機能を調べるためのサンプルが用意されています。
 
 [WinUI 2.1 NuGet パッケージ](https://www.nuget.org/packages/Microsoft.UI.Xaml/2.1.190405004)をダウンロードします
 
-NuGet パッケージ マネージャーを使用してアプリ内で WinUI パッケージを使用することを選択できます。詳細については、「[Windows UI ライブラリの使用を開始する](https://docs.microsoft.com/uwp/toolkits/winui/getting-started)」を参照してください。
+NuGet パッケージ マネージャーを使用してアプリ内で WinUI パッケージを使用することを選択できます。詳細については、「[Windows UI ライブラリの使用を開始する](/uwp/toolkits/winui/getting-started)」を参照してください。
 
 WinUI は、GitHub でホストされているオープン ソース プロジェクトです。 [Windows UI ライブラリ リポジトリ](https://aka.ms/winui)のバグ レポート、機能要求、およびコミュニティ コードの投稿を歓迎します。
 
@@ -31,7 +31,7 @@ ListView とは異なり、ItemsRepeater では包括的なエンドユーザー
 
 ![例](../images/ItemsRepeater%20-%20MSN%20News.gif)
 
-[ドキュメント](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/items-repeater)
+[ドキュメント](/windows/uwp/design/controls-and-patterns/items-repeater)
 
 ### <a name="animatedvisualplayer"></a>AnimatedVisualPlayer
 
@@ -39,7 +39,7 @@ AnimatedVisualPlayer では、アニメーション化されたビジュアル�
 
 ![例](../images/AnimatedVisualPlayerUpdated.gif)
 
-[ドキュメント](https://docs.microsoft.com/windows/communitytoolkit/animations/lottie)
+[ドキュメント](/windows/communitytoolkit/animations/lottie)
 
 ### <a name="teachingtip"></a>TeachingTip
 
@@ -47,7 +47,7 @@ TeachingTip は、アプリケーションが非侵入型でコンテンツ豊�
 
 ![例](../images/TeachingTipUpdated.gif)
 
-[ドキュメント](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/teaching-tip)
+[ドキュメント](/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/teaching-tip)
 
 ### <a name="radiomenuflyoutitem"></a>RadioMenuFlyoutItem
 
@@ -55,7 +55,7 @@ MenuBar に 'ラジオ ボタン' スタイル オプションを設定する機
 
 ![例](../images/RadioMenuFlyoutItem1.png)
 
-[ドキュメント](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus#create-a-menu-flyout-or-a-context-menu)
+[ドキュメント](/windows/uwp/design/controls-and-patterns/menus#create-a-menu-flyout-or-a-context-menu)
 
 ### <a name="compactdensity"></a>CompactDensity
 
@@ -63,7 +63,7 @@ MenuBar に 'ラジオ ボタン' スタイル オプションを設定する機
 
 ![コンパクト密度の例](../images/CompactDensityUpdated.png)
 
-[ドキュメント](https://docs.microsoft.com/windows/uwp/design/style/spacing )
+[ドキュメント](/windows/uwp/design/style/spacing)
 
 ### <a name="shadows"></a>シャドウ
 
@@ -101,7 +101,7 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 
 #### <a name="new-feature-not-included-in-earlier-pre-releases"></a>新機能 (以前のプレリリース版には含まれていません)
 
-* [CompactDensity](https://docs.microsoft.com/windows/uwp/design/style/spacing):コンパクト モードでは、開発者は任意の数のシナリオ向けの快適なエクスペリエンスを作成できます。 リソース ディクショナリを追加するだけで、アプリケーションは平均で最大 33% 多い UI に収まります。
+* [CompactDensity](/windows/uwp/design/style/spacing):コンパクト モードでは、開発者は任意の数のシナリオ向けの快適なエクスペリエンスを作成できます。 リソース ディクショナリを追加するだけで、アプリケーションは平均で最大 33% 多い UI に収まります。
 
 * シャドウ:UI 内で要素のビジュアル階層を作成すると、注目すべき重要なことを UI で簡単にスキャンし、伝達できます。 UI の選択要素を前面に移動する操作である昇格は、多くの場合、ソフトウェア内でこのような階層を実現するために使用されます。 一般的なコントロールの多くによって、z 深度とシャドウを使用して昇格が既定で追加されます。  
 
@@ -128,8 +128,8 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 
 試験的な新機能:
 
-* [AnimatedVisualPlayer](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.animatedvisualplayer)  
-  この新しいコントロールにより、[Lottie-Windows](https://docs.microsoft.com/windows/communitytoolkit/animations/lottie) を使用して作成された [Lottie](https://github.com/airbnb/lottie) アニメーションなど、複雑なハイ パフォーマンスのベクター アニメーションを再生できます。
+* [AnimatedVisualPlayer](/uwp/api/microsoft.ui.xaml.controls.animatedvisualplayer)  
+  この新しいコントロールにより、[Lottie-Windows](/windows/communitytoolkit/animations/lottie) を使用して作成された [Lottie](https://github.com/airbnb/lottie) アニメーションなど、複雑なハイ パフォーマンスのベクター アニメーションを再生できます。
 
 ### <a name="microsoftuixaml-21181217001-prerelease"></a>Microsoft.UI.Xaml 2.1.181217001-prerelease
 
@@ -141,8 +141,8 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 
 試験的な新機能:
 
-* [ItemsRepeater](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
+* [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
 
-* [RadioButtons](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiobuttons)
+* [RadioButtons](/uwp/api/microsoft.ui.xaml.controls.radiobuttons)
 
-* [RadioMenuFlyoutItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiomenuflyoutitem)
+* [RadioMenuFlyoutItem](/uwp/api/microsoft.ui.xaml.controls.radiomenuflyoutitem)

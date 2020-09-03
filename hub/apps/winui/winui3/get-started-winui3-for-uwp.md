@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, winui
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 0b62595850c2b3354c59d199f879d7e3b55cd3a2
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 88b17500527b5f52d7e020e1c37a72e932ec225b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494029"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157736"
 ---
 # <a name="get-started-with-winui-3-for-uwp-apps"></a>UWP アプリ用の WinUI 3 の概要
 
@@ -52,7 +52,7 @@ WinUI 3 Preview 2 では、新しいプロジェクト テンプレートが導�
 
     :::image type="content" source="images/WinUI-and-UWP/vs2019-project.png" alt-text="Visual Studio 2019 - [新しいプロジェクトの構成] ダイアログ":::
 
-    - **Package.appxmanifest**:システムがアプリをデプロイ、表示、または更新するために必要な情報が含まれます。 詳細については、「[アプリ パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/appx-package-manifest)」もご覧ください。
+    - **Package.appxmanifest**:システムがアプリをデプロイ、表示、または更新するために必要な情報が含まれます。 詳細については、「[アプリ パッケージ マニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)」もご覧ください。
 
     :::image type="content" source="images/WinUI-and-UWP/vs2019-file-package-manifest.png" alt-text="Visual Studio 2019 - アプリ パッケージ マニフェスト":::
 

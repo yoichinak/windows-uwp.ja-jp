@@ -6,19 +6,19 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, カスタム, テンプレート化, コントロール
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2bd71e5ec78f3e0d1317c4e69ecd234985b2d8ab
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 805e9db834e4428f8db5815b54b8d1d669310611
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492847"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154226"
 ---
 # <a name="xaml-custom-templated-controls-with-cwinrt"></a>C++/WinRT による XAML カスタム (テンプレート化) コントロール
 
 > [!IMPORTANT]
-> [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での API の作成](author-apis.md)」を参照してください。
+> [C++/WinRT](./intro-to-using-cpp-with-winrt.md) でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での API の作成](author-apis.md)」を参照してください。
 
-ユニバーサル Windows プラットフォーム (UWP) の最も強力な機能の 1 つは、XAML [**Control**](/uwp/api/windows.ui.xaml.controls.control) 型に基づいてカスタム コントロールを作成できるユーザー インターフェイス (UI) スタックの柔軟性です。 XAML UI フレームワークには、[カスタム依存関係プロパティ](/windows/uwp/xaml-platform/custom-dependency-properties)、[添付プロパティ](/windows/uwp/xaml-platform/custom-attached-properties)、[コントロール テンプレート](/windows/uwp/design/controls-and-patterns/control-templates)などの機能が用意されており、豊富な機能でカスタマイズ可能なコントロールを簡単に作成できます。 このトピックでは、C++ /WinRT を使用してカスタム (テンプレート) コントロールを作成する手順について説明します。
+ユニバーサル Windows プラットフォーム (UWP) の最も強力な機能の 1 つは、XAML [**Control**](/uwp/api/windows.ui.xaml.controls.control) 型に基づいてカスタム コントロールを作成できるユーザー インターフェイス (UI) スタックの柔軟性です。 XAML UI フレームワークには、[カスタム依存関係プロパティ](../xaml-platform/custom-dependency-properties.md)、[添付プロパティ](../xaml-platform/custom-attached-properties.md)、[コントロール テンプレート](../design/controls-and-patterns/control-templates.md)などの機能が用意されており、豊富な機能でカスタマイズ可能なコントロールを簡単に作成できます。 このトピックでは、C++ /WinRT を使用してカスタム (テンプレート) コントロールを作成する手順について説明します。
 
 ## <a name="create-a-blank-app-bglabelcontrolapp"></a>空のアプリを作成する (BgLabelControlApp)
 
@@ -46,7 +46,7 @@ namespace BgLabelControlApp
 }
 ```
 
-上記の一覧は、依存関係プロパティ (DP) を宣言するときに従うパターンを示しています。 各 DP には 2 つの部分があります。 まず、型 [**DependencyProperty**](/uwp/api/windows.ui.xaml.dependencyproperty) の読み取り専用の静的プロパティを宣言します。 これは、実際の DP の名前に *Property* を加えたものです。 実装ではこの静的プロパティを使用します。 次に、DP の型と名前持つ読み取りおよび書き込みインスタンス プロパティを宣言します。 (DP ではなく) *添付プロパティ*を作成する場合は、「[カスタム添付プロパティ](/windows/uwp/xaml-platform/custom-attached-properties)」のコード例を参照してください。
+上記の一覧は、依存関係プロパティ (DP) を宣言するときに従うパターンを示しています。 各 DP には 2 つの部分があります。 まず、型 [**DependencyProperty**](/uwp/api/windows.ui.xaml.dependencyproperty) の読み取り専用の静的プロパティを宣言します。 これは、実際の DP の名前に *Property* を加えたものです。 実装ではこの静的プロパティを使用します。 次に、DP の型と名前持つ読み取りおよび書き込みインスタンス プロパティを宣言します。 (DP ではなく) *添付プロパティ*を作成する場合は、「[カスタム添付プロパティ](../xaml-platform/custom-attached-properties.md)」のコード例を参照してください。
 
 > [!NOTE]
 > 浮動小数点型の DP が必要な場合は、`double` ([MIDL 3.0](/uwp/midl-3/) では `Double`) にします。 型 `float` (MIDL では `Single`) の DP を宣言して実装し、XAML マークアップでその DP の値を設定すると、エラー "*テキスト '<NUMBER>' から 'Windows.Foundation.Single' を作成できませんでした*" が発生します。
@@ -217,5 +217,5 @@ struct BgLabelControl : BgLabelControlT<BgLabelControl>
 * [UIElement クラス](/uwp/api/windows.ui.xaml.uielement)
 
 ## <a name="related-topics"></a>関連トピック
-* [コントロール テンプレート](/windows/uwp/design/controls-and-patterns/control-templates)
-* [カスタム依存関係プロパティ](/windows/uwp/xaml-platform/custom-dependency-properties)
+* [コントロール テンプレート](../design/controls-and-patterns/control-templates.md)
+* [カスタム依存関係プロパティ](../xaml-platform/custom-dependency-properties.md)

@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 8443ac25ba678986046b967a90a8899eaffb76aa
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 30b41cf0d22d8f8c2c4ce7f774eab9d2aa479d78
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67420121"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161466"
 ---
 # <a name="part-4-add-windows-10-user-activities-and-notifications"></a>パート 4: Windows 10 ユーザー アクティビティと通知の追加
 
@@ -33,11 +33,11 @@ Windows 10 では、ファイルを開いたり、特定のページを表示す
 
 ### <a name="introduction-to-adaptive-cards"></a>アダプティブ カードの概要
 
-このセクションでは、[アダプティブ カード](https://docs.microsoft.com/adaptive-cards/)の概要について簡単に説明します。 この情報が不要な場合は、このステップを省略して、[アダプティブ カードの追加](#add-an-adaptive-card)の説明にすぐ進んでもかまいません。
+このセクションでは、[アダプティブ カード](/adaptive-cards/)の概要について簡単に説明します。 この情報が不要な場合は、このステップを省略して、[アダプティブ カードの追加](#add-an-adaptive-card)の説明にすぐ進んでもかまいません。
 
 アダプティブ カードを使用すると、開発者は共通の一貫した方法でカードのコンテンツを交換することができます。 アダプティブ カードはコンテンツを定義する JSON ペイロードによって記述されており、テキスト、画像、アクション、その他を含むことができます。
 
-アダプティブ カードで定義されているのはコンテンツだけであり、コンテンツの表示方法は定義されていません。 アダプティブ カードを受け取ったプラットフォームでは、最適なスタイルを使用してコンテンツを表示できます。 アダプティブ カードを設計するには、[レンダラー](https://docs.microsoft.com/adaptive-cards/rendering-cards/getting-started)を使用します。レンダラーは、JSON ペイロードを受け取り、それをネイティブ UI に変換することができます。 たとえば、UI として、WPF アプリや UWP アプリでは XAML を、Android アプリでは AXML を、Web サイトやボット チャットでは HTML を使用できます。
+アダプティブ カードで定義されているのはコンテンツだけであり、コンテンツの表示方法は定義されていません。 アダプティブ カードを受け取ったプラットフォームでは、最適なスタイルを使用してコンテンツを表示できます。 アダプティブ カードを設計するには、[レンダラー](/adaptive-cards/rendering-cards/getting-started)を使用します。レンダラーは、JSON ペイロードを受け取り、それをネイティブ UI に変換することができます。 たとえば、UI として、WPF アプリや UWP アプリでは XAML を、Android アプリでは AXML を、Web サイトやボット チャットでは HTML を使用できます。
 
 簡単なアダプティブ カードのペイロードの例を次に示します。
 
@@ -391,7 +391,7 @@ Contoso 開発チームが追加したい 2 番目の機能は、新しい経費
     }
     ```
 
-    トースト通知は XML ペイロードによって表され、テキスト、画像、アクションなどを含むことができます。 サポートされているすべての要素は、[こちら](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/toast-schema)で確認できます。 このコードでは、テキストがタイトルと本文の 2 行の非常にシンプルなスキーマを使用します。 コードでは、XML ペイロードが定義されて **XmlDocument** オブジェクトに読み込まれた後、XML が **ToastNotification** オブジェクト内にラップされ、**ToastNotificationManager** クラスを使用して表示されます。
+    トースト通知は XML ペイロードによって表され、テキスト、画像、アクションなどを含むことができます。 サポートされているすべての要素は、[こちら](/windows/uwp/design/shell/tiles-and-notifications/toast-schema)で確認できます。 このコードでは、テキストがタイトルと本文の 2 行の非常にシンプルなスキーマを使用します。 コードでは、XML ペイロードが定義されて **XmlDocument** オブジェクトに読み込まれた後、XML が **ToastNotification** オブジェクト内にラップされ、**ToastNotificationManager** クラスを使用して表示されます。
 
 5. **ContosoExpenses.Core** プロジェクトで、**ViewModels** フォルダーを展開して、**AddNewExpenseViewModel.cs** ファイルを開きます。 
 

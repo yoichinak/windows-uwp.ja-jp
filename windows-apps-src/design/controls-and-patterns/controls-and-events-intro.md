@@ -11,18 +11,18 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: addb4e7d929fb0222deda63494546d731f01cecd
-ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
+ms.openlocfilehash: ae53810dee72638eb89467098000988c3baaf047
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775795"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160536"
 ---
 # <a name="intro-to-controls-and-patterns"></a>コントロールとパターンの概要
 
 Windows アプリの開発では、"*コントロール*" は、コンテンツを表示したり、操作を有効にしたりする UI 要素です。 ボタン、テキスト ボックス、コンボ ボックスなどのコントロールを使って、データを表示し、ユーザー入力を取得するためのアプリの UI を作ります。
 
-> **重要な API**:[Windows.UI.Xaml.Controls 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)
+> **重要な API**:[Windows.UI.Xaml.Controls 名前空間](/uwp/api/windows.ui.xaml.controls)
 
 *パターン*とは、コントロールを変更するか、いくつかのコントロールを組み合わせて、新しいものを作成するためのレシピです。 たとえば、[マスター/詳細](master-details.md)パターンは、アプリのナビゲーションに [SplitView](split-view.md) コントロールを使用する方法です。 同様に、[NavigationView](navigationview.md) コントロールのテンプレートをカスタマイズして、タブ パターンを実装することもできます。
 
@@ -169,7 +169,7 @@ Button1().Click({ this, &MainPage::Button1_Click });
 ## <a name="related-topics"></a>関連トピック
 
 -   [機能別コントロールのインデックス](controls-by-function.md)
--   [Windows.UI.Xaml.Controls 名前空間](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls)
+-   [Windows.UI.Xaml.Controls 名前空間](/uwp/api/windows.ui.xaml.controls)
 -   [レイアウト](../layout/index.md)
 -   [スタイル](../style/index.md)
 -   [ユーザビリティ](../usability/index.md)

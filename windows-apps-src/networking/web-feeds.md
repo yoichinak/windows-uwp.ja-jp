@@ -6,23 +6,23 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6ac962476ace10e08ef92ed4fff9fb9bf48f0006
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 1dad07260490f03ed75d1329487efdaeba47af0e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72282261"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158206"
 ---
 # <a name="rssatom-feeds"></a>RSS/Atom フィード
 
 
 **重要な API**
 
--   [**Windows.Data.Xml.Dom**](https://docs.microsoft.com/uwp/api/Windows.Data.Xml.Dom)
--   [**Windows.Web.AtomPub**](https://docs.microsoft.com/uwp/api/Windows.Web.AtomPub)
--   [**Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication)
+-   [**Windows.Data.Xml.Dom**](/uwp/api/Windows.Data.Xml.Dom)
+-   [**Windows.Web.AtomPub**](/uwp/api/Windows.Web.AtomPub)
+-   [**Windows.Web.Syndication**](/uwp/api/Windows.Web.Syndication)
 
-[  **Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) 名前空間の機能により、RSS や Atom に従って生成される概要フィードを使って、最新かつ人気の高い Web コンテンツを取得または作成します。
+[  **Windows.Web.Syndication**](/uwp/api/Windows.Web.Syndication) 名前空間の機能により、RSS や Atom に従って生成される概要フィードを使って、最新かつ人気の高い Web コンテンツを取得または作成します。
 
 ## <a name="what-is-a-feed"></a>フィードとは
 
@@ -30,11 +30,11 @@ Web フィードは、テキストやリンク、画像といった個々のエ�
 
 ## <a name="which-feed-format-standards-are-supported"></a>サポートされるフィード形式
 
-ユニバーサル Windows プラットフォーム (UWP) では、RSS 形式 (0.91 ～ 2.0) と Atom 形式 (0.3 ～ 1.0) のフィードを取得することができます。 [  **Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) 名前空間のクラスは、RSS と Atom のどちらの要素も表せるフィードとフィード項目を定義することができます。
+ユニバーサル Windows プラットフォーム (UWP) では、RSS 形式 (0.91 ～ 2.0) と Atom 形式 (0.3 ～ 1.0) のフィードを取得することができます。 [  **Windows.Web.Syndication**](/uwp/api/Windows.Web.Syndication) 名前空間のクラスは、RSS と Atom のどちらの要素も表せるフィードとフィード項目を定義することができます。
 
-加えて、Atom 1.0 形式と RSS 2.0 形式では、公式の仕様には定義されていない要素や属性をフィード ドキュメントに含めることができます。 やがて、こうしたカスタムの要素や属性が、他の Web サービスのデータ形式 (GData、OData など) によって使用されるドメイン固有の情報を定義するための手段となりました。 この追加機能をサポートするため、[**SyndicationNode**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationNode) クラスは XML 要素全般を表します。 [**Windows.Data.Xml.Dom**](https://docs.microsoft.com/uwp/api/Windows.Data.Xml.Dom) 名前空間のクラスと **SyndicationNode** クラスを使うことによって、アプリは属性、拡張機能、含まれるすべてのコンテンツにアクセスできるようになります。
+加えて、Atom 1.0 形式と RSS 2.0 形式では、公式の仕様には定義されていない要素や属性をフィード ドキュメントに含めることができます。 やがて、こうしたカスタムの要素や属性が、他の Web サービスのデータ形式 (GData、OData など) によって使用されるドメイン固有の情報を定義するための手段となりました。 この追加機能をサポートするため、[**SyndicationNode**](/uwp/api/Windows.Web.Syndication.SyndicationNode) クラスは XML 要素全般を表します。 [**Windows.Data.Xml.Dom**](/uwp/api/Windows.Data.Xml.Dom) 名前空間のクラスと **SyndicationNode** クラスを使うことによって、アプリは属性、拡張機能、含まれるすべてのコンテンツにアクセスできるようになります。
 
-概要コンテンツの発行については、UWP による Atom Publication Protocol の実装 ([**Windows.Web.AtomPub**](https://docs.microsoft.com/uwp/api/Windows.Web.AtomPub)) は、Atom および Atom Publication に準拠したフィード コンテンツ操作のみをサポートする点に注意してください。
+概要コンテンツの発行については、UWP による Atom Publication Protocol の実装 ([**Windows.Web.AtomPub**](/uwp/api/Windows.Web.AtomPub)) は、Atom および Atom Publication に準拠したフィード コンテンツ操作のみをサポートする点に注意してください。
 
 ## <a name="using-syndicated-content-with-network-isolation"></a>概要コンテンツとネットワーク分離の併用
 
@@ -42,7 +42,7 @@ Web フィードは、テキストやリンク、画像といった個々のエ�
 
 ネットワーク分離では、開発者が必要なネットワーク アクセスのスコープをアプリごとに定義できます。 適切なスコープが定義されていないアプリは、特定の種類のネットワークや特定の種類のネットワーク要求 (クライアント側から開始される出力方向の要求、または相手から開始される入力方向の要求とクライアント側から開始される出力方向の要求の両方) にアクセスできません。 ネットワーク分離を設定して強制的に適用できるため、アプリのセキュリティが侵害されたとしても、そこからアクセスできるネットワークは、そのアプリに対して明示的に許可されている範囲に限られます。 そのため、他のアプリケーションや Windows そのものへの影響をきわめて小さくすることができます。
 
-ネットワーク分離は、ネットワーク アクセスを試みる [**Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) 名前空間と [**Windows.Web.AtomPub**](https://docs.microsoft.com/uwp/api/Windows.Web.AtomPub) 名前空間のすべてのクラス要素に影響します。 ネットワーク分離は、Windows によって能動的かつ強制的に適用されます。 適切なネットワーク機能が有効になっていなければ、ネットワーク アクセスを付随する **Windows.Web.Syndication** 名前空間や **Windows.Web.AtomPub** 名前空間のクラス要素の呼び出しは失敗する可能性があります。
+ネットワーク分離は、ネットワーク アクセスを試みる [**Windows.Web.Syndication**](/uwp/api/Windows.Web.Syndication) 名前空間と [**Windows.Web.AtomPub**](/uwp/api/Windows.Web.AtomPub) 名前空間のすべてのクラス要素に影響します。 ネットワーク分離は、Windows によって能動的かつ強制的に適用されます。 適切なネットワーク機能が有効になっていなければ、ネットワーク アクセスを付随する **Windows.Web.Syndication** 名前空間や **Windows.Web.AtomPub** 名前空間のクラス要素の呼び出しは失敗する可能性があります。
 
 アプリのネットワーク機能は、アプリのビルド時にアプリ マニフェストで構成します。 通常、ネットワーク機能は、アプリの開発時に Microsoft Visual Studio 2015 を使用して追加します。 アプリ マニフェスト ファイルをテキスト エディターで直接編集してネットワーク機能を設定することもできます。
 
@@ -50,7 +50,7 @@ Web フィードは、テキストやリンク、画像といった個々のエ�
 
 ## <a name="how-to-access-a-web-feed"></a>Web フィードにアクセスする方法
 
-このセクションでは、C# または Javascript で記述された UWP アプリで [**Windows.Web.Syndication**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication) 名前空間のクラスを使って、Web フィードを取得および表示する方法について説明します。
+このセクションでは、C# または Javascript で記述された UWP アプリで [**Windows.Web.Syndication**](/uwp/api/Windows.Web.Syndication) 名前空間のクラスを使って、Web フィードを取得および表示する方法について説明します。
 
 **前提条件**
 
@@ -58,9 +58,9 @@ UWP アプリをネットワークに対応させるには、プロジェクト�
 
 **Web フィードからの概要コンテンツの取得**
 
-ここでは、フィードを取得し、そこに含まれている個々の項目を表示するコードを見ていきます。 要求を構成して送信する前に、操作で必要ないくつかの変数を定義し、[**SyndicationClient**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationClient) のインスタンスを初期化します。そうすることでフィードを取得して表示する際に必要なメソッドとプロパティを定義します。
+ここでは、フィードを取得し、そこに含まれている個々の項目を表示するコードを見ていきます。 要求を構成して送信する前に、操作で必要ないくつかの変数を定義し、[**SyndicationClient**](/uwp/api/Windows.Web.Syndication.SyndicationClient) のインスタンスを初期化します。そうすることでフィードを取得して表示する際に必要なメソッドとプロパティを定義します。
 
-[  **Uri** ](https://docs.microsoft.com/uwp/api/windows.foundation.uri.-ctor#Windows_Foundation_Uri__ctor_System_String_) コンストラクターは、渡された *uriString* が有効な URI ではない場合は、例外をスローします。 そこで、try/catch ブロックを使って *uriString* を検証します。
+[  **Uri** ](/uwp/api/windows.foundation.uri.-ctor#Windows_Foundation_Uri__ctor_System_String_) コンストラクターは、渡された *uriString* が有効な URI ではない場合は、例外をスローします。 そこで、try/catch ブロックを使って *uriString* を検証します。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp
@@ -93,13 +93,13 @@ try {
 }
 ```
 
-次に、必要なサーバーの資格情報 ([**ServerCredential**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.servercredential) プロパティ)、プロキシの資格情報 ([**ProxyCredential**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.proxycredential) プロパティ)、HTTP ヘッダー ([**SetRequestHeader**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.setrequestheader) メソッド) を設定して要求を構成します。 基本的な要求パラメーターが構成されると、アプリによって指定されたフィード URI 文字列を使って有効な [**Uri**](https://docs.microsoft.com/uwp/api/windows.foundation.uri) オブジェクトが作成されます。 すると、**Uri** オブジェクトが [**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) 関数に渡され、フィードが要求されます。
+次に、必要なサーバーの資格情報 ([**ServerCredential**](/uwp/api/windows.web.syndication.syndicationclient.servercredential) プロパティ)、プロキシの資格情報 ([**ProxyCredential**](/uwp/api/windows.web.syndication.syndicationclient.proxycredential) プロパティ)、HTTP ヘッダー ([**SetRequestHeader**](/uwp/api/windows.web.syndication.syndicationclient.setrequestheader) メソッド) を設定して要求を構成します。 基本的な要求パラメーターが構成されると、アプリによって指定されたフィード URI 文字列を使って有効な [**Uri**](/uwp/api/windows.foundation.uri) オブジェクトが作成されます。 すると、**Uri** オブジェクトが [**RetrieveFeedAsync**](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) 関数に渡され、フィードが要求されます。
 
 目的のフィード コンテンツが返されたら、**displayCurrentItem** (以下で定義) が呼び出され、それぞれのフィード項目が反復処理されます。そして当該の UI を介して項目とそのコンテンツがリストとして表示されます。
 
 非同期ネットワーク メソッドの多くは、呼び出すとき、例外を処理するようにコードを記述する必要があります。 例外ハンドラーは例外の原因について詳細な情報を取得でき、エラーの理解と適切な判断に役立ちます。
 
-[  **RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) メソッドは、ネットワーク サーバーとの接続が確立できなかった場合や、[**Uri**](https://docs.microsoft.com/uwp/api/windows.foundation.uri) オブジェクトが有効な AtomPub や RSS フィードを指してない場合に、例外をスローします。 Javascript サンプル コードでは、**onError** 関数を使って、エラーが発生した場合に例外をキャッチし、例外に関する詳細な情報を出力するようにしています。
+[  **RetrieveFeedAsync**](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) メソッドは、ネットワーク サーバーとの接続が確立できなかった場合や、[**Uri**](/uwp/api/windows.foundation.uri) オブジェクトが有効な AtomPub や RSS フィードを指してない場合に、例外をスローします。 Javascript サンプル コードでは、**onError** 関数を使って、エラーが発生した場合に例外をキャッチし、例外に関する詳細な情報を出力するようにしています。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp
@@ -157,7 +157,7 @@ function retreiveFeed(uri) {
 }
 ```
 
-前段階では、[**RetrieveFeedAsync**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) で要求対象のフィード コンテンツを取得し、フィード項目を反復処理しました。 各項目は [**SyndicationItem**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationItem)オブジェクトで表され、フィード配信規格 (RSS または Atom) でサポートされているすべての項目のプロパティとコンテンツはこのオブジェクトに格納されています。 次の例では、各項目を処理し、対応する UI 要素を介してその内容を表示する **displayCurrentItem** 関数を詳しく見ていきます。
+前段階では、[**RetrieveFeedAsync**](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync) で要求対象のフィード コンテンツを取得し、フィード項目を反復処理しました。 各項目は [**SyndicationItem**](/uwp/api/Windows.Web.Syndication.SyndicationItem)オブジェクトで表され、フィード配信規格 (RSS または Atom) でサポートされているすべての項目のプロパティとコンテンツはこのオブジェクトに格納されています。 次の例では、各項目を処理し、対応する UI 要素を介してその内容を表示する **displayCurrentItem** 関数を詳しく見ていきます。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp
@@ -199,7 +199,7 @@ function displayCurrentItem() {
                 //displayCurrentItem is continued below.
 ```
 
-先ほども触れましたが、[**SyndicationItem**](https://docs.microsoft.com/uwp/api/Windows.Web.Syndication.SyndicationItem) オブジェクトによって表されるコンテンツの種類は、フィードの発行に採用されている規格 (RSS または Atom) によって異なります。 たとえば、Atom フィードは [**Contributors**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationitem.contributors) のリスト化に対応していますが、RSS フィードは対応していません。 ただし、どちらの規格でもサポートされていないフィード項目内の拡張要素 (Dublin Core の extension 要素など) は、次のコード例のように [**SyndicationItem.ElementExtensions**](https://docs.microsoft.com/uwp/api/windows.web.syndication.syndicationitem.elementextensions) プロパティでアクセスし、表示することができます。
+先ほども触れましたが、[**SyndicationItem**](/uwp/api/Windows.Web.Syndication.SyndicationItem) オブジェクトによって表されるコンテンツの種類は、フィードの発行に採用されている規格 (RSS または Atom) によって異なります。 たとえば、Atom フィードは [**Contributors**](/uwp/api/windows.web.syndication.syndicationitem.contributors) のリスト化に対応していますが、RSS フィードは対応していません。 ただし、どちらの規格でもサポートされていないフィード項目内の拡張要素 (Dublin Core の extension 要素など) は、次のコード例のように [**SyndicationItem.ElementExtensions**](/uwp/api/windows.web.syndication.syndicationitem.elementextensions) プロパティでアクセスし、表示することができます。
 
 > [!div class="tabbedCodeSnippets"]
 ```csharp

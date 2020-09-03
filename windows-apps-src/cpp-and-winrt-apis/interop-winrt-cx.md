@@ -1,20 +1,20 @@
 ---
-description: このトピックでは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) と [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) オブジェクト間の変換に使用できる 2 つのヘルパー関数について説明します。
+description: このトピックでは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) と [C++/WinRT](./intro-to-using-cpp-with-winrt.md) オブジェクト間の変換に使用できる 2 つのヘルパー関数について説明します。
 title: C++/WinRT と C++/CX 間の相互運用
 ms.date: 10/09/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: d3fa04f0aabe001dc87ce4292dff7557432583a6
-ms.sourcegitcommit: 99100b58a5b49d8ba78905b15b076b2c5cffbe49
+ms.openlocfilehash: 8ef3b45222b5e9324dc76d7a81a8d096a569595d
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88502287"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157376"
 ---
 # <a name="interop-between-cwinrt-and-ccx"></a>C++/WinRT と C++/CX 間の相互運用
 
-このトピックを読む前に、「[C++/CX から C++/WinRT への移行](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx)」のトピックの情報が必要です。 このトピックでは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) プロジェクトを [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) に移植するための 2 つの主要な方法について説明します。
+このトピックを読む前に、「[C++/CX から C++/WinRT への移行](./move-to-winrt-from-cx.md)」のトピックの情報が必要です。 このトピックでは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) プロジェクトを [C++/WinRT](./intro-to-using-cpp-with-winrt.md) に移植するための 2 つの主要な方法について説明します。
 
 - プロジェクト全体を 1 回の動作で移植する。 プロジェクトが大きすぎない場合の最も簡単なオプションです。 Windows ランタイム コンポーネント プロジェクトがある場合は、この方法が唯一のオプションです。
 - プロジェクトを段階的に移植する (コードベースのサイズまたは複雑さによってはこれが必要になる場合があります)。 しかしこの方法では、C++/CX と C++/WinRT のコードがしばらくの間同じプロジェクト内に共存する移植プロセスに従うことが必要になります。 XAML プロジェクトの場合、XAML ページの種類は常に、すべて C++/WinRT "*または*" すべて C++/CX の "*いずれか*" である必要があります。
@@ -23,7 +23,7 @@ ms.locfileid: "88502287"
 
 これらのヘルパー関数は、C++/CX から C++/WinRT にコードを段階的に移植するときに非常に便利です。 または、移植するかどうかにかかわらず、1 つのプロジェクトで C++/WinRT と C++/CX の両方の言語プロジェクションを使用し、これらのヘルパー関数を使用して 2 つの間で相互運用することができます。
 
-このトピックを読んだ後、PPL タスクとコルーチンを同じプロジェクトで同時にサポートする方法を示す情報とコードの例 (タスク チェーンからコルーチンを呼び出す場合など) については、高度なトピック「[非同期性、および C++/WinRT と C++/CX 間の相互運用](/windows/uwp/cpp-and-winrt-apis/interop-winrt-cx-async)」を参照してください。
+このトピックを読んだ後、PPL タスクとコルーチンを同じプロジェクトで同時にサポートする方法を示す情報とコードの例 (タスク チェーンからコルーチンを呼び出す場合など) については、高度なトピック「[非同期性、および C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx-async.md)」を参照してください。
 
 ## <a name="the-from_cx-and-to_cx-functions"></a>**from_cx** および **to_cx** 関数
 
@@ -80,7 +80,7 @@ T^ to_cx(winrt::Windows::Foundation::IUnknown const& from)
 
 ## <a name="taking-a-ccx-project-and-adding-cwinrt-support"></a>C++/CX プロジェクトの取得と C++/WinRT サポートの追加
 
-このセクションでは、既存の C++/CX プロジェクトを取得し、C++/WinRT サポートをこれに追加し、そこで移植作業を行うことを決定した場合に行うことについて説明します。 [C++/WinRT の Visual Studio のサポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事も参照してください。
+このセクションでは、既存の C++/CX プロジェクトを取得し、C++/WinRT サポートをこれに追加し、そこで移植作業を行うことを決定した場合に行うことについて説明します。 [C++/WinRT の Visual Studio のサポート](./intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事も参照してください。
 
 プロジェクト内で **from_cx** および **to_cx** ヘルパー関数を使用するなど、C++/CX および C++/WinRT を C++/CX プロジェクト内で混在させるには、プロジェクトに C++/WinRT サポートを手動で追加する必要があります。
 
@@ -143,7 +143,7 @@ T^ to_cx(winrt::Windows::Foundation::IUnknown const& from)
 
 プロジェクト内で **from_cx** および **to_cx** ヘルパー関数を使用するなど、C++/WinRT および C++/CX を C++/WinRT プロジェクト内で混在させるには、プロジェクトに C++/CX サポートを手動で追加する必要があります。
 
-- いずれかの C++/WinRT プロジェクト テンプレートを使用して、Visual Studio で新しい C++/WinRT プロジェクトを作成します ([C++/WinRT の Visual Studio のサポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください)。
+- いずれかの C++/WinRT プロジェクト テンプレートを使用して、Visual Studio で新しい C++/WinRT プロジェクトを作成します ([C++/WinRT の Visual Studio のサポート](./intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください)。
 - C++/CX に対するプロジェクトのサポートを有効にします。 プロジェクトのプロパティで、**[C/C++]** \> **[全般]** \> **[Windows ランタイム拡張機能の使用]** \> **[はい (/ZW)]** を選択します。
 
 ### <a name="an-example-cwinrt-project-showing-the-two-helper-functions-in-use"></a>使用中の 2 つのヘルパー関数を示す C++/WinRT プロジェクトの例
@@ -344,5 +344,5 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 
 ## <a name="related-topics"></a>関連トピック
 * [C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx)
-* [C++/CX から C++/WinRT への移行](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx)
-* [非同期性、および C++/WinRT と C++/CX 間の相互運用](/windows/uwp/cpp-and-winrt-apis/interop-winrt-cx-async)
+* [C++/CX から C++/WinRT への移行](./move-to-winrt-from-cx.md)
+* [非同期性、および C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx-async.md)

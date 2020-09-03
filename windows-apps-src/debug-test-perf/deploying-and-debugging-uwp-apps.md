@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: d948af1ce10b3752ba9f20454d8dea72916de692
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0f1ff6a98182f4832a2a1b82bf8ceca4aa176c36
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75683855"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157266"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 
@@ -92,13 +92,13 @@ Creators Update より前のリモート PC に展開するには、ターゲッ
 
 これを行うには、 **[スタート]** メニューで **[リモート デバッガー]** を探して開き、プロンプトが表示されたらデバッガーがファイアウォール設定を構成できるようにします。 既定では、デバッガーは Windows 認証を使用して起動します。 両方の PC でサインイン ユーザーが同じでない場合、これにはユーザー資格情報が必要になります。
 
-**[認証なし]** に変更するには、 **[リモート デバッガー]** で **[ツール]**  -&gt; **[オプション]** の順にクリックし、 **[認証なし]** に設定します。 リモート デバッガーを設定したら、ホスト デバイスが[開発者モード](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)に設定されていることを確認する必要があります。 その後、開発コンピューターから展開できます。
+**[認証なし]** に変更するには、 **[リモート デバッガー]** で **[ツール]**  -&gt; **[オプション]** の順にクリックし、 **[認証なし]** に設定します。 リモート デバッガーを設定したら、ホスト デバイスが[開発者モード](../get-started/enable-your-device-for-development.md)に設定されていることを確認する必要があります。 その後、開発コンピューターから展開できます。
 
 詳しくは、[Visual Studio ダウンロード センター](https://visualstudio.microsoft.com/downloads/)のページをご覧ください。
 
 ## <a name="passing-command-line-debug-arguments"></a>デバッグのコマンド ライン引数を渡す
 
-Visual Studio 2019 では、UWP アプリケーションのデバッグを開始するときに、デバッグのコマンド ライン引数を渡すことができます。 デバッグのコマンド ライン引数には、[**Application**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application) クラスの **OnLaunched** メソッドで *args* パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
+Visual Studio 2019 では、UWP アプリケーションのデバッグを開始するときに、デバッグのコマンド ライン引数を渡すことができます。 デバッグのコマンド ライン引数には、[**Application**](/uwp/api/windows.ui.xaml.application) クラスの **OnLaunched** メソッドで *args* パラメーターからアクセスすることができます デバッグのコマンド ライン引数を指定するには、プロジェクトのプロパティを開き、 **[デバッグ]** タブに移動します。
 
 > [!NOTE]
 > これは、Visual Studio 2017 (Version 15.1) で C#、VB、C++ について利用できます。 JavaScript は、将来のバージョンで利用できます。 デバッグのコマンド ライン引数は、シミュレーターを除くすべての種類の展開で利用できます。
@@ -111,7 +111,7 @@ C++ と JS の UWP プロジェクトでは、 **[デバッグ プロパティ]*
 
 ![C++ と JS でのコマンド ライン引数](images/command-line-arguments-cpp.png)
 
-コマンド ライン引数を指定すると、アプリの **OnLaunched** メソッドで引数の値にアクセスすることができます。 [  **LaunchActivatedEventArgs**](https://docs.microsoft.com/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクト *args* は、値が **[コマンド ライン引数]** フィールドのテキストに設定された **Arguments** プロパティを持ちます。
+コマンド ライン引数を指定すると、アプリの **OnLaunched** メソッドで引数の値にアクセスすることができます。 [  **LaunchActivatedEventArgs**](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクト *args* は、値が **[コマンド ライン引数]** フィールドのテキストに設定された **Arguments** プロパティを持ちます。
 
 ![C++ と JS でのコマンド ライン引数](images/command-line-arguments-debugging.png)
 
@@ -189,7 +189,7 @@ C++ UWP アプリでは、プロパティ ページは次のようになりま�
 
 ## <a name="debugging-options"></a>デバッグのオプション
 
-Windows 10 では、[事前起動](https://docs.microsoft.com/windows/uwp/launch-resume/handle-app-prelaunch)と呼ばれる手法でアプリを事前に起動してから中断することにより、UWP アプリの起動パフォーマンスが向上します。 多くのアプリはこのモードで動作するために特別に何もする必要はありませんが、一部のアプリでは動作を調整する必要があります。 これらのコード パスの問題をデバッグするために、事前起動モードで Visual Studio からアプリのデバッグを開始できます。
+Windows 10 では、[事前起動](../launch-resume/handle-app-prelaunch.md)と呼ばれる手法でアプリを事前に起動してから中断することにより、UWP アプリの起動パフォーマンスが向上します。 多くのアプリはこのモードで動作するために特別に何もする必要はありませんが、一部のアプリでは動作を調整する必要があります。 これらのコード パスの問題をデバッグするために、事前起動モードで Visual Studio からアプリのデバッグを開始できます。
 
 デバッグは、Visual Studio プロジェクト ( **[デバッグ]**  -&gt; **[その他のデバッグ ターゲット]**  -&gt; **[ユニバーサル Windows アプリ事前起動のデバッグ]** )、および既にコンピューターにインストールされているアプリ ( **[デバッグ]**  -&gt; **[その他のデバッグ ターゲット]**  -&gt; **[インストールされているアプリケーション パッケージのデバッグ]** 、 **[事前起動を使用してアプリをアクティブ化]** のチェック ボックスをオンにする) の両方でサポートされます。 詳しくは、「[事前起動 UWP をデバッグする](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/30/debug-uwp-prelaunch-with-vs2015.aspx)」をご覧ください。
 
@@ -213,7 +213,7 @@ Windows 10 では、[事前起動](https://docs.microsoft.com/windows/uwp/launch
 
 ## <a name="symbols"></a>記号
 
-シンボル ファイルには、変数、関数名、エントリ ポイントのアドレスなど、コードをデバッグするときに非常に便利な値が格納されており、例外とコールスタックの実行順序を把握することができます。 ほとんどの種類の Windows のシンボルは、[Microsoft シンボル サーバー](https://msdl.microsoft.com/download/symbols)から利用することも、高速にオフラインで参照できるように [Windows シンボル パッケージのダウンロード サイト](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugger-download-symbols)からダウンロードすることもできます。
+シンボル ファイルには、変数、関数名、エントリ ポイントのアドレスなど、コードをデバッグするときに非常に便利な値が格納されており、例外とコールスタックの実行順序を把握することができます。 ほとんどの種類の Windows のシンボルは、[Microsoft シンボル サーバー](https://msdl.microsoft.com/download/symbols)から利用することも、高速にオフラインで参照できるように [Windows シンボル パッケージのダウンロード サイト](/windows-hardware/drivers/debugger/debugger-download-symbols)からダウンロードすることもできます。
 
 Visual Studio のシンボル オプションを設定するには、 **[ツール] の [オプション]** を選択し、ダイアログ ウィンドウで **[デバッグ]、[シンボル]** の順に移動します。
 
@@ -226,7 +226,7 @@ Visual Studio のシンボル オプションを設定するには、 **[ツー�
 .reload
 ```
 
-区切り文字 `‘;’` を使用して複数のパスを追加したり、`.sympath+` コマンドを使用することもできます。 WinDbg を使用する高度なシンボル操作については、「[パブリック シンボルとプライベート シンボル](https://docs.microsoft.com/windows-hardware/drivers/debugger/public-and-private-symbols)」をご覧ください。
+区切り文字 `‘;’` を使用して複数のパスを追加したり、`.sympath+` コマンドを使用することもできます。 WinDbg を使用する高度なシンボル操作については、「[パブリック シンボルとプライベート シンボル](/windows-hardware/drivers/debugger/public-and-private-symbols)」をご覧ください。
 
 ## <a name="windbg"></a>WinDbg
 
@@ -246,7 +246,7 @@ WinDbg で最もよく使用されるコマンドの 1 つが `!analyze -v` で�
 - EXCEPTION_RECORD: 現在の例外のアドレス、コード、フラグ
 - STACK_TEXT: 例外の前のスタック トレース
 
-WinDbg のすべてのコマンドの一覧については、[デバッガー コマンドに関するページ](https://docs.microsoft.com/windows-hardware/drivers/debugger/debugger-commands)をご覧ください。
+WinDbg のすべてのコマンドの一覧については、[デバッガー コマンドに関するページ](/windows-hardware/drivers/debugger/debugger-commands)をご覧ください。
 
 ## <a name="related-topics"></a>関連トピック
 

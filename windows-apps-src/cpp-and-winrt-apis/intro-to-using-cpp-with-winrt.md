@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 概要
 ms.localizationpriority: medium
-ms.openlocfilehash: 41ded061a1111c55eb2c71b80cba34c0ce0fc50e
-ms.sourcegitcommit: 7c6cc0d972213bb3abab600423c27db50a7c702b
+ms.openlocfilehash: 980194d396bb6fa20b1d11456edee221d224b011
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87477494"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157356"
 ---
 # <a name="introduction-to-cwinrt"></a>C++/WinRT の概要
 &nbsp;
@@ -30,7 +30,7 @@ C++/WinRT は、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx?branch=live
 Windows ランタイムは、コンポーネント オブジェクト モデル (COM) API に基づいており、*言語プロジェクション*を使用してアクセスするよう設計されています。 プロジェクションは、COM の詳細を隠し、特定の言語により自然なプログラミング エクスペリエンスを提供します。
 
 ### <a name="the-cwinrt-language-projection-in-the-windows-runtime-api-reference-content"></a>Windows ランタイム API リファレンス コンテンツにおける C++/WinRT 言語プロジェクション
-[Windows ランタイム API](https://docs.microsoft.com/uwp/api/) の閲覧中に、右上隅の **[言語]** ボックスをクリックして **[C++/WinRT]** を選択すると、C++/WinRT 言語プロジェクションで使用された API 構文ブロックを表示できます。
+[Windows ランタイム API](/uwp/api/) の閲覧中に、右上隅の **[言語]** ボックスをクリックして **[C++/WinRT]** を選択すると、C++/WinRT 言語プロジェクションで使用された API 構文ブロックを表示できます。
 
 ## <a name="visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package"></a>C++/WinRT、XAML、VSIX 拡張機能、NuGet パッケージの Visual Studio のサポート
 Visual Studio のサポートでは、Visual Studio 2019 または Visual Studio 2017 が必要になります (バージョン 15.6 以上、Microsoft では 15.7 以上をお勧めします)。 Visual Studio インストーラーから、**ユニバーサル Windows プラットフォーム開発**ワークロードをインストールします。 まだ行っていない場合は、 **[インストールの詳細]**  >  **[ユニバーサル Windows プラットフォーム開発]** で **[C++ (v14x) ユニバーサル Windows プラットフォーム ツール]** オプションを選択します。 また、Windows の **[設定]**  >  **[更新 \& セキュリティ]**  >  **[開発者向け]** で、 **[アプリのサイドロード]** オプションではなく、 **[開発者モード]** オプションを選びます。
@@ -71,7 +71,7 @@ VSIX 拡張機能によって提供される Visual Studio プロジェクト �
 ### <a name="blank-app-cwinrt"></a>空のアプリ (C++/WinRT)
 XAML ユーザー インターフェイスを持つユニバーサル Windows プラットフォーム (UWP) アプリのプロジェクト テンプレートです。
 
-Visual Studio では、各 XAML マークアップ ファイルの背後にあるインターフェイス定義言語 (IDL) (`.idl`) ファイルから実装とヘッダーのスタブを生成するために XAML コンパイラ サポートを提供します。 IDL ファイルで、アプリの XAML ページ内で参照する任意のローカルのランタイム クラスを定義してから、プロジェクトを 1 回ビルドして `Generated Files` で実装テンプレート、`Generated Files\sources` でスタブ型定義を生成します。 次に、ローカルのランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
+Visual Studio では、各 XAML マークアップ ファイルの背後にあるインターフェイス定義言語 (IDL) (`.idl`) ファイルから実装とヘッダーのスタブを生成するために XAML コンパイラ サポートを提供します。 IDL ファイルで、アプリの XAML ページ内で参照する任意のローカルのランタイム クラスを定義してから、プロジェクトを 1 回ビルドして `Generated Files` で実装テンプレート、`Generated Files\sources` でスタブ型定義を生成します。 次に、ローカルのランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](./author-apis.md#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
 
 C++/WinRT に対する Visual Studio 2019 での XAML デザイン サーフェスのサポートは、C# でのパリティに近いです。 Visual Studio 2019 では、 **[プロパティ]** ウィンドウの **[イベント]** タブを使用して、C++/WinRT プロジェクト内にイベント ハンドラーを追加できます。 また、自分のコードに手動でイベント ハンドラーを追加することもできます&mdash;詳細については、「[C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)」を参照してください。
 
@@ -91,7 +91,7 @@ Windows Desktop 用の C++/WinRT クライアント アプリケーションに�
 
 このテンプレートは、Windows ランタイム メタデータ (`.winmd`) が IDL から生成され、実装とヘッダーのスタブが Windows ランタイム メタデータから生成される、`midl.exe` > `cppwinrt.exe` ツール チェーンを示します。
 
-IDL ファイルでは、コンポーネント、それらの既定インターフェイス、およびそれらが実装している他のすべてのインターフェイスのランタイム クラスを定義します。 プロジェクトを 1 回ビルドして `module.g.cpp`、`module.h.cpp`、`Generated Files` の実装テンプレート、および `Generated Files\sources` のスタブ型定義を生成します。 次にコンポーネント内のランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
+IDL ファイルでは、コンポーネント、それらの既定インターフェイス、およびそれらが実装している他のすべてのインターフェイスのランタイム クラスを定義します。 プロジェクトを 1 回ビルドして `module.g.cpp`、`module.h.cpp`、`Generated Files` の実装テンプレート、および `Generated Files\sources` のスタブ型定義を生成します。 次にコンポーネント内のランタイム クラスの実装への参照にこれらのスタブ型定義を使用します。 「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](./author-apis.md#factoring-runtime-classes-into-midl-files-idl)」を参照してください。
 
 ビルドした Windows ランタイム コンポーネントのバイナリとその `.winmd` を、それらを使用する UWP アプリとバンドルします。
 
@@ -139,7 +139,7 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 > [!WARNING]
 > C++/WinRT Windows 名前空間ヘッダーをよく調査すると見つかる可能性がある型もあります。 例として **winrt::param::hstring** がありますが、コレクションの例もあります。 これらは入力パラメーターのバインディングを最適化するためにのみ存在し、大幅に改善したパフォーマンスをもたらし、関連する標準的な C++ の型とコンテナーでほとんどの呼び出しパターンが "そのまま機能する" ようにします。 これらの型は、ほとんどの値を追加する場合にプロジェクションでのみ使用されます。 高度に最適化され、一般的な用途で使用するものではありません。それらの型を自分で使用しないようにしてください。 また、`winrt::impl` 名前空間からは何も使用しないでください。それらは実装型であるため、変更されることがあります。 引き続き標準型を使用するか、または [winrt 名前空間](/uwp/cpp-ref-for-winrt/winrt)の型を使用する必要があります。
 >
-> また、「[ABI 境界へのパラメーターの受け渡し](/windows/uwp/cpp-and-winrt-apis/pass-parms-to-abi)」もご覧ください。
+> また、「[ABI 境界へのパラメーターの受け渡し](./pass-parms-to-abi.md)」もご覧ください。
 
 ## <a name="important-apis"></a>重要な API
 * [winrt::hstring 構造体](/uwp/cpp-ref-for-winrt/hstring)
@@ -151,4 +151,4 @@ IDL ファイルでは、コンポーネント、それらの既定インター�
 * [C++/WinRT の使用を開始する](get-started.md)
 * [標準的な C++ のデータ型と C++/WinRT](std-cpp-data-types.md)
 * [C++/WinRT での文字列の処理](strings.md)
-* [Windows ランタイム API](https://docs.microsoft.com/uwp/api/)
+* [Windows ランタイム API](/uwp/api/)

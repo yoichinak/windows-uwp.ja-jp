@@ -4,16 +4,16 @@ description: XamlUICommand クラスと StandardUICommand クラスを (ICommand
 ms.service: ''
 ms.topic: overview
 ms.date: 09/13/2019
-ms.openlocfilehash: 5ab46a479e882b9975f24731dfcbb6e433126f80
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 767172fe3384fc74687b239768b277b6147c0fd4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233762"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160636"
 ---
 # <a name="commanding-in-windows-apps-using-standarduicommand-xamluicommand-and-icommand"></a>StandardUICommand、XamlUICommand、ICommand を使用する Windows アプリでのコマンド処理
 
-このトピックでは、Windows アプリケーションでのコマンド処理について説明します。 具体的には、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
+このトピックでは、Windows アプリケーションでのコマンド処理について説明します。 具体的には、[XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) クラスと [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを (ICommand インターフェイスと共に) 使用し、使用しているデバイスや入力の種類に関係なく、さまざまな型のコントロールでコマンドを共有し、管理する方法について説明します。
 
 ![共有コマンドで共通する使用方法を表す図: 複数の UI サーフェスと "お気に入り" コマンド](images/commanding/generic-commanding.png)
 
@@ -21,9 +21,9 @@ ms.locfileid: "83233762"
 
 ## <a name="important-apis"></a>重要な API
 
-- [Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) と [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand)
-- [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand)
-- [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand)
+- [Windows.UI.Xaml.Input.ICommand](/uwp/api/windows.ui.xaml.input.icommand) と [System.Windows.Input.ICommand](/dotnet/api/system.windows.input.icommand)
+- [XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand)
+- [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand)
 
 ## <a name="overview"></a>概要
 
@@ -73,20 +73,20 @@ Windows アプリケーションのコマンド実行エクスペリエンスは
 
 コマンド サーフェス全体で、機能が豊富で包括的なユーザー エクスペリエンスを効率的かつ、コード重複を最小限に抑えて提供するには、このトピックで説明するコマンド バインド機能を利用することをお勧めします (標準的なイベント処理については、個々のイベント トピックをご覧ください)。
 
-共有コマンド リソースにコントロールをバインドするには、ICommand インターフェイスを自分で実装したり、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) ベース クラスまたは [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) 派生クラスによって定義されるプラットフォーム コマンドの 1 つからコマンドをビルドしたりできます。
+共有コマンド リソースにコントロールをバインドするには、ICommand インターフェイスを自分で実装したり、[XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) ベース クラスまたは [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) 派生クラスによって定義されるプラットフォーム コマンドの 1 つからコマンドをビルドしたりできます。
 
-- ICommand インターフェイス ([Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) または [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand)) を利用すると、完全にカスタマイズされた、再利用可能なコマンドをアプリ全体で作成できます。
-- [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) からもこの機能が与えられますが、コマンドの動作、キーボード ショートカット (アクセス キーとアクセラレータ キー)、アイコン、ラベル、説明など、一連の組み込みコマンド プロパティを公開するため、開発が簡単になります。
-- [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) では、プロパティが事前定義されている一連の標準プラットフォーム コマンドから選択できるため、さらに簡単になります。
+- ICommand インターフェイス ([Windows.UI.Xaml.Input.ICommand](/uwp/api/windows.ui.xaml.input.icommand) または [System.Windows.Input.ICommand](/dotnet/api/system.windows.input.icommand)) を利用すると、完全にカスタマイズされた、再利用可能なコマンドをアプリ全体で作成できます。
+- [XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) からもこの機能が与えられますが、コマンドの動作、キーボード ショートカット (アクセス キーとアクセラレータ キー)、アイコン、ラベル、説明など、一連の組み込みコマンド プロパティを公開するため、開発が簡単になります。
+- [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) では、プロパティが事前定義されている一連の標準プラットフォーム コマンドから選択できるため、さらに簡単になります。
 
 > [!Important]
-> UWP アプリケーションでは、コマンドは、[Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) (C++) または [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand) (C#) インターフェイスの実装になります。選択した言語フレームワークによって決まります。
+> UWP アプリケーションでは、コマンドは、[Windows.UI.Xaml.Input.ICommand](/uwp/api/windows.ui.xaml.input.icommand) (C++) または [System.Windows.Input.ICommand](/dotnet/api/system.windows.input.icommand) (C#) インターフェイスの実装になります。選択した言語フレームワークによって決まります。
 
 ## <a name="command-experiences-using-the-standarduicommand-class"></a>StandardUICommand クラスを使用したコマンド エクスペリエンス
 
-[XamlUiCommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) (derived from [Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) for C++ または [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand) for C#) から派生した [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスからは、アイコン、キーボード アクセラレータ、説明など、プロパティが事前定義された一連の標準プラットフォーム コマンドが公開されます。
+[XamlUiCommand](/uwp/api/windows.ui.xaml.input.xamluicommand) (derived from [Windows.UI.Xaml.Input.ICommand](/uwp/api/windows.ui.xaml.input.icommand) for C++ または [System.Windows.Input.ICommand](/dotnet/api/system.windows.input.icommand) for C#) から派生した [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) クラスからは、アイコン、キーボード アクセラレータ、説明など、プロパティが事前定義された一連の標準プラットフォーム コマンドが公開されます。
 
-[StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の場合、`Save` や `Delete` など、共通のコマンドを一貫性のある方法で簡単に定義できます。 必要な作業は、execute 関数と canExecute 関数を指定することだけです。
+[StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) の場合、`Save` や `Delete` など、共通のコマンドを一貫性のある方法で簡単に定義できます。 必要な作業は、execute 関数と canExecute 関数を指定することだけです。
 
 ### <a name="example"></a>例
 
@@ -98,14 +98,14 @@ Windows アプリケーションのコマンド実行エクスペリエンスは
 | -------------------- |
 | [UWP コマンド処理サンプル (StandardUICommand)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-commanding-standarduicommand.zip) |
 
-この例では、[StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを介して実装された項目削除コマンドで基本の [ListView](listview-and-gridview.md) を機能強化し、同時に、[MenuBar](menus.md)、[Swipe](swipe.md) コントロール、ホバー ボタン、[コンテキスト メニュー](menus.md)を利用し、さまざまな種類の入力方法を最適化する方法を確認できます。
+この例では、[StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) クラスを介して実装された項目削除コマンドで基本の [ListView](listview-and-gridview.md) を機能強化し、同時に、[MenuBar](menus.md)、[Swipe](swipe.md) コントロール、ホバー ボタン、[コンテキスト メニュー](menus.md)を利用し、さまざまな種類の入力方法を最適化する方法を確認できます。
 
 > [!NOTE]
-> このサンプルは Microsoft.UI.Xaml.Controls NuGet パッケージを必要としますが、これは [Microsoft Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)に含まれています。
+> このサンプルは Microsoft.UI.Xaml.Controls NuGet パッケージを必要としますが、これは [Microsoft Windows UI ライブラリ](/uwp/toolkits/winui/)に含まれています。
 
 **Xaml:**
 
-サンプル UI には、5 つの項目の [ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) が含まれています。 Delete [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) は [MenuBarItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.menubaritem)、[SwipeItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.swipeitem)、[AppBarButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、[ContextFlyout メニュー](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextflyout)にバインドされています。
+サンプル UI には、5 つの項目の [ListView](/uwp/api/windows.ui.xaml.controls.listview) が含まれています。 Delete [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) は [MenuBarItem](/uwp/api/microsoft.ui.xaml.controls.menubaritem)、[SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem)、[AppBarButton](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[ContextFlyout メニュー](/uwp/api/windows.ui.xaml.uielement.contextflyout)にバインドされています。
 
 ``` xaml
 <Page
@@ -241,7 +241,7 @@ public class ListItemData
 }
 ```
 
-2. MainPage クラスで、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) [ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) の [DataTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.datatemplate) に `ListItemData` オブジェクトのコレクションを定義します。 次に、5 つの項目の最初のコレクションをそれに入力します (テキストと関連する [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) Delete)。
+2. MainPage クラスで、[ListView](/uwp/api/windows.ui.xaml.controls.listview) [ItemTemplate](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) の [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate) に `ListItemData` オブジェクトのコレクションを定義します。 次に、5 つの項目の最初のコレクションをそれに入力します (テキストと関連する [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) Delete)。
 
 ```csharp
 /// <summary>
@@ -315,7 +315,7 @@ private void DeleteCommand_ExecuteRequested(
 }
 ```
 
-4. 最後に、[PointerEntered](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered)、[PointerExited](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited)、[SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントなど、さまざま ListView イベントのハンドラーを定義します。 ポインターのイベント ハンドラーは、各項目の [削除] ボタンを表示するか、非表示にする目的で使用されます。
+4. 最後に、[PointerEntered](/uwp/api/windows.ui.xaml.uielement.pointerentered)、[PointerExited](/uwp/api/windows.ui.xaml.uielement.pointerexited)、[SelectionChanged](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントなど、さまざま ListView イベントのハンドラーを定義します。 ポインターのイベント ハンドラーは、各項目の [削除] ボタンを表示するか、非表示にする目的で使用されます。
 
 ```csharp
 /// <summary>
@@ -367,9 +367,9 @@ private void ListViewSwipeContainer_PointerExited(
 
 ## <a name="command-experiences-using-the-xamluicommand-class"></a>XamlUICommand クラスを使用したコマンド エクスペリエンス
 
-[StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) クラスで定義されないコマンドを作成する必要がある場合、あるいはコマンドの外見をもっと調整する場合、[ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) から派生する[XamlUiCommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスでさまざまな UI プロパティ (アイコン、ラベル、説明、キーボード ショートカットなど)、メソッド、イベントを追加し、カスタム コマンドの UI と動作を簡単に定義できます。
+[StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) クラスで定義されないコマンドを作成する必要がある場合、あるいはコマンドの外見をもっと調整する場合、[ICommand](/uwp/api/windows.ui.xaml.input.icommand) から派生する[XamlUiCommand](/uwp/api/windows.ui.xaml.input.xamluicommand) クラスでさまざまな UI プロパティ (アイコン、ラベル、説明、キーボード ショートカットなど)、メソッド、イベントを追加し、カスタム コマンドの UI と動作を簡単に定義できます。
 
-[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) を利用すると、個別のプロパティを設定することなく、アイコン、ラベル、説明、キーボード ショートカット (アクセス キーとキーボード アクセラレータの両方) などの UI をコントロール バインドで指定できます。
+[XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) を利用すると、個別のプロパティを設定することなく、アイコン、ラベル、説明、キーボード ショートカット (アクセス キーとキーボード アクセラレータの両方) などの UI をコントロール バインドで指定できます。
 
 ### <a name="example"></a>例
 
@@ -381,16 +381,16 @@ private void ListViewSwipeContainer_PointerExited(
 | -------------------- |
 | [UWP コマンド処理サンプル (XamlUICommand)](https://github.com/MicrosoftDocs/windows-topic-specific-samples/archive/uwp-commanding-xamluicommand.zip) |
 
-この例では、前の [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の例と削除機能が同じくしていますが、[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラスを利用することで、独自のフォント アイコン、ラベル、キーボード アクセラレータ、説明でカスタムの削除アイコンを定義できることを示しています。 [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の例と同様に、基本の [ListView](listview-and-gridview.md) を [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) クラス経由で実装された項目削除コマンドで機能強化し、同時に、[MenuBar](menus.md)、[Swipe](swipe.md) コントロール、ホバー ボタン、[コンテキスト メニュー](menus.md)を利用し、さまざまな種類の入力方法を最適化しています。
+この例では、前の [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) の例と削除機能が同じくしていますが、[XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) クラスを利用することで、独自のフォント アイコン、ラベル、キーボード アクセラレータ、説明でカスタムの削除アイコンを定義できることを示しています。 [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) の例と同様に、基本の [ListView](listview-and-gridview.md) を [XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) クラス経由で実装された項目削除コマンドで機能強化し、同時に、[MenuBar](menus.md)、[Swipe](swipe.md) コントロール、ホバー ボタン、[コンテキスト メニュー](menus.md)を利用し、さまざまな種類の入力方法を最適化しています。
 
 前のセクションの StandardUICommand の例で見られたように、多くのプラットフォーム コントロールでは XamlUICommand プロパティがこっそり使用されています。 
 
 > [!NOTE]
-> このサンプルは Microsoft.UI.Xaml.Controls NuGet パッケージを必要としますが、これは [Microsoft Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)に含まれています。
+> このサンプルは Microsoft.UI.Xaml.Controls NuGet パッケージを必要としますが、これは [Microsoft Windows UI ライブラリ](/uwp/toolkits/winui/)に含まれています。
 
 **Xaml:**
 
-サンプル UI には、5 つの項目の [ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) が含まれています。 カスタムの [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) Delete は [MenuBarItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.menubaritem)、[SwipeItem](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.swipeitem)、[AppBarButton](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton)、[ContextFlyout メニュー](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.contextflyout)にバインドされています。
+サンプル UI には、5 つの項目の [ListView](/uwp/api/windows.ui.xaml.controls.listview) が含まれています。 カスタムの [XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) Delete は [MenuBarItem](/uwp/api/microsoft.ui.xaml.controls.menubaritem)、[SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem)、[AppBarButton](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[ContextFlyout メニュー](/uwp/api/windows.ui.xaml.uielement.contextflyout)にバインドされています。
 
 ``` xaml
 <Page
@@ -540,7 +540,7 @@ public class ListItemData
 }
 ```
 
-2. MainPage クラスで、[ListView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) [ItemTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) の [DataTemplate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.datatemplate) に `ListItemData` オブジェクトのコレクションを定義します。 次に、5 つの項目の最初のコレクションをそれに入力します (テキストと関連する [XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand))。
+2. MainPage クラスで、[ListView](/uwp/api/windows.ui.xaml.controls.listview) [ItemTemplate](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) の [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate) に `ListItemData` オブジェクトのコレクションを定義します。 次に、5 つの項目の最初のコレクションをそれに入力します (テキストと関連する [XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand))。
 
 ```csharp
 ObservableCollection<ListItemData> collection = new ObservableCollection<ListItemData>();
@@ -585,7 +585,7 @@ private void DeleteCommand_ExecuteRequested(
 }
 ```
 
-4. 最後に、[PointerEntered](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered)、[PointerExited](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited)、[SelectionChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントなど、さまざま ListView イベントのハンドラーを定義します。 ポインターのイベント ハンドラーは、各項目の [削除] ボタンを表示するか、非表示にする目的で使用されます。
+4. 最後に、[PointerEntered](/uwp/api/windows.ui.xaml.uielement.pointerentered)、[PointerExited](/uwp/api/windows.ui.xaml.uielement.pointerexited)、[SelectionChanged](/uwp/api/windows.ui.xaml.controls.primitives.selector.selectionchanged) イベントなど、さまざま ListView イベントのハンドラーを定義します。 ポインターのイベント ハンドラーは、各項目の [削除] ボタンを表示するか、非表示にする目的で使用されます。
 
 ```csharp
 private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -616,7 +616,7 @@ private void ListViewSwipeContainer_PointerExited(object sender, PointerRoutedEv
 
 標準の UWP コントロール (ボタン、リスト、選択、暦、予測テキスト) からは、さまざまな共通コマンド操作の基本が提供されます。 コントロールの種類の完全な一覧については、[Windows アプリのコントロールとパターン](index.md)に関するページをご覧ください。
 
-構造化されたコマンド処理をサポートする最も基本的な方法は、ICommand インターフェイスの実装を定義することです ([Windows.UI.Xaml.Input.ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) for C++ または [System.Windows.Input.ICommand](https://docs.microsoft.com/dotnet/api/system.windows.input.icommand) for C#)。  この ICommand インスタンスはその後、ボタンなどのコントロールにバインドできます。
+構造化されたコマンド処理をサポートする最も基本的な方法は、ICommand インターフェイスの実装を定義することです ([Windows.UI.Xaml.Input.ICommand](/uwp/api/windows.ui.xaml.input.icommand) for C++ または [System.Windows.Input.ICommand](/dotnet/api/system.windows.input.icommand) for C#)。  この ICommand インスタンスはその後、ボタンなどのコントロールにバインドできます。
 
 > [!NOTE]
 > 場合によっては、メソッドを Click イベントにバインドし、プロパティを IsEnabled プロパティにバインドするのと同じくらい効率的になります。
@@ -633,7 +633,7 @@ private void ListViewSwipeContainer_PointerExited(object sender, PointerRoutedEv
 
 この基本例では、ボタン クリック、キーボード アクセラレータ、マウス ホイールの回転で 1 つのコマンドを呼び出す方法を実演します。
 
-[ListViews](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview) を 2 つ使用しますが、1 つには 5 つの項目を入力し、もう 1 つは空にします。また、ボタンを 2 つ使用しますが、1 つは左の ListView から右の ListView に項目を移動させるためのものであり、もう 1 つは右から左に項目を移動させるためのものです。 各ボタンは対応するコマンド (それぞれ、ViewModel.MoveRightCommand と ViewModel.MoveLeftCommand) にバインドされており、関連する ListView の項目数に基づいて自動的に有効または無効になります。
+[ListViews](/uwp/api/windows.ui.xaml.controls.listview) を 2 つ使用しますが、1 つには 5 つの項目を入力し、もう 1 つは空にします。また、ボタンを 2 つ使用しますが、1 つは左の ListView から右の ListView に項目を移動させるためのものであり、もう 1 つは右から左に項目を移動させるためのものです。 各ボタンは対応するコマンド (それぞれ、ViewModel.MoveRightCommand と ViewModel.MoveLeftCommand) にバインドされており、関連する ListView の項目数に基づいて自動的に有効または無効になります。
 
 **次の XAML コードでは、今回の例の UI が定義されます。**
 
@@ -994,7 +994,7 @@ namespace UICommand1.ViewModel
 
 **最後になりますが、ICommand インターフェイスの実装は次のようになります。**
 
-ここで、[ICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.icommand) インターフェイスを実装し、その機能性を他のオブジェクトにリレーするコマンドを定義します。
+ここで、[ICommand](/uwp/api/windows.ui.xaml.input.icommand) インターフェイスを実装し、その機能性を他のオブジェクトにリレーするコマンドを定義します。
 
 ```csharp
 using System;
@@ -1097,7 +1097,7 @@ Windows アプリのコマンドを構築するときは、次の手法を使用
 
 ## <a name="next-steps"></a>次の手順
 
-[XamlUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.xamluicommand) と [StandardUICommand](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.standarduicommand) の実装を実演する完全な例については、[XAML コントロール ギャラリー](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics) サンプルをご覧ください。
+[XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) と [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) の実装を実演する完全な例については、[XAML コントロール ギャラリー](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics) サンプルをご覧ください。
 
 ## <a name="see-also"></a>関連項目
 

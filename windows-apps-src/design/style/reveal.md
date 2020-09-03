@@ -10,12 +10,12 @@ design-contact: conrwi
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 26e756b52d4faf18eff2fc684c7db94bca058642
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 24ac07b8caacd4369bcbadf2a4019bbcbde59c6b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82971077"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159976"
 ---
 # <a name="reveal-highlight"></a>表示ハイライト
 
@@ -23,7 +23,7 @@ ms.locfileid: "82971077"
 
 表示ハイライトは、ユーザーがポインターを近付けたときにコマンド バーなどの対話型要素を目立たせるための発光効果です。 
 
-> **重要な API**:[RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)、[RevealBackgroundBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbackgroundbrush)、[RevealBorderBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealborderbrush)、[RevealBrushHelper クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrushhelper)、[VisualState クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState)
+> **重要な API**:[RevealBrush クラス](/uwp/api/windows.ui.xaml.media.revealbrush)、[RevealBackgroundBrush クラス](/uwp/api/windows.ui.xaml.media.revealbackgroundbrush)、[RevealBorderBrush クラス](/uwp/api/windows.ui.xaml.media.revealborderbrush)、[RevealBrushHelper クラス](/uwp/api/windows.ui.xaml.media.revealbrushhelper)、[VisualState クラス](/uwp/api/Windows.UI.Xaml.VisualState)
 
 ## <a name="how-it-works"></a>しくみ
 表示ハイライトでは、対話型要素に注意が向くように、ポインターが近付いたときに要素のコンテナーが明示されます (下図参照)。
@@ -142,7 +142,7 @@ ms.locfileid: "82971077"
 ### <a name="when-to-add-reveal"></a>表示効果の用途
 カスタム コントロールにも表示効果を追加できますが、その前に、コントロールの種類と動作を考慮してください。 
 * カスタム コントロールが単独の対話型要素であり、メニュー内のメニュー項目のように、類似する複数のコントロールが同じ場所にない場合は、そのカスタム コントロールには表示効果が不要である可能性があります。  
-* 関連する対話型コンテンツまたは要素のグループがある場合は、アプリのその領域に表示効果が必要である可能性があります。これは一般的に、[コマンド実行](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/collection-commanding)サーフェスと呼ばれます。
+* 関連する対話型コンテンツまたは要素のグループがある場合は、アプリのその領域に表示効果が必要である可能性があります。これは一般的に、[コマンド実行](../controls-and-patterns/collection-commanding.md)サーフェスと呼ばれます。
 
 たとえば、単独のボタンに表示効果は適していませんが、コマンド バー上の一連のボタンには表示効果が適しています。
 
@@ -286,9 +286,9 @@ ms.locfileid: "82971077"
 
 ## <a name="related-articles"></a>関連記事
 
-- [RevealBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.revealbrush)
+- [RevealBrush クラス](/uwp/api/windows.ui.xaml.media.revealbrush)
 - [Acrylic](acrylic.md)
-- [コンポジション効果](https://docs.microsoft.com/windows/uwp/graphics/composition-effects)
+- [コンポジション効果](../../composition/composition-effects.md)
 - [UWP 用 Fluent Design](/windows/apps/fluent-design-system)
 - [システムの科学:Fluent Design と奥行き](https://medium.com/microsoft-design/science-in-the-system-fluent-design-and-depth-fb6d0f23a53f)
 - [システムの科学:Fluent Design と明るさ](https://medium.com/microsoft-design/the-science-in-the-system-fluent-design-and-light-94a17e0b3a4f)

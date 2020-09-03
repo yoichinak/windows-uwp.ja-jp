@@ -8,18 +8,18 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 27906d9d389c065ab1fdf7124151cd1915f850eb
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 18b89caa0de947d2b95b46c3deb11378912b6012
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76726015"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161426"
 ---
 # <a name="part-5-package-and-deploy-with-msix"></a>パート 5: MSIX によるパッケージとデプロイ
 
 これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを最新化する方法を示すチュートリアルの最後の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードする手順については、「[チュートリアル:WPF アプリの最新化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 4](modernize-wpf-tutorial-4.md) を既に完了していることを前提にしています。
 
-[パート 4](modernize-wpf-tutorial-4.md) では、Notifications API を含む一部の WinRT API で、アプリで API が使用される前にパッケージ ID が必要であることを学習しました。 パッケージ ID は、Windows アプリケーションをパッケージ化して展開する Windows 10 で導入されたパッケージ化形式である [MSIX](https://docs.microsoft.com/windows/msix) を使用して Contoso の経費をパッケージ化することで取得できます。 MSIX には、次の利点が開発者や IT プロフェッショナルにあります。
+[パート 4](modernize-wpf-tutorial-4.md) では、Notifications API を含む一部の WinRT API で、アプリで API が使用される前にパッケージ ID が必要であることを学習しました。 パッケージ ID は、Windows アプリケーションをパッケージ化して展開する Windows 10 で導入されたパッケージ化形式である [MSIX](/windows/msix) を使用して Contoso の経費をパッケージ化することで取得できます。 MSIX には、次の利点が開発者や IT プロフェッショナルにあります。
 
 - ネットワークの使用と記憶域スペースを最適化する。
 - アプリが軽量のコンテナーで実行されることにより、クリーン アンインストールを実行できる。 システムにレジストリ キーと一時ファイルが残されない。
@@ -44,7 +44,7 @@ Visual Studio 2019 の Windows アプリケーション パッケージ プロ�
 
 5. **[ターゲット バージョン]** と **[最小バージョン]** の両方に、 **[Windows 10, version 1903 (10.0; Build 18362)]** \(Windows 10 バージョン 1903 (10.0、ビルド 18362)\) を選択し、 **[OK]** をクリックします。
 
-    **ContosoExpenses.Package** プロジェクトが **ContosoExpenses** ソリューションに追加されます。 このプロジェクトには、アプリケーションを説明する[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)と、[プログラム] メニューのアイコンやスタート画面のタイルなどの項目に使用される既定の資産が含まれています。 ただし、このパッケージ プロジェクトには、UWP プロジェクトとは異なりコードは含まれせん。 これは、既存のデスクトップ アプリをパッケージ化するためにあります。
+    **ContosoExpenses.Package** プロジェクトが **ContosoExpenses** ソリューションに追加されます。 このプロジェクトには、アプリケーションを説明する[パッケージ マニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)と、[プログラム] メニューのアイコンやスタート画面のタイルなどの項目に使用される既定の資産が含まれています。 ただし、このパッケージ プロジェクトには、UWP プロジェクトとは異なりコードは含まれせん。 これは、既存のデスクトップ アプリをパッケージ化するためにあります。
 
 6. **[ContosoExpenses.Package]** プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 このノードでは、ご自分のソリューション内のどのアプリケーションをパッケージに含めるかを指定します。
 

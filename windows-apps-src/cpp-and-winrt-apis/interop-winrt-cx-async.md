@@ -1,30 +1,30 @@
 ---
-description: これは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) から [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) への段階的な移植に関する高度なトピックです。 ここでは、並列パターン ライブラリ (PPL) のタスクとコルーチンを同じプロジェクトに並べて配置できる方法について説明します。
+description: これは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) から [C++/WinRT](./intro-to-using-cpp-with-winrt.md) への段階的な移植に関する高度なトピックです。 ここでは、並列パターン ライブラリ (PPL) のタスクとコルーチンを同じプロジェクトに並べて配置できる方法について説明します。
 title: 非同期性、および C++/WinRT と C++/CX 間の相互運用
 ms.date: 08/06/2020
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、移植、移行、相互運用、C++/CX、PPL、タスク、コルーチン
 ms.localizationpriority: medium
-ms.openlocfilehash: d80fedcadaee96dcd4fae4081dcc117b55a1e498
-ms.sourcegitcommit: 2a90b41e455ba0a2b7aff6f771638fb3a2228db4
+ms.openlocfilehash: 1beff7fe5595a2601d56d65b52ca51eacedee47f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513429"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157396"
 ---
 # <a name="asynchrony-and-interop-between-cwinrt-and-ccx"></a>非同期性、および C++/WinRT と C++/CX 間の相互運用
 
 > [!TIP]
 > このトピックは最初からお読みになることをお勧めしますが、「[C++/CX 非同期から C++/WinRT への移植の概要](#overview-of-porting-ccx-async-to-cwinrt)」 セクションにある相互運用手法の概要に直接進んでも構いません。
 
-これは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) から [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) への段階的な移植に関する高度なトピックです。 このトピックでは、「[C++/WinRT と C++/CX 間の相互運用](/windows/uwp/cpp-and-winrt-apis/interop-winrt-cx)」のトピックが終了したところから説明します。
+これは、[C++/CX](/cpp/cppcx/visual-c-language-reference-c-cx) から [C++/WinRT](./intro-to-using-cpp-with-winrt.md) への段階的な移植に関する高度なトピックです。 このトピックでは、「[C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx.md)」のトピックが終了したところから説明します。
 
 コードベースのサイズまたは複雑さのためにプロジェクトを段階的に移植する必要がある場合は、しばらくの間、C++/CX と C++/WinRT のコードが同じプロジェクトに共存するような移植プロセスが必要になります。 非同期コードを使用している場合は、ソース コードを段階的に移植する際に、並列パターン ライブラリ (PPL) タスク チェーンとコルーチンをプロジェクトに共存させることが必要な場合があります。 このトピックでは、非同期 C++/CX コードと非同期 C++/WinRT コードを相互運用する手法について説明します。 これらの手法は、個別に使用することも、組み合わせて使用することもできます。 これらの手法を使用すると、プロジェクト全体の移植に向けて、段階的かつ制御された方法でローカルに変更を行うことができ、それぞれの変更が無制御にプロジェクト全体に連鎖するのを避けることができます。
 
-このトピックを読む前に、「[C++/WinRT と C++/CX 間の相互運用](/windows/uwp/cpp-and-winrt-apis/interop-winrt-cx)」を読むことをお勧めします。 このトピックでは、段階的な移植のためにプロジェクトを準備する方法について説明します。 また、C++/CX オブジェクトを C++/WinRT オブジェクトに (およびその逆に) 変換するために使用できる 2 つのヘルパー関数を紹介します。 非同期性に関する本トピックはこの情報に基づいており、これらのヘルパー関数を使用します。
+このトピックを読む前に、「[C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx.md)」を読むことをお勧めします。 このトピックでは、段階的な移植のためにプロジェクトを準備する方法について説明します。 また、C++/CX オブジェクトを C++/WinRT オブジェクトに (およびその逆に) 変換するために使用できる 2 つのヘルパー関数を紹介します。 非同期性に関する本トピックはこの情報に基づいており、これらのヘルパー関数を使用します。
 
 > [!NOTE]
-> C++/CX から C++/WinRT への段階的な移植にはいくつかの制限があります。 [Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt) プロジェクトがある場合、段階的に移植することはできず、一度でプロジェクトを移植する必要があります。 また、XAML プロジェクトの場合、XAML ページの種類は常に、すべて C++/WinRT であるか "*または*" すべて C++/CX であるかの "*いずれか*" である必要があります。 詳細については、「[C++/CX から C++/WinRT への移行](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx)」のトピックを参照してください。
+> C++/CX から C++/WinRT への段階的な移植にはいくつかの制限があります。 [Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md) プロジェクトがある場合、段階的に移植することはできず、一度でプロジェクトを移植する必要があります。 また、XAML プロジェクトの場合、XAML ページの種類は常に、すべて C++/WinRT であるか "*または*" すべて C++/CX であるかの "*いずれか*" である必要があります。 詳細については、「[C++/CX から C++/WinRT への移行](./move-to-winrt-from-cx.md)」のトピックを参照してください。
 
 ## <a name="the-reason-an-entire-topic-is-dedicated-to-asynchronous-code-interop"></a>トピック全体が非同期コード相互運用に特化している理由
 
@@ -83,7 +83,7 @@ C++/WinRT コルーチンの戻り値の型は **winrt::IAsyncXxx** または [*
 
 メソッドに少なくとも 1 つの `co_await` ステートメント (または少なくとも 1 つの `co_return` または `co_yield`) が含まれている場合、メソッドはその理由でコルーチンになります。
 
-詳細とコード例については、「[C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」を参照してください。
+詳細とコード例については、「[C++/WinRT を使用した同時開催操作と非同期操作](./concurrency.md)」を参照してください。
 
 ## <a name="the-direct3d-game-sample-simple3dgamedx"></a>Direct3D ゲーム サンプル (**Simple3DGameDX**)
 
@@ -91,7 +91,7 @@ C++/WinRT コルーチンの戻り値の型は **winrt::IAsyncXxx** または [*
 
 - 上記のリンクから ZIP をダウンロードし、解凍します。
 - Visual Studio で C++/CX プロジェクトを開きます (これは `cpp` という名前のフォルダーにあります)。
-- その後、このプロジェクトに C++/WinRT サポートを追加する必要があります。 これを行うための手順については、「[C++/Cx プロジェクトを取得して C++/WinRT サポートを追加する](/windows/uwp/cpp-and-winrt-apis/interop-winrt-cx#taking-a-ccx-project-and-adding-cwinrt-support)」を参照してください。 そのセクションの、`interop_helpers.h` ヘッダー ファイルをプロジェクトに追加する手順が特に重要です。このトピックでは、それらのヘルパー関数を使用することになるためです。
+- その後、このプロジェクトに C++/WinRT サポートを追加する必要があります。 これを行うための手順については、「[C++/Cx プロジェクトを取得して C++/WinRT サポートを追加する](./interop-winrt-cx.md#taking-a-ccx-project-and-adding-cwinrt-support)」を参照してください。 そのセクションの、`interop_helpers.h` ヘッダー ファイルをプロジェクトに追加する手順が特に重要です。このトピックでは、それらのヘルパー関数を使用することになるためです。
 - 最後に、`#include <pplawait.h>` を `pch.h` に追加します。 これにより、PPL のコルーチン サポートが提供されます (このサポートの詳細については次のセクションで説明します)。
 
 まだビルドはしないでください。ビルドすると、**byte** があいまいであるというエラーが発生します。 これを解決する方法を次に示します。
@@ -390,7 +390,7 @@ winrt::fire_and_forget GameMain::ConstructInBackground()
 
 これは、これまでに変更したすべてのメソッドに適用されます。また、fire-and-forget のものだけでなく、"*すべての*" コルーチンに適用されます。 メソッドに `co_await` を導入すると、"*中断ポイント*" が導入されます。 そのため、*this* ポインターに注意する必要があります。これはもちろん、クラス メンバーにアクセスするたびに、中断ポイントの "*後*" に使用します。
 
-簡単に言えば、解決策は [**implements::get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことです。 ただし、この問題と解決策の詳細については、「[class-member コルーチンで *this* ポインターに安全にアクセスする](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください。
+簡単に言えば、解決策は [**implements::get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことです。 ただし、この問題と解決策の詳細については、「[class-member コルーチンで *this* ポインターに安全にアクセスする](./weak-references.md#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください。
 
 **implements::get_strong** は、[**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) から派生したクラスでのみ呼び出すことができます。
 
@@ -423,7 +423,7 @@ void App::Load(Platform::String^)
 }
 ```
 
-ただし今回は、**GameMain** は **winrt::implements** から派生するため、別の方法で構築する必要があります。 この場合、[**winrt::make_self**](/uwp/cpp-ref-for-winrt/make-self) 関数テンプレートを使用します。 詳細については、「[実装型とインターフェイスをインスタンス化して返す](/windows/uwp/cpp-and-winrt-apis/author-apis#instantiating-and-returning-implementation-types-and-interfaces)」を参照してください。
+ただし今回は、**GameMain** は **winrt::implements** から派生するため、別の方法で構築する必要があります。 この場合、[**winrt::make_self**](/uwp/cpp-ref-for-winrt/make-self) 関数テンプレートを使用します。 詳細については、「[実装型とインターフェイスをインスタンス化して返す](./author-apis.md#instantiating-and-returning-implementation-types-and-interfaces)」を参照してください。
 
 コードのこの行を次のように置き換えます。
 
@@ -938,8 +938,8 @@ winrt::Windows::Foundation::IAsyncAction BasicLoader::LoadTextureAsync(...)
 
 ## <a name="related-topics"></a>関連トピック
 
-* [C++/CX から C++/WinRT への移行](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx)
-* [C++/WinRT と C++/CX 間の相互運用](/windows/uwp/cpp-and-winrt-apis/interop-winrt-cx)
-* [C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)
-* [C++/WinRT の強参照と弱参照](/windows/uwp/cpp-and-winrt-apis/weak-references)
-* [C++/WinRT で API を作成する](/windows/uwp/cpp-and-winrt-apis/author-apis)
+* [C++/CX から C++/WinRT への移行](./move-to-winrt-from-cx.md)
+* [C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx.md)
+* [C++/WinRT を使用した同時開催操作と非同期操作](./concurrency.md)
+* [C++/WinRT の強参照と弱参照](./weak-references.md)
+* [C++/WinRT で API を作成する](./author-apis.md)

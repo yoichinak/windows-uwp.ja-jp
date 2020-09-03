@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
-ms.openlocfilehash: 479a289ff15ab6a3db7a51d52f4bf3b075e8a64b
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 31ced6c31b126986171c81e03b68a0a1cccc44f2
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968783"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160356"
 ---
 # <a name="teaching-tip"></a>教育のヒント
 
@@ -27,12 +27,12 @@ ms.locfileid: "82968783"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [TeachingTip クラス](/uwp/api/microsoft.ui.xaml.controls.teachingtip)
 
 > [!TIP]
-> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
+> このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
 >
 >コードビハインドでは、C# でも **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 この **using** ステートメントは、ファイルの先頭に追加されています。`using muxc = Microsoft.UI.Xaml.Controls;`
 
@@ -125,9 +125,9 @@ public MainPage()
 
 ### <a name="preferred-placement"></a>推奨される配置
 
-教育のヒントは TeachingTipPlacementMode プロパティを使用して、ポップアップの [FlyoutPlacementMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode) 配置動作を複製します。 既定の配置モードでは、ターゲット指定の教育のヒントはターゲットの上に配置しようとし、ターゲット非指定の教育のヒントは XAML ルートの下部中央に配置しようとします。 ポップアップと同様に、優先配置モードでは教育のヒントを表示するスペースがない場合は、別の配置モードが自動的に選択されます。
+教育のヒントは TeachingTipPlacementMode プロパティを使用して、ポップアップの [FlyoutPlacementMode](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode) 配置動作を複製します。 既定の配置モードでは、ターゲット指定の教育のヒントはターゲットの上に配置しようとし、ターゲット非指定の教育のヒントは XAML ルートの下部中央に配置しようとします。 ポップアップと同様に、優先配置モードでは教育のヒントを表示するスペースがない場合は、別の配置モードが自動的に選択されます。
 
-ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
+ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( ../../input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
 
 PreferredPlacement が "BottomLeft" に設定されたターゲット指定の教育のヒントは、テールがターゲットの下部中央に配置され、教育のヒントの本文が左寄せされた状態で表示されます。
 
@@ -168,7 +168,7 @@ PreferredPlacement が "BottomLeft" に設定されたターゲット非指定�
 
 ### <a name="add-a-placement-margin"></a>配置の余白を追加する
 
-ターゲット指定された教育のヒントをターゲットからどの程度離すか、およびターゲット非指定の教育のヒントを XAML ルートの端からどの程度離すかを、PlacementMargin プロパティを使用して制御できます。 [Margin](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.margin) と同じように、PlacementMargin には left、right、top、および bottom の 4 つの値があり、関連する値のみが使用されます。 たとえば、ヒントがターゲットの左側にあるか、XAML ルートの左端にある場合は PlacementMargin.Left が適用されます。
+ターゲット指定された教育のヒントをターゲットからどの程度離すか、およびターゲット非指定の教育のヒントを XAML ルートの端からどの程度離すかを、PlacementMargin プロパティを使用して制御できます。 [Margin](/uwp/api/windows.ui.xaml.frameworkelement.margin) と同じように、PlacementMargin には left、right、top、および bottom の 4 つの値があり、関連する値のみが使用されます。 たとえば、ヒントがターゲットの左側にあるか、XAML ルートの左端にある場合は PlacementMargin.Left が適用されます。
 
 次の例では、PlacementMargin の Left/Top/Right/Bottom がすべて 80 に設定された場合のターゲット非指定のヒントを示しています。
 
@@ -357,7 +357,7 @@ private void OnTipClosing(muxc.TeachingTip sender, muxc.TeachingTipClosingEventA
 * ヒントは一時的なものであるため、アプリケーションのエクスペリエンスにとって重要な情報やオプションを含めるべきではありません。
 * 教育のヒントを過剰な頻度で表示しないようにしてください。 教育のヒントは、長いセッションまたは複数のセッションで時間をずらして表示された場合に、個人の注意を惹く可能性が最も高くなります。
 * ヒントは簡潔にし、トピックを明確にしてください。 調査によると、ユーザーはヒントを活用するかどうかを決める前に、平均して 3 つから 5 つの単語しか読まず、2 つから 3 つの単語しか理解していません。
-* 教育のヒントのゲームパッド アクセシビリティは保証されません。 ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( https://docs.microsoft.com/windows/uwp/design/input/gamepad-and-remote-interactions#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
+* 教育のヒントのゲームパッド アクセシビリティは保証されません。 ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( ../../input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
 * 教育のヒントが XAML ルートをエスケープすることを有効にするときは、IsLightDismissEnabled プロパティも有効にして、XAML ルートの中央に最も近い PreferredPlacement モードを設定することをお勧めします。
 
 ## <a name="reconfiguring-an-open-teaching-tip"></a>開いている教育のヒントを再構成する
@@ -366,4 +366,4 @@ private void OnTipClosing(muxc.TeachingTip sender, muxc.TeachingTipClosingEventA
 
 ## <a name="related-articles"></a>関連記事
 
-* [ダイアログとポップアップ](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/index)
+* [ダイアログとポップアップ](./index.md)

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 7393d4d1bae227bf3b586a54fba5d43ca2dcb53e
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 2b946047602013704b27fb5c5565155d38dbb7f8
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493407"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154826"
 ---
 # <a name="get-started-with-winui-3-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3 の概要
 
@@ -45,7 +45,7 @@ WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インタ
 
         ![アプリ プロジェクト](images/WinUI-csharp-appproject.png)
 
-    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
+    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
 
         ![アプリ プロジェクト](images/WinUI-csharp-packageproject.png)
 
@@ -77,7 +77,7 @@ WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インタ
 
         ![アプリ プロジェクト](images/WinUI-cpp-appproject.png)
 
-    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](https://docs.microsoft.com/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](https://docs.microsoft.com/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
+    * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
 
         ![パッケージ プロジェクト](images/WinUI-cpp-packageproject.png)
 

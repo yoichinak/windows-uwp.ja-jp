@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b5fd5061f3b466743cad2e9e412d79caebaf2f0
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 721615ae9acf359bed78cfb3211aaba4c143dfcb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730287"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154116"
 ---
 # <a name="uwp-components-and-optimizing-interop"></a>UWPコンポーネントと相互運用性の最適化
 
@@ -46,7 +46,7 @@ UWP コンポーネントのプロパティにアクセスする、またはメ�
 
 ### <a name="consider-using-net-for-uwp-apps"></a>UWP アプリ用 .NET の使用を検討する
 
-あるタスクを、UWP または UWP アプリ用 .NET のどちらを使っても達成できる場合があります。 こうした場合、.NET の型と UWP の型を組み合わせず、 どちらか一方に揃えることをお勧めします。 たとえば、xml のストリームを解析するには、[**Windows.Data.Xml.Dom.XmlDocument**](https://docs.microsoft.com/uwp/api/Windows.Data.Xml.Dom.XmlDocument) 型 (UWP の型) または [**System.Xml.XmlReader**](https://docs.microsoft.com/dotnet/api/system.xml.xmlreader) 型 (.NET の型) のどちらも使えます。 同じテクノロジの API をストリームとして使いましょう。 たとえば、[**MemoryStream**](https://docs.microsoft.com/dotnet/api/system.io.memorystream) から xml を読み取る場合は両方が同じ .NET の型になるので、**System.Xml.XmlReader** 型を使います。 ファイルから読み取る場合は、**Windows.Data.Xml.Dom.XmlDocument** 型を使います。これはファイル API と **XmlDocument** が UWP コンポーネントであるためです。
+あるタスクを、UWP または UWP アプリ用 .NET のどちらを使っても達成できる場合があります。 こうした場合、.NET の型と UWP の型を組み合わせず、 どちらか一方に揃えることをお勧めします。 たとえば、xml のストリームを解析するには、[**Windows.Data.Xml.Dom.XmlDocument**](/uwp/api/Windows.Data.Xml.Dom.XmlDocument) 型 (UWP の型) または [**System.Xml.XmlReader**](/dotnet/api/system.xml.xmlreader) 型 (.NET の型) のどちらも使えます。 同じテクノロジの API をストリームとして使いましょう。 たとえば、[**MemoryStream**](/dotnet/api/system.io.memorystream) から xml を読み取る場合は両方が同じ .NET の型になるので、**System.Xml.XmlReader** 型を使います。 ファイルから読み取る場合は、**Windows.Data.Xml.Dom.XmlDocument** 型を使います。これはファイル API と **XmlDocument** が UWP コンポーネントであるためです。
 
 ### <a name="copy-window-runtime-objects-to-net-types"></a>Windows ランタイム オブジェクトを .NET 型にコピーする
 
@@ -80,7 +80,7 @@ UWP では、各言語に Windows ランタイム API のプロジェクショ�
 
 相互運用性のコストを最適化するためには、アプリの実行時間の大部分が相互運用に費やされているかどうかの評価と判断が必要です。 Visual Studio でアプリのパフォーマンスを分析する際は、 **[関数]** ビューを使い、UWP のメソッド呼び出しに費やされている包括時間を調べることで、相互運用性コストの上限を簡単に把握できます。
 
-相互運用のオーバーヘッドによってアプリが低速になる場合は、実行頻度の高いコード パスでの Windows ランタイム API の呼び出しを減らすことで、パフォーマンスを向上できます。 たとえば、[**UIElements**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) の位置とサイズを継続的に照会することで大量の物理的計算を実行しているゲーム エンジンは、**UIElements** から必要な情報をローカル変数に格納し、それらのキャッシュされた値に対して計算を行い、計算実行後に最終結果を **UIElements** にもう一度割り当てることによって、多くの時間を節約できます。 別の例として、C# または Visual Basic のコードから頻繁にアクセスされるコレクションがある場合は、[**System.Collections**](https://docs.microsoft.com/uwp/api/Windows.Foundation.Collections) 名前空間からのコレクションではなく、[**Windows.Foundation.Collections**](https://docs.microsoft.com/dotnet/api/system.collections) 名前空間からのコレクションを使ったほうが、より効率的です。 UWP コンポーネントの呼び出しを結合することも検討に値します。これは、たとえば、[**Windows.Storage.BulkAccess**](https://docs.microsoft.com/uwp/api/Windows.Storage.BulkAccess) API で実現できます。
+相互運用のオーバーヘッドによってアプリが低速になる場合は、実行頻度の高いコード パスでの Windows ランタイム API の呼び出しを減らすことで、パフォーマンスを向上できます。 たとえば、[**UIElements**](/uwp/api/Windows.UI.Xaml.UIElement) の位置とサイズを継続的に照会することで大量の物理的計算を実行しているゲーム エンジンは、**UIElements** から必要な情報をローカル変数に格納し、それらのキャッシュされた値に対して計算を行い、計算実行後に最終結果を **UIElements** にもう一度割り当てることによって、多くの時間を節約できます。 別の例として、C# または Visual Basic のコードから頻繁にアクセスされるコレクションがある場合は、[**System.Collections**](/uwp/api/Windows.Foundation.Collections) 名前空間からのコレクションではなく、[**Windows.Foundation.Collections**](/dotnet/api/system.collections) 名前空間からのコレクションを使ったほうが、より効率的です。 UWP コンポーネントの呼び出しを結合することも検討に値します。これは、たとえば、[**Windows.Storage.BulkAccess**](/uwp/api/Windows.Storage.BulkAccess) API で実現できます。
 
 ### <a name="building-a-uwp-component"></a>UWP コンポーネントを構築する
 
@@ -89,4 +89,3 @@ C++ または JavaScript で記述されたアプリに使う UWP コンポー�
 高パフォーマンスなアプリを実現するためのすべての推奨事項は、高パフォーマンスなコンポーネントを実現する際にも当てはまります。 コンポーネントを測定してトラフィックが大きいパターンを持つ API を特定し、それらの領域については、少ない呼び出しでユーザーが作業を実行できるようにする API を提供することを検討してください。 UWP は、それを利用するアプリが相互運用性の境界を何度も行き来しなくても済むように、その設計には膨大な労力が費やされています。
 
  
-

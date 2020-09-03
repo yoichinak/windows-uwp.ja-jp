@@ -5,16 +5,16 @@ ms.date: 04/24/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、XAML、コントロール、バインド、コレクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 388e8ebb062dbbb33ffb269f2adcced34a7e577c
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: c87fcec62c9177ddfccaa14e97294ebcd78ded5f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493647"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154516"
 ---
 # <a name="xaml-items-controls-bind-to-a-cwinrt-collection"></a>XAML アイテム コントロール: C++/WinRT コレクションへのバインド
 
-XAML アイテム コントロールに効果的にバインドできるコレクションは、*監視可能な*コレクションと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なコレクションを実装する方法と、これらに XAML コントロールをバインドする方法を示します (背景情報については、「[データ バインディング](/windows/uwp/data-binding)」をご覧ください)。
+XAML アイテム コントロールに効果的にバインドできるコレクションは、*監視可能な*コレクションと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) で監視可能なコレクションを実装する方法と、これらに XAML コントロールをバインドする方法を示します (背景情報については、「[データ バインディング](../data-binding/index.md)」をご覧ください)。
 
 このトピックを理解するには、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」に記載されているプロジェクトを最初に作成することをお勧めします。 このトピックでは、そのプロジェクトにさらにコードを追加し、そのトピックで説明されている概念が補足されます。
 

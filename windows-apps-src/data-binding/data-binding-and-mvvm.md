@@ -6,12 +6,12 @@ ms.date: 10/02/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 931f2fcbcdbf58b9dc2ca40403d7466b620a8991
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: ad0595fa070a1970e4890ce7e95627c06385ba6a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "63798105"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154216"
 ---
 # <a name="data-binding-and-mvvm"></a>データ バインディングと MVVM
 
@@ -35,7 +35,7 @@ MVVM とは対照的に、従来の "分離コード" 構造を持つアプリ�
 MVVM パターンを使用する場合、アプリは次のレイヤーに分割されます。
 
 * **モデル** レイヤーは、ビジネス データを表す型を定義します。 これには、コア アプリ ドメインのモデル化に必要なすべてのものが含まれ、多くの場合、コア アプリ ロジックが含まれます。 このレイヤーは、ビューおよびビューモデル レイヤーから完全に独立しており、多くの場合、クラウドに部分的に配置されます。 モデル レイヤーが完全に実装されている場合、同じ基になるデータを操作する UWP や Web アプリなど、多数のさまざまなクライアント アプリを作成できます。
-* **ビュー** レイヤーは、XAML マークアップを使用して UI を定義します。 マークアップには、特定の UI コンポーネントとさまざまなビューモデルおよびモデル メンバーとの間の接続を定義するデータ バインディング式 ([x:Bind](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)など) が含まれます。 分離コード ファイルは、ビュー レイヤーの一部として使用され、UI をカスタマイズまたは操作するために、または作業を実行するビューモデル メソッドを呼び出す前に、イベント ハンドラー引数からデータを抽出するために必要な追加のコードを含むことがあります。 
+* **ビュー** レイヤーは、XAML マークアップを使用して UI を定義します。 マークアップには、特定の UI コンポーネントとさまざまなビューモデルおよびモデル メンバーとの間の接続を定義するデータ バインディング式 ([x:Bind](../xaml-platform/x-bind-markup-extension.md)など) が含まれます。 分離コード ファイルは、ビュー レイヤーの一部として使用され、UI をカスタマイズまたは操作するために、または作業を実行するビューモデル メソッドを呼び出す前に、イベント ハンドラー引数からデータを抽出するために必要な追加のコードを含むことがあります。 
 * **ビューモデル** レイヤーは、ビューにデータ バインディング ターゲットを提供します。 多くの場合、ビューモデルは、モデルを直接公開するか、特定のモデル メンバーをラップするメンバーを提供します。 ビューモデルでは、項目の一覧の表示順序など、モデルではなく UI に関連するデータを追跡するためのメンバーを定義することもできます。 さらにビューモデルは、データベースアクセス コードなどの他のサービスとの統合ポイントとしても機能します。 シンプルなプロジェクトでは、個別のモデル レイヤーは必要ありませんが、必要なすべてのデータをカプセル化するビューモデルのみが必要になる場合があります。 
 
 ## <a name="basic-and-advanced-mvvm"></a>基本および高度な MVVM
@@ -44,7 +44,7 @@ MVVM パターンを使用する場合、アプリは次のレイヤーに分割
 
 高度な MVVM フレームワークはきわめて便利な可能性がありますが、特にエンタープライズ規模のプロジェクトでは、特定のパターンや手法を採用することに関連したコストが発生します。また、プロジェクトの規模とサイズによっては、メリットが必ずしも明らかではありません。 幸い、明確で具体的なメリットが得られる手法だけを採用し、それ以外のものは必要になるまで無視することができます。 
 
-特に、データ バインディングの全能力を十分に理解して適用し、アプリのロジックを先述のレイヤーに分離するだけで、多くのメリットが得られます。 これは、Windows SDK によって提供される機能を使用するだけで、外部のフレームワークを使用することなく、実現できます。 特に、[{x:Bind} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)を使用すると、以前の XAML プラットフォームよりもデータ バインディングが簡単になり、パフォーマンスが向上するため、以前に必要とされた大量の定型コードが不要になります。
+特に、データ バインディングの全能力を十分に理解して適用し、アプリのロジックを先述のレイヤーに分離するだけで、多くのメリットが得られます。 これは、Windows SDK によって提供される機能を使用するだけで、外部のフレームワークを使用することなく、実現できます。 特に、[{x:Bind} マークアップ拡張](../xaml-platform/x-bind-markup-extension.md)を使用すると、以前の XAML プラットフォームよりもデータ バインディングが簡単になり、パフォーマンスが向上するため、以前に必要とされた大量の定型コードが不要になります。
 
 基本的なすぐに使用できる MVVM の使用に関するその他のガイダンスについては、GitHub で[顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)を確認してください。 その他の多くの [UWP アプリのサンプル](https://github.com/Microsoft?q=windows-appsample
 )でも、基本的な MVVM アーキテクチャが使われており、[トラフィック アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)には、分離コードと MVVM の両方のバージョンが含まれており、[MVVM 変換](https://github.com/Microsoft/Windows-appsample-trafficapp/blob/MVVM/MVVM.md)について説明するメモも含まれています。 
@@ -53,11 +53,11 @@ MVVM パターンを使用する場合、アプリは次のレイヤーに分割
 
 ### <a name="topics"></a>トピック
 
-[データ バインディングの詳細](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-in-depth)  
-[{x:Bind} マークアップ拡張](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension)  
+[データ バインディングの詳細](./data-binding-in-depth.md)  
+[{x:Bind} マークアップ拡張](../xaml-platform/x-bind-markup-extension.md)  
 
 ### <a name="samples"></a>サンプル
 
 [顧客注文データベースのサンプル](https://github.com/Microsoft/Windows-appsample-customers-orders-database)  
 [VanArsdel インベントリのサンプル](https://github.com/Microsoft/InventorySample)  
-[交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)  
+[交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)

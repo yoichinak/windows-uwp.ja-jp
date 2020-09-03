@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 38e9d49d9ec717bc1d28305d83d12e2696a32b3b
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 8f8a7d49e8a0b9d0a2d182d2e3031ae485cf7c9e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492857"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89157206"
 ---
 # <a name="best-practices-for-your-apps-startup-performance"></a>アプリ起動時のパフォーマンスのベスト プラクティス
 
@@ -60,7 +60,7 @@ Ngen.exe は、使用されたことがありネイティブ イメージを持�
 
 アプリが部分的に機能していない場合でも、アプリで操作を受け付けることができます。 たとえば、アプリが表示するデータの取得に時間がかかっている場合に、データを非同期で取得することによって、そのコードをアプリの起動コードとは別に実行できます。 データが利用できる状態であれば、アプリのユーザー インターフェイスにデータを表示することができます。
 
-データを取得するユニバーサル Windows プラットフォーム (UWP) API の多くは非同期であるため、その状態でも、ほとんどの場合はデータが非同期で取得されます。 非同期 API について詳しくは、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 非同期 API を使わない処理を実行する場合、Task クラスを使って長時間の処理を実行することで、ユーザーによるアプリの操作がブロックされないようにすることができます。 これによってデータの読み込み中もアプリの応答性が維持されます。
+データを取得するユニバーサル Windows プラットフォーム (UWP) API の多くは非同期であるため、その状態でも、ほとんどの場合はデータが非同期で取得されます。 非同期 API について詳しくは、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 非同期 API を使わない処理を実行する場合、Task クラスを使って長時間の処理を実行することで、ユーザーによるアプリの操作がブロックされないようにすることができます。 これによってデータの読み込み中もアプリの応答性が維持されます。
 
 アプリによる UI の一部の読み込みで特に長い時間がかかっている場合、ユーザーにアプリが処理中であることを通知する "最新データの取得中" などの文字列を該当する領域に追加することを検討してください。
 
@@ -107,7 +107,7 @@ XAML アプリの起動時のパフォーマンスは、起動時に作成する
 
 ![ライブ ビジュアル ツリー。](images/live-visual-tree.png)
 
-**延期を使用します**。 要素を折りたたむか、不透明度を 0 に設定すると、要素は作成されなくなります。 x:Load または x:DeferLoadStrategy を使って、UI の要素の読み込みを遅らせて、必要に応じて読み込むことができます。 これは、起動画面に表示されない UI の処理を遅延させ、必要に応じて読み込んだり、遅延させた一連のロジックの一部として読み込む場合に適した方法です。 読み込みをトリガーするために必要なことは、要素の FindName を呼び出すことだけです。 詳しい説明と例については、「[x:Load 属性](../xaml-platform/x-load-attribute.md)」と「[x:DeferLoadStrategy 属性](https://docs.microsoft.com/windows/uwp/xaml-platform/x-deferloadstrategy-attribute)」をご覧ください。
+**延期を使用します**。 要素を折りたたむか、不透明度を 0 に設定すると、要素は作成されなくなります。 x:Load または x:DeferLoadStrategy を使って、UI の要素の読み込みを遅らせて、必要に応じて読み込むことができます。 これは、起動画面に表示されない UI の処理を遅延させ、必要に応じて読み込んだり、遅延させた一連のロジックの一部として読み込む場合に適した方法です。 読み込みをトリガーするために必要なことは、要素の FindName を呼び出すことだけです。 詳しい説明と例については、「[x:Load 属性](../xaml-platform/x-load-attribute.md)」と「[x:DeferLoadStrategy 属性](../xaml-platform/x-deferloadstrategy-attribute.md)」をご覧ください。
 
 **仮想化**。 UI に一覧またはリピーター コンテンツがある場合、UI の仮想化を使うことを強くお勧めします。 一覧の UI が仮想化されていない場合、すべての要素を作成するコストを前払いすることになり、起動が遅くなる可能性があります。 「[ListView と GridView の UI の最適化](optimize-gridview-and-listview.md)」をご覧ください。
 
@@ -146,13 +146,13 @@ XAML アプリの起動時のパフォーマンスは、起動時に作成する
 </Package>
 ```
 
-詳しくは、「[スプラッシュ画面の追加](https://docs.microsoft.com/windows/uwp/launch-resume/add-a-splash-screen)」をご覧ください。
+詳しくは、「[スプラッシュ画面の追加](../launch-resume/add-a-splash-screen.md)」をご覧ください。
 
 アプリのコンストラクターを使って、アプリにとって重要なデータ構造だけを初期化します。 コンストラクターは、最初にアプリを実行したときにのみ呼び出されます。アプリがアクティブ化されるたびに必ず呼び出されるわけではありません。 たとえば、既に実行され、バックグラウンドで動いているアプリが検索コントラクトを介してアクティブ化された場合、コンストラクターは呼び出されません。
 
 ### <a name="phase-2"></a>フェーズ 2
 
-アプリはさまざまな理由でアクティブ化され、それぞれの対応を変えることが必要になる場合があります。 [  **OnActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onactivated)、[**OnCachedFileUpdaterActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.oncachedfileupdateractivated)、[**OnFileActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileactivated)、[**OnFileOpenPickerActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfileopenpickeractivated)、[**OnFileSavePickerActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onfilesavepickeractivated)、[**OnLaunched**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched)、[**OnSearchActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onsearchactivated)、[**OnShareTargetActivated**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onsharetargetactivated) メソッドを上書きして、さまざまなアクティブ化の理由に対応することができます。 アプリがこれらのメソッドで実行する必要がある作業の 1 つが UI を作成して [**Window.Content**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.content) に割り当て、[**Window.Activate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.activate) を呼び出すことです。 この時点で、スプラッシュ画面が、アプリによって作成された UI に置き換えられます。 ここで表示するものは、読み込み画面でも、アクティブ化時に実際の UI を作成するための十分な情報を利用できる場合は、アプリの実際の UI でもかまいません。
+アプリはさまざまな理由でアクティブ化され、それぞれの対応を変えることが必要になる場合があります。 [  **OnActivated**](/uwp/api/windows.ui.xaml.application.onactivated)、[**OnCachedFileUpdaterActivated**](/uwp/api/windows.ui.xaml.application.oncachedfileupdateractivated)、[**OnFileActivated**](/uwp/api/windows.ui.xaml.application.onfileactivated)、[**OnFileOpenPickerActivated**](/uwp/api/windows.ui.xaml.application.onfileopenpickeractivated)、[**OnFileSavePickerActivated**](/uwp/api/windows.ui.xaml.application.onfilesavepickeractivated)、[**OnLaunched**](/uwp/api/windows.ui.xaml.application.onlaunched)、[**OnSearchActivated**](/uwp/api/windows.ui.xaml.application.onsearchactivated)、[**OnShareTargetActivated**](/uwp/api/windows.ui.xaml.application.onsharetargetactivated) メソッドを上書きして、さまざまなアクティブ化の理由に対応することができます。 アプリがこれらのメソッドで実行する必要がある作業の 1 つが UI を作成して [**Window.Content**](/uwp/api/windows.ui.xaml.window.content) に割り当て、[**Window.Activate**](/uwp/api/windows.ui.xaml.window.activate) を呼び出すことです。 この時点で、スプラッシュ画面が、アプリによって作成された UI に置き換えられます。 ここで表示するものは、読み込み画面でも、アクティブ化時に実際の UI を作成するための十分な情報を利用できる場合は、アプリの実際の UI でもかまいません。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -267,9 +267,9 @@ XAML アプリの起動時のパフォーマンスは、起動時に作成する
 > End Class 
 > ```
 
-アクティブ化ハンドラーで読み込みページを表示するアプリは、バックグラウンドで UI の作成作業を開始します。 その要素が作成されると、[**FrameworkElement.Loaded**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントが発生します。 このイベント ハンドラーで、現在は読み込み画面になっているウィンドウのコンテンツを、新しく作成したホーム ページに置き換えます。
+アクティブ化ハンドラーで読み込みページを表示するアプリは、バックグラウンドで UI の作成作業を開始します。 その要素が作成されると、[**FrameworkElement.Loaded**](/uwp/api/windows.ui.xaml.frameworkelement.loaded) イベントが発生します。 このイベント ハンドラーで、現在は読み込み画面になっているウィンドウのコンテンツを、新しく作成したホーム ページに置き換えます。
 
-初期化時間が長いアプリの場合は読み込みページを表示することが重要です。 アクティブ化プロセスに関するユーザー フィードバックを返すこととは別に、アクティブ化プロセスの開始から 15 秒以内に [**Window.Activate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.activate) が呼び出されないと、プロセスは終了されます。
+初期化時間が長いアプリの場合は読み込みページを表示することが重要です。 アクティブ化プロセスに関するユーザー フィードバックを返すこととは別に、アクティブ化プロセスの開始から 15 秒以内に [**Window.Activate**](/uwp/api/windows.ui.xaml.window.activate) が呼び出されないと、プロセスは終了されます。
 
 > [!div class="tabbedCodeSnippets"]
 > ```csharp
@@ -339,7 +339,7 @@ XAML アプリの起動時のパフォーマンスは、起動時に作成する
 
 多くの場合、再利用可能なコードは、プロジェクトに含まれるモジュール (DLL) の形で提供されます。 こうしたモジュールを読み込むには、ディスクにアクセスする必要があります。それには、当然負荷が発生します。 これにより、コールド起動に大きな影響が及びますが、ウォーム起動にも影響が及ぶ場合があります。 C# と Visual Basic の場合、CLR はアセンブリをオンデマンドで読み込むことで、その負荷の発生をできるだけ遅らせようとします。 つまり、モジュールは実行されたメソッドによって参照されるまで読み込まれません。 そのため、CLR によって不要なモジュールが読み込まれないように、スタートアップ コードではアプリの起動に必要なアセンブリだけを参照するようにします。 スタートアップ パス内の使われないコード パスに不必要な参照が含まれている場合は、それらのコード パスを別のメソッドに移動すると、不必要な読み込みを回避できます。
 
-また、アプリ モジュールを結合して、モジュールの読み込みを減らすこともできます。 一般的に、2 つの小さなアセンブリよりも、1 つの大きなアセンブリの方が短い時間で読み込むことができます。 常に短くなるわけではないため、開発者の生産性やコードの再利用性に実質的な違いがない場合にのみ、モジュールを結合してください。 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567) や [Windows Performance Analyzer (WPA)](https://docs.microsoft.com/previous-versions/windows/desktop/xperf/windows-performance-analyzer--wpa-) などのツールを使うと、起動時に読み込まれるモジュールを調べることができます。
+また、アプリ モジュールを結合して、モジュールの読み込みを減らすこともできます。 一般的に、2 つの小さなアセンブリよりも、1 つの大きなアセンブリの方が短い時間で読み込むことができます。 常に短くなるわけではないため、開発者の生産性やコードの再利用性に実質的な違いがない場合にのみ、モジュールを結合してください。 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567) や [Windows Performance Analyzer (WPA)](/previous-versions/windows/desktop/xperf/windows-performance-analyzer--wpa-) などのツールを使うと、起動時に読み込まれるモジュールを調べることができます。
 
 ### <a name="make-smart-web-requests"></a>効率的に Web 要求を行う
 

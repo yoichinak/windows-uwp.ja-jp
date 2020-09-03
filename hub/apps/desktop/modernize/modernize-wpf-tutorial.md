@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 21049c995d467209b22fe8ea5c40d303911f2c2c
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: aa8991e7fd0bbb825ff5280f01693f092125f573
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77521289"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161376"
 ---
 # <a name="tutorial-modernize-a-wpf-app"></a>チュートリアル: WPF アプリの現代化 
 
@@ -111,13 +111,13 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* という機能を
 
 詳細については、[デスクトップ アプリケーションの UWP コントロール (XAML Islands)](/windows/uwp/xaml-platform/xaml-host-controls) に関するページを参照してください。 このチュートリアルでは、異なる 2 種類の XAML Island コントロールを使用するプロセスについて説明します。
 
-* Windows Community Toolkit の[InkCanvas](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) と [MapControl](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/mapcontrol)。 これらの WPF コントロールでは、対応する UWP コントロールのインターフェイスと機能をラップし、Visual Studio デザイナーの他の WPF コントロールと同様に使用できます。
+* Windows Community Toolkit の[InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas) と [MapControl](/windows/communitytoolkit/controls/wpf-winforms/mapcontrol)。 これらの WPF コントロールでは、対応する UWP コントロールのインターフェイスと機能をラップし、Visual Studio デザイナーの他の WPF コントロールと同様に使用できます。
 
-* UWP の [カレンダー ビュー](/windows/uwp/design/controls-and-patterns/calendar-view) コントロール。 これは、Windows Community Toolkit の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用してホストする、標準 UWP コントロールです。
+* UWP の [カレンダー ビュー](/windows/uwp/design/controls-and-patterns/calendar-view) コントロール。 これは、Windows Community Toolkit の [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用してホストする、標準 UWP コントロールです。
 
 ### <a name="net-core-3"></a>.NET Core 3
 
-[.NET Core](https://docs.microsoft.com/dotnet/core/) は、完全な .NET Framework のクロスプラットフォームで軽量かつ容易に拡張可能なバージョンを実装するオープンソース フレームワークです。 完全な .NET Framework と比べ、.NET Core の起動時間は大幅に短縮されており、API の多くが最適化されています。
+[.NET Core](/dotnet/core/) は、完全な .NET Framework のクロスプラットフォームで軽量かつ容易に拡張可能なバージョンを実装するオープンソース フレームワークです。 完全な .NET Framework と比べ、.NET Core の起動時間は大幅に短縮されており、API の多くが最適化されています。
 
 その最初のいくつかのリリースでは、.NET Core の焦点は、Web またはバックエンド アプリをサポートすることにありました。 .NET Core を使用すれば、Windows、Linux、または Docker コンテナーのようなマイクロサービス アーキテクチャでホストできる、スケーラブルな Web アプリまたは API を簡単にビルドできます。
 
@@ -126,4 +126,4 @@ Windows 10 バージョン 1903 以降では、*XAML Islands* という機能を
 > [!NOTE]
 > WPF と Windows フォームがクロスプラットフォームになっていないため、Linux および MacOS で WPF や Windows フォームを実行することはできません。 WPF と Windows フォームの UI コンポーネントは、引き続き Windows レンダリング システムに依存しています。
 
-詳細については、「[.NET Core 3.0 の新機能](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。
+詳細については、「[.NET Core 3.0 の新機能](/dotnet/core/whats-new/dotnet-core-3-0)」をご覧ください。

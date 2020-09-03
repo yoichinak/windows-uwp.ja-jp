@@ -5,16 +5,16 @@ ms.date: 07/10/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 受け渡し, パラメーター, ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: 51cde2332d3d9df9d1f488aa7f8246f9e1e2ed36
-ms.sourcegitcommit: e1104689fc1db5afb85701205c2580663522ee6d
+ms.openlocfilehash: 05a627349ad2c4fda890a4f5280f5d33454ea910
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86997979"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154456"
 ---
 # <a name="passing-parameters-into-the-abi-boundary"></a>ABI 境界へのパラメーターの受け渡し
 
-C++/WinRT の **winrt::param** 名前空間の型では、一般的なケースの自動変換が提供されることにより、ABI 境界へのパラメーターの受け渡しが簡略化されます。 詳細およびコード例については、「[文字列の処理](/windows/uwp/cpp-and-winrt-apis/strings)」および「[標準的な C++ のデータ型と C++/WinRT](/windows/uwp/cpp-and-winrt-apis/std-cpp-data-types)」をご覧ください。
+C++/WinRT の **winrt::param** 名前空間の型では、一般的なケースの自動変換が提供されることにより、ABI 境界へのパラメーターの受け渡しが簡略化されます。 詳細およびコード例については、「[文字列の処理](./strings.md)」および「[標準的な C++ のデータ型と C++/WinRT](./std-cpp-data-types.md)」をご覧ください。
 
 > [!IMPORTANT]
 > **winrt::param** 名前空間内の型を自分では使用しないでください。 それらはプロジェクションのためのものです。

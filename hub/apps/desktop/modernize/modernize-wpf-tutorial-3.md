@@ -8,25 +8,25 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 830c1cdf2e24e716d51642bc65b5b6783d0d784a
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: e7e09069e11fc14d0a47086bc2594edc975c11d9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69643373"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161456"
 ---
 # <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>パート 3: XAML Islands を使用した UWP CalendarView コントロールの追加
 
 これは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを現代化する方法を示すチュートリアルの 3 番目の部分です。 チュートリアルの概要、前提条件、サンプル アプリをダウンロードするための手順については、「[チュートリアル: WPF アプリの現代化](modernize-wpf-tutorial.md)」を参照してください。 この記事では、読者が[パート 2](modernize-wpf-tutorial-2.md) を既に完了していることを前提にしています。
 
-このチュートリアルの架空のシナリオでは、Contoso 開発チームは、タッチ対応デバイスで経費報告書の日付を簡単に選択できるようにしたいと考えています。 チュートリアルのこの部分では、アプリに UWP [CalendarView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/calendar-view) コントロールを追加します。 これは、タスク バーにある Windows 10 の日付と時刻の機能で使用されるものと同じコントロールです。
+このチュートリアルの架空のシナリオでは、Contoso 開発チームは、タッチ対応デバイスで経費報告書の日付を簡単に選択できるようにしたいと考えています。 チュートリアルのこの部分では、アプリに UWP [CalendarView](/windows/uwp/design/controls-and-patterns/calendar-view) コントロールを追加します。 これは、タスク バーにある Windows 10 の日付と時刻の機能で使用されるものと同じコントロールです。
 
 ![CalendarViewControl の画像](images/wpf-modernize-tutorial/CalendarViewControl.png)
 
-[パート 2](modernize-wpf-tutorial-2.md) で追加した **InkCanvas** コントロールとは異なり、Windows コミュニティ ツールキットには、WPF アプリで使用できる UWP **CalendarView** のラップされたバージョンが用意されていません。 別の方法として、汎用の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールで **InkCanvas** をホストします。 このコントロールを使用すると、Windows SDK または WinUI ライブラリによって提供される任意のファーストパーティ UWP コントロールや、サードパーティによって作成された任意のカスタム UWP コントロールをホストできます。 **WindowsXamlHost** コントロールは、`Microsoft.Toolkit.Wpf.UI.XamlHost` NuGet パッケージによって提供されます。 このパッケージは、[パート 2](modernize-wpf-tutorial-2.md) でインストールした `Microsoft.Toolkit.Wpf.UI.Controls` NuGet パッケージに含まれています。
+[パート 2](modernize-wpf-tutorial-2.md) で追加した **InkCanvas** コントロールとは異なり、Windows コミュニティ ツールキットには、WPF アプリで使用できる UWP **CalendarView** のラップされたバージョンが用意されていません。 別の方法として、汎用の [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールで **InkCanvas** をホストします。 このコントロールを使用すると、Windows SDK または WinUI ライブラリによって提供される任意のファーストパーティ UWP コントロールや、サードパーティによって作成された任意のカスタム UWP コントロールをホストできます。 **WindowsXamlHost** コントロールは、`Microsoft.Toolkit.Wpf.UI.XamlHost` NuGet パッケージによって提供されます。 このパッケージは、[パート 2](modernize-wpf-tutorial-2.md) でインストールした `Microsoft.Toolkit.Wpf.UI.Controls` NuGet パッケージに含まれています。
 
 > [!NOTE]
-> このチュートリアルでは、[WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用して、Windows SDK によって提供されるファーストパーティ **CalendarView** コントロールをホストする方法のみを示します。 カスタム コントロールをホストする方法を示すチュートリアルについては、[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)に関するページを参照してください。
+> このチュートリアルでは、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) を使用して、Windows SDK によって提供されるファーストパーティ **CalendarView** コントロールをホストする方法のみを示します。 カスタム コントロールをホストする方法を示すチュートリアルについては、[XAML Islands を使用した WPF アプリでのカスタム UWP コントロールのホスト](host-custom-control-with-xaml-islands.md)に関するページを参照してください。
 
 **WindowsXamlHost** コントロールを使用するには、WPF アプリのコードから直接 WinRT API を呼び出す必要があります。 `Microsoft.Windows.SDK.Contracts` NuGet パッケージには、アプリから WinRT API を呼び出せるようにするために必要な参照が含まれています。 このパッケージはまた、[パート 2](modernize-wpf-tutorial-2.md) でインストールした `Microsoft.Toolkit.Wpf.UI.Controls` NuGet パッケージにも含まれています。
 
@@ -94,7 +94,7 @@ ms.locfileid: "69643373"
 
 次に、選択された日付を処理するようにアプリを更新し、それを画面に表示してから、データベースに保存する **Expense** オブジェクトを設定します。
 
-UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CalendarView) には、このシナリオに関連する次の 2 つのメンバーが含まれています。
+UWP [CalendarView](/uwp/api/Windows.UI.Xaml.Controls.CalendarView) には、このシナリオに関連する次の 2 つのメンバーが含まれています。
 
 - **SelectedDates** プロパティには、ユーザーによって選択された日付が含まれます。
 - **SelectedDatesChanged** イベントは、ユーザーが日付を選択したときに生成されます。
@@ -230,6 +230,6 @@ UWP [CalendarView](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.C
 
 ## <a name="next-steps"></a>次の手順
 
-チュートリアルのこの時点で、WPF の日付と時刻コントロールが、マウスとキーボードの入力に加えてタッチとデジタル ペンをサポートする UWP **CalendarView** コントロールに正常に置き換えられました。 Windows コミュニティ ツールキットには、WPF アプリで直接使用できる UWP **CalendarView** コントロールのラップされたバージョンが用意されていませんが、汎用の [WindowsXamlHost](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用してそのコントロールをホストすることができました。
+チュートリアルのこの時点で、WPF の日付と時刻コントロールが、マウスとキーボードの入力に加えてタッチとデジタル ペンをサポートする UWP **CalendarView** コントロールに正常に置き換えられました。 Windows コミュニティ ツールキットには、WPF アプリで直接使用できる UWP **CalendarView** コントロールのラップされたバージョンが用意されていませんが、汎用の [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用してそのコントロールをホストすることができました。
 
 これで、「[パート 4: Windows 10 ユーザー アクティビティと通知の追加](modernize-wpf-tutorial-4.md)」に進む準備ができました。

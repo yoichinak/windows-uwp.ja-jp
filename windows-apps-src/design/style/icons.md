@@ -11,12 +11,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 7c44baee7d3201e2e554604405afe337007dd510
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: e35041cce7e43f6eebed06b39f3ae2dbda55a4ae
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970957"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156796"
 ---
 # <a name="icons-for-windows-apps"></a>Windows アプリのアイコン
 
@@ -39,7 +39,7 @@ ms.locfileid: "82970957"
     :::column-end:::
 :::row-end:::
 
-この記事では、アプリ内のアイコンについて説明します。 アプリ外部のアイコン (アプリ アイコン) の詳細については、[アプリおよびタイル アイコン](/windows/uwp/design/shell/tiles-and-notifications/app-assets)に関する記事を参照してください。
+この記事では、アプリ内のアイコンについて説明します。 アプリ外部のアイコン (アプリ アイコン) の詳細については、[アプリおよびタイル アイコン](./app-icons-and-logos.md)に関する記事を参照してください。
 
 ## <a name="when-to-use-icons"></a>アイコンを使用するタイミング
 
@@ -100,7 +100,7 @@ Segoe MDL2 アセット フォントを使用する必要はありません。Wi
 ### <a name="use-a-scalable-vector-graphics-svg-file"></a>スケーラブル ベクター グラフィックス (SVG) ファイルを使用します。
 :::row:::
     :::column:::
-SVG リソースは、任意のサイズや解像度で常に鮮明に表示されるため、アイコンに最適です。 ほとんどの描画アプリケーションは、SVG にエクスポートできます。 手順については、[SVGImageSource](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.imaging.svgimagesource)に関するページを参照してください。
+SVG リソースは、任意のサイズや解像度で常に鮮明に表示されるため、アイコンに最適です。 ほとんどの描画アプリケーションは、SVG にエクスポートできます。 手順については、[SVGImageSource](/uwp/api/windows.ui.xaml.media.imaging.svgimagesource)に関するページを参照してください。
     :::column-end:::
     :::column:::
         ![SVG イメージ](images/icons/icon-scale.gif)
@@ -156,7 +156,7 @@ SVG ファイルのように、ジオメトリはベクトルに基づくリソ�
 :::row:::
     :::column span="2":::
         <b>手順 2</b><br>
-次のアイコンの要素オブジェクトのいずれかを使用します。[BitmapIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.bitmapicon)、[FontIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon)、[PathIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pathicon)、または [SymbolIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbolicon)。 これにより、選択するアイコンの種類が多くなり、必要に応じて、テキストなどのその他の種類のコンテンツとアイコンを組み合わせることができるようになります。
+次のアイコンの要素オブジェクトのいずれかを使用します。[BitmapIcon](/uwp/api/windows.ui.xaml.controls.bitmapicon)、[FontIcon](/uwp/api/windows.ui.xaml.controls.fonticon)、[PathIcon](/uwp/api/windows.ui.xaml.controls.pathicon)、または [SymbolIcon](/uwp/api/windows.ui.xaml.controls.symbolicon)。 これにより、選択するアイコンの種類が多くなり、必要に応じて、テキストなどのその他の種類のコンテンツとアイコンを組み合わせることができるようになります。
     :::column-end:::
     :::column:::
         ![アイコン ボタンの作成の手順 2](images/icons/icon-text-step-2.svg)
@@ -176,7 +176,7 @@ SVG ファイルのように、ジオメトリはベクトルに基づくリソ�
 
 :::row:::
     :::column span:::
-切り取り/コピー/貼り付けや、写真編集プログラムの一連の描画コマンドなど、組み合わされる一連のコマンドがある場合は、それらを[コマンド バー](../controls-and-patterns/app-bars.md)にまとめます。 コマンド バーでは、1 つまたは複数のアプリ バーのボタンまたはアプリ バーのトグル ボタンが取得されます。それぞれがアクションを表します。 それぞれのボタンには、表示されるアイコンを制御するために使用する [Icon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.appbarbutton#Windows_UI_Xaml_Controls_AppBarButton_Icon) プロパティがあります。 アイコンを指定するには、さまざまな方法があります。 
+切り取り/コピー/貼り付けや、写真編集プログラムの一連の描画コマンドなど、組み合わされる一連のコマンドがある場合は、それらを[コマンド バー](../controls-and-patterns/app-bars.md)にまとめます。 コマンド バーでは、1 つまたは複数のアプリ バーのボタンまたはアプリ バーのトグル ボタンが取得されます。それぞれがアクションを表します。 それぞれのボタンには、表示されるアイコンを制御するために使用する [Icon](/uwp/api/windows.ui.xaml.controls.appbarbutton#Windows_UI_Xaml_Controls_AppBarButton_Icon) プロパティがあります。 アイコンを指定するには、さまざまな方法があります。 
     :::column-end:::
     :::column:::
         ![アイコンを含むコマンド バーの例](images/icons/create-icon-command-bar.svg)
@@ -197,13 +197,13 @@ SVG ファイルのように、ジオメトリはベクトルに基づくリソ�
 </CommandBar>
 
 ```
-アイコン名の完全な一覧については、[Symbol 列挙型](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.symbol)に関するページを参照してください。 
+アイコン名の完全な一覧については、[Symbol 列挙型](/uwp/api/windows.ui.xaml.controls.symbol)に関するページを参照してください。 
 
 コマンド バーにあるボタンにアイコンを指定する方法は他にもあります。
 
-+ [FontIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.fonticon) - アイコンは指定されたフォント ファミリのグリフに基づきます。
-+ [BitmapIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.bitmapicon) - アイコンは指定された **URI** を持つビットマップ画像ファイルに基づきます。
-+ [PathIcon](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.pathicon) - アイコンは [Path](/uwp/api/windows.ui.xaml.shapes.path) データに基づきます。
++ [FontIcon](/uwp/api/windows.ui.xaml.controls.fonticon) - アイコンは指定されたフォント ファミリのグリフに基づきます。
++ [BitmapIcon](/uwp/api/windows.ui.xaml.controls.bitmapicon) - アイコンは指定された **URI** を持つビットマップ画像ファイルに基づきます。
++ [PathIcon](/uwp/api/windows.ui.xaml.controls.pathicon) - アイコンは [Path](/uwp/api/windows.ui.xaml.shapes.path) データに基づきます。
 
 コマンド バーの詳細については、「[コマンド バー](../controls-and-patterns/app-bars.md)」の記事を参照してください。 
 

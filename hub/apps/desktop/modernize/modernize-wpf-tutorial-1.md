@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 9d08dd0f43f1c505124203028c69326e10eea26c
-ms.sourcegitcommit: 6cdba316bdbd85a2429259ebfb59ff94440e234a
+ms.openlocfilehash: c11f1cab37e79fc320f1fb38f5b909d2cecd1ad4
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85882876"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89161586"
 ---
 # <a name="part-1-migrate-the-contoso-expenses-app-to-net-core-3"></a>パート 1: Contoso Expenses　アプリの .NET Core 3 への移行
 
@@ -134,7 +134,7 @@ ms.locfileid: "85882876"
     ```
 
     > [!NOTE]
-    > また、この .NET Core 3 プロジェクトには、.NET Framework 4.7.2 プロジェクトで使用されているものと同じパッケージをインストールしていることもわかります。 NuGet パッケージではマルチターゲットがサポートされます。 ライブラリの作成者は、異なるバージョンのライブラリを同じパッケージに含め、さまざまなアーキテクチャやプラットフォーム用にコンパイルすることができます。 これらのパッケージでは、完全な .NET Framework と、.NET Core 3 プロジェクトと互換性がある .NET Standard 2.0 がサポートされます。 .NET Framework、.NET Core、.NET Standard の相違点について詳しくは、「[.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)」をご覧ください。
+    > また、この .NET Core 3 プロジェクトには、.NET Framework 4.7.2 プロジェクトで使用されているものと同じパッケージをインストールしていることもわかります。 NuGet パッケージではマルチターゲットがサポートされます。 ライブラリの作成者は、異なるバージョンのライブラリを同じパッケージに含め、さまざまなアーキテクチャやプラットフォーム用にコンパイルすることができます。 これらのパッケージでは、完全な .NET Framework と、.NET Core 3 プロジェクトと互換性がある .NET Standard 2.0 がサポートされます。 .NET Framework、.NET Core、.NET Standard の相違点について詳しくは、「[.NET Standard](/dotnet/standard/net-standard)」をご覧ください。
 
 **ContosoExpenses.Core** プロジェクト用に NuGet パッケージを構成するには:
 

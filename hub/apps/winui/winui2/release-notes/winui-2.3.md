@@ -3,12 +3,12 @@ title: WinUI 2.3 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.3 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 9540f5314e6df02e95943279647d643bdbbef3c5
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 63091f927f63a708c5a5e4d41e9d81fd9f528cb1
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493487"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154786"
 ---
 # <a name="windows-ui-library-23"></a>Windows UI ライブラリ 2.3
 
@@ -40,9 +40,9 @@ NuGet パッケージのダウンロード:[Microsoft.UI.Xaml](https://www.nuget
 
 ![確定的な進行状況バー](../images/DeterminateProgressBar.gif)
 
-[ドキュメント リンク](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/progress-controls)
+[ドキュメント リンク](/windows/uwp/design/controls-and-patterns/progress-controls)
 
-[サンプル リンク](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/progress-controls#examples)
+[サンプル リンク](/windows/uwp/design/controls-and-patterns/progress-controls#examples)
 
 ### <a name="numberbox"></a>NumberBox
 
@@ -50,7 +50,7 @@ NuGet パッケージのダウンロード:[Microsoft.UI.Xaml](https://www.nuget
 
 ![NumberBox](../images/NumberBoxGif.gif)
 
-[ドキュメントとサンプル リンク](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/number-box)
+[ドキュメントとサンプル リンク](/windows/uwp/design/controls-and-patterns/number-box)
 
 ### <a name="radiobuttons"></a>RadioButtons
 

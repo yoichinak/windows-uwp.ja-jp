@@ -5,30 +5,30 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
-ms.openlocfilehash: 980f39f20de369bce226c4d8c1070bda851480c2
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: f1500ab9999d4689385a9f7edce33253c385c0d0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493657"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154566"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 
-このトピックでは、「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」トピックで作成方法が示されている Windows ランタイム コンポーネントとそれを使用するアプリケーションが基になっています。
+このトピックでは、「[C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」トピックで作成方法が示されている Windows ランタイム コンポーネントとそれを使用するアプリケーションが基になっています。
 
 このトピックで追加される新機能を次に示します。
 - 銀行口座ランタイム クラスを更新し、残高がマイナスになったらイベントを発生させます。
 - そのイベントを処理するように、銀行口座ランタイム クラスを使用する Core アプリを更新しします。
 
 > [!NOTE]
-> [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+> [C++/WinRT](./intro-to-using-cpp-with-winrt.md) Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 > [!IMPORTANT]
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での作成者 API](author-apis.md)」を参照してください。
 
 ## <a name="create-bankaccountwrc-and-bankaccountcoreapp"></a>**BankAccountWRC** と **BankAccountCoreApp** を作成する
 
-このトピックで示されている更新に従って、コードをビルドして実行できるようにする場合は、最初に「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」トピックのチュートリアルに従ってください。 これにより、**BankAccountWRC** Windows ランタイム コンポーネントと、それを使用する **BankAccountCoreApp** Core アプリが作成されます。
+このトピックで示されている更新に従って、コードをビルドして実行できるようにする場合は、最初に「[C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」トピックのチュートリアルに従ってください。 これにより、**BankAccountWRC** Windows ランタイム コンポーネントと、それを使用する **BankAccountCoreApp** Core アプリが作成されます。
 
 ## <a name="update-bankaccountwrc-to-raise-an-event"></a>イベントを生成するように **BankAccountWRC** を更新する
 
@@ -390,4 +390,4 @@ logCallback(L"Hello, World!");
 * [C++/WinRT で API を作成する](author-apis.md)
 * [C++/WinRT で API を使用する](consume-apis.md)
 * [C++/WinRT でのデリゲートを使用したイベントの処理](handle-events.md)
-* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)

@@ -5,16 +5,16 @@ ms.date: 06/21/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, XAML, コントロール, バインド, プロパティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ba06ece905e6a91a2279f0fe78e867a8f943bb3
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: b6e663ec77c66d4a018d388da350794771312b77
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492937"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154386"
 ---
 # <a name="xaml-controls-bind-to-a-cwinrt-property"></a>XAML コントロール: C++/WinRT プロパティへのバインド
 
-XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) で監視可能なプロパティを実装する方法と、これらに XAML コントロールをバインドする方法を示します (背景情報については、「[データ バインディング](/windows/uwp/data-binding)」をご覧ください)。
+XAML コントロールに効果的にバインドできるプロパティは、*監視可能な*プロパティと呼ばれます。 この概念は、*オブザーバー パターン*と呼ばれるソフトウェアの設計パターンに基づいています。 このトピックでは、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) で監視可能なプロパティを実装する方法と、これらに XAML コントロールをバインドする方法を示します (背景情報については、「[データ バインディング](../data-binding/index.md)」をご覧ください)。
 
 > [!IMPORTANT]
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](consume-apis.md)」と「[C++/WinRT での作成者 API](author-apis.md)」を参照してください。
@@ -136,7 +136,7 @@ namespace winrt::Bookstore::implementation
 ## <a name="declare-and-implement-bookstoreviewmodel"></a>**BookstoreViewModel** を宣言および実装する
 メイン XAML ページが、メイン ビュー モデルにバインドします。 またそのビュー モデルは、**BookSku** 型のいずれかを含む、いくつかのプロパティを持つようになります。 この手順では、メイン ビュー モデル ランタイム クラスを宣言および実装します。
 
-`BookstoreViewModel.idl` という名前の新しい **Midl ファイル (.idl)** 項目を追加します。 ただし、「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](/windows/uwp/cpp-and-winrt-apis/author-apis#factoring-runtime-classes-into-midl-files-idl)」も参照してください。
+`BookstoreViewModel.idl` という名前の新しい **Midl ファイル (.idl)** 項目を追加します。 ただし、「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](./author-apis.md#factoring-runtime-classes-into-midl-files-idl)」も参照してください。
 
 ```idl
 // BookstoreViewModel.idl
@@ -306,11 +306,11 @@ runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
 }
 ```
 
-これが必要な理由を次に示します。 XAML コンパイラで検証する必要があるすべての型は ([{X:bind}](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) で使われるものを含みます)、Windows メタデータ (WinMD) から読み取られます。 開発者が行う必要があるのは、読み取り専用のプロパティを Midl ファイルに追加することだけです。 自動的に生成される XAML コードビハインドで実装が提供されるので、実装は行わないでください。
+これが必要な理由を次に示します。 XAML コンパイラで検証する必要があるすべての型は ([{X:bind}](../xaml-platform/x-bind-markup-extension.md) で使われるものを含みます)、Windows メタデータ (WinMD) から読み取られます。 開発者が行う必要があるのは、読み取り専用のプロパティを Midl ファイルに追加することだけです。 自動的に生成される XAML コードビハインドで実装が提供されるので、実装は行わないでください。
 
 ## <a name="consuming-objects-from-xaml-markup"></a>XAML マークアップからのオブジェクトの使用
 
-XAML [ **{x:Bind} マークアップ拡張**](/windows/uwp/xaml-platform/x-bind-markup-extension)の使用によって使用されるすべてのエンティティは、IDL で公開されている必要があります。 さらに、XAML マークアップに、マークアップにも含まれる別の要素への参照が含まれている場合は、そのマークアップの getter が IDL に存在する必要があります。
+XAML [ **{x:Bind} マークアップ拡張**](../xaml-platform/x-bind-markup-extension.md)の使用によって使用されるすべてのエンティティは、IDL で公開されている必要があります。 さらに、XAML マークアップに、マークアップにも含まれる別の要素への参照が含まれている場合は、そのマークアップの getter が IDL に存在する必要があります。
 
 ```xaml
 <Page x:Name="MyPage">

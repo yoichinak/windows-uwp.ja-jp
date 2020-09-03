@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 70415c9f3d58625cfdc651ec67c8a9f37c23cffa
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 32054a30e56102b9c0642392d78ac75b78fb99e9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77089498"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89158226"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -19,9 +19,9 @@ Azure Pipelines を使って、UWP プロジェクトの自動ビルドを作成
 
 ## <a name="create-a-new-azure-pipeline"></a>新しい Azure パイプラインを作成する
 
-まだの場合、まず、[Azure Pipelines にサインアップします](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up)。
+まだの場合、まず、[Azure Pipelines にサインアップします](/azure/devops/pipelines/get-started/pipelines-sign-up)。
 
-次に、ソース コードのビルドに使用できるパイプラインを作成します。 パイプラインをビルドして GitHub リポジトリをビルドするチュートリアルについては、「[最初のパイプラインを作成](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml)」を参照してください。 Azure Pipelines では、[こちらの記事](https://docs.microsoft.com/azure/devops/pipelines/repos)に一覧表示されているリポジトリの種類がサポートされています。
+次に、ソース コードのビルドに使用できるパイプラインを作成します。 パイプラインをビルドして GitHub リポジトリをビルドするチュートリアルについては、「[最初のパイプラインを作成](/azure/devops/pipelines/get-started-yaml)」を参照してください。 Azure Pipelines では、[こちらの記事](/azure/devops/pipelines/repos)に一覧表示されているリポジトリの種類がサポートされています。
 
 ## <a name="set-up-an-automated-build"></a>自動ビルドを設定する
 
@@ -66,7 +66,7 @@ steps:
 
 ## <a name="add-your-project-certificate-to-the-secure-files-library"></a>セキュア ファイル ライブラリにプロジェクト証明書を追加する
 
-可能な限り、リポジトリに証明書を送信することは避けてください。git では既定でそれらが無視されます。 証明書などの機密性の高いファイルの安全な処理を管理するために、Azure DevOps では、[セキュア ファイル](https://docs.microsoft.com/azure/devops/pipelines/library/secure-files?view=azure-devops)機能がサポートされています。
+可能な限り、リポジトリに証明書を送信することは避けてください。git では既定でそれらが無視されます。 証明書などの機密性の高いファイルの安全な処理を管理するために、Azure DevOps では、[セキュア ファイル](/azure/devops/pipelines/library/secure-files?view=azure-devops)機能がサポートされています。
 
 自動ビルドの証明書をアップロードするには、次の手順に従います。
 
@@ -80,7 +80,7 @@ steps:
 
     ![セキュア ファイルのアップロード方法](images/secure-file2.png)
 
-5. 証明書の秘密キーにパスワードが含まれている場合は、パスワードを [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 その変数を使用して、パイプラインからパスワードにアクセスできます。 パスワードは秘密キーに対してのみサポートされていることに注意してください。パスワードで保護されている証明書ファイルを使用することは、現在サポートされていません。
+5. 証明書の秘密キーにパスワードが含まれている場合は、パスワードを [Azure Key Vault](/azure/key-vault/about-keys-secrets-and-certificates) に保存し、パスワードを[変数グループ](/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 その変数を使用して、パイプラインからパスワードにアクセスできます。 パスワードは秘密キーに対してのみサポートされていることに注意してください。パスワードで保護されている証明書ファイルを使用することは、現在サポートされていません。
 
 > [!NOTE]
 > Visual Studio 2019 以降では、UWP プロジェクトで一時的な証明書が生成されなくなりました。 証明書を作成またはエクスポートするには、[こちらの記事](/windows/msix/package/create-certificate-package-signing)に記載されている PowerShell コマンドレットを使用します。
@@ -100,7 +100,7 @@ steps:
 | AppxPackageSigningEnabled | true | パッケージの署名を有効にします。 |
 | PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列である**必要があります**。 |
 | PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュア ファイルのメタデータから取得されます。 |
-| PackageCertificatePassword | Password | 証明書の秘密キーのパスワード。 パスワードを [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) に保存し、パスワードを[変数グループ](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
+| PackageCertificatePassword | Password | 証明書の秘密キーのパスワード。 パスワードを [Azure Key Vault](/azure/key-vault/about-keys-secrets-and-certificates) に保存し、パスワードを[変数グループ](/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
 
 ### <a name="configure-the-build"></a>ビルドを構成する
 
@@ -152,7 +152,7 @@ MSIX (または .appx) パッケージに署名するには、パイプライン
 
 ![既定の変数](images/building-screen5.png)
 
-すべての定義済みの変数を表示するには、「[定義済みのビルド変数](https://docs.microsoft.com/azure/devops/pipelines/build/variables)」をご覧ください。
+すべての定義済みの変数を表示するには、「[定義済みのビルド変数](/azure/devops/pipelines/build/variables)」をご覧ください。
 
 ## <a name="configure-the-publish-build-artifacts-task"></a>ビルド成果物の発行タスクを構成する
 
@@ -195,7 +195,7 @@ MSIX (または .appx) パッケージに署名するには、パイプライン
 
 ## <a name="related-topics"></a>関連トピック
 
-- [Windows 用の .NET アプリを構築する](https://docs.microsoft.com/vsts/build-release/get-started/dot-net)
+- [Windows 用の .NET アプリを構築する](/vsts/build-release/get-started/dot-net)
 - [UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)
-- [Windows 10 での LOB アプリのサイドローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)
+- [Windows 10 での LOB アプリのサイドローディング](/windows/deploy/sideload-apps-in-windows-10)
 - [パッケージ署名用証明書を作成する](/windows/msix/package/create-certificate-package-signing)

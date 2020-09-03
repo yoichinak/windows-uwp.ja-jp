@@ -5,19 +5,19 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: 64f605fc716970d2fd4ca534a0c31fb62baa34d4
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 0b5c515760d0a03e163fa663da1f97a728a6da2c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493667"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154596"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
-このトピックでは、直接的または間接的に [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体を使用して、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) API を作成する方法を示します。 このコンテキストで*作成者*の同義語は、*生成*、または*実装*です。 このトピックでは、C++/WinRT で API を実装するために、次のシナリオをこの順序で説明します。
+このトピックでは、直接的または間接的に [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体を使用して、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) API を作成する方法を示します。 このコンテキストで*作成者*の同義語は、*生成*、または*実装*です。 このトピックでは、C++/WinRT で API を実装するために、次のシナリオをこの順序で説明します。
 
 > [!NOTE]
-> このトピックでは Windows ランタイム コンポーネントについて説明しますが、C++/WinRT のコンテキストについてだけです。 すべての Windows ランタイム言語を対象とする Windows ランタイム コンポーネントに関するコンテンツをお探しの場合は、「[Windows ランタイム コンポーネント](/windows/uwp/winrt-components/)」をご覧ください。
+> このトピックでは Windows ランタイム コンポーネントについて説明しますが、C++/WinRT のコンテキストについてだけです。 すべての Windows ランタイム言語を対象とする Windows ランタイム コンポーネントに関するコンテンツをお探しの場合は、「[Windows ランタイム コンポーネント](../winrt-components/index.md)」をご覧ください。
 
 - Windows ランタイム クラス (ランタイム クラス) は作成*しません*。アプリ内でのローカルの使用のために 1 つまたは複数の Windows ランタイム インターフェイスを実装するだけです。 この場合、**winrt::implements** から直接派生し、機能を実装します。
 - ランタイム クラスを作成*します*。 アプリで使用するコンポーネントを作成している場合があります。 または、XAML ユーザー インターフェイス (UI) で使用する型を作成していることがあり、その場合は両方を実装して、同じのコンパイル ユニット内のランタイム クラスを使用しています。 このような場合、ツールで **winrt::implements** から派生するクラスを生成することができます。
@@ -178,7 +178,7 @@ struct MyRuntimeClass_base : implements<D, MyProject::IMyRuntimeClass, I...>
 
 そのため、このシナリオでは、継承のルートの階層はもう一度 [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体のテンプレートです。
 
-Windows ランタイム コンポーネントでの API の作成に関する詳細、コード、チュートリアルについては、「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」および「[C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)」を参照してください。
+Windows ランタイム コンポーネントでの API の作成に関する詳細、コード、チュートリアルについては、「[C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」および「[C++/WinRT でのイベントの作成](./author-events.md)」を参照してください。
 
 ## <a name="if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui"></a>XAML UI で参照されるランタイム クラスを作成する場合
 
@@ -239,7 +239,7 @@ Visual Studio プロジェクトと項目テンプレートでは、ランタイ
 例をいくつか紹介します。
 
 - パラメーターの型を緩和できます。 たとえば、IDL でメソッドが **SomeClass** を受け取る場合、実装ではそれを **IInspectable** に変更できます。 これができるのは、すべての **SomeClass** を **IInspectable** に転送できるためです (もちろん、逆はできません)。
-- コピー可能なパラメーターを参照渡しではなく値で受け取ることができます。 たとえば、`SomeClass const&` を `SomeClass` に変更します。 コルーチンに参照をキャプチャしないようにする必要があるときは、それが必要です (「[パラメーターの引き渡し](/windows/uwp/cpp-and-winrt-apis/concurrency#parameter-passing)」をご覧ください)。
+- コピー可能なパラメーターを参照渡しではなく値で受け取ることができます。 たとえば、`SomeClass const&` を `SomeClass` に変更します。 コルーチンに参照をキャプチャしないようにする必要があるときは、それが必要です (「[パラメーターの引き渡し](./concurrency.md#parameter-passing)」をご覧ください)。
 - 戻り値を緩和できます。 たとえば、**void** を [**winrt::fire_and_forget**](/uwp/cpp-ref-for-winrt/fire-and-forget) に変更できます。
 
 最後の 2 つは、非同期イベント ハンドラーを作成する場合に非常に便利です。
@@ -468,7 +468,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 このトピックで前に説明したように、C++/WinRT のランタイム クラスは、複数の名前空間に複数の C++ クラスの形式で存在します。 したがって、名前 **MyRuntimeClass** の意味は、**winrt::MyProject** 名前空間内と **winrt::MyProject::implementation** 名前空間内では異なります。 現在のコンテキストがどちらの名前空間かを認識し、別の名前空間の名前が必要な場合は名前空間プレフィックスを使います。 問題になる名前空間についてさらに詳しく見てみましょう。
 
 - **winrt::MyProject**。 この名前空間には投影型が含まれます。 投影型のオブジェクトはプロキシです。基本的に基になるオブジェクトへのスマート ポインターであり、基になるオブジェクトは自分のプロジェクト内で実装されている場合も、別のコンパイル単位内で実装されている場合もあります。
-- **winrt::MyProject::implementation**。 この名前空間には、実装型が含まれます。 実装型のオブジェクトはポインターではありません。値であり、完全な C++ スタック オブジェクトです。 実装型を直接構築しないでください。代わりに、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) を呼び出し、テンプレート パラメーターとして実装型を渡します。 このトピックでは前に動作する **winrt::make** の例を示しました。別の例については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)」をご覧ください。 「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」もご覧ください。
+- **winrt::MyProject::implementation**。 この名前空間には、実装型が含まれます。 実装型のオブジェクトはポインターではありません。値であり、完全な C++ スタック オブジェクトです。 実装型を直接構築しないでください。代わりに、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) を呼び出し、テンプレート パラメーターとして実装型を渡します。 このトピックでは前に動作する **winrt::make** の例を示しました。別の例については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)」をご覧ください。 「[直接割当ての診断](./diag-direct-alloc.md)」もご覧ください。
 - **winrt::MyProject::factory_implementation**。 この名前空間にはファクトリが含まれます。 この名前空間のオブジェクトでは、[**IActivationFactory**](/windows/win32/api/activation/nn-activation-iactivationfactory) がサポートされています。
 
 次の表では、異なるコンテキストで使う必要がある最小限の名前空間の修飾を示します。
@@ -483,7 +483,7 @@ MySpecializedToggleButtonAutomationPeer::MySpecializedToggleButtonAutomationPeer
 >
 > そのシナリオでの `MyRuntimeClass myRuntimeClass;` に関する問題は、スタック上に **winrt::MyProject::implementation::MyRuntimeClass** オブジェクトが作成されることです。 その (実装型の) オブジェクトは、いくつかの点で投影型のように動作します。同じ方法でそのオブジェクトのメソッドを呼び出すことができ、投影型に変換することさえできます。 ただし、スコープが終了すると、C++ の通常のルールに従って、オブジェクトは破棄されます。 そのため、そのオブジェクトへの投影型 (スマート ポインター) を返した場合、そのポインターは中ぶらりんになります。
 >
-> この種のメモリ破損のバグを診断するのは困難です。 したがって、デバッグ ビルドの場合は、C++/WinRT アサーションでスタック検出機能を使ってこの誤りをキャッチすると役に立ちます。 ただし、コルーチンはヒープ上に割り当てられるので、誤りがコルーチン内にある場合、この誤りに関するヘルプは得られません。 詳細については、「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」を参照してください。
+> この種のメモリ破損のバグを診断するのは困難です。 したがって、デバッグ ビルドの場合は、C++/WinRT アサーションでスタック検出機能を使ってこの誤りをキャッチすると役に立ちます。 ただし、コルーチンはヒープ上に割り当てられるので、誤りがコルーチン内にある場合、この誤りに関するヘルプは得られません。 詳細については、「[直接割当ての診断](./diag-direct-alloc.md)」を参照してください。
 
 ## <a name="using-projected-types-and-implementation-types-with-various-cwinrt-features"></a>さまざまな C++/WinRT 機能での投影型と実装型の使用
 
@@ -699,7 +699,7 @@ namespace winrt::MyProject
 
 ## <a name="overriding-base-class-virtual-methods"></a>基底クラスの仮想メソッドのオーバーライド
 
-基底クラスと派生クラスが両方ともアプリで定義されたクラスであっても、仮想メソッドが祖父母 Windows ランタイム クラスに定義されている場合、派生クラスは仮想メソッドで問題を発生する可能性があります。 実際には、これは XAML クラスから派生した場合に発生します。 このセクションの残りの部分は、[派生クラス](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx#derived-classes)の例から続きます。
+基底クラスと派生クラスが両方ともアプリで定義されたクラスであっても、仮想メソッドが祖父母 Windows ランタイム クラスに定義されている場合、派生クラスは仮想メソッドで問題を発生する可能性があります。 実際には、これは XAML クラスから派生した場合に発生します。 このセクションの残りの部分は、[派生クラス](./move-to-winrt-from-cx.md#derived-classes)の例から続きます。
 
 ```cppwinrt
 namespace winrt::MyNamespace::implementation
@@ -751,7 +751,7 @@ namespace winrt::MyNamespace::implementation
 * [winrt::Windows::Foundation::IUnknown::as 関数](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT でのイベントの作成](/windows/uwp/cpp-and-winrt-apis/author-events)
-* [C++/WinRT で API を使用する](/windows/uwp/cpp-and-winrt-apis/consume-apis)
-* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)
-* [XAML コントロール: C++/WinRT プロパティへのバインド](/windows/uwp/cpp-and-winrt-apis/binding-property)
+* [C++/WinRT でのイベントの作成](./author-events.md)
+* [C++/WinRT で API を使用する](./consume-apis.md)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)
+* [XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)

@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: beb6dde4036019e004d94e5f60e8f3583c78d775
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 86c6f9398a61865b014400bbf4a96c8a7ce8a231
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72980026"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154356"
 ---
 # <a name="optimize-your-xaml-markup"></a>XAML マークアップの最適化
 
@@ -36,7 +36,7 @@ XAML プラットフォームでは大量の要素を表示できますが、目
 
 すぐには表示されない要素が XAML マークアップに含まれている場合は、それらの要素が表示されるまで読み込みを延期することができます。 たとえば、タブのような UI では、セカンダリ タブなどの非表示のコンテンツの作成を遅らせることができます。 また、データを表示するときには、既定では項目をグリッド ビューで表示し、後からリスト表示に切り替えるオプションを用意する方法があります。 これにより、必要になるまでリストの読み込みを遅らせることができます。
 
-要素が表示されるタイミングを制御するには、[Visibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.Visibility) プロパティの代わりに [x:Load attribute](../xaml-platform/x-load-attribute.md) を使います。 要素の Visibility が **Collapsed** に設定されている場合、その要素はレンダリング パスではスキップされますが、オブジェクト インスタンスのメモリ使用のコストは発生します。 代わりに x:Load を使用すると、オブジェクト インスタンスは必要になるまで作成されないため、メモリ コストはさらに低くなります。 欠点は、UI が読み込まれていないときに、小さなメモリ オーバーヘッド (約 600 バイト) が発生することです。
+要素が表示されるタイミングを制御するには、[Visibility](/uwp/api/windows.ui.xaml.uielement.Visibility) プロパティの代わりに [x:Load attribute](../xaml-platform/x-load-attribute.md) を使います。 要素の Visibility が **Collapsed** に設定されている場合、その要素はレンダリング パスではスキップされますが、オブジェクト インスタンスのメモリ使用のコストは発生します。 代わりに x:Load を使用すると、オブジェクト インスタンスは必要になるまで作成されないため、メモリ コストはさらに低くなります。 欠点は、UI が読み込まれていないときに、小さなメモリ オーバーヘッド (約 600 バイト) が発生することです。
 
 > [!NOTE]
 > 要素の遅延読み込みには、[x:Load](../xaml-platform/x-load-attribute.md) 属性または [x:DeferLoadStrategy](../xaml-platform/x-deferloadstrategy-attribute.md) 属性を使うことができます。 x:Load 属性は、Windows 10 Creators Update (Version 1703、SDK ビルド 15063) 以降で使用できます。 x:Load を使用するには、Visual Studio プロジェクトの対象とする最小バージョンを *Windows 10 Creators Update (10.0、ビルド 15063)* にする必要があります。 それより前のバージョンを対象とする場合は、x:DeferLoadStrategy を使います。
@@ -124,7 +124,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="use-layout-panel-properties"></a>レイアウト パネルのプロパティを使う
 
-レイアウト パネルには [Background](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.panel.background) プロパティが用意されているため、色を付ける目的でパネルの前面に [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を配置する必要はありません。
+レイアウト パネルには [Background](/uwp/api/windows.ui.xaml.controls.panel.background) プロパティが用意されているため、色を付ける目的でパネルの前面に [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) を配置する必要はありません。
 
 **非効率的**
 
@@ -141,17 +141,17 @@ ListView とその子はメモリに読み込まれていません。
 <Grid Background="Black"/>
 ```
 
-レイアウト パネルには組み込みの境界線プロパティも用意されているため、レイアウト パネルの周りに [Border](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border) 要素を追加する必要はありません。 詳細と例については、「[XAML レイアウトの最適化](optimize-your-xaml-layout.md)」をご覧ください。
+レイアウト パネルには組み込みの境界線プロパティも用意されているため、レイアウト パネルの周りに [Border](/uwp/api/windows.ui.xaml.controls.border) 要素を追加する必要はありません。 詳細と例については、「[XAML レイアウトの最適化](optimize-your-xaml-layout.md)」をご覧ください。
 
 ### <a name="use-images-in-place-of-vector-based-elements"></a>ベクター ベースの要素の代わりに画像を使う
 
-同じベクター ベースの要素を十分な回数再利用する場合は、代わりに [Image](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.image) 要素を使うと効率が高まります。 ベクター ベースの要素は、CPU が個々の要素をそれぞれ個別に作成する必要があるため、負荷が高くなる可能性があります。 これに対して画像ファイルは、1 回デコードするだけで済みます。
+同じベクター ベースの要素を十分な回数再利用する場合は、代わりに [Image](/uwp/api/windows.ui.xaml.controls.image) 要素を使うと効率が高まります。 ベクター ベースの要素は、CPU が個々の要素をそれぞれ個別に作成する必要があるため、負荷が高くなる可能性があります。 これに対して画像ファイルは、1 回デコードするだけで済みます。
 
 ## <a name="optimize-resources-and-resource-dictionaries"></a>リソースとリソース ディクショナリの最適化
 
 通常、アプリ内の複数の場所から参照されるリソースをある程度グローバルに格納するには、[リソース ディクショナリ](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)を使います。 このようなリソースには、スタイル、ブラシ、テンプレートなどがあります。
 
-一般に、[ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) は、要求されない限りリソースをインスタンス化しないように最適化されています。 ただし、リソースが不要にインスタンス化されないようにするために、避けた方がよい状況もあります。
+一般に、[ResourceDictionary](/uwp/api/Windows.UI.Xaml.ResourceDictionary) は、要求されない限りリソースをインスタンス化しないように最適化されています。 ただし、リソースが不要にインスタンス化されないようにするために、避けた方がよい状況もあります。
 
 ### <a name="resources-with-xname"></a>x:Name を含むリソース
 
@@ -159,7 +159,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="resourcedictionary-in-a-usercontrol"></a>UserControl 内の ResourceDictionary
 
-[UserControl](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.usercontrol) の内部に定義された ResourceDictionary にはペナルティが発生します。 プラットフォームは、UserControl のすべてのインスタンスに対して、このような ResourceDictionary のコピーを作成します。 よく使われる UserControl を使っている場合、UserControl から ResourceDictionary を移動し、ページ レベルに配置します。
+[UserControl](/uwp/api/windows.ui.xaml.controls.usercontrol) の内部に定義された ResourceDictionary にはペナルティが発生します。 プラットフォームは、UserControl のすべてのインスタンスに対して、このような ResourceDictionary のコピーを作成します。 よく使われる UserControl を使っている場合、UserControl から ResourceDictionary を移動し、ページ レベルに配置します。
 
 ### <a name="resource-and-resourcedictionary-scope"></a>リソースと ResourceDictionary のスコープ
 
@@ -238,7 +238,7 @@ ListView とその子はメモリに読み込まれていません。
 
 ### <a name="consolidate-multiple-brushes-that-look-the-same-into-one-resource"></a>同じように見える複数のブラシを 1 つのリソースに統合する
 
-XAML プラットフォームは、よく使われるオブジェクトをキャッシュして、何度も再利用できるようにします。 しかし、あるマークアップで宣言されているブラシが別のマークアップで宣言されているブラシと同じであるかどうかは簡単に判断できません。 ここでは、例として [SolidColorBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使っていますが、より多く使われる可能性があって重要なのは [GradientBrush](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.GradientBrush) です。 また、事前定義された色を使うブラシもチェックする必要があります。たとえば、`"Orange"` と `"#FFFFA500"` は同じ色です。
+XAML プラットフォームは、よく使われるオブジェクトをキャッシュして、何度も再利用できるようにします。 しかし、あるマークアップで宣言されているブラシが別のマークアップで宣言されているブラシと同じであるかどうかは簡単に判断できません。 ここでは、例として [SolidColorBrush](/uwp/api/Windows.UI.Xaml.Media.SolidColorBrush) を使っていますが、より多く使われる可能性があって重要なのは [GradientBrush](/uwp/api/Windows.UI.Xaml.Media.GradientBrush) です。 また、事前定義された色を使うブラシもチェックする必要があります。たとえば、`"Orange"` と `"#FFFFA500"` は同じ色です。
 
 **非効率的**
 
@@ -281,15 +281,15 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 過剰な描画は、画面上の同じピクセルに複数のオブジェクトが描画される場合に発生します。 ただし、このガイダンスと要素数を最小限に抑えたいという要求は両立せず、トレードオフが必要になることがあります。
 
-視覚的な診断には、[**DebugSettings.IsOverdrawHeatMapEnabled**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.debugsettings.isoverdrawheatmapenabled) を使います。 シーンに存在するとは思わなかったオブジェクトが描画されていることに気付く場合があります。
+視覚的な診断には、[**DebugSettings.IsOverdrawHeatMapEnabled**](/uwp/api/windows.ui.xaml.debugsettings.isoverdrawheatmapenabled) を使います。 シーンに存在するとは思わなかったオブジェクトが描画されていることに気付く場合があります。
 
 ### <a name="transparent-or-hidden-elements"></a>透明または非表示の要素
 
-要素が透明であるか、他の要素の背後に隠れているために表示されず、レイアウトに関与していない場合は、その要素を削除することをお勧めします。 初期の表示状態では要素が表示されないものの、他の表示状態で表示される場合は、x:Load を使ってその状態を制御するか、要素自体の [Visibility](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.visibility) を **Collapsed** に設定しておいて、該当の状態になったら値を **Visible** に変更します。 このヒューリスティックには例外があります。一般に、要素にローカルに設定する表示状態は、プロパティに設定されていることが最も多い値にするのが最良です。
+要素が透明であるか、他の要素の背後に隠れているために表示されず、レイアウトに関与していない場合は、その要素を削除することをお勧めします。 初期の表示状態では要素が表示されないものの、他の表示状態で表示される場合は、x:Load を使ってその状態を制御するか、要素自体の [Visibility](/uwp/api/windows.ui.xaml.uielement.visibility) を **Collapsed** に設定しておいて、該当の状態になったら値を **Visible** に変更します。 このヒューリスティックには例外があります。一般に、要素にローカルに設定する表示状態は、プロパティに設定されていることが最も多い値にするのが最良です。
 
 ### <a name="composite-elements"></a>複合要素
 
-複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) の背景)、下半分は灰色 (**Grid** の黒い背景の上にアルファ ブレンドされた半透明の白い [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
+複数の要素を重ねて効果を作成する代わりに、複合要素を使います。 次の例では、結果は 2 色の図形になり、上半分は黒 ([Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid) の背景)、下半分は灰色 (**Grid** の黒い背景の上にアルファ ブレンドされた半透明の白い [Rectangle](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle)) で表示されます。 この場合、結果を得るために必要なピクセルの 150% が塗りつぶされることになります。
 
 **非効率的**
 
@@ -346,11 +346,11 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </GridView>
 ```
 
-[Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) のヒット テストを可能にするには、その背景の値を透明に設定します。
+[Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid) のヒット テストを可能にするには、その背景の値を透明に設定します。
 
 ### <a name="borders"></a>境界線
 
-オブジェクトの周りに境界線を描画するには、[Border](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.border) 要素を使います。 次の例では、[TextBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) を囲む間に合わせの境界線として [Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
+オブジェクトの周りに境界線を描画するには、[Border](/uwp/api/windows.ui.xaml.controls.border) 要素を使います。 次の例では、[TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox) を囲む間に合わせの境界線として [Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid) を使用しています。 この方法では、中央のセル内のすべてのピクセルが複数回描画されます。
 
 **非効率的**
 
@@ -385,7 +385,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 
 ### <a name="cache-static-content"></a>静的コンテンツのキャッシュ
 
-過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.UIElement) で [CacheMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) を **BitmapCache** に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
+過剰な描画の別の原因として、多数の要素を重ね合わせて作成される図形があります。 複合図形を含む [UIElement](/uwp/api/Windows.UI.Xaml.UIElement) で [CacheMode](/uwp/api/Windows.UI.Xaml.Media.CacheMode) を **BitmapCache** に設定すると、プラットフォームによって要素がいったんビットマップにレンダリングされ、何度も描画する代わりに、そのビットマップが各フレームで使われます。
 
 **非効率的**
 
@@ -413,7 +413,7 @@ XAML プラットフォームは、よく使われるオブジェクトをキャ
 </Canvas>
 ```
 
-[CacheMode](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.CacheMode) を使っていることに注目してください。 サブ図形がアニメーション化されている場合は、この方法を使わないでください。その目的に反し、各フレームでビットマップ キャッシュを再生成することが必要になる可能性があるためです。
+[CacheMode](/uwp/api/Windows.UI.Xaml.Media.CacheMode) を使っていることに注目してください。 サブ図形がアニメーション化されている場合は、この方法を使わないでください。その目的に反し、各フレームでビットマップ キャッシュを再生成することが必要になる可能性があるためです。
 
 ## <a name="use-xbf2"></a>XBF2 の使用
 

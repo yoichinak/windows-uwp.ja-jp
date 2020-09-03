@@ -3,12 +3,12 @@ title: WinUI 2.2 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.2 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 6706b0202057b9a3419ec45a43a5f6d4d574327b
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 4c200701e0d845d6c9b9f8797899d88cc72d8c1c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493097"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154906"
 ---
 # <a name="windows-ui-library-22"></a>Windows UI ライブラリ 2.2
 
@@ -158,7 +158,7 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 
 ### <a name="experimental-feature"></a>試験的な機能
 
-* [TabView](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.tabview?view=winui-2.2)
+* [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview?view=winui-2.2)
 
 ### <a name="microsoftuixaml-2220190416001-prerelease"></a>Microsoft.UI.Xaml 2.2.20190416001-prerelease
 
@@ -170,10 +170,10 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 
 #### <a name="experimental-features"></a>実験的な機能
 
-* [FlowLayout](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.flowlayout)
+* [FlowLayout](/uwp/api/microsoft.ui.xaml.controls.flowlayout)
 
-* [LayoutPanel](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.layoutpanel)
+* [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel)
 
-* [RadioButtons](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.radiobuttons)
+* [RadioButtons](/uwp/api/microsoft.ui.xaml.controls.radiobuttons)
 
-* [ScrollViewer](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.scrollviewer)
+* [ScrollViewer](/uwp/api/microsoft.ui.xaml.controls.scrollviewer)

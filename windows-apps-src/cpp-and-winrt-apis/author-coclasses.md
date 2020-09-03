@@ -6,16 +6,16 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, COM, コンポーネント
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5ff3677c3624974759d1f6ff21d6e53cf9d33144
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 83ea8b5cea95f034b5cdfe4f1750a0ffd0166f49
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71344510"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154576"
 ---
 # <a name="author-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの作成
 
-[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) は、Windows Runtime クラスを作成するのに役立つのと同様に、従来のコンポーネント オブジェクト モデル (COM) コンポーネント (またはコクラス) を作成するのに役立ちます。 このトピックでは方法を説明します。
+[C++/WinRT](./intro-to-using-cpp-with-winrt.md) は、Windows Runtime クラスを作成するのに役立つのと同様に、従来のコンポーネント オブジェクト モデル (COM) コンポーネント (またはコクラス) を作成するのに役立ちます。 このトピックでは方法を説明します。
 
 ## <a name="how-cwinrt-behaves-by-default-with-respect-to-com-interfaces"></a>COM インターフェイスに関する C++/WinRT の既定の動作
 
@@ -118,7 +118,7 @@ int main()
 
 このトピックの残りの部分では、C++/WinRT を使用して基本的なコクラス (COM コンポーネント、または COM クラス) とクラス ファクトリを実装する、最小限のコンソール アプリケーション プロジェクトを作成する手順について説明します。 アプリケーション例では、コールバック ボタン付きのトースト通知を配信する方法を示しています。コクラス (**INotificationActivationCallback** COM インターフェイスを実装する) によって、アプリケーションが起動され、ユーザーがトーストでそのボタンをクリックしたときにコールバックされます。
 
-トースト通知機能領域の詳細な背景情報については、「[ローカル トースト通知の送信](/windows/uwp/design/shell/tiles-and-notifications/send-local-toast)」を参照してください。 ただし、ドキュメントのそのセクションにあるコード例では C++/WinRT を使用していないため、このトピックに示すコードを使用することをお勧めします。
+トースト通知機能領域の詳細な背景情報については、「[ローカル トースト通知の送信](../design/shell/tiles-and-notifications/send-local-toast.md)」を参照してください。 ただし、ドキュメントのそのセクションにあるコード例では C++/WinRT を使用していないため、このトピックに示すコードを使用することをお勧めします。
 
 ## <a name="create-a-windows-console-application-project-toastandcallback"></a>Windows コンソール アプリケーション プロジェクト (ToastAndCallback) を作成する
 
@@ -220,7 +220,7 @@ struct callback_factory : implements<callback_factory, IClassFactory>
 };
 ```
 
-上記のコクラスの実装は、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-not-authoring-a-runtime-class)」に示されているのと同じパターンに従っています。 そのため、同じ手法を使用して、COM インターフェイスと Windows ランタイム インターフェイスを実装できます。 COM コンポーネントと Windows ランタイム クラスの機能は、インターフェイスを介して公開されます。 すべての COM インターフェイスは、最終的に [**IUnknown インターフェイス**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown) から派生します。 Windows ランタイムは COM に基づいています。1 つの違いは、Windows ランタイム インターフェイスは最終的に [**IInspectable インターフェイス**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) から派生することです (**IInspectable** は **IUnknown** から派生)。
+上記のコクラスの実装は、「[C++/WinRT での API の作成](./author-apis.md#if-youre-not-authoring-a-runtime-class)」に示されているのと同じパターンに従っています。 そのため、同じ手法を使用して、COM インターフェイスと Windows ランタイム インターフェイスを実装できます。 COM コンポーネントと Windows ランタイム クラスの機能は、インターフェイスを介して公開されます。 すべての COM インターフェイスは、最終的に [**IUnknown インターフェイス**](/windows/desktop/api/unknwn/nn-unknwn-iunknown) から派生します。 Windows ランタイムは COM に基づいています。1 つの違いは、Windows ランタイム インターフェイスは最終的に [**IInspectable インターフェイス**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) から派生することです (**IInspectable** は **IUnknown** から派生)。
 
 上記のコードのコクラスで、**INotificationActivationCallback::Activate** メソッドを実装しています。これは、ユーザーがトースト通知のコールバック ボタンをクリックしたときに呼び出される関数です。 しかし、その関数を呼び出す前に、コクラスのインスタンスを作成する必要があります。これを行うのは **IClassFactory::CreateInstance** 関数です。
 
@@ -481,7 +481,7 @@ void LaunchedFromNotification(HANDLE consoleHandle, INPUT_RECORD & buffer, DWORD
 
 Microsoft Visual Studio で新しいプロジェクトを作成することによって、インプロセス COM サーバーの作成作業を開始できます。 **[Visual C++]**  >  **[Windows デスクトップ]**  >  **[ダイナミック リンク ライブラリ (DLL)]** プロジェクトを作成します。
 
-新しいプロジェクトに C++WinRT サポートを追加するには、「[Windows デスクトップ アプリケーション プロジェクトを変更して C++/WinRT のサポートを追加する](/windows/uwp/cpp-and-winrt-apis/get-started#modify-a-windows-desktop-application-project-to-add-cwinrt-support)」に説明されている手順に従います。
+新しいプロジェクトに C++WinRT サポートを追加するには、「[Windows デスクトップ アプリケーション プロジェクトを変更して C++/WinRT のサポートを追加する](./get-started.md#modify-a-windows-desktop-application-project-to-add-cwinrt-support)」に説明されている手順に従います。
 
 ### <a name="implement-the-coclass-class-factory-and-in-proc-server-exports"></a>コクラス、クラス ファクトリ、インプロセス サーバーのエクスポートを実装する
 
@@ -586,10 +586,10 @@ struct MyCoclass : winrt::implements<MyCoclass, IMyComInterface, winrt::Windows:
 
 ## <a name="important-apis"></a>重要な API
 * [IInspectable インターフェイス](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)
-* [IUnknown インターフェイス](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown)
+* [IUnknown インターフェイス](/windows/desktop/api/unknwn/nn-unknwn-iunknown)
 * [winrt::implements 構造体テンプレート](/uwp/cpp-ref-for-winrt/implements)
 
 ## <a name="related-topics"></a>関連トピック
-* [C++/WinRT で API を作成する](/windows/uwp/cpp-and-winrt-apis/author-apis)
+* [C++/WinRT で API を作成する](./author-apis.md)
 * [C++/WinRT での COM コンポーネントの使用](consume-com.md)
-* [ローカル トースト通知の送信](/windows/uwp/design/shell/tiles-and-notifications/send-local-toast)
+* [ローカル トースト通知の送信](../design/shell/tiles-and-notifications/send-local-toast.md)

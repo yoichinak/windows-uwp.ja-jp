@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 776ad2c3e5236f9ecee73ce35c818112862d4faf
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: f5dd1a27cb02a33a8d760f4d902a42c6619ad796
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233710"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160416"
 ---
 # <a name="create-custom-transport-controls"></a>カスタム トランスポート コントロールを作成する
 
@@ -21,7 +21,7 @@ ms.locfileid: "83233710"
 
 MediaPlayerElement には、Windows アプリ内でオーディオおよびビデオ コンテンツのコントロールを管理するためのカスタマイズ可能な XAML トランスポート コントロールがあります。 ここでは、MediaTransportControls テンプレートをカスタマイズする方法を示します。 オーバーフロー メニューの操作方法、カスタム ボタンの追加方法、スライダーの変更方法について説明します。
 
-> **重要な API**:[MediaPlayerElement](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、[MediaPlayerElement.AreTransportControlsEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement.aretransportcontrolsenabled)、[MediaTransportControls](https://docs.microsoft.com/uwp/api/Windows.Media.SystemMediaTransportControls)
+> **重要な API**:[MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、[MediaPlayerElement.AreTransportControlsEnabled](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.aretransportcontrolsenabled)、[MediaTransportControls](/uwp/api/Windows.Media.SystemMediaTransportControls)
 
 始める前に、MediaPlayerElement クラスと MediaTransportControls クラスについて理解している必要があります。 詳しくは、「MediaPlayerElement コントロール ガイド」をご覧ください。
 
@@ -29,11 +29,11 @@ MediaPlayerElement には、Windows アプリ内でオーディオおよびビ�
 > このトピックの例は、[メディア トランスポート コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCustomMediaTransportControls)を基にしています。 サンプルをダウンロードし、詳細なコードを参照して実行することができます。
 
 > [!NOTE]
-> **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 このページのすべての例は **MediaElement**でも動作します。
+> **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [**MediaElement**](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 このページのすべての例は **MediaElement**でも動作します。
 
 ## <a name="when-should-you-customize-the-template"></a>テンプレートをカスタマイズする必要がある状況
 
-**MediaPlayerElement** には、変更しなくてもほとんどのビデオおよびオーディオ再生アプリで正常に動作するように設計されているトランスポート コントロールが組み込まれています。 これらのコントロールは、[**MediaTransportControls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) クラスによって提供され、再生、停止、メディアのナビゲーション、音量の調節、全画面表示の切り替え、2 台目のデバイスへのキャスト、字幕の有効化、オーディオ トラックの切り替え、再生速度の調整を行うためのボタンが含まれています。 MediaTransportControls には、各ボタンを表示し、有効にするかどうかを制御できるプロパティがあります。 [  **IsCompact**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediatransportcontrols.iscompact) プロパティを設定して、コントロールを 1 行に表示するか、2 行に表示するかを指定することもできます。
+**MediaPlayerElement** には、変更しなくてもほとんどのビデオおよびオーディオ再生アプリで正常に動作するように設計されているトランスポート コントロールが組み込まれています。 これらのコントロールは、[**MediaTransportControls**](/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) クラスによって提供され、再生、停止、メディアのナビゲーション、音量の調節、全画面表示の切り替え、2 台目のデバイスへのキャスト、字幕の有効化、オーディオ トラックの切り替え、再生速度の調整を行うためのボタンが含まれています。 MediaTransportControls には、各ボタンを表示し、有効にするかどうかを制御できるプロパティがあります。 [  **IsCompact**](/uwp/api/windows.ui.xaml.controls.mediatransportcontrols.iscompact) プロパティを設定して、コントロールを 1 行に表示するか、2 行に表示するかを指定することもできます。
 
 ただし、コントロールの外観をさらにカスタマイズしたり、動作を変更したりする必要があるシナリオも考えられます。 例をいくつか紹介します。
 - アイコン、スライダーの動作、色を変更する。
@@ -51,17 +51,17 @@ MediaPlayerElement には、Windows アプリ内でオーディオおよびビ�
 
 ## <a name="template-structure"></a>テンプレートの構造
 
-[  **ControlTemplate**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) は既定のスタイルに含まれます。 この既定のスタイルをプロジェクトにコピーして変更できます。 ControlTemplate は、他の XAML コントロール テンプレートと同様のセクションに分かれています。
-- テンプレートの最初のセクションには、MediaTransportControls のさまざまなコンポーネントの [**Style**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) 定義が含まれています。
+[  **ControlTemplate**](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) は既定のスタイルに含まれます。 この既定のスタイルをプロジェクトにコピーして変更できます。 ControlTemplate は、他の XAML コントロール テンプレートと同様のセクションに分かれています。
+- テンプレートの最初のセクションには、MediaTransportControls のさまざまなコンポーネントの [**Style**](/uwp/api/Windows.UI.Xaml.Style) 定義が含まれています。
 - 2 番目のセクションでは、MediaTransportControls が使うさまざまな表示状態が定義されています。
-- 3 番目のセクションには、さまざまな MediaTransportControls 要素をまとめて保持し、コンポーネントのレイアウトを定義する [**Grid**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) が含まれています。
+- 3 番目のセクションには、さまざまな MediaTransportControls 要素をまとめて保持し、コンポーネントのレイアウトを定義する [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) が含まれています。
 
 > [!NOTE]
-> テンプレートの変更について詳しくは、「[コントロール テンプレート](/windows/uwp/design/controls-and-patterns/control-templates)」をご覧ください。 テキスト エディターか、IDE の同様のエディターを使って、\(*Program Files*)\Windows Kits\10\DesignTime\CommonConfiguration\Neutral\UAP\\(*SDK version*)\Generic にある XAML ファイルを開くことができます。 各コントロールの既定のスタイルとテンプレートは、**generic.xaml** ファイルで定義されています。 MediaTransportControls テンプレートは、generic.xaml で "MediaTransportControls" を検索すると見つけることができます。
+> テンプレートの変更について詳しくは、「[コントロール テンプレート](./control-templates.md)」をご覧ください。 テキスト エディターか、IDE の同様のエディターを使って、\(*Program Files*)\Windows Kits\10\DesignTime\CommonConfiguration\Neutral\UAP\\(*SDK version*)\Generic にある XAML ファイルを開くことができます。 各コントロールの既定のスタイルとテンプレートは、**generic.xaml** ファイルで定義されています。 MediaTransportControls テンプレートは、generic.xaml で "MediaTransportControls" を検索すると見つけることができます。
 
 以下のセクションでは、トランスポート コントロールの主な要素のいくつかをカスタマイズする方法について説明します。
-- [**Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider): ユーザーがメディアをスクラブし、進行状況も表示できるようにします。
-- [**CommandBar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar): すべてのボタンが含まれています。
+- [**Slider**](/uwp/api/Windows.UI.Xaml.Controls.Slider): ユーザーがメディアをスクラブし、進行状況も表示できるようにします。
+- [**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.CommandBar): すべてのボタンが含まれています。
 詳しくは、MediaTransportControls リファレンス トピックの構造セクションをご覧ください。
 
 ## <a name="customize-the-transport-controls"></a>トランスポート コントロールをカスタマイズする
@@ -91,7 +91,7 @@ MediaTransportControls の外観のみを変更する場合、既定のコント
 </MediaPlayerElement>
 ```
 
-スタイルとテンプレートの変更について詳しくは、「[コントロールのスタイル](/windows/uwp/design/controls-and-patterns/xaml-styles)」と「[コントロール テンプレート](/windows/uwp/design/controls-and-patterns/control-templates)」をご覧ください。
+スタイルとテンプレートの変更について詳しくは、「[コントロールのスタイル](./xaml-styles.md)」と「[コントロール テンプレート](./control-templates.md)」をご覧ください。
 
 ### <a name="create-a-derived-control"></a>派生コントロールの作成
 
@@ -109,9 +109,9 @@ public sealed class CustomMediaTransportControls : MediaTransportControls
 }
 ```
 
-3. [  **MediaTransportControls**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) の既定のスタイルをプロジェクトの [ResourceDictionary](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.ResourceDictionary) にコピーします。 これが変更する対象のスタイルとテンプレートです。
+3. [  **MediaTransportControls**](/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) の既定のスタイルをプロジェクトの [ResourceDictionary](/uwp/api/Windows.UI.Xaml.ResourceDictionary) にコピーします。 これが変更する対象のスタイルとテンプレートです。
 (メディア トランスポート コントロールのサンプルでは、"Themes" という新しいフォルダーが作成され、generic.xaml という ResourceDictionary ファイルがそのフォルダーに追加されます。)
-4. スタイルの [**TargetType**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.style.targettype) を、新しいカスタム コントロール型に変更します。 (サンプルでは、TargetType を `local:CustomMediaTransportControls` に変更しています。)
+4. スタイルの [**TargetType**](/uwp/api/windows.ui.xaml.style.targettype) を、新しいカスタム コントロール型に変更します。 (サンプルでは、TargetType を `local:CustomMediaTransportControls` に変更しています。)
 
 ```xaml
 xmlns:local="using:CustomMediaTransportControls">
@@ -119,7 +119,7 @@ xmlns:local="using:CustomMediaTransportControls">
 <Style TargetType="local:CustomMediaTransportControls">
 ```
 
-5. カスタム クラスの [**DefaultStyleKey**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.defaultstylekey) を設定します。 これにより、TargetType が `local:CustomMediaTransportControls` である Style を使用するようにカスタム クラスに指示します。
+5. カスタム クラスの [**DefaultStyleKey**](/uwp/api/windows.ui.xaml.controls.control.defaultstylekey) を設定します。 これにより、TargetType が `local:CustomMediaTransportControls` である Style を使用するようにカスタム クラスに指示します。
 
 ```csharp
 public sealed class CustomMediaTransportControls : MediaTransportControls
@@ -131,7 +131,7 @@ public sealed class CustomMediaTransportControls : MediaTransportControls
 }
 ```
 
-6. XAML マークアップに [**MediaPlayerElement**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) を追加し、この MediaPlayerElement にカスタム トランスポート コントロールを追加します。 注意が必要な 1 つの点は、既定のボタンを非表示、表示、無効、有効にする API は、カスタマイズされたテンプレートでも機能するという点です。
+6. XAML マークアップに [**MediaPlayerElement**](/uwp/api/windows.ui.xaml.controls.mediaplayerelement) を追加し、この MediaPlayerElement にカスタム トランスポート コントロールを追加します。 注意が必要な 1 つの点は、既定のボタンを非表示、表示、無効、有効にする API は、カスタマイズされたテンプレートでも機能するという点です。
 
 ```xaml
 <MediaPlayerElement Name="MediaPlayerElement1" AreTransportControlsEnabled="True" Source="video.mp4">
@@ -155,13 +155,13 @@ public sealed class CustomMediaTransportControls : MediaTransportControls
 
 MediaTransportControls のコマンド ボタンをオーバーフロー メニューに移動し、ユーザーが必要になるまでに使用頻度の低いコマンドを非表示にすることができます。
 
-MediaTransportControls テンプレートでは、コマンド ボタンは [**CommandBar**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.CommandBar) 要素に含まれています。 コマンド バーには、プライマリ コマンドとセカンダリ コマンドの概念があります。 プライマリ コマンドは、既定でコントロールに表示されるボタンであり、常に表示されます (ボタンを無効または非表示にした場合や十分なスペースがない場合を除く)。 セカンダリ コマンドはオーバーフロー メニューに表示されます。オーバーフロー メニューは、ユーザーが省略記号 (...) ボタンをクリックしたときに表示されます。 詳しくは、「[アプリ バーとコマンド バー](app-bars.md)」をご覧ください。
+MediaTransportControls テンプレートでは、コマンド ボタンは [**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.CommandBar) 要素に含まれています。 コマンド バーには、プライマリ コマンドとセカンダリ コマンドの概念があります。 プライマリ コマンドは、既定でコントロールに表示されるボタンであり、常に表示されます (ボタンを無効または非表示にした場合や十分なスペースがない場合を除く)。 セカンダリ コマンドはオーバーフロー メニューに表示されます。オーバーフロー メニューは、ユーザーが省略記号 (...) ボタンをクリックしたときに表示されます。 詳しくは、「[アプリ バーとコマンド バー](app-bars.md)」をご覧ください。
 
 コマンド バーのプライマリ コマンドの要素をオーバーフロー メニューに移動するには、XAML コントロール テンプレートを編集する必要があります。
 
 **オーバーフロー メニューにコマンドを移動するには:**
 1. コントロール テンプレートで、`MediaControlsCommandBar` という名前の CommandBar 要素を検索します。
-2. CommandBar の XAML に [**SecondaryCommands**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar.secondarycommands) セクションを追加します。 このセクションは、[**PrimaryCommands**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.commandbar.primarycommands) の終了タグの後に配置します。
+2. CommandBar の XAML に [**SecondaryCommands**](/uwp/api/windows.ui.xaml.controls.commandbar.secondarycommands) セクションを追加します。 このセクションは、[**PrimaryCommands**](/uwp/api/windows.ui.xaml.controls.commandbar.primarycommands) の終了タグの後に配置します。
 
 ```xaml
 <CommandBar x:Name="MediaControlsCommandBar" ... >  
@@ -184,7 +184,7 @@ MediaTransportControls テンプレートでは、コマンド ボタンは [**C
 </CommandBar>
 ```
 
-3. このメニューにコマンドを表示するには、目的の [**AppBarButton**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton) オブジェクトの XAML を PrimaryCommands から切り取って SecondaryCommands に貼り付けます。 この例では、`PlaybackRateButton` をオーバーフロー メニューに移動します。
+3. このメニューにコマンドを表示するには、目的の [**AppBarButton**](/uwp/api/Windows.UI.Xaml.Controls.AppBarButton) オブジェクトの XAML を PrimaryCommands から切り取って SecondaryCommands に貼り付けます。 この例では、`PlaybackRateButton` をオーバーフロー メニューに移動します。
 
 4. 次に示すように、ボタンにラベルを追加し、スタイル情報を削除します。
 オーバーフロー メニューはテキスト ボタンで構成されているため、ボタンにテキスト ラベルを追加し、ボタンの高さと幅を設定するスタイルを削除する必要があります。 そうしないと、ボタンはオーバーフロー メニューに正しく表示されません。
@@ -220,7 +220,7 @@ MediaTransportControls をカスタマイズする理由の 1 つは、コント
 ボタンのアイコンをカスタマイズすることもできます。 詳細については、<a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton"><b>AppBarButton</b></a> のリファレンスを参照してください。
     
 
-2. [  **OnApplyTemplate**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.onapplytemplate) のオーバーライドで、テンプレートからボタンを取得し、その [**Click**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントのハンドラーを登録します。 次のコードを `CustomMediaTransportControls` クラスに追加します。
+2. [  **OnApplyTemplate**](/uwp/api/windows.ui.xaml.frameworkelement.onapplytemplate) のオーバーライドで、テンプレートからボタンを取得し、その [**Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントのハンドラーを登録します。 次のコードを `CustomMediaTransportControls` クラスに追加します。
 
 ```csharp
 public sealed class CustomMediaTransportControls :  MediaTransportControls
@@ -277,9 +277,9 @@ public sealed class CustomMediaTransportControls : MediaTransportControls
 
 ### <a name="modifying-the-slider"></a>スライダーを変更する
 
-MediaTransportControls の "seek" コントロールは、[**Slider**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Slider) 要素により提供されます。 このコントロールをカスタマイズする 1 つの方法として、シーク動作の細かさを変更できます。
+MediaTransportControls の "seek" コントロールは、[**Slider**](/uwp/api/Windows.UI.Xaml.Controls.Slider) 要素により提供されます。 このコントロールをカスタマイズする 1 つの方法として、シーク動作の細かさを変更できます。
 
-既定のシーク スライダーは 100 の部分に分かれているため、シーク動作はその数のセクションに限定されます。 シーク スライダーの細かさを変更するには、[**MediaPlayerElement.MediaPlayer**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [**MediaOpened**](https://docs.microsoft.com/uwp/api/windows.media.playback.mediaplayer.mediaopened) イベント ハンドラーで XAML ビジュアル ツリーから Slider を取得します。 この例では、[**VisualTreeHelper**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.VisualTreeHelper) を使って Slider への参照を取得し、メディアが 120 分より長い場合に、スライダーの既定のステップ間隔を 1% から 0.1% (1000 ステップ) に変更する方法を示しています。 MediaPlayerElement には、`MediaPlayerElement1` という名前が付けられています。
+既定のシーク スライダーは 100 の部分に分かれているため、シーク動作はその数のセクションに限定されます。 シーク スライダーの細かさを変更するには、[**MediaPlayerElement.MediaPlayer**](/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [**MediaOpened**](/uwp/api/windows.media.playback.mediaplayer.mediaopened) イベント ハンドラーで XAML ビジュアル ツリーから Slider を取得します。 この例では、[**VisualTreeHelper**](/uwp/api/Windows.UI.Xaml.Media.VisualTreeHelper) を使って Slider への参照を取得し、メディアが 120 分より長い場合に、スライダーの既定のステップ間隔を 1% から 0.1% (1000 ステップ) に変更する方法を示しています。 MediaPlayerElement には、`MediaPlayerElement1` という名前が付けられています。
 
 ```csharp
 protected override void OnNavigatedTo(NavigationEventArgs e)

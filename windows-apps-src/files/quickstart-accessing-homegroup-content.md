@@ -6,12 +6,12 @@ ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 07d94f5b11acfe14bf55392c5cbf2c1b7bcfbeef
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: ab20d350372ec9dd0a755e76393a97a680949979
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66369396"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89156567"
 ---
 # <a name="accessing-homegroup-content"></a>ホームグループ コンテンツへのアクセス
 
@@ -19,7 +19,7 @@ ms.locfileid: "66369396"
 
 **重要な API**
 
--   [**Windows.Storage.KnownFolders クラス**](https://docs.microsoft.com/uwp/api/Windows.Storage.KnownFolders)
+-   [**Windows.Storage.KnownFolders クラス**](/uwp/api/Windows.Storage.KnownFolders)
 
 ユーザーのホームグループ フォルダーに格納されているコンテンツ (画像、音楽、ビデオなど) にアクセスします。
 
@@ -27,7 +27,7 @@ ms.locfileid: "66369396"
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](https://docs.microsoft.com/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](https://docs.microsoft.com/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 C++ での非同期アプリの作成方法については、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 -   **アプリ機能の宣言**
 
@@ -50,7 +50,7 @@ ms.locfileid: "66369396"
 
 1.  **ファイル ピッカーを作成してカスタマイズします。**
 
-    [  **FileOpenPicker**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイル ピッカーを作成し、ピッカーの [**SuggestedStartLocation**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を [**PickerLocationId.HomeGroup**](https://docs.microsoft.com/uwp/api/Windows.Storage.Pickers.PickerLocationId) に設定します。 または、ユーザーとアプリに関連するその他のプロパティを設定します。 ファイル ピッカーのカスタマイズ方法を判断するためのガイドラインについては、「[ファイル ピッカーのガイドラインとチェック リスト](https://docs.microsoft.com/windows/uwp/files/quickstart-using-file-and-folder-pickers)」をご覧ください。
+    [  **FileOpenPicker**](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイル ピッカーを作成し、ピッカーの [**SuggestedStartLocation**](/uwp/api/windows.storage.pickers.fileopenpicker.suggestedstartlocation) を [**PickerLocationId.HomeGroup**](/uwp/api/Windows.Storage.Pickers.PickerLocationId) に設定します。 または、ユーザーとアプリに関連するその他のプロパティを設定します。 ファイル ピッカーのカスタマイズ方法を判断するためのガイドラインについては、「[ファイル ピッカーのガイドラインとチェック リスト](./quickstart-using-file-and-folder-pickers.md)」をご覧ください。
 
     次の例では、ホームグループで開かれ、すべての種類のファイルを含み、ファイルをサムネイル画像として表示するファイル ピッカーを作成しています。
     ```cs
@@ -63,7 +63,7 @@ ms.locfileid: "66369396"
 
 2.  **ファイル ピッカーを表示して、選ばれたファイルを処理します。**
 
-    ファイル ピッカーを作成してカスタマイズしたら、ユーザーが 1 つのファイルを選べるように [**FileOpenPicker.PickSingleFileAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) を呼び出すか、複数のファイルを選べるように [**FileOpenPicker.PickMultipleFilesAsync**](https://docs.microsoft.com/uwp/api/windows.storage.pickers.fileopenpicker.pickmultiplefilesasync) を呼び出します。
+    ファイル ピッカーを作成してカスタマイズしたら、ユーザーが 1 つのファイルを選べるように [**FileOpenPicker.PickSingleFileAsync**](/uwp/api/windows.storage.pickers.fileopenpicker.picksinglefileasync) を呼び出すか、複数のファイルを選べるように [**FileOpenPicker.PickMultipleFilesAsync**](/uwp/api/windows.storage.pickers.fileopenpicker.pickmultiplefilesasync) を呼び出します。
 
     次の例では、ファイル ピッカーを表示して、ユーザーが 1 つのファイルを選べるようにしています。
     ```cs
@@ -85,7 +85,7 @@ ms.locfileid: "66369396"
 
 1.  **ユーザーからクエリ語句を取得します。**
 
-    ここでは、ユーザーが `searchQueryTextBox` という名前の [**TextBox**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールに入力したクエリ語句を取得します。
+    ここでは、ユーザーが `searchQueryTextBox` という名前の [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) コントロールに入力したクエリ語句を取得します。
     ```cs
     string queryTerm = this.searchQueryTextBox.Text;    
     ```
@@ -128,7 +128,7 @@ ms.locfileid: "66369396"
 
 1.  **ホームグループ ユーザーのコレクションを取得します。**
 
-    ホームグループの第 1 レベルのフォルダーは、それぞれが個々のホームグループ ユーザーを表しています。 そのため、ホームグループ ユーザーのコレクションを取得するには、[**GetFoldersAsync**](https://docs.microsoft.com/uwp/api/windows.storage.storagefolder.getfoldersasync) を呼び出し、第 1 レベルのホームグループ フォルダーを取得します。
+    ホームグループの第 1 レベルのフォルダーは、それぞれが個々のホームグループ ユーザーを表しています。 そのため、ホームグループ ユーザーのコレクションを取得するには、[**GetFoldersAsync**](/uwp/api/windows.storage.storagefolder.getfoldersasync) を呼び出し、第 1 レベルのホームグループ フォルダーを取得します。
     ```cs
     System.Collections.Generic.IReadOnlyList<Windows.Storage.StorageFolder> hgFolders =
         await Windows.Storage.KnownFolders.HomeGroup.GetFoldersAsync();    
@@ -173,7 +173,7 @@ ms.locfileid: "66369396"
 
 1.  **アプリに MediaElement を含めます。**
 
-    [  **MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) は、アプリのオーディオ コンテンツとビデオ コンテンツを再生します。 オーディオとビデオの再生について詳しくは、「[カスタム トランスポート コントロールを作成する](https://docs.microsoft.com/windows/uwp/controls-and-patterns/custom-transport-controls)」と「[オーディオ、ビデオ、およびカメラ](https://docs.microsoft.com/windows/uwp/audio-video-camera/index)」をご覧ください。
+    [  **MediaElement**](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) は、アプリのオーディオ コンテンツとビデオ コンテンツを再生します。 オーディオとビデオの再生について詳しくは、「[カスタム トランスポート コントロールを作成する](../design/controls-and-patterns/custom-transport-controls.md)」と「[オーディオ、ビデオ、およびカメラ](../audio-video-camera/index.md)」をご覧ください。
     ```HTML
     <Grid x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
         <MediaElement x:Name="VideoBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" Width="400" Height="300"/>
@@ -193,7 +193,7 @@ ms.locfileid: "66369396"
     Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();   
     ```
 
-3.  **ユーザーが選んだファイルを読み取りアクセスで開き、ファイル ストリームを** [**MediaElement**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.MediaElement) のソースとして設定して、ファイルを再生します。
+3.  **ユーザーが選んだファイルを読み取りアクセスで開き、ファイル ストリームを** [**MediaElement**](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) のソースとして設定して、ファイルを再生します。
     ```cs
     if (file != null)
     {
