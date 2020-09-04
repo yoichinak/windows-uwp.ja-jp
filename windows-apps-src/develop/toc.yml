@@ -151,6 +151,8 @@
       href: ../audio-video-camera/codec-query.md
     - name: 画面の取り込み
       href: ../audio-video-camera/screen-capture.md
+    - name: ビデオに画面の取り込み
+      href: ../audio-video-camera/screen-capture-video.md
 - name: 通信
   items:
     - name: アプリ間通信
