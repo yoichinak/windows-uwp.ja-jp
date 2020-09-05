@@ -1,5 +1,5 @@
 ---
-Description: Windows プッシュ通知サービス (WNS) を利用することで、サード パーティの開発者が独自のクラウド サービスからトースト更新、タイル更新、バッジ更新、直接更新を送ることができます。 これにより、新しい更新を電力効率に優れた信頼できる方法でユーザーに配信するためのメカニズムが提供されます。
+description: Windows プッシュ通知サービス (WNS) を利用することで、サード パーティの開発者が独自のクラウド サービスからトースト更新、タイル更新、バッジ更新、直接更新を送ることができます。 これにより、新しい更新を電力効率に優れた信頼できる方法でユーザーに配信するためのメカニズムが提供されます。
 title: Windows プッシュ通知サービス (WNS) の概要
 ms.assetid: 2125B09F-DB90-4515-9AA6-516C7E9ACCCD
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 03/06/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 98248aff8f16305b9fa335d4c77ca1a03bc46686
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bd910c42743577a83491386f5c667dd09722ba9b
+ms.sourcegitcommit: 8171695ade04a762f19723f0b88e46e407375800
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156746"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89494378"
 ---
 # <a name="windows-push-notification-services-wns-overview"></a>Windows プッシュ通知サービス (WNS) の概要 
 
@@ -184,7 +184,6 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 
 ## <a name="expiration-of-tile-and-badge-notifications"></a>タイル通知とバッジ通知の有効期限
 
-
 既定では、タイル通知とバッジ通知は、ダウンロードされたときから 3 日後に有効期限切れになります。 通知の有効期限が切れると、タイルまたはキューからコンテンツが削除され、ユーザーに表示されなくなります。 すべてのタイル通知とバッジ通知には、アプリにとって適切な時間を使って有効期限を設定し、タイルのコンテンツの意味がなくなっても保持されないようにすることをお勧めします。 明示的な有効期限は、コンテンツの存続期間が決まっている場合に重要です。 また、クラウド サービスによる通知の送信が停止した場合や、ユーザーがネットワークに長時間接続していない場合に、古いコンテンツを確実に削除することができます。
 
 クラウド サービスでは、送信後の通知が有効である時間を秒単位で指定する X-WNS-TTL HTTP ヘッダーを設定することで、通知ごとに有効期限を設定できます。 詳しくは、「[プッシュ通知サービスの要求ヘッダーと応答ヘッダー](/previous-versions/windows/apps/hh465435(v=win.10))」を参照してください。
@@ -192,7 +191,6 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 たとえば、株式市場の取引が活発な日は、株価の更新の有効期限を送信間隔の有効期限の 2 倍に設定することをお勧めします (30 分ごとに通知を送っている場合は有効期限を受け取り後 1 時間にするなど)。 また、ニュース アプリの場合、毎日のニュースを表示するタイルの更新の有効期限は 1 日が適しています。
 
 ## <a name="push-notifications-and-battery-saver"></a>プッシュ通知とバッテリー セーバー
-
 
 バッテリー セーバーは、デバイスでのバックグラウンド アクティビティを制限することでバッテリーの寿命を延ばします。 Windows 10 を使うと、バッテリーが指定されたしきい値を下回ったときに、ユーザーは自動的にバッテリー セーバーをオンになるように設定することができます。 バッテリー セーバーがオンのときは、電力を節約するため、プッシュ通知の受信は無効になります。 ただし、これにはいくつかの例外があります。 次の Windows 10 バッテリ セーバー設定 (**[設定]** アプリにあります) により、バッテリ セーバーがオンになっているときでも、プッシュ通知を受け取ることができます。
 
@@ -206,11 +204,9 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 > [!TIP]
 > バッテリの節約設定についてユーザーに通知する場合は、今後メッセージを表示しないようにする方法を用意することをお勧めします。 たとえば、次の例の [`dontAskMeAgainBox`] チェックボックスは、[**LocalSettings**](/uwp/api/Windows.Storage.ApplicationData.LocalSettings) でユーザーの設定を保持します。
 
- 
+Windows 10 でバッテリ省が有効になっているかどうかを確認する方法の例を次に示します。 この例では、ユーザーに通知し、[設定] アプリを**バッテリ セーバー設定**で起動します。 `dontAskAgainSetting` により、ユーザーは再度通知を表示しないようにする場合に、メッセージを非表示にすることができます。
 
-Windows 10 でバッテリー セーバーがオンになっているかどうかを確認する方法の例を示します。 この例では、ユーザーに通知し、[設定] アプリを**バッテリ セーバー設定**で起動します。 `dontAskAgainSetting` により、ユーザーは再度通知を表示しないようにする場合に、メッセージを非表示にすることができます。
-
-```cs
+```csharp
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -255,6 +251,62 @@ async public void CheckForEnergySaving()
 }
 ```
 
+```cppwinrt
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Storage.h>
+#include <winrt/Windows.System.h>
+#include <winrt/Windows.System.Power.h>
+#include <winrt/Windows.UI.Xaml.h>
+#include <winrt/Windows.UI.Xaml.Controls.h>
+#include <winrt/Windows.UI.Xaml.Navigation.h>
+using namespace winrt;
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Storage;
+using namespace winrt::Windows::System;
+using namespace winrt::Windows::System::Power;
+using namespace winrt::Windows::UI::Xaml;
+using namespace winrt::Windows::UI::Xaml::Controls;
+using namespace winrt::Windows::UI::Xaml::Navigation;
+...
+winrt::fire_and_forget CheckForEnergySaving()
+{
+    // Get reminder preference from LocalSettings.
+    bool dontAskAgain{ false };
+    auto localSettings = ApplicationData::Current().LocalSettings();
+    IInspectable dontAskSetting = localSettings.Values().Lookup(L"dontAskAgainSetting");
+    if (!dontAskSetting)
+    {
+        // Setting doesn't exist.
+        dontAskAgain = false;
+    }
+    else
+    {
+        // Retrieve setting value
+        dontAskAgain = winrt::unbox_value<bool>(dontAskSetting);
+    }
+
+    // Check whether battery saver is on, and whether it's okay to raise dialog.
+    if ((PowerManager::EnergySaverStatus() == EnergySaverStatus::On) && (!dontAskAgain))
+    {
+        // Check dialog results.
+        ContentDialogResult dialogResult = co_await saveEnergyDialog().ShowAsync();
+        if (dialogResult == ContentDialogResult::Primary)
+        {
+            // Launch battery saver settings
+            // (settings are available only when a battery is present).
+            co_await Launcher::LaunchUriAsync(Uri(L"ms-settings:batterysaver-settings"));
+        }
+
+        // Save reminder preference.
+        if (dontAskAgainBox().IsChecked())
+        {
+            // Don't raise the dialog again.
+            localSettings.Values().Insert(L"dontAskAgainSetting", winrt::box_value(true));
+        }
+    }
+}
+```
+
 これは、次の例で使われている [**ContentDialog**](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) の XAML です。
 
 ```xaml
@@ -275,8 +327,7 @@ async public void CheckForEnergySaving()
 </ContentDialog>
 ```
 
-## <a name="related-topics"></a>関連トピック
-
+## <a name="related-topics"></a>関連項目
 
 * [ローカル タイル通知の送信](sending-a-local-tile-notification.md)
 * [クイック スタート: プッシュ通知の送信](/previous-versions/windows/apps/hh868252(v=win.10))
@@ -287,6 +338,3 @@ async public void CheckForEnergySaving()
 * [プッシュ通知サービスの要求ヘッダーと応答ヘッダー](/previous-versions/windows/apps/hh465435(v=win.10))
 * [プッシュ通知のガイドラインとチェック リスト]()
 * [直接通知](/previous-versions/windows/apps/hh761488(v=win.10))
- 
-
- 
