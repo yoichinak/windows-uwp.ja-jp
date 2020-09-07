@@ -1,25 +1,25 @@
 ---
-Description: グリッド ビューの項目テンプレート
+description: イメージ ギャラリー、画像とテキスト、テキスト オーバーレイを含む画像を表示するために、GridView コントロールで使用できる項目テンプレートを取得します。
 title: グリッド ビューの項目テンプレート
 template: detail.hbs
 ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 17c14d7147cafa17e78bd13bf6684a99d87cbdfd
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 08849436f88dd9698f349f7fde64b51324212244
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684408"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172686"
 ---
 # <a name="item-templates-for-grid-view"></a>グリッド ビューの項目テンプレート
 
-このセクションでは、[**GridView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView) コントロールで使用できる項目テンプレートについて説明します。 これらのテンプレートを使って、一般的な種類のアプリの外観を設定できます。
+このセクションでは、[**GridView**](/uwp/api/Windows.UI.Xaml.Controls.GridView) コントロールで使用できる項目テンプレートについて説明します。 これらのテンプレートを使って、一般的な種類のアプリの外観を設定できます。
 
 データ バインディングのデモのため、これらのテンプレートでは、**GridViewItems** が「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」の Recording クラスのサンプルにバインドされます。
 
 > [!NOTE] 
-> 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、「[アクセシビリティの概要](../accessibility/accessibility-overview.md)」をご覧ください。
+> 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、「[アクセシビリティの概要](../accessibility/accessibility-overview.md)」をご覧ください。
 
 ## <a name="icon-and-text"></a>アイコンとテキスト
 これらのテンプレートを使用して、アプリのコレクションをアイコンとテキストから成るグリッドに表示します。
@@ -156,7 +156,7 @@ ms.locfileid: "75684408"
 ```
 
 ## <a name="related-articles"></a>関連記事
-- [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
+- [GridView クラス](/uwp/api/Windows.UI.Xaml.Controls.GridView)
 - [データ バインディングの概要](../../data-binding/data-binding-quickstart.md)
 - [アクセシビリティの概要](../accessibility/accessibility-overview.md)
 - [ListView と GridView のサンプル (Windows 10)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlListView)

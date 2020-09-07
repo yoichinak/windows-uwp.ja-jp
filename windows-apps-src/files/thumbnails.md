@@ -1,18 +1,18 @@
 ---
-Description: サムネイル画像を使ってユーザーが UWP アプリでファイルをプレビューできるようにする方法。
 title: UWP アプリでのサムネイル画像のガイドライン
+description: サムネイル画像を使用して、ユーザーがユニバーサル Windows プラットフォーム (UWP) アプリで参照するときにファイルをプレビューできるようにする方法を説明します。
 label: Thumbnail images
 template: detail.hbs
 ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 15984e00b036bf44d6e4a7f60cb6435ea1add291
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: df0d2364762d75793f3f00856b06e8ae506cb327
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "63808678"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89165598"
 ---
 # <a name="thumbnail-images"></a>サムネイル画像
 
@@ -20,7 +20,7 @@ ms.locfileid: "63808678"
 
 **重要な API**
 
--   [**ThumbnailMode**](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.thumbnailmode)
+-   [**ThumbnailMode**](/uwp/api/windows.storage.fileproperties.thumbnailmode)
 
 ## <a name="should-my-app-include-thumbnails"></a>アプリにサムネイルを含めるかどうか
 
@@ -36,7 +36,7 @@ ms.locfileid: "63808678"
     ![ビデオのプレビュー](images/thumbnail-preview.png)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
-- サムネイルを取得するときに、[サムネイル モード](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.thumbnailmode) (PicturesView, VideosView, DocumentsView, MusicView, ListView, or SingleItem) を指定します。 これにより、ユーザーが確認するファイルの種類を表示するようにサムネイル画像が最適化されます。 
+- サムネイルを取得するときに、[サムネイル モード](/uwp/api/windows.storage.fileproperties.thumbnailmode) (PicturesView, VideosView, DocumentsView, MusicView, ListView, or SingleItem) を指定します。 これにより、ユーザーが確認するファイルの種類を表示するようにサムネイル画像が最適化されます。 
     - ファイルの種類に関係なく単一項目用のサムネイルを取得するには、 SingleItem モードを使います。 その他のサムネイル モードの目的は、複数ファイルのプレビューを表示することです。 
 
 - サムネイルの読み込み中は、サムネイルの代わりに汎用のプレースホルダー画像を表示します。 プレースホルダーを使うことで、サムネイルの読み込みが終わる前にプレビューを操作できるため、アプリの体感的な応答速度を高めることができます。 
@@ -55,7 +55,7 @@ ms.locfileid: "63808678"
 - 画像ファイルとビデオ ファイルに関する追加のファイル情報は表示しないでください。 ほとんどの場合、ユーザーが画像やビデオを参照する場合は、サムネイル画像だけで十分です。 
 
 ## <a name="additional-usage-guidelines"></a>その他の使い方のガイドライン
-推奨される[サムネイル モード](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.thumbnailmode)とその特徴:
+推奨される[サムネイル モード](/uwp/api/windows.storage.fileproperties.thumbnailmode)とその特徴:
 
 <table>
 <tr>
@@ -163,8 +163,8 @@ ms.locfileid: "63808678"
 </div>
 
 ## <a name="related-topics"></a>関連トピック
-- [ThumbnailMode 列挙型](https://docs.microsoft.com/uwp/api/windows.storage.fileproperties.thumbnailmode)
-- [StorageItemThumbnail クラス](https://docs.microsoft.com/uwp/api/Windows.Storage.FileProperties.StorageItemThumbnail)
-- [StorageFile クラス](https://docs.microsoft.com/uwp/api/windows.storage.storagefile)
+- [ThumbnailMode 列挙型](/uwp/api/windows.storage.fileproperties.thumbnailmode)
+- [StorageItemThumbnail クラス](/uwp/api/Windows.Storage.FileProperties.StorageItemThumbnail)
+- [StorageFile クラス](/uwp/api/windows.storage.storagefile)
 - [ファイルとフォルダーのサムネイルのサンプル (GitHub)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/FileThumbnails)
 - [リスト ビューとグリッド ビュー](../design/controls-and-patterns/lists.md)

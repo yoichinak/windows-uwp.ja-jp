@@ -1,16 +1,16 @@
 ---
 title: カスタム スタイルを作成する
-description: この記事では、XAML に含まれる UI 要素のスタイルの基本について説明します
+description: このチュートリアルでは、カスタム スタイルとスライダー コントロールを作成して、XAML アプリの UI をカスタマイズする方法について説明します。
 keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 60a62a80017b2c77acfc2604daf909ae1ec9fd36
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: 6d3423e9d78e2519f2d3c9ad1fc2c0b099de0349
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942962"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160776"
 ---
 # <a name="tutorial-create-custom-styles"></a>チュートリアル: カスタム スタイルを作成する
 
@@ -76,11 +76,11 @@ F5 キーを押して、アプリをコンパイルし、実行します。 最�
 
 1. `Polygon` 要素を使用して、露出スライダーの背景用図形を作成します。
 
-    [Windows.UI.Xaml.Shapes 名前空間](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Shapes)には、7 つの図形が用意されており、ここから選ぶことができます。 楕円形、四角形のほか、パスと呼ばれるものを使うと、どのような図形でも (ユニコーンでも!) 作成できます。
+    [Windows.UI.Xaml.Shapes 名前空間](/uwp/api/Windows.UI.Xaml.Shapes)には、7 つの図形が用意されており、ここから選ぶことができます。 楕円形、四角形のほか、パスと呼ばれるものを使うと、どのような図形でも (ユニコーンでも!) 作成できます。
 
     ![ユニコーン](../basics/images/xaml-basics/unicorn.png)
 
-    > **参考情報:** 「[図形の描画](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/shapes)」という記事には、XAML の図形について知っておく必要があるすべての情報が含まれています。
+    > **参考情報:** 「[図形の描画](../controls-and-patterns/shapes.md)」という記事には、XAML の図形について知っておく必要があるすべての情報が含まれています。
 
     ここでは、ステレオのボリューム コントロールのような形をした、三角形のウィジェットを作成します。
 
@@ -200,7 +200,7 @@ F5 キーを押して、アプリをコンパイルし、実行します。 最�
 
 XAML スタイルの利点の 1 つは、記述するコードの量を劇的に削減し、アプリの外観を更新する作業がずっと簡単になることです。
 
-スタイルを定義するには、スタイルの適用対象となるコントロールが含まれる要素の [Resources](https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.Resources) プロパティに [Style](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Style) 要素を追加します。  スタイルを `Page.Resources` プロパティに追加すると、ページ全体で、そのスタイルにアクセスできるようになります。 App.xaml ファイル内で `Application.Resources` プロパティにスタイルを追加すると、ページ全体で、そのスタイルにアクセスできるようになります。
+スタイルを定義するには、スタイルの適用対象となるコントロールが含まれる要素の [Resources](/uwp/api/windows.ui.xaml.frameworkelement.Resources) プロパティに [Style](/uwp/api/Windows.UI.Xaml.Style) 要素を追加します。  スタイルを `Page.Resources` プロパティに追加すると、ページ全体で、そのスタイルにアクセスできるようになります。 App.xaml ファイル内で `Application.Resources` プロパティにスタイルを追加すると、ページ全体で、そのスタイルにアクセスできるようになります。
 
 名前付きスタイルと標準スタイルを作成することができます。 名前付きスタイルは、特定のコントロールに明示的に適用する必要があります。標準スタイルは、指定された `TargetType` に一致するすべてのコントロールに適用されます。
 

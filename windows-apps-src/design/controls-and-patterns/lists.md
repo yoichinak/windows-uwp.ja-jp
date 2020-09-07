@@ -1,5 +1,5 @@
 ---
-Description: リストでは、コレクション ベースのコンテンツを表示して対話式で操作できます。
+description: まとめて表示される複数の関連データ項目の表現としてのコレクションとリストについて説明します。 
 title: コレクションとリスト
 ms.assetid: C73125E8-3768-46A5-B078-FDDF42AB1077
 label: Collections and Lists
@@ -12,18 +12,18 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 9896003fb1d55a2dbb57468848edd66a3d8d8d88
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: ede68414d86f333b516be81cbae83ea58dc83ba0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970397"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169916"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
 コレクションとリストは、どちらも、まとめて表示される複数の関連データ項目の表現を指します。 コレクションは、さまざまなコレクション コントロール (コレクション ビューと呼ばれる場合もあります) によって、複数の方法で表現できます。 コレクション コントロールを使用して、連絡先リスト、日付リスト、画像コレクションなど、コレクションベースのコンテンツを表示して操作できるようにします。
 
-> **重要な API**:[ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)
+> **重要な API**:[ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)
 
 この記事で説明するコントロールには、以下が含まれます。
 
@@ -35,14 +35,14 @@ ms.locfileid: "82970397"
 
 この後、各コントロールについて、設計のガイドライン、特徴、および例を示します。
 
-これらの (ItemsRepeater を除く) 各コントロールには、組み込みのスタイル設定と操作が用意されています。 ただし、コレクション ビューとその中の項目の視覚的な外観をカスタマイズするには、[DataTemplate](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。 データ テンプレートの詳細とコレクション ビューの外観のカスタマイズについては、「[項目コンテナーやテンプレート](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/item-containers-templates)」を参照してください。
+これらの (ItemsRepeater を除く) 各コントロールには、組み込みのスタイル設定と操作が用意されています。 ただし、コレクション ビューとその中の項目の視覚的な外観をカスタマイズするには、[DataTemplate](/uwp/api/Windows.UI.Xaml.DataTemplate) を使用します。 データ テンプレートの詳細とコレクション ビューの外観のカスタマイズについては、「[項目コンテナーやテンプレート](./item-containers-templates.md)」を参照してください。
 
 これらの (ItemsRepeater を除く) 各コントロールには、1 つまたは複数の項目を選択できるようにするための組み込みの動作も含まれています。 詳細については、「[選択モードの概要](selection-modes.md)」を参照してください。
 
-この記事で説明されていないシナリオの 1 つは、コレクションをテーブルまたは複数の列で表示することです。 この形式でコレクションを表示する場合は、[Windows Community Toolkit](https://docs.microsoft.com/windows/communitytoolkit/) の [DataGrid コントロール](https://docs.microsoft.com/windows/communitytoolkit/controls/datagrid)の使用を検討してください。 
+この記事で説明されていないシナリオの 1 つは、コレクションをテーブルまたは複数の列で表示することです。 この形式でコレクションを表示する場合は、[Windows Community Toolkit](/windows/communitytoolkit/) の [DataGrid コントロール](/windows/communitytoolkit/controls/datagrid)の使用を検討してください。 
 
 > **Windows 10 Fall Creators Update - 動作の変更** 既定では、Windows アプリでのアクティブなペンは、選択の実行ではなく、リストのスクロールやパンを (タッチ、タッチパッド、パッシブなペンなどと同様に) するようになりました。
-> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、[ScrollViewer クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer)の API リファレンス トピックをご覧ください。
+> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、[ScrollViewer クラス](/uwp/api/windows.ui.xaml.controls.scrollviewer)の API リファレンス トピックをご覧ください。
 
 ## <a name="examples"></a>例
 
@@ -277,7 +277,7 @@ ItemsRepeater は、次に該当する場合に使用します。
 
 ### <a name="examples"></a>例
 
-次の 3 つの例は、すべてが同じデータ ソース (数値のコレクション) にバインドされている ItemsRepeater コントロールです。 数値のコレクションが、3 つの方法で表現されています。それぞれの ItemsRepeater で、異なるカスタム [Layout](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.layout) と異なるカスタム [ItemTemplate](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate?view=winui-2.2) が使用されています。
+次の 3 つの例は、すべてが同じデータ ソース (数値のコレクション) にバインドされている ItemsRepeater コントロールです。 数値のコレクションが、3 つの方法で表現されています。それぞれの ItemsRepeater で、異なるカスタム [Layout](/uwp/api/microsoft.ui.xaml.controls.layout) と異なるカスタム [ItemTemplate](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate?view=winui-2.2) が使用されています。
 
 ![水平バーを使用した ItemsRepeater](images/itemsrepeater-1.png)
 ![垂直バーを使用した ItemsRepeater](images/itemsrepeater-2.png)
@@ -332,7 +332,7 @@ ItemsRepeater は、次に該当する場合に使用します。
 - [サムネイル画像](../../files/thumbnails.md)
 
 **API リファレンス**
-- [ListView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView)
-- [GridView クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.GridView)
-- [ComboBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
-- [ListBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListBox)
+- [ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)
+- [GridView クラス](/uwp/api/Windows.UI.Xaml.Controls.GridView)
+- [ComboBox クラス](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)
+- [ListBox クラス](/uwp/api/Windows.UI.Xaml.Controls.ListBox)

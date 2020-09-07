@@ -1,5 +1,5 @@
 ---
-Description: ラジオ ボタンでは、ユーザーは 2 つ以上の選択肢から 1 つのオプションを選ぶことができます。
+description: ラジオ ボタンを使用して、相互排他的であるものの、関連している 2 つ以上のオプションのコレクションから 1 つのオプションをユーザーが選択できるようにする方法について説明します。
 title: ラジオ ボタンのガイドライン
 ms.assetid: 41E3F928-AA55-42A2-9281-EC3907C4F898
 label: Radio buttons
@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: dc6f5eb32cdedf442b6866e1e53be85edfb98dcb
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 7d09eaefff193a8283fd4bad68528b8976e0b63b
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493437"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169786"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
 
@@ -33,7 +33,7 @@ RadioButtons グループのこの独特の動作が、複数選択や選択の�
 
 | &nbsp; | &nbsp; |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | RadioButtons コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである、Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、[Windows UI ライブラリ](https://docs.microsoft.com/uwp/toolkits/winui/)に関する記事を参照してください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | RadioButtons コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである、Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、[Windows UI ライブラリ](/uwp/toolkits/winui/)に関する記事を参照してください。 |
 
 **Windows UI ライブラリ API**: 
 * [RadioButtons クラス](/uwp/api/microsoft.ui.xaml.controls.radiobuttons)
@@ -42,9 +42,9 @@ RadioButtons グループのこの独特の動作が、複数選択や選択の�
 * [SelectedIndex プロパティ](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selectedindex)
 
 **プラットフォーム API**: 
-* [RadioButton クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RadioButton)
-* [Checked イベント](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)
-* [IsChecked プロパティ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
+* [RadioButton クラス](/uwp/api/Windows.UI.Xaml.Controls.RadioButton)
+* [Checked イベント](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.Checked)
+* [IsChecked プロパティ](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ToggleButton.IsChecked)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -129,7 +129,7 @@ RadioButtons コントロールで、オプションのリストが垂直方向�
 
 行優先順序 (項目が左から右、上から下に入力される) では、行内の最後の項目がフォーカスされている状況で右方向キーが押されると、フォーカスは次の行の最初の項目に移動します。 これと同じ動作が逆の順序で発生します。フォーカスが行の最初の項目に設定されているときに左方向キーを押すと、フォーカスは前の行の最後の項目に移動します。
 
-詳細については、「[キーボード操作](https://docs.microsoft.com/windows/uwp/design/input/keyboard-interactions#wrapping-homogeneous-list-and-grid-view-items)」を参照してください。
+詳細については、「[キーボード操作](../input/keyboard-interactions.md#wrapping-homogeneous-list-and-grid-view-items)」を参照してください。
 
 ##### <a name="wrapping"></a>折り返し
 
@@ -377,4 +377,4 @@ RadioButtons グループのラジオ ボタンを配置するのに最適な方
 
 ### <a name="for-developers-xaml"></a>開発者向け (XAML)
 
-- [RadioButton クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.radiobutton)
+- [RadioButton クラス](/uwp/api/windows.ui.xaml.controls.radiobutton)

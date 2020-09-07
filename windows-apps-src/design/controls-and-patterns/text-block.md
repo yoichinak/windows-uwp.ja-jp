@@ -1,6 +1,6 @@
 ---
 ms.assetid: DA562509-D893-425A-AAE6-B2AE9E9F8A19
-Description: テキスト ブロックは、アプリで読み取り専用テキストを表示するためのプライマリ コントロールです。
+description: テキスト ブロックは、アプリで読み取り専用テキストを表示するためのプライマリ コントロールです。
 title: テキスト ブロック
 label: Text block
 template: detail.hbs
@@ -11,24 +11,22 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 4f609f7ec989cf334d6b21a32ee8bde0e43203f0
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 83e27ef72aea195268d5163dea3b050f48547d5c
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80081500"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89412026"
 ---
 # <a name="text-block"></a>テキスト ブロック
 
+テキスト ブロックは、アプリで読み取り専用テキストを表示するためのプライマリ コントロールです。 これを使用すると、単一行または複数行のテキスト、インライン ハイパーリンク、書式 (太字、斜体、下線付きなど) が設定されたテキストを表示できます。
  
-
- テキスト ブロックは、アプリで読み取り専用テキストを表示するためのプライマリ コントロールです。 これを使用すると、単一行または複数行のテキスト、インライン ハイパーリンク、書式 (太字、斜体、下線付きなど) が設定されたテキストを表示できます。
- 
- > **プラットフォーム API**: [TextBlock クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[Text プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text)、[Inlines プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.inlines)
+ > **プラットフォーム API**: [TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[Text プロパティ](/uwp/api/windows.ui.xaml.controls.textblock.text)、[Inlines プロパティ](/uwp/api/windows.ui.xaml.controls.textblock.inlines)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
-テキスト ブロックは、一般的に、リッチ テキスト ブロックより使い方が簡単で、テキスト レンダリングのパフォーマンスが優れているため、ほとんどのアプリで UI テキストに適しています。 [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を取得することによって、アプリ内でテキスト ブロックのテキストに容易にアクセスして使用することができます。 テキストのレンダリング方法をカスタマイズするための書式設定オプションも、同じものが数多く用意されています。
+テキスト ブロックは、一般的に、リッチ テキスト ブロックより使い方が簡単で、テキスト レンダリングのパフォーマンスが優れているため、ほとんどのアプリで UI テキストに適しています。 [Text](/uwp/api/windows.ui.xaml.controls.textblock.text) プロパティの値を取得することによって、アプリ内でテキスト ブロックのテキストに容易にアクセスして使用することができます。 テキストのレンダリング方法をカスタマイズするための書式設定オプションも、同じものが数多く用意されています。
 
 テキスト内に改行を配置することはできますが、テキスト ブロックは単一の段落を表示するために設計されており、テキストのインデントはサポートされていません。 複数の段落、段組テキスト、インライン UI 要素 (画像など) をサポートする必要がある場合は、**RichTextBlock** を使います。
 
@@ -63,14 +61,9 @@ TextBlock textBlock1 = new TextBlock();
 textBlock1.Text = "Hello, world!";
 ```
 
-    <TextBlock Text="Hello, world!" />
-
-    TextBlock textBlock1 = new TextBlock();
-    textBlock1.Text = "Hello, world!";
-
 ### <a name="content-model"></a>コンテンツ モデル
 
-コンテンツを TextBlock に追加するために使用できるプロパティとして、次の 2 つがあります: [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text) と [Inlines](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.inlines)。
+コンテンツを TextBlock に追加するために使用できるプロパティとして、次の 2 つがあります: [Text](/uwp/api/windows.ui.xaml.controls.textblock.text) と [Inlines](/uwp/api/windows.ui.xaml.controls.textblock.inlines)。
 
 テキストを表示する最も一般的な方法は、前の例で示したように Text プロパティを文字列値に設定することです。
 
@@ -88,22 +81,22 @@ Inline クラスから派生した要素 (Bold、Italic、Run、Span、LineBreak
 可能であれば、XAML ではより効率的なコード パスを使ってテキストをレイアウトします。 この高速パスを使うと、全体的なメモリ使用量が減少し、テキストのサイズ測定と配置を実行するための CPU 時間が大幅に減少します。 この高速パスは TextBlock にのみ適用されるため、可能な場合 RichTextBlock よりも優先されます。
 
 特定の条件では、TextBlock のテキストのレンダリングはより高機能な CPU 負荷の高いコード パスにフォールバックされます。 常に高速パスでテキスト レンダリングを処理するために、次に示すプロパティを設定するときは、以下のガイドラインに従ってください。
-- [Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.text):最も重要な条件は、XAML またはコード (前の例に示されている) で Text プロパティを明示的に設定することによってテキストを設定した場合にのみ高速パスが使用されるということです。 TextBlock の Inlines コレクション (`<TextBlock>Inline text</TextBlock>` など) によってテキストを設定すると、複数の形式の潜在的な複雑さのために、高速パスが無効になります。
-- [CharacterSpacing](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.characterspacing):既定値の 0 のみが高速パスです。
-- [TextTrimming](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.texttrimming):**None**、**CharacterEllipsis**、および **WordEllipsis** の各値のみが高速パスです。 **Clip** 値は高速パスを無効にします。
+- [Text](/uwp/api/windows.ui.xaml.controls.textblock.text):最も重要な条件は、XAML またはコード (前の例に示されている) で Text プロパティを明示的に設定することによってテキストを設定した場合にのみ高速パスが使用されるということです。 TextBlock の Inlines コレクション (`<TextBlock>Inline text</TextBlock>` など) によってテキストを設定すると、複数の形式の潜在的な複雑さのために、高速パスが無効になります。
+- [CharacterSpacing](/uwp/api/windows.ui.xaml.controls.textblock.characterspacing):既定値の 0 のみが高速パスです。
+- [TextTrimming](/uwp/api/windows.ui.xaml.controls.textblock.texttrimming):**None**、**CharacterEllipsis**、および **WordEllipsis** の各値のみが高速パスです。 **Clip** 値は高速パスを無効にします。
 
-> **注**&nbsp;&nbsp;Windows 10 Version 1607 より前のバージョンでは、他のプロパティも高速パスに影響を与えます。 以前のバージョンの Windows でアプリが実行される場合は、以下の条件によってもテキストは低速パスでレンダリングされます。 バージョンについて詳しくは、バージョン アダプティブ コードを参照してください。
-- [Typography](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography):さまざまな Typography プロパティの既定値のみが高速パスです。
-- [LineStackingStrategy](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.linestackingstrategy):[LineHeight](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.lineheight) が 0 ではない場合、**BaselineToBaseline** と **MaxHeight** の値は高速パスを無効にします。
-- [IsTextSelectionEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.istextselectionenabled):**false** のみが高速パスです。 このプロパティを **true** に設定すると、高速パスが無効になります。
+> **注**&nbsp;&nbsp;Windows 10 Version 1607 より前のバージョンでは、他のプロパティも高速パスに影響を与えます。 以前のバージョンの Windows でアプリが実行される場合は、以下の条件によってもテキストは低速パスでレンダリングされます。 バージョンについて詳しくは、[バージョン アダプティブ コード](/windows/uwp/debug-test-perf/version-adaptive-code)を参照してください。
+- [Typography](/uwp/api/Windows.UI.Xaml.Documents.Typography):さまざまな Typography プロパティの既定値のみが高速パスです。
+- [LineStackingStrategy](/uwp/api/windows.ui.xaml.controls.textblock.linestackingstrategy):[LineHeight](/uwp/api/windows.ui.xaml.controls.textblock.lineheight) が 0 ではない場合、**BaselineToBaseline** と **MaxHeight** の値は高速パスを無効にします。
+- [IsTextSelectionEnabled](/uwp/api/windows.ui.xaml.controls.textblock.istextselectionenabled):**false** のみが高速パスです。 このプロパティを **true** に設定すると、高速パスが無効になります。
 
-デバッグ中に [DebugSettings.IsTextPerformanceVisualizationEnabled](https://docs.microsoft.com/uwp/api/windows.ui.xaml.debugsettings.istextperformancevisualizationenabled) プロパティを **true** に設定すると、テキストのレンダリングに高速パスが使用されているかどうかを特定できます。 このプロパティを true に設定すると、高速パスにあるテキストは明るい緑色で表示されます。
+デバッグ中に [DebugSettings.IsTextPerformanceVisualizationEnabled](/uwp/api/windows.ui.xaml.debugsettings.istextperformancevisualizationenabled) プロパティを **true** に設定すると、テキストのレンダリングに高速パスが使用されているかどうかを特定できます。 このプロパティを true に設定すると、高速パスにあるテキストは明るい緑色で表示されます。
 
 >**ヒント**&nbsp;&nbsp;この機能については、Build 2015 の次のセッションで詳しく説明されています - [XAML Performance: Techniques for Maximizing Universal Windows App Experiences Built with XAML (XAML パフォーマンス: XAML で構築されたユニバーサル Windows アプリのエクスペリエンスを最大化する手法)](https://channel9.msdn.com/Events/Build/2015/3-698)。
 
 
 
-通常、次のように、App.xaml の分離コード ページの [OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application.onlaunched) メソッドのオーバーライドでデバッグの設定を行います。
+通常、次のように、App.xaml の分離コード ページの [OnLaunched](/uwp/api/windows.ui.xaml.application.onlaunched) メソッドのオーバーライドでデバッグの設定を行います。
 ```csharp
 protected override void OnLaunched(LaunchActivatedEventArgs e)
 {
@@ -142,7 +135,7 @@ Text プロパティに格納されるのはプレーンテキストですが、
 
 ### <a name="inline-elements"></a>インライン要素
 
-[Windows.UI.Xaml.Documents](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents) 名前空間には、テキストの書式設定に使うことができるさまざまなインライン テキスト要素が用意されています (Bold、Italic、Run、Span、LineBreak など)。
+[Windows.UI.Xaml.Documents](/uwp/api/Windows.UI.Xaml.Documents) 名前空間には、テキストの書式設定に使うことができるさまざまなインライン テキスト要素が用意されています (Bold、Italic、Run、Span、LineBreak など)。
 
 それぞれ書式設定の異なる複数の文字列を TextBlock に表示できます。 そのためには、Run 要素を使って各文字列をそれぞれの書式設定で表示し、各 Run 要素を LineBreak 要素で区切ります。
 
@@ -170,7 +163,7 @@ Text プロパティに格納されるのはプレーンテキストですが、
 
 ### <a name="typography"></a>文字体裁
 
-[Typography](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Documents.Typography) クラスの添付プロパティは、Microsoft OpenType の一連の Typography プロパティへのアクセスを提供します。 これらの添付プロパティは、TextBlock で設定することも、個々のインライン テキスト要素で設定することもできます。 次の例では、両方を示します。
+[Typography](/uwp/api/Windows.UI.Xaml.Documents.Typography) クラスの添付プロパティは、Microsoft OpenType の一連の Typography プロパティへのアクセスを提供します。 これらの添付プロパティは、TextBlock で設定することも、個々のインライン テキスト要素で設定することもできます。 次の例では、両方を示します。
 ```xaml
 <TextBlock Text="Hello, world!"
            Typography.Capitals="SmallCaps"
@@ -198,6 +191,6 @@ Windows.UI.Xaml.Documents.Typography.SetStylisticSet4(textBlock1, true);
 - [スペル チェックのガイドライン](text-controls.md)
 - [検索の追加](search.md)
 - [テキスト入力のガイドライン](text-controls.md)
-- [TextBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox)
-- [Windows.UI.Xaml.Controls PasswordBox クラス](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
-- [String.Length プロパティ](https://docs.microsoft.com/dotnet/api/system.string.length)
+- [TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)
+- [Windows.UI.Xaml.Controls PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+- [String.Length プロパティ](/dotnet/api/system.string.length)

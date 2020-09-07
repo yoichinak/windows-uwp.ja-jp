@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c66fc2b07b5ee5ce87b6c1f37657b3eec49f3105
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 20aeda53af3b4b11c1562d2ed22b099a3377d3c7
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970407"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172636"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -26,7 +26,7 @@ ms.locfileid: "82970407"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ItemsRepeater** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ItemsRepeater** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
 >
@@ -95,7 +95,7 @@ ItemsRepeater itemsRepeater1 = new ItemsRepeater();
 itemsRepeater1.ItemsSource = Items;
 ```
 
-**ItemsSource** プロパティを、XAML でコレクションにバインドすることもできます。 データ バインディングについて詳しくは、「[データ バインディングの概要](https://docs.microsoft.com/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。
+**ItemsSource** プロパティを、XAML でコレクションにバインドすることもできます。 データ バインディングについて詳しくは、「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」をご覧ください。
 
 
 ```xaml
@@ -111,7 +111,7 @@ itemsRepeater1.ItemsSource = Items;
 この例では、データ オブジェクトはシンプルな文字列です。 **DataTemplate** にはテキストの左側にイメージが含まれており、青緑色で文字列を表示するために **TextBlock** がスタイル設定されています。
 
 > [!NOTE]
-> **DataTemplate** で [x:Bind markup extension](https://docs.microsoft.com/windows/uwp/xaml-platform/x-bind-markup-extension) を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
+> **DataTemplate** で [x:Bind markup extension](../../xaml-platform/x-bind-markup-extension.md) を使う場合、DataTemplate に DataType (`x:DataType`) を指定する必要があります。
 
 ```xaml
 <DataTemplate x:DataType="x:String">
@@ -774,14 +774,14 @@ public class MyPage : Page
 
 ## <a name="enable-accessibility"></a>アクセシビリティを有効にする
 
-[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) では、既定のアクセシビリティ エクスペリエンスは提供されません。 [Windows アプリのユーザビリティ](/windows/uwp/design/usability)に関するドキュメントでは、確実にアプリで包括的なユーザー エクスペリエンスを提供できるようにするために役立つ情報が豊富に示されています。 ItemsRepeater を使ってカスタム コントロールを作成する場合は、必ず、[カスタム オートメーション ピア](/windows/uwp/design/accessibility/custom-automation-peers)に関するドキュメントを参照してください。
+[ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) では、既定のアクセシビリティ エクスペリエンスは提供されません。 [Windows アプリのユーザビリティ](../usability/index.md)に関するドキュメントでは、確実にアプリで包括的なユーザー エクスペリエンスを提供できるようにするために役立つ情報が豊富に示されています。 ItemsRepeater を使ってカスタム コントロールを作成する場合は、必ず、[カスタム オートメーション ピア](../accessibility/custom-automation-peers.md)に関するドキュメントを参照してください。
 
 ### <a name="keyboarding"></a>キーボード操作
-ItemsRepeater で提供されるフォーカス移動のためのキーボード操作の最小限のサポートは、XAML の[キーボード操作の 2D 方向ナビゲーション](/windows/uwp/design/input/focus-navigation#2d-directional-navigation-for-keyboard)に関する記述に基づいています。
+ItemsRepeater で提供されるフォーカス移動のためのキーボード操作の最小限のサポートは、XAML の[キーボード操作の 2D 方向ナビゲーション](../input/focus-navigation.md#2d-directional-navigation-for-keyboard)に関する記述に基づいています。
 
 ![方向ナビゲーション](/windows/uwp/design/input/images/keyboard/directional-navigation.png)
 
-ItemsRepeater の [XYFocusKeyboardNavigation モード](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)は、既定で _Enabled_ になっています。 目的のエクスペリエンスに応じて、Home、End、PageUp、PageDown などの一般的な[キーボード操作](/windows/uwp/design/input/keyboard-interactions)のサポートの追加を検討してください。
+ItemsRepeater の [XYFocusKeyboardNavigation モード](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)は、既定で _Enabled_ になっています。 目的のエクスペリエンスに応じて、Home、End、PageUp、PageDown などの一般的な[キーボード操作](../input/keyboard-interactions.md)のサポートの追加を検討してください。
 
 ItemsRepeater では、項目の既定のタブ順序が (仮想化されているかどうかに関わらず)、データ内に項目が指定されているのと同じ順序に従っていることが自動的に確保されます。 ItemsRepeater では、既定でその [TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement.tabfocusnavigation) プロパティが、一般的な既定値である _Local_ ではなく、[Once](/uwp/api/windows.ui.xaml.input.keyboardnavigationmode) に設定されます。
 

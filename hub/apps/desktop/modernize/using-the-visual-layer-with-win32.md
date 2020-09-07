@@ -1,6 +1,6 @@
 ---
 title: Win32 でのビジュアル レイヤーの使用
-description: ビジュアル レイヤーを使用して、Win32 デスクトップ アプリの UI を拡張します。
+description: ビジュアル レイヤーとも呼ばれるユニバーサル Windows プラットフォーム (UWP) の Windows ランタイム コンポジション API を使用して、Win32 C++ アプリの UI を強化する方法について説明します。
 template: detail.hbs
 ms.date: 03/18/2019
 ms.topic: article
@@ -8,12 +8,12 @@ keywords: UWP, レンダリング, コンポジション, win32
 ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
-ms.openlocfilehash: c9b4ec38b0dd1f6eca3f43cfded74c6292c08100
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 98811d890aa496e05c38009dedea6978386d5e4a
+ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66215195"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89043474"
 ---
 # <a name="using-the-visual-layer-with-win32"></a>Win32 でのビジュアル レイヤーの使用
 

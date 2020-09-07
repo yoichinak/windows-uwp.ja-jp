@@ -1,6 +1,6 @@
 ---
-Description: デスクトップ ブリッジでパッケージ化されたアプリを配布する
 title: パッケージにしたデスクトップ アプリケーションを、Microsoft Store に公開するか、1 台以上のデバイスにサイドローディングします。
+description: デスクトップ ブリッジを使用してパッケージにしたデスクトップ アプリケーションを Microsoft Store に配布するか、1 台以上のデバイスにサイドロードする方法について説明します。
 ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10, uwp
@@ -8,12 +8,12 @@ ms.assetid: edff3787-cecb-4054-9a2d-1fbefa79efc4
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 7eb57e8cea83a4d45087be4c4685ada8d108fa7a
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: 469ed71fcb42894b2dfd179ce21f44da3702705e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334491"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170646"
 ---
 # <a name="distribute-your-packaged-desktop-app"></a>パッケージ化されたデスクトップ アプリを配布する
 
@@ -166,4 +166,4 @@ private void RemoveDesktopApp()
 
 ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
 
-Microsoft Store へのアプリの公開で問題が発生した場合は、この[ブログ投稿](https://blogs.msdn.microsoft.com/appconsult/2017/09/25/preparing-a-desktop-bridge-application-for-the-store-submission/)で役に立つヒントを参照できます。
+Microsoft Store へのアプリの公開で問題が発生した場合は、この[ブログ投稿](/archive/blogs/appconsult/preparing-a-desktop-bridge-application-for-the-store-submission)で役に立つヒントを参照できます。

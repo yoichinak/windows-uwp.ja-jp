@@ -3,22 +3,22 @@ pm-contact: kisai
 design-contact: ksulliv
 dev-contact: Shmazlou
 doc-status: Published
-Description: スワイプ コマンドの実行とは、コンテキスト メニューのタッチ アクセラレータです。
-title: Swipe
+description: スワイプによるコマンド実行をコンテキスト メニューのタッチ アクセラレーターとして使用して、ユーザーが複数の項目に対して同じ操作をすばやく連続して実行できるようにする方法を説明します。
+title: スワイプ
 label: Swipe
 template: detail.hbs
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 315edbddccc51b7e742bf9beffad8497a104ce03
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: f81e440670ccee34269ddbe5d55d93637b8d89df
+ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80614089"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89043554"
 ---
-# <a name="swipe"></a>Swipe
+# <a name="swipe"></a>スワイプ
 
 スワイプによるコマンド実行は、ユーザーがタッチ操作によってアプリ内の状態を変更することなく、一般的なメニュー アクションに簡単にアクセスできるようにするコンテキスト メニューのアクセラレータです。
 
@@ -28,13 +28,13 @@ ms.locfileid: "80614089"
 
 ![実行と表示の淡色テーマ](images/LightThemeSwipe.png)
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 スワイプによるコマンド実行によって、領域が節約されます。 これは、ユーザーが複数の項目に対して同じ操作をすばやく連続して実行できる場合に役立ちます。 ページ内で完全なポップアップや状態の変更を必要としないアイテムに対して「クイック アクション」を提供します。
 
 潜在的に多くの項目のグループで、各項目にユーザーが定期的に実行する必要がある操作が 1 ～ 3 つある場合は、スワイプによるコマンド実行を使用してください。 これには次のような操作が含まれますが、これに限定されません。
 
-- 削除
+- 削除中
 - マークやアーカイブ
 - 保存またはダウンロード
 - 返信
@@ -209,7 +209,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 
 この特定のインスタンスで、リストから項目が削除されてりうため、最終的な表示状態は重要ではありません。 ただし、操作を実行し、スワイプを再び折りたたむことのみが必要である場合は、[BehaviorOnInvoked](/uwp/api/windows.ui.xaml.controls.swipeitem.BehaviorOnInvoked) プロパティを [SwipeBehaviorOnInvoked](/uwp/api/windows.ui.xaml.controls.swipebehavioroninvoked) 列挙値のいずれかに設定できます。
 
-- **自動**
+- **Auto**
   - 実行モードでは、開いたスワイプ項目は呼び出されても開いたままになります。
   - 表示モードでは、開いたスワイプ項目は呼び出されると折りたたまれます。
 - **閉じる**
@@ -225,7 +225,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
            BehaviorOnInvoked = "Close"/>
 ```
 
-## <a name="dos-and-donts"></a>推奨と非推奨
+## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
 
 - FlipView、ハブ、ピボットではスワイプを使用しないでください。 組み合わせによっては、スワイプの方向が競合するために、ユーザーの混乱を招く可能性があります。
 - 水平方向ナビゲーションと水平方向のスワイプ、または垂直方向ナビゲーションと垂直方向のスワイプを組み合わせないでください。

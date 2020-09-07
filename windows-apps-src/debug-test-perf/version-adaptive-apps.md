@@ -5,12 +5,12 @@ ms.date: 05/17/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b947d0b6cc83dc6bca45efb7103a933e79972e3b
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: bb676ba5dbb92b1aa6dfb8888da90a8528e2dfa1
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67317450"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89412036"
 ---
 # <a name="version-adaptive-apps-use-new-apis-while-maintaining-compatibility-with-previous-versions"></a>バージョン アダプティブ アプリ: 以前のバージョンとの互換性を保ちながら新しい API を使う
 
@@ -65,7 +65,7 @@ SDK のすべてのリリース版は、「[Windows SDK とエミュレーター
 
 ## <a name="perform-api-checks"></a>API チェックの実行
 
-バージョン アダプティブ アプリの要は、API コントラクトと [ApiInformation](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation) クラスの組み合わせにあります。 このクラスは、さまざまなデバイスと OS バージョンで、指定した API コントラクト、型、またはメンバーが存在し、安全に API を呼び出すことができるかどうかを検出します。
+バージョン アダプティブ アプリの要は、API コントラクトと [ApiInformation](/uwp/api/windows.foundation.metadata.apiinformation) クラスの組み合わせにあります。 このクラスは、さまざまなデバイスと OS バージョンで、指定した API コントラクト、型、またはメンバーが存在し、安全に API を呼び出すことができるかどうかを検出します。
 
 ### <a name="api-contracts"></a>API コントラクト
 
@@ -81,10 +81,10 @@ API コントラクトとは何でしょうか。 基本的に、API コント�
 
 論理的に関連する型は API コントラクトにグループ化され、Windows 10 以降、すべての Windows ランタイム API は何らかの API コントラクトに属しています。 API コントラクトでは、デバイス上の特定の機能や API の存在がチェックされます。デバイスの機能のチェックは、特定のデバイスまたは OS をチェックするよりも効率的に行われます。 API コントラクト内のいずれかの API を実装するプラットフォームには、同じ API コントラクト内のすべての API を実装する必要があります。 つまり、実行中の OS が特定の API コントラクトをサポートしているかどうかをテストし、サポートしていると判明した場合は、その API コントラクト内のすべての API を個別にチェックせずに呼び出すことができます。
 
-最も大規模で最もよく使われる API コントラクトは **Windows.Foundation.UniversalApiContract** です。 これには、ユニバーサル Windows プラットフォームの API の大部分が含まれています。 「[デバイス ファミリの拡張 SDK および API コントラクト](https://docs.microsoft.com/uwp/extension-sdks/)」ドキュメントでは、利用できるさまざまな API コントラクトについて説明しています。 ほとんどの API コントラクトは、機能的に関連のある API のセットを表していることがわかります。
+最も大規模で最もよく使われる API コントラクトは **Windows.Foundation.UniversalApiContract** です。 これには、ユニバーサル Windows プラットフォームの API の大部分が含まれています。 「[デバイス ファミリの拡張 SDK および API コントラクト](/uwp/extension-sdks/)」ドキュメントでは、利用できるさまざまな API コントラクトについて説明しています。 ほとんどの API コントラクトは、機能的に関連のある API のセットを表していることがわかります。
 
 > [!NOTE]
-> まだドキュメントが公開されていないプレビュー版の Windows ソフトウェア開発キット (SDK) をインストールしている場合は、SDK のインストール フォルダーにある "Platform.xml" ファイル ("\(Program Files (x86))\Windows Kits\10\Platforms\<platform>\<SDK version>\Platform.xml") で API コントラクトのサポートに関する情報を確認できます。
+> まだドキュメントが公開されていないプレビュー版の Windows ソフトウェア開発キット (SDK) をインストールしている場合は、SDK のインストール フォルダーにある ‘Platform.xml’ ファイル (‘\(Program Files (x86))\Windows Kits\10\Platforms\<platform>\<SDK version>\Platform.xml’) で API コントラクトのサポートに関する情報を確認できます。
 
 ### <a name="version-adaptive-code-and-conditional-xaml"></a>バージョン アダプティブ コードと条件付き XAML
 
@@ -105,6 +105,6 @@ API コントラクトとは何でしょうか。 基本的に、API コント�
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリとは](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
+- [UWP アプリとは](../get-started/universal-application-platform-guide.md)
 - [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)
 - [API コントラクト](https://channel9.msdn.com/Events/Build/2015/3-733) (Build 2015 のビデオ)

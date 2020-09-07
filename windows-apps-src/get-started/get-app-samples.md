@@ -1,17 +1,17 @@
 ---
 title: Windows アプリのサンプルの使用
-description: GitHub から Windows コードのサンプルをダウンロードする方法について説明します。
+description: ほとんどの Windows 機能とその API の使用パターンを示す GitHub コードのサンプルを参照、ダウンロードし、開く方法について説明します。
 ms.date: 06/30/2020
 ms.topic: article
 keywords: Windows 10、サンプル コード、コード サンプル
 ms.assetid: 393c5a81-ee14-45e7-acd7-495e5d916909
 ms.localizationpriority: medium
-ms.openlocfilehash: 285388c4c1b4791e1ca271a853476416b6d13c13
-ms.sourcegitcommit: 179f8098d10e338ad34fa84934f1654ec58161cd
+ms.openlocfilehash: e08a81ac6f9bca2e4fe4b7451df830e20c714893
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85757625"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162946"
 ---
 # <a name="get-windows-app-samples"></a>Windows アプリのサンプルの使用
 
@@ -19,7 +19,7 @@ ms.locfileid: "85757625"
 
 :::image type="content" source="images/github-windows-samples-page.png" alt-text="GitHub の Windows ユニバーサル サンプル リポジトリ":::
 
-[サンプル ブラウザー](https://docs.microsoft.com/samples/browse/)を使うと、さまざまな Microsoft 開発者ツールやテクノロジに関するコード サンプルをカテゴリ別のコレクションとして表示して検索できるので、特定のサンプルが少し見つけやすくなります。
+[サンプル ブラウザー](/samples/browse/)を使うと、さまざまな Microsoft 開発者ツールやテクノロジに関するコード サンプルをカテゴリ別のコレクションとして表示して検索できるので、特定のサンプルが少し見つけやすくなります。
 
 :::image type="content" source="images/samples-browser-windows.png" alt-text="Microsoft サンプル ブラウザー":::
 

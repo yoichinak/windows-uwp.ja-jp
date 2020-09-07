@@ -1,5 +1,5 @@
 ---
-Description: カラー ピッカーは、ユーザーが色を参照して選ぶためのしくみです。
+description: カラー ピッカーを使用して、ユーザーが色を参照して選択したり、RGB、HSV、16 進数の形式で色を指定したりできるようにする方法について説明します。
 title: カラー ピッカー
 label: Color Picker
 template: detail.hbs
@@ -11,12 +11,12 @@ design-contact: ksulliv
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6e7661beb52438640c570e1a5ec4d7f60502e119
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: c6739263917ab48040a2780a750948215d8d6361
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968907"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173516"
 ---
 # <a name="color-picker"></a>カラー ピッカー
 
@@ -28,7 +28,7 @@ ms.locfileid: "82968907"
 
 |  |  |
 | - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ColorPicker** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](https://docs.microsoft.com/uwp/toolkits/winui/)」をご覧ください。 |
+| ![WinUI ロゴ](images/winui-logo-64x64.png) | **ColorPicker** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
 
 > **Windows UI ライブラリ API:** [ColorPicker クラス](/uwp/api/microsoft.ui.xaml.controls.colorpicker)、[Color プロパティ](/uwp/api/microsoft.ui.xaml.controls.colorpicker.Color)、[ColorChanged イベント](/uwp/api/microsoft.ui.xaml.controls.colorpicker.ColorChanged)
 >
@@ -64,7 +64,7 @@ ms.locfileid: "82968907"
 <ColorPicker x:Name="myColorPicker"/>
 ```
 
-既定では、カラー ピッカーは、カラー スペクトルの横にある長方形のバーに、選択された色のプレビューを示します。 アプリ内で選択された色にアクセスし、その色を使うには、[ColorChanged](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged) イベントか [Color](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.Color) プロパティを使います。 詳しいコードについては、これ以降の例を参照してください。
+既定では、カラー ピッカーは、カラー スペクトルの横にある長方形のバーに、選択された色のプレビューを示します。 アプリ内で選択された色にアクセスし、その色を使うには、[ColorChanged](/uwp/api/windows.ui.xaml.controls.colorpicker.ColorChanged) イベントか [Color](/uwp/api/windows.ui.xaml.controls.colorpicker.Color) プロパティを使います。 詳しいコードについては、これ以降の例を参照してください。
 
 ### <a name="bind-to-the-chosen-color"></a>選択された色にバインドする
 
@@ -155,7 +155,7 @@ private void cancelColor_Click(object sender, RoutedEventArgs e)
 
 #### <a name="show-the-circle-spectrum"></a>円形のスペクトルを表示する
 
-次の例は、[ColorSpectrumShape](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker.ColorSpectrumShape) プロパティを使って、カラー ピッカーで既定の正方形ではなく円形のスペクトルを使うように構成する方法を示しています。
+次の例は、[ColorSpectrumShape](/uwp/api/windows.ui.xaml.controls.colorpicker.ColorSpectrumShape) プロパティを使って、カラー ピッカーで既定の正方形ではなく円形のスペクトルを使うように構成する方法を示しています。
 
 ```xaml
 <ColorPicker x:Name="myColorPicker"

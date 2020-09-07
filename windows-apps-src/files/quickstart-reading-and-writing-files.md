@@ -1,7 +1,7 @@
 ---
 ms.assetid: 27914C0A-2A02-473F-BDD5-C931E3943AA0
 title: ファイルの作成、書き込み、および読み取り
-description: StorageFile オブジェクトを使ってファイルの読み取りと書き込みを行います。
+description: ユニバーサル Windows プラットフォーム (UWP) オブジェクトの FileIO、StorageFolder、StorageFile を使用してファイルの作成、書き込み、読み取りを行う方法について説明します。
 ms.date: 12/19/2018
 ms.topic: article
 keywords: windows 10, uwp
@@ -11,12 +11,12 @@ dev_langs:
 - cppwinrt
 - cpp
 - vb
-ms.openlocfilehash: 0dbe5e2f1cc32a3d1b52572f71fba7547af99f17
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 89bdd0793c7af26ccd56bc2494ab6d60a6574df0
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74258564"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89168386"
 ---
 # <a name="create-write-and-read-a-file"></a>ファイルの作成、書き込み、および読み取り
 
@@ -35,7 +35,7 @@ ms.locfileid: "74258564"
 
 -   **ユニバーサル Windows プラットフォーム (UWP) アプリの非同期プログラミングについての理解**
 
-    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](/windows/uwp/threading-async/call-asynchronous-apis-in-csharp-or-visual-basic)」をご覧ください。 C++/WinRT での非同期アプリの作成方法については、「[C++/WinRT を使用した同時開催操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency)」をご覧ください。 C++/CX での非同期アプリの記述方法については、「[C++/CX での非同期プログラミング](/windows/uwp/threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps)」をご覧ください。
+    C# や Visual Basic での非同期アプリの作成方法については、「[C# または Visual Basic での非同期 API の呼び出し](../threading-async/call-asynchronous-apis-in-csharp-or-visual-basic.md)」をご覧ください。 C++/WinRT での非同期アプリの作成方法については、「[C++/WinRT を使用した同時開催操作と非同期操作](../cpp-and-winrt-apis/concurrency.md)」をご覧ください。 C++/CX での非同期アプリの記述方法については、「[C++/CX での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 -   **読み取り、書き込み、またはその両方の対象となるファイルを取得する方法についての知識**
 
@@ -254,7 +254,7 @@ Await Windows.Storage.FileIO.WriteTextAsync(sampleFile, "Swift as a shadow")
     Dim stream = Await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite)
     ```
 
-2.  次に、`stream` から [**IRandomAccessStream.GetOutputStreamAt**](/uwp/api/windows.storage.streams.irandomaccessstream.getoutputstreamat) メソッドを呼び出して出力ストリームを取得します。 C# を使用している場合、これを **using** ステートメントで囲み、出力ストリームの有効期間を管理します。 [C++/WinRT](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt) を使用する場合は、それをブロック内に含めるか、または使い終わったときに `nullptr` に設定することで、その有効期間を制御することができます。
+2.  次に、`stream` から [**IRandomAccessStream.GetOutputStreamAt**](/uwp/api/windows.storage.streams.irandomaccessstream.getoutputstreamat) メソッドを呼び出して出力ストリームを取得します。 C# を使用している場合、これを **using** ステートメントで囲み、出力ストリームの有効期間を管理します。 [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用する場合は、それをブロック内に含めるか、または使い終わったときに `nullptr` に設定することで、その有効期間を制御することができます。
 
     ```csharp
     using (var outputStream = stream.GetOutputStreamAt(0))

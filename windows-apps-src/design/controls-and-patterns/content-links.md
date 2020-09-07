@@ -1,6 +1,6 @@
 ---
-Description: コンテンツ リンクを使用してテキスト コントロールの豊富なデータを埋め込むことができます。
 title: テキスト コントロールのコンテンツ リンク
+description: コンテンツ リンクを使用して、TextBlock、RichTextBlock、RichEditBox のコントロールにリッチ データを埋め込む方法について説明します。
 label: Content links
 template: detail.hbs
 ms.date: 03/07/2018
@@ -10,12 +10,12 @@ pm-contact: miguelrb
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: b72d7fced63a4c3ef4b1b233afcbb9f9874d9a3f
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 8a35e065a44eb55b84f6b70f5833c8652188a8c9
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68796719"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174646"
 ---
 # <a name="content-links-in-text-controls"></a>テキスト コントロールのコンテンツ リンク
 
@@ -162,7 +162,7 @@ People ピッカーは、**ms-people** プロトコルを使用する Uri で Co
 - LinkContentKind が "People" でない場合、**People** アプリが開きます。 たとえば、これは ContentLinkChanged イベント ハンドラーで LinkContentKind を変更した場合に発生する可能性があります。
 
 > [!TIP]
-> アプリから他のアプリや Web サイトを開く方法の詳細については、「[URI を使ったアプリの起動](/windows/uwp/launch-resume/launch-app-with-uri)」の下にあるトピックを参照してください。
+> アプリから他のアプリや Web サイトを開く方法の詳細については、「[URI を使ったアプリの起動](../../launch-resume/launch-app-with-uri.md)」の下にあるトピックを参照してください。
 
 #### <a name="invoked"></a>Invoked
 
@@ -303,7 +303,7 @@ private void Button_Click(object sender, RoutedEventArgs e)
 ```
 
 > [!TIP]
-> テキスト コントロールで ContentLink を XAML のその他のテキスト要素と一緒に使用する場合、[スパン](https://docs.microsoft.com/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ContentLink とその他の要素間に空白を保持します。
+> テキスト コントロールで ContentLink を XAML のその他のテキスト要素と一緒に使用する場合、[スパン](/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ContentLink とその他の要素間に空白を保持します。
 
 ## <a name="examples"></a>例
 

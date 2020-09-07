@@ -1,16 +1,16 @@
 ---
 title: 試験的な API
-description: 試験的な API について
+description: 開発者が試せるように、Windows Insider SDK を使用して試験的な API を外部でフライトする方法について説明します。
 ms.date: 11/13/2017
 ms.topic: article
 keywords: windows 10, uwp, 試験的, api
 ms.localizationpriority: medium
-ms.openlocfilehash: 542e007d07d490c2f18077e646f7598bfd2587c3
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 5a4813e7b4ae1e3dd16017066758aa8a35d0570a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684910"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170806"
 ---
 # <a name="experimental-apis"></a>試験的な API
 
@@ -25,7 +25,7 @@ Intellisense を利用すると、API が試験的なものであるかどうか
 
 既定では、これらの API は実行時に無効になっており、これらの API を呼び出すとランタイム例外が発生します。 このもう一つのセーフガードにより、不注意による依存関係の作成や、試験的な API を使用するアプリの広範な配布を防ぐことができます。
 
-これらの API を試験用に有効にするには、[Windows デバイス ポータル (WDP)](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal) 機能のプラグインをターゲット デバイスで使用し、呼び出す API に対応する機能を有効にします。
+これらの API を試験用に有効にするには、[Windows デバイス ポータル (WDP)](../debug-test-perf/device-portal.md) 機能のプラグインをターゲット デバイスで使用し、呼び出す API に対応する機能を有効にします。
 
 特定の試験的な API に関するドキュメントは、API を所有するチームの裁量に任されています。
 

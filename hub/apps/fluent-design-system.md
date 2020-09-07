@@ -1,5 +1,5 @@
 ---
-description: Fluent Design とアプリに組み込む方法について学習します。
+description: ユニバーサル Windows プラットフォーム (UWP) での Fluent Design System と、アプリにそれを取り込む方法について説明します。
 title: Windows 用の Fluent Design System
 keywords: UWP アプリのレイアウト, ユニバーサル Windows プラットフォーム, アプリの設計, インターフェイス, Fluent Design System
 ms.date: 03/07/2018
@@ -8,12 +8,12 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.author: mcleans
 author: mcleanbyron
-ms.openlocfilehash: 7d340b3db12aef964a65860855acc0f0722cda64
-ms.sourcegitcommit: 6cdba316bdbd85a2429259ebfb59ff94440e234a
+ms.openlocfilehash: a46aae591767ac6ded935d3b76d60bb8fbfa2746
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85882926"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094529"
 ---
 # <a name="the-fluent-design-system-for-windows-app-creators"></a>Windows アプリ作成者用の Fluent Design System
 

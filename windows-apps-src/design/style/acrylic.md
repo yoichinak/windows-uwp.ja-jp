@@ -1,5 +1,5 @@
 ---
-description: 半透明のテクスチャを作成するブラシの一種。
+description: 奥行きを加えたり視覚的な階層を確立したりするための半透明のテクスチャを作成するブラシの一種である、アクリルの使用方法について説明します。
 title: アクリル素材
 template: detail.hbs
 ms.date: 08/09/2017
@@ -10,20 +10,20 @@ design-contact: rybick
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d969c5282fa03fb11d108d2b2c8e0fe44dfde49
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 6f7d431950e17b9908d079db9247d997ef8adadb
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968457"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174586"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 
 ![ヒーロー イメージ](images/header-acrylic.svg)
 
-アクリルは、半透明のテクスチャを作成する[ブラシ](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Brush)の一種です。 アクリルをアプリ サーフェスに適用すると、奥行きを加えたり、視覚的な階層を確立したりすることができます。  <!-- By allowing user-selected wallpaper or colors to shine through, acrylic keeps users in touch with the OS personalization they've chosen. -->
+アクリルは、半透明のテクスチャを作成する[ブラシ](/uwp/api/Windows.UI.Xaml.Media.Brush)の一種です。 アクリルをアプリ サーフェスに適用すると、奥行きを加えたり、視覚的な階層を確立したりすることができます。  <!-- By allowing user-selected wallpaper or colors to shine through, acrylic keeps users in touch with the OS personalization they've chosen. -->
 
-> **重要な API**:[AcrylicBrush クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.media.acrylicbrush)、[Background プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.control.Background)
+> **重要な API**:[AcrylicBrush クラス](/uwp/api/windows.ui.xaml.media.acrylicbrush)、[Background プロパティ](/uwp/api/windows.ui.xaml.controls.control.Background)
 
 :::row:::
     :::column:::
@@ -87,7 +87,7 @@ XAML コントロール ギャラリー アプリがインストールされて�
 
 ![情報のポップアップを使用したメール アプリのパターン](images/Mail_TransientContextMenu.png)
 
-コントロールの多くは、既定でアクリルを使用します。 [MenuFlyouts](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/menus)、[AutoSuggestBox](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/auto-suggest-box)、[ComboBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox)、および簡易非表示ポップアップを使用する類似のコントロールはすべて、呼び出されたときに一時的なアクリルを使用します。
+コントロールの多くは、既定でアクリルを使用します。 [MenuFlyouts](../controls-and-patterns/menus.md)、[AutoSuggestBox](../controls-and-patterns/auto-suggest-box.md)、[ComboBox](/uwp/api/windows.ui.xaml.controls.combobox)、および簡易非表示ポップアップを使用する類似のコントロールはすべて、呼び出されたときに一時的なアクリルを使用します。
 
 > [!Note]
 > アクリル サーフェスのレンダリングでは GPU を集中的に使用するため、デバイスの電力消費が増加し、バッテリー残量が少なくなる可能性があります。 デバイスがバッテリー節約機能モードになると、アクリルの効果は自動的に無効になります。またユーザーは、必要に応じて、すべてのアプリでアクリルの効果を無効にすることができます。
@@ -246,7 +246,7 @@ else
 
 ## <a name="extend-acrylic-into-the-title-bar"></a>アクリルをタイトル バーに拡張する
 
-アプリのウィンドウを滑らかな外観にするには、タイトル バー領域にアクリルを使います。 この例では、[ApplicationViewTitleBar](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewTitleBar) オブジェクトの [ButtonBackgroundColor](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewTitleBar.ButtonBackgroundColor) および [ButtonInactiveBackgroundColor](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewTitleBar.ButtonInactiveBackgroundColor) プロパティを [Colors.Transparent](https://docs.microsoft.com/uwp/api/Windows.UI.Colors.Transparent) に設定することで、アクリルをタイトル バーに拡張します。
+アプリのウィンドウを滑らかな外観にするには、タイトル バー領域にアクリルを使います。 この例では、[ApplicationViewTitleBar](/uwp/api/Windows.UI.ViewManagement.ApplicationViewTitleBar) オブジェクトの [ButtonBackgroundColor](/uwp/api/Windows.UI.ViewManagement.ApplicationViewTitleBar.ButtonBackgroundColor) および [ButtonInactiveBackgroundColor](/uwp/api/Windows.UI.ViewManagement.ApplicationViewTitleBar.ButtonInactiveBackgroundColor) プロパティを [Colors.Transparent](/uwp/api/Windows.UI.Colors.Transparent) に設定することで、アクリルをタイトル バーに拡張します。
 
 ```csharp
 private void ExtendAcrylicIntoTitleBar()
@@ -258,7 +258,7 @@ private void ExtendAcrylicIntoTitleBar()
 }
 ```
 
-このコードは、ここに示すようにアプリの [OnLaunched](https://docs.microsoft.com/uwp/api/windows.ui.xaml.application#Windows_UI_Xaml_Application_OnLaunched_Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_) メソッド (_App.xaml.cs_) 内の [Window.Activate](https://docs.microsoft.com/uwp/api/windows.ui.xaml.window.Activate) の呼び出しの後か、アプリの最初のページに配置できます。
+このコードは、ここに示すようにアプリの [OnLaunched](/uwp/api/windows.ui.xaml.application#Windows_UI_Xaml_Application_OnLaunched_Windows_ApplicationModel_Activation_LaunchActivatedEventArgs_) メソッド (_App.xaml.cs_) 内の [Window.Activate](/uwp/api/windows.ui.xaml.window.Activate) の呼び出しの後か、アプリの最初のページに配置できます。
 
 ```csharp
 // Call your extend acrylic code in the OnLaunched event, after

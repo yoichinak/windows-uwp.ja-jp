@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b38cf60f1f890649af33ad34f244bc348af2832
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a837dc025023d529d9090fade401726a670c7561
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82148692"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89166196"
 ---
 # <a name="test-with-the-microsoft-emulator-for-windows-10-mobile"></a>Microsoft Emulator for Windows 10 Mobile を使ったテスト
 
@@ -41,7 +41,7 @@ RAM
 -   64 ビット
 -   Pro エディション以上
 
-BIOS 要件を確認するには、「[Windows Phone 8 のエミュレーター用に Hyper-V を有効にする方法](https://docs.microsoft.com/previous-versions/windows/apps/jj863509(v=vs.105))」をご覧ください。
+BIOS 要件を確認するには、「[Windows Phone 8 のエミュレーター用に Hyper-V を有効にする方法](/previous-versions/windows/apps/jj863509(v=vs.105))」をご覧ください。
 
 RAM とオペレーティング システムの要件を確認するには、コントロール パネルで **[システムとセキュリティ]** を選び、 **[システム]** を選びます。
 
@@ -215,7 +215,7 @@ Esc | Windows + Esc | 戻る | 長押しは期待どおりに動作します。
 -   NDEF:URI
 -   NDEF:wkt.U
 
-これらのメッセージは、 **[ペイロード]** ウィンドウで編集するか、ファイルに入力することで作ることができます。 これらの種類とその使用方法について詳しくは、[**ProximityDevice.PublishBinaryMessage**](https://docs.microsoft.com/uwp/api/windows.networking.proximity.proximitydevice.publishbinarymessage) のリファレンス ページの「注釈」セクションをご覧ください。
+これらのメッセージは、 **[ペイロード]** ウィンドウで編集するか、ファイルに入力することで作ることができます。 これらの種類とその使用方法について詳しくは、[**ProximityDevice.PublishBinaryMessage**](/uwp/api/windows.networking.proximity.proximitydevice.publishbinarymessage) のリファレンス ページの「注釈」セクションをご覧ください。
 
 Windows 8 Driver Kit (WDK) には、Windows Phone 8 エミュレーターと同じプロトコルを公開しているドライバー サンプルが含まれています。 DDK をダウンロードしてそのサンプル ドライバーをビルドし、Windows 8 デバイスにインストールした後、Windows 8 デバイスの IP アドレスまたはホスト名をデバイス リストに追加し、別の Windows 8 デバイスまたは Windows Phone 8 エミュレーターを使ってタップします。
 
@@ -268,7 +268,7 @@ HCE のサポートと Windows 10 Mobile で HCE アプリを開発する方法�
 
 ### <a name="smart-card-reader-mode"></a>スマート カード リーダー モード
 
-エミュレーターは、ホスト コンピューター上のスマート カード リーダー デバイスに接続できます。そのようにすると、挿入またはタップされたスマート カードが電話アプリケーションに表示され、[**Windows.Devices.SmartCards.SmartCardConnection**](https://docs.microsoft.com/uwp/api/Windows.Devices.SmartCards.SmartCardConnection) クラスを使って APDU と通信できるようになります。 これを実現するには、互換性のあるスマート カード リーダー デバイスをコンピューターに接続する必要があります。USB スマート カード リーダー (NFC/非接触型および挿入/接触型) は、簡単に入手することができます。 エミュレーターが接続されたスマート カード リーダーとやり取りできるようにするには、まず**カード リーダー** モードを選ぶと、ホスト システムに接続された互換性のあるスマート カード リーダーがすべて一覧表示されたドロップダウン ボックスが表示されます。次に、接続先のスマート カード リーダー デバイスをドロップダウンから選びます。
+エミュレーターは、ホスト コンピューター上のスマート カード リーダー デバイスに接続できます。そのようにすると、挿入またはタップされたスマート カードが電話アプリケーションに表示され、[**Windows.Devices.SmartCards.SmartCardConnection**](/uwp/api/Windows.Devices.SmartCards.SmartCardConnection) クラスを使って APDU と通信できるようになります。 これを実現するには、互換性のあるスマート カード リーダー デバイスをコンピューターに接続する必要があります。USB スマート カード リーダー (NFC/非接触型および挿入/接触型) は、簡単に入手することができます。 エミュレーターが接続されたスマート カード リーダーとやり取りできるようにするには、まず**カード リーダー** モードを選ぶと、ホスト システムに接続された互換性のあるスマート カード リーダーがすべて一覧表示されたドロップダウン ボックスが表示されます。次に、接続先のスマート カード リーダー デバイスをドロップダウンから選びます。
 
 NFC 対応スマート カード リーダーの中には、一部の種類の NFC カードがサポートされないものや、標準 PC/SC メモリ カード APDU コマンドがサポートされないものがある点に注意してください。
 
@@ -319,7 +319,7 @@ NFC 対応スマート カード リーダーの中には、一部の種類の N
 
 さまざまな速度や精度プロファイルである場所から別の場所への移動をシミュレートして、アプリをテストすることができます。 位置シミュレーターを使うことで、ユーザー エクスペリエンスを向上させるための位置情報 API の利用方法の変更を判別できます。 たとえば、さまざまなシナリオでジオフェンスを正しく検出するために、サイズやドウェル時間などのジオフェンス パラメーターを調整する必要があることを判別することができます。
 
-**[位置]** タブは 3 つのモードをサポートしています。 すべてのモードで、エミュレーターが新しい位置を受け取ると、位置認識アプリでその位置を [**PositionChanged**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.positionchanged) イベントのトリガーや、[**GetGeopositionAsync**](https://docs.microsoft.com/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) 呼び出しへの応答に利用することができます。
+**[位置]** タブは 3 つのモードをサポートしています。 すべてのモードで、エミュレーターが新しい位置を受け取ると、位置認識アプリでその位置を [**PositionChanged**](/uwp/api/windows.devices.geolocation.geolocator.positionchanged) イベントのトリガーや、[**GetGeopositionAsync**](/uwp/api/windows.devices.geolocation.geolocator.getgeopositionasync) 呼び出しへの応答に利用することができます。
 
 -   **[ピン]** モードでは、地図にプッシュピンを配置します。 **[Play all points]** (すべてのポイントを再生) をクリックすると、位置シミュレーターが **[Seconds per pin]** (ピンごとの秒数) テキスト ボックスで指定された間隔で各ピンの位置を次々にエミュレーターに送ります。
 
@@ -635,7 +635,7 @@ Microsoft Emulator には、すべての VM、差分ディスク、およびエ�
 
 ### <a name="uninstall-windows-10-for-mobile-image"></a>モバイル向け Windows 10 イメージのアンインストール
 
-エミュレーターをインストールすると、モバイル向け Windows 10 の VHD イメージがインストールされ、独自のエントリがコントロール パネルの **[プログラムと機能]** の一覧に示されます。 このイメージをアンインストールするには、インストールされているプログラムの一覧で **[Windows 10 for Mobile Image -\<version\>]** を見つけて右クリックし、 **[アンインストール]** を選択します。
+エミュレーターをインストールすると、モバイル向け Windows 10 の VHD イメージがインストールされ、独自のエントリがコントロール パネルの **[プログラムと機能]** の一覧に示されます。 このイメージをアンインストールするには、インストールされているプログラムの一覧で **[Windows 10 for Mobile Image - \<version\>]** を見つけて右クリックし、 **[アンインストール]** をクリックします。
 
 その後、現在のリリースで、エミュレーターの VHD ファイルを手動で削除する必要があります。 エミュレーターを既定のパスにインストールした場合、VHD ファイルは、C:\\Program Files (x86)\\Windows Kits\\10\\Emulation\\Mobile\\\<version\>\\flash.vhd にあります。
 
@@ -660,7 +660,6 @@ Windows 10 ツールを使う際に生じた質問の答えを探したり、問
 
 ## <a name="related-topics"></a>関連トピック
 
-* [エミュレーターで Windows Phone アプリを実行する](https://docs.microsoft.com/visualstudio/debugger/run-windows-phone-apps-in-the-emulator?view=vs-2015)
+* [エミュレーターで Windows Phone アプリを実行する](/visualstudio/debugger/run-windows-phone-apps-in-the-emulator?view=vs-2015)
 * [Windows と Windows Phone SDK のアーカイブ](https://developer.microsoft.com/windows/downloads/sdk-archive)
  
-

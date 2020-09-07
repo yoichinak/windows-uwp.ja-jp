@@ -1,16 +1,16 @@
 ---
 title: ユーザー インターフェイスの作成のチュートリアル
-description: この記事では、XAML のユーザー インターフェイス作成の基本について説明します。
+description: このチュートリアルでは、Visual Studio で XAML ツールを使用して、イメージ編集プログラムのための基本的な UI を作成する方法について説明します。
 keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 22cf8dc09022f841ff1f4e149232a949e7b82d20
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: e4c2c8d52069bf074897ec09fa44f550066b28b5
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942882"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160756"
 ---
 # <a name="tutorial-create-a-user-interface"></a>チュートリアル: ユーザー インターフェイスの作成
 
@@ -185,7 +185,7 @@ XAML エディターを使用してコントロールを追加するには
     </RelativePanel>
     ```
 
-    `RelativePanel` を使用したレイアウトの詳細については、「[レイアウト パネル](/windows/uwp/layout/layout-panels#relativepanel)」を参照してください。
+    `RelativePanel` を使用したレイアウトの詳細については、「[レイアウト パネル](../layout/layout-panels.md#relativepanel)」を参照してください。
 
 2. `TextBlock` 要素の下に、**ImageGridView** という名前の `GridView` コントロールを追加します。 `RelativePanel` の "_添付プロパティ_" を設定して、コントロールをタイトル テキストの下に配置し、画面の横幅一杯に表示します。
 
@@ -213,7 +213,7 @@ XAML エディターを使用してコントロールを追加するには
     </RelativePanel>
     ```
 
-    panel 添付プロパティの詳細については、「[レイアウト パネル](/windows/uwp/layout/layout-panels)」を参照してください。
+    panel 添付プロパティの詳細については、「[レイアウト パネル](../layout/layout-panels.md)」を参照してください。
 
 3. `GridView` コントロールに何かを表示するには、表示するデータのコレクションを追加する必要があります。 **MainPage.xaml.cs** を開き、`GetItemsAsync` メソッドを見つけます。 このメソッドでは、**MainPage** に追加したプロパティである、**Images** と呼ばれるコレクションが設定されます。
 
@@ -232,7 +232,7 @@ XAML エディターを使用してコントロールを追加するには
 アプリにはイメージがまだ表示されていません。 既定では、コレクション内にあるデータ型の `ToString` 値が表示されます。 次に、データ テンプレートを作成して、データの表示方法を定義します。
 
 > [!NOTE]
-> `RelativePanel` を使用したレイアウトの詳細については、「[レイアウト パネル](/windows/uwp/layout/layout-panels#relativepanel)」を参照してください。 その後で、`TextBlock` と `GridView` の `RelativePanel` 添付プロパティを設定して、さまざまなレイアウトを試してください。
+> `RelativePanel` を使用したレイアウトの詳細については、「[レイアウト パネル](../layout/layout-panels.md#relativepanel)」を参照してください。 その後で、`TextBlock` と `GridView` の `RelativePanel` 添付プロパティを設定して、さまざまなレイアウトを試してください。
 
 ## <a name="part-3-add-a-datatemplate-object-to-display-your-data"></a>パート 3: データを表示する DataTemplate オブジェクトを追加する
 
@@ -267,7 +267,7 @@ XAML エディターを使用してコントロールを追加するには
       NavigationCacheMode="Enabled">
     ```
 
-    XAML 名前空間について詳しくは、「[XAML 名前空間と名前空間マッピング](/windows/uwp/xaml-platform/xaml-namespaces-and-namespace-mapping)」をご覧ください。
+    XAML 名前空間について詳しくは、「[XAML 名前空間と名前空間マッピング](../../xaml-platform/xaml-namespaces-and-namespace-mapping.md)」をご覧ください。
 
 3. ドキュメント アウトラインで、**ImageGridView** を右クリックします。 ショートカット メニューで、 **[追加テンプレートの編集]**  >  **[生成されたアイテムの編集 (ItemTemplate)]**  >  **[空アイテムの作成]** を選択します。 **[リソースの作成]** ダイアログ ボックスが開きます。
 
@@ -317,7 +317,7 @@ XAML エディターを使用してコントロールを追加するには
     </Grid>
     ```
 
-    `Grid` レイアウトの詳細については、「[レイアウト パネル](https://docs.microsoft.com/windows/uwp/layout/layout-panels#grid)」を参照してください。
+    `Grid` レイアウトの詳細については、「[レイアウト パネル](../layout/layout-panels.md#grid)」を参照してください。
 
 6. `Grid` レイアウトにコントロールを追加します。
 
@@ -325,7 +325,7 @@ XAML エディターを使用してコントロールを追加するには
 
     b. イメージの名前、ファイルの種類、サイズを表示する `TextBlock` コントロールを追加します。 これには、テキスト ブロックを配置するための `StackPanel` コントロールを使用します。 `Grid.Row` 添付プロパティを使用して、最も外側の `StackPanel` を 2 行目 (行 1) に配置します。
 
-    `StackPanel` レイアウトの詳細については、「[レイアウト パネル](https://docs.microsoft.com/windows/uwp/layout/layout-panels#stackpanel)」を参照してください。
+    `StackPanel` レイアウトの詳細については、「[レイアウト パネル](../layout/layout-panels.md#stackpanel)」を参照してください。
 
     c. 外側 (垂直方向) の `StackPanel` コントロールに `RatingControl` を追加します。 これは内側 (水平方向) の `StackPanel` コントロールの後に配置します。
 

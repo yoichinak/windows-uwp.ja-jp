@@ -1,18 +1,18 @@
 ---
-Description: Windows UI とコンポーネントによるデスクトップ アプリケーションの拡張
 title: Windows UI とコンポーネントでアプリを拡張する
+description: UWP プロジェクトと Windows ランタイム コンポーネントを使用してデスクトップ アプリケーションを拡張し、最新の Windows 10 エクスペリエンスを追加します。
 ms.date: 06/08/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 73e867071058dfde71979318d6d711d79460f30b
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: 29064390e4e198d1220d40ff5ce58a63ea41e29a
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334557"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172786"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップ アプリを拡張する
 
@@ -21,7 +21,7 @@ ms.locfileid: "85334557"
 多くの場合、デスクトップ アプリケーションから Windows ランタイム API を直接呼び出すことができます。そのため、このガイドを確認する前に、[Windows 10 のための強化](desktop-to-uwp-enhance.md)に関する記事をご覧ください。
 
 > [!NOTE]
-> この記事で説明されている機能を使用するには、[デスクトップ アプリを MSIX パッケージにパッケージ化する](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-root)か、または[スパース パッケージを使用してアプリ ID を付与する](grant-identity-to-nonpackaged-apps.md)ことで、デスクトップ アプリに[パッケージ ID ](modernize-packaged-apps.md)を付与する必要があります。
+> この記事で説明されている機能を使用するには、[デスクトップ アプリを MSIX パッケージにパッケージ化する](/windows/msix/desktop/desktop-to-uwp-root)か、または[スパース パッケージを使用してアプリ ID を付与する](grant-identity-to-nonpackaged-apps.md)ことで、デスクトップ アプリに[パッケージ ID ](modernize-packaged-apps.md)を付与する必要があります。
 
 準備ができたら始めましょう。
 
@@ -37,7 +37,7 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 ![開始プロジェクトを拡張する](images/desktop-to-uwp/extend-start-project.png)
 
-ソリューションにパッケージ プロジェクトが含まれていない場合は、[Visual Studio を使ったデスクトップ アプリケーションのパッケージ化](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)に関する記事を参照してください。
+ソリューションにパッケージ プロジェクトが含まれていない場合は、[Visual Studio を使ったデスクトップ アプリケーションのパッケージ化](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)に関する記事を参照してください。
 
 ### <a name="configure-the-desktop-application"></a>デスクトップ アプリケーションを構成する
 
@@ -175,7 +175,7 @@ XAML UI を UWP プロジェクトに追加します。 基本的なマップの
 
 ### <a name="start-the-uwp-app"></a>UWP アプリを起動する
 
-まず、デスクトップ アプリケーションから、プロトコル名と UWP アプリに渡すパラメーターが含まれた [URI](https://docs.microsoft.com/dotnet/api/system.uri) を作成します。 次に、[LaunchUriAsync](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。
+まず、デスクトップ アプリケーションから、プロトコル名と UWP アプリに渡すパラメーターが含まれた [URI](/dotnet/api/system.uri) を作成します。 次に、[LaunchUriAsync](/uwp/api/windows.system.launcher.launchuriasync) メソッドを呼び出します。
 
 ```csharp
 
@@ -366,7 +366,7 @@ UWP アプリ プロジェクトに **[Windows Desktop Extensions for the UWP]**
 Photos.Path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
 ```
 
-ユーザーによって既に開かれているデスクトップ アプリケーションのインスタンスでは、[FileSystemWatcher](https://docs.microsoft.com/dotnet/api/system.io.filesystemwatcher) イベントを処理して、ファイルの場所へのパスを渡すこともできます。 これにより、開かれたデスクトップ アプリケーションのインスタンスでは、共有された写真が表示されます。
+ユーザーによって既に開かれているデスクトップ アプリケーションのインスタンスでは、[FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) イベントを処理して、ファイルの場所へのパスを渡すこともできます。 これにより、開かれたデスクトップ アプリケーションのインスタンスでは、共有された写真が表示されます。
 
 ```csharp
 ...

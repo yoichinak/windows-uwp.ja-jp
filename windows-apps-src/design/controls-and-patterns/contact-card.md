@@ -1,5 +1,5 @@
 ---
-Description: ボタンは、特定の操作を直ちに実行する手段をユーザーに提供します。
+description: 連絡先カードを使用して、ユーザーが名前、電話番号、住所などの連絡先情報を表示および編集できるようにする方法について説明します。
 title: 連絡先カード
 ms.date: 03/07/2018
 ms.topic: article
@@ -9,12 +9,12 @@ design-contact: tbd
 dev-contact: tbd
 doc-status: not-published
 ms.localizationpriority: medium
-ms.openlocfilehash: 274481b2a282b025a637f7f6cc54dc0161c3e61d
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 2817977533b63df8498faa1ecbc5cc57a4987c30
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968757"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89160596"
 ---
 # <a name="contact-card"></a>連絡先カード
 
@@ -174,12 +174,12 @@ private void onUserClickShowContactCard()
 
 ## <a name="retrieving-real-contacts"></a>"実際の” 連絡先の取得
 
-この記事の例では、単純な連絡先を作成します。 実際のアプリでは、おそらく既存の連絡先を取得します。 手順については、[連絡先とカレンダーの記事](/windows/uwp/contacts-and-calendar/)をご覧ください。
+この記事の例では、単純な連絡先を作成します。 実際のアプリでは、おそらく既存の連絡先を取得します。 手順については、[連絡先とカレンダーの記事](../../contacts-and-calendar/index.md)をご覧ください。
 
 
 
 
 ## <a name="related-articles"></a>関連記事
-- [連絡先とカレンダー](/windows/uwp/contacts-and-calendar/)
+- [連絡先とカレンダー](../../contacts-and-calendar/index.md)
 - [連絡先カードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/ContactCards)
 - [ユーザー画像コントロール](/windows/uwp/controls-and-patterns/person-picture/)

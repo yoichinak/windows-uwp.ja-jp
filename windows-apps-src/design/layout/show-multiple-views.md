@@ -1,16 +1,16 @@
 ---
-Description: アプリのさまざまな部分を別々のウィンドウに表示します。
+description: アプリの独立した部分を別々のウィンドウで表示できるようにして、ユーザーの生産性を高めます。
 title: アプリの複数のビューの表示
 ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e7d6ea614a9d85eadfcb807c6e6100dbe15ed0c4
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 7b58841420c93f3fee02b0f283012fe45c468618
+ms.sourcegitcommit: b0cfbab1ed8749ef572ba6971e6b206717d12c12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970737"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89219135"
 ---
 # <a name="show-multiple-views-for-an-app"></a>アプリの複数のビューの表示
 
@@ -86,6 +86,7 @@ XamlRoot クラスは、XAML コンテンツのツリー、およびそれがホ
 | Window.Current.[Bounds](/uwp/api/windows.ui.xaml.window.bounds) | _uiElement_.XamlRoot.[Size](/uwp/api/windows.ui.xaml.xamlroot.size) |
 | Window.Current.[Content](/uwp/api/windows.ui.xaml.window.content) | UIElement root =  _uiElement_.XamlRoot.[Content](/uwp/api/windows.ui.xaml.xamlroot.content) |
 | Window.Current.[Compositor](/uwp/api/windows.ui.xaml.window.compositor) | 変更なし。 これは AppWindow と DesktopWindowXamlSource でサポートされています。 |
+| VisualTreeHelper.[FindElementsInHostCoordinates](/uwp/api/windows.ui.xaml.media.visualtreehelper.findelementsinhostcoordinates)<br>UIElement パラメーターは省略可能ですが、Island でホストされているときに UIElement が指定されていないと、メソッドは例外を発生させます。 | UIElement として _uiElement_.XamlRoot を指定し、空のままにしないでください。 |
 | VisualTreeHelper.[GetOpenPopups](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopups)<br/>XAML Islands アプリでは、これによってエラーがスローされます。 AppWindow アプリでは、これによって、メインウィンドウに開いているポップアップが返されます。 | VisualTreeHelper.[GetOpenPopupsForXamlRoot](/uwp/api/windows.ui.xaml.media.visualtreehelper.getopenpopupsforxamlroot)(_uiElement_.XamlRoot) |
 | FocusManager.[GetFocusedElement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement) | FocusManager.[GetFocusedElement](/uwp/api/windows.ui.xaml.input.focusmanager.getfocusedelement#Windows_UI_Xaml_Input_FocusManager_GetFocusedElement_Windows_UI_Xaml_XamlRoot_)(_uiElement_.XamlRoot) |
 | contentDialog.ShowAsync() | contentDialog.[XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) = _uiElement_.XamlRoot;<br/>contentDialog.ShowAsync(); |
@@ -108,5 +109,5 @@ XamlRoot クラスは、XAML コンテンツのツリー、およびそれがホ
 
 - [AppWindow の使用](app-window.md)
 - [ApplicationView の使用](application-view.md)
-- [ApplicationViewSwitcher](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)
-- [CreateNewView](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)
+- [ApplicationViewSwitcher](/uwp/api/Windows.UI.ViewManagement.ApplicationViewSwitcher)
+- [CreateNewView](/uwp/api/windows.applicationmodel.core.coreapplication.createnewview)

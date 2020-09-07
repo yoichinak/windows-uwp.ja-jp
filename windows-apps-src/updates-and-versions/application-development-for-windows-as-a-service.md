@@ -1,17 +1,17 @@
 ---
 title: サービスとしての Windows のアプリ開発
-description: アプリのリリースを分離し、特定の Windows ビルドからサポートします。
+description: イノベーション、開発、配信に対するサービスとしての Windows (WaaS) のアプローチと、コミュニティ中心の Windows Insider テスト プログラムについて説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f384ca56-f2b2-4793-b251-f7f5735376bb
 ms.localizationpriority: medium
-ms.openlocfilehash: 47be38c6d7a5374b06789beede02647ef9b264d8
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: c035a97b1750c8f285689f2b2f82f3766a6c06ad
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75737635"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173796"
 ---
 # <a name="application-development-for-windows-as-a-service"></a>サービスとしての Windows アプリケーション開発
 
@@ -20,7 +20,7 @@ ms.locfileid: "75737635"
 -   Windows 10 Mobile
 -   Windows 10 IoT Core 
 
-現在の環境では、ユーザーはデバイス中心のエクスペリエンスで期待を抱くことが多いため、完全な製品サイクルを年ではなく月で測定する必要があります。 また、新しいリリースは頻繁に入手可能にする必要があり、ユーザーへの影響を最小限に抑えて展開できる必要があります。 Microsoft は革新、開発、配信のための新しいアプローチを実装することで、これらの要件を満たすように Windows 10 を設計しました。このアプローチは、[サービスとしての Windows (WaaS)](https://docs.microsoft.com/windows/deployment/update/waas-overview) と呼ばれます。 高い品質レベルを維持しながら、非常に短い製品サイクルを実現するためにキーとなるのは、Microsoft が Windows 10 向けに実装したテストに対するコミュニティ中心の革新的なアプローチです。 Windows Insider として知られるこのコミュニティは、世界中の何百万ものユーザーで構成されています。 Windows Insider ユーザーはコミュニティにオプトインすると、製品サイクルの経過と共に数多くのビルドをテストし、Insider プレビュー ビルドという反復的な方法で Microsoft にフィードバックを提供します。
+現在の環境では、ユーザーはデバイス中心のエクスペリエンスで期待を抱くことが多いため、完全な製品サイクルを年ではなく月で測定する必要があります。 また、新しいリリースは頻繁に入手可能にする必要があり、ユーザーへの影響を最小限に抑えて展開できる必要があります。 Microsoft は革新、開発、配信のための新しいアプローチを実装することで、これらの要件を満たすように Windows 10 を設計しました。このアプローチは、[サービスとしての Windows (WaaS)](/windows/deployment/update/waas-overview) と呼ばれます。 高い品質レベルを維持しながら、非常に短い製品サイクルを実現するためにキーとなるのは、Microsoft が Windows 10 向けに実装したテストに対するコミュニティ中心の革新的なアプローチです。 Windows Insider として知られるこのコミュニティは、世界中の何百万ものユーザーで構成されています。 Windows Insider ユーザーはコミュニティにオプトインすると、製品サイクルの経過と共に数多くのビルドをテストし、Insider プレビュー ビルドという反復的な方法で Microsoft にフィードバックを提供します。
 
 Insider プレビュー ビルドとして配布されるビルドは、実際の使用中にビルドが適切に実行されるかどうかに関する重要なデータを Windows エンジニアリング チームに提供します。 また、Windows Insider による Insider プレビュー ビルドを利用することで、Microsoft は以前よりはるかに多様なハードウェア、アプリケーション、およびネットワーク環境でビルドをテストし、より早く問題を特定することができます。 その結果、Microsoft はコミュニティに重点を置いた Insider プレビュー ビルドによって、これまでより速いペースで革新的機能を配信でき、より高品質な一般リリースを公開できると考えています。
 
@@ -42,7 +42,7 @@ Windows 10 の開発時、ユーザーが求める機能やエクスペリエ�
 | 半期チャネル | Microsoft が最初に発行してから約 4 か月後 | 最初に発行してから 18 か月 | 展開の前に新しい機能アップグレードをテストするための追加時間を提供する | Pro、Education、Enterprise、Mobile Enterprise、IoT Core Pro |
 | 長期的なサービス チャネル (LTSC) | Microsoft が発行した直後 | 10 年 | 低料金構成で選択された Windows 10 リリースの長期的な展開を可能にする | Enterprise LTSB |
 
-詳しくは、「[更新とアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)」をご覧ください。
+詳しくは、「[更新とアップグレードに関する Windows 10 のサービス オプション](/windows/deployment/update/waas-overview#servicing-channels)」をご覧ください。
 
 ## <a name="supporting-apps-in-windows-as-a-service"></a>サービスとしての Windows におけるアプリのサポート
 
@@ -90,7 +90,7 @@ Windows 10 で OS のバージョンがインクリメントされています�
 -   アプリが特定の API 機能に依存している場合は、正しい API バージョンをターゲットにしてください。
 -   APISet または別のパブリック API を使用して変更を検出し、そのバージョンは機能や修正プログラムのプロキシとして使用しないでください。 仕様変更があり、しかも適切なチェックが公開されていない場合、それはバグです。
 -   アプリがその他の方法 (レジストリ、ファイルのバージョン、オフセット、カーネル モード、ドライバーなどの方法) でバージョン チェックを行わないことを確認します。 アプリでどうしてもバージョンを確認する必要がある場合は、メジャー番号、マイナー番号、およびビルド番号を返す GetVersion API を使用します。
--   [GetVersion](https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversion?redirectedfrom=MSDN) API を使用している場合は、この API の動作が Windows 8.1 以降に変更されていることにご注意ください。
+-   [GetVersion](/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversion) API を使用している場合は、この API の動作が Windows 8.1 以降に変更されていることにご注意ください。
 
 マルウェア対策やファイアウォール アプリなどのアプリを所有している場合は、通常のフィードバックのチャンネルを通じて、または Windows Insider プログラムから対応してください。
 
@@ -158,4 +158,4 @@ Windows Insider に登録する前に、参加するユーザーについて次�
 
 
 ## <a name="related-topics"></a>関連トピック
-[更新プログラムおよびアップグレードに関する Windows 10 のサービス オプション](https://docs.microsoft.com/windows/manage/introduction-to-windows-10-servicing)
+[更新プログラムおよびアップグレードに関する Windows 10 のサービス オプション](/windows/manage/introduction-to-windows-10-servicing)

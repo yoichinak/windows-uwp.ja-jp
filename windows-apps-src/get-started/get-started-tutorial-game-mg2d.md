@@ -1,17 +1,17 @@
 ---
 title: MonoGame 2D で UWP ゲームを作成する
-description: C# と MonoGame で記述された Microsoft Store 向けのシンプルな UWP ゲーム
+description: このチュートリアルでは、C# と MonoGame で記述された Microsoft Store 向けの基本的な UWP ゲームを作成する方法について説明します。
 ms.date: 03/06/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 5d5f7af2-41a9-4749-ad16-4503c64bb80c
 ms.localizationpriority: medium
-ms.openlocfilehash: 4300bdc0224a18874a7ff9153195f81f8bb8d101
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: b6e4b5bd75e0aff96cfc61f9b1bac380c61ae46f
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75685056"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89162876"
 ---
 # <a name="create-a-uwp-game-in-monogame-2d"></a>MonoGame 2D で UWP ゲームを作成する
 
@@ -25,9 +25,9 @@ ms.locfileid: "75685056"
 MonoGame は、軽量のゲーム開発フレームワークです。 このチュートリアルでは、コンテンツの読み込み、スプライトの描画、これらのアニメーション、ユーザー入力の処理など、MonoGame でのゲーム開発の基本事項について説明します。 衝突の検出や高 DPI 画面用のスケールアップなど、いくつかの高度な概念についても説明します。 このチュートリアルの所要時間は 30 ～ 60 分です。
 
 ## <a name="prerequisites"></a>前提条件
-+   Windows 10 と Microsoft Visual Studio 2019。  [Visual Studio を備えた環境をセットアップする方法については、こちらをご覧ください](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)。
++   Windows 10 と Microsoft Visual Studio 2019。  [Visual Studio を備えた環境をセットアップする方法については、こちらをご覧ください](./get-set-up.md)。
 + .NET デスクトップ開発フレームワーク。 インストールしていない場合は、Visual Studio インストーラーを再度実行し、Visual Studio 2019 のインストールを変更して、取得できます。
-+   C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 [C# のチュートリアルについては、こちらをご覧ください](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
++   C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 [C# のチュートリアルについては、こちらをご覧ください](./create-a-hello-world-app-xaml-universal.md)。
 +   オプションとして、クラス、メソッド、変数など、基本的なコンピューター サイエンスの概念に関する知識。
 
 ## <a name="why-monogame"></a>MonoGame を使用する理由
@@ -694,8 +694,8 @@ if (gameOver)
 
 Windows 開発者として[登録](https://developer.microsoft.com/store/register)する必要があります。
 
-[アプリの申請チェックリスト](https://docs.microsoft.com/windows/uwp/publish/app-submissions)を使用する必要があります。
+[アプリの申請チェックリスト](../publish/app-submissions.md)を使用する必要があります。
 
-[認定](https://docs.microsoft.com/windows/uwp/publish/the-app-certification-process)を受けるために、アプリを提出する必要があります。
+[認定](../publish/the-app-certification-process.md)を受けるために、アプリを提出する必要があります。
 
-詳しくは、[UWP アプリの公開](https://docs.microsoft.com/windows/uwp/publish/)に関する記事をご覧ください。
+詳しくは、[UWP アプリの公開](../publish/index.md)に関する記事をご覧ください。

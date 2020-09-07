@@ -1,17 +1,17 @@
 ---
-description: C++/WinRT に関するニュースと変更内容です。
+description: 最近の追加機能と改善点、および C++/WinRT 2.0 と Windows SDK バージョン 10.0.17763.0 についての新機能と変更点をご確認ください。
 title: C++/WinRT の新機能
 ms.date: 03/16/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 3057a3d13ba1e7d368dd6bf8820710030687a04d
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 0d7c42b1346805c9c03714eb9bbb3944fe940ccf
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80662384"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89154466"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -44,7 +44,7 @@ C++/WinRT と C++ コンパイラ チームは、ビルド時間短縮のため�
 
 ### <a name="more-efficient-boxing"></a>より効率的なボックス化
 
-XAML アプリケーションで使用する場合、[**winrt:: box_value**](/uwp/cpp-ref-for-winrt/box-value) がより効率的になりました ([ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページを参照してください)。 また、多数のボックス化を実行するアプリケーションでは、コード サイズも小さくなります。
+XAML アプリケーションで使用する場合、[**winrt:: box_value**](/uwp/cpp-ref-for-winrt/box-value) がより効率的になりました ([ボックス化とボックス化解除](./boxing.md)に関するページを参照してください)。 また、多数のボックス化を実行するアプリケーションでは、コード サイズも小さくなります。
 
 ### <a name="support-for-implementing-com-interfaces-that-implement-iinspectable"></a>IInspectable を実装する COM インターフェイスの実装のサポート
 
@@ -205,7 +205,7 @@ xlang メタデータ リーダーのため、C++/WinRT では、すべてのパ
 
 これら 2 つの最適化により、コンポーネントでは、プロジェクションが実行された型のみを使う場合であっても、独自の実装型に直接アクセスできます。 パブリック API サーフェスを使うだけの場合は、[**make**](/uwp/cpp-ref-for-winrt/make)、[**make_self**](/uwp/cpp-ref-for-winrt/make-self)、[**get_self**](/uwp/cpp-ref-for-winrt/get-self) を使う必要はありません。 呼び出しは実装の直接呼び出しにコンパイルされ、完全にインライン化される可能性さえあります。
 
-詳細とコード例については、[均一の構築と実装への直接アクセスへのオプトイン](/windows/uwp/cpp-and-winrt-apis/author-apis#opt-in-to-uniform-construction-and-direct-implementation-access)に関する記事を参照してください。
+詳細とコード例については、[均一の構築と実装への直接アクセスへのオプトイン](./author-apis.md#opt-in-to-uniform-construction-and-direct-implementation-access)に関する記事を参照してください。
 
 ##### <a name="type-erased-factories"></a>型消去されたファクトリ
 
@@ -245,7 +245,7 @@ fire_and_forget Async(DispatcherQueueController controller)
 
 投影されたクラスと実装クラスの名前は (既定では) 同じで、名前空間のみが異なるため、間違えることがあり、ヘルパーの [**make**](/uwp/cpp-ref-for-winrt/make) ファミリではなく、スタック上に実装を誤って作成する可能性があります。 これは、未解決の参照がまだ処理中にオブジェクトが破棄される可能性があるため、場合によっては診断が困難です。 デバッグ ビルドでは、アサーションによってこれが選択されるようになりました。 アサーションではコルーチン内のスタック割り当ては検出されませんが、それでもそのような誤りのほとんどを把握するのに役立ちます。
 
-詳細については、「[直接割当ての診断](/windows/uwp/cpp-and-winrt-apis/diag-direct-alloc)」を参照してください。
+詳細については、「[直接割当ての診断](./diag-direct-alloc.md)」を参照してください。
 
 #### <a name="improved-capture-helpers-and-variadic-delegates"></a>強化されたキャプチャ ヘルパーと可変個引数デリゲート
 
@@ -314,7 +314,7 @@ struct MainPage : PageT<MainPage>
 };
 ```
 
-詳細については、[遅延破棄](/windows/uwp/cpp-and-winrt-apis/details-about-destructors#deferred-destruction)に関する記事を参照してください。
+詳細については、[遅延破棄](./details-about-destructors.md#deferred-destruction)に関する記事を参照してください。
 
 #### <a name="improved-support-for-com-style-single-interface-inheritance"></a>COM スタイルの単一インターフェイス継承に対するサポートの向上
 
@@ -341,7 +341,7 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 | **破壊的変更**。 コンパイルで、C++/WinRT は Windows SDK からのヘッダーに依存しません。 | 後の「[Windows SDK ヘッダー ファイルからの分離](#isolation-from-windows-sdk-header-files)」をご覧ください。 |
 | Visual Studio プロジェクト システムの形式が変更されました。 | 後の「[C++/WinRT プロジェクトのターゲットを Windows SDK の後のバージョンに変更する方法](#how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk)」をご覧ください。 |
 | Windows ランタイム関数にコレクション オブジェクトを渡すため、または独自のコレクション プロパティとコレクション型を実装するための、新しい関数と基底クラスがあります。 | 「[C++/WinRT でのコレクション](collections.md)」をご覧ください。 |
-| C++/WinRT ランタイム クラスで [{binding}](/windows/uwp/xaml-platform/binding-markup-extension) マークアップ拡張機能を使用できます。 | 詳細とコード例については、「[データ バインディングの概要](/windows/uwp/data-binding/data-binding-quickstart)」をご覧ください。 |
+| C++/WinRT ランタイム クラスで [{binding}](../xaml-platform/binding-markup-extension.md) マークアップ拡張機能を使用できます。 | 詳細とコード例については、「[データ バインディングの概要](../data-binding/data-binding-quickstart.md)」をご覧ください。 |
 | コルーチンの取り消しのサポートにより、取り消しコールバックを登録できます。 | 詳細とコード例については、「[非同期操作の取り消しとキャンセル コールバック](concurrency-2.md#canceling-an-asynchronous-operation-and-cancellation-callbacks)」をご覧ください。 |
 | メンバー関数を指し示すデリゲートを作成するとき、ハンドラーを登録する時点で、現在のオブジェクト (生の *this* ポインターのインスタンス) に対する強い参照または弱い参照を確立できます。 | 詳細およびコード例については、「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」セクションの「**デリゲートとしてメンバー関数を使用する場合**」サブセクションをご覧ください。 |
 | Visual Studio の C++ 標準への適合性が向上することによって発見されたバグが修正されました。 C++/WinRT の標準準拠の検証に対する LLVM および Clang ツールチェーンの利用も向上しています。 | 次の記事で説明されいている問題が発生しなくなります。[Why won't my new project compile?I'm using Visual Studio 2017 (version 15.8.0 or higher), and SDK version 17134 (新しいプロジェクトがコンパイルされない理由: Visual Studio 2017 (バージョン 15.8.0 以降) と SDK バージョン 17134 を使用している場合)](faq.md#why-wont-my-new-project-compile-im-using-visual-studio-2017-version-1580-or-higher-and-sdk-version-17134) |
@@ -375,7 +375,7 @@ C++/WinRT は、コンパイルで Windows SDK からのヘッダー ファイ�
 
 現時点では、Windows SDK ヘッダー ファイルの分離に対する例外は、組み込み関数と数値だけです。 これらの最後に残っている依存関係に関する既知の問題はありません。
 
-プロジェクトでは、必要に応じて、Windows SDK ヘッダーとの相互運用を再度有効にできます。 たとえば、COM インターフェイスを実装することが必要な場合があります、(原因は [**IUnknown**](https://docs.microsoft.com/windows/desktop/api/unknwn/nn-unknwn-iunknown))。 その例では、すべての C++/WinRT ヘッダーをインクルードする前に、`unknwn.h` をインクルードします。 そのようにすると、C++/WinRT の基本ライブラリで、クラシック COM インターフェイスをサポートするためのさまざまなフックが有効になります。 コードの例については、「[C++/WinRT での COM コンポーネントの作成](author-coclasses.md)」をご覧ください。 同様に、呼び出そうとする型や関数が宣言されている他の Windows SDK ヘッダーを明示的にインクルードします。
+プロジェクトでは、必要に応じて、Windows SDK ヘッダーとの相互運用を再度有効にできます。 たとえば、COM インターフェイスを実装することが必要な場合があります、(原因は [**IUnknown**](/windows/desktop/api/unknwn/nn-unknwn-iunknown))。 その例では、すべての C++/WinRT ヘッダーをインクルードする前に、`unknwn.h` をインクルードします。 そのようにすると、C++/WinRT の基本ライブラリで、クラシック COM インターフェイスをサポートするためのさまざまなフックが有効になります。 コードの例については、「[C++/WinRT での COM コンポーネントの作成](author-coclasses.md)」をご覧ください。 同様に、呼び出そうとする型や関数が宣言されている他の Windows SDK ヘッダーを明示的にインクルードします。
 
 ### <a name="how-to-retarget-your-cwinrt-project-to-a-later-version-of-the-windows-sdk"></a>C++/WinRT プロジェクトのターゲットを Windows SDK の後のバージョンに変更する方法
 

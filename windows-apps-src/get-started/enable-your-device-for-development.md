@@ -1,17 +1,17 @@
 ---
 ms.assetid: 54973C62-9669-4988-934E-9273FB0425FD
 title: デバイスを開発用に有効にする
-description: 開発およびデバッグ用に Windows 10 デバイスを構成します。
+description: Visual Studio で開発者モードをアクティブ化することにより、開発およびデバッグ用に Windows 10 デバイスを有効にする方法について説明します。
 keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライセンス対応デバイス
 ms.date: 05/22/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4402200726da93bb820946c9849d8c15bd1c5d8d
-ms.sourcegitcommit: 48e047a581fcfcc9a4084d65a78b89f2c01cf4f3
+ms.openlocfilehash: 702e3aa166501c3e9974398ae5b89e832cfa7391
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85448392"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89159056"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
@@ -62,9 +62,9 @@ ms.locfileid: "85448392"
 Device Portal について詳しくは、「[Windows Device Portal の概要](../debug-test-perf/device-portal.md)」をご覧ください。
 
 デバイス固有のセットアップ手順については、以下をご覧ください。
-- [デスクトップ用 Device Portal](https://docs.microsoft.com/windows/uwp/debug-test-perf/device-portal-desktop)
-- [HoloLens 用 Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
-- [IoT 用 Device Portal](https://developer.microsoft.com/windows/iot/docs/DevicePortal)
+- [デスクトップ用 Device Portal](../debug-test-perf/device-portal-desktop.md)
+- [HoloLens 用 Device Portal](/windows/mixed-reality/using-the-windows-device-portal)
+- [IoT 用 Device Portal](/windows/iot-core/manage-your-device/DevicePortal)
 - [モバイル用 Device Portal](../debug-test-perf/device-portal-mobile.md)
 - [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
 
@@ -75,7 +75,7 @@ Device Portal について詳しくは、「[Windows Device Portal の概要](..
 > [!NOTE]
 > 最新の Windows 10 更新プログラムでは、サイドローディングは既定で有効になっています。 これにより、特別な構成を行わずに、署名済みの MSIX パッケージをデバイスに展開できるようになりました。 以前のバージョンの Windows 10 を使用している場合、既定の設定では Microsoft Store からアプリを実行することのみが許可されており、Microsoft 以外のソースからアプリをインストールするにはサイドローディングを有効にする必要があります。
 
-アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](https://docs.microsoft.com/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune の基本](https://docs.microsoft.com/mem/intune/fundamentals/)」をご覧ください。
+アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune の基本](/mem/intune/fundamentals/)」をご覧ください。
 
 デバイス ファミリ固有の情報
 
@@ -122,7 +122,7 @@ Windows で使用される既存の SSH サーバーはまだプロトコルに�
 
 Windows 10 PC から Windows 10 デバイスへのアプリの展開に使用できるツールはいくつかあります。 デバイスは両方ともワイヤード (有線) またはワイヤレスでネットワークの同じサブネットに接続されているか、または 2 台のデバイスが USB で接続されている必要があります。 どちらの方法を使用しても、アプリ パッケージ (.appx/.appxbundle) のみがインストールされます。証明書はインストールされません。
 
--   Windows 10 アプリケーション展開 (WinAppDeployCmd) ツールを使います。 詳しくは、[WinAppDeployCmd ツール](https://docs.microsoft.com/previous-versions/windows/apps/mt203806(v=vs.140))に関するページをご覧ください。
+-   Windows 10 アプリケーション展開 (WinAppDeployCmd) ツールを使います。 詳しくは、[WinAppDeployCmd ツール](/previous-versions/windows/apps/mt203806(v=vs.140))に関するページをご覧ください。
 -   [デバイス ポータル](../debug-test-perf/device-portal.md)を使用して、ブラウザーから、Windows 10 バージョン 1511 以降を実行しているモバイル デバイスに展開できます。 Device Portal の **[アプリ](../debug-test-perf/device-portal.md#apps-manager)** ページを使用して、アプリ パッケージ (.appx) をアップロードしてデバイスにインストールします。
 
 ## <a name="failure-to-install-developer-mode-package"></a>開発者モード パッケージのインストール エラー
@@ -231,8 +231,8 @@ Windows 8.1 デバイスでアプリを作成またはサイドローディン�
 ## <a name="see-also"></a>参照
 
 * [初めてのアプリ](your-first-app.md)
-* [UWP アプリを公開する](https://docs.microsoft.com/windows/uwp/publish/)
-* [UWP アプリの開発に関するハウツー記事](https://docs.microsoft.com/windows/uwp/develop/)
+* [UWP アプリを公開する](../publish/index.md)
+* [UWP アプリの開発に関するハウツー記事](../develop/index.md)
 * [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
 * [UWP アプリとは](universal-application-platform-guide.md)
 * [Windows アカウントのサインアップ](sign-up.md)

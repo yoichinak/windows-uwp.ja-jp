@@ -1,16 +1,16 @@
 ---
-Description: Windows アプリでのフォームのレイアウト ガイドライン。
 title: フォーム
+description: ユニバーサル Windows プラットフォーム (UWP) アプリでフォームの XAML レイアウトを設計および作成するためのガイドラインについて説明します。
 template: detail.hbs
 ms.date: 11/07/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 69ffaf4ff67d4ee78e78c195d759ae242a069e8e
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 0113cbf50601a3db717753ab2e12524fa281daba
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82968513"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304694"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -45,8 +45,8 @@ ms.locfileid: "82968513"
 この種類のフォームでは、ユーザーは柔軟に応答できます。 通常、この種類のフォームにはより自由な形式の入力フィールドが含まれているため、受け取る応答も多様です。 有効なユーザー入力と正しく書式設定されたデータの送信が確実に行われるようにするには、次の推奨事項を考慮してください。
 
 - 適切なコントロールを使って、無効な情報を送信できないようにします (つまり、カレンダーの日付には、TextBox ではなく CalendarDatePicker を使います)。 フォームでの適切な入力コントロールの選択について詳しくは、後述する「入力コントロール」セクションをご覧ください。
-- TextBox コントロールを使うときは、[PlaceholderText](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBox.PlaceholderText) プロパティで、望ましい入力形式のヒントをユーザーに提供します。
-- [InputScope](https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.inputscope) プロパティでコントロールの想定される入力を指定することで、適切なスクリーン キーボードをユーザーに提供します。
+- TextBox コントロールを使うときは、[PlaceholderText](/uwp/api/Windows.UI.Xaml.Controls.TextBox.PlaceholderText) プロパティで、望ましい入力形式のヒントをユーザーに提供します。
+- [InputScope](/uwp/api/windows.ui.xaml.input.inputscope) プロパティでコントロールの想定される入力を指定することで、適切なスクリーン キーボードをユーザーに提供します。
 - ラベルにアスタリスク * を付けることで、必須の入力であることを示します。
 - 必須の情報がすべて入力されるまで、送信ボタンを無効にしておきます。
 - 送信時に無効なデータがある場合は、フィールドを強調表示したりフィールドに境界線を表示したりすることでコントロールの入力が無効であることを示し、ユーザーにフォームの再送信を要求します。
@@ -58,7 +58,7 @@ ms.locfileid: "82968513"
 ユーザー エクスペリエンスを使いやすくして、ユーザーが確実に正しく入力できるようにするには、フォームのレイアウトをデザインするときに次の推奨事項を考慮してください。 
 
 ### <a name="labels"></a>ラベル
-[ラベル](labels.md)は左揃えにして、入力コントロールの上に配置する必要があります。 多くのコントロールには、ラベルを表示するための Header プロパティが組み込まれています。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
+[ラベル](labels.md)は左揃えにして、入力コントロールの上に配置する必要があります。 多くのコントロールには、ラベルを表示するための Header プロパティが組み込まれています。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
 
 [アクセシビリティ対応の設計にする](../accessibility/accessibility.md)には、個別のコントロールとコントロールのグループのすべてに、人間とスクリーン リーダーの両方のためにわかりやすいラベルを付けます。 
 
@@ -128,8 +128,8 @@ Control | vmmblue_2 | 例
 Control | vmmblue_2 | 例
 - | - | -
 [ComboBox](combo-box.md) | コンパクトな状態で開始し、展開して選択可能な項目の一覧を表示します | 州や国などの長い項目一覧からの選択
-[ListView](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists#list-views) | 項目の分類とグループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの整理、項目の順序変更を行います | ランク オプション
-[GridView](https://docs.microsoft.com/windows/uwp/controls-and-patterns/lists#grid-views) | イメージ ベースのコレクションを配置および参照します | 写真、色、表示テーマの選択
+[ListView](./lists.md#list-views) | 項目の分類とグループ ヘッダーの割り当て、項目のドラッグ アンド ドロップ、コンテンツの整理、項目の順序変更を行います | ランク オプション
+[GridView](./lists.md#grid-views) | イメージ ベースのコレクションを配置および参照します | 写真、色、表示テーマの選択
 
 ### <a name="numeric-input"></a>数値入力
 Control | vmmblue_2 | 例

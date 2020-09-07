@@ -1,5 +1,5 @@
 ---
-Description: インク ツールの説明
+description: Windows アプリでの手描き入力と手描き関連の機能を容易にする、InkCanvas および InkToolbar コントロールについて説明します。
 title: インク コントロール
 label: Inking Controls
 template: detail.hbs
@@ -8,18 +8,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: 56104dd5608356b47a405c37eba71e544c5ba23c
-ms.sourcegitcommit: 37e4af3ba203295c7e88448414cf7ea537ab5402
+ms.openlocfilehash: a856d0ef6864b70a2927c35205fb0addca3e4056
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84257441"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89173966"
 ---
 # <a name="inking-controls"></a>インク コントロール
 
 
 
-Windows アプリでの手描き入力を容易にする、[InkCanvas](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas) と [InkToolbar](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar) という 2 つのコントロールがあります。
+Windows アプリでの手描き入力を容易にする、[InkCanvas](/uwp/api/windows.ui.xaml.controls.inkcanvas) と [InkToolbar](/uwp/api/windows.ui.xaml.controls.inktoolbar) という 2 つのコントロールがあります。
 
 InkCanvas コントロールは、インク ストローク (色と太さの既定の設定を使用) か消去ストロークのいずれかとしてペン入力をレンダリングします。 このコントロールは透明なオーバーレイで、インク ストロークの既定のプロパティを変更するための組み込みの UI は含まれていません。
 
@@ -35,7 +35,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 
 <img src="images/ink-tools-invoked-toolbar.png" width="300" alt="InkToolbar palette flyout">
 
-> **重要な API**:[InkCanvas クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inkcanvas)、[InkToolbar クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.inktoolbar)、[InkPresenter クラス](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter)、[Windows.UI.Input.Inking](https://docs.microsoft.com/uwp/api/Windows.UI.Input.Inking)
+> **重要な API**:[InkCanvas クラス](/uwp/api/windows.ui.xaml.controls.inkcanvas)、[InkToolbar クラス](/uwp/api/windows.ui.xaml.controls.inktoolbar)、[InkPresenter クラス](/uwp/api/windows.ui.input.inking.inkpresenter)、[Windows.UI.Input.Inking](/uwp/api/Windows.UI.Input.Inking)
 
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
@@ -47,7 +47,7 @@ InkCanvas コントロールにはインク ストロークの既定の設定を
 インク機能をアクティブ化し、ストロークのサイズ、色、ペン先の形状などの基本的なインクのプロパティを設定するための UI を提供するには、InkCanvas と InkToolbar を組み合わせます。
 
 > [!NOTE] 
-> InkCanvas でのインク ストロークのレンダリングに対する幅広いカスタマイズについては、基になる [InkPresenter](https://docs.microsoft.com/uwp/api/windows.ui.input.inking.inkpresenter) オブジェクトを使ってください。
+> InkCanvas でのインク ストロークのレンダリングに対する幅広いカスタマイズについては、基になる [InkPresenter](/uwp/api/windows.ui.input.inking.inkpresenter) オブジェクトを使ってください。
 
 ## <a name="examples"></a>例
 
@@ -84,7 +84,7 @@ InkCanvas と InkToolbar は、**Windows Ink ワークスペース**の**切り�
 ```
 
 > [!NOTE]
-> InkPresenter を使った InkCanvas のカスタマイズについて詳しくは、[Windows アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) に関する記事をご覧ください。
+> InkPresenter を使った InkCanvas のカスタマイズについて詳しくは、[Windows アプリでのペン操作と Windows Ink](../input/pen-and-stylus-interactions.md) に関する記事をご覧ください。
 
 InkToolbar コントロールは、InkCanvas と組み合わせて使う必要があります。 InkToolbar (組み込みのすべてのツールが含まれています) をアプリに組み込むには、さらに次の 1 行のマークアップを追加する必要があります。
 
@@ -170,6 +170,6 @@ InkToolbar はトップ レベルの項目にすることもできますが、�
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリでのペン操作と Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions)
-- [Windows Ink のストロークをテキストおよび図形として認識する](https://docs.microsoft.com/windows/uwp/design/input/convert-ink-to-text)
-- [Windows Ink ストローク データの保存と取得](https://docs.microsoft.com/windows/uwp/design/input/save-and-load-ink)
+- [Windows アプリでのペン操作と Windows Ink](../input/pen-and-stylus-interactions.md)
+- [Windows Ink のストロークをテキストおよび図形として認識する](../input/convert-ink-to-text.md)
+- [Windows Ink ストローク データの保存と取得](../input/save-and-load-ink.md)

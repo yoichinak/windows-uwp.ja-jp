@@ -1,16 +1,16 @@
 ---
-description: xBind マークアップ拡張機能により、マークアップで関数を使用できます。
+description: xBind マークアップ拡張機能のデータ バインディング パスのリース ステップとして関数を使用する方法について説明します。
 title: x:Bind の関数
 ms.date: 02/06/2019
 ms.topic: article
 keywords: Windows 10, uwp, xBind
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d74e99526ed5531db92ba88a1053e07a3fc993b
-ms.sourcegitcommit: c7f33dbe9516d28664df1b91e03edca3cb9fb0c8
+ms.openlocfilehash: 4d677767f7eb73bf46784b3f256b511e54013548
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87871688"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89170046"
 ---
 # <a name="functions-in-xbind"></a>x:Bind の関数
 
@@ -23,7 +23,7 @@ Windows 10 バージョン 1607 以降、 **{x:Bind}** はバインド パスの
 - 複数のパラメーターに依存するようにバインディングする方法
 
 > [!NOTE]
-> **{x:Bind}** で関数を使うには、アプリの対象が SDK バージョン 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 を対象としている場合は、関数を使えません。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](https://docs.microsoft.com/windows/uwp/debug-test-perf/version-adaptive-code)」をご覧ください。
+> **{x:Bind}** で関数を使うには、アプリの対象が SDK バージョン 14393 以降である必要があります。 アプリがそれよりも前のバージョンの Windows 10 を対象としている場合は、関数を使えません。 ターゲット バージョンについて詳しくは、「[バージョン アダプティブ コード](../debug-test-perf/version-adaptive-code.md)」をご覧ください。
 
 次の例では、項目の背景と前景が、Color パラメーターに基づいて変換を行うために関数にバインドされています。
 

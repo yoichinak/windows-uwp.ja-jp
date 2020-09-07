@@ -5,16 +5,16 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ef518c9974fb4c8bc0f09f442f4b78be1c9c85d2
-ms.sourcegitcommit: 3a7f9f05f0127bc8e38139b219e30a8df584cad3
+ms.openlocfilehash: f4d2e4c2c1cfde922e46ddea189ab93447f2b323
+ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775832"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89411956"
 ---
 # <a name="conditional-xaml"></a>条件付き XAML
 
-*条件付き XAML* は、XAML マークアップで [ApiInformation.IsApiContractPresent](https://docs.microsoft.com/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent) メソッドを使う方法を提供するものです。 これにより、分離コードを使わなくても、API の有無に基づいてマークアップでプロパティの設定やオブジェクトのインスタンス化を行うことができます。 要素や属性が選択的に解析され、実行時に利用できるかどうかが判断されます。 条件ステートメントは実行時に評価されます。条件付き XAML タグで修飾された要素は、**true** と評価された場合に解析され、そうでない場合は無視されます。
+*条件付き XAML* は、XAML マークアップで [ApiInformation.IsApiContractPresent](/uwp/api/windows.foundation.metadata.apiinformation.isapicontractpresent) メソッドを使う方法を提供するものです。 これにより、分離コードを使わなくても、API の有無に基づいてマークアップでプロパティの設定やオブジェクトのインスタンス化を行うことができます。 要素や属性が選択的に解析され、実行時に利用できるかどうかが判断されます。 条件ステートメントは実行時に評価されます。条件付き XAML タグで修飾された要素は、**true** と評価された場合に解析され、そうでない場合は無視されます。
 
 条件付き XAML は Creators Update (Version 1703、ビルド 15063) 以降で使用できます。 条件付き XAML を使用するには、Visual Studio プロジェクトの最小バージョンとしてビルド 15063 (Creators Update) 以降を選択し、ターゲット バージョンを最小バージョンよりも後のバージョンに設定する必要があります。 Visual Studio プロジェクトの構成について詳しくは、「[バージョン アダプティブ アプリ](version-adaptive-apps.md)」をご覧ください。
 
@@ -59,7 +59,7 @@ IsPropertyPresent(ControlType, PropertyName) | IsPropertyNotPresent(ControlType,
 
 この例では、アプリが Fall Creators Update 以降で実行されている場合に、テキスト ブロックのコンテンツとして "Hello, Conditional XAML" と表示します。以前のバージョンで実行されている場合、コンテンツは何も表示されません。
 
-まず、"contract5Present" というプレフィックスのカスタム名前空間を定義し、[TextBlock.Text](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.textblock.Text) プロパティを含むスキーマとして、既定の XAML 名前空間 (https://schemas.microsoft.com/winfx/2006/xaml/presentation) を使います。 これを条件付き名前空間にするために、スキーマの後に区切り文字 '?' を追加します。
+まず、"contract5Present" というプレフィックスのカスタム名前空間を定義し、[TextBlock.Text](/uwp/api/windows.ui.xaml.controls.textblock.Text) プロパティを含むスキーマとして、既定の XAML 名前空間 (https://schemas.microsoft.com/winfx/2006/xaml/presentation) を使います。 これを条件付き名前空間にするために、スキーマの後に区切り文字 '?' を追加します。
 
 次に、Fall Creators Update 以降を実行しているデバイスで **true** を返す条件を定義します。 ApiInformation の **IsApiContractPresent** メソッドを使って、UniversalApiContract の 5 番目のバージョンをチェックします。 バージョン 5 の UniversalApiContract は Fall Creators Update (SDK 16299) でリリースされました。
 
@@ -159,7 +159,7 @@ xmlns:contract5Present="http://schemas.microsoft.com/winfx/2006/xaml/presentatio
 
 ここまでは条件付き XAML を使ってプロパティを設定する方法を見てきましたが、実行時に利用できる API コントラクトに基づいて、条件付きでコントロールをインスタンス化することもできます。
 
-ここでは、アプリが Fall Creators Update で実行されている場合に、Fall Creators Update で利用できる [ColorPicker](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.colorpicker) コントロールをインスタンス化します。 ColorPicker は Fall Creators Update より前のバージョンでは利用できないため、アプリが以前のバージョンで実行されている場合は、[ComboBox](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.combobox) を使って色を選択する簡単なインターフェイスをユーザーに提示します。
+ここでは、アプリが Fall Creators Update で実行されている場合に、Fall Creators Update で利用できる [ColorPicker](/uwp/api/windows.ui.xaml.controls.colorpicker) コントロールをインスタンス化します。 ColorPicker は Fall Creators Update より前のバージョンでは利用できないため、アプリが以前のバージョンで実行されている場合は、[ComboBox](/uwp/api/windows.ui.xaml.controls.combobox) を使って色を選択する簡単なインターフェイスをユーザーに提示します。
 
 ```xaml
 <contract5Present:ColorPicker x:Name="colorPicker"
@@ -244,7 +244,7 @@ xmlns:contract5Present="http://schemas.microsoft.com/winfx/2006/xaml/presentatio
 
 ## <a name="related-articles"></a>関連記事
 
-- [UWP アプリ ガイド](https://docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide)
+- [UWP アプリ ガイド](../get-started/universal-application-platform-guide.md)
 - [API コントラクトを使った機能の動的な検出](https://blogs.windows.com/buildingapps/2015/09/15/dynamically-detecting-features-with-api-contracts-10-by-10/)
 - [API コントラクト](https://channel9.msdn.com/Events/Build/2015/3-733) (Build 2015 のビデオ)
-- [ユニバーサル デバイス ファミリの API コントラクト](/uwp/extension-sdks/windows-universal-sdk)
+- [拡張 SDK でのプログラミング](/uwp/extension-sdks/device-families-overview)

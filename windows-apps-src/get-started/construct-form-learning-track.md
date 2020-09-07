@@ -1,17 +1,17 @@
 ---
 title: 学習トラック - フォームの作成と構成
-description: アプリで堅牢なフォームを作成するために必要となることについて説明します。
+description: 大量の情報の入力を処理するために、ユニバーサル Windows プラットフォーム (UWP) アプリで信頼性の高いフォームを構築して構成する方法について説明します。
 ms.date: 05/07/2018
 ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, レイアウト, フォーム
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 02cb15d948bf35b1c449bb430c9c31dd33d9eec6
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a674514bfeb2acbc545e59cf1b3fc6e59d697215
+ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79543975"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304524"
 ---
 # <a name="create-and-customize-a-form"></a>フォームを作成してカスタマイズする
 
@@ -51,7 +51,7 @@ UWP には、アプリに追加して構成することができる明示的な�
 * [ToggleSwitch](../design/controls-and-patterns/toggles.md) では、ユーザーが 2 つのオプションから選択できます。
 * [DatePicker](../design/controls-and-patterns/date-picker.md) では、ユーザーが日付値を選択できます。
 * [TimePicker](../design/controls-and-patterns/time-picker.md) では、ユーザーが時刻値を選択できます。
-* [ComboBox](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ComboBox) は、選択可能な項目の一覧を表示するために展開します。 これらの詳細については、[こちら](../design/controls-and-patterns/combo-box.md)を参照してください。
+* [ComboBox](/uwp/api/Windows.UI.Xaml.Controls.ComboBox) は、選択可能な項目の一覧を表示するために展開します。 これらの詳細については、[こちら](../design/controls-and-patterns/combo-box.md)を参照してください。
 
 また、ユーザーが保存やキャンセルを行うことができるように、[ボタン](../design/controls-and-patterns/buttons.md)を追加することができます。
 
@@ -155,10 +155,10 @@ UWP には、アプリに追加して構成することができる明示的な�
 | API | 説明 |
 |------|---------------|
 | [フォームに役立つコントロール](../design/controls-and-patterns/forms.md#input-controls) | フォームを作成するために役立つ入力コントロールの一覧と、それを使用する場所に関する基本的なガイダンスです。 |
-| [Grid](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Grid) | 複数行および段組レイアウトで要素を配置するためのパネルです。 |
-| [RelativePanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.RelativePanel) | その他の要素とパネルの境界を基準にして項目を配置するためのパネルです。 |
-| [StackPanel](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.StackPanel) | 単一の水平線または垂直線に要素を配置するためのパネルです。 |
-| [VisualState](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.VisualState) | UI 要素が特定の状態にあるときに要素の外観を設定できます。 |
+| [Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid) | 複数行および段組レイアウトで要素を配置するためのパネルです。 |
+| [RelativePanel](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel) | その他の要素とパネルの境界を基準にして項目を配置するためのパネルです。 |
+| [StackPanel](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) | 単一の水平線または垂直線に要素を配置するためのパネルです。 |
+| [VisualState](/uwp/api/Windows.UI.Xaml.VisualState) | UI 要素が特定の状態にあるときに要素の外観を設定できます。 |
 
 ### <a name="useful-docs"></a>役立つドキュメント
 

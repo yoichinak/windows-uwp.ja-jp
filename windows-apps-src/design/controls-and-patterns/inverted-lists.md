@@ -1,6 +1,6 @@
 ---
-Description: 反転リストを使って新しい項目を下部に追加します。
 title: 反転リスト
+description: 反転リストを作成し、それを使用してユニバーサル Windows プラットフォーム (UWP) アプリで ListView コントロールの下部に新しい項目を追加する方法について説明します。
 label: Inverted lists
 template: detail.hbs
 ms.date: 05/19/2017
@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c552109b243688c2618425adce797c4d208eac31
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 40e99ecb4719569e95b55a8cafb411df26ed265e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66364775"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89169886"
 ---
 # <a name="inverted-lists"></a>反転リスト
 
@@ -24,7 +24,7 @@ ms.locfileid: "66364775"
 
 リスト ビューを使って、送信者と受信者を見た目で区別しやすい項目を利用するチャット エクスペリエンスで会話を表示することができます。  異なる色と水平方向の配置を使って送信者と受信者のメッセージを区別すると、ユーザーはすばやく自分の会話の位置を確認できます。
 
-> **重要な API**: [ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)、[ItemsStackPanel クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel)、[ItemsUpdatingScrollMode プロパティ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode)
+> **重要な API**: [ListView クラス](/uwp/api/windows.ui.xaml.controls.listview)、[ItemsStackPanel クラス](/uwp/api/windows.ui.xaml.controls.itemsstackpanel)、[ItemsUpdatingScrollMode プロパティ](/uwp/api/windows.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode)
  
 通常では、上から下ではなく、下から上に一覧を表示することが必要になります。  新しいメッセージを受信して末尾に追加するときは、以前のメッセージを上にスライドして空きを作り、ユーザーの注目が新着メッセージに集まるようにします。  ただし、ユーザーが上にスクロールして以前の返信を確認している場合は、ユーザーの集中を妨害することのないように、新しいメッセージの受信で表示位置を変更しないでください。
 
@@ -32,7 +32,7 @@ ms.locfileid: "66364775"
 
 ## <a name="create-an-inverted-list"></a>反転リストを作成する
 
-反転リストを作成するには、リスト ビューと共に、項目パネルとして [ItemsStackPanel](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel) を使います。 ItemsStackPanel で、[ItemsUpdatingScrollMode](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode) を [KeepLastItemInView](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemsupdatingscrollmode) に設定します。
+反転リストを作成するには、リスト ビューと共に、項目パネルとして [ItemsStackPanel](/uwp/api/windows.ui.xaml.controls.itemsstackpanel) を使います。 ItemsStackPanel で、[ItemsUpdatingScrollMode](/uwp/api/windows.ui.xaml.controls.itemsstackpanel.itemsupdatingscrollmode) を [KeepLastItemInView](/uwp/api/windows.ui.xaml.controls.itemsupdatingscrollmode) に設定します。
 
 > [!IMPORTANT]
 > **KeepLastItemInView** 列挙値は、Windows 10 バージョン 1607 以上で利用できます。 この値は、アプリを以前のバージョンの Windows 10 で実行するときには使用できません。

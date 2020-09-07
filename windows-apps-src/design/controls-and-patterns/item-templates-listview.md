@@ -1,25 +1,25 @@
 ---
-Description: リスト ビューの項目テンプレート
+description: ListView コントロールで使用できる項目テンプレートを取得して、1 行、2 行、3 行、表型のリスト項目を表示します。
 title: リスト ビューの項目テンプレート
 template: detail.hbs
 ms.date: 11/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 9328c3f156acd13fd8947e01e924bf0d6849c0a6
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: fb4e45721c1da399e8b51974bef9f55b0c70e16c
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75684403"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89172676"
 ---
 # <a name="item-templates-for-list-view"></a>リスト ビューの項目テンプレート
 
-このセクションには、[**ListView**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.ListView) コントロールで使用できる項目テンプレートが含まれています。 これらのテンプレートを使って、一般的な種類のアプリの外観を取得できます。 
+このセクションには、[**ListView**](/uwp/api/Windows.UI.Xaml.Controls.ListView) コントロールで使用できる項目テンプレートが含まれています。 これらのテンプレートを使って、一般的な種類のアプリの外観を取得できます。 
 
 データ バインドを実演する目的で、これらのテンプレートでは「[データ バインディングの概要](../../data-binding/data-binding-quickstart.md)」のサンプル Recording クラスに **ListViewItems** をバインドします。
 
 > [!NOTE] 
-> 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、「[アクセシビリティの概要](../accessibility/accessibility-overview.md)」をご覧ください。
+> 現在、**DataTemplate** に複数のコントロール (例: 複数の **TextBlock**) が含まれている場合、スクリーン リーダー用のアクセシビリティに対応する既定の名前は、項目の .ToString() から取得されます。 また利便性を考慮し、**DataTemplate** のルート要素に [**AutomationProperties.Name**](/uwp/api/windows.ui.xaml.automation.automationproperties) を設定することもできます。 アクセシビリティについて詳しくは、「[アクセシビリティの概要](../accessibility/accessibility-overview.md)」をご覧ください。
 
 ## <a name="single-line-list-item"></a>1 行のリスト項目
 このテンプレートを使用して、画像と 1 行のテキストから成る項目のリストを表示します。
@@ -129,7 +129,7 @@ ms.locfileid: "75684403"
 ```
 
 ## <a name="related-articles"></a>関連記事
-- [ListView クラス](https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.listview)
+- [ListView クラス](/uwp/api/windows.ui.xaml.controls.listview)
 - [データ バインディングの概要](../../data-binding/data-binding-quickstart.md)
 - [アクセシビリティの概要](../accessibility/accessibility-overview.md)
 - [ListView と GridView のサンプル (Windows 10)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlListView)

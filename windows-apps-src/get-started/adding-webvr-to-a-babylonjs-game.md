@@ -1,16 +1,16 @@
 ---
 title: 3D の Babylon.js ゲームに WebVR サポートを追加する
-description: 既存の 3D Babylon.js ゲームに WebVR サポートを追加する方法について説明します。
+description: このチュートリアルでは、WebVR 仮想現実のサポートを既存の 3D Babylon.js ゲームに追加する方法について説明します。
 ms.date: 11/29/2017
 ms.topic: article
 keywords: WebVR、Edge、Web 開発、Babylon、Babylonjs、Babylon.js、JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: ff350f8ce08f566b8c95c3c46faad330923e4b2e
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a01e459160025e9ed1b83fbe81da6d562340691e
+ms.sourcegitcommit: 45dec3dc0f14934b8ecf1ee276070b553f48074d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75685199"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89094549"
 ---
 # <a name="adding-webvr-support-to-a-3d-babylonjs-game"></a>3D の Babylon.js ゲームに WebVR サポートを追加する
 
@@ -32,11 +32,11 @@ Babylon.js を使って 3D ゲームを作成したことがあり、仮想現�
 
 ## <a name="getting-started"></a>はじめに
 
-最も簡単に始める方法としては、[Windows-tutorials-web GitHub repo](https://github.com/Microsoft/Windows-tutorials-web) に移動して、緑色の **[Clone or download]**\(クローンまたはダウンロード\) ボタンを押し、 **[Open in Visual Studio]**\(Visual Studio で開く\) を選択します。
+最も簡単に始める方法としては、[Windows-tutorials-web GitHub repo](https://github.com/Microsoft/Windows-tutorials-web) に移動して、緑色の **[Clone or download]** (複製またはダウンロード) ボタンを押し、 **[Open in Visual Studio]** (Visual Studio で開く) を選択します。
 
-![[Clone or download] (クローンまたはダウンロード) ボタン](images/3dclone.png)
+![[Clone or download] (複製またはダウンロード) ボタン](images/3dclone.png)
 
-プロジェクトをクローンしない場合は、zip ファイルとしてダウンロードすることもできます。
+プロジェクトを複製しない場合は、zip ファイルとしてダウンロードすることもできます。
 [[Before](https://github.com/Microsoft/Windows-tutorials-web/tree/master/BabylonJS-game-with-WebVR/before)] と [[After](https://github.com/Microsoft/Windows-tutorials-web/tree/master/BabylonJS-game-with-WebVR/after)] という 2 つのフォルダーがあります。 [Before] フォルダーは VR 機能が追加される前のゲームで、[After] フォルダーは、VR サポートを追加して完成したゲームです。
 
 [Before] と [After] のフォルダーには、次のファイルが含まれています。

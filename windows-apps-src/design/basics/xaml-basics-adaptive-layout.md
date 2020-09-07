@@ -1,16 +1,16 @@
 ---
 title: アダプティブ レイアウトの作成のチュートリアル
-description: この記事では、XAML のアダプティブ レイアウトの基本について説明します。
+description: XAML でアダプティブ レイアウト機能を使用して、あらゆるウィンドウ サイズで正しく表示されるアプリを作成する方法について説明します。
 keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b172f2da7fa8953045db4eab3818df02ce43e00c
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: 8e1498836772c3c279a1b9d85d76070b29593f5e
+ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942892"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89174476"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
@@ -60,11 +60,11 @@ ms.locfileid: "88942892"
 
 ![小さなウィンドウ: 変更前](../basics/images/xaml-basics/adaptive-layout-small-before.png)
 
-アプリのレイアウトの詳細については、ドキュメントの「[レイアウト](/windows/uwp/design/layout/)」セクションを参照してください。
+アプリのレイアウトの詳細については、ドキュメントの「[レイアウト](../layout/index.md)」セクションを参照してください。
 
 ### <a name="add-window-breakpoints"></a>ウィンドウ ブレークポイントを追加する
 
-最初のステップは、異なる表示状態が適用される "_ブレークポイント_" を定義することです。 小、中、大それぞれの画面のブレークポイントの詳細については、「[画面のサイズとブレークポイント](/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design)」を参照してください。
+最初のステップは、異なる表示状態が適用される "_ブレークポイント_" を定義することです。 小、中、大それぞれの画面のブレークポイントの詳細については、「[画面のサイズとブレークポイント](../layout/screen-sizes-and-breakpoints-for-responsive-design.md)」を参照してください。
 
 ソリューション エクスプローラーから App.xaml を開き、`MergedDictionaries` の後の、終了タグ (`</ResourceDictionary>`) の直前に次のコードを追加します。
 
@@ -264,12 +264,12 @@ ms.locfileid: "88942892"
 
 ## <a name="going-further"></a>追加情報
 
-これで、この演習は終わりです。自身でさらに試すために必要な、アダプティブ レイアウトに関する知識を身につけることができました。 さらに大きな課題としては、Surface Hub などの大きな画面サイズ用にレイアウトを最適化してみることができます。 Surface Hub のレイアウトをテストする場合は、「[Visual Studio を使った Surface Hub アプリのテスト](/windows/uwp/debug-test-perf/test-surface-hub-apps-using-visual-studio)」を参照してください。
+これで、この演習は終わりです。自身でさらに試すために必要な、アダプティブ レイアウトに関する知識を身につけることができました。 さらに大きな課題としては、Surface Hub などの大きな画面サイズ用にレイアウトを最適化してみることができます。 Surface Hub のレイアウトをテストする場合は、「[Visual Studio を使った Surface Hub アプリのテスト](../../debug-test-perf/test-surface-hub-apps-using-visual-studio.md)」を参照してください。
 
 行き詰まった場合は、「[XAML を使ったページ レイアウトの定義](../layout/layouts-with-xaml.md)」の以下のセクションで、詳しいガイダンスを参照できます。
 
-+ [表示状態と状態トリガー](/windows/uwp/design/layout/layouts-with-xaml#visual-states-and-state-triggers)
-+ [カスタマイズされたレイアウト](/windows/uwp/design/layout/layouts-with-xaml#tailored-layouts)
++ [表示状態と状態トリガー](../layout/layouts-with-xaml.md#visual-states-and-state-triggers)
++ [カスタマイズされたレイアウト](../layout/layouts-with-xaml.md#tailored-layouts)
 
 当初の写真編集アプリの作成方法を学習するには、XAML の[ユーザー インターフェイス](../basics/xaml-basics-ui.md)と[データ バインディング](../../data-binding/xaml-basics-data-binding.md)に関するチュートリアルをご覧ください。
 
