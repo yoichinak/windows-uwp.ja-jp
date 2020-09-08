@@ -6,18 +6,16 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6232a8003140284956319728e16b3b953aff3177
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 753ac6894a8ab863255b6023636fad54b7568f4a
+ms.sourcegitcommit: bea08ea0eea53cd3f002b04a081a96400f6759ae
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89362735"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89558475"
 ---
 # <a name="detect-faces-in-images-or-videos"></a>画像やビデオでの顔の検出
 
 
-
-\[一部の情報はリリース前の製品に関する事項であり、正式版がリリースされるまでに大幅に変更される可能性があります。 ここに記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。\]
 
 このトピックでは、[**FaceDetector**](/uwp/api/Windows.Media.FaceAnalysis.FaceDetector) を使って画像内の顔を検出する方法について説明します。 [**FaceTracker**](/uwp/api/Windows.Media.FaceAnalysis.FaceTracker) は、ビデオ フレームのシーケンスで顔を経時的に追跡するように最適化されています。
 
