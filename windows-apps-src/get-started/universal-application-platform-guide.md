@@ -6,20 +6,23 @@ ms.date: 08/21/2020
 ms.topic: article
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 55eacfe8b27758eb9579848d32b79446d2894bb7
-ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
+ms.openlocfilehash: e0c8a059708babf3f0224cefac156cc3c1407e61
+ms.sourcegitcommit: 696f90cc95311ee3a74ce70881c7bb277b666e46
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412046"
+ms.locfileid: "89429123"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
+
+
 ## <a name="where-does-uwp-fit-in-the-microsoft-development-story"></a>UWP が Microsoft 開発ストーリーの中で占める位置
 
-ユニバーサル Windows プラットフォーム (UWP) は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つにすぎません。 UWP アプリは、Windows ランタイム (WinRT) API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。 UWP アプリでは、Win32 API や .NET クラスも引き続き使用できます ([UWP アプリ用の API セット](/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事を参照してください)。
+UWP は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つです。 UWP アプリは、WinRT API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。 UWP アプリでは、Win32 API や .NET クラスも引き続き使用できます ([UWP アプリ用の API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事を参照してください)。
 
-Microsoft の開発ストーリーは進化を続けており、[WinUI](/windows/apps/winui/)、[MSIX](/windows/msix/)、[Project Reunion](https://github.com/microsoft/ProjectReunion) などのイニシアチブと並んで、UWP はクライアント アプリを作成するための強力なツールです。
+Microsoft の開発ストーリーは進化を続けており、[WinUI](https://docs.microsoft.com/windows/apps/winui/)、[MSIX](https://docs.microsoft.com/windows/msix/)、[Project Reunion](https://github.com/microsoft/ProjectReunion) などのイニシアチブと並んで、UWP はクライアント アプリを作成するための強力なツールです。
+
 
 ## <a name="features-of-a-uwp-app"></a>UWP アプリの機能
 
