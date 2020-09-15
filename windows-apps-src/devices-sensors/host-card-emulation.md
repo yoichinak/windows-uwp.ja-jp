@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 80b3c4f46e595eedd2c6a259a03348822c9f51bc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e7075f0de1ce01e9157c520f28b0b0dd70260498
+ms.sourcegitcommit: bc8add1675070506371c1881b41c3727f1b55720
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172226"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90093124"
 ---
 # <a name="create-an-nfc-smart-card-app"></a>NFC スマート カード アプリの作成
 
@@ -383,9 +383,5 @@ var appletIdGroup = new SmartCardAppletIdGroup(
                                 SmartCardEmulationType.Uicc);
 ```
 
-<<<<<<< HEAD
-> [!Important]
+> [!IMPORTANT]
 > Windows Phone 8.1 での従来のバイナリ SMS インターセプト サポートは廃止され、Windows 10 Mobile ではより広範な新しい SMS サポートに置き換わっていますが、旧サポートに依存していた従来の Windows Phone 8.1 アプリは、新しい Windows 10 Mobile SMS API を使用できるように更新する必要があります。
-=======
-<b>重要</b>   Windows Phone 8.1 でのレガシバイナリ SMS インターセプトのサポートは削除され、Windows 10 Mobile での新しい SMS サポートに置き換えられましたが、これを利用するレガシ Windows Phone 8.1 アプリは、新しい Windows 10 Mobile SMS Api を使用するように更新する必要があります。
->>>>>>> 05b1708b6...リンク: Windows UWP
