@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: 412f34d21ddb24f637450fdfc71214c360445841
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d7dc6455219510d75307df02571fc506b909553c
+ms.sourcegitcommit: 6009896ead442b378106d82870f249dc8b55b886
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170196"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89643822"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
@@ -180,6 +180,10 @@ C++/WinRT を使用した API の作成では、API を実装する前に IDL �
 このシナリオは、XAML UI フレームワークでのアプリケーションとコントロールのビルドに関するものです。 XAML アプリケーションでの作業は、使用と作成の組み合わせです。 ただし、XAML は、現在 Windows の主要な UI フレームワークであり、Windows ランタイムに対するその影響はそれに比例しているため、独自のカテゴリのシナリオになる価値があります。
 
 XAML は、リフレクションを提供するプログラミング言語で最適に動作することに注意してください。 C++/WinRT では、XAML フレームワークと相互運用するために、多少の追加作業を実行しなければならない場合があります。 これらのすべてのケースをこのドキュメントで説明します。 開始するのに適しているのは、「[XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)」と「[C++/WinRT による XAML カスタム (テンプレート化) コントロール](./xaml-cust-ctrl.md)」です。
+
+## <a name="sample-apps-written-in-cwinrt"></a>C++/WinRT で記述されたサンプル アプリ
+
+「[C++/WinRT サンプル アプリはどこにありますか?](/windows/uwp/cpp-and-winrt-apis/faq#where-can-i-find-cwinrt-sample-apps)」を参照してください。
 
 ## <a name="important-apis"></a>重要な API
 * [SyndicationClient::RetrieveFeedAsync メソッド](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)

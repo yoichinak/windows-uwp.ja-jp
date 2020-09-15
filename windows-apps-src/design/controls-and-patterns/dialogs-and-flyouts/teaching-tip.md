@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
-ms.openlocfilehash: 31ced6c31b126986171c81e03b68a0a1cccc44f2
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 997a0c32de9d6ee803095f5c708f6ed8cedaf141
+ms.sourcegitcommit: 6009896ead442b378106d82870f249dc8b55b886
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160356"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89643835"
 ---
 # <a name="teaching-tip"></a>教育のヒント
 
@@ -106,9 +106,11 @@ public MainPage()
 
 ![保存ボタンをターゲットに指定した教育のヒントが表示されているサンプル アプリ。 ヒントのタイトルには "Saving automatically" (自動的に保存) と記載されており、サブタイトルには "We save your changes as you go - so you never have to." (変更内容は作業中に保存されるため、保存操作は不要です) と記載されています。 教育のヒントの右上隅に、閉じるボタンがあります。](../images/teaching-tip-targeted.png)
 
+上の例では、教育のヒントのタイトルとサブタイトルを設定するために、[Title](/uwp/api/microsoft.ui.xaml.controls.teachingtip.title) および [Subtitle](/uwp/api/microsoft.ui.xaml.controls.teachingtip.subtitle) プロパティを使用しています。 [Target](/uwp/api/microsoft.ui.xaml.controls.teachingtip.target) プロパティは、それ自体とボタンとの間の視覚的な接続を確立するために、"SaveButton" に設定されています。 教育のヒントを表示するには、その [IsOpen](/uwp/api/microsoft.ui.xaml.controls.teachingtip.isopen) プロパティを `true` に設定します。
+
 ### <a name="non-targeted-tips"></a>ターゲット非指定のヒント
 
-すべてのヒントが画面の要素に関連しているわけではありません。 これらのシナリオでは Target プロパティを設定しないでください。代わりに、教育のヒントは XAML ルートの端を基準として表示されます。 ただし教育のヒントでは、TailVisibility プロパティを "Collapsed" に設定することによって、UI 要素を基準とした配置を維持しながらテールを削除することができます。 次の例は、ターゲット非指定の教育のヒントを表しています。
+すべてのヒントが画面の要素に関連しているわけではありません。 これらのシナリオではターゲットを設定しないでください。代わりに、教育のヒントは XAML ルートの端を基準として表示されます。 ただし教育のヒントでは、[TailVisibility](/uwp/api/microsoft.ui.xaml.controls.teachingtip.tailvisibility) プロパティを "Collapsed" に設定することによって、UI 要素を基準とした配置を維持しながらテールを削除することができます。 次の例は、ターゲット非指定の教育のヒントを表しています。
 
 ```xaml
 <Button x:Name="SaveButton" Content="Save" />
@@ -125,7 +127,7 @@ public MainPage()
 
 ### <a name="preferred-placement"></a>推奨される配置
 
-教育のヒントは TeachingTipPlacementMode プロパティを使用して、ポップアップの [FlyoutPlacementMode](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode) 配置動作を複製します。 既定の配置モードでは、ターゲット指定の教育のヒントはターゲットの上に配置しようとし、ターゲット非指定の教育のヒントは XAML ルートの下部中央に配置しようとします。 ポップアップと同様に、優先配置モードでは教育のヒントを表示するスペースがない場合は、別の配置モードが自動的に選択されます。
+教育のヒントは [PreferredPlacement](/uwp/api/microsoft.ui.xaml.controls.teachingtip.preferredplacement) プロパティを使用して、ポップアップの [FlyoutPlacementMode](/uwp/api/Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode) 配置動作を複製します。 既定の配置モードでは、ターゲット指定の教育のヒントはターゲットの上に配置しようとし、ターゲット非指定の教育のヒントは XAML ルートの下部中央に配置しようとします。 ポップアップと同様に、優先配置モードでは教育のヒントを表示するスペースがない場合は、別の配置モードが自動的に選択されます。
 
 ゲームパッド入力を予測するアプリケーションの場合は、「[ゲームパッドとリモコンの操作]( ../../input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction)」を参照してください。 アプリの UI で考えられるすべての構成を使用して、それぞれの教育のヒントについてのゲームパッドのアクセシビリティをテストすることをお勧めします。
 
@@ -168,7 +170,7 @@ PreferredPlacement が "BottomLeft" に設定されたターゲット非指定�
 
 ### <a name="add-a-placement-margin"></a>配置の余白を追加する
 
-ターゲット指定された教育のヒントをターゲットからどの程度離すか、およびターゲット非指定の教育のヒントを XAML ルートの端からどの程度離すかを、PlacementMargin プロパティを使用して制御できます。 [Margin](/uwp/api/windows.ui.xaml.frameworkelement.margin) と同じように、PlacementMargin には left、right、top、および bottom の 4 つの値があり、関連する値のみが使用されます。 たとえば、ヒントがターゲットの左側にあるか、XAML ルートの左端にある場合は PlacementMargin.Left が適用されます。
+ターゲット指定された教育のヒントをターゲットからどの程度離すか、およびターゲット非指定の教育のヒントを XAML ルートの端からどの程度離すかを、[PlacementMargin](/uwp/api/microsoft.ui.xaml.controls.teachingtip.placementmargin) プロパティを使用して制御できます。 [Margin](/uwp/api/windows.ui.xaml.frameworkelement.margin) と同じように、PlacementMargin には left、right、top、および bottom の 4 つの値があり、関連する値のみが使用されます。 たとえば、ヒントがターゲットの左側にあるか、XAML ルートの左端にある場合は PlacementMargin.Left が適用されます。
 
 次の例では、PlacementMargin の Left/Top/Right/Bottom がすべて 80 に設定された場合のターゲット非指定のヒントを示しています。
 
@@ -188,7 +190,7 @@ PreferredPlacement が "BottomLeft" に設定されたターゲット非指定�
 
 ### <a name="add-content"></a>コンテンツを追加する
 
-Content プロパティを使用して、教育のヒントにコンテンツを追加できます。 教育のヒントのサイズで収納できるコンテンツよりも多くのコンテンツを表示する場合、ユーザーがコンテンツ領域をスクロールできるスクロール バーが自動的に有効になります。
+[Content](/uwp/api/windows.ui.xaml.controls.contentcontrol.content) プロパティを使用して、教育のヒントにコンテンツを追加できます。 教育のヒントのサイズで収納できるコンテンツよりも多くのコンテンツを表示する場合、ユーザーがコンテンツ領域をスクロールできるスクロール バーが自動的に有効になります。
 
 ```xaml
 <Button x:Name="SaveButton" Content="Save">
@@ -210,11 +212,11 @@ Content プロパティを使用して、教育のヒントにコンテンツを
 
 ### <a name="add-buttons"></a>ボタンを追加する
 
-既定では、標準の閉じるボタン "X" が、教育のヒントのタイトルの横に表示されます。 閉じるボタンは CloseButtonContent プロパティを使用してカスタマイズできます。その場合、ボタンは教育のヒントの下部に移動します。
+既定では、標準の閉じるボタン "X" が、教育のヒントのタイトルの横に表示されます。 閉じるボタンは [CloseButtonContent](/uwp/api/microsoft.ui.xaml.controls.teachingtip.closebuttoncontent) プロパティを使用してカスタマイズできます。その場合、ボタンは教育のヒントの下部に移動します。
 
 **注: 簡易非表示が有効なヒントの場合、閉じるボタンは表示されません**
 
-ActionButtonContent プロパティ (および必要に応じて、ActionButtonCommand および ActionButtonCommandParameter プロパティ) を設定して、カスタム アクション ボタンを追加できます。
+[ActionButtonContent](/uwp/api/microsoft.ui.xaml.controls.teachingtip.actionbuttoncontent) プロパティ (および必要に応じて、[ActionButtonCommand](/uwp/api/microsoft.ui.xaml.controls.teachingtip.actionbuttoncommand) および [ActionButtonCommandParameter](/uwp/api/microsoft.ui.xaml.controls.teachingtip.actionbuttoncommandparameter) プロパティ) を設定して、カスタム アクション ボタンを追加できます。
 
 ```xaml
 <Button x:Name="SaveButton" Content="Save">
@@ -239,7 +241,7 @@ ActionButtonContent プロパティ (および必要に応じて、ActionButtonC
 
 ### <a name="hero-content"></a>ヒーロー コンテンツ
 
-HeroContent プロパティを設定することによって、端から端までのコンテンツを教育のヒントに追加できます。 ヒーロー コンテンツの場所は、HeroContentPlacement プロパティを設定して教育のヒントの上または下に設定できます。
+[HeroContent](/uwp/api/microsoft.ui.xaml.controls.teachingtip.herocontent) プロパティを設定することによって、端から端までのコンテンツを教育のヒントに追加できます。 ヒーロー コンテンツの場所は、[HeroContentPlacement](/uwp/api/microsoft.ui.xaml.controls.teachingtip.herocontentplacement) プロパティを設定して教育のヒントの上または下に設定できます。
 
 ```xaml
 <Button x:Name="SaveButton" Content="Save">
@@ -260,7 +262,7 @@ HeroContent プロパティを設定することによって、端から端ま�
 
 ### <a name="add-an-icon"></a>アイコンを追加する
 
-IconSource プロパティを使用して、タイトルおよびサブタイトルの横にアイコンを追加できます。 推奨されるアイコンのサイズは 16px、24px、および 32px です。
+[IconSource](/uwp/api/microsoft.ui.xaml.controls.teachingtip.iconsource) プロパティを使用して、タイトルおよびサブタイトルの横にアイコンを追加できます。 推奨されるアイコンのサイズは 16px、24px、および 32px です。
 
 ```xaml
 <Button x:Name="SaveButton" Content="Save">
@@ -281,7 +283,7 @@ IconSource プロパティを使用して、タイトルおよびサブタイト
 
 ### <a name="enable-light-dismiss"></a>簡易非表示を有効にする
 
-簡易非表示機能は既定では無効になっていますが、これを有効にすることで、たとえばユーザーがスクロールしたり、アプリケーションの他の要素とやり取りしたりしたときに、教育のヒントが閉じるようにすることができます。 このような動作であるため、スクロール可能な領域にヒントを配置する必要がある場合は、簡易非表示のヒントが最適なソリューションとなります。
+簡易非表示機能は既定では無効になっていますが、[IsLightDismissEnabled](/uwp/api/microsoft.ui.xaml.controls.teachingtip.islightdismissenabled) プロパティを設定してこの機能を有効にすることで、たとえばユーザーがスクロールしたり、アプリケーションの他の要素とやり取りしたりしたときに、教育のヒントが閉じるようにすることができます。 このような動作であるため、スクロール可能な領域にヒントを配置する必要がある場合は、簡易非表示のヒントが最適なソリューションとなります。
 
 簡易非表示が有効な教育のヒントからは、閉じるボタンが自動的に削除され、簡易非表示の動作であることがユーザーに示されます。
 
@@ -299,7 +301,7 @@ IconSource プロパティを使用して、タイトルおよびサブタイト
 
 ### <a name="escaping-the-xaml-root-bounds"></a>XAML ルートの境界をエスケープする
 
-Windows 10 バージョン 1903 (ビルド 18362) 以降では、教育のヒントで `ShouldConstrainToRootBounds` プロパティを設定して、XAML ルートと画面の境界をエスケープすることができます。 このプロパティを有効にすると、教育のヒントは XAML ルートの境界の内側または画面に留まろうとせず、設定された `PreferredPlacement` モードの位置に常に配置されます。 最適なユーザー エクスペリエンスを確保するには、`IsLightDismissEnabled` プロパティを有効にして、XAML ルートの中央に最も近い `PreferredPlacement` モードを設定することをお勧めします。
+Windows 10 バージョン 1903 (ビルド 18362) 以降では、教育のヒントで [ShouldConstrainToRootBounds](/uwp/api/microsoft.ui.xaml.controls.teachingtip.shouldconstraintorootbounds) プロパティを設定することにより、XAML ルートと画面の境界をエスケープすることができます。 このプロパティを有効にすると、教育のヒントは XAML ルートの境界の内側または画面に留まろうとせず、設定された `PreferredPlacement` モードの位置に常に配置されます。 最適なユーザー エクスペリエンスを確保するには、`IsLightDismissEnabled` プロパティを有効にして、XAML ルートの中央に最も近い `PreferredPlacement` モードを設定することをお勧めします。
 
 以前のバージョンの Windows では、このプロパティは無視され、教育のヒントは常に XAML ルートの境界内に配置されます。
 
@@ -319,7 +321,7 @@ Windows 10 バージョン 1903 (ビルド 18362) 以降では、教育のヒン
 
 ### <a name="canceling-and-deferring-close"></a>クローズのキャンセルおよび延期
 
-Closing イベントを使用して、教育のヒントのクローズをキャンセルしたり延期したりすることができます。 これは教育のヒントを開いたままにしたり、アクションの実行またはカスタム アニメーションの表示の時間を確保するために使用できます。 教育のヒントのクローズをキャンセルすると、IsOpen は true に戻りますが、延期の間は false のままになります。 プログラムによるクローズもキャンセルできます。
+[Closing](/uwp/api/microsoft.ui.xaml.controls.teachingtip.closing) イベントを使用して、教育のヒントのクローズをキャンセルしたり延期したりすることができます。 これは教育のヒントを開いたままにしたり、アクションの実行またはカスタム アニメーションの表示の時間を確保するために使用できます。 教育のヒントのクローズをキャンセルすると、IsOpen は true に戻りますが、延期の間は false のままになります。 プログラムによるクローズもキャンセルできます。
 
 > [!NOTE]
 > 教育のヒントの完全な表示を許可する配置オプションが存在しない場合、教育のヒントは、使用可能な閉じるボタンのない状態で表示されるのではなく、閉じることを強制するためにイベントのライフ サイクルを通じて繰り返されます。 アプリが Closing イベントをキャンセルした場合、教育のヒントは使用可能な閉じるボタンがない状態で開いたままになることがあります。

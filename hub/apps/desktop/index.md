@@ -1,18 +1,18 @@
 ---
-Description: Windows PC 用のデスクトップ アプリの開発を開始する方法を説明します。これには、新しいアプリ用の適切なアプリ プラットフォームを選択する方法、Windows 10 用の既存のアプリを現代化する方法も含まれます。
+description: Windows PC 用のデスクトップ アプリの開発を開始する方法を説明します。これには、新しいアプリ用の適切なアプリ プラットフォームを選択する方法、Windows 10 用の既存のアプリを現代化する方法も含まれます。
 title: Windows PC 用のデスクトップ アプリの構築
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 9/10/2020
 keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f4b790978449bd6d5c279a5405c22db51cd0724
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6539f436e46f351efc355d361c0677b9fedee546
+ms.sourcegitcommit: 2bb975d5df38d294277f57bf8b6a06d9bf87ca9b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170726"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90046818"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -100,8 +100,9 @@ Windows 用の新しいデスクトップ アプリを作成する場合の、�
 
 | リソース | 説明 |
 |---------|-------------|
-| [.NET Core 3.0](/dotnet/core/whats-new/dotnet-core-3-0) | .NET Core 3.0 の最新機能について説明します。これには、WPF と Windows フォーム アプリの機能強化が含まれます。 |
-| [WPF および .NET Core 3.0 用のデスクトップ ガイド](/dotnet/desktop-wpf/overview/index) | 完全な .NET Framework ではなく、.NET Core 3.0 を対象とする WPF アプリを開発します。  |
+| [.NET Core 3.1](/dotnet/core/whats-new/dotnet-core-3-1) | .NET Core 3.1 の最新機能について説明します。これには、WPF と Windows フォーム アプリの機能強化が含まれます。 |
+| [.NET 5](/dotnet/core/dotnet-five) | この記事では、3.1 に続く .NET Core の次のリリースである .NET 5 に含まれている内容について詳しく説明します。 |
+| [WPF および .NET Core 用のデスクトップ ガイド](/dotnet/desktop-wpf/overview/index) | 完全な .NET Framework ではなく、.NET Core を対象とする WPF アプリを開発します。  |
 | [Azure](/azure/) | Azure クラウド サービスを使用してアプリの公開範囲を拡張します。 |
 | [Visual Studio](/visualstudio/) | Visual Studio を使用してアプリとサービスを開発する方法について説明します。 |
 | [MSIX](/windows/msix/) | Windows アプリをパッケージ化して、最新の汎用パッケージ化形式で展開します。 |

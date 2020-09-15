@@ -1,5 +1,5 @@
 ---
-Description: Windows ランタイム API を使用して Windows 10 ユーザー向けデスクトップ アプリケーションを強化します。
+description: Windows ランタイム API を使用して Windows 10 ユーザー向けデスクトップ アプリケーションを強化します。
 title: デスクトップ アプリで Windows ランタイム API を呼び出す
 ms.date: 08/20/2019
 ms.topic: article
@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 5a7c77f6c553408d2631fb3e324e67d79318f9b4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e58315ed70b889e1369e8c13a563f320c0ca1948
+ms.sourcegitcommit: a222ad0e2d97e35a60000c473808c678395376ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170696"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89479082"
 ---
 # <a name="call-windows-runtime-apis-in-desktop-apps"></a>デスクトップ アプリで Windows ランタイム API を呼び出す
 
@@ -93,7 +93,7 @@ C++/WinRT 用にプロジェクトを構成するには:
 
 選択肢はたくさんあります。 たとえば、[収益化 API](/windows/uwp/monetize) を使用して発注フローを簡略化できます。また、別のユーザーが投稿した新しい写真など、共有すべき興味深いコンテンツがある場合に、[アプリケーションへの注目を促す](/windows/uwp/design/shell/tiles-and-notifications/adaptive-interactive-toasts)ことができます。
 
-![トースト](images/desktop-to-uwp/toast.png)
+![トースト通知](images/desktop-to-uwp/toast.png)
 
 ユーザーがメッセージを無視したり、非表示にした場合でも、ユーザーはアクション センターで再度メッセージを表示し、クリックすることで、アプリを開くことができます。 これにより、アプリケーションの利用度が高まります。さらに、アプリケーションがオペレーティング システムと密接に統合されているように見えるというメリットがあります。 この記事では、そのエクスペリエンスのコードについて後で少し紹介します。
 
@@ -156,7 +156,41 @@ private void ShowToast()
 }
 ```
 
-```C++
+```cppwinrt
+#include <sstream>
+#include <winrt/Windows.Data.Xml.Dom.h>
+#include <winrt/Windows.UI.Notifications.h>
+
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::System;
+using namespace winrt::Windows::UI::Notifications;
+using namespace winrt::Windows::Data::Xml::Dom;
+
+void UWP::ShowToast()
+{
+    std::wstring const title = L"featured picture of the day";
+    std::wstring const content = L"beautiful scenery";
+    std::wstring const image = L"https://picsum.photos/360/180?image=104";
+    std::wstring const logo = L"https://picsum.photos/64?image=883";
+
+    std::wostringstream xmlString;
+    xmlString << L"<toast><visual><binding template='ToastGeneric'>" <<
+        L"<text>" << title << L"</text>" <<
+        L"<text>" << content << L"</text>" <<
+        L"<image src='" << image << L"'/>" <<
+        L"<image src='" << logo << L"'" <<
+        L" placement='appLogoOverride' hint-crop='circle'/>" <<
+        L"</binding></visual></toast>";
+
+    XmlDocument toastXml;
+
+    toastXml.LoadXml(xmlString.str().c_str());
+
+    ToastNotificationManager::CreateToastNotifier().Show(ToastNotification(toastXml));
+}
+```
+
+```cppcx
 using namespace Windows::Foundation;
 using namespace Windows::System;
 using namespace Windows::UI::Notifications;
@@ -208,33 +242,29 @@ Windows 10 ユーザー向けに個別のバイナリをビルドする場合は
 
 .NET ベースのプロジェクトの場合、この定数は**条件付きコンパイル定数**と呼ばれます。
 
-![プリプロセッサ](images/desktop-to-uwp/compilation-constants.png)
+![条件付きコンパイル定数](images/desktop-to-uwp/compilation-constants.png)
 
 C++ ベースのプロジェクトの場合、この定数は**プリプロセッサ定義**と呼ばれます。
 
-![プリプロセッサ](images/desktop-to-uwp/pre-processor.png)
+![プリプロセッサ定義定数](images/desktop-to-uwp/pre-processor.png)
 
 この定数を、任意の UWP コードのブロックの前に追加します。
 
 ```csharp
-
 [System.Diagnostics.Conditional("_UWP")]
 private void ShowToast()
 {
  ...
 }
-
 ```
 
 ```C++
-
 #if _UWP
 void UWP::ShowToast()
 {
  ...
 }
 #endif
-
 ```
 
 この定数がアクティブなビルド構成で定義されている場合のみ、コンパイラでこのコードがビルドされます。
