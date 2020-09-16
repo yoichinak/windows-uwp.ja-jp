@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 70f71265ff763ff8a160705694476e03bf8b6667
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d85df48b4f43759013f80623595d919ac6c77337
+ms.sourcegitcommit: ef3cdca5e9b8f032f46174da4574cb5593d32d56
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166356"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90593436"
 ---
 # <a name="composition-visual"></a>コンポジションのビジュアル
 
@@ -19,17 +19,21 @@ ms.locfileid: "89166356"
 
 ## <a name="visuals"></a>ビジュアル
 
-ビジュアル オブジェクト ツリー構造には、3 種類のビジュアル オブジェクトが含まれ、加えて、ビジュアル オブジェクトの内容に影響を与える基本ブラシ クラスと複数のサブクラスがあります。
+ビジュアルツリー構造を構成するいくつかの種類のビジュアルと、ビジュアルのコンテンツに影響を与える複数のサブクラスを持つ基本ブラシクラスがあります。
 
 - [**Visual**](/uwp/api/Windows.UI.Composition.Visual) – ベース オブジェクト。プロパティの大半はここにあり、他のビジュアル オブジェクトによって継承されます。
 - [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual) – [**Visual**](/uwp/api/Windows.UI.Composition.Visual) から派生し、子ビジュアル オブジェクトを作成できます。
-- [**SpriteVisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual) から派生し、ブラシを関連付ける機能を追加して、画像、効果、または純色を含むピクセルをビジュアルでレンダリングできるようにします。
+  - [**SpriteVisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 には、画像、効果、または純色を含むピクセルを表示できるように、ブラシを関連付ける機能があります。
+  - [**レイヤービジュアル**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 ビジュアルの子は、1つのレイヤーにフラット化されます。<br/>(_Windows 10、バージョン1607、SDK 14393 で導入され_ました)。
+  - [**図形ビジュアル**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 CompositionShape のルートであるビジュアルツリーノード。<br/>(_Windows 10、バージョン1803、SDK 17134 で導入され_ました)。
+  - [**Redirectvisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 ビジュアルは、別のビジュアルからコンテンツを取得します。<br/>(_Windows 10、バージョン1809、SDK 17763 で導入され_ました)。
+  - [**SceneVisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 3D シーンのノードのコンテナービジュアル。<br/>(_Windows 10、バージョン1903、SDK 18362 で導入され_ました)。
 
-[**CompositionBrush**](/uwp/api/Windows.UI.Composition.CompositionBrush) とそのサブクラスである [**CompositionColorBrush**](/uwp/api/Windows.UI.Composition.CompositionColorBrush)、[**CompositionSurfaceBrush**](/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)、[**CompositionEffectBrush**](/uwp/api/Windows.UI.Composition.CompositionEffectBrush) を使用して、コンテンツと効果を SpriteVisual に適用できます。 ブラシについて詳しくは、「[**CompositionBrush の概要**](./composition-brushes.md)」をご覧ください。
+[**CompositionBrush**](/uwp/api/Windows.UI.Composition.CompositionBrush) とそのサブクラスである [**CompositionColorBrush**](/uwp/api/Windows.UI.Composition.CompositionColorBrush)、[**CompositionSurfaceBrush**](/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)、[**CompositionEffectBrush**](/uwp/api/Windows.UI.Composition.CompositionEffectBrush) を使用して、コンテンツと効果を SpriteVisual に適用できます。 ブラシの詳細については、「 [**CompositionBrush の概要**](./composition-brushes.md)」を参照してください。
 
 ## <a name="the-compositionvisual-sample"></a>CompositionVisual のサンプル
 
-ここでは、前に説明した 3 つの種類のビジュアル タイプを使用する、いくつかのサンプル コードについて説明します。 このサンプルでは、アニメーションや複雑な効果のような概念は取り上げていませんが、それらのシステムで使われるビルディング ブロックは含まれています。 (完全なサンプル コードは、この記事の最後に示されています。)
+ここでは、前に説明した 3 つの種類のビジュアル タイプを使用する、いくつかのサンプル コードについて説明します。 このサンプルでは、アニメーションや複雑な効果などの概念については説明していませんが、すべてのシステムが使用する構成要素が含まれています。 (完全なサンプル コードは、この記事の最後に示されています。)
 
 このサンプルでは、画面でクリックしてドラッグできる複数の単色の正方形を使います。 正方形がクリックされると、前面に移動して 45 度回転し、ドラッグされると不透明になります。
 
@@ -40,7 +44,7 @@ ms.locfileid: "89166356"
 - ビジュアル オブジェクトのクリッピング
 - ビジュアル オブジェクトの回転
 - 不透明度の設定
-- コレクション内のビジュアル オブジェクトの位置変更
+- コレクション内のビジュアルの位置を変更します。
 
 ## <a name="creating-a-compositor"></a>コンポジターの作成
 
@@ -78,7 +82,7 @@ API の他のオブジェクトと同様、[**InsetClip**](/uwp/api/Windows.UI.C
 
 ## <a name="span-idrotating_a_clipspanspan-idrotating_a_clipspanspan-idrotating_a_clipspanrotating-a-clip"></a><span id="Rotating_a_Clip"></span><span id="rotating_a_clip"></span><span id="ROTATING_A_CLIP"></span>クリップの回転
 
-[**Visual**](/uwp/api/Windows.UI.Composition.Visual) は回転により変換できます。 [**RotationAngle**](/uwp/api/windows.ui.composition.visual.rotationangle) では、ラジアンと度の両方がサポートされています。 既定ではラジアンになりますが、次のコードに示しているように、度を指定するのは簡単です。
+[**Visual**](/uwp/api/Windows.UI.Composition.Visual) は回転により変換できます。 [**RotationAngle**](/uwp/api/windows.ui.composition.visual.rotationangle) では、ラジアンと度の両方がサポートされています。 既定値はラジアンですが、次のスニペットに示すように、角度を簡単に指定できます。
 
 ```cs
 child.RotationAngleInDegrees = 45.0f;
