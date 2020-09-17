@@ -6,12 +6,12 @@ ms.date: 11/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a80c130de1966973fe928480009eaa3bd0a8887
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e359fd18da67da15bb33e8980f0e0e7419001460
+ms.sourcegitcommit: b99e2f4dffa603b68c2a8273fe6313432f91b353
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171250"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90569364"
 ---
 # <a name="networking-and-web-services"></a>ネットワークと Web サービス
 
@@ -20,7 +20,7 @@ ms.locfileid: "89171250"
 | トピック | 説明 |
 | - | - |
 | [ネットワークの基本](networking-basics.md) | ネットワーク対応アプリで実行する必要がある事柄について説明します。 |
-| [アプリに適したネットワーク テクノロジ](which-networking-technology.md) | UWP 開発者が利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジを選ぶヒントを説明します。 |
+| [アプリに適したネットワーク テクノロジ](which-networking-technology.md) | お客様のアプリに適したテクノロジを選ぶための提案など、UWP 開発者が利用できるネットワーク テクノロジの概要です。 |
 | [バックグラウンドでのネットワーク通信](network-communications-in-the-background.md) | バックグラウンドでないときにネットワーク通信を続けるため、アプリはバックグラウンド タスクを使うことができます。ソケット ブローカーまたはコントロール チャネルがトリガーされます。 |
 | [ソケット](sockets.md) | ソケットとは、下位レベルのデータ転送テクノロジであり、多くのネットワーク プロトコルがこの上に実装されています。 UWP は、接続が長期間維持されるか、確立された接続が不要かどうかに関係なく、クライアント/サーバー アプリケーションまたはピア ツー ピア アプリケーションの TCP および UDP ソケット クラスを提供します。 |
 | [WebSocket](websockets.md) | WebSocket は、クライアントとサーバー間の高速で安全な双方向通信を、HTTP(S) を使った Web 経由で実現するメカニズムを提供し、UTF-8 メッセージとバイナリ メッセージの両方をサポートします。 |
