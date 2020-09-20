@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 4953b5adc1953bac83b90271b4042e3b9f13c3f2
-ms.sourcegitcommit: 083ddf840ab42bb48b4892fc2876ecbf698e481b
+ms.openlocfilehash: ee933bd28594263e61e654b14b0541c6fa9ed41b
+ms.sourcegitcommit: 875bd348608547e7a66fa4b460efe64b3246807e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89615523"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90080844"
 ---
 # <a name="radio-buttons"></a>ラジオ ボタン
 
@@ -125,17 +125,35 @@ RadioButtons グループのこの独特の動作は、複数選択や選択の�
 > [!NOTE]
 > 最初のタブ ナビゲーションからタブ フォーカスを受け取る項目が、選択されていません。
 
-|タブ フォーカスされていないリスト | タブで初期フォーカスされているリスト|
-|:--:|:--:|
-| ![タブ フォーカスされていないリストの項目未選択の状態](images/radiobutton-no-selected-item-no-tab-focus.png) | ![タブで初期フォーカスされているリストの項目未選択の状態](images/radiobutton-no-selected-item-tab-focus.png)|
+:::row:::
+   :::column span="":::
+     **_タブ フォーカスのないリスト、未選択_**
+
+     ![タブ フォーカスされていないリストの項目未選択の状態](images/radiobutton-no-selected-item-no-tab-focus.png)
+   :::column-end:::
+   :::column span="":::
+      **_初期タブ フォーカスのあるリスト、未選択_**
+
+      ![タブで初期フォーカスされているリストの項目未選択の状態](images/radiobutton-no-selected-item-tab-focus.png)
+   :::column-end:::
+:::row-end:::
 
 ##### <a name="one-radio-button-is-selected"></a>1 つのラジオ ボタンが選択されている
 
 ラジオ ボタンが既に選択されているリスト内にユーザーがタブ キーで移動すると、選択されているラジオ ボタンがフォーカスされます。
 
-|タブ フォーカスされていないリスト | タブで初期フォーカスされているリスト |
-|:--:|:--:|
-| ![タブ フォーカスされていないリストの 1 つの項目が選択された状態](images/radiobutton-selected-item-no-tab-focus.png) | ![タブで初期フォーカスされているリストの 1 つの項目が選択された状態](images/radiobutton-selected-item-tab-focus.png)|
+:::row:::
+   :::column span="":::
+     **_タブ フォーカスされていないリスト_**
+
+     ![タブ フォーカスされていないリストの 1 つの項目が選択された状態](images/radiobutton-selected-item-no-tab-focus.png)
+   :::column-end:::
+   :::column span="":::
+      **_タブで初期フォーカスされているリスト_**
+
+      ![タブで初期フォーカスされているリストの 1 つの項目が選択された状態](images/radiobutton-selected-item-tab-focus.png)
+   :::column-end:::
+:::row-end:::
 
 #### <a name="keyboard-navigation"></a>キーボード ナビゲーション
 
@@ -147,18 +165,58 @@ RadioButtons グループのこの独特の動作は、複数選択や選択の�
 
 単一列または単一行のレイアウトでは、キーボード ナビゲーションは以下のように動作します。
 
-|単一列 | 単一行|
-|:--|:--|
-| ![単一列の RadioButtons グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-single-column.png)</br>上下の方向キーで項目間を移動できる。</br>左右の方向キーでは何も変化しない。 | ![単一行の RadioButtons グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-single-row.png)<br/>左か上の方向キーで前の項目に移動し、右か下の方向キーで次の項目に移動する。 |
+:::row:::
+   :::column span="":::
+     **_単一列_**
+
+     ![単一列の RadioButtons グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-single-column.png)
+
+     上下の方向キーで項目間を移動できる。</br>左右の方向キーでは何も変化しない。
+   :::column-end:::
+   :::column span="":::
+      **_単一行_**
+
+      ![単一行の RadioButtons グループ内のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-single-row.png)
+
+      左か上の方向キーで前の項目に移動し、右か下の方向キーで次の項目に移動する。
+   :::column-end:::
+:::row-end:::
 
 ##### <a name="navigation-within-multi-column-multi-row-layouts"></a>複数列、複数行のレイアウト内のナビゲーション
 
 複数列、複数行のグリッド レイアウトでは、キーボード ナビゲーションは以下のように動作します。
 
-|左右の方向キー| 上下の方向キー |
-|:--|:--|
-| ![複数列、複数行の RadioButtons グループ内の水平方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-1.png)</br>左右の方向キーで、行に含まれる項目間をフォーカスが水平方向に移動する。 | ![複数列、複数行の RadioButtons グループ内の垂直方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-2.png)<br/>上下の方向キーで、列に含まれる項目間をフォーカスが垂直方向に移動する。 |
-| ![列の最後の項目がフォーカスされている水平方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-3.png)</br> 列の最後の項目がフォーカスされている状況で右または左の方向キーを押すと、フォーカスは次または前の列の最後の項目に移動します (存在する場合)。 | ![列の最後の項目がフォーカスされている垂直方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-4.png)<br/>列の最後の項目がフォーカスされている状況で下方向キーを押すと、フォーカスは次の列の最初の項目に移動します (存在する場合)。 列の最初の項目がフォーカスされている状況で上方向キーを押すと、フォーカスは前の列の最後の項目に移動します (存在する場合)。 |
+**_左右の方向キー_**
+
+:::row:::
+   :::column span="":::
+      ![複数列、複数行の RadioButtons グループ内の水平方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-1.png)
+
+      
+
+      左右の方向キーで、行に含まれる項目間をフォーカスが水平方向に移動する。
+   :::column-end:::
+   :::column span="":::
+     ![列の最後の項目がフォーカスされている水平方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-3.png)
+
+      列の最後の項目がフォーカスされている状況で右または左の方向キーを押すと、フォーカスは次または前の列の最後の項目に移動します (存在する場合)。
+   :::column-end:::
+:::row-end:::
+
+**_上下の方向キー_**
+
+:::row:::
+   :::column span="":::
+      ![複数列、複数行の RadioButtons グループ内の垂直方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-2.png)
+
+      上下の方向キーで、列に含まれる項目間をフォーカスが垂直方向に移動する。
+   :::column-end:::
+   :::column span="":::
+     ![列の最後の項目がフォーカスされている垂直方向のキーボード ナビゲーションの例](images/radiobutton-keyboard-navigation-multi-column-row-4.png)
+
+      列の最後の項目がフォーカスされている状況で下方向キーを押すと、フォーカスは次の列の最初の項目に移動します (存在する場合)。 列の最初の項目がフォーカスされている状況で上方向キーを押すと、フォーカスは前の列の最後の項目に移動します (存在する場合)
+   :::column-end:::
+:::row-end:::
 
 詳細については、「[キーボード操作](../input/keyboard-interactions.md#wrapping-homogeneous-list-and-grid-view-items)」を参照してください。
 
@@ -172,9 +230,22 @@ RadioButtons グループでは、最初の行または列から最後へ、あ�
 
 キーボードを使用して `RadioButtons` グループ内の項目間を移動する場合、フォーカスが 1 つの項目から次に移動すると、新しくフォーカスが設定された項目はオンになり、前にフォーカスが設定されていた項目はオフになります。
 
-|キーボード ナビゲーション前 | キーボード ナビゲーション後|
-|:--|:--|
-| ![キーボード ナビゲーション前のフォーカスと選択の例](images/radiobutton-two-selected-before-keyboard-navigation.png)</br>*キーボード ナビゲーション前のフォーカスと選択の例* | ![キーボード ナビゲーション後のフォーカスと選択の例](images/radiobutton-three-selected-after-keyboard-navigation.png)<br/>*キーボード ナビゲーション後のフォーカスと選択の例。下方向キーでフォーカスをラジオ ボタン 3 に移動すると、それが選択され、ラジオ ボタン 2 はオフになる* |
+:::row:::
+   :::column span="":::
+      **_キーボード ナビゲーション前_**
+
+      ![キーボード ナビゲーション前のフォーカスと選択の例](images/radiobutton-two-selected-before-keyboard-navigation.png)
+
+      キーボード ナビゲーション前のフォーカスと選択。
+   :::column-end:::
+   :::column span="":::
+     **_キーボード ナビゲーション後_**
+
+      ![キーボード ナビゲーション後のフォーカスと選択の例](images/radiobutton-three-selected-after-keyboard-navigation.png)
+
+      キーボード ナビゲーション後のフォーカスと選択。下方向キーでフォーカスをラジオ ボタン 3 に移動すると、それが選択され、ラジオ ボタン 2 はオフになります。
+   :::column-end:::
+:::row-end:::
 
 Ctrl キーを押しながら方向キーを押して移動すると、選択を変更せずにフォーカスを移動できます。 フォーカスの移動後に、Space キーを使用して、現在フォーカスされている項目を選択できます。
 

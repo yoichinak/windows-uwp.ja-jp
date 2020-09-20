@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - vb
-ms.openlocfilehash: 7a1235159b0f9d69e7fcedd334aeb9e9246d3d2b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 57d46ea1f88395624943135247a8f610112aaf90
+ms.sourcegitcommit: 21eb13a50402bf5442a5f0a4bf34800d1dc679c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174296"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90804732"
 ---
 # <a name="windows-runtime-components-with-c-and-visual-basic"></a>C# および Visual Basic を使用した Windows ランタイム コンポーネント
 
@@ -51,7 +51,7 @@ C++ を使用して UWP アプリの一部としてコンポーネントをテ�
 ## <a name="to-debug-both-native-c-code-and-managed-code"></a>ネイティブ C++ コードとマネージ コードの両方をデバッグするには
 1.  Visual C++ プロジェクトのショートカット メニューを開き、**[プロパティ]** をクリックします。
 2.  プロパティ ページの **[構成プロパティ]** で、**[デバッグ]** を選びます。
-3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[ネイティブのみ]** を **[混合 (マネージとネイティブ)]** に変更します。 **[OK]** を選択します。
+3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[ネイティブのみ]** を **[混合 (マネージとネイティブ)]** に変更します。 **[OK]** を選びます。
 4.  ネイティブ コードとマネージ コードのブレークポイントを設定します。
 
 JavaScript を使用して UWP アプリの一部としてコンポーネントをテストしている場合、既定では、ソリューションは JavaScript デバッグモードになります。 Visual Studio では、JavaScript とマネージ コードを同時にデバッグすることはできません。
@@ -59,7 +59,7 @@ JavaScript を使用して UWP アプリの一部としてコンポーネント�
 ## <a name="to-debug-managed-code-instead-of-javascript"></a>JavaScript ではなくマネージ コードをデバッグするには
 1.  JavaScript プロジェクトのショートカット メニューを開き、**[プロパティ]** を選びます。
 2.  プロパティ ページの **[構成プロパティ]** で、**[デバッグ]** を選びます。
-3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[スクリプトのみ]** を **[マネージのみ]** に変更します。 **[OK]** を選択します。
+3.  **[デバッガーの種類]** を選び、ドロップダウン リスト ボックスで、**[スクリプトのみ]** を **[マネージのみ]** に変更します。 **[OK]** を選びます。
 4.  マネージ コードのブレークポイントを設定し、通常どおりにデバッグします。
 
 ## <a name="passing-windows-runtime-types-to-managed-code"></a>マネージ コードへの Windows ランタイム型の引き渡し
@@ -275,11 +275,18 @@ Windows ランタイム コンポーネントが JavaScript や C++ で使われ
 
 カスタム イベント アクセサーを実装する場合 (Visual Basic では **Custom** キーワードでイベントを宣言する場合) は、実装で Windows ランタイムのイベント パターンに従う必要があります。 「 [Windows ランタイムコンポーネント」の「カスタムイベントとイベントアクセサー](custom-events-and-event-accessors-in-windows-runtime-components.md)」を参照してください。 C# または Visual Basic コードからイベントを処理する場合、そのイベントは通常の .NET イベントであるように見えます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 ユーザーが独自に使う Windows ランタイム コンポーネントを作成した後で、そのコンポーネントにカプセル化されている機能が他の開発者の役に立つ場合があります。 他の開発者に配布するためにコンポーネントをパッケージ化する方法は 2 つあります。 「[マネージ Windows ランタイム コンポーネントの配布](/previous-versions/windows/apps/jj614475(v=vs.140))」をご覧ください。
 
 Visual Basic と C# 言語の機能、および Windows ランタイムの .NET サポートの詳細については、「 [Visual Basic および c# 言語リファレンス](/visualstudio/welcome-to-visual-studio-2015?view=vs-2015)」を参照してください。
+
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+| 症状 | 解決方法 |
+|---------|--------|
+|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイムコンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic) を使用すると、コンパイラによって "' MyNamespace_XamlTypeInfo ' の形式のエラーが生成*されます: は ' WinRT:: MyNamespace ' のメンバーではありません。* &mdash; *MyNamespace* は Windows ランタイムコンポーネントの名前空間の名前です。 | 使用中の `pch.h` C++/WinRT アプリので、必要に応じ `#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` &mdash; て*MyNamespace*を置き換えます。 |
 
 ## <a name="related-topics"></a>関連トピック
 * [UWP アプリ用 .NET](/dotnet/api/index?view=dotnet-uwp-10.0)

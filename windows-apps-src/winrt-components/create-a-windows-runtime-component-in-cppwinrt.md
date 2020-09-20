@@ -5,12 +5,12 @@ ms.date: 07/06/2020
 ms.topic: article
 keywords: windows 10、uwp、windows、runtime、component、components、Windows ランタイム Component、WRC、C++/WinRT
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f84158311ef789851c268e9e21dbf5317063370
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 25286260c4abd6686939393b3bf81df818879bf9
+ms.sourcegitcommit: 21eb13a50402bf5442a5f0a4bf34800d1dc679c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174316"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90804752"
 ---
 # <a name="windows-runtime-components-with-cwinrt"></a>C++/WinRT を使用した Windows ランタイム コンポーネント
 
@@ -135,8 +135,14 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 
 ウィンドウをクリックするたびに、銀行口座オブジェクトの残高が増加します。 コードをステップ実行して、アプリケーションが実際に Windows ランタイムコンポーネントを呼び出していることを確認する場合は、ブレークポイントを設定できます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 C++/WinRT Windows ランタイムコンポーネントにさらに多くの機能または新しい Windows ランタイムの種類を追加するには、上に示したのと同じパターンに従うことができます。 まず、IDL を使用して、公開する機能を定義します。 次に、Visual Studio でプロジェクトをビルドして、スタブ実装を生成します。 次に、必要に応じて実装を完了します。 IDL で定義したメソッド、プロパティ、およびイベントは、Windows ランタイムコンポーネントを使用するアプリケーションから参照できます。 IDL の詳細については、「 [Microsoft インターフェイス定義言語3.0 の概要](/uwp/midl-3/intro)」を参照してください。
 
 Windows ランタイムコンポーネントにイベントを追加する方法の例については、「 [C++/WinRT でイベントを作成](../cpp-and-winrt-apis/author-events.md)する」を参照してください。
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+| 症状 | 解決方法 |
+|---------|--------|
+|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイムコンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic) を使用すると、コンパイラによって "' MyNamespace_XamlTypeInfo ' の形式のエラーが生成*されます: は ' WinRT:: MyNamespace ' のメンバーではありません。* &mdash; *MyNamespace* は Windows ランタイムコンポーネントの名前空間の名前です。 | 使用中の `pch.h` C++/WinRT アプリので、必要に応じ `#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` &mdash; て*MyNamespace*を置き換えます。 |

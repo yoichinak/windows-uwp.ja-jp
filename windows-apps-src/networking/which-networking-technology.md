@@ -1,22 +1,21 @@
 ---
 ms.assetid: 2CC2E526-DACB-4008-9539-DA3D0C190290
-description: UWP 開発者が利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジを選ぶヒントを説明します。
+description: お客様のアプリに適したテクノロジを選ぶための提案など、UWP 開発者が利用できるネットワーク テクノロジの概要です。
 title: アプリに適したネットワーク テクノロジ
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 05aec42d4a8eef1d78ddd425f1e90e06cb610c0a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b3f14e06f5e6f7508c90df9f04265740daaccb49
+ms.sourcegitcommit: b99e2f4dffa603b68c2a8273fe6313432f91b353
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158166"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90569384"
 ---
 # <a name="which-networking-technology"></a>アプリに適したネットワーク テクノロジ
 
-
-UWP 開発者が利用できるネットワーク テクノロジの概要と、アプリに適したテクノロジを選ぶヒントを説明します。
+お客様のアプリに適したテクノロジを選ぶための提案など、UWP 開発者が利用できるネットワーク テクノロジの概要です。
 
 ## <a name="sockets"></a>ソケット
 
@@ -87,7 +86,7 @@ Windows 10 の新しい機能であるバックグラウンド転送は、フ�
 
 ### <a name="connection-quality"></a>接続の品質
 
-[  **Windows.Networking.Connectivity**](/uwp/api/Windows.Networking.Connectivity) API により、ネットワーク接続、コスト、使用状況の情報にアクセスできます。 この API の使い方について詳しくは、「[ネットワーク接続状態へのアクセスとネットワーク コストの管理](/previous-versions/windows/apps/hh452983(v=win.10))」をご覧ください。
+[**Windows.Networking.Connectivity**](/uwp/api/Windows.Networking.Connectivity) 名前空間の API により、ネットワークの接続、コスト、使用状況の情報にアクセスできます。 この API の使い方について詳しくは、「[ネットワーク接続状態へのアクセスとネットワーク コストの管理](/previous-versions/windows/apps/hh452985(v=win.10))」をご覧ください。
 
 ### <a name="dns-service-discovery"></a>DNS サービス検出
 
@@ -103,7 +102,7 @@ Windows 10 の新しい機能であるバックグラウンド転送は、フ�
 
 ### <a name="near-field-communications"></a>近距離無線通信
 
-[  **Windows.Networking.Proximity**](/uwp/api/Windows.Networking.Proximity) API により、プロキシミティまたはデバイスのタップを使うアプリについては近距離無線通信でデータを簡単に転送できます。 この API の使い方について詳しくは、「[近接通信とタップのサポート](/previous-versions/windows/apps/hh465229(v=win.10))」をご覧ください。
+[  **Windows.Networking.Proximity**](/uwp/api/Windows.Networking.Proximity) API により、プロキシミティまたはデバイスのタップを使うアプリについては近距離無線通信でデータを簡単に転送できます。 この API の使い方について詳しくは、「[近接通信とタップ](/previous-versions/windows/apps/hh465221(v=win.10))」をご覧ください。
 
 ### <a name="rssatom-feeds"></a>RSS/Atom フィード
 

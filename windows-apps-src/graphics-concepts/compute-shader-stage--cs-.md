@@ -1,35 +1,28 @@
 ---
-title: 計算シェーダー (CS) ステージ
-description: 計算シェーダー (CS) ステージは、高速な汎用コンピューティングを提供し、グラフィックス処理装置 (GPU) 上の多数の並列プロセッサを利用します。
+title: コンピューティングシェーダー (CS) ステージ
+description: Compute shader (CS) ステージは、高速な汎用コンピューティングを提供し、GPU (graphics processing unit) 上の多数の並列プロセッサを利用します。
 ms.assetid: 300D4C0C-5450-45F8-9F29-E1A101D38F73
 keywords:
-- 計算シェーダー (CS) ステージ
+- コンピューティングシェーダー (CS) ステージ
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 62951db34cfd63c8d47f95a887b79aedea77a1c5
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2dfdebc0a5219d48853cab08845fe4cfb45ee94f
+ms.sourcegitcommit: 21eb13a50402bf5442a5f0a4bf34800d1dc679c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165036"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90804742"
 ---
-# <a name="compute-shader-cs-stage"></a>計算シェーダー (CS) ステージ
+# <a name="compute-shader-cs-stage"></a>コンピューティングシェーダー (CS) ステージ
 
-
-計算シェーダー (CS) ステージは、高速な汎用コンピューティングを提供し、グラフィックス処理装置 (GPU) 上の多数の並列プロセッサを利用します。 計算シェーダー ステージは、メモリ共有とスレッド同期機能を提供し、より効果的な並列プログラミング手法を可能にします。
+Compute shader (CS) ステージは、高速な汎用コンピューティングを提供し、GPU (graphics processing unit) 上の多数の並列プロセッサを利用します。 Compute shader ステージには、より効率的な並列プログラミング方法を実現するためのメモリ共有とスレッド同期機能が用意されています。
 
 計算シェーダーは、多数のスレッドで並列に実行できます。
 
-計算シェーダーは、[DirectCompute](https://blogs.msdn.com/b/chuckw/archive/2010/07/14/directcompute.aspx) テクノロジを使用して、グラフィックス プログラミングを超えて Direct3D を拡張する、[HLSL](/windows/desktop/direct3dhlsl/dx-graphics-hlsl) のプログラム可能なシェーダー ステージです。
+コンピューティングシェーダーは、グラフィックスプログラミング以外の Direct3D を拡張する [HLSL](/windows/desktop/direct3dhlsl/dx-graphics-hlsl)プログラミング可能なシェーダーステージです。 Compute shader テクノロジは、 *Directcompute* テクノロジとも呼ばれます。 詳細については、「 [Compute shader の概要](/windows/win32/direct3d11/direct3d-11-advanced-stages-compute-shader)」も参照してください。
 
-## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
+## <a name="related-topics"></a>関連トピック
 
-
-[計算パイプライン](compute-pipeline.md)
-
-[グラフィックス パイプライン](graphics-pipeline.md)
-
- 
-
- 
+[コンピューティングパイプライン](compute-pipeline.md) 
+[グラフィックスパイプライン](graphics-pipeline.md)

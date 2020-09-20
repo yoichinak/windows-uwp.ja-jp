@@ -1,19 +1,19 @@
 ---
 description: 拡張機能を使用すると、あらかじめ定義された方法で Windows 10 にパッケージ デスクトップ アプリを統合できます。
 title: デスクトップ ブリッジを使用して既存のデスクトップ アプリを最新化する
-ms.date: 08/25/2020
+ms.date: 09/11/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b18afdeecb3e70f958b3d8908027e59f8c4c1f9e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e0a8a7bf38fbf44fd3544d7912729bbd42672f34
+ms.sourcegitcommit: 7c49f789f5b382b5b12efed6a81cbb4a25d44bd9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172726"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90026327"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP にデスクトップ アプリを統合する
 
@@ -1164,8 +1164,8 @@ DLL 検索順序に含まれるパッケージには、既定で、その "*有�
 |ProviderDisplayName | アプリケーションまたはサービスを表す文字列 (例: "Contoso ビデオ プレーヤー")。 |
 |ContentEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるコンテンツ イベントの名前。 コンテンツ イベントは、カメラのメモリ カード、サム ドライブ、DVD などのボリューム デバイスが PC に挿入されたときに発生します。 これらのイベントの詳しい一覧については、[ここ](/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。  |
 |動詞 |[動詞] 設定では、選択されたオプションに応じてアプリケーションに渡される値を指定します。 自動再生のイベントの起動アクションは複数指定できます。また、[動詞] 設定を使って、ユーザーがアプリで選んだアクションを確認できます。 アプリに渡される起動イベント引数の verb プロパティを調べることでユーザーが選んだオプションを確認できます。 [動詞] 設定には任意の値を使うことができます。ただし、予約されている open を除きます。 |
-|DropTargetHandler |[IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装するアプリケーションのクラス ID。 リムーバブル メディアのファイルは、[IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) 実装の [Drop](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget.drop?view=visualstudiosdk-2017#Microsoft_VisualStudio_OLE_Interop_IDropTarget_Drop_Microsoft_VisualStudio_OLE_Interop_IDataObject_System_UInt32_Microsoft_VisualStudio_OLE_Interop_POINTL_System_UInt32__) メソッドに渡されます。  |
-|パラメーター |すべてのコンテンツ イベントで [IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget?view=visualstudiosdk-2017) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 このようなイベントでは、これらのコマンド ライン パラメーターを使うことで自動再生によってアプリケーションが起動します。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
+|DropTargetHandler |[IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget) インターフェイスを実装するアプリケーションのクラス ID。 リムーバブル メディアのファイルは、[IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget) 実装の [Drop](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget.drop#Microsoft_VisualStudio_OLE_Interop_IDropTarget_Drop_Microsoft_VisualStudio_OLE_Interop_IDataObject_System_UInt32_Microsoft_VisualStudio_OLE_Interop_POINTL_System_UInt32__) メソッドに渡されます。  |
+|パラメーター |すべてのコンテンツ イベントで [IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget) インターフェイスを実装する必要はありません。 どのコンテンツ イベントにも、[IDropTarget](/dotnet/api/microsoft.visualstudio.ole.interop.idroptarget) インターフェイスを実装する代わりにコマンド ライン パラメーターを指定することができます。 このようなイベントでは、これらのコマンド ライン パラメーターを使うことで自動再生によってアプリケーションが起動します。 アプリの初期化コードでそれらのパラメーターを解析して、自動再生によって起動したかどうかを判断し、カスタム実装を提供することができます。 |
 |DeviceEvent |ユーザーに ``ActionDisplayName`` と ``ProviderDisplayName`` をプロンプト表示する原因となるデバイス イベントの名前。 デバイス イベントは、デバイスが PC に接続されると発生します。 デバイス イベントの先頭は文字列 ``WPD`` です。一覧については[ここ](/windows/uwp/launch-resume/auto-launching-with-autoplay#autoplay-event-reference)をご覧ください。 |
 |HWEventHandler |[IHWEventHandler](/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler) インターフェイスを実装するアプリケーションのクラス ID。 |
 |InitCmdLine |[IHWEventHandler](/windows/desktop/api/shobjidl/nn-shobjidl-ihweventhandler) インターフェイスの [Initialize](/windows/desktop/api/shobjidl/nf-shobjidl-ihweventhandler-initialize) メソッドに渡す文字列パラメーター。 |
@@ -1278,6 +1278,9 @@ DLL 検索順序に含まれるパッケージには、既定で、その "*有�
 
 他の Windows アプリケーションとカスタム フォントを共有できます。
 
+> [!NOTE]
+> この拡張機能を使用するアプリを Microsoft Store に送信するには、まず Microsoft Store チームから承認を得る必要があります。 承認を得るには、[https://aka.ms/storesupport](https://aka.ms/storesupport) にアクセスし、 **[お問い合わせ先]** をクリックして、ダッシュボードへのアプリの送信に関連するオプションを選択します。 この承認プロセスにより、アプリによってインストールされたフォントと、OS と共にインストールされたフォントの間で競合が発生しないようにすることができます。 承認を得ていない場合は、アプリを送信するときに次のようなエラーが表示されます。「パッケージ受領の検証エラー:このアカウントでは拡張機能 windows.sharedFonts を使用できません。 この拡張機能を使うためのアクセス許可を申請する場合は、サポート チームにお問い合わせください。」
+
 #### <a name="xml-namespaces"></a>XML 名前空間
 
 `http://schemas.microsoft.com/appx/manifest/desktop/windows10/2`
@@ -1379,4 +1382,4 @@ Win32 アプリ向けに Windows アプリ パッケージを作成します。 
 
 ## <a name="next-steps"></a>次のステップ
 
-ご質問がある場合は、 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。
+ご質問があるでしょうか。 Stack Overflow でお問い合わせください。 Microsoft のチームでは、これらの[タグ](https://stackoverflow.com/questions/tagged/project-centennial+or+desktop-bridge)をチェックしています。 [こちら](https://social.msdn.microsoft.com/Forums/en-US/home?filter=alltypes&sort=relevancedesc&searchTerm=%5BDesktop%20Converter%5D)から質問することもできます。

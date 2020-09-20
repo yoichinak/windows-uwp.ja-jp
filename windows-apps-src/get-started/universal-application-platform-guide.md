@@ -2,24 +2,28 @@
 title: ユニバーサル Windows プラットフォーム (UWP) アプリとは
 description: Windows 10 を搭載するさまざまなデバイスで実行できるユニバーサル Windows プラットフォーム (UWP) アプリについて説明します。
 ms.assetid: 59849197-B5C7-493C-8581-ADD6F5F8800B
-ms.date: 08/21/2020
+ms.date: 09/15/2020
 ms.topic: article
+ms.custom: contperfq1
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: e0c8a059708babf3f0224cefac156cc3c1407e61
-ms.sourcegitcommit: 696f90cc95311ee3a74ce70881c7bb277b666e46
+ms.openlocfilehash: 29e5171d0c6737bdf3d8064566b8ec2731e68978
+ms.sourcegitcommit: b99e2f4dffa603b68c2a8273fe6313432f91b353
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89429123"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90569387"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
+UWP は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つです。 UWP アプリは、WinRT API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。
+
+UWP アプリの作成を始めるために必要なツールをダウンロードするには、「[準備](get-set-up.md)」を確認し、[初めてのアプリを作成](your-first-app.md)してください。
 
 
 ## <a name="where-does-uwp-fit-in-the-microsoft-development-story"></a>UWP が Microsoft 開発ストーリーの中で占める位置
 
-UWP は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つです。 UWP アプリは、WinRT API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。 UWP アプリでは、Win32 API や .NET クラスも引き続き使用できます ([UWP アプリ用の API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事を参照してください)。
+UWP は、Windows 10 デバイスで実行されるアプリを作成するための 1 つの選択肢であり、他のプラットフォームと組み合わせることができます。 UWP アプリでは、Win32 API や .NET クラスを使用できます ([UWP アプリ用の API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事をご覧ください)。
 
 Microsoft の開発ストーリーは進化を続けており、[WinUI](https://docs.microsoft.com/windows/apps/winui/)、[MSIX](https://docs.microsoft.com/windows/msix/)、[Project Reunion](https://github.com/microsoft/ProjectReunion) などのイニシアチブと並んで、UWP はクライアント アプリを作成するための強力なツールです。
 
@@ -34,21 +38,21 @@ UWP アプリには次のような特長があります。
 - Windows 10 を実行するすべてのデバイス (または指定したデバイスのみ) で Microsoft Store から入手できます。 Microsoft Store では、アプリで収益を上げるいくつかの方法を提供します。
 - コンピューターへのリスクや "コンピューターの劣化" を気にせずにインストールおよびアンインストールできます。
 - 魅力的。ライブ タイル、プッシュ通知、Windows タイムラインや Cortana の前回終了した位置から再開を利用したユーザー アクティビティによって、ユーザーのエンゲージメントを高めます。
-- C#、C++、Visual Basic、JavaScript でプログラミング可能です。 UI 用に、XAML、HTML、または DirectX を使用します。
+- C#、C++、Visual Basic、JavaScript でプログラミング可能です。 UI には、WinUI、XAML、HTML、または DirectX を使用します。
 
 これらをさらに詳しく見てみましょう。
 
-## <a name="secure"></a>セキュリテイ保護
+### <a name="secure"></a>セキュリテイ保護
 
 UWP アプリでは、マイク、位置情報、Web カメラ、USB デバイス、ファイルなどへのアクセスに必要なデバイスの機能をマニフェストで宣言します。 アプリに機能が付与される前に、ユーザーがそのアクセスを確認して承認する必要があります。
 
-## <a name="a-common-api-surface-across-all-devices"></a>すべてのデバイスに共通の API セット
+### <a name="a-common-api-surface-across-all-devices"></a>すべてのデバイスに共通の API セット
 
 Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が導入され、Windows 10 を実行する各デバイスで共通のアプリ プラットフォームが提供されます。 UWP のコア API は、すべての Windows デバイスで同じです。 アプリがコア API のみを使う場合は、対象がデスクトップ PC、Xbox、Mixed Reality ヘッドセットなどのどれであるかに関係なく、そのアプリはどの Windows 10 デバイスでも動作します。
 
 C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部である Win32 API にアクセスします。 これらの Win32 API は、すべての Windows 10 デバイスで実装されます。
 
-## <a name="extension-sdks-expose-the-unique-capabilities-of-specific-device-types"></a>拡張 SDK が特定のデバイスの種類に固有の機能を公開する
+### <a name="extension-sdks-expose-the-unique-capabilities-of-specific-device-types"></a>拡張 SDK が特定のデバイスの種類に固有の機能を公開する
 
 ユニバーサル API を対象としている場合、アプリは Windows 10 が動作しているすべてのデバイスで実行できます。 ただし、UWP アプリでデバイス固有の API を利用したい場合は、そうすることもできます。
 
@@ -59,7 +63,7 @@ C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部で�
 次のビデオでは、デバイス ファミリとアダプティブ コードの作成に関する簡単な概要を示します。
 <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-UWP-and-Device-Families/player" width="640" height="360" allowFullScreen frameBorder="0"></iframe>
 
-## <a name="adaptive-controls-and-input"></a>アダプティブ コントロールおよび入力
+### <a name="adaptive-controls-and-input"></a>アダプティブ コントロールおよび入力
 
 UI 要素では、そのレイアウトやスケールを調整して、アプリが実行されている画面のサイズや DPI に対応します。 UWP アプリは、キーボード、マウス、タッチ、ペン、Xbox One コントローラーなど、さまざまな種類の入力デバイスで問題なく機能します。 特定の画面サイズやデバイスに合わせて UI をさらに調整する必要がある場合は、新しく追加されたレイアウト パネルとツールを使用して、アプリが実行されるさまざまなデバイスやフォーム ファクターに合わせて調整可能な UI を設計できます。
 
@@ -73,11 +77,13 @@ Windows では、UI を次の機能を備えた複数のデバイスを対象と
 
 アプリの UI の一部はデバイス間で自動的に対応します。 ただし、アプリのユーザー エクスペリエンスの設計では、アプリが実行されているデバイスへの対応が必要になる場合があります。 たとえば、フォト アプリが小型のハンドヘルド デバイスで実行されている場合、UI を片手での使用に適するように調整できます。 フォト アプリがデスクトップ コンピューターで実行されている場合、UI は広い画面スペースを利用するように調整する必要があります。
 
-## <a name="theres-one-store-for-all-devices"></a>1 つのストアですべてのデバイスに対応する
+### <a name="theres-one-store-for-all-devices"></a>1 つのストアですべてのデバイスに対応する
 
 統一されたアプリ ストアによって、PC、タブレット、Xbox、HoloLens、Surface Hub、IoT (モノのインターネット) などの Windows 10 デバイスでアプリを入手できます。 開発者は、アプリをストアに提出し、すべての種類のデバイスまたは選択した種類のデバイス向けに販売できます。 Windows デバイス向けのすべてのアプリを 1 か所で提出、管理できます。 UWP の機能を使って最新化し、Microsoft Store での販売を希望する C++ デスクトップ アプリがある場合も 問題ありません。
 
 UWP アプリは、詳細なテレメトリや分析のために [Application Insights](https://azure.microsoft.com/services/application-insights/) に統合されています。これは、ユーザーを理解し、アプリの品質を向上させるために欠かせないツールです。
+
+UWP アプリは、[MSIX](https://docs.microsoft.com/windows/msix/) を使用してパッケージ化し、Microsoft Store またはその他の方法で配布することができます。 MSIX を使用すると、アプリがどのような方法で配布されても、アプリを更新できます。「[ストアに公開されていないアプリ パッケージをコードから更新する](https://docs.microsoft.com/windows/msix/non-store-developer-updates)」をご覧ください。
 
 ### <a name="monetize-your-app"></a>アプリの収益の獲得
 
@@ -88,13 +94,8 @@ UWP アプリは、詳細なテレメトリや分析のために [Application In
 - セール価格はユーザーに対して動機付けとなります。
 - アプリ内購入。
 
-### <a name="apps-from-the-microsoft-store-provide-a-seamless-install-uninstall-and-upgrade-experience"></a>Microsoft Store からアプリのシームレスなインストール、アンインストール、アップグレードのエクスペリエンスを提供する
 
-すべての UWP アプリは、ユーザー、デバイス、システムを保護するパッケージ システムを使用して配布されます。 UWP アプリはアプリで作成したドキュメント以外に何も残さずにアンインストールすることができるため、ユーザーはアプリをインストールしたことを後悔する必要はありません。
-
-アプリはシームレスに展開および更新することができます。 ユーザーが必要に応じてコンテンツや拡張機能をダウンロードできるように、アプリのパッケージをモジュール化することができます。
-
-## <a name="deliver-relevant-real-time-info-to-your-users-to-keep-them-coming-back"></a>関連するリアルタイム情報をユーザーに表示して繰り返し集客する
+### <a name="deliver-relevant-real-time-info-to-your-users-to-keep-them-coming-back"></a>関連するリアルタイム情報をユーザーに表示して繰り返し集客する
 
 UWP アプリに対するユーザーのエンゲージメントを維持するためのさまざまな方法があります。
 
@@ -113,6 +114,8 @@ UWP アプリでは、オペレーティング システムによって提供さ
 - XAML UI と、C#、VB、または C++
 - DirectX UI と C++
 - JavaScript と HTML
+- WinUI
+-
 
 ## <a name="links-to-help-you-get-going"></a>役に立つリンク
 

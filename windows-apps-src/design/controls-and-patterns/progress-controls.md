@@ -1,5 +1,5 @@
 ---
-Description: プログレス コントロールは、時間のかかる操作が進行中であることを示すフィードバックをユーザーに返します。
+description: プログレス コントロールは、時間のかかる操作が進行中であることを示すフィードバックをユーザーに返します。
 title: プログレス コントロールのガイドライン
 ms.assetid: FD53B716-C43D-408D-8B07-522BC1F3DF9D
 label: Progress controls
@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d5756c4cfff05b666eae245de76c1813f9a834df
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fbd9ed95137263f4ddad44e2272d4d77aced241f
+ms.sourcegitcommit: 234bb7c896b990f624b2b8789820b92426e52291
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169676"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90013386"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
@@ -61,13 +61,12 @@ Imports muxc = Microsoft.UI.Xaml.Controls
 
 なお、プログレス コントロールは読み取り専用で、対話型ではありません。 つまり、ユーザーはこれらのコントロールを直接呼び出したり、使ったりすることはできません。
 
-![ProgressBar 状態](images/progress-bar-two-states.png)
+|コントロール|ディスプレイ|
+|---|---|
+| 不確定な ProgressBar | ![ProgressBar - 不確定](images/progressbar-indeterminate.gif) |
+| 確定的な ProgressBar | ![ProgressBar - 確定](images/progressbar-determinate.png)|
+| 不確定な ProgressRing | ![ProgressRing 状態](images/progressring-indeterminate.gif)|
 
-*上から下へ、不確定 ProgressBar と確定 ProgressBar*
-
-![ProgressRing 状態](images/ProgressRing_SingleState.png)
-
-*不確定の ProgressRing*
 
 ## <a name="examples"></a>例
 
