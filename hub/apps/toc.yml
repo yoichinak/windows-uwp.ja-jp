@@ -55,6 +55,8 @@
                   href: desktop/modernize/modernize-packaged-apps.md
                 - name: パッケージ拡張機能との統合
                   href: desktop/modernize/desktop-to-uwp-extensions.md
+                - name: パッケージ アプリのアクティブ化情報の取得
+                  href: desktop/modernize/get-activation-info-for-packaged-apps.md
                 - name: UWP コンポーネントによる拡張
                   href: desktop/modernize/desktop-to-uwp-extend.md
                 - name: パッケージ アプリの配布
