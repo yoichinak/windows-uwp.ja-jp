@@ -7,12 +7,12 @@ ms.date: 05/20/2019
 ms.topic: article
 keywords: windows 10、uwp、WNS、windows notification service、通知、windows、ファイアウォール、トラブルシューティング、IP、トラフィック、エンタープライズ、ネットワーク、IPv4、VIP、FQDN、パブリック IP アドレス
 ms.localizationpriority: medium
-ms.openlocfilehash: a2eb09a0b1cc6f135a23b038207bb442eb741bf8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4277b46728464630bf478b1f78008e92b4e3fe99
+ms.sourcegitcommit: 41dbee78d827107c224a9136c26f90be4dfe12ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169206"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90845531"
 ---
 # <a name="enterprise-firewall-and-proxy-configurations-to-support-wns-traffic"></a>WNS トラフィックをサポートするためのエンタープライズファイアウォールとプロキシ構成
 
@@ -22,9 +22,9 @@ ms.locfileid: "89169206"
 ## <a name="proxy-support"></a>プロキシのサポート
 
 > [!Note]
-> Windows クライアントは、すべてのプロキシをサポートし **ていません** 。 WNS への接続は直接接続である必要があります。
+> Windows での WNS プッシュ通知は、現在、すべてのプロキシをサポートしていません。 最適な結果を得るには、WNS への接続が直接接続である必要があります。
 
-**もうすぐです！** さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
+さまざまなネットワーク構成、プロキシ、およびファイアウォールを積極的に調査しています。 このページは、一般的なエンタープライズシナリオと WNS サポートについて、さらに詳しく説明します。
 
 
 ## <a name="what-information-should-be-added-to-the-allowlist"></a>許可リストに追加する必要がある情報
@@ -70,7 +70,7 @@ Windows Notification Service によって使用される Fqdn、Vip、および 
 ### <a name="terms-and-notations"></a>用語と表記
 次に、上記の XML スニペットで使用される表記法と要素について説明します。
 
-| 期間 | 説明 |
+| 項目 | 説明 |
 |---|---|
 | **ドット小数点表記 (64.4.28.0/26)** | ドット10進数表記は、IP アドレスの範囲を記述する方法です。 たとえば、64.4.28.0/26 は、64.4.28.0 の最初の26ビットが定数であり、最後の6ビットは変数であることを意味します。  この場合、IPv4 の範囲は 64.4.28.0-64.4.28.63 です。 |
 | **ClientDNS** | これらは、WNS から通知を受け取るクライアントデバイス (Windows Pc、デスクトップ) の完全修飾ドメイン名 (FQDN) フィルターです。 WNS クライアントで WNS 機能を使用するためには、ファイアウォールを通過する必要があります。  IP/VIP 範囲ではなく Fqdn によってリストを許可することをお勧めします。これは変更されないためです。 |
