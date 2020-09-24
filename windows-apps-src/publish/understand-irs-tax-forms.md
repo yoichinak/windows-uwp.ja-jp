@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 課税, irs, 米国内国歳入庁, 税, 所得税, 1099
 ms.assetid: 1e475b96-f953-457c-864f-b6f4cb4c309f
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a385c9c351dc0bb5db857fe7d1f5f267347f1f1
-ms.sourcegitcommit: 31c925736391ab166c06f34258564b00aeebd83a
+ms.openlocfilehash: 6493e20dbc0e38405a7cd30fc22acb9973098431
+ms.sourcegitcommit: 97002cc3e5942f43ab0f14f4ad70543a63db0c03
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84428917"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91128974"
 ---
 # <a name="understand-irs-tax-forms-issued-by-microsoft"></a>マイクロソフトが発行する IRS の税関連の書類について
 
@@ -27,7 +27,7 @@ ms.locfileid: "84428917"
 |1042-S | 米国の源泉徴収税の対象になる開発者への支払いに関連します。 | 印刷されるフォームは、 **3 月 15**日以前に postmarked されます。また、pdf コピーは、パートナーセンター ([**支払い] および [税金 > 支払と税プロファイル**の下の**パートナーセンターの開発者設定**) で同時に利用できます。  |
 
 > [!NOTE]
-> IRS 税のフォームで使用する住所は、[税金プロファイル](setting-up-your-payout-account-and-tax-forms.md#tax-forms)のアドレスから取得されます。 住所を変更した場合は、**[税プロファイル]** の住所も変更するようにしてください。
+> IRS 税のフォームで使用する住所は、 [税金プロファイル](setting-up-your-payout-account-and-tax-forms.md#tax-forms)のアドレスから取得されます。 住所を変更した場合は、**[税プロファイル]** の住所も変更するようにしてください。
 
 税金のフォームは、次のアドレスから送信されます。
 
@@ -36,17 +36,18 @@ ms.locfileid: "84428917"
 | ビジネスグループ         | 法人          | Address                                          |
 |------------------------|-----------------------|--------------------------------------------------|
 | Windows、Office、Azure | Microsoft Corporation | One Microsoft Way<br>Redmond, WA 98052 USA       |
-| 広告            | Microsoft Online Inc. | 6880シエラレオネセンター Parkway<br>Reno、NV 98511 USA |
+| 広告            | Microsoft Online Inc. | 6880 Sierra Center Parkway<br>Reno、NV 98511 USA |
 
 **米国以外の市民:**
+
 | ビジネスグループ         | 法人          | Address                                          |
 |------------------------|-----------------------|--------------------------------------------------|
-| Windows、Office、Azure | Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。 | One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド|
-| 広告\*          | Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。 | One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown, ダブリン18アイルランド |
-| 広告            | Microsoft Online Inc. | 6880シエラレオネセンター Parkway<br>Reno、NV 98511 USA |
+| Windows、Office、Azure | Microsoft アイルランドの運用に限定されています (マイクロソフトは microsoft corporation によって microsoft corporation の修飾された仲介役として機能します)。 | One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown、ダブリン18、D18 P521、アイルランド|
+| 広告\*          | Microsoft アイルランドの操作は制限されています (支払いは microsoft online inc. によって行われます)。 microsoft アイルランドは、microsoft Online Inc. の支払いエージェントとして機能します)。 | One Microsoft Place<br>南 &nbsp; 郡の &nbsp; 事業 &nbsp; パーク<br>Leopardstown、ダブリン18、D18 P521、アイルランド |
+| 広告            | Microsoft Online Inc. | 6880 Sierra Center Parkway<br>Reno、NV 98511 USA |
 
 >[!NOTE]
-> \*次の国の市民による収益の提供は、Microsoft アイルランドの操作に限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、Czechia、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国
+> \* 次の国の市民による収益の提供は、Microsoft アイルランドの操作に限定されています。オーストリア、ベルギー、ブルガリア、クロアチア、キプロス、Czechia、デンマーク、エストニア、フィンランド、フランス、ドイツ、ギリシャ、ハンガリー、アイルランド、マン島、イタリア、ラトビア、リヒテンシュタイン、リトアニア、ルクセンブルク、マルタ、モナコ、オランダ、ノルウェー、ポーランド、ポルトガル、ルーマニア、スロバキア、スロベニア、南アフリカ、スペイン、スウェーデン、スイス、英国
 
 ## <a name="for-developers-located-in-the-united-states"></a>米国在住の開発者の場合
 
@@ -57,7 +58,7 @@ ms.locfileid: "84428917"
   </tr>
   <tr> 
      <td valign="top">適用される税年度に、<b>アプリの販売数が 200 個を上回り</b>、アプリ販売の合計購入金額が <b>20,000 米国ドルを超えました</b> (Windows 10 の Microsoft Store 経由でブラジルおよび中国で販売された数は<b>含まれません</b>)。</td>
-    <td valign="top"><b>1099-K</b>:<br>提出者: Microsoft Corporation<br>中: * * * * * 4442<br><br><b>重要</b>: フォーム 1099-K には<b>総購入</b>金額が含まれており、支払いは行われません。</td>
+    <td valign="top"><b>1099-K</b>:<br>提出者: Microsoft Corporation<br>中: * * * * * 4442<br><br><b>重要</b>: フォーム 1099-K には <b>総購入</b> 金額が含まれており、支払いは行われません。</td>
   </tr>
   <tr> 
      <td valign="top">(i) Windows 10 の Microsoft Store 経由でブラジルおよび中国で販売したアプリまたは (ii) Minecraft Marketplace マーケットプレースでの売り上げについて、<b>10 ドル以上の支払い額</b>を受け取りました。<br>
@@ -104,8 +105,8 @@ ms.locfileid: "84428917"
   <tr>
     <td valign="top"><b>W8 フォームをすべて記入した際に支払いが源泉徴収されたのはなぜですか。</b></td>
     <td valign="top">税金は次のいずれかの場合に源泉徴収されます。<br>
-     1.W8 の税務条約のセクションを正しく完了していません。<br>
-     2.米国の税金条約がない国に居住しています。<br><br>いつでもパートナーセンターにアクセスして、更新された W8 フォームを送信できます。<br><br><b>注</b>: すべての収入が税金源泉徴収の対象になるとは限りません。</td>
+     1. W8 の税務条約のセクションを正しく完了していません。<br>
+     2. 米国の税金条約がない国に居住しています。<br><br>いつでもパートナーセンターにアクセスして、更新された W8 フォームを送信できます。<br><br><b>注</b>: すべての収入が税金源泉徴収の対象になるとは限りません。</td>
   </tr>
   <tr>
     <td valign="top"><b>有効な条約情報を含む更新された W8 フォームを送信しました。Microsoft は、源泉徴収された税金を返金できますか。</b></td>
