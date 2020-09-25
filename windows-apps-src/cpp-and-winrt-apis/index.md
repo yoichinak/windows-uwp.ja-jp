@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f05bbd1ad5ea770e96ebbbd74c3a980ae0585b7
-ms.sourcegitcommit: 6009896ead442b378106d82870f249dc8b55b886
+ms.openlocfilehash: b3ad3a204b2eb4b288e3d3c313a0832bea124de0
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643777"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219895"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
@@ -40,7 +40,7 @@ C++/WinRT への移植の詳細については、これらのリソースをご�
 - [WRL から C++/WinRT への移行](./move-to-winrt-from-wrl.md)
 - [C# から C++/WinRT への移行](./move-to-winrt-from-csharp.md)
 
-「[C++/WinRT サンプル アプリはどこにありますか](/windows/uwp/cpp-and-winrt-apis/faq#where-can-i-find-cwinrt-sample-apps)」もご覧ください。
+「[C++/WinRT サンプル アプリはどこにありますか](./faq.md#where-can-i-find-cwinrt-sample-apps)」もご覧ください。
 
 ### <a name="topics-about-cwinrt"></a>C++/WinRT に関するトピック
 

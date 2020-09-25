@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 公開する, 公開, 販売, 販売する, 配布, 配布する, store, ダッシュボード
 ms.assetid: 631d1e2d-e4da-4740-ace0-4c0ad78653fe
 ms.localizationpriority: medium
-ms.openlocfilehash: 19607823ce98aa71a8e3abecb94b82ff06a08352
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a4fb353ef9c4ff5227cb1cff21b26ce3067f5dcc
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164126"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219015"
 ---
 # <a name="publish-windows-apps-and-games"></a>Windows アプリとゲームを公開する  
 
@@ -36,7 +36,7 @@ ms.locfileid: "89164126"
         <h3 style="margin-top: 10px; margin-bottom: 0px">価格と可用性</h3>
         <p style="margin-top: 0px; margin-bottom: 50px">市場ごとの価格設定とスケジュール、表示オプション、セール価格などによって、アプリの使用可能状況をカスタマイズすることができます。</p>
         <br>
-        <a href="define-pricing-and-market-selection.md">市場を選ぶ</a><br/>
+        <a href="/windows/uwp/publish/define-market-selection">市場を選ぶ</a><br/>
         <a href="set-and-schedule-app-pricing.md">価格の設定とスケジュール </a><br/>
         <a href="configure-precise-release-scheduling.md">正確なリリース日の構成</a><br/>
         <a href="set-app-pricing-and-availability.md">使用可能状況のすべてのオプションを見る</a><br/>
@@ -85,7 +85,7 @@ ms.locfileid: "89164126"
     :::column:::
         <img src="https://docs.microsoft.com/media/illustrations/bcs-user-management-add-customer-1.svg" alt="Account icon" />
         <h3 style="margin-top: 10px; margin-bottom: 0px">アカウント ユーザーの管理</h3>
-        <a href="associate-azure-ad-with-dev-center.md">Azure AD の設定</a><br/>
+        <a href="/windows/uwp/publish/associate-azure-ad-with-partner-center">Azure AD の設定</a><br/>
         <a href="add-users-groups-and-azure-ad-applications.md">アカウント ユーザーを追加する</a><br/>
         <a href="set-custom-permissions-for-account-users.md">ロールとアクセス許可</a><br/>
     :::column-end:::

@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 6539f436e46f351efc355d361c0677b9fedee546
-ms.sourcegitcommit: 2bb975d5df38d294277f57bf8b6a06d9bf87ca9b
+ms.openlocfilehash: 34b860916b90d1adc8ae9e7ae8c8ac7950125ce7
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90046818"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216745"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -39,24 +39,24 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://docs.microsoft.com/windows/uwp/">ユニバーサル Windows プラットフォーム (UWP)</a></td>
+<td><a href="/windows/uwp/">ユニバーサル Windows プラットフォーム (UWP)</a></td>
 <td><p>Windows 10 のアプリおよびゲーム用の最先端のプラットフォームです。 UWP コントロールと API を排他的に使用する UWP アプリをビルドすることも、他のプラットフォームのいずれかを使用して構築されたデスクトップ アプリで UWP コントロールと API を使用することもできます。</p></td>
 <td><a href="/windows/uwp/get-started/">作業開始</a><br/><a href="/uwp/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-universal-samples">サンプル</a></td>
 </tr>
 <tr class="even">
-<td><a href="https://docs.microsoft.com/windows/win32/">C++/Win32</a></td>
+<td><a href="/windows/win32/">C++/Win32</a></td>
 <td><p>Windows とハードウェアへの直接アクセスを必要とするネイティブ Windows アプリに最も適したプラットフォームです。</p></td>
 <td><a href="/windows/win32/desktop-programming/">作業開始</a><br/><a href="/windows/win32/apiindex/windows-api-list/">API リファレンス</a><br/><a href="https://github.com/Microsoft/Windows-classic-samples">サンプル</a></td>
 </tr>
 <tr class="odd">
 <td><a href="/dotnet/framework/wpf/">WPF</a></td>
-<td><p>XAML UI モデルを使用して多彩なグラフィックで管理される Windows アプリ用に構築された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
-<td><a href="/dotnet/framework/wpf/getting-started/">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://github.com/Microsoft/WPF-Samples">サンプル</a></td>
+<td><p>XAML UI モデルを使用して多彩なグラフィックで管理される Windows アプリ用に構築された .NET ベースのプラットフォームです。 これらのアプリは、<a href="/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
+<td><a href="/dotnet/framework/wpf/getting-started/">作業開始</a><br/><a href="/dotnet/api/index">API リファレンス (.NET)</a><br/><a href="https://github.com/Microsoft/WPF-Samples">サンプル</a></td>
 </tr>
 <tr class="even">
 <td><a href="/dotnet/framework/winforms/">Windows フォーム</a></td>
-<td><p>軽量の UI モデルを使用して管理される基幹業務アプリ用に設計された .NET ベースのプラットフォームです。 これらのアプリは、<a href="https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
-<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業開始</a><br/><a href="https://docs.microsoft.com/dotnet/api/index">API リファレンス (.NET)</a></td>
+<td><p>軽量の UI モデルを使用して管理される基幹業務アプリ用に設計された .NET ベースのプラットフォームです。 これらのアプリは、<a href="/dotnet/core/whats-new/dotnet-core-3-0">.NET Core 3</a> または完全な .NET Framework を対象にすることができます。</p></td>
+<td><a href="/dotnet/framework/winforms/getting-started-with-windows-forms">作業開始</a><br/><a href="/dotnet/api/index">API リファレンス (.NET)</a></td>
 </tr>
 </tbody>
 </table>
