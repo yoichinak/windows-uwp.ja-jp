@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10, uwp, ユーザー ロール, ユーザーのアクセス許可, カスタム ロール, ユーザー アクセス, アクセス許可のカスタマイズ, 標準ロール
 ms.localizationpriority: medium
-ms.openlocfilehash: 10c75d117320a947ce33ebd732c1956a9b3ae0e6
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6aa88bd5af2e878fa702c3faff2d2677a23f33f2
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172856"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219755"
 ---
 # <a name="set-roles-or-custom-permissions-for-account-users"></a>アカウント ユーザーの役割またはカスタムのアクセス許可の設定
 
@@ -41,7 +41,7 @@ ms.locfileid: "89172856"
 > アカウントの**オーナー**は、最初に Microsoft アカウントでそのアカウントを作成したユーザーです (Azure AD によって追加されたユーザーではありません)。 このアカウント所有者のみが、アカウントに完全にアクセスして、アプリを削除したり、すべてのアカウント ユーザーを作成および編集したり、すべての財務およびアカウント設定を変更したりできます。 
 
 
-| ロール                 | 説明              |
+| Role                 | 説明              |
 |----------------------|--------------------------|
 | Manager              | アカウントに完全にアクセスできます (税金と支払いの設定の変更を除く)。 これには、パートナーセンターでのユーザーの管理が含まれますが、Azure AD テナントでユーザーを作成および削除する機能は、Azure AD でのアカウントのアクセス許可によって異なります。 つまり、ユーザーにマネージャーロールが割り当てられていても、組織の Azure AD のグローバル管理者のアクセス許可を持っていない場合は、新しいユーザーを作成したり、ディレクトリからユーザーを削除したりすることはできません (ただし、ユーザーのパートナーセンターの役割を変更することはできます)。 <p> パートナーセンターアカウントが複数の Azure AD テナントに関連付けられている場合、管理者は、そのテナントのグローバル管理者のアクセス許可を持つアカウントを使用してユーザーと同じテナントにサインインしていない限り、ユーザーの完全な詳細 (姓、名、パスワード回復用電子メール、Azure AD グローバル管理者) を表示できません。 ただし、パートナーセンターアカウントに関連付けられているテナントにユーザーを追加したり、削除したりすることはできます。 |
 | 開発者            | パッケージをアップロードし、アプリおよびアドオンを申請できます。また、[使用状況レポート](usage-report.md)で統計情報の詳細を確認できます。 [デバイス間のエクスペリエンス](https://developer.microsoft.com/windows/project-rome)機能にアクセスできます。 財務情報やアカウントの設定を表示することはできません。   |
@@ -101,17 +101,17 @@ ms.locfileid: "89172856"
     </tr>
     </thead>
     <tbody>
-<tr><td align="left">    <b>アカウントの設定</b>                    </td><td align="left">  <a href="managing-your-profile.md">連絡先情報</a>など、<b>[アカウント設定]</b> セクションのすべてのページを表示できます。       </td><td align="left">  <b>アカウント設定</b>セクションのすべてのページを表示できます。 <a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>と他のページを変更できますが、支払いアカウントや税プロファイルは変更できません (アクセス許可が個別に付与されている場合を除く)。            </td></tr>
+<tr><td align="left">    <b>アカウントの設定</b>                    </td><td align="left">  <a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>など、<b>[アカウント設定]</b> セクションのすべてのページを表示できます。       </td><td align="left">  <b>アカウント設定</b>セクションのすべてのページを表示できます。 <a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>と他のページを変更できますが、支払いアカウントや税プロファイルは変更できません (アクセス許可が個別に付与されている場合を除く)。            </td></tr>
 <tr><td align="left">    <b>アカウントユーザー</b>                       </td><td align="left">  <b>[ユーザー]</b> セクションでアカウントに追加されているユーザーを表示できます。          </td><td align="left">  <b>[ユーザー]</b> セクションで、ユーザーのアカウントへの追加と既存のユーザーの変更ができます。             </td></tr>
-<tr><td align="left">    <b>アカウントレベルの ad パフォーマンスレポート</b> </td><td align="left">  アカウント レベルの <a href="advertising-performance-report.md">[広告パフォーマンス] レポート</a>を表示できます。      </td><td align="left">  N/A   </td></tr>
+<tr><td align="left">    <b>アカウントレベルの ad パフォーマンスレポート</b> </td><td align="left">  アカウント レベルの <a href="advertising-performance-report.md">[広告パフォーマンス] レポート</a>を表示できます。      </td><td align="left">  該当なし   </td></tr>
 <tr><td align="left">    <b>Ad キャンペーン</b>                        </td><td align="left">  アカウントで作成した<a href="create-an-ad-campaign-for-your-app.md">広告キャンペーン</a>を表示できます。      </td><td align="left">  アカウントで作成した<a href="create-an-ad-campaign-for-your-app.md">広告キャンペーン</a>を作成、管理、および表示できます。          </td></tr>
 <tr><td align="left">    <b>Ad 仲介</b>                        </td><td align="left">  アカウント内のすべての製品の広告仲介の構成を表示できます。    </td><td align="left">  アカウント内のすべての製品の広告仲介の構成の表示と変更ができます。        </td></tr>
-<tr><td align="left">    <b>Ad 仲介レポート</b>                </td><td align="left">  アカウント内のすべての製品の<a href="/windows/uwp/publish/advertising-performance-report">広告仲介レポート</a>を表示できます。    </td><td align="left">  N/A    </td></tr>
-<tr><td align="left">    <b>Ad パフォーマンスレポート</b>              </td><td align="left">  アカウント内のすべての製品の <a href="advertising-performance-report.md">[広告パフォーマンス] レポート</a>を表示できます。       </td><td align="left">  N/A         </td></tr>
+<tr><td align="left">    <b>Ad 仲介レポート</b>                </td><td align="left">  アカウント内のすべての製品の<a href="/windows/uwp/publish/advertising-performance-report">広告仲介レポート</a>を表示できます。    </td><td align="left">  該当なし    </td></tr>
+<tr><td align="left">    <b>Ad パフォーマンスレポート</b>              </td><td align="left">  アカウント内のすべての製品の <a href="advertising-performance-report.md">[広告パフォーマンス] レポート</a>を表示できます。       </td><td align="left">  該当なし         </td></tr>
 <tr><td align="left">    <b>Ad ユニット</b>                            </td><td align="left">  アカウント用に作成された<a href="in-app-ads.md">広告ユニット</a>を表示できます。    </td><td align="left">  アカウントの<a href="in-app-ads.md">広告ユニット</a>を作成、管理、および表示できます。             </td></tr>
 <tr><td align="left">    <b>関連広告</b>                       </td><td align="left">  アカウント内のすべての製品で<a href="/windows/uwp/publish/in-app-ads">アフィリエイト広告</a>の利用状況を表示できます。    </td><td align="left">  アカウント内のすべての製品に対して<a href="/windows/uwp/publish/in-app-ads">アフィリエイト広告</a>の利用状況の管理と表示ができます。                </td></tr>
-<tr><td align="left">    <b>関連会社のパフォーマンスレポート</b>      </td><td align="left">  アカウント内のすべての製品の<a href="/windows/uwp/publish/advertising-performance-report">アフィリエイト パフォーマンス レポート</a>を表示できます。   </td><td align="left">  N/A   </td></tr>
-<tr><td align="left">    <b>アプリインストール広告レポート</b>             </td><td align="left">  <a href="promote-your-app-report.md">[広告キャンペーン] レポート</a>を表示できます。           </td><td align="left">  N/A   </td></tr>
+<tr><td align="left">    <b>関連会社のパフォーマンスレポート</b>      </td><td align="left">  アカウント内のすべての製品の<a href="/windows/uwp/publish/advertising-performance-report">アフィリエイト パフォーマンス レポート</a>を表示できます。   </td><td align="left">  該当なし   </td></tr>
+<tr><td align="left">    <b>アプリインストール広告レポート</b>             </td><td align="left">  <a href="/windows/uwp/publish/ad-campaign-report">[広告キャンペーン] レポート</a>を表示できます。           </td><td align="left">  該当なし   </td></tr>
 <tr><td align="left">    <b>コミュニティ広告</b>                       </td><td align="left">  アカウント内のすべての製品の無料<a href="about-community-ads.md">コミュニティ広告</a>の利用状況を表示できます。          </td><td align="left">  アカウント内のすべての製品の無料<a href="about-community-ads.md">コミュニティ広告</a>の利用状況を作成、管理、および表示できます。               </td></tr>
 <tr><td align="left">    <b>連絡先情報</b>                        </td><td align="left">  [アカウント設定] セクションで<a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>を表示できます。        </td><td align="left">  [アカウント設定] セクションで<a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>の編集と表示ができます。            </td></tr>
 <tr><td align="left">    <b>COPPA コンプライアンス</b>                    </td><td align="left">  アカウント内のすべての製品の <a href="in-app-ads.md#coppa-compliance">COPPA 準拠</a>の選択 (製品が13歳未満の子供を対象とするかどうかを示す) を表示できます。                                            </td><td align="left">  アカウント内のすべての製品の <a href="in-app-ads.md#coppa-compliance">COPPA 準拠</a>の選択 (製品が13歳未満の子供を対象とするかどうかを示す) の編集と表示ができます。         </td></tr>
@@ -124,7 +124,7 @@ ms.locfileid: "89172856"
 <tr><td align="left">    <b>支払いの概要</b>                      </td><td align="left">  <a href="payout-summary.md">支払いの概要</a>を表示して、支払いレポート情報にアクセスしてダウンロードできます。       </td><td align="left">  <a href="payout-summary.md">支払いの概要</a>を表示して、支払いレポート情報にアクセスしてダウンロードできます。   </td></tr>
 <tr><td align="left">    <b>証明書利用者</b>&nbsp;*                   </td><td align="left">  XToken を取得する証明書利用者を表示できます。    </td><td align="left">  XToken を取得する証明書利用者の管理と表示ができます。     </td></tr>
 <tr><td align="left">    <b>サンド</b>&nbsp;*                         </td><td align="left">  <b>サンドボックス</b> ページにアクセスして、アカウント内のサンドボックスとそれらのサンドボックスに適用可能なすべての構成を表示できます。 適切な製品レベルのアクセス許可が付与されている場合を除き、サンドボックスごとに製品と申請を表示することはできません。 </td><td align="left">  <b>サンドボックス</b> ページにアクセスして、サンドボックスの作成と削除、およびサンドボックスの構成の管理など、アカウントでサンドボックスを表示して管理できます。 適切な製品レベルのアクセス許可が付与されている場合を除き、サンドボックスごとに製品と申請を表示することはできません。    </td></tr>
-<tr><td align="left">    <b>店舗売上イベント</b>&nbsp;*                            </td><td align="left">  N/A    </td><td align="left">  Microsoft Store セール イベントに製品を自動的に含めるオプションを構成できます。     </td></tr>
+<tr><td align="left">    <b>店舗売上イベント</b>&nbsp;*                            </td><td align="left">  該当なし    </td><td align="left">  Microsoft Store セール イベントに製品を自動的に含めるオプションを構成できます。     </td></tr>
 <tr><td align="left">    <b>税プロファイル</b>                         </td><td align="left">  <b>[アカウント設定]</b> に<a href="setting-up-your-payout-account-and-tax-forms.md#tax-forms">税プロファイルの情報とフォーム</a>を表示できます。     </td><td align="left">  <b>[アカウント設定]</b> で税フォームに入力して、<a href="setting-up-your-payout-account-and-tax-forms.md#tax-forms">税プロファイル情報</a>を更新できます。     </td></tr>
 <tr><td align="left">    <b>テストアカウント</b>&nbsp;*                     </td><td align="left">  Xbox Live の構成をテストするためのアカウントを表示できます。      </td><td align="left">  Xbox Live の構成をテストするためのアカウントを作成、管理、および表示できます。      </td></tr>
 <tr><td align="left">    <b>Xbox デバイス</b>                        </td><td align="left">  <b>[アカウント設定]</b> セクションでアカウントに対して有効にされている Xbox 開発コンソールを表示できます。       </td><td align="left">  <b>[アカウント設定]</b> セクションでアカウントに対して有効にされている Xbox 開発コンソールを追加、削除、および表示できます。     </td></tr>
@@ -165,11 +165,11 @@ ms.locfileid: "89172856"
     </tr>
     </thead>
     <tbody>
-    <tr><td align="left">    <b>買収</b> (ほぼリアルタイムのデータを含む) </td><td>    製品の <a href="acquisitions-report.md">[取得]</a> レポートと <a href="add-on-acquisitions-report.md">[アドオン取得]</a> レポートを表示できます。        </td><td>    N/A    </td><td>    該当なし (親製品の設定には **アドオン** の取得レポートが含まれます)        </td><td>    N/A                         </td></tr>
-    <tr><td align="left">    <b>ユーセジリンク</b> </td><td>    製品の <a href="usage-report.md">[使用状況] レポート</a>を表示できます。     </td><td>    N/A       </td><td>    N/A     </td><td>    N/A         </td></tr>
-    <tr><td align="left">    <b>正常性</b> (ほぼリアルタイムのデータを含む) </td><td>    製品の<a href="health-report.md">正常性レポート</a>を表示できます。    </td><td>    N/A     </td><td>    N/A     </td><td>    N/A         </td></tr>
-    <tr><td align="left">    <b>お客様からのフィードバック</b>    </td><td>    製品の <a href="reviews-report.md">[レビュー]</a> レポートと <a href="feedback-report.md">[フィードバック]</a> レポートを表示できます。       </td><td>    該当なし (フィードバックやレビューに返信するには、<b>[顧客への連絡]</b> アクセス許可を付与する必要があります)   </td><td>    N/A     </td><td>    N/A         </td></tr>
-    <tr><td align="left">    <b>Xbox 分析</b> </td><td>    製品の <a href="xbox-analytics-report.md">Xbox analytics レポート</a> を表示できます。    </td><td>    N/A   </td><td>    N/A       </td><td>    N/A          </td></tr>
+    <tr><td align="left">    <b>買収</b> (ほぼリアルタイムのデータを含む) </td><td>    製品の <a href="acquisitions-report.md">[取得]</a> レポートと <a href="add-on-acquisitions-report.md">[アドオン取得]</a> レポートを表示できます。        </td><td>    該当なし    </td><td>    該当なし (親製品の設定には **アドオン** の取得レポートが含まれます)        </td><td>    該当なし                         </td></tr>
+    <tr><td align="left">    <b>ユーセジリンク</b> </td><td>    製品の <a href="usage-report.md">[使用状況] レポート</a>を表示できます。     </td><td>    該当なし       </td><td>    該当なし     </td><td>    該当なし         </td></tr>
+    <tr><td align="left">    <b>正常性</b> (ほぼリアルタイムのデータを含む) </td><td>    製品の<a href="health-report.md">正常性レポート</a>を表示できます。    </td><td>    該当なし     </td><td>    該当なし     </td><td>    該当なし         </td></tr>
+    <tr><td align="left">    <b>お客様からのフィードバック</b>    </td><td>    製品の <a href="reviews-report.md">[レビュー]</a> レポートと <a href="feedback-report.md">[フィードバック]</a> レポートを表示できます。       </td><td>    該当なし (フィードバックやレビューに返信するには、<b>[顧客への連絡]</b> アクセス許可を付与する必要があります)   </td><td>    該当なし     </td><td>    該当なし         </td></tr>
+    <tr><td align="left">    <b>Xbox 分析</b> </td><td>    製品の <a href="xbox-analytics-report.md">Xbox analytics レポート</a> を表示できます。    </td><td>    該当なし   </td><td>    該当なし       </td><td>    該当なし          </td></tr>
     </tbody>
     </table>
 
@@ -187,9 +187,9 @@ ms.locfileid: "89172856"
     </thead>
     <tbody>
     <tr><td align="left">    <b>プロモーションコード</b>     </td><td>    製品とそのアドオンの<a href="generate-promotional-codes.md">プロモーション コード</a>の注文と利用状況の情報、また利用状況情報を表示できます。         </td><td>    製品とそのアドオンの<a href="generate-promotional-codes.md">プロモーション コード</a>の注文の表示、管理、および作成、また利用状況情報の表示ができます。          </td><td>    該当なし (すべてのアドオンに親製品の設定が適用されます)     </td><td>    該当なし (すべてのアドオンに親製品の設定が適用されます)     </td></tr>
-    <tr><td align="left">    <b>対象となるプラン</b>     </td><td>    製品の<a href="use-targeted-offers-to-maximize-engagement-and-conversions.md">対象プラン</a>を表示できます。         </td><td>    製品の<a href="use-targeted-offers-to-maximize-engagement-and-conversions.md">対象プラン</a>を表示、管理、作成できます。          </td><td>    N/A     </td><td>    N/A      </td></tr>
-    <tr><td align="left">    <b>お客様へのお問い合わせ</b>  </td><td>    <b>カスタマー フィードバック</b> アクセス許可も付与されている限り、<a href="respond-to-customer-feedback.md">カスタマー フィードバックへの返信</a>と<a href="respond-to-customer-reviews.md">カスタマー レビューへの返信</a>を表示できます。 製品に対して作成された<a href="send-push-notifications-to-your-apps-customers.md">ターゲット通知</a>も表示できます。    </td><td>    カスタマー<b>フィードバックのアクセス許可</b>も付与されている限り、顧客からの<a href="respond-to-customer-feedback.md">フィードバックに応答</a>して<a href="respond-to-customer-reviews.md">顧客のレビューに応答</a>できます。 製品に対する<a href="send-push-notifications-to-your-apps-customers.md">ターゲット通知の作成と送信</a>もできます。                   </td><td>    N/A         </td><td>    N/A                          </td></tr>
-    <tr><td align="left">    <b>実験</b></td><td>    製品の<a href="../monetize/run-app-experiments-with-a-b-testing.md">実験 (A/Bテスト)</a>と実験データを表示できます。   </td><td>    製品の<a href="../monetize/run-app-experiments-with-a-b-testing.md">実験 (A/B テスト)</a> の作成、管理、および表示と、実験データの表示ができます。     </td><td>    N/A  </td><td>    N/A                 </td></tr>
+    <tr><td align="left">    <b>対象となるプラン</b>     </td><td>    製品の<a href="use-targeted-offers-to-maximize-engagement-and-conversions.md">対象プラン</a>を表示できます。         </td><td>    製品の<a href="use-targeted-offers-to-maximize-engagement-and-conversions.md">対象プラン</a>を表示、管理、作成できます。          </td><td>    該当なし     </td><td>    該当なし      </td></tr>
+    <tr><td align="left">    <b>お客様へのお問い合わせ</b>  </td><td>    <b>カスタマー フィードバック</b> アクセス許可も付与されている限り、<a href="respond-to-customer-feedback.md">カスタマー フィードバックへの返信</a>と<a href="respond-to-customer-reviews.md">カスタマー レビューへの返信</a>を表示できます。 製品に対して作成された<a href="send-push-notifications-to-your-apps-customers.md">ターゲット通知</a>も表示できます。    </td><td>    カスタマー<b>フィードバックのアクセス許可</b>も付与されている限り、顧客からの<a href="respond-to-customer-feedback.md">フィードバックに応答</a>して<a href="respond-to-customer-reviews.md">顧客のレビューに応答</a>できます。 製品に対する<a href="send-push-notifications-to-your-apps-customers.md">ターゲット通知の作成と送信</a>もできます。                   </td><td>    該当なし         </td><td>    該当なし                          </td></tr>
+    <tr><td align="left">    <b>実験</b></td><td>    製品の<a href="../monetize/run-app-experiments-with-a-b-testing.md">実験 (A/Bテスト)</a>と実験データを表示できます。   </td><td>    製品の<a href="../monetize/run-app-experiments-with-a-b-testing.md">実験 (A/B テスト)</a> の作成、管理、および表示と、実験データの表示ができます。     </td><td>    該当なし  </td><td>    該当なし                 </td></tr>
     <tr><td align="left">    <b>店舗売上イベント</b>&nbsp;*</td><td>    製品のセール イベントの状態を表示できます。   </td><td>    製品をセール イベントに追加して、割引を構成できます。      </td><td>    製品のセール イベントの状態を表示できます。   </td><td>    製品をセール イベントに追加して、割引を構成できます。      </td></tr>
     </tbody>
     </table>
@@ -215,10 +215,10 @@ ms.locfileid: "89172856"
     <tr><td align="left">    <b>ストアの一覧</b>  </td><td>    製品の <a href="create-app-store-listings.md">ストアリスティングページ</a> を表示できます。  </td><td>    <a href="create-app-store-listings.md">店舗の一覧ページ</a>の製品を表示および編集できます。また、さまざまな言語の新しい店舗一覧を追加できます。     </td><td>    アドオンの <a href="create-add-on-store-listings.md">ストアの一覧ページ</a> を表示できます。            </td><td>    アドオンの <a href="create-add-on-store-listings.md">ストアの一覧ページ</a> を表示および編集したり、異なる言語のストアの一覧を追加したりできます。                 </td></tr>
     <tr><td align="left">    <b>ストアの提出</b>     </td><td>    このアクセス許可が読み取り専用に設定されている場合は、アクセスは一切付与されません。           </td><td>    ストアに製品を提出して、証明レポートを表示できます。 新規および更新済みの両方の申請が含まれます。 </td><td>このアクセス許可が読み取り専用に設定されている場合は、アクセスは一切付与されません。     </td><td>    ストアにアドオンを提出して、証明レポートを表示できます。 新規および更新済みの両方の申請が含まれます。</td></tr>
     <tr><td align="left">    <b>新しい送信の作成</b>       </td><td>    このアクセス許可が読み取り専用に設定されている場合は、アクセスは一切付与されません。        </td><td>    製品の新しい<a href="app-submissions.md">申請</a>を作成できます。  </td><td>    このアクセス許可が読み取り専用に設定されている場合は、アクセスは一切付与されません。   </td><td>    アドオンの新しい<a href="add-on-submissions.md">申請</a>を作成できます。        </td></tr>
-    <tr><td align="left">    <b>新しいアドオン</b>    </td><td>    このアクセス許可が読み取り専用に設定されている場合は、アクセスは一切付与されません。 </td><td>    製品の<a href="set-your-add-on-product-id.md">新しいアドオンを作成</a>できます。 </td><td>    N/A    </td><td>    N/A        </td></tr>
+    <tr><td align="left">    <b>新しいアドオン</b>    </td><td>    このアクセス許可が読み取り専用に設定されている場合は、アクセスは一切付与されません。 </td><td>    製品の<a href="set-your-add-on-product-id.md">新しいアドオンを作成</a>できます。 </td><td>    該当なし    </td><td>    該当なし        </td></tr>
     <tr><td align="left">    <b>予約名</b>   </td><td>    製品の<a href="manage-app-names.md">アプリ名の管理</a>ページを表示できます。</td><td>    追加の名前の予約や予約済みの名前の削除など、製品の<a href="manage-app-names.md">アプリ名の管理</a>ページの表示と編集ができます。 </td><td>   アドオンの予約済みの名前を表示できます。    </td><td>   アドオンの予約済みの名前の表示と編集ができます。          </td></tr>
-    <tr><td align="left">    <b>ディスクの要求</b>   </td><td>    要求ページをディスクに表示できます。 </td><td>    ディスク要求を作成できます。 </td><td>   N/A    </td><td>   N/A          </td></tr>
-    <tr><td align="left">    <b>ディスクのロイヤリティ </b>   </td><td>    ディスクをロイヤリティページで表示できます。</td><td>    ディスクのロイヤリティを作成できます。 </td><td>   N/A    </td><td>   N/A          </td></tr>
+    <tr><td align="left">    <b>ディスクの要求</b>   </td><td>    要求ページをディスクに表示できます。 </td><td>    ディスク要求を作成できます。 </td><td>   該当なし    </td><td>   該当なし          </td></tr>
+    <tr><td align="left">    <b>ディスクのロイヤリティ </b>   </td><td>    ディスクをロイヤリティページで表示できます。</td><td>    ディスクのロイヤリティを作成できます。 </td><td>   該当なし    </td><td>   該当なし          </td></tr>
     </tbody>
     </table>
 
@@ -235,15 +235,15 @@ ms.locfileid: "89172856"
     </tr>
     </thead>
     <tbody>
-    <tr><td align="left">    <b>証明書利用者</b>&nbsp;*</td><td>    アカウントの [証明書利用者] ページを表示できます。   </td><td>    アカウントの証明書利用者ページを表示および編集できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>パートナーサービス</b>&nbsp;*</td><td>    アカウントの Web サービスページを表示できます。  </td><td>    アカウントの Web サービスページを表示および編集できます。      </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>Xbox テストアカウント</b>&nbsp;*</td><td>    アカウントの [Xbox テストアカウント] ページを表示できます。  </td><td>    アカウントの [Xbox テストアカウント] ページを表示および編集できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>サンドボックスごとの Xbox テストアカウント</b>&nbsp;*</td><td>    指定されたアカウントのサンドボックスに対してのみ、[Xbox テストアカウント] ページを表示できます。  </td><td>    Xbox テストを表示および編集できます。   <tr><td align="left">    <b>アカウントの指定したサンドボックスのみの [アカウント] ページ    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>Xbox デバイス</b>&nbsp;*</td><td>    アカウントの Xbox one 開発コンソールページを表示できます。  </td><td>    アカウントの Xbox one 開発コンソールページを表示および編集できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>Xbox デバイス (サンドボックスあたり)</b>&nbsp;*</td><td>    指定されたアカウントのサンドボックスに対してのみ、Xbox one の開発コンソールページを表示できます。  </td><td>    アカウントの指定したサンドボックスに対してのみ、Xbox one 開発コンソールページを表示および編集できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>アプリチャネル</b>&nbsp;*</td><td>    N/A  </td><td>    OneGuide を通じて表示するために、Xbox コンソールにプロモーション用のビデオ チャンネルを公開できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>サービスの構成</b>&nbsp;*</td><td>    製品の Xbox Live サービス構成ページを表示できます。  </td><td>    製品の Xbox Live サービス構成ページを表示および編集できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
-    <tr><td align="left">    <b>ツールへのアクセス</b>&nbsp;*</td><td>    製品で Xbox Live ツールを実行して、データのみを表示できます。  </td><td>    製品で Xbox Live ツールを実行して、データを表示および編集できます。    </td><td>    N/A    </td><td>    N/A                      </td></tr>
+    <tr><td align="left">    <b>証明書利用者</b>&nbsp;*</td><td>    アカウントの [証明書利用者] ページを表示できます。   </td><td>    アカウントの証明書利用者ページを表示および編集できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>パートナーサービス</b>&nbsp;*</td><td>    アカウントの Web サービスページを表示できます。  </td><td>    アカウントの Web サービスページを表示および編集できます。      </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>Xbox テストアカウント</b>&nbsp;*</td><td>    アカウントの [Xbox テストアカウント] ページを表示できます。  </td><td>    アカウントの [Xbox テストアカウント] ページを表示および編集できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>サンドボックスごとの Xbox テストアカウント</b>&nbsp;*</td><td>    指定されたアカウントのサンドボックスに対してのみ、[Xbox テストアカウント] ページを表示できます。  </td><td>    Xbox テストを表示および編集できます。   <tr><td align="left">    <b>アカウントの指定したサンドボックスのみの [アカウント] ページ    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>Xbox デバイス</b>&nbsp;*</td><td>    アカウントの Xbox one 開発コンソールページを表示できます。  </td><td>    アカウントの Xbox one 開発コンソールページを表示および編集できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>Xbox デバイス (サンドボックスあたり)</b>&nbsp;*</td><td>    指定されたアカウントのサンドボックスに対してのみ、Xbox one の開発コンソールページを表示できます。  </td><td>    アカウントの指定したサンドボックスに対してのみ、Xbox one 開発コンソールページを表示および編集できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>アプリチャネル</b>&nbsp;*</td><td>    該当なし  </td><td>    OneGuide を通じて表示するために、Xbox コンソールにプロモーション用のビデオ チャンネルを公開できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>サービスの構成</b>&nbsp;*</td><td>    製品の Xbox Live サービス構成ページを表示できます。  </td><td>    製品の Xbox Live サービス構成ページを表示および編集できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
+    <tr><td align="left">    <b>ツールへのアクセス</b>&nbsp;*</td><td>    製品で Xbox Live ツールを実行して、データのみを表示できます。  </td><td>    製品で Xbox Live ツールを実行して、データを表示および編集できます。    </td><td>    該当なし    </td><td>    該当なし                      </td></tr>
 </tbody>
 </table>
 

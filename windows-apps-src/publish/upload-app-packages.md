@@ -2,30 +2,30 @@
 Description: '[パッケージ] ページでは、送信しているアプリのすべてのパッケージファイル (.appxupload、.appx、.appxbundle、および/または .xap) をアップロードします。'
 title: アプリ パッケージのアップロード
 ms.assetid: B1BB810D-3EAA-4FB5-B03C-1F01AFB2DE36
-ms.date: 10/02/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、パッケージ、アップロード、パッケージアップロード
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c3c55d351ebd3b956d57c6c7e623e88e7fa88c1
-ms.sourcegitcommit: 96b7be654a0922eeb421b5fa51ebfc586abe74fe
+ms.openlocfilehash: 0b4fc0c9dfeed1183a1653b525d0f8cc8a62a4c1
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945941"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220215"
 ---
 # <a name="upload-app-packages"></a>アプリ パッケージのアップロード
 
-[**パッケージ**] ページでは、送信しているアプリのすべてのパッケージファイル (. msix、. msixupload、. .msixbundle、.appx、. .appxupload、.appxbundle) をアップロードします。 このページでは、同じアプリのすべてのパッケージをアップロードできます。また、顧客がアプリをダウンロードすると、ストアは各顧客に対して、デバイスに最適なパッケージを自動的に提供します。 開発者がパッケージをアップロードした後は、[特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージ](#device-family-availability)をランキング順に示すテーブルが表示されます。
+[ **パッケージ** ] ページでは、送信しているアプリのすべてのパッケージファイル (. msix、. msixupload、. .msixbundle、.appx、. .appxupload、.appxbundle) をアップロードします。 このページでは、同じアプリのすべてのパッケージをアップロードできます。また、顧客がアプリをダウンロードすると、ストアは各顧客に対して、デバイスに最適なパッケージを自動的に提供します。 開発者がパッケージをアップロードした後は、[特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージ](#device-family-availability)をランキング順に示すテーブルが表示されます。
 
 > [!IMPORTANT]
-> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
+> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの [ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
 
-パッケージに含まれる内容やパッケージの構成方法について詳しくは、「[アプリ パッケージの要件](app-package-requirements.md)」をご覧ください。 また、[バージョン番号が特定の顧客に配信されるパッケージ](package-version-numbering.md)にどのように影響するか、および[さまざまなシナリオでパッケージを管理する](guidance-for-app-package-management.md)方法についても説明します。
+パッケージに含まれる内容やパッケージの構成方法について詳しくは、「[アプリ パッケージの要件](app-package-requirements.md)」をご覧ください。 また、 [バージョン番号が特定の顧客に配信されるパッケージ](package-version-numbering.md) にどのように影響するか、および [さまざまなシナリオでパッケージを管理する](guidance-for-app-package-management.md)方法についても説明します。
 
 
 ## <a name="uploading-packages-to-your-submission"></a>申請へのパッケージのアップロード
 
-パッケージをアップロードするには、アップロード フィールドにパッケージをドラッグするか、クリックしてファイルを参照します。 [**パッケージ**] ページでは、. msix、. msixupload、.msixbundle、.appx、.appxupload、および .appxbundle ファイルをアップロードできます。
+パッケージをアップロードするには、アップロード フィールドにパッケージをドラッグするか、クリックしてファイルを参照します。 [ **パッケージ** ] ページでは、. msix、. msixupload、.msixbundle、.appx、.appxupload、および .appxbundle ファイルをアップロードできます。
 
 > [!IMPORTANT]
 > Windows 10 の場合は、. msix、.appx、.msixbundle、.appxbundle ではなく、msixupload または .appxupload ファイルをここでアップロードすることをお勧めします。  ストア用の UWP アプリのパッケージ化について詳しくは、「[Visual Studio での UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)」をご覧ください。

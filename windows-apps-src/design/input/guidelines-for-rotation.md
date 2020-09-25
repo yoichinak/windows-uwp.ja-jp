@@ -4,16 +4,16 @@ title: 回転
 ms.assetid: f098bc05-35b3-46b2-9e9b-9ff292d067ca
 label: Rotation
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 98ba886ffd74f03b4b502e1f7351c75c76646147
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 135f7773a94491e1e6470c84ad428265273bc79d
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172476"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217005"
 ---
 # <a name="rotation"></a>回転
 
@@ -22,7 +22,7 @@ ms.locfileid: "89172476"
 
 > **重要な API**: [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)
 
-## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
+## <a name="dos-and-donts"></a>推奨と非推奨
 
 -   ユーザーが直接 UI 要素を回転できるように回転を使います。
 

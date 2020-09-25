@@ -4,19 +4,19 @@ Description: Windows アプリを設計および最適化して、視線とヘ�
 label: Gaze interactions
 template: detail.hbs
 keywords: 視線, 視線追跡, 頭の追跡, 視線ポイント, 入力, ユーザーの操作, アクセシビリティ, ユーザビリティ
-ms.date: 05/01/2018
+ms.date: 09/24/2020
 ms.topic: article
 pm-contact: Jake Cohen
 dev-contact: Austin Hodges
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c91de7eb0200780b04bad1853cb49caf41a22bc0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fa08cb65afc46069e48263344270e1e3b1a3d5f5
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172506"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217025"
 ---
 # <a name="gaze-interactions-and-eye-tracking-in-windows-apps"></a>Windows アプリでの対話と視線の追跡
 

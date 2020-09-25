@@ -5,16 +5,16 @@ ms.assetid: 784a08dc-2736-4bd3-bea0-08da16b1bd47
 label: Gamepad and remote interactions
 template: detail.hbs
 isNew: true
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f5efe2fe1e8a4e24df175a0d019834cd0ba90388
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 7f11cde619b783292e4880927c68b6ae8ff38323
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172556"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217186"
 ---
 # <a name="gamepad-and-remote-control-interactions"></a>ゲームパッドとリモコンの操作
 
@@ -158,10 +158,10 @@ Xbox の Windows アプリでは、 **メニュー** ボタンを押してコン
 | 相互作用   | キーボード/マウス   | ゲームパッド      | 組み込み済み:  | 推奨: |
 |---------------|------------|--------------|----------------|------------------|
 | ページ アップ/ダウン  | ページ アップ/ダウン | 左/右トリガー | [CalendarView](/uwp/api/Windows.UI.Xaml.Controls.CalendarView)、[ListBox](/uwp/api/Windows.UI.Xaml.Controls.ListBox)、[ListViewBase](/uwp/api/Windows.UI.Xaml.Controls.ListViewBase)、[ListView](/uwp/api/Windows.UI.Xaml.Controls.ListView)、`ScrollViewer`、[Selector](/uwp/api/Windows.UI.Xaml.Controls.Primitives.Selector)、[LoopingSelector](/uwp/api/Windows.UI.Xaml.Controls.Primitives.LoopingSelector)、[ComboBox](/uwp/api/Windows.UI.Xaml.Controls.ComboBox)、[FlipView](/uwp/api/Windows.UI.Xaml.Controls.FlipView) | 垂直スクロールをサポートするビュー
-| ページの左/右 | なし | L/R ボタン | [Pivot](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[ListBox](/uwp/api/Windows.UI.Xaml.Controls.ListBox)、[ListViewBase](/uwp/api/Windows.UI.Xaml.Controls.ListViewBase)、[ListView](/uwp/api/Windows.UI.Xaml.Controls.ListView)、`ScrollViewer`、[Selector](/uwp/api/Windows.UI.Xaml.Controls.Primitives.Selector)、[LoopingSelector](/uwp/api/Windows.UI.Xaml.Controls.Primitives.LoopingSelector)、[FlipView](/uwp/api/Windows.UI.Xaml.Controls.FlipView) | 水平スクロールをサポートするビュー
-| ズーム イン/アウト        | Ctrl + 正符号 (+)/マイナス記号 (-) | 左/右トリガー | なし | `ScrollViewer`、拡大と縮小をサポートするビュー |
-| ナビゲーション ウィンドウを開く/閉じる | なし | 表示 | なし | ナビゲーション ウィンドウ |
-| 検索 | なし | Y ボタン | なし | アプリのメインの検索機能へのショートカット |
+| ページの左/右 | None | L/R ボタン | [Pivot](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[ListBox](/uwp/api/Windows.UI.Xaml.Controls.ListBox)、[ListViewBase](/uwp/api/Windows.UI.Xaml.Controls.ListViewBase)、[ListView](/uwp/api/Windows.UI.Xaml.Controls.ListView)、`ScrollViewer`、[Selector](/uwp/api/Windows.UI.Xaml.Controls.Primitives.Selector)、[LoopingSelector](/uwp/api/Windows.UI.Xaml.Controls.Primitives.LoopingSelector)、[FlipView](/uwp/api/Windows.UI.Xaml.Controls.FlipView) | 水平スクロールをサポートするビュー
+| ズーム イン/アウト        | Ctrl + 正符号 (+)/マイナス記号 (-) | 左/右トリガー | None | `ScrollViewer`、拡大と縮小をサポートするビュー |
+| ナビゲーション ウィンドウを開く/閉じる | None | 表示 | None | ナビゲーション ウィンドウ |
+| 検索 | None | Y ボタン | None | アプリのメインの検索機能へのショートカット |
 | [コンテキスト メニューを開く](#commandbar-and-contextflyout) | 右ボタンのクリック | メニュー ボタン | [ContextFlyout](/uwp/api/Windows.UI.Xaml.UIElement.ContextFlyout) | コンテキスト メニュー |
 
 ## <a name="xy-focus-navigation-and-interaction"></a>XY フォーカス ナビゲーションと操作
@@ -546,15 +546,15 @@ HTML/JavaScript のサンプル コードなどの詳細情報については、
 
 一部のコントロールでは、フォーカスのトラップがよく発生するため、既定の設定でフォーカス エンゲージメントを要求する方が良い場合があります。また、コントロールによっては既定でフォーカス エンゲージメントが無効になっていますが、有効にする方が良い場合があります。 次の表は、これらのコントロールと、既定のフォーカス エンゲージメントの動作を示します。
 
-| Control               | フォーカス エンゲージメントの既定値  |
+| コントロール               | フォーカス エンゲージメントの既定値  |
 |-----------------------|---------------------------|
 | CalendarDatePicker    | オン                        |
-| FlipView              | オフ                       |
-| GridView              | オフ                       |
-| ListBox               | オフ                       |
-| ListView              | オフ                       |
-| ScrollViewer          | オフ                       |
-| SemanticZoom          | オフ                       |
+| FlipView              | Off                       |
+| GridView              | Off                       |
+| ListBox               | Off                       |
+| ListView              | Off                       |
+| ScrollViewer          | Off                       |
+| SemanticZoom          | Off                       |
 | スライダー                | オン                        |
 
 その他のすべての Windows コントロールは、の場合に動作やビジュアルの変更を行いません `IsFocusEngagementEnabled="True"` 。

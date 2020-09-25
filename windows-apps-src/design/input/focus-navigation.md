@@ -4,19 +4,19 @@ Description: フォーカスナビゲーションを使用して、Windows ア�
 label: ''
 template: detail.hbs
 keywords: キーボード, ゲーム コントローラー, リモコン, ナビゲーション, 方向内部ナビゲーション, 方向領域, ナビゲーション方法, 入力, ユーザーの操作, アクセシビリティ, 操作性
-ms.date: 03/02/2018
+ms.date: 09/24/2020
 ms.topic: article
 pm-contact: miguelrb
 design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ad0e986de3f3084cd33f217df7715c955cb6b57
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6119a6b7d7621857e3317589a3b4a64ba3d5d2ea
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172576"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217225"
 ---
 # <a name="focus-navigation-for-keyboard-gamepad-remote-control-and-accessibility-tools"></a>キーボード、ゲームパッド、リモコン、アクセシビリティ ツールのフォーカス ナビゲーション
 

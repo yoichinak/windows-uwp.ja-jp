@@ -1,5 +1,5 @@
 ---
-title: ビデオへの画面の取り込み
+title: ビデオに画面の取り込み
 description: この記事では、画面からキャプチャされたフレームをビデオファイルにエンコードする方法について説明します。
 ms.date: 07/28/2020
 ms.topic: article
@@ -7,16 +7,16 @@ dev_langs:
 - csharp
 keywords: windows 10、uwp、画面キャプチャ、ビデオ
 ms.localizationpriority: medium
-ms.openlocfilehash: ae1eb68e480b4c9b4b4fc88452a68f39f8461a79
-ms.sourcegitcommit: 14c0b1ea2447a81ddf31982b40e19a74ecc6d59e
+ms.openlocfilehash: d8f70748d025d50d19dbf2cb184ae841cced7f8a
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310086"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218635"
 ---
-# <a name="screen-capture-to-video"></a>ビデオへの画面の取り込み
+# <a name="screen-capture-to-video"></a>ビデオに画面の取り込み
 
-この記事では、画面からキャプチャされたフレームをビデオファイルにエンコードする方法について説明します。 静止画像のキャプチャの詳細については、「 [Screeen capture](screen-capture-video)」を参照してください。 
+この記事では、画面からキャプチャされたフレームをビデオファイルにエンコードする方法について説明します。 静止画像のキャプチャの詳細については、「 [Screeen capture](./screen-capture.md)」を参照してください。
 
 ## <a name="overview-of-the-video-capture-process"></a>ビデオキャプチャプロセスの概要
 この記事では、ビデオファイルにウィンドウの内容を記録するサンプルアプリのチュートリアルを提供します。 このシナリオを実装するために多くのコードが必要と思われるかもしれませんが、画面レコーダーアプリの高レベルの構造は非常に単純です。 画面キャプチャプロセスでは、次の3つの主要な UWP 機能を使用します。
@@ -55,21 +55,21 @@ SharpDX Nuget パッケージをインストールするには、Visual Studio �
 
 - **MediaEncodingProfile と VideoStreamDescriptor を作成します。** [Mediastreamsource](/uwp/api/windows.media.core.mediastreamsource)クラスのインスタンスは、画面からキャプチャされたイメージを取得し、ビデオストリームにエンコードします。 次に、 [MediaTranscoder](/uwp/api/windows.media.transcoding.mediatranscoder) クラスによってビデオストリームがビデオファイルにトランスコードされます。 [VideoStreamDecriptor](/uwp/api/windows.media.core.videostreamdescriptor)は、 **mediastreamsource**の解像度やフレームレートなどのエンコーディングパラメーターを提供します。 **MediaTranscoder**のビデオファイルエンコーディングパラメーターは、 [MediaEncodingProfile](/uwp/api/Windows.Media.MediaProperties.MediaEncodingProfile)で指定されます。 ビデオエンコードに使用されるサイズは、キャプチャされるウィンドウのサイズと同じである必要はありませんが、この例を単純なままにするために、エンコーディングの設定は、キャプチャ項目の実際の大きさを使用するようにハードコーディングされています。
 
-- **MediaStreamSource オブジェクトと MediaTranscoder オブジェクトを作成します。** 前述のように、 **Mediastreamsource** オブジェクトは、個々のフレームをビデオストリームにエンコードします。 前の手順で作成した **MediaEncodingProfile** を渡して、このクラスのコンストラクターを呼び出します。 バッファー時間をゼロに設定し、 [開始](uwp/api/windows.media.core.mediastreamsource.starting) イベントと [SampleRequested](/uwp/api/windows.media.core.mediastreamsource.samplerequested) イベントのハンドラーを登録します。このイベントは、この記事の後半で説明します。 次に、 **MediaTranscoder** クラスの新しいインスタンスを構築し、ハードウェアアクセラレータを有効にします。
+- **MediaStreamSource オブジェクトと MediaTranscoder オブジェクトを作成します。** 前述のように、 **Mediastreamsource** オブジェクトは、個々のフレームをビデオストリームにエンコードします。 前の手順で作成した **MediaEncodingProfile** を渡して、このクラスのコンストラクターを呼び出します。 バッファー時間をゼロに設定し、 [開始](/uwp/api/windows.media.core.mediastreamsource.starting) イベントと [SampleRequested](/uwp/api/windows.media.core.mediastreamsource.samplerequested) イベントのハンドラーを登録します。このイベントは、この記事の後半で説明します。 次に、 **MediaTranscoder** クラスの新しいインスタンスを構築し、ハードウェアアクセラレータを有効にします。
 
 - **出力ファイルを作成** するこのメソッドの最後の手順は、ビデオをトランスコードするファイルを作成することです。 この例では、デバイスの [ビデオライブラリ] フォルダーに一意の名前が付けられたファイルを作成します。 このフォルダーにアクセスするには、アプリでアプリマニフェストに "ビデオライブラリ" 機能を指定する必要があることに注意してください。 ファイルが作成されたら、読み取りと書き込みのためにファイルを開き、結果として得られるストリームを **EncodeAsync** メソッドに渡します。このメソッドは次のようになります。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ScreenRecorderExample/cs/MainPage.xaml.cs" id="snippet_SetupEncoding":::
 
 ## <a name="start-encoding"></a>エンコードの開始
-メインオブジェクトが初期化されたので、 **EncodeAsync** メソッドを実装してキャプチャ操作を開始します。 このメソッドは、まず、まだ記録されていないことを確認します。存在しない場合は、ヘルパーメソッド **Startcapture** を呼び出して、画面からフレームのキャプチャを開始します。 このメソッドについては、この記事の後半で説明します。 次に、 [PrepareMediaStreamSourceTranscodeAsync](/uwp/api/windows.media.transcoding.mediatranscoder.preparemediastreamsourcetranscodeasync)は、前のセクションで作成したエンコードプロファイルを使用して、 **mediastreamsource**オブジェクトによって生成されたビデオストリームを出力ファイルストリームに変換できる**MediaTranscoder**を取得するために呼び出されます。 Transcodeを準備したら、 [Transcodeasync](/uwp/api/windows.media.transcoding.preparetranscoderesult.transcodeasync) を呼び出して、トランスコードを開始します。 **MediaTranscoder**の使用方法の詳細については、「[メディアファイルのトランスコード](/windows/uwp/audio-video-camera/transcode-media-files)」を参照してください。
+メインオブジェクトが初期化されたので、 **EncodeAsync** メソッドを実装してキャプチャ操作を開始します。 このメソッドは、まず、まだ記録されていないことを確認します。存在しない場合は、ヘルパーメソッド **Startcapture** を呼び出して、画面からフレームのキャプチャを開始します。 このメソッドについては、この記事の後半で説明します。 次に、 [PrepareMediaStreamSourceTranscodeAsync](/uwp/api/windows.media.transcoding.mediatranscoder.preparemediastreamsourcetranscodeasync)は、前のセクションで作成したエンコードプロファイルを使用して、 **mediastreamsource**オブジェクトによって生成されたビデオストリームを出力ファイルストリームに変換できる**MediaTranscoder**を取得するために呼び出されます。 Transcodeを準備したら、 [Transcodeasync](/uwp/api/windows.media.transcoding.preparetranscoderesult.transcodeasync) を呼び出して、トランスコードを開始します。 **MediaTranscoder**の使用方法の詳細については、「[メディアファイルのトランスコード](./transcode-media-files.md)」を参照してください。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ScreenRecorderExample/cs/MainPage.xaml.cs" id="snippet_EncodeAsync":::
 
 ## <a name="handle-mediastreamsource-events"></a>MediaStreamSource イベントの処理
 **Mediastreamsource**オブジェクトは、画面からキャプチャしたフレームを取得し、 **MediaTranscoder**を使用してファイルに保存できるビデオストリームに変換します。 オブジェクトのイベントのハンドラーを介して、フレームを **Mediastreamsource** に渡します。
 
-[SampleRequested](/uwp/api/windows.media.core.mediastreamsource.samplerequested)イベントは、 **mediastreamsource**が新しいビデオフレームの準備が整ったときに発生します。 現在記録していることを確認したら、ヘルパーメソッド **Waitfornewframe** を呼び出して、画面からキャプチャされた新しいフレームを取得します。 このメソッドは、この記事の後半で示すように、キャプチャされたフレームを含む [ID3D11Surface](/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface) オブジェクトを返します。 この例では、フレームがキャプチャされたシステム時刻も格納するヘルパークラスに **IDirect3DSurface** インターフェイスをラップします。 フレームとシステム時刻の両方が[mediastreamsample. CreateFromDirect3D11Surface](/uwp/api/windows.media.core.mediastreamsample.createfromdirect3d11surface)ファクトリメソッドに渡され、結果の[Mediastreamsample](/uwp/api/windows.media.core.mediastreamsample)は[MediaStreamSourceSampleRequestedEventArgs](/uwp/api/windows.media.core.mediastreamsourcesamplerequestedeventargs)の[MediaStreamSourceSampleRequest](MediaStreamSourceSampleRequest.Sample)プロパティに設定されます。 これは、キャプチャしたフレームが **Mediastreamsource**に提供される方法です。
+[SampleRequested](/uwp/api/windows.media.core.mediastreamsource.samplerequested)イベントは、 **mediastreamsource**が新しいビデオフレームの準備が整ったときに発生します。 現在記録していることを確認したら、ヘルパーメソッド **Waitfornewframe** を呼び出して、画面からキャプチャされた新しいフレームを取得します。 このメソッドは、この記事の後半で示すように、キャプチャされたフレームを含む [ID3D11Surface](/uwp/api/Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface) オブジェクトを返します。 この例では、フレームがキャプチャされたシステム時刻も格納するヘルパークラスに **IDirect3DSurface** インターフェイスをラップします。 フレームとシステム時刻の両方が[mediastreamsample. CreateFromDirect3D11Surface](/uwp/api/windows.media.core.mediastreamsample.createfromdirect3d11surface)ファクトリメソッドに渡され、結果の[Mediastreamsample](/uwp/api/windows.media.core.mediastreamsample)は[MediaStreamSourceSampleRequestedEventArgs](/uwp/api/windows.media.core.mediastreamsourcesamplerequestedeventargs)の[MediaStreamSourceSampleRequest](/uwp/api/windows.media.core.mediastreamsourcesamplerequest.sample)プロパティに設定されます。 これは、キャプチャしたフレームが **Mediastreamsource**に提供される方法です。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ScreenRecorderExample/cs/MainPage.xaml.cs" id="snippet_OnMediaStreamSourceSampleRequested":::
 
@@ -150,7 +150,7 @@ SharpDX Nuget パッケージをインストールするには、Visual Studio �
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/ScreenRecorderExample/cs/Direct3D11Helpers.cs" id="snippet_Direct3D11Helpers":::
 
-## <a name="see-also"></a>こちらもご覧ください
+## <a name="see-also"></a>関連項目
 
-* [Windows.Graphics.Capture 名前空間](https://docs.microsoft.com/uwp/api/windows.graphics.capture)
+* [Windows.Graphics.Capture 名前空間](/uwp/api/windows.graphics.capture)
 * [画面の取り込み](screen-capture.md)

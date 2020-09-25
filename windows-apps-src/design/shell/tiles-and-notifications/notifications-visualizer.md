@@ -1,25 +1,25 @@
 ---
-Description: 通知ビジュアライザーは、開発者が Windows 10 用のアダプティブライブタイルを設計するのに役立つ、ストアの新しい Windows アプリです。
+Description: Notifications Visualizer は、Microsoft Store の新しい Windows アプリで、開発者が Windows 10 のアダプティブ ライブ タイルをデザインする際に役立ちます。
 title: Notifications Visualizer
 ms.assetid: FCBB7BB1-2C79-484B-8FFC-26FE1934EC1C
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f9dc51a8ba387018a50e95702db1c539e889a5d
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: b50dc41a52d478afc9ed2fc9cf94d94dedb18ef4
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83234684"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219925"
 ---
 # <a name="notifications-visualizer"></a>Notifications Visualizer
 
  
 
 
-通知ビジュアライザーは、開発者が Windows 10 のアダプティブライブタイルと対話型トースト通知をデザインするのに役立つ、[ストア](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)の新しい Windows アプリです。
+通知ビジュアライザーは、開発者が Windows 10 のアダプティブライブタイルと対話型トースト通知をデザインするのに役立つ、 [ストア](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1) の新しい Windows アプリです。
 
 
 ## <a name="overview"></a>概要

@@ -2,16 +2,16 @@
 Description: Microsoft Store に申請するために、次のガイドラインに従ってアプリのパッケージを準備してください。
 title: アプリ パッケージの要件
 ms.assetid: 651B82BA-9D0C-45AC-8997-88CD93DC903C
-ms.date: 10/31/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, パッケージ要件, パッケージ, パッケージ形式, サポートされているバージョン, 提出
 ms.localizationpriority: medium
-ms.openlocfilehash: 851aaa28a7c42d395a16ee78a49a7e8bc5712f62
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 848adbab20765a65ef4673219c55dfbf076e47e0
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158106"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219775"
 ---
 # <a name="app-package-requirements"></a>アプリ パッケージの要件
 

@@ -4,16 +4,16 @@ ms.assetid: BB8399E2-7013-4F77-AF2C-C1A0E5412856
 title: アクセシビリティのチェック リスト
 label: Accessibility checklist
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 44864a0743443d976456f73a3bae5041fd63770e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d6b9340f55064ff89c0b047cbb6d7407574da3d6
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163466"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216395"
 ---
 # <a name="accessibility-checklist"></a>アクセシビリティのチェック リスト
 
@@ -41,7 +41,7 @@ Windows アプリにアクセスできるかどうかを確認するためのチ
 
 3. テキストが読み取り可能なサイズであることを確認する
 
-    * Windows にはさまざまなユーザー補助ツールと設定が含まれており、ユーザーはこれを利用して、テキストを読み取るためのニーズや好みに合わせて調整できます。 次の設定があります。
+    * Windows にはさまざまなユーザー補助ツールと設定が含まれており、ユーザーはこれを利用して、テキストを読み取るためのニーズや好みに合わせて調整できます。 これには以下が含まれます。
         * 拡大鏡ツール。 UI の選択領域を拡大します。 アプリ内のテキストのレイアウトによって、拡大鏡を使用した読み取りが困難になることはありません。
         * [設定] のグローバルなスケールと解像度の設定 **->システム >表示->スケールとレイアウト**です。 使用できるサイズ変更オプションは、ディスプレイデバイスの機能によって異なります。
         * [設定] の [テキストサイズ] 設定 **->簡単なアクセス >表示**。 [テキストのサイズを **大きく** する] 設定を調整して、すべてのアプリケーションと画面でのサポートコントロール内のテキストのサイズのみを指定します (すべての UWP テキストコントロールは、カスタマイズまたはテンプレートを使用しないテキストスケーリングエクスペリエンスをサポートします)。

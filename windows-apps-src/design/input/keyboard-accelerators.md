@@ -4,18 +4,18 @@ title: キーボード アクセラレータ
 label: Keyboard accelerators
 template: detail.hbs
 keywords: キーボード, アクセラレータ, ショートカット キー, キーボード ショートカット, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作, ゲームパッド, リモート
-ms.date: 10/10/2017
+ms.date: 09/24/2020
 ms.topic: article
 pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a3231f608984c9d1f67df71de9cab4cfecd9a13
-ms.sourcegitcommit: deb2867924ce16efcabfa011892157b7aa4fa2d2
+ms.openlocfilehash: 02fba8027c5bddec5e5c501783b32dbab5642db9
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89187897"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219955"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 

@@ -4,16 +4,16 @@ ms.assetid: 9311D23A-B340-42F0-BEFE-9261442AF108
 title: 包括性を備えた Windows 10 アプリの開発
 label: Developing inclusive Windows 10 apps
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 37fb7cc81d1a86a159526af5d580a02482d13f9a
-ms.sourcegitcommit: 87fd0ec1e706a460832b67f936a3014f0877a88c
+ms.openlocfilehash: 856ed1222cd393ec2730226f9c4faadf7e9ad0d7
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83233974"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219815"
 ---
 # <a name="developing-inclusive-windows-apps"></a>包括的な Windows アプリの開発  
 
@@ -82,8 +82,8 @@ UWP アプリでは、システム カラーを上書きしない限り、既定
 
 ## <a name="related-topics"></a>関連トピック  
 * [包括的なソフトウェアの設計](designing-inclusive-software.md)  
-* [包括性を備えた設計](https://www.microsoft.com/design/inclusive/)
+* [包括設計](https://www.microsoft.com/design/inclusive/)
 * [アクセシビリティ対応にするために避ける事項](practices-to-avoid.md)
 * [アクセシビリティ ソフトウェアのエンジニアリング](https://www.microsoft.com/download/details.aspx?id=19262)
 * [Microsoft アクセシビリティデベロッパーハブ](https://developer.microsoft.com/windows/accessible-apps)
-* [ユーザー補助](accessibility.md)
+* [アクセシビリティ](accessibility.md)

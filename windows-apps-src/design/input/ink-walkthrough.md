@@ -3,15 +3,15 @@ ms.assetid: ''
 title: Windows アプリでのインクのサポート
 description: 基本的なユニバーサル Windows プラットフォーム (UWP) アプリで Windows Ink を使用した書き込みと描画をサポートする方法については、このステップバイステップのチュートリアルを参照してください。
 keywords: インク、インク、チュートリアル
-ms.date: 01/25/2018
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ed230fc9beb158df050f314a0142f250c2a8691
-ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
+ms.openlocfilehash: a0660312746a88a61ccb7b2ca9c01d720ebb2be3
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304604"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219695"
 ---
 # <a name="tutorial-support-ink-in-your-windows-app"></a>チュートリアル: Windows アプリでインクをサポートする
 
@@ -29,7 +29,7 @@ ms.locfileid: "89304604"
 
 これらの機能の実装の詳細については、「 [windows アプリにおけるペンの相互作用と Windows Ink](./pen-and-stylus-interactions.md)」を参照してください。
 
-## <a name="introduction"></a>はじめに
+## <a name="introduction"></a>概要
 
 Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同等のデジタル エクスペリエンスを提供できます。すばやく手書きでメモを取ったり、ホワイトボードのデモに注釈を書き込んだり、建築製図や工業図面の作成から、個人的な作品の制作まで行えます。
 
@@ -119,7 +119,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
     <InkCanvas x:Name="inkCanvas" />
 ```
 
-以上で作業は終了です。 
+これで完了です。 
 
 ここで、アプリをもう一度実行します。 何でも自由に書き込んだり、自画像の絵などを描いてみてください。
 

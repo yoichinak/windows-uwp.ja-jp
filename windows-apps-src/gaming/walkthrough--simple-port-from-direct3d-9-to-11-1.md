@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 移植, Direct3D 9, Direct3D 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e194ab79b8ba0a5dc79d4ad24f808d3613a0c98
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f93b1d733efec2d52ca364f2f97a6d0f424019ad
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158996"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216565"
 ---
 # <a name="walkthrough-port-a-simple-direct3d-9-app-to-directx-11-and-universal-windows-platform-uwp"></a>チュートリアル: DirectX 11 とユニバーサル Windows プラットフォーム (UWP) への簡単な Direct3D 9 アプリの移植
 
@@ -41,7 +41,7 @@ ms.locfileid: "89158996"
 </tr>
 <tr class="odd">
 <td align="left"><p><a href="simple-port-from-direct3d-9-to-11-1-part-3--viewport-and-game-loop.md">ゲーム ループの移植</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.IFrameworkView"><strong>IFrameworkView</strong></a> を作成して、全画面表示の <a href="https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow"><strong>CoreWindow</strong></a> を制御する方法など、UWP ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。</p></td>
+<td align="left"><p><a href="/uwp/api/Windows.ApplicationModel.Core.IFrameworkView"><strong>IFrameworkView</strong></a> を作成して、全画面表示の <a href="/uwp/api/Windows.UI.Core.CoreWindow"><strong>CoreWindow</strong></a> を制御する方法など、UWP ゲームのウィンドウを実装する方法とゲーム ループを移植する方法について説明します。</p></td>
 </tr>
 </tbody>
 </table>

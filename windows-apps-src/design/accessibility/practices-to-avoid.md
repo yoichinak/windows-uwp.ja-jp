@@ -4,16 +4,16 @@ ms.assetid: 024A9B70-9821-45BB-93F1-61C0B2ECF53E
 title: アクセシビリティ対応にするために避ける事項
 label: Accessibility practices to avoid
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2858abc469e0a22d97d8b833f2f347f9bc75d9ce
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b69cea6badf835fac72ebd3c2dd8977c39d2cfce
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173976"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220035"
 ---
 # <a name="accessibility-practices-to-avoid"></a>アクセシビリティ対応にするために避ける事項
 

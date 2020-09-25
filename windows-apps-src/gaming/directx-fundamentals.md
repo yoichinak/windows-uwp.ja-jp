@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX, 読み込み, ラスタライズ, メッシュ, ビットマップ, 2D, 3D
 ms.localizationpriority: medium
-ms.openlocfilehash: 1718677dce325cccc535e603aca1910eb83d1de0
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: a982c1a57733e8ea9fc4d53974e4c5aec8e373dd
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89053582"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218025"
 ---
 # <a name="fundamentals-of-directx-programming"></a>DirectX プログラミングの基本
 
@@ -42,7 +42,7 @@ ms.locfileid: "89053582"
 <td align="left"><p>DirectX を使用して 2D グラフィックスを作成します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/uwp/graphics-concepts/index">Direct3D グラフィックスの学習ガイド</a></p></td>
+<td align="left"><p><a href="/windows/uwp/graphics-concepts/index">Direct3D グラフィックスの学習ガイド</a></p></td>
 <td align="left"><p>Direct3D でのグラフィックスの概念について説明します。</p></td>
 </tr>
 <tr class="odd">

@@ -4,16 +4,16 @@ ms.assetid: 272D9C9E-B179-4F5A-8493-926D007A0225
 title: アクセシビリティ テスト
 label: Accessibility testing
 template: detail.hbs
-ms.date: 05/18/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1144f6edfab73069a8645e464a2aa8de3e5e2ed6
-ms.sourcegitcommit: e51f9489d8c977c3498afb1a75c91f96ac3a642b
+ms.openlocfilehash: 1da900732257babc0d53453fa4b9b2c9196e7e6d
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854758"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216415"
 ---
 # <a name="accessibility-testing"></a>アクセシビリティ テスト  
 
@@ -29,11 +29,11 @@ Windows ソフトウェア開発キット (Windows SDK) には、[**AccScope**](
   
 ### <a name="accscope"></a>**AccScope**  
 
-アクセス[**スコープ**](/windows/desktop/WinAuto/accscope)ツールを使用すると、開発者とテスト担当者はアプリの開発と設計時にアプリのアクセシビリティを評価できます。アプリの開発サイクルの遅延テスト段階ではなく、以前のプロトタイプフェーズにある可能性があります。 このツールは、特にアプリのナレーター アクセシビリティ シナリオのテストを意図しています。
+アクセス [**スコープ**](/windows/desktop/WinAuto/accscope) ツールを使用すると、開発者とテスト担当者はアプリの開発と設計時にアプリのアクセシビリティを評価できます。アプリの開発サイクルの遅延テスト段階ではなく、以前のプロトタイプフェーズにある可能性があります。 このツールは、特にアプリのナレーター アクセシビリティ シナリオのテストを意図しています。
 
 ### <a name="inspect"></a>**検査**  
 
-[[**検査**](/windows/desktop/WinAuto/inspect-objects)] を使用すると、任意の UI 要素を選択し、そのアクセシビリティデータを表示できます。 Microsoft UI オートメーションのプロパティと制御パターンを表示し、UI オートメーション ツリー内のオートメーション要素のナビゲーション構造をテストできます。 Ui オートメーションでアクセシビリティ属性がどのように公開されるかを確認するには、UI を開発するときに**検査**を使用します。 属性は、既定の XAML コントロールに既に実装されている UI オートメーション サポートのものである場合や、 それ以外の場合、属性は、 [**automationproperties.automationid**](/uwp/api/windows.ui.xaml.automation.automationproperties)添付プロパティとして、XAML マークアップで設定した特定の値から取得されます。
+[[**検査**](/windows/desktop/WinAuto/inspect-objects)] を使用すると、任意の UI 要素を選択し、そのアクセシビリティデータを表示できます。 Microsoft UI オートメーションのプロパティと制御パターンを表示し、UI オートメーション ツリー内のオートメーション要素のナビゲーション構造をテストできます。 Ui オートメーションでアクセシビリティ属性がどのように公開されるかを確認するには、UI を開発するときに **検査** を使用します。 属性は、既定の XAML コントロールに既に実装されている UI オートメーション サポートのものである場合や、 それ以外の場合、属性は、 [**automationproperties.automationid**](/uwp/api/windows.ui.xaml.automation.automationproperties) 添付プロパティとして、XAML マークアップで設定した特定の値から取得されます。
 
 次の図は、メモ帳の **[編集]** メニュー要素の UI オートメーション プロパティを照会する [**Inspect**](/windows/desktop/WinAuto/inspect-objects) ツールを示しています。
 
@@ -129,7 +129,7 @@ Windows 10 バージョン 1607 以降では、ナレーターで新しい開発
 
 ## <a name="related-topics"></a>関連トピック
 
-- [ユーザー補助](accessibility.md)
+- [アクセシビリティ](accessibility.md)
 - [避ける事項](practices-to-avoid.md)
 - [UI オートメーション](/windows/desktop/WinAuto/entry-uiauto-win32)
 - [Windows のユーザー補助機能](https://www.microsoft.com/accessibility/)

@@ -3,16 +3,16 @@ description: ハイコントラストテーマがアクティブな場合に Win
 ms.assetid: FD7CA6F6-A8F1-47D8-AA6C-3F2EC3168C45
 title: ハイ コントラスト テーマ
 template: detail.hbs
-ms.date: 09/28/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 79ade0e3a823282fb970f470e1a902b1bc30c592
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b5e9b823ca335370f6cde22ef6417a6823851c18
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157056"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219875"
 ---
 # <a name="high-contrast-themes"></a>ハイ コントラスト テーマ  
 
@@ -95,7 +95,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 各 **SystemColor*Color** リソースは、ユーザーがハイ コントラスト テーマに切り替えたときに自動的に色を更新する変数です。 各リソースをいつどこで使用するかについてのガイドラインを以下に示します。
 
-リソース | 使用 |
+リソース | 使用法 |
 |--------|-------|
 **SystemColorWindowTextColor** | 本文、見出し、一覧など、操作できないテキスト |
 | **SystemColorHotlightColor** | ハイパーリンク |
@@ -108,7 +108,7 @@ Windows では、OS やアプリでハイ コントラスト テーマがサポ�
 
 既存のアプリ、スタート画面、またはコモン コントロールを確認すると、ハイ コントラストのデザインの参考になります。
 
-**Do**
+**すべきこと**
 
 * 可能な限り、背景と前景の組み合わせを考慮します。
 * アプリの実行中に、4 つのハイ コントラスト テーマをすべてテストします。 ユーザーがテーマを切り替えたときに、アプリを再起動しなくても良いようにします。

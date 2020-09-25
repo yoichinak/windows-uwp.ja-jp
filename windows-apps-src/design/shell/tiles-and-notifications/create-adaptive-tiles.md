@@ -4,16 +4,16 @@ title: アダプティブ タイルの作成
 ms.assetid: 1246B58E-D6E3-48C7-AD7F-475D113600F9
 label: Create adaptive tiles
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7cee236b385b6129e7ab1a9cacd549f217f6e734
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c60794a52c3d8a5f597d4ab2d09490405c98f85a
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175606"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218375"
 ---
 # <a name="create-adaptive-tiles"></a>アダプティブ タイルの作成
 
@@ -22,7 +22,7 @@ ms.locfileid: "89175606"
 (必要に応じて、Windows 10 の通知をデザインするときは、[Windows 8 タイル テンプレート カタログ](/previous-versions/windows/apps/hh761491(v=win.10))のプリセット テンプレートを引き続き使えます)。
 
 
-## <a name="getting-started"></a>はじめに
+## <a name="getting-started"></a>作業の開始
 
 **Notifications ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で示している C# のサンプルでは、NuGet パッケージの Version 1.0.0 を使っています。
 
@@ -335,7 +335,7 @@ TileContent content = new TileContent()
 
 ![アダプティブ タイルの表示名](images/adaptive-tiles-displayname.png)
 
-## <a name="text"></a>テキスト
+## <a name="text"></a>Text
 
 
 テキストの表示には、[AdaptiveText](../tiles-and-notifications/tile-schema.md#adaptivetext) 要素を使用します。 hint を使うと、テキストの表示方法を変更できます。

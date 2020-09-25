@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: b10ba23db301a675bf102fd8fb6e278dbba11da8
-ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
+ms.openlocfilehash: 15b37e471e45a1c2ca604c1a5bf28ace69e35ad3
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66371021"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220325"
 ---
 # <a name="pipeline-access-to-streaming-resources"></a>ストリーミング リソースへのパイプライン アクセス
 
@@ -39,28 +39,28 @@ ms.locfileid: "66371021"
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="srv-behavior-with-non-mapped-tiles.md">タイルが、マップされていない SRV 動作</a></p></td>
+<td align="left"><p><a href="srv-behavior-with-non-mapped-tiles.md">マップされていないタイルでの SRV 動作</a></p></td>
 <td align="left"><p>マップされていないタイルに関連するシェーダー リソース ビュー (SRV) の読み取り動作は、ハードウェア サポートのレベルによって異なります。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="uav-behavior-with-non-mapped-tiles.md">タイルが、マップされていない UAV 動作</a></p></td>
+<td align="left"><p><a href="uav-behavior-with-non-mapped-tiles.md">マップされていないタイルでの UAV 動作</a></p></td>
 <td align="left"><p>順序指定されていないアクセス ビュー (UAV) の読み取りと書き込みの動作は、ハードウェア サポートのレベルによって異なります。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="rasterizer-behavior-with-non-mapped-tiles.md">タイルが、マップされていないラスタライザーの動作</a></p></td>
+<td align="left"><p><a href="rasterizer-behavior-with-non-mapped-tiles.md">マップされていないタイルでのラスタライザー動作</a></p></td>
 <td align="left"><p>このセクションでは、マップされていないタイルを使用したラスタライザー動作について説明します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="tile-access-limitations-with-duplicate-mappings.md">重複するマッピングでは、タイルへのアクセスの制限事項</a></p></td>
+<td align="left"><p><a href="tile-access-limitations-with-duplicate-mappings.md">重複するマッピングを含むタイルのアクセス制限</a></p></td>
 <td align="left"><p>コピー元とコピー先が重複しているストリーミング リソースをコピーする場合や、レンダー領域内で共有されるタイルにレンダリングする場合などでは、重複するマッピングを含むタイル アクセスに制限があります。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="streaming-resources-texture-sampling-features.md">テクスチャ サンプリング機能のストリーミングのリソース</a></p></td>
+<td align="left"><p><a href="streaming-resources-texture-sampling-features.md">ストリーミング リソース テクスチャ サンプリング機能</a></p></td>
 <td align="left"><p>ストリーミング リソース テクスチャ サンプリングの機能は複数あります。たとえば、マップの領域についてシェーダー状態のフィードバックを取得する機能、アクセスされている全データがリソース内にマップされたかどうか確認する機能、マップされていないことがわかっているミップマップ ストリーミング リソース内の領域をシェーダーが避けられるようにクランプする機能、テクスチャ フィルターのフットプリント全体に完全にマップされる最小の LOD を検出する機能などがあります。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="hlsl-streaming-resources-exposure.md">HLSL ストリーミング リソース リスク</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/d3d11-graphics-reference-sm5">シェーダー モデル 5</a> のストリーミング リソースをサポートするには、Microsoft 上位レベル シェーダー言語 (HLSL) の特定の構文が必要です。</p></td>
+<td align="left"><p><a href="hlsl-streaming-resources-exposure.md">HLSL ストリーミング リソースの露出</a></p></td>
+<td align="left"><p><a href="/windows/desktop/direct3dhlsl/d3d11-graphics-reference-sm5">シェーダー モデル 5</a> のストリーミング リソースをサポートするには、Microsoft 上位レベル シェーダー言語 (HLSL) の特定の構文が必要です。</p></td>
 </tr>
 </tbody>
 </table>
@@ -75,7 +75,3 @@ ms.locfileid: "66371021"
  
 
  
-
-
-
-

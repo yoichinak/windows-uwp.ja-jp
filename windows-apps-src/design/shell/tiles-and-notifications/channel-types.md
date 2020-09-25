@@ -1,16 +1,16 @@
 ---
 Description: Windows プッシュ通知サービス (WNS) を利用することで、サード パーティの開発者が独自のクラウド サービスからトースト更新、タイル更新、バッジ更新、直接更新を送ることができます。 アプリケーションのニーズに応じて、通知を送信するさまざまな方法があります。
 title: 適切なプッシュ通知チャネルの種類を選択する
-ms.date: 07/07/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 166abeb792e86fc44568a5ee29263262214657cf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 326012a38f2d4a8cd7d5c406c160db5168c9877d
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173826"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219225"
 ---
 # <a name="choosing-the-right-push-notification-channel-type"></a>適切なプッシュ通知チャネルの種類を選択する
 
@@ -20,7 +20,7 @@ ms.locfileid: "89173826"
 
 ## <a name="types-of-push-channels"></a>プッシュ チャネルの種類 
 
-Windows アプリに通知を送信するために使用できるプッシュチャネルには、次の3種類があります。 それらは次のとおりです。 
+Windows アプリに通知を送信するために使用できるプッシュチャネルには、次の3種類があります。 これらは次のとおりです。 
 
 [プライマリ チャネル](/uwp/api/windows.networking.pushnotifications.pushnotificationchannelmanagerforuser#Methods_) - "従来型" のプッシュ チャネルです。 は、ストア内のどのアプリでも、トースト、タイル、未加工、バッジ通知を送信するために使用できます。 [こちら](windows-push-notification-services--wns--overview.md)を参照してください。
 

@@ -4,16 +4,16 @@ title: ドラッグ アニメーション
 ms.assetid: 6064755F-6E24-4901-A4FF-263F05F0DFD6
 label: Motion--Drag and drop
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4d346d286b6a874ff62e63ecc59a102bcb68fa73
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a51f60fdbc8d616bd4db360190c8e329e10709e8
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156856"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220165"
 ---
 # <a name="drag-animations"></a>ドラッグ アニメーション
 

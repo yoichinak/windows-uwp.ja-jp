@@ -1,16 +1,16 @@
 ---
 title: UWP で VAPID を使用する代替プッシュ チャネル
 description: Windows アプリから VAPID プロトコルで代替プッシュチャネルを使用する方法
-ms.date: 01/10/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、WinRT API、WNS
 localizationpriority: medium
-ms.openlocfilehash: 4bca7e4159c0a4950c95d5d5ef2f34362175a8a7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 79ea88cb457e9a0d7ba33ef51a184e6f52ab19c4
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173306"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219275"
 ---
 # <a name="alternate-push-channels-using-vapid-in-windows"></a>Windows で VAPID を使用する代替プッシュチャネル 
 Windows アプリでは、VAPID 認証を使用してプッシュ通知を送信できるようになります。  
@@ -18,7 +18,7 @@ Windows アプリでは、VAPID 認証を使用してプッシュ通知を送信
 > [!NOTE]
 > これらの Api は、他の web サイトをホストし、その代わりにチャネルを作成する web ブラウザーを対象としています。  Web アプリに web プッシュ通知を追加する場合は、サービスワーカーを作成して通知を送信するための W3C および WhatWG 標準に従うことをお勧めします。
 
-## <a name="introduction"></a>はじめに
+## <a name="introduction"></a>概要
 Web プッシュ標準の導入により、web サイトがアプリのように動作し、ユーザーが web サイトにいない場合でも通知を送信できるようになります。
 
 VAPID 認証プロトコルが作成され、web サイトがベンダーに依存しない方法でプッシュサーバーで認証できるようになりました。 VAPID プロトコルを使用しているすべてのベンダーが、web サイトが実行されているブラウザーがわからなくてもプッシュ通知を送信できます。 これは、プラットフォームごとに異なるプッシュプロトコルを実装した場合よりも大幅に改善されています。 

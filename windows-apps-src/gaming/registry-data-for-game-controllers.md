@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 入力, レジストリ, カスタム
 ms.localizationpriority: medium
-ms.openlocfilehash: ac2ca98a067fb88dfcdc86c4e4ee4047b82206bc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1f3a49ae2c6fc283d479086759744eb51d8b33ce
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89159276"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220066"
 ---
 # <a name="registry-data-for-game-controllers"></a>ゲーム コントローラーのレジストリ データ
 
@@ -36,7 +36,7 @@ ms.locfileid: "89159276"
         <th>Info</th>
     </tr>
     <tr>
-        <td>Disabled</td>
+        <td>無効</td>
         <td>DWORD</td>
         <td>いいえ</td>
         <td>
@@ -54,7 +54,7 @@ ms.locfileid: "89159276"
     </tr>
 </table>
 
-デバイスのインストーラーが (セットアップ、または [INF ファイル](https://docs.microsoft.com/windows-hardware/drivers/install/inf-files)によって) このデータをレジストリに追加する必要があります。
+デバイスのインストーラーが (セットアップ、または [INF ファイル](/windows-hardware/drivers/install/inf-files)によって) このデータをレジストリに追加する必要があります。
 
 デバイスのルートの場所の下のサブキーは、次のセクションで詳しく説明します。
 
@@ -90,7 +90,7 @@ ms.locfileid: "89159276"
         <td>はい</td>
     </tr>
     <tr>
-        <td>○</td>
+        <td>Y</td>
         <td>はい</td>
     </tr>
     <tr>
@@ -543,9 +543,9 @@ ms.locfileid: "89159276"
     </tr>
 </table>
 
-UI ナビゲーション コントローラーと上記のコマンドについて詳しくは、「[UI ナビゲーション コントローラー](https://docs.microsoft.com/windows/uwp/gaming/ui-navigation-controller)」をご覧ください。
+UI ナビゲーション コントローラーと上記のコマンドについて詳しくは、「[UI ナビゲーション コントローラー](./ui-navigation-controller.md)」をご覧ください。
 
-## <a name="keys"></a>キー
+## <a name="keys"></a>[キー]
 
 次のセクションでは、**Gamepad**、**RacingWheel**、**ArcadeStick**、**FlightStick**、**UINavigation** キーの下のサブキーのそれぞれのコンテンツについて説明します。
 
@@ -597,7 +597,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
         </td>
     </tr>
     <tr>
-        <td rowspan="3" style="vertical-align: middle;">Switch</td>
+        <td rowspan="3" style="vertical-align: middle;">スイッチ</td>
         <td>SwitchIndex</td>
         <td>DWORD</td>
         <td>はい</td>
@@ -654,7 +654,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
                     <th>AxisValue</th>
                 </tr>
                 <tr>
-                    <td>FALSE</td>
+                    <td>false</td>
                     <td>0.0</td>
                 </tr>
                 <tr>
@@ -677,18 +677,18 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
                     <th>AxisValue</th>
                 </tr>
                 <tr>
-                    <td>FALSE</td>
-                    <td>FALSE</td>
+                    <td>false</td>
+                    <td>false</td>
                     <td>0.5</td>
                 </tr>
                 <tr>
-                    <td>FALSE</td>
+                    <td>false</td>
                     <td>TRUE</td>
                     <td>1.0</td>
                 </tr>
                 <tr>
                     <td>TRUE</td>
-                    <td>FALSE</td>
+                    <td>false</td>
                     <td>0.0</td>
                 </tr>
                 <tr>
@@ -713,7 +713,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
         <td>マッピングされた軸の値を返す前に反転するかどうかを示します。</td>
     </tr>
     <tr>
-        <td rowspan="3" style="vertical-align: middle;">Switch</td>
+        <td rowspan="3" style="vertical-align: middle;">スイッチ</td>
         <td>SwitchIndex</td>
         <td>DWORD</td>
         <td>はい</td>
@@ -898,7 +898,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
         <td>DWORD</td>
     </tr>
     <tr>
-        <td rowspan="3" style="vertical-align: middle;">Switch</td>
+        <td rowspan="3" style="vertical-align: middle;">スイッチ</td>
         <td>SwitchIndex</td>
         <td>DWORD</td>
         <td><b>RawGameController</b> スイッチの配列のインデックス。
@@ -1051,7 +1051,7 @@ UI ナビゲーション コントローラーと上記のコマンドについ�
 
 ### <a name="button-labels"></a>ボタンのラベル
 
-**Buttons** キーは、**RawGameController** のボタンの配列の各ボタンの位置を文字列にマッピングします。 各文字列は、対応する [GameControllerButtonLabel](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamecontrollerbuttonlabel) 列挙値に内部的にマッピングされます。 たとえば、ゲームパッドに 10 個のボタンと、**RawGameController** がボタンを解析してボタンを表示する順序がある場合、レポートは次のようになります。
+**Buttons** キーは、**RawGameController** のボタンの配列の各ボタンの位置を文字列にマッピングします。 各文字列は、対応する [GameControllerButtonLabel](/uwp/api/windows.gaming.input.gamecontrollerbuttonlabel) 列挙値に内部的にマッピングされます。 たとえば、ゲームパッドに 10 個のボタンと、**RawGameController** がボタンを解析してボタンを表示する順序がある場合、レポートは次のようになります。
 
 ```cpp
 Menu,               // Index 0
@@ -1117,7 +1117,7 @@ RightBumper         // Index 9
 
 ### <a name="axis-labels"></a>軸ラベル
 
-**Axes** キーは、**RawGameController** の軸の配列の各軸の位置を、ボタンのラベルのように、[GameControllerButtonLabel Enum](https://docs.microsoft.com/uwp/api/windows.gaming.input.gamecontrollerbuttonlabel) に一覧表示されたラベルの 1 つにマッピングします。 「[ボタンのラベル](#button-labels)」の例をご覧ください。
+**Axes** キーは、**RawGameController** の軸の配列の各軸の位置を、ボタンのラベルのように、[GameControllerButtonLabel Enum](/uwp/api/windows.gaming.input.gamecontrollerbuttonlabel) に一覧表示されたラベルの 1 つにマッピングします。 「[ボタンのラベル](#button-labels)」の例をご覧ください。
 
 ### <a name="switch-labels"></a>スイッチのラベル
 

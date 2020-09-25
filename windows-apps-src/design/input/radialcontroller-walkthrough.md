@@ -3,15 +3,15 @@ ms.assetid: ''
 title: Windows アプリでの Surface Dial (およびその他のホイール デバイス) のサポート
 description: Surface Dial (およびその他のホイールデバイス) のサポートを Windows アプリに追加するためのステップバイステップのチュートリアルです。
 keywords: ダイヤル, ラジアル, チュートリアル
-ms.date: 03/11/2019
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8edd7a9345f93d3cf0abe76f68c321a977ee2e50
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: cc1618432d35687fe1bfa619396bc2b798dd40bf
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173376"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216925"
 ---
 # <a name="tutorial-support-the-surface-dial-and-other-wheel-devices-in-your-windows-app"></a>チュートリアル: Windows アプリで Surface Dial (およびその他のホイールデバイス) をサポートする
 
@@ -29,7 +29,7 @@ ms.locfileid: "89173376"
 
 これらの機能およびその他の機能の実装の詳細については、「 [Windows アプリでの Surface Dial の対話](windows-wheel-interactions.md)」を参照してください。
 
-## <a name="introduction"></a>はじめに
+## <a name="introduction"></a>概要
 
 Surface Dial は、ペン、タッチ、マウスなどの主要な入力デバイスと共に使ってユーザーの生産性を向上させるための、セカンダリ入力デバイスです。 Dial は、セカンダリ入力デバイスとして、通常は利き手以外の手で使用し、システム コマンドおよびその他のコンテキスト依存のツールや機能へのアクセスを提供します。 
 

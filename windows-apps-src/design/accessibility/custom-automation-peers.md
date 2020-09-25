@@ -4,16 +4,16 @@ ms.assetid: AA8DA53B-FE6E-40AC-9F0A-CB09637C87B4
 title: カスタム オートメーション ピア
 label: Custom automation peers
 template: detail.hbs
-ms.date: 07/13/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 82d42dcc78dabc6374250b088c0d076c325d1045
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a1a592bd9eb9447783984612c61b50e03055df15
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157016"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219845"
 ---
 # <a name="custom-automation-peers"></a>カスタム オートメーション ピア  
 

@@ -4,16 +4,16 @@ title: エッジに基づく UI アニメーション
 ms.assetid: 5A8F73B1-F4F6-424b-9EDF-A9766C5DEAE8
 label: Motion--edge-based UI
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2fd92209e821d0d07f5cffda0850423e0496b03a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b36f609308d559f5f0cbb56c90420f2381fb8e53
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156826"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220175"
 ---
 # <a name="edge-based-ui-animations"></a>エッジに基づく UI アニメーション
 

@@ -4,16 +4,16 @@ title: 位置変更アニメーション
 ms.assetid: 25D1EE31-5C25-4F21-B34C-FBD8FB1C8FFF
 label: Motion--Reposition
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dac1af8a14ede535d2087469cb559d7038f22032
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 95d8d69bdd289a8ff5d995995f71cfbd8688ae9b
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175536"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217715"
 ---
 # <a name="reposition-animations"></a>位置変更アニメーション
 

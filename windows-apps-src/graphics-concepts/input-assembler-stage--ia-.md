@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b1ba0205a837383e1c646664c0550e055227412
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 12a7c7ebd250fec8d944c4cba467a92ff67bd33d
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173066"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219795"
 ---
 # <a name="input-assembler-ia-stage"></a>入力アセンブラー (IA) ステージ
 
@@ -61,7 +61,7 @@ IA ステージは、データをプリミティブにアセンブルして、�
 </tr>
 <tr class="even">
 <td align="left"><p><a href="using-system-generated-values.md">システム生成値の使用</a></p></td>
-<td align="left"><p>システムにより生成された値は、入力アセンブラー (IA) ステージにより生成され (ユーザーが提供した入力<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics">セマンティクス</a>に基づく)、シェーダー操作で一定の効率を実現します。 インスタンス ID (<a href="vertex-shader-stage--vs-.md">頂点シェーダー (VS) ステージ</a>で参照可能)、頂点 ID (VS で参照可能)、またはプリミティブ ID (<a href="geometry-shader-stage--gs-.md">ジオメトリ シェーダー (GS) ステージ</a>/<a href="pixel-shader-stage--ps-.md">ピクセル シェーダー (PS) ステージ</a>で参照可能) などのデータをアタッチするとにより、その後のシェーダー ストレージがそれらのシステム値を探して、そのステージでの処理を最適化できるようになります。</p></td>
+<td align="left"><p>システムにより生成された値は、入力アセンブラー (IA) ステージにより生成され (ユーザーが提供した入力<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-semantics">セマンティクス</a>に基づく)、シェーダー操作で一定の効率を実現します。 インスタンス ID (<a href="vertex-shader-stage--vs-.md">頂点シェーダー (VS) ステージ</a>で参照可能)、頂点 ID (VS で参照可能)、またはプリミティブ ID (<a href="geometry-shader-stage--gs-.md">ジオメトリ シェーダー (GS) ステージ</a>/<a href="pixel-shader-stage--ps-.md">ピクセル シェーダー (PS) ステージ</a>で参照可能) などのデータをアタッチするとにより、その後のシェーダー ストレージがそれらのシステム値を探して、そのステージでの処理を最適化できるようになります。</p></td>
 </tr>
 </tbody>
 </table>

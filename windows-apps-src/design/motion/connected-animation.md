@@ -2,19 +2,19 @@
 description: 接続型アニメーションを使用すると、2 つの異なるビューの間で要素が切り替わる様子をアニメーション化することによって、動的で魅力的なナビゲーション エクスペリエンスを作成できます。
 title: 接続型アニメーション
 template: detail.hbs
-ms.date: 10/04/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: stmoy
 design-contact: conrwi
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ff252faf4dd49929ec46c2ceaa02f94011e6b225
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 770f859cfb90dde4f3960492479beb6192c12c8f
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169326"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217785"
 ---
 # <a name="connected-animation-for-windows-apps"></a>Windows アプリの接続されたアニメーション
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, GLSL, HLSL, OpenGL, DirectX, シェーダー
 ms.localizationpriority: medium
-ms.openlocfilehash: d4b49edac6a6a9c2824cfa556a2ff02eb9f36f9c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b6be3cf92162b0e871a04712754a882506767cd6
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175306"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218175"
 ---
 # <a name="glsl-to-hlsl-reference"></a>GLSL と HLSL の対応を示すリファレンス
 
@@ -94,7 +94,7 @@ GLSL と HLSL は一般に次の点で異なります。
 <td align="left">行優先マトリックス (既定)</td>
 <td align="left">列優先マトリックス (既定)
 <div class="alert">
-<strong>メモ</strong>   1つの変数のレイアウトを変更するには、 <strong>row_major</strong>の型修飾子を使用します。 詳しくは、「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-variable-syntax">変数の構文</a>」をご覧ください。 コンパイラ フラグまたはプラグマを指定してグローバルな既定値を変更することもできます。
+<strong>メモ</strong>   1つの変数のレイアウトを変更するには、 <strong>row_major</strong>の型修飾子を使用します。 詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-variable-syntax">変数の構文</a>」をご覧ください。 コンパイラ フラグまたはプラグマを指定してグローバルな既定値を変更することもできます。
 </div>
 <div>
  
@@ -137,7 +137,7 @@ GLSL では、グローバル シェーダーの変数の宣言に修飾子を�
 <p>アプリ コードから uniform 変数を頂点シェーダーとフラグメント シェーダーのどちらか一方または両方に渡します。 これらのシェーダーを使って三角形を描画する前にすべての uniform の値を設定する必要があります。三角形のメッシュの描画中に値が変わらないようにするためです。 これらの値は変化しません。 フレーム全体に対して設定される uniform もあれば、特定の頂点ピクセル シェーダーのペアに対してのみ設定される uniform もあります。</p>
 <p>uniform 変数はポリゴン単位の変数です。</p></td>
 <td align="left"><p>定数バッファーを使います。</p>
-<p>「<a href="https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-constant-how-to">定数バッファーを作成する方法</a>」と「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants">シェーダー定数</a>」をご覧ください。</p></td>
+<p>「<a href="/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-constant-how-to">定数バッファーを作成する方法</a>」と「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-constants">シェーダー定数</a>」をご覧ください。</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>多彩</strong></p>
@@ -147,8 +147,8 @@ GLSL では、グローバル シェーダーの変数の宣言に修飾子を�
 <tr class="odd">
 <td align="left"><p><strong>attribute</strong></p>
 <p>属性は、アプリ コードから頂点シェーダーだけに渡す頂点の記述の一部です。 uniform とは異なり、頂点ごとに各属性の値を設定します。それにより、各頂点が異なる値を持つことができるようになります。 属性変数は頂点単位の変数です。</p></td>
-<td align="left"><p>Direct3D アプリ コードで頂点バッファーを定義し、頂点シェーダーで定義されている頂点の入力と一致させます。 必要に応じてインデックス バッファーを定義します。 「<a href="https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-vertex-how-to">頂点バッファーを作成する方法</a>」と「<a href="https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-index-how-to">インデックス バッファーを作成する方法</a>」をご覧ください。</p>
-<p>Direct3D アプリ コードで入力レイアウトを作成し、セマンティック値を頂点の入力の値と一致させます。 「<a href="https://docs.microsoft.com/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage-getting-started">入力レイアウトの作成</a>」をご覧ください。</p></td>
+<td align="left"><p>Direct3D アプリ コードで頂点バッファーを定義し、頂点シェーダーで定義されている頂点の入力と一致させます。 必要に応じてインデックス バッファーを定義します。 「<a href="/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-vertex-how-to">頂点バッファーを作成する方法</a>」と「<a href="/windows/desktop/direct3d11/overviews-direct3d-11-resources-buffers-index-how-to">インデックス バッファーを作成する方法</a>」をご覧ください。</p>
+<p>Direct3D アプリ コードで入力レイアウトを作成し、セマンティック値を頂点の入力の値と一致させます。 「<a href="/windows/desktop/direct3d11/d3d10-graphics-programming-guide-input-assembler-stage-getting-started">入力レイアウトの作成</a>」をご覧ください。</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><strong>const</strong></p>
@@ -185,7 +185,7 @@ HLSL に GLSL の型を移植する場合は、次の表を参考にしてくだ
 <td align="left">スカラー型: float、int、bool</td>
 <td align="left"><p>スカラー型: float、int、bool</p>
 <p>また、uint、double</p>
-<p>詳しくは、「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-scalar">スカラー型</a>」をご覧ください。</p></td>
+<p>詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-scalar">スカラー型</a>」をご覧ください。</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>ベクター型</p>
@@ -207,8 +207,8 @@ HLSL に GLSL の型を移植する場合は、次の表を参考にしてくだ
 <li>min16uint</li>
 </ul></li>
 </ul>
-<p>詳しくは、「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-vector">ベクター型</a>」と「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-appendix-keywords">キーワード</a>」をご覧ください。</p>
-<p>vector は、float4 として定義される型でもあります (typedef vector &lt;float, 4&gt; vector;)。 詳しくは、「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-user-defined">ユーザー定義型</a>」をご覧ください。</p></td>
+<p>詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-vector">ベクター型</a>」と「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-appendix-keywords">キーワード</a>」をご覧ください。</p>
+<p>vector は、float4 として定義される型でもあります (typedef vector &lt;float, 4&gt; vector;)。 詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-user-defined">ユーザー定義型</a>」をご覧ください。</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>マトリックス型</p>
@@ -233,7 +233,7 @@ HLSL に GLSL の型を移植する場合は、次の表を参考にしてくだ
 </ul>
 <p>また、マトリックスの定義に<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-matrix">マトリックス型</a>を使うこともできます。</p>
 <p>例: matrix &lt;float, 2, 2&gt; fMatrix = {0.0f, 0.1, 2.1f, 2.2f};</p>
-<p>matrix は、float4x4 として定義される型でもあります (typedef matrix &lt;float, 4, 4&gt; matrix;)。 詳しくは、「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-user-defined">ユーザー定義型</a>」をご覧ください。</p></td>
+<p>matrix は、float4x4 として定義される型でもあります (typedef matrix &lt;float, 4, 4&gt; matrix;)。 詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-user-defined">ユーザー定義型</a>」をご覧ください。</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>float、int、sampler の有効桁数修飾子</p>
@@ -254,18 +254,18 @@ HLSL に GLSL の型を移植する場合は、次の表を参考にしてくだ
 <p>最小の符号付き固定小数点 2.8 ビット値 (整数部は 2 ビット、小数部は 8 ビット)。 8 ビットの小数部には 1 を含めることができます。また、-2 ～ 2 の範囲の両端を含めることができます。</p></li>
 <li>min16int: 16 ビットの最小符号付き整数</li>
 <li><p>min12int: 12 ビットの最小符号付き整数</p>
-<p>この型は 10Level9 (<a href="https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro">9_x の機能レベル</a>) 向けであり、整数は浮動小数点数で表されます。 これは、16 ビットの浮動小数点数で整数をエミュレートするときに取得できる有効桁数です。</p></li>
+<p>この型は 10Level9 (<a href="/windows/desktop/direct3d11/overviews-direct3d-11-devices-downlevel-intro">9_x の機能レベル</a>) 向けであり、整数は浮動小数点数で表されます。 これは、16 ビットの浮動小数点数で整数をエミュレートするときに取得できる有効桁数です。</p></li>
 <li>min16int: 16 ビットの最小符号なし整数</li>
 </ul>
-<p>詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-scalar">スカラー型</a>」と「<a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/using-hlsl-minimum-precision">HLSL の最小精度の使用</a>」をご覧ください。</p></td>
+<p>詳しくは、「<a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-scalar">スカラー型</a>」と「<a href="/windows/desktop/direct3dhlsl/using-hlsl-minimum-precision">HLSL の最小精度の使用</a>」をご覧ください。</p></td>
 </tr>
 <tr class="odd">
 <td align="left">sampler2D</td>
-<td align="left"><a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d">Texture2D</a></td>
+<td align="left"><a href="/windows/desktop/direct3dhlsl/sm5-object-texture2d">Texture2D</a></td>
 </tr>
 <tr class="even">
 <td align="left">samplerCube</td>
-<td align="left"><a href="https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-type">TextureCube</a></td>
+<td align="left"><a href="/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-type">TextureCube</a></td>
 </tr>
 </tbody>
 </table>

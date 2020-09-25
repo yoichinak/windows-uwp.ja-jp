@@ -2,16 +2,16 @@
 Description: パートナーセンターの使用状況レポートでは、お客様がアプリをどのように使用しているかを確認できます。
 title: 利用状況レポート
 ms.assetid: 5F0E7F94-D121-4AD3-A6E5-9C0DEC437BD3
-ms.date: 10/31/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, 使用状況, カスタム イベント, レポート, 利用統計情報, ユーザー セッション
 ms.localizationpriority: medium
-ms.openlocfilehash: d2839112d36822be5eb8297b838cdc38bab5c71b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a794018b2fcdd07017ee3441e65c6200e7436304
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89167276"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220205"
 ---
 # <a name="usage-report"></a>利用状況レポート
 
@@ -35,7 +35,7 @@ ms.locfileid: "89167276"
 > このレポートに含まれるのは、Windows 10 ユーザー (Xbox ユーザーを含む) で製品利用統計情報の提供を辞退していないユーザーの使用状況データのみです。 Xbox ゲームの使用状況データは、ユーザーが Xbox Live にサインインしているかどうかに関係なく含まれます。 
 
 
-## <a name="usage"></a>使用
+## <a name="usage"></a>使用法
 
 **[使用状況]** グラフからは、選択された期間中にアプリがどのように使われたかについて詳しく知ることができます。 このグラフでは、アプリの一意のユーザーまたは一意のユーザー セッションは追跡されないことに注意してください (つまり、ユーザーがその日にアプリを 1 回しか使っていなくても、複数回使っていても、1 ユーザーとしてカウントされます)。
 

@@ -4,16 +4,16 @@ title: 操作の基本情報
 ms.assetid: 73008F80-FE62-457D-BAEC-412ED6BAB0C8
 label: Interaction primer
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dc220d1b5489faf96653472880dc06124c10b047
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: dde0e5479533aed225dbadc68b325afede050dbb
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173446"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219675"
 ---
 # <a name="interaction-primer"></a>操作の基本情報
 
@@ -171,7 +171,7 @@ Windows のインク プラットフォームでペンを使うと、自然な�
 [ペンの設計ガイドライン](./pen-and-stylus-interactions.md)
  
 
-## <a name="touch"></a>Touch
+## <a name="touch"></a>タッチ
 
 タッチ操作では、(マウスやペンのように) 代替の入力方法として、または相補的な入力方法として (汚れ、ペンで描くひと筆などの他の入力を変更)、UI 要素の直接的な操作 (パン、回転、サイズ変更、移動など) をエミュレートするために、1 つまたは複数の指から物理的なジェスチャを使用できます。 このような触覚的なエクスペリエンスは、ユーザーが画面の要素を操作するときに、より自然で現実的で感覚を提供します。
 

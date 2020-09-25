@@ -5,15 +5,15 @@ ms.assetid: BDBC9E33-4037-4671-9596-471DCF855C82
 label: Handle pointer input
 template: detail.hbs
 keywords: ペン, マウス, タッチパッド, タッチ, ポインター, 入力, ユーザー操作
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: f544b73e069827f3c680db45797081605ce41b63
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 11402ae9f2ea99c583d82d1998ad238eac44576c
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173456"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219855"
 ---
 # <a name="handle-pointer-input"></a>ポインター入力の処理
 
@@ -58,7 +58,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercanceled"><strong>PointerCanceled</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointercanceled"><strong>PointerCanceled</strong></a></p></td>
 <td align="left"><p>プラットフォームでポインターが取り消されると発生します。 これは、次のような場合に発生することがあります。</p>
 <ul>
 <li>入力サーフェスの範囲内でペンが検出されると、タッチ ポインターは取り消されます。</li>
@@ -69,7 +69,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 </ul></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointercapturelost"><strong>PointerCaptureLost</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointercapturelost"><strong>PointerCaptureLost</strong></a></p></td>
 <td align="left"><p>別の UI 要素がポインターをキャプチャした場合、ポインターが離された場合、別のポインターがプログラムでキャプチャされた場合に発生します。</p>
 <div class="alert">
 <strong>メモ</strong>   対応するポインターキャプチャイベントがありません。
@@ -79,43 +79,43 @@ Windows アプリは、次のポインターイベントをリッスンできま
 </div></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerentered"><strong>PointerEntered</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointerentered"><strong>PointerEntered</strong></a></p></td>
 <td align="left"><p>ポインターが要素の境界領域内に入ったときに発生します。 これは、タッチ、タッチパッド、マウス、ペン入力で発生方法が少し異なります。</p>
 <ul>
 <li>タッチでは、このイベントが発生するには、直接タッチするか、要素の境界領域内に移動することによって、指が接触する必要があります。</li>
 <li>マウスとタッチパッドでは、常に表示される画面上のカーソルがあり、マウスやタッチパッドのボタンが押されなくてもこのイベントが発生します。</li>
-<li>タッチと同様に、直接ペンでタッチするか、要素の境界領域内に移動することによって、このイベントが起動されます。 ただし、ペンにはホバー状態 (<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointer.isinrange">IsInRange</a>) もあり、true の場合に、このイベントが発生します。</li>
+<li>タッチと同様に、直接ペンでタッチするか、要素の境界領域内に移動することによって、このイベントが起動されます。 ただし、ペンにはホバー状態 (<a href="/uwp/api/windows.ui.xaml.input.pointer.isinrange">IsInRange</a>) もあり、true の場合に、このイベントが発生します。</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerexited"><strong>PointerExited</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointerexited"><strong>PointerExited</strong></a></p></td>
 <td align="left"><p>ポインターが要素の境界領域から出たときに発生します。 これは、タッチ、タッチパッド、マウス、ペン入力で発生方法が少し異なります。</p>
 <ul>
 <li>タッチでは、指が接触している必要があり、ポインターが要素の境界領域から外へ移動したときにこのイベントが発生します。</li>
 <li>マウスとタッチパッドでは、常に表示される画面上のカーソルがあり、マウスやタッチパッドのボタンが押されなくてもこのイベントが発生します。</li>
-<li>タッチと同様に、ペンでは、要素の境界領域の外へ移動したときにこのイベントが発生します。 ただし、ペンにはホバー状態 (<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointer.isinrange">IsInRange</a>) もあり、状態が true から false に変化したときに、このイベントが発生します。</li>
+<li>タッチと同様に、ペンでは、要素の境界領域の外へ移動したときにこのイベントが発生します。 ただし、ペンにはホバー状態 (<a href="/uwp/api/windows.ui.xaml.input.pointer.isinrange">IsInRange</a>) もあり、状態が true から false に変化したときに、このイベントが発生します。</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointermoved"><strong>PointerMoved</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointermoved"><strong>PointerMoved</strong></a></p></td>
 <td align="left"><p>要素の境界領域内で、ポインターの座標、ボタンの状態、圧力、傾き、または接触形状 (たとえば、幅と高さ) が変化したときに発生します。 これは、タッチ、タッチパッド、マウス、ペン入力で発生方法が少し異なります。</p>
 <ul>
 <li>タッチでは、指が接触している必要があり、要素の境界領域内に接触した場合にのみ、このイベントが発生します。</li>
 <li>マウスとタッチパッドでは、常に表示される画面上のカーソルがあり、マウスやタッチパッドのボタンが押されなくてもこのイベントが発生します。</li>
-<li>タッチと同様に、ペンでは、要素の境界領域内に接触したときにこのイベントが発生します。 ただし、ペンにはホバー状態 (<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.input.pointer.isinrange">IsInRange</a>) もあり、状態が true で、要素の境界領域内にあるときに、このイベントが発生します。</li>
+<li>タッチと同様に、ペンでは、要素の境界領域内に接触したときにこのイベントが発生します。 ただし、ペンにはホバー状態 (<a href="/uwp/api/windows.ui.xaml.input.pointer.isinrange">IsInRange</a>) もあり、状態が true で、要素の境界領域内にあるときに、このイベントが発生します。</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerpressed"><strong>PointerPressed</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointerpressed"><strong>PointerPressed</strong></a></p></td>
 <td align="left"><p>要素の境界領域内でポインターを押すアクション (タッチして押す、マウス ボタンを押す、ペンで押す、タッチパッドのボタンを押すなど) を行うと発生します。</p>
 <p>このイベントのハンドラーから <a href="/uwp/api/windows.ui.xaml.uielement.capturepointer">CapturePointer</a> を呼び出す必要があります。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerreleased"><strong>PointerReleased</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointerreleased"><strong>PointerReleased</strong></a></p></td>
 <td align="left"><p>要素の境界領域内でポインターを離すアクション (タッチを離す、マウス ボタンを離す、ペンを離す、タッチパッドのボタンを離すなど) を行ったとき、またはポインターが境界領域の外部でキャプチャされた場合に発生します。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged"><strong>PointerWheelChanged</strong></a></p></td>
+<td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged"><strong>PointerWheelChanged</strong></a></p></td>
 <td align="left"><p>マウス ホイールを回すと発生します。</p>
 <p>マウス入力が最初に検出されると、割り当てられている単一ポインターと関連付けられます。 マウス ボタン (左ボタン、ホイール、または右ボタン) をクリックすると、<a href="/uwp/api/windows.ui.xaml.uielement.pointermoved">PointerMoved</a> イベントによってポインターとそのボタンの間に 2 番目の関連付けが行われます。</p></td>
 </tr>

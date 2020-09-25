@@ -3,16 +3,16 @@ Description: Windows アプリでセカンダリタイルを使用するタイ�
 title: セカンダリタイルの設計ガイダンス
 label: Secondary tiles
 template: detail.hbs
-ms.date: 05/25/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10、UWP、セカンダリ タイル、ガイダンス、ガイドライン、ベスト プラクティス
 ms.localizationpriority: medium
-ms.openlocfilehash: 83f8a095a4e15c3ec0ebb02eebc183cf4beb01ea
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 5414c9d8437ee77e2a4a584dea26f7bf1fadef4a
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172336"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220235"
 ---
 # <a name="secondary-tile-guidance"></a>セカンダリ タイルのガイダンス
 

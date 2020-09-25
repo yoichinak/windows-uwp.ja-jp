@@ -3,16 +3,16 @@ Description: このトピックでは、ユーザープロファイルの言語�
 title: ユーザー プロファイルの言語とアプリ マニフェストの言語について
 ms.assetid: 22D3A937-736A-4121-8285-A55DED56E594
 template: detail.hbs
-ms.date: 11/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: c4f1857ba4afe5eba271f7022c64aca26eb6b6b8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ee2ba09c9b8b307a56bd71e720a9f6db8f45a813
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156936"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220245"
 ---
 # <a name="understand-user-profile-languages-and-app-manifest-languages"></a>ユーザー プロファイルの言語とアプリ マニフェストの言語について
 Windows ユーザーは、**設定**  >  **時間 & 言語**  >  **領域 & 言語**を使用して、優先する表示言語の順序付きリストを構成したり、1つの優先する表示言語を構成したりできます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。

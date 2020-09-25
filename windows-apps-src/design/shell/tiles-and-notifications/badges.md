@@ -1,21 +1,21 @@
 ---
 Description: タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
-title: Windows アプリのバッジ通知
+title: Windows アプリ向けのバッジ通知
 ms.assetid: 48ee4328-7999-40c2-9354-7ea7d488c538
 label: Tiles, badges, and notifications
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d3aa9658e8a57a7993eb79d164b1e17ac23b9ac
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: e8d3cf69da80b13ff334d89027f3ea366ac3accd
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970877"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219395"
 ---
-# <a name="badge-notifications-for-windows-apps"></a>Windows アプリのバッジ通知
+# <a name="badge-notifications-for-windows-apps"></a>Windows アプリ向けのバッジ通知
 
  
 
@@ -35,7 +35,7 @@ ms.locfileid: "82970877"
 <table>
     <tr>
         <th>[値]</th>
-        <th>Badge</th>
+        <th>バッジ</th>
         <th>XML</th>
     </tr>
     <tr>
@@ -60,7 +60,7 @@ ms.locfileid: "82970877"
     <th>XML</th>
 </tr>
 <tr>
-    <td>none</td>
+    <td>なし</td>
     <td>(バッジは表示されません。)</td>
     <td>`<badge value="none"/>`</td>
 </tr>
@@ -100,7 +100,7 @@ ms.locfileid: "82970877"
     <td>`<badge value="busy"/>`</td>
 </tr>
 <tr>
-    <td>エラー</td>
+    <td>error</td>
     <td><img src="images/badges/badge-error.png" alt="Glyph" /></td>
     <td>`<badge value="error"/>`</td>
 </tr>
@@ -194,7 +194,7 @@ private void clearBadge()
 }
 ````
 
-## <a name="get-the-sample-code"></a>サンプル コードの取得
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 * [通知のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)<br/> ライブ タイルを作り、バッジの更新を送信し、トースト通知を表示する方法を示します。 
 

@@ -4,16 +4,16 @@ title: パン
 ms.assetid: b419f538-c7fb-4e7c-9547-5fb2494c0b71
 label: Panning
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e77485bd2febe2ee032f9a0c3ceada31c2807ee0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3a5e26d48ef74631e732fb043e909869945a6366
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172496"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217052"
 ---
 # <a name="guidelines-for-panning"></a>パンのガイドライン
 
@@ -23,7 +23,7 @@ ms.locfileid: "89172496"
 > **重要な API**: [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)
 
 
-## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
+## <a name="dos-and-donts"></a>推奨と非推奨
 
 
 **パン インジケーターとスクロール バー**
@@ -80,7 +80,7 @@ ms.locfileid: "89172496"
 
 > <div id="main">
 > <strong>Windows 10 の作成者の更新-動作の変更</strong> 既定では、テキスト選択ではなく、アクティブなペンが Windows アプリ (タッチ、タッチパッド、受動ペンなど) でスクロール/パンされるようになりました。  
-> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。
+> アプリが以前の動作に依存している場合は、ペン スクロールを上書きして、以前の動作に戻すことができます。 詳しくは、<a href="/uwp/api/windows.ui.xaml.controls.scrollviewer">ScrollViewer クラス</a>の API リファレンス トピックをご覧ください。
 > </div>
 
 入力デバイスに応じて、ユーザーは次のいずれかを使って、パン対応領域内でパンを実行します。

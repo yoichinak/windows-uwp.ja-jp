@@ -2,16 +2,16 @@
 Description: Microsoft Store ではバージョン番号に関する特定の規則が適用され、別の OS バージョンでは機能が多少異なります。
 title: パッケージ バージョンの番号付け
 ms.assetid: DD7BAE5F-C2EE-44EE-8796-055D4BCB3152
-ms.date: 10/31/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 01e3a1d012e6c309f1c486417708457dd31c2c22
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b09c5688fd8a043d1a4ca1783af046398b504050
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171006"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219735"
 ---
 # <a name="package-version-numbering"></a>パッケージ バージョンの番号付け
 

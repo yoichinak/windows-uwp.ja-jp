@@ -6,12 +6,12 @@ keywords: バックグラウンドタスク、拡張実行、リソース、制�
 ms.date: 10/03/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 33b41c432edde42bc31daa1d5631f60fb38d8397
-ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
+ms.openlocfilehash: f843c23a4a1e0738cfc05e96009b2597f4919809
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304504"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217655"
 ---
 # <a name="run-in-the-background-indefinitely"></a>バックグラウンドで無期限に実行する
 
@@ -30,7 +30,7 @@ ms.locfileid: "89304504"
 > [!NOTE]
 > *Xmlns: rescap* XML 名前空間宣言を追加し、 *rescap*プレフィックスを使用して機能を宣言します。
 >
-> 詳細については、「 [アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」の「制限された機能」を参照してください。
+> 詳細については、「 [アプリ機能の宣言](../packaging/app-capability-declarations.md)」の「制限された機能」を参照してください。
 >
 
 _Package.appxmanifest_
@@ -79,7 +79,7 @@ switch (result)
 > [!NOTE]
 > *Xmlns: rescap* XML 名前空間宣言を追加し、 *rescap*プレフィックスを使用して機能を宣言します。
 >
-> 詳細については、「 [アプリ機能の宣言](https://docs.microsoft.com/windows/uwp/packaging/app-capability-declarations)」の「制限された機能」を参照してください。
+> 詳細については、「 [アプリ機能の宣言](../packaging/app-capability-declarations.md)」の「制限された機能」を参照してください。
 >
 
 _Package.appxmanifest_
@@ -102,6 +102,6 @@ _Package.appxmanifest_
 
 ただし、**extendedExecutionUnconstrained** 機能と **extendedBackgroundTaskTime** 機能では UWP アプリの既定ポリシーが上書きされ、大幅にバッテリが消耗することがあるため、注意が必要です。 これらの機能を使用する前に、まず延長実行およびバックグラウンド タスクの時間に関する既定のポリシーがニーズに合っていないことを確認し、バッテリに制約のある状態でテストを実行して、アプリがデバイスに与える影響を把握してください。
 
-## <a name="see-also"></a>こちらもご覧ください
+## <a name="see-also"></a>関連項目
 
 [バックグラウンド タスクのリソース制限を解除する](/windows/application-management/enterprise-background-activity-controls)

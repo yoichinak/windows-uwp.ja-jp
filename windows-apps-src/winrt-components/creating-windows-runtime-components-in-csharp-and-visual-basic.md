@@ -9,12 +9,12 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - vb
-ms.openlocfilehash: 57d46ea1f88395624943135247a8f610112aaf90
-ms.sourcegitcommit: 21eb13a50402bf5442a5f0a4bf34800d1dc679c4
+ms.openlocfilehash: e78171fa182d44f1699bc35643265fddb87824f4
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90804732"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220295"
 ---
 # <a name="windows-runtime-components-with-c-and-visual-basic"></a>C# および Visual Basic を使用した Windows ランタイム コンポーネント
 
@@ -275,7 +275,7 @@ Windows ランタイム コンポーネントが JavaScript や C++ で使われ
 
 カスタム イベント アクセサーを実装する場合 (Visual Basic では **Custom** キーワードでイベントを宣言する場合) は、実装で Windows ランタイムのイベント パターンに従う必要があります。 「 [Windows ランタイムコンポーネント」の「カスタムイベントとイベントアクセサー](custom-events-and-event-accessors-in-windows-runtime-components.md)」を参照してください。 C# または Visual Basic コードからイベントを処理する場合、そのイベントは通常の .NET イベントであるように見えます。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 ユーザーが独自に使う Windows ランタイム コンポーネントを作成した後で、そのコンポーネントにカプセル化されている機能が他の開発者の役に立つ場合があります。 他の開発者に配布するためにコンポーネントをパッケージ化する方法は 2 つあります。 「[マネージ Windows ランタイム コンポーネントの配布](/previous-versions/windows/apps/jj614475(v=vs.140))」をご覧ください。
 
@@ -286,7 +286,7 @@ Visual Basic と C# 言語の機能、および Windows ランタイムの .NET 
 
 | 症状 | 解決方法 |
 |---------|--------|
-|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイムコンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic) を使用すると、コンパイラによって "' MyNamespace_XamlTypeInfo ' の形式のエラーが生成*されます: は ' WinRT:: MyNamespace ' のメンバーではありません。* &mdash; *MyNamespace* は Windows ランタイムコンポーネントの名前空間の名前です。 | 使用中の `pch.h` C++/WinRT アプリので、必要に応じ `#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` &mdash; て*MyNamespace*を置き換えます。 |
+|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイムコンポーネント]() を使用すると、コンパイラによって "' MyNamespace_XamlTypeInfo ' の形式のエラーが生成*されます: は ' WinRT:: MyNamespace ' のメンバーではありません。* &mdash; *MyNamespace* は Windows ランタイムコンポーネントの名前空間の名前です。 | 使用中の `pch.h` C++/WinRT アプリので、必要に応じ `#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` &mdash; て*MyNamespace*を置き換えます。 |
 
 ## <a name="related-topics"></a>関連トピック
 * [UWP アプリ用 .NET](/dotnet/api/index?view=dotnet-uwp-10.0)

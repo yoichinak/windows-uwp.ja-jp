@@ -3,7 +3,7 @@ description: UI 内で入力、終了、または移動するオブジェクト�
 title: タイミングとイージング
 label: Timing and easing
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: stmoy
@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 46ec373ffb7ad141bcff36c33fa35900c888daf8
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: fe776361276341e368db1fbdf8e332a1e5dc70b5
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054432"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220195"
 ---
 # <a name="timing-and-easing"></a>タイミングとイージング
 

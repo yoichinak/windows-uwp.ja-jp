@@ -4,16 +4,16 @@ title: テキストの拡大縮小
 label: Text scaling
 template: detail.hbs
 keywords: UWP、テキスト、スケーリング、アクセシビリティ、"コンピューターの簡単操作"、表示、"テキストを大きくする"、ユーザーの操作、入力
-ms.date: 08/02/2018
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 386920532f4598ee2d1519d292454b47c285555b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d8f7536da045514471c1af1c2f0cfac74af91a7a
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165836"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219945"
 ---
 # <a name="text-scaling"></a>テキストの拡大縮小
 

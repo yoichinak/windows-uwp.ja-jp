@@ -2,17 +2,17 @@
 description: アプリの個性に合わせてデスクトップ アプリのタイトル バーをカスタマイズします。
 title: タイトル バーのカスタマイズ
 template: detail.hbs
-ms.date: 10/10/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, タイトル バー
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 6722004efea76ce1a7a2b6eba92d45e8dbf126ba
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9d8aa92ec320c18b1947cb9b3fa7777070e19726
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174576"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220085"
 ---
 # <a name="title-bar-customization"></a>タイトル バーのカスタマイズ
 

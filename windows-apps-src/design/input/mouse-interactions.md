@@ -4,16 +4,16 @@ title: マウス操作
 ms.assetid: C8A158EF-70A9-4BA2-A270-7D08125700AC
 label: Mouse
 template: detail.hbs
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 242f7c30260956bc84478153f39b0da4d8461e12
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 84390e7b929412e4058c1a7e6507ff171344bd53
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173406"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218935"
 ---
 # <a name="mouse-interactions"></a>マウス操作
 
@@ -38,7 +38,7 @@ ms.locfileid: "89173406"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">期間</th>
+<th align="left">用語</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -86,7 +86,7 @@ ms.locfileid: "89173406"
 
 ## <a name="mouse-input-events"></a>マウス入力イベント
 
-ほとんどのマウス入力は、すべての [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 次の設定があります。
+ほとんどのマウス入力は、すべての [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 これには以下が含まれます。
 
 - [**Bring@ View要求**](/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
 - [**受信した文字**](/uwp/api/windows.ui.xaml.uielement.characterreceived)

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX 9, DirectX 11, 移植
 ms.localizationpriority: medium
-ms.openlocfilehash: 8f7bdc8cef43ffa323cae89459ac9bcb549c10f1
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: febfeb87f383855b0e92525fd4e2792159d0240f
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172046"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217985"
 ---
 # <a name="map-directx-9-features-to-directx-11-apis"></a>DirectX 11 API への DirectX 9 の機能のマッピング
 
@@ -117,104 +117,104 @@ Direct3D 9 から Direct3D 11 にコードの変換を行う場合は、次の�
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3ddevice9">IDirect3DDevice9</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11_2/nn-d3d11_2-id3d11device2">ID3D11Device2</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11_2/nn-d3d11_2-id3d11devicecontext2">ID3D11DeviceContext2</a></p>
-<p>グラフィックス パイプラインのステージについては、「<a href="https://docs.microsoft.com/windows/desktop/direct3d11/overviews-direct3d-11-graphics-pipeline">グラフィックス パイプライン</a>」で説明されています。</p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3ddevice9">IDirect3DDevice9</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d11_2/nn-d3d11_2-id3d11device2">ID3D11Device2</a></p>
+<p><a href="/windows/desktop/api/d3d11_2/nn-d3d11_2-id3d11devicecontext2">ID3D11DeviceContext2</a></p>
+<p>グラフィックス パイプラインのステージについては、「<a href="/windows/desktop/direct3d11/overviews-direct3d-11-graphics-pipeline">グラフィックス パイプライン</a>」で説明されています。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3d9">IDirect3D9</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgifactory2">IDXGIFactory2</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiadapter2">IDXGIAdapter2</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3">IDXGIDevice3</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3d9">IDirect3D9</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgifactory2">IDXGIFactory2</a></p>
+<p><a href="/windows/desktop/api/dxgi1_2/nn-dxgi1_2-idxgiadapter2">IDXGIAdapter2</a></p>
+<p><a href="/windows/desktop/api/dxgi1_3/nn-dxgi1_3-idxgidevice3">IDXGIDevice3</a></p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-present">IDirect3DDevice9::Present</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-present">IDirect3DDevice9::Present</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-testcooperativelevel">IDirect3DDevice9::TestCooperativeLevel</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-testcooperativelevel">IDirect3DDevice9::TestCooperativeLevel</a></p></td>
 <td align="left"><p>DXGI_PRESENT_TEST フラグを設定して <a href="/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a> を呼び出します。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dbasetexture9">IDirect3DBaseTexture9</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dtexture9">IDirect3DTexture9</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dcubetexture9">IDirect3DCubeTexture9</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvolumetexture9">IDirect3DVolumeTexture9</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dindexbuffer9">IDirect3DIndexBuffer9</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvertexbuffer9">IDirect3DVertexBuffer9</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer">ID3D11Buffer</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11texture1d">ID3D11Texture1D</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d">ID3D11Texture2D</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11texture3d">ID3D11Texture3D</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11shaderresourceview">ID3D11ShaderResourceView</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview">ID3D11RenderTargetView</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilview">ID3D11DepthStencilView</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dbasetexture9">IDirect3DBaseTexture9</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dtexture9">IDirect3DTexture9</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dcubetexture9">IDirect3DCubeTexture9</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvolumetexture9">IDirect3DVolumeTexture9</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dindexbuffer9">IDirect3DIndexBuffer9</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvertexbuffer9">IDirect3DVertexBuffer9</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11buffer">ID3D11Buffer</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11texture1d">ID3D11Texture1D</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11texture2d">ID3D11Texture2D</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11texture3d">ID3D11Texture3D</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11shaderresourceview">ID3D11ShaderResourceView</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11rendertargetview">ID3D11RenderTargetView</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilview">ID3D11DepthStencilView</a></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvertexshader9">IDirect3DVertexShader9</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dpixelshader9">IDirect3DPixelShader9</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11vertexshader">ID3D11VertexShader</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11pixelshader">ID3D11PixelShader</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvertexshader9">IDirect3DVertexShader9</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dpixelshader9">IDirect3DPixelShader9</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11vertexshader">ID3D11VertexShader</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11pixelshader">ID3D11PixelShader</a></p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvertexdeclaration9">IDirect3DVertexDeclaration9</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout">ID3D11InputLayout</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nn-d3d9helper-idirect3dvertexdeclaration9">IDirect3DVertexDeclaration9</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11inputlayout">ID3D11InputLayout</a></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/direct3d9/id3dxeffectstatemanager--setrenderstate">IDirect3DDevice9::SetRenderState</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/direct3d9/id3dxeffectstatemanager--setsamplerstate">IDirect3DDevice9::SetSamplerState</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11blendstate1">ID3D11BlendState1</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilstate">ID3D11DepthStencilState</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11rasterizerstate1">ID3D11RasterizerState1</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nn-d3d11-id3d11samplerstate">ID3D11SamplerState</a></p></td>
+<td align="left"><p><a href="/windows/desktop/direct3d9/id3dxeffectstatemanager--setrenderstate">IDirect3DDevice9::SetRenderState</a></p>
+<p><a href="/windows/desktop/direct3d9/id3dxeffectstatemanager--setsamplerstate">IDirect3DDevice9::SetSamplerState</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11blendstate1">ID3D11BlendState1</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11depthstencilstate">ID3D11DepthStencilState</a></p>
+<p><a href="/windows/desktop/api/d3d11_1/nn-d3d11_1-id3d11rasterizerstate1">ID3D11RasterizerState1</a></p>
+<p><a href="/windows/desktop/api/d3d11/nn-d3d11-id3d11samplerstate">ID3D11SamplerState</a></p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitive">IDirect3DDevice9::DrawIndexedPrimitive</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitive">IDirect3DDevice9::DrawPrimitive</a></p></td>
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-draw">ID3D11DeviceContext::Draw</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed">ID3D11DeviceContext::DrawIndexed</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawindexedinstanced">ID3D11DeviceContext::DrawIndexedInstanced</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawinstanced">ID3D11DeviceContext::DrawInstanced</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-iasetprimitivetopology">ID3D11DeviceContext::IASetPrimitiveTopology</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawauto">ID3D11DeviceContext::DrawAuto</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitive">IDirect3DDevice9::DrawIndexedPrimitive</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitive">IDirect3DDevice9::DrawPrimitive</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-draw">ID3D11DeviceContext::Draw</a></p>
+<p><a href="/windows/desktop/api/d3d11/nf-d3d11-id3d11devicecontext-drawindexed">ID3D11DeviceContext::DrawIndexed</a></p>
+<p><a href="/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawindexedinstanced">ID3D11DeviceContext::DrawIndexedInstanced</a></p>
+<p><a href="/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawinstanced">ID3D11DeviceContext::DrawInstanced</a></p>
+<p><a href="/windows/desktop/api/d3d10/nf-d3d10-id3d10device-iasetprimitivetopology">ID3D11DeviceContext::IASetPrimitiveTopology</a></p>
+<p><a href="/windows/desktop/api/d3d10/nf-d3d10-id3d10device-drawauto">ID3D11DeviceContext::DrawAuto</a></p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-beginscene">IDirect3DDevice9::BeginScene</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-endscene">IDirect3DDevice9::EndScene</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitiveup">IDirect3DDevice9::DrawPrimitiveUP</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitiveup">IDirect3DDevice9::DrawIndexedPrimitiveUP</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-beginscene">IDirect3DDevice9::BeginScene</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-endscene">IDirect3DDevice9::EndScene</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawprimitiveup">IDirect3DDevice9::DrawPrimitiveUP</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawindexedprimitiveup">IDirect3DDevice9::DrawIndexedPrimitiveUP</a></p></td>
 <td align="left"><p>直接相当する要素はなし</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-showcursor">IDirect3DDevice9::ShowCursor</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorposition">IDirect3DDevice9::SetCursorPosition</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorproperties">IDirect3DDevice9::SetCursorProperties</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-showcursor">IDirect3DDevice9::ShowCursor</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorposition">IDirect3DDevice9::SetCursorPosition</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setcursorproperties">IDirect3DDevice9::SetCursorProperties</a></p></td>
 <td align="left"><p>標準的なカーソル API を使います。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-reset">IDirect3DDevice9::Reset</a></p></td>
-<td align="left"><p>LOST デバイスと POOL_MANAGED はもう存在しません。 <a href="/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a> は戻り値 <a href="https://docs.microsoft.com/windows/desktop/direct3ddxgi/dxgi-error">DXGI_ERROR_DEVICE_REMOVED</a> で失敗する可能性があります。</p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-reset">IDirect3DDevice9::Reset</a></p></td>
+<td align="left"><p>LOST デバイスと POOL_MANAGED はもう存在しません。 <a href="/windows/desktop/api/dxgi1_2/nf-dxgi1_2-idxgiswapchain1-present1">IDXGISwapChain1::Present1</a> は戻り値 <a href="/windows/desktop/direct3ddxgi/dxgi-error">DXGI_ERROR_DEVICE_REMOVED</a> で失敗する可能性があります。</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawrectpatch">IDirect3DDevice9:DrawRectPatch</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawtripatch">IDirect3DDevice9:DrawTriPatch</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-lightenable">IDirect3DDevice9:LightEnable</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-multiplytransform">IDirect3DDevice9:MultiplyTransform</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/direct3d9/id3dxeffectstatemanager--setlight">IDirect3DDevice9:SetLight</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setmaterial">IDirect3DDevice9:SetMaterial</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setnpatchmode">IDirect3DDevice9:SetNPatchMode</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settransform">IDirect3DDevice9:SetTransform</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setfvf">IDirect3DDevice9:SetFVF</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settexturestagestate">IDirect3DDevice9:SetTextureStageState</a></p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawrectpatch">IDirect3DDevice9:DrawRectPatch</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-drawtripatch">IDirect3DDevice9:DrawTriPatch</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-lightenable">IDirect3DDevice9:LightEnable</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-multiplytransform">IDirect3DDevice9:MultiplyTransform</a></p>
+<p><a href="/windows/desktop/direct3d9/id3dxeffectstatemanager--setlight">IDirect3DDevice9:SetLight</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setmaterial">IDirect3DDevice9:SetMaterial</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-setnpatchmode">IDirect3DDevice9:SetNPatchMode</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settransform">IDirect3DDevice9:SetTransform</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-setfvf">IDirect3DDevice9:SetFVF</a></p>
+<p><a href="/windows/desktop/api/d3d9helper/nf-d3d9helper-idirect3ddevice9-settexturestagestate">IDirect3DDevice9:SetTextureStageState</a></p></td>
 <td align="left"><p>固定関数パイプラインは推奨されなくなりました。</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdepthstencilmatch">IDirect3DDevice9:CheckDepthStencilMatch</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdeviceformat">IDirect3DDevice9:CheckDeviceFormat</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-getdevicecaps">IDirect3DDevice9:GetDeviceCaps</a></p>
-<p><a href="https://docs.microsoft.com/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-validatedevice">IDirect3DDevice9:ValidateDevice</a></p></td>
-<td align="left"><p>機能ビットは機能レベルに置き換えられます。 特定の機能レベルでは、いくつかの形式と機能の使用のみオプションです。 これは <a href="https://docs.microsoft.com/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport">ID3D11Device::CheckFeatureSupport</a> と <a href="https://docs.microsoft.com/windows/desktop/api/d3d10/nf-d3d10-id3d10device-checkformatsupport">ID3D11Device::CheckFormatSupport</a> でチェックできます。</p></td>
+<td align="left"><p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdepthstencilmatch">IDirect3DDevice9:CheckDepthStencilMatch</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-checkdeviceformat">IDirect3DDevice9:CheckDeviceFormat</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3d9-getdevicecaps">IDirect3DDevice9:GetDeviceCaps</a></p>
+<p><a href="/windows/desktop/api/d3d9/nf-d3d9-idirect3ddevice9-validatedevice">IDirect3DDevice9:ValidateDevice</a></p></td>
+<td align="left"><p>機能ビットは機能レベルに置き換えられます。 特定の機能レベルでは、いくつかの形式と機能の使用のみオプションです。 これは <a href="/windows/desktop/api/d3d11/nf-d3d11-id3d11device-checkfeaturesupport">ID3D11Device::CheckFeatureSupport</a> と <a href="/windows/desktop/api/d3d10/nf-d3d10-id3d10device-checkformatsupport">ID3D11Device::CheckFormatSupport</a> でチェックできます。</p></td>
 </tr>
 </tbody>
 </table>
@@ -241,7 +241,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_R8G8B8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A8R8G8B8</p></td>
@@ -259,7 +259,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_X1R5G5B5</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A1R5G5B5</p></td>
@@ -271,7 +271,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_R3G3B2</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_A8</p></td>
@@ -279,11 +279,11 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A8R3G3B2</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_X4R4G4B4</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A2B10G10R10</p></td>
@@ -296,7 +296,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_X8B8G8R8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_G16R16</p></td>
@@ -304,7 +304,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A2R10G10B10</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_A16B16G16R16</p></td>
@@ -312,11 +312,11 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A8P8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_P8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_L8</p></td>
@@ -340,7 +340,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_A4L4</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_V8U8</p></td>
@@ -348,11 +348,11 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_L6V5U5</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_X8L8V8U8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_Q8W8V8U8</p></td>
@@ -364,15 +364,15 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_W11V11U10</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_A2W10V10U10</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_UYVY</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_R8G8_B8G8</p></td>
@@ -386,7 +386,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_YUY2</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_G8R8_G8B8</p></td>
@@ -436,23 +436,23 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_D32</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_D15S1</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_D24S8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_D24X8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_D24X4S4</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_D16</p></td>
@@ -464,11 +464,11 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_D24FS8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_S1D15</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_S8D24</p></td>
@@ -476,11 +476,11 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_X8D24</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_X4S4D24</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_L16</p></td>
@@ -506,7 +506,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DFMT_MULTI2_ARGB8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_R16F</p></td>
@@ -534,7 +534,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="even">
 <td align="left"><p>D3DFMT_CxV8U8</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DDECLTYPE_FLOAT1</p></td>
@@ -554,7 +554,7 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DDECLTYPED3DCOLOR</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DDECLTYPE_UBYTE4</p></td>
@@ -608,11 +608,11 @@ Direct3D 9 形式から DXGI 形式への変換を行う場合は、次の表を
 </tr>
 <tr class="even">
 <td align="left"><p>D3DDECLTYPE_UDEC3</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>D3DDECLTYPE_DEC3N</p></td>
-<td align="left"><p>使用できません</p></td>
+<td align="left"><p>使用不可</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>D3DDECLTYPE_FLOAT16_2</p></td>

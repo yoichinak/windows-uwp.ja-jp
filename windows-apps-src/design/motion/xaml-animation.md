@@ -2,16 +2,16 @@
 ms.assetid: 0C8DEE75-FB7B-4E59-81E3-55F8D65CD982
 title: アニメーションの概要
 description: Windows ランタイム アニメーション ライブラリのアニメーションを使って、Windows の見た目や操作感を自分のアプリに取り入れることができます。
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 546e376bc6c66c368387ddd6f67d21dc7dde582d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 40752da17591c9eca16f46fbd244d4507a38b1fb
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173846"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220005"
 ---
 # <a name="animations-in-xaml"></a>XAML でのアニメーション
 

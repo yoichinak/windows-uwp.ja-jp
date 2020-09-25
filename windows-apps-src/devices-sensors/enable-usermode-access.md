@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, UWP, ACPI, GPIO, I2C, SPI, UEFI
 ms.assetid: 2fbdfc78-3a43-4828-ae55-fd3789da7b34
 ms.localizationpriority: medium
-ms.openlocfilehash: b3e04399bb7fb0d40cf42789587aa132ee20e789
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a5841a8a53c18969e8ca9171bb7b3e1af0273170
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165506"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216796"
 ---
 # <a name="enable-user-mode-access-to-gpio-i2c-and-spi"></a>GPIO、I2C、SPI へのユーザー モード アクセスの有効化
 
@@ -614,7 +614,7 @@ Device(I2C1)
 - CLIENT_ConnectFunctionConfigPins – `GpioClx` によって呼び出され、ミニポート ドライバーが指定された多重化構成を適用するように指示を出します。
 - CLIENT_DisconnectFunctionConfigPins – `GpioClx` によって呼び出され、ミニポート ドライバーが多重化構成を戻すように指示を出します。
 
-これらのルーチンの説明については、「[GpioClx イベント コールバック関数](https://docs.microsoft.com/previous-versions/hh439464(v=vs.85))」をご覧ください。
+これらのルーチンの説明については、「[GpioClx イベント コールバック関数](/previous-versions/hh439464(v=vs.85))」をご覧ください。
 
 これらの 2 つの新しい DDI に加えて、既存の DDI もピンの多重化の互換性の監査対象とする必要があります。
 
@@ -633,11 +633,11 @@ Windows 10 ビルド 14327 以降では、`SpbCx` および `SerCx` コントロ
 
 デバイスの初期化時に、`SpbCx` および `SerCx` フレームワークがハードウェア リソースとしてデバイスに提供されたすべての `MsftFunctionConfig()` リソースを解析します。 SpbCx/SerCx はその後、必要に応じてピンの多重化のリソースを取得および解放します。
 
-`SpbCx`クライアントドライバーの[Evtspbtargetconnect ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_connect)コールバックを呼び出す直前に、 *IRP_MJ_CREATE*ハンドラーに pin マルチプレキシングの構成を適用します。 多重化構成を適用できなかった場合、コントローラー ドライバーの `EvtSpbTargetConnect()` コールバックは呼び出されません。 そのため、SPB コントローラー ドライバーは `EvtSpbTargetConnect()` が呼び出されたときまでにピンが SPB 機能に対して多重化されていると想定することができます。
+`SpbCx`クライアントドライバーの[Evtspbtargetconnect ()](/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_connect)コールバックを呼び出す直前に、 *IRP_MJ_CREATE*ハンドラーに pin マルチプレキシングの構成を適用します。 多重化構成を適用できなかった場合、コントローラー ドライバーの `EvtSpbTargetConnect()` コールバックは呼び出されません。 そのため、SPB コントローラー ドライバーは `EvtSpbTargetConnect()` が呼び出されたときまでにピンが SPB 機能に対して多重化されていると想定することができます。
 
 `SpbCx`コントローラードライバーの[Evtspbtargetdisconnect ()](/windows-hardware/drivers/ddi/content/spbcx/nc-spbcx-evt_spb_target_disconnect)コールバックを呼び出した直後に、 *IRP_MJ_CLOSE*ハンドラーのピンマルチプレキシング構成を元に戻します。 その結果、周辺機器ドライバーが SPB コントローラー ドライバーに対してハンドルを開くたびにピンが SPB 機能に対して多重化され、周辺機器ドライバーがハンドルを閉じると多重化が終了します。
 
-`SerCx` 同様に動作します。 `SerCx`コントローラードライバーの `MsftFunctionConfig()` [EvtSerCx2FileOpen ()](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileopen)コールバックを呼び出す直前に*IRP_MJ_CREATE*ハンドラー内のすべてのリソースを取得し、コントローラードライバーの[EvtSerCx2FileClose](https://docs.microsoft.com/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileclose)コールバックを呼び出した直後に、IRP_MJ_CLOSE ハンドラー内のすべてのリソースを解放します。
+`SerCx` 同様に動作します。 `SerCx`コントローラードライバーの `MsftFunctionConfig()` [EvtSerCx2FileOpen ()](/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileopen)コールバックを呼び出す直前に*IRP_MJ_CREATE*ハンドラー内のすべてのリソースを取得し、コントローラードライバーの[EvtSerCx2FileClose](/windows-hardware/drivers/ddi/content/sercx/nc-sercx-evt_sercx2_fileclose)コールバックを呼び出した直後に、IRP_MJ_CLOSE ハンドラー内のすべてのリソースを解放します。
 
 `SerCx` および `SpbCx` コントローラー ドライバーのための動的なピンの多重化の実装では、特定の時間で SPB/UART 機能のピンの多重化が終了することを許容できる必要があります。 コントローラー ドライバーは、`EvtSpbTargetConnect()` または `EvtSerCx2FileOpen()` が呼び出されるまでピンが多重化されないことを前提とする必要があります。 次のコールバック中に必ずしもピンが SPB/UART 機能に多重化される必要はありません。 次に示すのは完全な一覧ではありませんが、コントローラー ドライバーによって実装される最も一般的な PNP ルーチンを示しています。
 

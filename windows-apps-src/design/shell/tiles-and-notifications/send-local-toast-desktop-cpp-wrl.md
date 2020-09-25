@@ -3,16 +3,16 @@ Description: Win32 C++ WRL アプリがローカルトースト通知を送信�
 title: デスクトップ C++ WRL アプリからのローカル トースト通知の送信
 label: Send a local toast notification from desktop C++ WRL apps
 template: detail.hbs
-ms.date: 03/07/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トーストの送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C++、cpp、cplusplus、WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: e1aae390cf9047c8c93b4d24084c87bc90af8d80
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f90733cb4b549b7b8f088d6ecfa652941b0769b1
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172306"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220145"
 ---
 # <a name="send-a-local-toast-notification-from-desktop-c-wrl-apps"></a>デスクトップ C++ WRL アプリからのローカル トースト通知の送信
 
@@ -420,9 +420,9 @@ Windows 8.1 以下をサポートする場合は、実行時に Windows 10 を�
 
 | OS | ToastGeneric | COM アクティベーター | レガシ トースト テンプレート |
 | -- | ------------ | ------------- | ---------------------- |
-| Windows 10 | サポート | サポート | サポート対象 (ただし COM サーバーをアクティブ化しない) |
-| Windows 8.1 / 8 | N/A | 該当なし | サポート |
-| Windows 7 以下 | N/A | N/A | N/A |
+| Windows 10 | サポートされています | サポートされています | サポート対象 (ただし COM サーバーをアクティブ化しない) |
+| Windows 8.1 / 8 | 該当なし | 該当なし | サポートされています |
+| Windows 7 以下 | 該当なし | 該当なし | 該当なし |
 
 Windows 10 で実行しているかどうかを確認するには、`<VersionHelpers.h>` ヘッダーをインクルードし、**IsWindows10OrGreater** メソッドを確認します。 これが true を返す場合は、続いてこのドキュメントで説明されているすべてのメソッドを呼び出してください。 
 

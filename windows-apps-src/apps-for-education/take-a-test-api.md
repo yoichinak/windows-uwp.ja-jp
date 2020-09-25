@@ -2,16 +2,16 @@
 Description: Microsoft テスト アプリ用の JavaScript API を使用すると、セキュリティ保護された評価を行うことができます。 テスト アプリでは、学生がテスト中に他のコンピューターやインターネット リソースを使用することを防ぐセキュリティ保護されたブラウザーが提供されます。
 title: テスト JavaScript API。
 ms.assetid: 9bff6318-504c-4d0e-ba80-1a5ea45743da
-ms.date: 08/08/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, 教育
 ms.localizationpriority: medium
-ms.openlocfilehash: f5894e80c11d69c91be8492b80c3200e15a3dc31
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2eeb190fc95e46a95813affd432948d38c0328a4
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161266"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218395"
 ---
 # <a name="take-a-test-javascript-api"></a>テスト JavaScript API
 
@@ -36,7 +36,7 @@ ms.locfileid: "89161266"
 |[isEnvironmentSecure](#isEnvironmentSecure) | ロックダウン コンテキストがデバイスにまだ適用されるかどうかを確認します。 |
 |[getDeviceInfo](#getDeviceInfo) | テスト アプリケーションが実行されているプラットフォームの詳細を取得します。 |
 |[examineProcessList](#examineProcessList)|実行中のユーザーとシステム プロセスの一覧を取得します。|
-|[ok](#close) | ブラウザーを閉じて、デバイスのロックを解除します。 |
+|[close](#close) | ブラウザーを閉じて、デバイスのロックを解除します。 |
 |[getPermissiveMode](#getPermissiveMode)|制限解除モードがオンまたはオフかどうかを確認します。|
 |[setPermissiveMode](#setPermissiveMode)|制限解除モードのオンとオフを切り替えます。|
 |[emptyClipBoard](#emptyClipBoard)|システム クリップボードがクリアされます。|
@@ -58,7 +58,7 @@ ms.locfileid: "89161266"
 `void SecureBrowser.security.lockDown(Boolean enable, Function onSuccess, Function onError);`
 
 **パラメーター**  
-* `enable` - ロック画面の上にテストアプリを実行し、この[ドキュメント](https://docs.microsoft.com/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)で説明されているポリシーを適用する**場合は true** 。 **false** は、アプリがロックダウンされていない場合は、ロック画面上で実行しているテスト アプリを停止して閉じます。アプリがロックダウンされている場合は、何も行われません。  
+* `enable` - ロック画面の上にテストアプリを実行し、この[ドキュメント](/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)で説明されているポリシーを適用する**場合は true** 。 **false** は、アプリがロックダウンされていない場合は、ロック画面上で実行しているテスト アプリを停止して閉じます。アプリがロックダウンされている場合は、何も行われません。  
 * `onSuccess` -[省略可能] ロックダウンが正常に有効または無効にされた後に呼び出される関数。 `Function(Boolean currentlockdownstate)` という形式にする必要があります。  
 * `onError` -[省略可能] ロックダウン操作が失敗した場合に呼び出す関数。 `Function(Boolean currentlockdownstate)` という形式にする必要があります。  
 

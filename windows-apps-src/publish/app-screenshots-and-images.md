@@ -2,16 +2,16 @@
 Description: アプリのストア登録情報には、スクリーンショット、ロゴ、追加のアート資産 (トレーラーやプロモーション用の画像など) を選択して含めることができます。
 title: アプリのスクリーンショット、画像、トレーラー
 ms.assetid: D216DD2B-F43D-4D26-82EE-0CD34DB929D8
-ms.date: 03/07/2019
+ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, uwp, 予告編, ビデオ, スクリーン ショット, 画像, アイコン, Store 登録情報, Store 登録情報の画像
 ms.localizationpriority: medium
-ms.openlocfilehash: da9d6517a43550693596d15c735e3134c5c60a7a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: be46e33ccc97545b86321e2e520b79c5a74f7a2e
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155316"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219765"
 ---
 # <a name="app-screenshots-images-and-trailers"></a>アプリのスクリーンショット、画像、トレーラー
 

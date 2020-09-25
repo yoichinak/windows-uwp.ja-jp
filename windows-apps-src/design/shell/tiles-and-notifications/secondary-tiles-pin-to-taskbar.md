@@ -3,16 +3,16 @@ description: セカンダリタイルをタスクバーにピン留めして、�
 title: タスクバーへのセカンダリ タイルのピン留め
 label: Pin secondary tiles to taskbar
 template: detail.hbs
-ms.date: 11/28/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、タスクバーへのピン留め、セカンダリタイル、タスクバーへのセカンダリタイルのピン留め、ショートカット
 ms.localizationpriority: medium
-ms.openlocfilehash: 23feaf6cbc2293951116167662ab5647e3d35c44
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 22f49fba21e4d3f997efee1a59123ab453e555ea
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172326"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220225"
 ---
 # <a name="pin-secondary-tiles-to-taskbar"></a>タスクバーへのセカンダリ タイルのピン留め
 

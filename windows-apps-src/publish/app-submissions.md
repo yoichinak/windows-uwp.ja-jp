@@ -3,15 +3,15 @@ Description: 名前を予約してアプリを作成したら、そのアプリ�
 title: アプリの申請
 ms.assetid: 363BB9E4-4437-4238-A80F-ABDFC70D96E4
 keywords: チェックリスト, windows, uwp, 申請, 提出, ゲーム, アプリ, 送信
-ms.date: 10/31/2018
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1359fb530dec1a35b2ab2994442b65ec441cc0ac
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 99b4d7412727e5f195c32d3f3c21fe82b284e658
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158066"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219975"
 ---
 # <a name="app-submissions"></a>アプリの申請
 
@@ -41,12 +41,12 @@ ms.locfileid: "89158066"
 | フィールド名                    | Notes                                       | 詳しい情報                                                             |
 |-------------------------------|---------------------------------------------|---------------------------------------------------------------------------|
 | **市場**                   | 既定値: 対象となるすべての市場  | [価格と市場の選択の定義](./define-market-selection.md)         |
-| **対象ユーザー**                | 既定値: パブリック対象ユーザー | [対象ユーザー](choose-visibility-options.md#audience) |
+| **オーディエンス**                | 既定値: パブリック対象ユーザー | [オーディエンス](choose-visibility-options.md#audience) |
 | **Discoverability (探索可能性)**                | 既定値: この製品を Microsoft Store で提供し、検索可能にします | [Discoverability (探索可能性)](choose-visibility-options.md#discoverability) |
 | **[スケジュール]**                  | 既定値: 最短でリリース        | [正確なリリース スケジュールの構成](configure-precise-release-scheduling.md) |
 | **基本価格**                | 必須                                    | [アプリの価格の設定とスケジュール](set-and-schedule-app-pricing.md)              |
 | **無料試用版**                | 既定値: 無料の試用版なし                      | [無料試用版](set-app-pricing-and-availability.md#free-trial)              |
-| **セール価格**              | オプション                                    | [アプリとアドオンの販売](put-apps-and-add-ons-on-sale.md)           |
+| **セール価格**              | 省略可能                                    | [アプリとアドオンの販売](put-apps-and-add-ons-on-sale.md)           |
 | **組織のライセンス**    | 既定値: 組織単位でのボリューム購入を許可する | [組織のライセンス オプション](organizational-licensing.md)        |
       |
 
@@ -57,12 +57,12 @@ ms.locfileid: "89158066"
 |-------------------------------|---------------------------------------------|---------------------------------------------------------------------------|
 | **[カテゴリとサブカテゴリ]**  | 必須                                    | [カテゴリとサブカテゴリの一覧](category-and-subcategory-table.md)       |
 | **[プライバシー ポリシーの URL]**            | 多くのアプリでは必須。 「[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)」と「[Microsoft Store ポリシー](store-policies.md#105-personal-information)」をご覧ください | [[プライバシー ポリシーの URL]](enter-app-properties.md#privacy-policy-url)        |
-| **Web サイト**                   | オプション                                    | [Web サイト](enter-app-properties.md#website)                   |
+| **Web サイト**                   | 省略可能                                    | [Web サイト](enter-app-properties.md#website)                   |
 | **サポートの問い合わせ先情報**      | 製品が Xbox で使用可能な場合は必須。それ以外の場合は省略可能 (ただし推奨)                                   | [サポートの問い合わせ先情報](enter-app-properties.md#support-contact-info)              |
 | **ゲーム設定**             | 省略可能 (ゲームにのみ適用)         | [ゲーム設定](enter-app-properties.md#game-settings) |
-| **表示モード**             | オプション                   | [表示モード](enter-app-properties.md#display-mode) |
+| **表示モード**             | 省略可能                   | [表示モード](enter-app-properties.md#display-mode) |
 | **製品の宣言**          | 既定値: ユーザーは、代替ドライブやリムーバブル ストレージにこのアプリをインストールできます。Windows はこのアプリのデータを OneDrive に自動的にバックアップできます | [製品の宣言](./product-declarations.md) |
-| **システム要件**      | オプション                                    | [システム要件](enter-app-properties.md#system-requirements)      |
+| **システム要件**      | 省略可能                                    | [システム要件](enter-app-properties.md#system-requirements)      |
 
 <span/>
 
@@ -91,18 +91,18 @@ ms.locfileid: "89158066"
 | フィールド名                    | Notes                                       | 詳しい情報                                                     |
 |-------------------------------|---------------------------------------------|-------------------------------------------------------------------|
 | **説明**               | 必須                                    | [人の心をつかむアプリの説明を書く](write-a-great-app-description.md) |
-| **このバージョンの新機能**   | オプション                                 | [リリース ノート](create-app-store-listings.md#whats-new-in-this-version)       |
-| **アプリの機能**              | オプション                                    | [製品の機能](create-app-store-listings.md#product-features)         |
+| **このバージョンの新機能**   | 省略可能                                 | [リリース ノート](create-app-store-listings.md#whats-new-in-this-version)       |
+| **アプリの機能**              | 省略可能                                    | [製品の機能](create-app-store-listings.md#product-features)         |
 | **スクリーンショット**               | 必須 (スクリーンショット 1 つ以上。4 つ以上を推奨)          | [スクリーンショット](app-screenshots-and-images.md#screenshots)          |
 | **ストア ロゴ**               | 推奨。一部の OS バージョンで必須 | [ストア ロゴ](app-screenshots-and-images.md#store-logos)             |
-| **予告編**                  | オプション                                    | [予告編](app-screenshots-and-images.md#trailers)                | 
+| **予告編**                  | 省略可能                                    | [予告編](app-screenshots-and-images.md#trailers)                | 
 | **Windows 10 と Xbox の画像 (16:9 スーパー ヒーロー アート)**     | 推奨        | [Windows 10 と Xbox の画像 (16:9 スーパー ヒーロー アート)](app-screenshots-and-images.md#windows-10-and-xbox-image-169-super-hero-art) |
 | **Xbox 画像**     | Xbox に発行した場合に適切に表示するために必要です        | [Xbox 画像](app-screenshots-and-images.md#xbox-images) |
-| **補足フィールド**  | オプション                                    | [補足フィールド](create-app-store-listings.md#supplemental-fields) 
-| **検索語句**              | オプション                                    | [検索語句](create-app-store-listings.md#search-terms)         |
-| **著作権と商標の情報** | オプション                                 | [著作権と商標の情報](create-app-store-listings.md#copyright-and-trademark-info) |
-| **追加のライセンス条項**  | オプション                                    | [追加のライセンス条項](create-app-store-listings.md#additional-license-terms) |
-| **開発者**              | オプション                                    | [開発者](create-app-store-listings.md#developed-by)                   |
+| **補足フィールド**  | 省略可能                                    | [補足フィールド](create-app-store-listings.md#supplemental-fields) 
+| **検索語句**              | 省略可能                                    | [検索語句](create-app-store-listings.md#search-terms)         |
+| **著作権と商標の情報** | 省略可能                                 | [著作権と商標の情報](create-app-store-listings.md#copyright-and-trademark-info) |
+| **追加のライセンス条項**  | 省略可能                                    | [追加のライセンス条項](create-app-store-listings.md#additional-license-terms) |
+| **開発者**              | 省略可能                                    | [開発者](create-app-store-listings.md#developed-by)                   |
 
 
 <span/>

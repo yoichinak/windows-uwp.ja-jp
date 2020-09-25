@@ -4,16 +4,16 @@ title: トーストのコンテンツ
 ms.assetid: 1FCE66AF-34B4-436A-9FC9-D0CF4BDA5A01
 label: Toast content
 template: detail.hbs
-ms.date: 11/20/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: 97dd16d712dca3de69a98c608b7c8947ebbddfea
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b08b34a88533d06ac7fc2f967bfc4e50e9fd8f0f
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173366"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219447"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -25,7 +25,7 @@ ms.locfileid: "89173366"
 > Windows 8.1 や Windows Phone 8.1 の従来のテンプレートについては、「[トースト テンプレート カタログ (Windows ランタイム アプリ)](/previous-versions/windows/apps/hh761494(v=win.10))」をご覧ください。
 
 
-## <a name="getting-started"></a>はじめに
+## <a name="getting-started"></a>作業の開始
 
 **Notifications ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で示している C# のサンプルでは、NuGet パッケージの Version 1.0.0 を使っています。
 

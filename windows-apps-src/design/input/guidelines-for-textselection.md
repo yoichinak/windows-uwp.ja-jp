@@ -5,15 +5,15 @@ ms.assetid: d973ffd8-602e-47b5-ab0b-4b2a964ec53d
 label: Selecting text and images
 template: detail.hbs
 keywords: キーボード, テキスト, 入力, ユーザーの操作
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a779053f0e14317c4142158fdface4c806a02aa
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 179eeffd014cb614fb5314826068d9690fc29807
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172466"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216975"
 ---
 # <a name="selecting-text-and-images"></a>テキストと画像の選択
 
@@ -24,7 +24,7 @@ ms.locfileid: "89172466"
  
 
 
-## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
+## <a name="dos-and-donts"></a>推奨と非推奨
 
 
 -   独自のグリッパー UI を実装する場合は、フォント グリフを使います。 グリッパーは、システム全体で利用できる 2 つの Segoe UI フォントを組み合わせたものです。 フォント リソースを使うと、さまざまな dpi におけるレンダリングの問題が軽減され、さまざまな UI 表示スケール プラトーに対応できます。 独自のグリッパーを実装する場合は、どのグリッパーにも次の UI の特性を持たせてください。

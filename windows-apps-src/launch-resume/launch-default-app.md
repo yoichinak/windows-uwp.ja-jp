@@ -6,12 +6,12 @@ ms.date: 06/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ff40b506ef305ac4bc651864da34fe746f6229a3
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ad25d4ba5d8dfe638d3de3e210f69ea204c48a14
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164856"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220015"
 ---
 # <a name="launch-the-default-app-for-a-uri"></a>URI に応じた既定のアプリの起動
 
@@ -56,7 +56,7 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 
 URI を起動するには、[**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドを使います。 このメソッドを呼び出すとき、アプリはユーザーに表示されるフォアグラウンド アプリである必要があります。 この要件は、ユーザーが制御を維持するのに役立ちます。 この要件を満たすために、すべての URI 起動がアプリの UI に直接結び付けられていることを確認します。 URI 起動を開始するには、常にユーザーがなんらかの操作を行う必要があります。 URI を起動しようとしたときにアプリがフォアグラウンドにない場合、起動は失敗し、エラー コールバックが呼び出されます。
 
-最初に URI を表す [**System.Uri**](https://docs.microsoft.com/dotnet/api/system.uri) オブジェクトを作成し、それを [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドに渡します。 次の例のように、返される結果を使って呼び出しが成功したかどうかを確認します。
+最初に URI を表す [**System.Uri**](/dotnet/api/system.uri) オブジェクトを作成し、それを [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) メソッドに渡します。 次の例のように、返される結果を使って呼び出しが成功したかどうかを確認します。
 
 ```cs
 private async void launchURI_Click(object sender, RoutedEventArgs e)
@@ -82,7 +82,7 @@ private async void launchURI_Click(object sender, RoutedEventArgs e)
 
 ![灰色で表示されたアプリの背景にオーバーレイで表示された警告ダイアログ。 アプリを切り替えるかどうかをたずねるメッセージと、右下隅に [はい] と [いいえ] のボタンが表示されます。 [いいえ] ボタンが強調表示されています。](images/warningdialog.png)
 
-この確認ダイアログを常に表示する場合は、[**Windows.System.LauncherOptions.TreatAsUntrusted**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.treatasuntrusted) プロパティを使って、オペレーティング システムが警告を表示することを指定します。
+この確認ダイアログを常に表示する場合は、[**Windows.System.LauncherOptions.TreatAsUntrusted**](/uwp/api/windows.system.launcheroptions.treatasuntrusted) プロパティを使って、オペレーティング システムが警告を表示することを指定します。
 
 ```cs
 // The URI to launch
@@ -102,7 +102,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriBing, promptOption
 
 推奨事項は、URI スキームを処理するアプリが複数登録されているときにも役立ちます。 特定のアプリを推奨すると、そのアプリが既にインストールされている場合、Windows はそのアプリを開きます。
 
-アプリを推奨するには、[**LauncherOptions.preferredApplicationPackageFamilyName**](https://docs.microsoft.com/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname) を推奨するストア内のアプリのパッケージ ファミリ名に設定して、[**Windows.System.Launcher.LaunchUriAsync(Uri, LauncherOptions)**](https://docs.microsoft.com/uwp/api/windows.system.launcher.launchuriasync#Windows_System_Launcher_LaunchUriAsync_Windows_Foundation_Uri_Windows_System_LauncherOptions_) メソッドを呼び出します。 オペレーティング システムではこの情報を使って、ストア内のアプリを検索する一般的なオプションを、ストアから推奨アプリを入手する固有のオプションに置き換えます。
+アプリを推奨するには、[**LauncherOptions.preferredApplicationPackageFamilyName**](/uwp/api/windows.system.launcheroptions.preferredapplicationpackagefamilyname) を推奨するストア内のアプリのパッケージ ファミリ名に設定して、[**Windows.System.Launcher.LaunchUriAsync(Uri, LauncherOptions)**](/uwp/api/windows.system.launcher.launchuriasync#Windows_System_Launcher_LaunchUriAsync_Windows_Foundation_Uri_Windows_System_LauncherOptions_) メソッドを呼び出します。 オペレーティング システムではこの情報を使って、ストア内のアプリを検索する一般的なオプションを、ストアから推奨アプリを入手する固有のオプションに置き換えます。
 
 ```cs
 // Set the recommended app
@@ -228,7 +228,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 ![カメラのプライバシー設定。](images/privacyawarenesssettingsapp.png)
 
-詳しくは、「[Windows 設定アプリの起動](launch-settings-app.md)」と「[個人データにアクセスするアプリのガイドライン](https://docs.microsoft.com/windows/uwp/security/index)」をご覧ください。
+詳しくは、「[Windows 設定アプリの起動](launch-settings-app.md)」と「[個人データにアクセスするアプリのガイドライン](../security/index.md)」をご覧ください。
 
 ### <a name="store-app-uri-scheme"></a>ストア アプリの URI スキーム
 
