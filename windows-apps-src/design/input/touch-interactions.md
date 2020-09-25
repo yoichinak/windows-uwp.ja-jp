@@ -5,15 +5,15 @@ ms.assetid: DA6EBC88-EB18-4418-A98A-457EA1DEA88A
 label: Touch interactions
 template: detail.hbs
 keywords: タッチ, ポインター, 入力, ユーザーの操作
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 537d5aa08f61471c43ca8a965369bdd9dcdee7d3
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 14be47fa701742c73048e70c0842cb421c52a7e5
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165752"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220515"
 ---
 # <a name="touch-interactions"></a>タッチ操作
 
@@ -576,7 +576,7 @@ End Sub
 
 ここに記載されたポインター イベント、ジェスチャ イベント、操作イベントはすべて、*ルーティング イベント*として実装されます。 つまりこのイベントは、最初にイベントを発生したオブジェクト以外のオブジェクトによって処理される可能性があります。 [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) の親コンテナーや、アプリのルート [**Page**](/uwp/api/Windows.UI.Xaml.Controls.Page) などのオブジェクト ツリーの一連の親は、元の要素が存在しなくても、これらのイベントを処理することを選択できます。 逆に、イベントを処理するどのオブジェクトも、親要素に達しないように、処理済みイベントをマークできます。 ルーティングイベントの概念と、ルーティングイベントのハンドラーの作成方法に対する影響の詳細については、「 [イベントとルーティングイベントの概要](/previous-versions/windows/apps/hh758286(v=win.10))」を参照してください。
 
-## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
+## <a name="dos-and-donts"></a>推奨と非推奨
 
 
 -   期待される主な入力方法としてタッチ操作を使うアプリを設計します。

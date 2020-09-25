@@ -2,16 +2,16 @@
 Description: このトピックでは、英語 (米国) 以外の言語にローカライズされた Windows アプリで使用できるフォントの一覧を示します。
 title: 国際フォント
 template: detail.hbs
-ms.date: 11/02/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: aa0b560ad684ba230e0a498b9069d24d510f49c0
-ms.sourcegitcommit: 0dee502484df798a0595ac1fe7fb7d0f5a982821
+ms.openlocfilehash: 1200b80347a67bb1c9a6414a18697ca9d30bc29f
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82970907"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220605"
 ---
 # <a name="international-fonts"></a>国際フォント
 
@@ -19,7 +19,7 @@ ms.locfileid: "82970907"
 
 次の表の "言語タグ" 列は、言語の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) を示します。 特に Microsoft Store でサポートされる言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」をご覧ください。
 
-| 言語 | 言語タグ | Windows で使用されているフォント |
+| Language | 言語タグ | Windows で使用されているフォント |
 | --------- | ----------- | -------------------- |
 | アフリカーンス語 | af-ZA | Segoe UI |
 | アルバニア語 | sq-AL | Segoe UI |
@@ -47,7 +47,7 @@ ms.locfileid: "82970907"
 | オランダ語 | nl-NL | Segoe UI |
 | 英語 (イギリス) | en-GB | Segoe UI |
 | エストニア語 | et-EE | Segoe UI |
-| フィリピン語 | fil-PH | Segoe UI |
+| フィリピノ語 | fil-PH | Segoe UI |
 | フィンランド語 | fi-FI | Segoe UI |
 | フランス語 | fr-FR | Segoe UI |
 | ガリシア語 | gl-ES | Segoe UI |
@@ -71,7 +71,7 @@ ms.locfileid: "82970907"
 | カザフ語 | kk-KZ | Segoe UI |
 | クメール語 | km-KH | Leelawadee UI |
 | キチェ語 | qut-GT | Segoe UI |
-| キニアルワンダ語 | rw-RW | Segoe UI |
+| キニヤルワンダ語 | rw-RW | Segoe UI |
 | スワヒリ語 | sw-KE | Segoe UI |
 | コーンクニー語 | kok-IN | Nirmala UI |
 | 韓国語 | ko-KR | Malgun Gothic |

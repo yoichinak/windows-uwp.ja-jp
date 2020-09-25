@@ -2,16 +2,16 @@
 title: マップ認証キーの要求
 description: MapControl や Windows.Services.Maps 名前空間のマップ サービスをユニバーサル Windows アプリで使うには、そのアプリを認証する必要があります。
 ms.assetid: 13B400D7-E13F-4F07-ACC3-9C34087F0F73
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10、UWP、マップ認証キー、マップ コントロール
 ms.localizationpriority: medium
-ms.openlocfilehash: 195c643fe10daf45ae709962a3b675162874c77b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: da98ea9f09ef5d7804b07b7066847afbab7a2681
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171836"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220525"
 ---
 # <a name="request-a-maps-authentication-key"></a>マップ認証キーの要求
 
@@ -94,5 +94,5 @@ ms.locfileid: "89171836"
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](./display-maps.md)
-* [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)

@@ -3,19 +3,19 @@ Description: Windows アプリのキーボード、ゲームパッド、およ�
 title: キーボード、ゲームパッド、アクセシビリティ ツールでのプログラムによるフォーカス ナビゲーション
 label: Programmatic focus navigation
 keywords: キーボード, ゲーム コントローラー, リモコン, ナビゲーション, ナビゲーション方法, 入力, ユーザーの操作, アクセシビリティ, 操作性
-ms.date: 03/19/2018
+ms.date: 09/24/2020
 ms.topic: article
 pm-contact: miguelrb
 design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 887d8329cc95d735ba33ff8dafc5105874206eaf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ef2e62404766d822343537cea2aca8e512482093
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172546"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220535"
 ---
 # <a name="programmatic-focus-navigation"></a>プログラムによるフォーカス ナビゲーション
 

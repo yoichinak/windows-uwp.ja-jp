@@ -2,31 +2,31 @@
 Description: さまざまなオペレーティング システムを対象とするパッケージを提供する場合、対象のオペレーティング システムごとにストア登録情報の一部をカスタマイズするオプションがあります。
 title: プラットフォーム固有のストア登録情報の作成
 ms.assetid: 5BE66BE2-669C-49E0-8915-60F1027EF94A
-ms.date: 10/31/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, カスタマイズ, 登録情報, 説明, 以前
 ms.localizationpriority: medium
-ms.openlocfilehash: 475526662737eaa5b95267e36016e342c6652a89
-ms.sourcegitcommit: 96b7be654a0922eeb421b5fa51ebfc586abe74fe
+ms.openlocfilehash: b0008095ac027a1ef1d17b655610a3ad50a6596b
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945963"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220505"
 ---
 # <a name="create-platform-specific-store-listings"></a>プラットフォーム固有のストア登録情報の作成
 
 
 以前に発行されたアプリに異なるオペレーティングシステムを対象とするパッケージが含まれている場合は、以前のバージョンの OS (Windows 8.x 以前および/または Windows Phone 8.x 以前) で、ストアの一覧の一部をカスタマイズすることもできます。 
 
-Windows 10 (Xbox を含む) のお客様には、常に既定の[ストアの一覧](create-app-store-listings.md)が表示されます。 以前のバージョンの OS をサポートするパッケージを使用して既にアプリを発行している場合を除き、プラットフォーム固有のストアの一覧を作成するオプションは表示されません。 
+Windows 10 (Xbox を含む) のお客様には、常に既定の [ストアの一覧](create-app-store-listings.md)が表示されます。 以前のバージョンの OS をサポートするパッケージを使用して既にアプリを発行している場合を除き、プラットフォーム固有のストアの一覧を作成するオプションは表示されません。 
 
 > [!IMPORTANT]
-> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの[ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
+> Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの [ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
 
 プラットフォーム固有のストアの一覧は、1つの OS バージョンでのみ表示される機能を説明する場合や、特定の OS に固有のスクリーンショット (デバイスの種類に依存しない) を提供する場合に便利です。
 
 > [!NOTE]
-> ある言語でプラットフォーム固有の Store 登録情報を作成しても、アプリがサポートする他の言語でプラットフォーム固有の Store 登録情報が作成されることはありません。 プラットフォーム固有の Store 登録情報は、言語ごとに別個に作成する必要があります。 また、プラットフォーム固有の一覧の[データを一覧表示してインポートおよびエクスポート](import-and-export-store-listings.md)することはできません。
+> ある言語でプラットフォーム固有の Store 登録情報を作成しても、アプリがサポートする他の言語でプラットフォーム固有の Store 登録情報が作成されることはありません。 プラットフォーム固有の Store 登録情報は、言語ごとに別個に作成する必要があります。 また、プラットフォーム固有の一覧の [データを一覧表示してインポートおよびエクスポート](import-and-export-store-listings.md) することはできません。
 
 
 ## <a name="creating-a-platform-specific-store-listing"></a>プラットフォーム固有のストア登録情報の作成

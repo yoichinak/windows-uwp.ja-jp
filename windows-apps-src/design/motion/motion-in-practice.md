@@ -3,7 +3,7 @@ description: タイミング、イージング、方向性、重力など、Flue
 title: モーションのモーション-Windows アプリでのアニメーション
 label: Motion in practice
 template: detail.hbs
-ms.date: 10/02/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: stmoy
@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 8604d925ffefc96cd74726909afab6e2016cce76
-ms.sourcegitcommit: 5d34eb13c7b840c05e5394910a22fa394097dc36
+ms.openlocfilehash: cebc072a7b358aedfdd2320fa47f238712d7ee92
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054532"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220405"
 ---
 # <a name="bringing-it-together"></a>まとめる
 

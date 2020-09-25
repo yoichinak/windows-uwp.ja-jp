@@ -5,15 +5,15 @@ ms.assetid: CEDEA30A-FE94-4553-A7FB-6C1FA44F06AB
 label: Touchpad interactions
 template: detail.hbs
 keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザーの操作
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e83cb1ceca96e5c7b51e71cb419b86b0395ea99
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 86c47a3a510f6ed0d865064e8d140c47c8dd9f78
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165866"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220435"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
@@ -70,7 +70,7 @@ ms.locfileid: "89165866"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">期間</th>
+<th align="left">用語</th>
 <th align="left">説明</th>
 </tr>
 </thead>

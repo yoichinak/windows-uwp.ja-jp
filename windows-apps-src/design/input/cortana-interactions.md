@@ -5,15 +5,15 @@ ms.assetid: 4C11A7CF-DA26-4CA1-A9B9-FE52670101F5
 label: Cortana
 template: detail.hbs
 keywords: Cortana, Cortana のキャンバス, Cortana の設計, ユーザー インターフェイス, 音声コマンド, VCD
-ms.date: 02/08/2017
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8aa02956aec46280c4ed3e54547f68bc544497bc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2d79f62a98e30ef67743abd6a6dd00ce24d3fa13
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160096"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220595"
 ---
 # <a name="cortana-interactions-in-windows-apps"></a>Windows アプリにおける Cortana のやり取り
 
