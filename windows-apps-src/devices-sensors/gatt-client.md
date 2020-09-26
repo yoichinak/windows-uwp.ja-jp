@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fd5f2b76af856dd66e2dfd0ee2b3e429199e6a19
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2d4ec2c3d849833b4a1673c4a4f425f32c42d00f
+ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91353762"
 ---
 # <a name="bluetooth-gatt-client"></a>Bluetooth GATT クライアント
 
@@ -110,6 +110,14 @@ bluetoothLeDevice.Dispose();
 
 アプリが再びデバイスにアクセスする必要がある場合は、単にデバイス オブジェクトを再作成して特性にアクセスする (次のセクションで説明します) と、必要に応じて、OS による再接続がトリガーされます。 デバイスが近くにある場合は、デバイスへのアクセスが取得されます。近くにない場合は、DeviceUnreachable エラーと共に制御が戻ります。  
 
+> [!NOTE]
+> このメソッドだけを呼び出すことによって [BluetoothLEDevice](/uwp/api/windows.devices.bluetooth.bluetoothledevice) オブジェクトを作成することは、必ずしも接続を開始するわけではありません。 接続を開始するには、 [MaintainConnection](/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattsession.maintainconnection)をに設定するか、BluetoothLEDevice でキャッシュされていない `true` サービスの探索方法を呼び出すか、デバイスに対して読み取り/書き込み操作を実行します。 **BluetoothLEDevice**
+>
+> - **MaintainConnection**が true に設定されている場合、システムは接続を無期限に待機し、デバイスが利用可能になったときに接続します。 **MaintainConnection**はプロパティであるため、アプリケーションが待機するものはありません。
+> - GATT でのサービスの検出と読み取り/書き込み操作の場合、システムは有限の時間だけ待機します。 瞬時から数分で。 スタック上のトラフィックを把握する要因と、要求をキューに登録する方法を示します。 他の保留中の要求がなく、リモートデバイスに到達できない場合、システムは7秒間待機してからタイムアウトします。他の保留中の要求がある場合は、キュー内の各要求が処理に 7 (7) 秒かかることがあります。そのため、キューの後ろの方が待機時間が長くなります。
+>
+> 現時点では、接続プロセスを取り消すことはできません。
+
 ## <a name="enumerating-supported-services-and-characteristics"></a>サポートされているサービスと特性の列挙
 
 BluetoothLEDevice オブジェクトが取得されたので、次の手順はデバイスが公開するデータを検出することです。 これを行うための最初の手順は、サービスの照会です。
@@ -201,7 +209,7 @@ if (result == GattCommunicationStatus.Success)
 - Client Characteristic Configuration Descriptor (CCCD) への書き込み
 - Characteristic.ValueChanged イベントの処理
 
-CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 手順は次のとおりです。
+CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 これを行うには、次の手順を実行します。
 
 ```csharp
 GattCommunicationStatus status = await selectedCharacteristic.WriteClientCharacteristicConfigurationDescriptorAsync(

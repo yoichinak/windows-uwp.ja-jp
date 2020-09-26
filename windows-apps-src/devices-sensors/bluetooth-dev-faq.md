@@ -1,17 +1,17 @@
 ---
 title: Bluetooth に関する開発者向け FAQ
 description: この記事には、UWP Bluetooth API に関連するよく寄せられる質問に対する回答が含まれています。
-ms.date: 02/08/2017
+ms.date: 09/25/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: e7dee32d-3756-430d-a026-32c1ee288a85
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d41e49f599e1fe5e835443f7c8cb732e625491e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1a5ff129afcee21b0b1b41212fb900235d5b21b4
+ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89168596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91353722"
 ---
 # <a name="bluetooth-developer-faq"></a>Bluetooth に関する開発者向け FAQ
 
@@ -72,14 +72,16 @@ Bluetooth RFCOMM (クラシック) を利用する場合は、デバイスをペ
 
 ## <a name="do-all-windows-devices-support-peripheral-role"></a>すべての Windows デバイスが周辺機器の役割をサポートしていますか。
 
-不正解です。 これはハードウェアに依存する機能ですが、サポートされているかどうかについてクエリを実行するためのメソッド (BluetoothAdapter IsPeripheralRoleSupported) が用意されています。  現在サポートされているデバイスには、8992 以上を搭載した Windows Phone や RPi3 (Windows IoT) が含まれます。 
+いいえ。 これはハードウェアに依存する機能ですが、サポートされているかどうかについてクエリを実行するためのメソッド (BluetoothAdapter IsPeripheralRoleSupported) が用意されています。  現在サポートされているデバイスには、8992 以上を搭載した Windows Phone や RPi3 (Windows IoT) が含まれます。 
 
 ## <a name="can-i-access-these-apis-from-win32"></a>Win32 からこれらの API にアクセスできますか。
 
-はい。これらすべての API が機能します。 このブログでは、[デスクトップ アプリケーションから Windows API](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/) を呼び出す方法の詳細を説明しています。 
-## <a name="is-this-functionality-supposed-to-exist-on--insert-sku-here-"></a>この機能は、*[-Insert SKU here-]* (ここに SKU を挿入) にも表示されますか。
+はい。これらすべての API が機能します。 このブログでは、[デスクトップ アプリケーションから Windows API](https://blogs.windows.com/buildingapps/2017/01/25/calling-windows-10-apis-desktop-application/) を呼び出す方法の詳細を説明しています。
 
-**Bluetooth LE**: はい、すべての機能が OneCore に含まれ、有効な Bluetooth LE スタックを含む最新のデバイスで利用可能です。 
-> 注意: 周辺機器の役割はハードウェアに依存しており、一部の Windows Server のエディションでは Bluetooth がサポートされていません。 
+## <a name="is-this-functionality-supposed-to-exist-on-a-specific-sku"></a>この機能は特定の SKU に存在することが想定されていますか。
+
+**Bluetooth LE**: はい、すべての機能が OneCore に含まれ、有効な Bluetooth LE スタックを含む最新のデバイスで利用可能です。
+
+> 注意: 周辺機器の役割はハードウェアに依存しており、一部の Windows Server のエディションでは Bluetooth がサポートされていません。
 
 **BLUETOOTH BR/EDR (クラシック)**: いくつかのバリエーションが存在しますが、ほとんどの場合、プロファイルレベルのサポートは非常に似ています。 [RFCOMM](send-or-receive-files-with-rfcomm.md)に関するドキュメントと、 [PC](https://support.microsoft.com/help/10568/windows-10-supported-bluetooth-profiles)と[電話](https://support.microsoft.com/help/10569/windows-10-mobile-supported-bluetooth-profiles)でサポートされているこれらのプロファイルドキュメントを参照してください。
