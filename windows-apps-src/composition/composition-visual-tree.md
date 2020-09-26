@@ -6,28 +6,28 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d85df48b4f43759013f80623595d919ac6c77337
-ms.sourcegitcommit: ef3cdca5e9b8f032f46174da4574cb5593d32d56
+ms.openlocfilehash: a488126de73fccfd8a783ddde98b4245b46ced39
+ms.sourcegitcommit: 651a6b9769fad1736ab16e2a4e423258889b248e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90593436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91366868"
 ---
 # <a name="composition-visual"></a>コンポジションのビジュアル
 
 コンポジションのビジュアル オブジェクト ツリー構造は、コンポジション API の他のすべての機能でベースとして使われます。 この API により、開発者は 1 つまたは複数のビジュアル オブジェクトを作成して定義できます。それぞれがビジュアル オブジェクト ツリーの 1 つのノードを表します。
 
-## <a name="visuals"></a>ビジュアル
+## <a name="visuals"></a>視覚化
 
 ビジュアルツリー構造を構成するいくつかの種類のビジュアルと、ビジュアルのコンテンツに影響を与える複数のサブクラスを持つ基本ブラシクラスがあります。
 
 - [**Visual**](/uwp/api/Windows.UI.Composition.Visual) – ベース オブジェクト。プロパティの大半はここにあり、他のビジュアル オブジェクトによって継承されます。
 - [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual) – [**Visual**](/uwp/api/Windows.UI.Composition.Visual) から派生し、子ビジュアル オブジェクトを作成できます。
   - [**SpriteVisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 には、画像、効果、または純色を含むピクセルを表示できるように、ブラシを関連付ける機能があります。
-  - [**レイヤービジュアル**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 ビジュアルの子は、1つのレイヤーにフラット化されます。<br/>(_Windows 10、バージョン1607、SDK 14393 で導入され_ました)。
-  - [**図形ビジュアル**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 CompositionShape のルートであるビジュアルツリーノード。<br/>(_Windows 10、バージョン1803、SDK 17134 で導入され_ました)。
-  - [**Redirectvisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 ビジュアルは、別のビジュアルからコンテンツを取得します。<br/>(_Windows 10、バージョン1809、SDK 17763 で導入され_ました)。
-  - [**SceneVisual**](/uwp/api/Windows.UI.Composition.SpriteVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 3D シーンのノードのコンテナービジュアル。<br/>(_Windows 10、バージョン1903、SDK 18362 で導入され_ました)。
+  - [**レイヤービジュアル**](/uwp/api/Windows.UI.Composition.LayerVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 ビジュアルの子は、1つのレイヤーにフラット化されます。<br/>(_Windows 10、バージョン1607、SDK 14393 で導入され_ました)。
+  - [**図形ビジュアル**](/uwp/api/Windows.UI.Composition.ShapeVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 CompositionShape のルートであるビジュアルツリーノード。<br/>(_Windows 10、バージョン1803、SDK 17134 で導入され_ました)。
+  - [**Redirectvisual**](/uwp/api/Windows.UI.Composition.RedirectVisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 ビジュアルは、別のビジュアルからコンテンツを取得します。<br/>(_Windows 10、バージョン1809、SDK 17763 で導入され_ました)。
+  - [**SceneVisual**](/uwp/api/windows.ui.composition.scenes.scenevisual) – [**ContainerVisual**](/uwp/api/Windows.UI.Composition.ContainerVisual)から派生します。 3D シーンのノードのコンテナービジュアル。<br/>(_Windows 10、バージョン1903、SDK 18362 で導入され_ました)。
 
 [**CompositionBrush**](/uwp/api/Windows.UI.Composition.CompositionBrush) とそのサブクラスである [**CompositionColorBrush**](/uwp/api/Windows.UI.Composition.CompositionColorBrush)、[**CompositionSurfaceBrush**](/uwp/api/Windows.UI.Composition.CompositionSurfaceBrush)、[**CompositionEffectBrush**](/uwp/api/Windows.UI.Composition.CompositionEffectBrush) を使用して、コンテンツと効果を SpriteVisual に適用できます。 ブラシの詳細については、「 [**CompositionBrush の概要**](./composition-brushes.md)」を参照してください。
 

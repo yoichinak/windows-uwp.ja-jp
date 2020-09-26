@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.localizationpriority: medium
-ms.openlocfilehash: 152254e5b4c0bfb8aec1e88a8d370863df88fe85
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ecb35a262f02576f0425460c8e27ce0016a08d1a
+ms.sourcegitcommit: 651a6b9769fad1736ab16e2a4e423258889b248e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91366898"
 ---
 # <a name="windows-hello"></a>Windows Hello
 
@@ -83,8 +83,6 @@ Windows Hello は、従来の 2FA システムの単なる代替機能ではあ�
 以上で、Windows Hello のしくみの基本について学習しました。次に、Windows Hello をアプリケーションに実装する方法について説明します。
 
 Windows Hello を使った実装については、さまざまなシナリオがあります。 たとえば、デバイスでアプリにログオンする場合が挙げられます。 他の一般的なシナリオとしては、サービスに対して認証を行うシナリオがあります。 ログオン名とパスワードを使う代わりに、Windows Hello を使います。 以降の章では、いくつかの異なるシナリオの実装について説明します。Windows Hello を使いサービスに対して認証する方法や、既にあるユーザー名/パスワード システムから Windows Hello システムへの変換方法などについて説明します。
-
-最後に、Windows Hello API については、アプリを使用するオペレーティング システムと一致する Windows 10 SDK を使用する必要があることに注意してください。 つまり、Windows 10 に展開するアプリには 10.0.10240 Windows SDK を使用する必要があり、Windows 10 バージョン 1511 に展開するアプリには 10.0.10586 を使用する必要があります。
 
 ## <a name="3-implementing-windows-hello"></a>3 Windows Hello の実装
 

@@ -5,14 +5,15 @@ ms.assetid: 2125B09F-DB90-4515-9AA6-516C7E9ACCCD
 template: detail.hbs
 ms.date: 03/06/2020
 ms.topic: article
+ms.custom: contperfq1
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bd910c42743577a83491386f5c667dd09722ba9b
-ms.sourcegitcommit: 8171695ade04a762f19723f0b88e46e407375800
+ms.openlocfilehash: 22d891253074387223dba1ad9084a2105cf530dd
+ms.sourcegitcommit: 651a6b9769fad1736ab16e2a4e423258889b248e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89494378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91366888"
 ---
 # <a name="windows-push-notification-services-wns-overview"></a>Windows プッシュ通知サービス (WNS) の概要 
 
@@ -33,50 +34,7 @@ Windows プッシュ Notification Services (WNS) を使用すると、サード�
 
 ## <a name="registering-your-app-and-receiving-the-credentials-for-your-cloud-service"></a>アプリの登録とクラウド サービスの資格情報の取得
 
-WNS を使って通知を送るには、アプリをストア ダッシュボードに登録しておく必要があります。 
-
-アプリにはそれぞれ、クラウド サービスの独自の資格情報が割り当てられます。 これらの資格情報を使って他のアプリに通知を送ることはできません。
-
-### <a name="step-1-register-your-app-with-the-dashboard"></a>手順 1: ダッシュボードにアプリを登録する
-
-WNS を使用して通知を送信するには、アプリがパートナーセンターのダッシュボードに登録されている必要があります。 これにより、WNS に対する認証を行うときにクラウド サービスで使うアプリの資格情報が提供されます。 これらの資格情報は、パッケージ セキュリティ識別子 (SID) と秘密鍵で構成されます。 この登録を実行するには、 [パートナーセンター](https://partner.microsoft.com/dashboard)にサインインします。 アプリを作成した後、資格情報を取得する方法については、「 [製品管理-WNS/MPNS](https://apps.dev.microsoft.com/) for instrunctions」を参照してください (live services ソリューションを使用する場合は、このページの **live services サイト** リンクに従ってください)。
-
-登録するには、次の手順を実行します。
-1.    パートナーセンターの [Windows ストアアプリ] ページにアクセスし、個人の Microsoft アカウント (例:、) でサインインし johndoe@outlook.com janedoe@xboxlive.com ます。
-2.    サインインしたら、[ダッシュボード] リンクをクリックします。
-3.    ダッシュボードで、[新しいアプリの作成] を選択します。
-
-![wns アプリの登録](../images/wns-create-new-app.png)
-
-4.    アプリ名を予約してアプリを作成します。 アプリの一意の名前を指定します。 名前を入力し、[製品名の予約] ボタンをクリックします。 名前が使用可能な場合は、アプリ用に予約されています。 アプリの名前が正常に予約されたら、その他の詳細を変更できるようになります。そのためには、この時点で他の詳細を選択する必要があります。
-
-![wns 予約製品名](../images/wns-reserve-poduct-name.png)
- 
-### <a name="step-2-obtain-the-identity-values-and-credentials-for-your-app"></a>手順 2: アプリの id 値と資格情報を取得する
-
-アプリの名前を予約すると、Windows ストアによって、関連付けられた資格情報が作成されます。 また、アプリのマニフェストファイル (package.appxmanifest) に存在する必要がある、関連付けられた id 値 (name と publisher) も割り当てられています。 アプリを Windows ストアに既にアップロードしている場合は、これらの値が自動的にマニフェストに追加されます。 アプリをアップロードしていない場合は、id 値をマニフェストに手動で追加する必要があります。
-
-1.    製品管理のドロップダウン矢印を選択します。
-
-![wns 製品管理](../images/wns-product-management.png)
-
-2.    [製品管理] ドロップダウンで、[WNS/MPNS] リンクを選択します。
-
-![wns 製品管理](../images/wns-product-management2.png)
- 
-3.    [WNS/MPNS] ページで、[Windows プッシュ Notification Services (WNS) と Microsoft Azure Mobile Services] セクションの下にある [Live Services サイト] リンクをクリックします。
-
-![wns ライブサービス](../images/wns-live-services-page.png)
- 
-4.    アプリケーション登録ポータル (以前の [Live Services] ページ) ページには、アプリのマニフェストに含める id 要素が用意されています。 これには、アプリのシークレット、パッケージのセキュリティ識別子、およびアプリケーション Id が含まれます。 テキストエディターでマニフェストを開き、ページの指示に従ってその要素を追加します。    
-
-> [!NOTE]
-> AAD アカウントを使用してログインしている場合は、アプリを登録した Microsoft アカウント所有者に連絡して、関連付けられているアプリシークレットを取得する必要があります。 この連絡先ユーザーの検索について支援が必要な場合は、画面の右上隅にある歯車をクリックし、[開発者の設定] をクリックすると、Microsoft アカウントを使用してアプリを作成したユーザーの電子メールアドレスが表示されます。
- 
-5.    SID とクライアントシークレットをクラウドサーバーにアップロードします。
-
-> [!Important]
-> SID とクライアントシークレットは、クラウドサービスによって安全に格納され、アクセスされる必要があります。 この情報の開示または盗難によって、攻撃者はアクセス許可や知識がなくてもユーザーに通知を送信できる可能性があります。
+WNS を使用して通知を送信する前に、 [こちら](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)の説明に従って、アプリをストアダッシュボードに登録する必要があります。
 
 ## <a name="requesting-a-notification-channel"></a>通知チャネルの要求
 
@@ -327,7 +285,7 @@ winrt::fire_and_forget CheckForEnergySaving()
 </ContentDialog>
 ```
 
-## <a name="related-topics"></a>関連項目
+## <a name="related-topics"></a>関連トピック
 
 * [ローカル タイル通知の送信](sending-a-local-tile-notification.md)
 * [クイック スタート: プッシュ通知の送信](/previous-versions/windows/apps/hh868252(v=win.10))
