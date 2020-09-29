@@ -5,12 +5,12 @@ ms.date: 03/23/2018
 ms.topic: article
 keywords: 概要, windows 10, uwp, xaml, c#
 ms.localizationpriority: medium
-ms.openlocfilehash: 39f45b7604e71c4b57439f8c3e89548614758484
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: e832ac783c43058b24cb0d341d17ad52ff7dcc05
+ms.sourcegitcommit: 9940ed6431aadbd8d4e54ca23d8ae44d3a2d048d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80614984"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403887"
 ---
 # <a name="get-started-with-windows-10-apps"></a>Windows 10 アプリの概要
 
@@ -25,7 +25,7 @@ ms.locfileid: "80614984"
         <p style="margin-top: 0px; margin-bottom: 50px">Windows 10 とユニバーサル Windows プラットフォームを使うと、あらゆる種類の Windows デバイスで動作し、見た目が良いアプリを作成したり、最新の機能で既存のアプリを更新したりすることができます。</p>
         <br>
         <a href="//docs.microsoft.com/windows/uwp/get-started/universal-application-platform-guide">Windows アプリとは</a><br/>
-        <a href="//developer.microsoft.com/windows/apps/design">設計と UI</a><br/>
+        <a href="https://docs.microsoft.com/windows/uwp/design/">設計と UI</a><br/>
     :::column-end:::
     :::column:::
         <img src="https://docs.microsoft.com/media/illustrations/biztalk-host-integration-install-configure.svg" alt="Setup illustration" />
@@ -68,7 +68,7 @@ ms.locfileid: "80614984"
     :::column-end:::
     :::column:::
         <img src="https://docs.microsoft.com/media/illustrations/ms365enterprise-partner-news-2.svg" alt="What's new illustration" />
-        <h3 style="margin-top: 10px; margin-bottom: 0px">新着情報</h3>
+        <h3 style="margin-top: 10px; margin-bottom: 0px">新機能</h3>
         <p style="margin-top: 0px; margin-bottom: 50px">視野を広げて、Windows 10 に追加された最新の機能について知ることができます。</p>
         <br>
         <a href="//developer.microsoft.com/windows/windows-10-for-developers">最新バージョンの Windows 10 の優れている点</a><br/>
@@ -80,19 +80,19 @@ ms.locfileid: "80614984"
 
 :::row:::
     :::column:::
-        <h3 style="margin-top: 10px; margin-bottom: 0px">開発者ツール</h3>
+        <h3 style="margin-top: 10px; margin-bottom: 0px">開発者用ツール</h3>
         <a href="https://github.com/Microsoft/WindowsTemplateStudio/">Windows Template Studio</a><br/>
-        <a href="//docs.microsoft.com/windows/uwpcommunitytoolkit/">Windows コミュニティ ツールキット</a><br/>
+        <a href="//docs.microsoft.com/windows/uwpcommunitytoolkit/">Windows Community Toolkit</a><br/>
         <a href="//developer.microsoft.com/windows/downloads/virtual-machines">仮想マシン</a><br/>
         <a href="//docs.microsoft.com/windows/wsl/about">Bash on Ubuntu on Windows</a><br/>
     :::column-end:::
     :::column:::
         <h3 style="margin-top: 10px; margin-bottom: 0px">初めての開発</h3>
-        <a href="//docs.microsoft.com/learn/browse/?products=windows&resource_type=module">Microsoft Learn の Windows</a><br/>
+        <a href="//docs.microsoft.com/learn/browse/%3Fproducts=windows&resource_type=module">Microsoft Learn の Windows</a><br/>
     :::column-end:::
     :::column:::
         <h3 style="margin-top: 10px; margin-bottom: 0px">関連ドキュメントについて</h3>
-        <a href="//docs.microsoft.com/dotnet/csharp/">C# ガイド</a><br/>
+        <a href="//docs.microsoft.com/dotnet/csharp/">C# のガイド</a><br/>
         <a href="//docs.microsoft.com/visualstudio/ide/">Visual Studio</a><br/>
     :::column-end:::
 :::row-end:::
