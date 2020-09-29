@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 29064390e4e198d1220d40ff5ce58a63ea41e29a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d0a1d1b7685ae76c26c94fa104b6c0ff6334364d
+ms.sourcegitcommit: 609441402c17d92e7bfac83a6056909bb235223c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172786"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90837827"
 ---
 # <a name="extend-your-desktop-app-with-modern-uwp-components"></a>最新の UWP コンポーネントでデスクトップ アプリを拡張する
 
@@ -43,7 +43,7 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 デスクトップ アプリケーションに Windows ランタイム API を呼び出すために必要なファイルへの参照があることを確認します。
 
-これを行うには、「[プロジェクトの設定](desktop-to-uwp-enhance.md#set-up-your-project)」セクションを参照してください。
+これを行うには、「[デスクトップ アプリで Windows ランタイム API を呼び出す](desktop-to-uwp-enhance.md)」を参照してください。
 
 ### <a name="add-a-uwp-project"></a>UWP プロジェクトを追加する
 
@@ -51,15 +51,15 @@ UWP プロジェクトとランタイム コンポーネントを 1 つ以上ソ
 
 ここでは、最新の XAML UI をビルドするか、UWP プロセス内でのみ実行される API を使います。
 
-![UWP プロジェクト](images/desktop-to-uwp/add-uwp-project-to-solution.png)
+![新しいプロジェクトの追加](images/desktop-to-uwp/add-uwp-project-to-solution.png)
 
 パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** をクリックします。
 
-![UWP プロジェクトを参照する](images/desktop-to-uwp/add-uwp-project-reference.png)
+![参照の追加](images/desktop-to-uwp/add-uwp-project-reference.png)
 
 次に、UWP プロジェクトに参照を追加します。
 
-![UWP プロジェクトを参照する](images/desktop-to-uwp/choose-uwp-project.png)
+![UWP プロジェクトの選択](images/desktop-to-uwp/choose-uwp-project.png)
 
 ソリューションは次のようになります。
 
@@ -471,7 +471,7 @@ public sealed class SiteVerifier : IBackgroundTask
 
 バックグラウンド タスクを実装する Windows ランタイム コンポーネントで、クラスの完全修飾名を指定します。
 
-![Timer プロパティ](images/desktop-to-uwp/background-task-entry-point.png)
+![エントリ ポイントの指定](images/desktop-to-uwp/background-task-entry-point.png)
 
 <a id="register-background-task"></a>
 

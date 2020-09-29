@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: d61abe8b59f916ed56c1fefe0bda4b9f25b673a4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 82eaee6b29336559455a86dfdba3debc288babbb
+ms.sourcegitcommit: fd6ca4e9426a5fe46138012d1fecf56f9f621a3f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173726"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90825280"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -176,7 +176,7 @@ ms.locfileid: "89173726"
 
 ### <a name="define-a-xamlapplication-class"></a>XamlApplication クラスを定義する
 
-次に、**MyUWPApp** プロジェクトの既定の **App** クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 このチュートリアルの後の方で、デスクトップ プロジェクトを更新して、このクラスのインスタンスを作成します。
+次に、**MyUWPApp** プロジェクトの既定の **App** クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスでは、[IXamlMetadataProvider](/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスがサポートされています。これにより、アプリの実行時に、アプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができるようになります。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 このチュートリアルの後の方で、デスクトップ プロジェクトを更新して、このクラスのインスタンスを作成します。
 
   > [!NOTE]
   > `XamlApplication` オブジェクトは、XAML Islands を使用する各ソリューション内の 1 つのプロジェクトだけで、定義されている必要があります。 アプリ内のすべてのカスタム UWP XAML コントロールで、同じ `XamlApplication` オブジェクトを共有します。 
@@ -284,12 +284,12 @@ ms.locfileid: "89173726"
             }
         private:
             bool _contentLoaded{ false };
-            std::shared_ptr<XamlMetaDataProvider> _appProvider;
-            std::shared_ptr<XamlMetaDataProvider> AppProvider()
+            winrt::com_ptr<XamlMetaDataProvider> _appProvider;
+            winrt::com_ptr<XamlMetaDataProvider> AppProvider()
             {
                 if (!_appProvider)
                 {
-                    _appProvider = std::make_shared<XamlMetaDataProvider>();
+                    _appProvider = winrt::make_self<XamlMetaDataProvider>();
                 }
                 return _appProvider;
             }
@@ -561,7 +561,7 @@ ms.locfileid: "89173726"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     ```
 
-5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加し、変更を保存します。 この要素により、WinUI ライブラリの [RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol ) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
+5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加し、変更を保存します。 この要素により、WinUI ライブラリの [RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
 
     ```xml
     <StackPanel HorizontalAlignment="Center" Spacing="10" 

@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、トラブルシューティング、HRESULT、エラー
 ms.localizationpriority: medium
-ms.openlocfilehash: b15eac42abccf6692c511c51ffcc691bdd70261e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e517f796d1352d9373321d456d77875ebd54afbd
+ms.sourcegitcommit: 21eb13a50402bf5442a5f0a4bf34800d1dc679c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174046"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90804722"
 ---
 # <a name="troubleshooting-cwinrt-issues"></a>C++/WinRT に関する問題のトラブルシューティング
 
@@ -59,6 +59,7 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 | プロジェクトで "*'PopulatePropertyInfoOverride' へのアクセスがあいまいです*" が発生します。 | このエラーは、IDL で宣言した 1 つの基底クラスが XAML マークアップの基底クラスと異なると、発生する場合があります。 |
 | C++/WinRT ソリューションを初めて読み込むと、次のエラーが発生します。"*プロジェクト 'MyProject.vcxproj'、構成 'Debug\|x86' のデザイン時のビルドに失敗しました。IntelliSense を利用できない可能性があります。* "。 | この IntelliSense の問題は、初めてのビルドの後で解決されます。 |
 | デリゲートを登録するときに [**winrt::auto_revoke**](/uwp/cpp-ref-for-winrt/auto-revoke-t) を指定しようとすると、[**winrt::hresult_no_interface**](/uwp/cpp-ref-for-winrt/error-handling/hresult-no-interface) 例外が発生します。 | 「[自動取り消しのデリゲートの登録が失敗する場合](handle-events.md#if-your-auto-revoke-delegate-fails-to-register)」を参照してください。 |
+|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイム コンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)を使用すると、" *'MyNamespace_XamlTypeInfo' は 'winrt::MyNamespace' のメンバーではありません*" という形式のエラーがコンパイラによって生成されます&mdash;この *MyNamespace* は、Windows ランタイム コンポーネントの名前空間の名前です。 | 使用する側の C++/WinRT アプリの `pch.h` で、`#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` を追加します&mdash;必要に応じて *MyNamespace* を置き換えます。 |
 
 > [!NOTE]
 > このトピックで質問の答えが見つからなかった場合は、[Visual Studio C++ 開発者コミュニティ](https://developercommunity.visualstudio.com/spaces/62/index.html)にアクセスするか、[`c++-winrt` タグを Stack Overflow](https://stackoverflow.com/questions/tagged/c%2b%2b-winrt) で使用することでヘルプが得られる場合があります。

@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリ パッケージにパッケージ化したデスクトップ アプリケーションに、Windows 10 ユーザー向けの最新のエクスペリエンスを追加する方法について説明します。
+description: Windows アプリ パッケージにパッケージ化したデスクトップ アプリケーションに、Windows 10 ユーザー向けの最新のエクスペリエンスを追加する方法について説明します。
 title: パッケージ化したデスクトップ アプリの現代化
 ms.date: 04/22/2019
 ms.topic: article
@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d1ce2e7dc434558ac1efd52f6def99d63b38c57e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: adcf1e26ba5ebd2d4fb3b901e27e49da4b6d89dd
+ms.sourcegitcommit: 5d7168ebc9f43aa13051446aff45a46600e6aafe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161516"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90783044"
 ---
 # <a name="features-that-require-package-identity"></a>パッケージ ID が必要な機能
 
@@ -33,6 +33,12 @@ ms.locfileid: "89161516"
 アプリケーションをシステムと統合する必要がある場合 (ファイアウォール規則を確立する場合など)、アプリケーションのパッケージ マニフェストにそのことを記述すると、システムによって残りの処理が行われます。 これらのタスクのほとんどは、まったくコードを記述する必要がありません。 マニフェストに少し XML を追加するだけで、ユーザーがログオンしたときにプロセスを開始する、アプリケーションをエクスプローラーに統合する、他のアプリに表示される印刷先の一覧に対象アプリケーションを追加する、などの処理を行うことができます。
 
 詳細については、[デスクトップ アプリケーションとパッケージ拡張機能の統合](desktop-to-uwp-extensions.md)に関するページをご覧ください。
+
+## <a name="get-activation-info-for-packaged-apps"></a>パッケージ アプリのアクティブ化情報の取得
+
+Windows 10 Version 1809 以降、パッケージ化されたデスクトップ アプリで、スタートアップ時に特定の種類のアクティブ化情報を取得できるようになりました。 たとえば、ファイルを開く、対話型トーストをクリックする、プロトコルを使用するなどの処理から、アプリのアクティブ化に関連する情報を取得できます。
+
+詳細については、「[パッケージ アプリのアクティブ化情報の取得](get-activation-info-for-packaged-apps.md)」を参照してください。
 
 ## <a name="extend-with-uwp-components"></a>UWP コンポーネントによる拡張
 
