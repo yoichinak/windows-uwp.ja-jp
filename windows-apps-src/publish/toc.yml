@@ -116,17 +116,6 @@
   items:
     - name: プロモーション コードを生成する
       href: ../publish/generate-promotional-codes.md
-    - name: アプリの広告キャンペーンの作成
-      href: ../publish/create-an-ad-campaign-for-your-app.md
-      items:
-        - name: 広告キャンペーンの管理
-          href: ../publish/managing-your-ad-campaign.md
-        - name: 自社広告について
-          href: ../publish/about-house-ads.md
-        - name: コミュニティ広告について
-          href: ../publish/about-community-ads.md
-        - name: 広告キャンペーンに関してよく寄せられる質問
-          href: ../publish/common-questions.md
     - name: カスタム アプリ プロモーション キャンペーンの作成
       href: ../publish/create-a-custom-app-promotion-campaign.md
     - name: アプリとアドオンの販売
