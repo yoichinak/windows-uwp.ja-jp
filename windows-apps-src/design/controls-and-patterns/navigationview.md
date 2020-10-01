@@ -2,7 +2,7 @@
 Description: NavigationView は、ご利用のアプリの最上位のナビゲーション パターンを実装するアダプティブ コントロールです。
 title: ナビゲーション ビュー
 template: detail.hbs
-ms.date: 05/02/2020
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: yulikl
@@ -11,12 +11,12 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 7f71a11c76bc6318c9000a9468c7bd9574e0c5d0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 511b1c0bdc505c2f150a692d75471e987b3ead60
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170036"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218125"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 

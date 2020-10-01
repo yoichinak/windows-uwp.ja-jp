@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, サンプル, アプリケーション, フォト, エディター
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f72fc1737e697427b22f65147260bdadebc9605
-ms.sourcegitcommit: 6009896ead442b378106d82870f249dc8b55b886
+ms.openlocfilehash: 535ae3ce60eab5f5cef4654c7a5142e01ce5cf3e
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643792"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219995"
 ---
 # <a name="photo-editor-cwinrt-sample-application"></a>Photo Editor C++/WinRT サンプル アプリケーション
 
@@ -29,4 +29,4 @@ ms.locfileid: "89643792"
 - [{x:Bind} markup extension](../xaml-platform/x-bind-markup-extension.md) を含む XAML データ バインディング。
 - [接続型アニメーション](../design/motion/connected-animation.md)を含む、XAML スタイルと UI のカスタマイズ。
 
-「[C++/WinRT サンプル アプリはどこにありますか?](/windows/uwp/cpp-and-winrt-apis/faq#where-can-i-find-cwinrt-sample-apps)」も参照してください。
+「[C++/WinRT サンプル アプリはどこにありますか?](./faq.md#where-can-i-find-cwinrt-sample-apps)」も参照してください。

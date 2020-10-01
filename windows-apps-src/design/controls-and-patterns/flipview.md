@@ -4,19 +4,19 @@ title: FlipView コントロールのガイドライン
 ms.assetid: A4E05D92-1A0E-4CDD-84B9-92199FF8A8A3
 label: Flip view
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e498caa51aa0820b8fb8709f8da178bcee1de9b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: dc55d4c74420523739caa0f696feb65f8b7e0a2c
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160236"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219425"
 ---
 # <a name="flip-view"></a>フリップ ビュー
 

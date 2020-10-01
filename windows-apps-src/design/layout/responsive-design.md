@@ -3,17 +3,17 @@ Description: 特定のデバイス向けにアプリを調整するためのレ�
 title: レスポンシブ デザインの手法
 template: detail.hbs
 op-migration-status: ready
-ms.date: 10/10/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: f688522ec8970b1e3570610663f5a3e6cae65793
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 58b1ce3b9342f7ca66052cf51b8abfb67d00ca44
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68867409"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218575"
 ---
 # <a name="responsive-design-techniques"></a>レスポンシブ デザインの手法
 

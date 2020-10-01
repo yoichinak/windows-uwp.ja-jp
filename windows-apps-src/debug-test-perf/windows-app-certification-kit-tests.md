@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: bb647d844c32286a2d612231b3069430f11fcad0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3205ef65922cfe9cf44fbf0a24c90b4e592ca663
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174016"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216425"
 ---
 # <a name="windows-app-certification-kit-tests"></a>Windows アプリ認定キットのテスト
 
@@ -412,7 +412,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 <tr><td>
 <p>The image must define at least one variant without a TargetSize qualifier. (画像では、TargetSize 修飾子がないバージョンが少なくとも 1 つ定義されている必要があります。) It must define a Scale qualifier or leave Scale and TargetSize unspecified, which defaults to Scale-100. (Scale 修飾子が定義されているか、または Scale と TargetSize が指定されていないままである必要があり、既定では Scale-100 です。)</p>
 </td><td>
-<p>詳しくは、「<a href="https://docs.microsoft.com/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design">UWP アプリ用レスポンシブ デザイン 101</a>」と「<a href="https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data">アプリ リソースのガイドライン</a>」をご覧ください。</p>
+<p>詳しくは、「<a href="/windows/uwp/layout/screen-sizes-and-breakpoints-for-responsive-design">UWP アプリ用レスポンシブ デザイン 101</a>」と「<a href="/windows/uwp/app-settings/store-and-retrieve-app-data">アプリ リソースのガイドライン</a>」をご覧ください。</p>
 </td></tr>
 <tr><td>
 <p>The package is missing a "resources.pri" file. (パッケージに "resources.pri" ファイルがありません。)</p>
@@ -434,7 +434,7 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 <tr><td>
 <p>The string {string} failed the max length restriction of {number} characters. (文字列 {string} が {number} 文字の最大文字数の制限を満たしていません。)</p>
 </td><td>
-<p>「<a href="https://docs.microsoft.com/windows/uwp/publish/app-package-requirements">アプリ パッケージの要件</a>」をご覧ください。</p>
+<p>「<a href="/windows/uwp/publish/app-package-requirements">アプリ パッケージの要件</a>」をご覧ください。</p>
 <p>実際のメッセージでは、{string} が問題の文字列に置き換わり、{number} に最大文字数が入ります。</p>
 </td></tr>
 <tr><td>
@@ -447,12 +447,12 @@ WinJS.Binding.optimizeBindingReferences の値を確認します。
 <tr><td>
 <p>The string must be non-empty (greater than zero in length) (文字列を空にすることはできません (文字数が 0 より大きい必要があります)。)</p>
 </td><td>
-<p>詳しくは、「<a href="https://docs.microsoft.com/windows/uwp/publish/app-package-requirements">アプリ パッケージの要件</a>」をご覧ください。</p>
+<p>詳しくは、「<a href="/windows/uwp/publish/app-package-requirements">アプリ パッケージの要件</a>」をご覧ください。</p>
 </td></tr>
 <tr><td>
 <p>There is no default resource specified in the "resources.pri" file. ("resources.pri" ファイルで指定された既定のリソースがありません。)</p>
 </td><td>
-<p>詳しくは、「<a href="https://docs.microsoft.com/windows/uwp/app-settings/store-and-retrieve-app-data">アプリ リソースのガイドライン</a>」をご覧ください。</p>
+<p>詳しくは、「<a href="/windows/uwp/app-settings/store-and-retrieve-app-data">アプリ リソースのガイドライン</a>」をご覧ください。</p>
 <p>既定のビルド構成では、Visual Studio はバンドル生成時に 200% スケールの画像リソースのみをアプリ パッケージ内に組み込み、その他のリソースはリソース パッケージ内に配置します。 200% スケールの画像リソースを組み込むか、または持っているリソースを組み込むようにプロジェクトを構成してください。</p>
 </td></tr>
 <tr><td>

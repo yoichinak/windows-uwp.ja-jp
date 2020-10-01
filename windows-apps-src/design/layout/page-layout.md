@@ -1,16 +1,16 @@
 ---
 title: Windows アプリのページ レイアウト
 description: アプリを設計する場合、最初に検討すべきことは、レイアウト構造です。 この記事では、必要な UI 要素およびそれらのページ上の配置場所など、基本的なページ レイアウトの一般的な構造について説明します。 Windows アプリの場合、通常、各ページは、ナビゲーション、コマンド、コンテンツの各要素で構成されます。
-ms.date: 03/19/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
-ms.openlocfilehash: 551d937836f0dcf0094e54a503d2a8cd80a2f28b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 5473542019a4f8afa3e916b914127e41a4fe05d4
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169526"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218625"
 ---
 # <a name="page-layout"></a>ページのレイアウト
 

@@ -2,7 +2,7 @@
 description: 奥行きを加えたり視覚的な階層を確立したりするための半透明のテクスチャを作成するブラシの一種である、アクリルの使用方法について説明します。
 title: アクリル素材
 template: detail.hbs
-ms.date: 08/09/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: yulikl
@@ -10,12 +10,12 @@ design-contact: rybick
 dev-contact: jevansa
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f7d431950e17b9908d079db9247d997ef8adadb
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b6fb7d07901a1ad4ab99255357470c8b90fc7681
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174586"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220105"
 ---
 # <a name="acrylic-material"></a>アクリル素材
 

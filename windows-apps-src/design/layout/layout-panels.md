@@ -1,16 +1,16 @@
 ---
 description: RelativePanel、StackPanel、Grid、Canvas などの組み込みの XAML レイアウト パネルを使用して、アプリの UI 要素を配置およびグループ化する方法を説明します。
 title: Windows アプリのレイアウト パネル
-ms.date: 04/02/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 22fa8ef8df6f97ed63465df0cb3e62cbb14e2ced
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4e3915fca3b459d259e83c9c9ce5ef19aa413e2e
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172446"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218675"
 ---
 # <a name="layout-panels"></a>レイアウト パネル
 

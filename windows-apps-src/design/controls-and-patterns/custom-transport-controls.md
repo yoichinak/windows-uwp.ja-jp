@@ -4,16 +4,16 @@ title: カスタム メディア トランスポート コントロールを作�
 ms.assetid: 6643A108-A6EB-42BC-B800-22EABD7B731B
 label: Create custom media transport controls
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f5dd1a27cb02a33a8d760f4d902a42c6619ad796
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fc68410a0e68d1c642057664bc9641669282bd7f
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160416"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219545"
 ---
 # <a name="create-custom-transport-controls"></a>カスタム トランスポート コントロールを作成する
 
@@ -217,7 +217,7 @@ MediaTransportControls をカスタマイズする理由の 1 つは、コント
 
 適切な場所で CommandBar に追加する必要があります。 (詳細については、オーバーフロー メニューを使用した作業に関するセクションを参照してください。)UI にどのように配置されるかは、ボタンがマークアップのどこにあるかによって決まります。 たとえば、このボタンを主要なコマンドの最後の要素として表示するには、プライマリ コマンド一覧の末尾に追加します。
 
-ボタンのアイコンをカスタマイズすることもできます。 詳細については、<a href="https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.AppBarButton"><b>AppBarButton</b></a> のリファレンスを参照してください。
+ボタンのアイコンをカスタマイズすることもできます。 詳細については、<a href="/uwp/api/Windows.UI.Xaml.Controls.AppBarButton"><b>AppBarButton</b></a> のリファレンスを参照してください。
     
 
 2. [  **OnApplyTemplate**](/uwp/api/windows.ui.xaml.frameworkelement.onapplytemplate) のオーバーライドで、テンプレートからボタンを取得し、その [**Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントのハンドラーを登録します。 次のコードを `CustomMediaTransportControls` クラスに追加します。

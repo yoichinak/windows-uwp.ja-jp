@@ -1,16 +1,16 @@
 ---
 description: アプリの独立した部分を別々のウィンドウで表示できるようにして、ユーザーの生産性を高めます。
 title: アプリの複数のビューの表示
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b58841420c93f3fee02b0f283012fe45c468618
-ms.sourcegitcommit: b0cfbab1ed8749ef572ba6971e6b206717d12c12
+ms.openlocfilehash: 2b25ceaac900868479c9145b9dad5977ca213f03
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89219135"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218485"
 ---
 # <a name="show-multiple-views-for-an-app"></a>アプリの複数のビューの表示
 

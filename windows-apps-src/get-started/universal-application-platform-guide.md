@@ -7,12 +7,12 @@ ms.topic: article
 ms.custom: contperfq1
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 29e5171d0c6737bdf3d8064566b8ec2731e68978
-ms.sourcegitcommit: b99e2f4dffa603b68c2a8273fe6313432f91b353
+ms.openlocfilehash: 416df29fcb6ac007375ff9cf2a8f22d80a12b73e
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90569387"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219825"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -23,9 +23,9 @@ UWP アプリの作成を始めるために必要なツールをダウンロー�
 
 ## <a name="where-does-uwp-fit-in-the-microsoft-development-story"></a>UWP が Microsoft 開発ストーリーの中で占める位置
 
-UWP は、Windows 10 デバイスで実行されるアプリを作成するための 1 つの選択肢であり、他のプラットフォームと組み合わせることができます。 UWP アプリでは、Win32 API や .NET クラスを使用できます ([UWP アプリ用の API セット](https://docs.microsoft.com/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](https://docs.microsoft.com/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](https://docs.microsoft.com/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事をご覧ください)。
+UWP は、Windows 10 デバイスで実行されるアプリを作成するための 1 つの選択肢であり、他のプラットフォームと組み合わせることができます。 UWP アプリでは、Win32 API や .NET クラスを使用できます ([UWP アプリ用の API セット](/previous-versions/mt186421(v=vs.85))、[UWP アプリ用の DLL](/previous-versions/mt186422(v=vs.85))、[UWP アプリ用の .NET](/dotnet/api/index?view=dotnet-uwp-10.0) に関する各記事をご覧ください)。
 
-Microsoft の開発ストーリーは進化を続けており、[WinUI](https://docs.microsoft.com/windows/apps/winui/)、[MSIX](https://docs.microsoft.com/windows/msix/)、[Project Reunion](https://github.com/microsoft/ProjectReunion) などのイニシアチブと並んで、UWP はクライアント アプリを作成するための強力なツールです。
+Microsoft の開発ストーリーは進化を続けており、[WinUI](/windows/apps/winui/)、[MSIX](/windows/msix/)、[Project Reunion](https://github.com/microsoft/ProjectReunion) などのイニシアチブと並んで、UWP はクライアント アプリを作成するための強力なツールです。
 
 
 ## <a name="features-of-a-uwp-app"></a>UWP アプリの機能
@@ -83,7 +83,7 @@ Windows では、UI を次の機能を備えた複数のデバイスを対象と
 
 UWP アプリは、詳細なテレメトリや分析のために [Application Insights](https://azure.microsoft.com/services/application-insights/) に統合されています。これは、ユーザーを理解し、アプリの品質を向上させるために欠かせないツールです。
 
-UWP アプリは、[MSIX](https://docs.microsoft.com/windows/msix/) を使用してパッケージ化し、Microsoft Store またはその他の方法で配布することができます。 MSIX を使用すると、アプリがどのような方法で配布されても、アプリを更新できます。「[ストアに公開されていないアプリ パッケージをコードから更新する](https://docs.microsoft.com/windows/msix/non-store-developer-updates)」をご覧ください。
+UWP アプリは、[MSIX](/windows/msix/) を使用してパッケージ化し、Microsoft Store またはその他の方法で配布することができます。 MSIX を使用すると、アプリがどのような方法で配布されても、アプリを更新できます。「[ストアに公開されていないアプリ パッケージをコードから更新する](/windows/msix/non-store-developer-updates)」をご覧ください。
 
 ### <a name="monetize-your-app"></a>アプリの収益の獲得
 

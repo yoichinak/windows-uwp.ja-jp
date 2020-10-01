@@ -3,17 +3,17 @@ description: Windows アプリでの手描き入力と手描き関連の機能�
 title: インク コントロール
 label: Inking Controls
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 97eae5f3-c16b-4aa5-b4a1-dd892cf32ead
 ms.localizationpriority: medium
-ms.openlocfilehash: a856d0ef6864b70a2927c35205fb0addca3e4056
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f1545e3ae4b8b03ad272a8732f202e869195c1d9
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173966"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217265"
 ---
 # <a name="inking-controls"></a>インク コントロール
 

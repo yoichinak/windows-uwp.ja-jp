@@ -3,7 +3,7 @@ description: ItemsSource を階層データ ソースにバインドして展開
 title: ツリー構造
 label: Tree view
 template: detail.hbs
-ms.date: 07/24/2019
+ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
 pm-contact: predavid
@@ -14,12 +14,12 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 0d13572d5fabea14090c4908442355491623cbde
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ceade84d60b4e2f01c51c4570bb9ce425848a2d8
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173876"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217205"
 ---
 # <a name="treeview"></a>TreeView
 

@@ -2,15 +2,15 @@
 title: フォーム
 description: ユニバーサル Windows プラットフォーム (UWP) アプリでフォームの XAML レイアウトを設計および作成するためのガイドラインについて説明します。
 template: detail.hbs
-ms.date: 11/07/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 0113cbf50601a3db717753ab2e12524fa281daba
-ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
+ms.openlocfilehash: 0c55d98d0680142ad1d4f319b8910fd335fe8d5f
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304694"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219465"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 82eaee6b29336559455a86dfdba3debc288babbb
-ms.sourcegitcommit: fd6ca4e9426a5fe46138012d1fecf56f9f621a3f
+ms.openlocfilehash: c74e6fbb8907a25af6fe6e4ad6439dbaca425b84
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90825280"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216775"
 ---
 # <a name="host-a-custom-uwp-control-in-a-c-win32-app"></a>C++ Win32 アプリでカスタム UWP コントロールをホストする
 
@@ -561,7 +561,7 @@ ms.locfileid: "90825280"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     ```
 
-5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加し、変更を保存します。 この要素により、WinUI ライブラリの [RatingControl](https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.ratingcontrol) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
+5. 同じファイルで、`<StackPanel>` の子として `<winui:RatingControl />` 要素を追加し、変更を保存します。 この要素により、WinUI ライブラリの [RatingControl](/uwp/api/microsoft.ui.xaml.controls.ratingcontrol) クラスのインスタンスが追加されます。 この要素を追加した後の `<StackPanel>` は、次のようになります。
 
     ```xml
     <StackPanel HorizontalAlignment="Center" Spacing="10" 

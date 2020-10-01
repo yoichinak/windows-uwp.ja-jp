@@ -3,7 +3,7 @@ Description: TextBox、RichEditBox などの Windows テキスト コントロ�
 title: 手書きビューでのテキスト入力
 label: Text input with the handwriting view
 template: detail.hbs
-ms.date: 10/13/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: sewen
@@ -11,12 +11,12 @@ design-contact: minah.kim
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: e7c25a77b552ffc187a4e49a02b7facd771e8258
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 64963128679f3bb50afe1ba4c939ec6367ad9561
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175586"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218805"
 ---
 # <a name="text-input-with-the-handwriting-view"></a>手書きビューでのテキスト入力
 
@@ -316,6 +316,7 @@ private double GetPopupVerticalOffset()
 すべての XAML フレームワーク コントロールで、特定の要件のために、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の視覚的な構造と視覚的な動作の両方をカスタマイズできます。
 
 カスタム テンプレートを作成する完全な例を表示するには、「[カスタム トランスポート コントロールを作成する](./custom-transport-controls.md)」の方法または「[Custom Edit Control sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)」 (カスタムの編集コントロールのサンプル) を確認してください。
+
 
 
 

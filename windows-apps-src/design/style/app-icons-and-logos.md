@@ -2,19 +2,19 @@
 Description: スタート メニュー、アプリ タイル、タスク バー、Microsoft Store などでアプリを表すアプリ アイコン/ロゴを作成する方法。
 title: アプリのアイコンとロゴ
 template: detail.hbs
-ms.date: 04/17/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5c39ded4157181581412f01e54772db2bf9a1732
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ee12ed108f552b8aa95549f1e9c2f3ac09a889ae
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174626"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220135"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 

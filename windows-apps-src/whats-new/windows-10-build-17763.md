@@ -6,12 +6,12 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1f211442476ed271dfe049af65e340d6889870a9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b54e0b4417dd4ba9b835622a4c064b803de7fca9
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89167016"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91219706"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
@@ -109,7 +109,7 @@ Windows で UWP アプリの複数のインスタンスを実行できるよう�
 
 ### <a name="xbox-live-unity-plugin"></a>Xbox Live Unity プラグイン
 
-Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、フレンド リスト、クラウド ストレージ、およびランキングをタイトルに追加するためのサポートが含まれています。 [ビデオを見て](https://youtu.be/fVQZ-YgwNpY)詳細を確認したうえで、[GitHub パッケージをダウンロードして](https://aka.ms/UnityPlugin)開始してください。
+Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、フレンド リスト、クラウド ストレージ、およびランキングをタイトルに追加するためのサポートが含まれています。 [ビデオを見て](https://youtu.be/fVQZ-YgwNpY)詳細を確認したうえで、[GitHub パッケージをダウンロードして](/gaming/xbox-live/get-started/setup-ide/creators/unity-win10/live-cr-unity-win10-nav?WT.mc_id=windowsdocs-twi)開始してください。
 
 ### <a name="one-dev-question"></a>One Dev Question
 

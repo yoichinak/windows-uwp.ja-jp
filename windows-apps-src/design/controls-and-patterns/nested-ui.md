@@ -3,7 +3,7 @@ title: リスト項目の入れ子になった UI
 description: ListView および GridView 項目で入れ子になった UI を作成して、重要な操作を行うための追加オプションをユーザーに表示する方法について説明します。
 label: Nested UI in list items
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 60a29717-56f2-4388-a9ff-0098e34d5896
@@ -11,12 +11,12 @@ pm-contact: chigy
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: e2d727c9b5e4c7e2912f0bcae8848149c8073f3b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 433f24ea6c4e2fd03faa652a041f3a1c1578652e
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169746"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91217935"
 ---
 # <a name="nested-ui-in-list-items"></a>リスト項目の入れ子になった UI
 

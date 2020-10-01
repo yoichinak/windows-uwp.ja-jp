@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 83e27ef72aea195268d5163dea3b050f48547d5c
-ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
+ms.openlocfilehash: aa72b01e6c567e55e36e7f182ca962367346980c
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412026"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220425"
 ---
 # <a name="text-block"></a>テキスト ブロック
 
@@ -85,7 +85,7 @@ Inline クラスから派生した要素 (Bold、Italic、Run、Span、LineBreak
 - [CharacterSpacing](/uwp/api/windows.ui.xaml.controls.textblock.characterspacing):既定値の 0 のみが高速パスです。
 - [TextTrimming](/uwp/api/windows.ui.xaml.controls.textblock.texttrimming):**None**、**CharacterEllipsis**、および **WordEllipsis** の各値のみが高速パスです。 **Clip** 値は高速パスを無効にします。
 
-> **注**&nbsp;&nbsp;Windows 10 Version 1607 より前のバージョンでは、他のプロパティも高速パスに影響を与えます。 以前のバージョンの Windows でアプリが実行される場合は、以下の条件によってもテキストは低速パスでレンダリングされます。 バージョンについて詳しくは、[バージョン アダプティブ コード](/windows/uwp/debug-test-perf/version-adaptive-code)を参照してください。
+> **注**&nbsp;&nbsp;Windows 10 Version 1607 より前のバージョンでは、他のプロパティも高速パスに影響を与えます。 以前のバージョンの Windows でアプリが実行される場合は、以下の条件によってもテキストは低速パスでレンダリングされます。 バージョンについて詳しくは、[バージョン アダプティブ コード](../../debug-test-perf/version-adaptive-code.md)を参照してください。
 - [Typography](/uwp/api/Windows.UI.Xaml.Documents.Typography):さまざまな Typography プロパティの既定値のみが高速パスです。
 - [LineStackingStrategy](/uwp/api/windows.ui.xaml.controls.textblock.linestackingstrategy):[LineHeight](/uwp/api/windows.ui.xaml.controls.textblock.lineheight) が 0 ではない場合、**BaselineToBaseline** と **MaxHeight** の値は高速パスを無効にします。
 - [IsTextSelectionEnabled](/uwp/api/windows.ui.xaml.controls.textblock.istextselectionenabled):**false** のみが高速パスです。 このプロパティを **true** に設定すると、高速パスが無効になります。

@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 08/14/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: eb6900b4d5ad529ee2e94f09439dda6abcaebac8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 92ed09940800160af8fcff6aec7dde26144cffe9
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174396"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220335"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-august-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 8 月
 
@@ -58,7 +58,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 ### <a name="xbox-live-unity-plugin"></a>Xbox Live Unity プラグイン
 
-Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、フレンド リスト、クラウド ストレージ、およびランキングをタイトルに追加するためのサポートが含まれています。 [ビデオを見て](https://youtu.be/fVQZ-YgwNpY)詳細を確認したうえで、[GitHub パッケージをダウンロードして](https://aka.ms/UnityPlugin)開始してください。
+Unity 用の Xbox Live プラグインには、Xbox Live の署名、統計、フレンド リスト、クラウド ストレージ、およびランキングをタイトルに追加するためのサポートが含まれています。 [ビデオを見て](https://youtu.be/fVQZ-YgwNpY)詳細を確認したうえで、[GitHub パッケージをダウンロードして](/gaming/xbox-live/get-started/setup-ide/creators/unity-win10/live-cr-unity-win10-nav?WT.mc_id=windowsdocs-twi)開始してください。
 
 ### <a name="one-dev-question"></a>One Dev Question
 

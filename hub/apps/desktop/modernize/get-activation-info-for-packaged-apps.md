@@ -7,16 +7,16 @@ keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 748646ce335e9e68ee7a22131ebd305db94e9801
-ms.sourcegitcommit: 5d7168ebc9f43aa13051446aff45a46600e6aafe
+ms.openlocfilehash: 5593b59a542f014e482c590b8d534804c836a1a7
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90799851"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91216725"
 ---
 # <a name="get-activation-info-for-packaged-apps"></a>パッケージ アプリのアクティブ化情報の取得
 
-Windows 10 Version 1809 以降、パッケージ化されたデスクトップ アプリで [AppInstance.GetActivatedEventArgs](/uwp/api/windows.applicationmodel.appinstance.getactivatedeventargs) メソッドを呼び出して、スタートアップ時にアプリの特定の種類のアクティブ化情報を取得できるようになりました。 たとえば、このメソッドを呼び出すことにより、ファイルを開く、対話型トーストをクリックする、プロトコルを使用するなどの処理から、アプリのアクティブ化に関連する情報を取得できます。 Windows 10 Version 2004 以降では、[スパース パッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)が使用されているアプリでも、この機能がサポートされています。
+Windows 10 Version 1809 以降、パッケージ化されたデスクトップ アプリで [AppInstance.GetActivatedEventArgs](/uwp/api/windows.applicationmodel.appinstance.getactivatedeventargs) メソッドを呼び出して、スタートアップ時にアプリの特定の種類のアクティブ化情報を取得できるようになりました。 たとえば、このメソッドを呼び出すことにより、ファイルを開く、対話型トーストをクリックする、プロトコルを使用するなどの処理から、アプリのアクティブ化に関連する情報を取得できます。 Windows 10 Version 2004 以降では、[スパース パッケージ](./grant-identity-to-nonpackaged-apps.md)が使用されているアプリでも、この機能がサポートされています。
 
 > [!NOTE]
 > この記事の説明に従って [AppInstance.GetActivatedEventArgs](/uwp/api/windows.applicationmodel.appinstance.getactivatedeventargs) メソッドを使用することにより、特定の種類のアクティブ化情報を取得できるだけでなく、COM クラスを定義することにより、バックグラウンド タスクのアクティブ化情報を取得することもできます。 詳細については、「[winmain COM バックグラウンド タスクの作成と登録](/windows/uwp/launch-resume/create-and-register-a-winmain-background-task)」を参照してください。
@@ -66,10 +66,10 @@ static void Main()
 
 | イベント引数の型 | パッケージ拡張機能 | 関連ドキュメント | 
 |-------------------|-----------------|-----------------------|
-| [ShareTargetActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.sharetargetactivatedeventargs) | [uap:ShareTarget](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-sharetarget) | [デスクトップ アプリケーションを共有ターゲットにする](/windows/apps/desktop/modernize/desktop-to-uwp-extend#making-your-desktop-application-a-share-target) |
-| [ProtocolActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs) | [uap:Protocol](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) | [プロトコルを使用してアプリケーションを起動する](/windows/apps/desktop/modernize/desktop-to-uwp-extensions#start-your-application-by-using-a-protocol) |
+| [ShareTargetActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.sharetargetactivatedeventargs) | [uap:ShareTarget](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-sharetarget) | [デスクトップ アプリケーションを共有ターゲットにする](./desktop-to-uwp-extend.md#making-your-desktop-application-a-share-target) |
+| [ProtocolActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.protocolactivatedeventargs) | [uap:Protocol](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) | [プロトコルを使用してアプリケーションを起動する](./desktop-to-uwp-extensions.md#start-your-application-by-using-a-protocol) |
 | [ToastNotificationActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.toastnotificationactivatedeventarg) | desktop:ToastNotificationActivation | [デスクトップ アプリからのトースト通知](/windows/uwp/design/shell/tiles-and-notifications/toast-desktop-apps) |
-| [StartupTaskActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.startuptaskactivatedeventargs)  | desktop:StartupTask | [ユーザーが Windows にログオンしたときに実行可能ファイルを起動する](/windows/apps/desktop/modernize/desktop-to-uwp-extensions#start-an-executable-file-when-users-log-into-windows) |
-| [FileActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs) | [uap:FileTypeAssociation](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation) | [パッケージ アプリケーションを一連のファイルの種類に関連付ける](/windows/apps/desktop/modernize/desktop-to-uwp-extensions#associate-your-packaged-application-with-a-set-of-file-types) |
+| [StartupTaskActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.startuptaskactivatedeventargs)  | desktop:StartupTask | [ユーザーが Windows にログオンしたときに実行可能ファイルを起動する](./desktop-to-uwp-extensions.md#start-an-executable-file-when-users-log-into-windows) |
+| [FileActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.fileactivatedeventargs) | [uap:FileTypeAssociation](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-filetypeassociation) | [パッケージ アプリケーションを一連のファイルの種類に関連付ける](./desktop-to-uwp-extensions.md#associate-your-packaged-application-with-a-set-of-file-types) |
 | [VoiceCommandActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.voicecommandactivatedeventargs) | なし | [アクティブ化の処理と音声コマンドの実行](/cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana) |
 | [LaunchActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) | なし |  |

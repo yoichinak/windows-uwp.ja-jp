@@ -3,16 +3,16 @@ Description: Windows アプリ内でのユーザーのナビゲーション履�
 title: ナビゲーション履歴と前に戻る移動
 template: detail.hbs
 op-migration-status: ready
-ms.date: 04/09/2019
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: fe9cbb9fdc9d73a38642a4f5894b1ef0f8182e69
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f3eb7ff033a81e358cb74e670b3235ade17e8a87
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174516"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220045"
 ---
 # <a name="navigation-history-and-backwards-navigation-for-windows-apps"></a>Windows アプリでのナビゲーション履歴と前に戻る移動
 
@@ -336,14 +336,14 @@ bool App::On_BackRequested()
 </tr>
 <tr class="even">
 <td style="vertical-align:top;"><strong>ページ間、同じピア グループ、ナビゲーション要素は画面上に表示されない</strong>
-<p>ユーザーは、同じピア グループでページ間を移動します。 両方のページに直接的なナビゲーションを提供する画面上のナビゲーション要素 (<a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview">NavigationView</a> など) はありません。</p></td>
+<p>ユーザーは、同じピア グループでページ間を移動します。 両方のページに直接的なナビゲーションを提供する画面上のナビゲーション要素 (<a href="/windows/uwp/design/controls-and-patterns/navigationview">NavigationView</a> など) はありません。</p></td>
 <td style="vertical-align:top;"><strong>はい</strong>
 <p>次の図では、ユーザーは同じピア グループ内の 2 つのページ間を移動し、ナビゲーションはナビゲーション履歴に追加する必要があります。</p>
 <p><img src="images/back-nav/nav-pagetopage-samepeer-noosnavelement.png" alt="Navigation within a peer group" /></p></td>
 </tr>
 <tr class="odd">
 <td style="vertical-align:top;"><strong>ページ間、同じピア グループ、画面上に表示されるナビゲーション要素を使う</strong>
-<p>ユーザーは、同じピア グループ内のページ間を移動します。 両方のページは同じナビゲーション要素に表示されます (<a href="https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationview">NavigationView</a> など)。</p></td>
+<p>ユーザーは、同じピア グループ内のページ間を移動します。 両方のページは同じナビゲーション要素に表示されます (<a href="/windows/uwp/design/controls-and-patterns/navigationview">NavigationView</a> など)。</p></td>
 <td style="vertical-align:top;"><strong>場合によって異なります</strong>
 <p>はい、ナビゲーション履歴に追加しますが、2 つの注目すべき例外があります。 アプリのユーザーがピア グループ内でページ間を頻繁に切り替えることが予想される場合、またはナビゲーション階層を保持する場合は、ナビゲーション履歴に追加しないでください。 この場合、ユーザーが戻るボタンを押すと、現在のピア グループに移動する前に表示していた最後のページに戻ります。 </p>
 <p><img src="images/back-nav/nav-pagetopage-samepeer-yesosnavelement.png" alt="Navigation across peer groups when a navigation element is present" /></p></td>

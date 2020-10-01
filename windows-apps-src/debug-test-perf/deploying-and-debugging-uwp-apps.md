@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f1ff6a98182f4832a2a1b82bf8ceca4aa176c36
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c18cb3c5b8a979e7c7c6485e6989736d818613ba
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157266"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91220355"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 
@@ -178,7 +178,7 @@ C++ UWP アプリでは、プロパティ ページは次のようになりま�
   - **レイアウト フォルダー パス** = `\\NETWORK-SHARE\Layouts\App1`
   - **パッケージの登録パス** = `\\NETWORK-SHARE\Layouts\App1`
 
-最初にネットワークからレイアウトを登録するときに、ターゲット デバイスに資格情報がキャッシュされるため、繰り返しサインインする必要はありません。 キャッシュされた資格情報を削除するには、Windows 10 SDK の [WinAppDeployCmd.exe ツール](https://docs.microsoft.com/windows/uwp/packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool) と **deletecreds**コマンド を使用できます。
+最初にネットワークからレイアウトを登録するときに、ターゲット デバイスに資格情報がキャッシュされるため、繰り返しサインインする必要はありません。 キャッシュされた資格情報を削除するには、Windows 10 SDK の [WinAppDeployCmd.exe ツール](../packaging/install-universal-windows-apps-with-the-winappdeploycmd-tool.md) と **deletecreds**コマンド を使用できます。
 
 ネットワークからレイアウトを登録する場合には、ファイルは物理的にリモート デバイスにコピーされないため、 **[デバイスのすべてのファイルを保持する]** を選択することはできません。
 

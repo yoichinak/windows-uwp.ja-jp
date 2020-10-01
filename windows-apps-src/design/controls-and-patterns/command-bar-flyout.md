@@ -3,7 +3,7 @@ Description: コマンド バーのポップアップを使用すると、ユー
 title: コマンド バーのポップアップ
 label: Command bar flyout
 template: detail.hbs
-ms.date: 10/02/2018
+ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: abarlow
@@ -12,12 +12,12 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: f7f273f3eb92efd30b432691f9faa05db0d6d013
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f412b3db0595013a8952fa20d385178eedf6c1d8
+ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173506"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91218505"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
