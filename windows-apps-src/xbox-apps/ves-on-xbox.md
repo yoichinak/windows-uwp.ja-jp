@@ -4,12 +4,12 @@ description: 音声認識シェル (VES) を使用して、Xbox 上のユニバ�
 ms.date: 10/19/2017
 ms.topic: article
 keywords: windows 10、uwp、xbox、音声、音声対応シェル
-ms.openlocfilehash: 38afa2473dd74ab580cf38cc21d1f2b192f9b72a
-ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
+ms.openlocfilehash: b59b578a13145910be30c3f228305b874f9e9734
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304654"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636482"
 ---
 # <a name="using-speech-to-invoke-ui-elements"></a>Speech を使用した UI 要素の呼び出し
 
@@ -83,7 +83,7 @@ ScrollPattern をサポートするスクロール可能なコンテナーの場
 
 これを解決するには、Windows 10 の作成者の更新プログラムから、ナレーターが更新され、プロパティも表示されるようになりました `AutomationProperties.HelpText` 。  このプロパティが空でない場合は、に加えて、ナレーターによって内容が読み上げられ `AutomationProperties.Name` ます。  `HelpText`が空の場合、ナレーターは名前の内容のみを読み取ります。  これにより、必要に応じてより長い説明的な文字列を使用できるようになりますが、プロパティにはより短い音声認識のわかりやすい語句が保持され `Name` ます。
 
-![](images/ves_narrator.jpg)
+![AutomationProperties.Name と Automationproperties.automationid が含まれているボタンの背後にあるコードを示す図。これは、音声対応シェルが構成名をリッスンすることを示しています。](images/ves_narrator.jpg)
 
 詳細については、「 [UI でユーザー補助機能をサポートするためのオートメーションプロパティ](/previous-versions/windows/silverlight/dotnet-windows-silverlight/ff400332(v=vs.95) "UI でのアクセシビリティサポートのオートメーションプロパティ")」を参照してください。
 
@@ -101,7 +101,7 @@ ALM を入力すると、次のようになります。
 - Cortana オーバーレイが右上隅に表示され、ユーザーに表示される内容を伝えることができます。  ユーザーが話している間、音声認識エンジンによって認識される語句フラグメントもこの場所に表示されます。
 - VES は、UIA ツリーを解析し、実行可能なすべてのコントロールを検索し、音声認識文法にそのテキストを登録して、継続的なリスニングセッションを開始します。
 
-    ![](images/ves_overlay.png)
+    ![[ラベルの表示] オプションが強調表示されているというラベルを表示するスクリーンショット。](images/ves_overlay.png)
 
 ### <a name="exiting-alm"></a>ALM の終了 ###
 ユーザーが音声を使用して UI を操作している間、システムは ALM のままになります。  ALM を終了するには、次の2つの方法があります。
@@ -129,24 +129,24 @@ VES がコントロールに対して派生する名前は、UI で実際に表�
 ## <a name="location-of-voice-tip-labels"></a>音声ヒントラベルの場所 ##
 音声ヒントラベルは、コントロールの BoundingRectangle 内で水平方向および垂直方向に中央揃えで配置されます。  コントロールが小さく、緊密にグループ化されていると、ラベルが重なったり、他のユーザーによって隠されたりする可能性があります。 VES は、これらのラベルを分割し、それらが表示されるようにします。  ただし、これは100% の時間にわたって動作することは保証されていません。  非常に混雑している UI がある場合は、一部のラベルが他のユーザーによって隠されている可能性があります。 "ラベルの表示" を使用して UI を確認し、音声ヒントを表示するための十分な領域があることを確認してください。
 
-![](images/ves_labels.png)
+![コントロールの外接する四角形内で水平方向および垂直方向に配置される、音声ヒントラベルのスクリーンショット。](images/ves_labels.png)
 
 ## <a name="combo-boxes"></a>コンボボックス ##
 コンボボックスが展開されると、コンボボックス内の個々の項目が独自の音声ヒントラベルを取得し、多くの場合、ドロップダウンリストの背後にある既存のコントロールの上に表示されます。  コンボボックスが展開されているときに、その子項目のラベルだけが表示されるようにするには、(コンボボックスの項目ラベルがコンボボックスの背後にあるコントロールのラベルと混在している) muddle のラベルを表示しないようにします。 その他のすべての音声ヒントラベルは非表示になります。  ユーザーは、ドロップダウン項目のいずれかを選択するか、コンボボックスを閉じることができます。
 
 - 折りたたまれたコンボボックスのラベル:
 
-    ![](images/ves_combo_closed.png)
+    ![折りたたまれたコンボボックスにラベルが表示された [ディスプレイとサウンド] ビデオ出力ウィンドウのスクリーンショット。](images/ves_combo_closed.png)
 
 - 展開されたコンボボックスのラベル:
 
-    ![](images/ves_combo_open.png)
+    ![展開されたコンボボックスにラベルが表示された [ディスプレイとサウンド] ビデオ出力ウィンドウのスクリーンショット。](images/ves_combo_open.png)
 
 
 ## <a name="scrollable-controls"></a>スクロール可能なコントロール ##
 スクロール可能なコントロールの場合、スクロールコマンドの音声ヒントは、コントロールの各端の中央に配置されます。  音声ヒントは、実行可能なスクロール方向に対してのみ表示されます。たとえば、垂直スクロールが使用できない場合、"上へスクロール" と "下へスクロール" が表示されません。  複数のスクロール可能な領域が存在する場合、VES は序数を使用してそれらを区別します (例として、 "Right 1"、"Scroll right 2" など)。
 
-![](images/ves_scroll.png) 
+![水平スクロール U I に対して、左にスクロールして、右にスクロールするためのスクリーンショット。](images/ves_scroll.png) 
 
 ## <a name="disambiguation"></a>曖昧性の除去 ##
 複数の UI 要素に同じ名前が付けられている場合、または音声認識エンジンが複数の候補に一致した場合、VES は非不明瞭モードになります。  このモードでは、ユーザーが適切な要素を選択できるように、関連する要素に対して音声ヒントラベルが表示されます。 ユーザーは、"キャンセル" という指示によって非不明瞭モードを取り消すことができます。
@@ -155,15 +155,15 @@ VES がコントロールに対して派生する名前は、UI で実際に表�
 
 - アクティブなリスニングモードで、あいまいさを解消する前。ユーザーは、「あいまいな」と言っています。
 
-    ![](images/ves_disambig1.png) 
+    ![アクティブなリスニングモードのスクリーンショットは、表示されているオプションと、ボタンにラベルが表示されていないことを示すことができるようになりました。](images/ves_disambig1.png) 
 
 - 両方のボタンが一致しました。非不明瞭の開始:
 
-    ![](images/ves_disambig2.png) 
+    ![オプションが表示されているアクティブなリスニングモードのスクリーンショット、および項目1と項目2のラベルがボタンに表示されます。](images/ves_disambig2.png) 
 
 - "選択 2" が選択されたときのクリックアクションの表示:
 
-    ![](images/ves_disambig3.png) 
+    ![アクティブなリスニングモードのスクリーンショットは、表示されているオプションと、最初のボタンのラベルがあいまいであることを言うことができます。](images/ves_disambig3.png) 
  
 ## <a name="sample-ui"></a>サンプル UI ##
 XAML ベースの UI の例を次に示します。さまざまな方法で AutomationProperties.Name を設定します。
@@ -203,11 +203,11 @@ XAML ベースの UI の例を次に示します。さまざまな方法で Auto
  
 - アクティブなリスニングモードでは、ラベルは表示されません。
 
-    ![](images/ves_alm_nolabels.png) 
+    ![[ラベルの表示] オプションが表示されていて、ラベルが表示されていない、アクティブなリスニングモードのスクリーンショット。ラベルを表示します。](images/ves_alm_nolabels.png) 
 
 - アクティブなリスニングモードでは、ユーザーは "ラベルの表示" を実行します。
 
-    ![](images/ves_alm_labels.png) 
+    ![を使用したアクティブなリスニングモードのスクリーンショット。完了したら、[リッスンを停止する] オプションが表示され、ラベルが U I コントロールに表示されます。](images/ves_alm_labels.png) 
 
 の場合 `button1` 、XAML は、 `AutomationProperties.Name` コントロールの表示テキストコンテンツのテキストを使用してプロパティを自動設定します。  このため、明示的なセットがない場合でも、音声ヒントラベルがあり `AutomationProperties.Name` ます。
 
@@ -217,7 +217,7 @@ XAML ベースの UI の例を次に示します。さまざまな方法で Auto
 
 最後に、では、が `button3` `Name` `button3` 設定されていないため、VES は最初の子要素からを取得し `AutomationProperties.Name` ます。
 
-## <a name="see-also"></a>こちらもご覧ください
+## <a name="see-also"></a>関連項目
 - [UI オートメーションの基礎](/dotnet/framework/ui-automation/ui-automation-fundamentals "UI オートメーションの基礎")
 - [UI でのアクセシビリティサポートのオートメーションプロパティ](/previous-versions/windows/silverlight/dotnet-windows-silverlight/ff400332(v=vs.95) "UI でのアクセシビリティサポートのオートメーションプロパティ")
 - [よく寄せられる質問](frequently-asked-questions.md)

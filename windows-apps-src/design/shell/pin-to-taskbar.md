@@ -6,18 +6,18 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, タスク バー、タスク バー マネージャー、タスク バーにピン留め、プライマリ タイル
 ms.localizationpriority: medium
-ms.openlocfilehash: c2090d038bb3999112e8d2fa3824968916e5d7dc
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: e43dd7084c042b7480aa98c638f1fc5d216e64c7
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219335"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636632"
 ---
 # <a name="pin-your-app-to-the-taskbar"></a>アプリをタスク バーにピン留めする
 
 [アプリをスタート メニューにピン留め](tiles-and-notifications/primary-tile-apis.md)できるのと同様に、プログラムを使ってアプリをタスク バーにピン留めすることができます。 アプリが現在ピン留めされているかどうか、またタスク バーがピン留めを許可しているかどうかを確認できます。 
 
-![タスク バー](images/taskbar/taskbar.png)
+![アプリがピン留めされていることを示す Windows 10 タスクバーのスクリーンショット。](images/taskbar/taskbar.png)
 
 > [!IMPORTANT]
 > **Fall Creators Update が必要**: タスクバー API を使用するには、SDK 16299 以降をターゲットとし、ビルド 16299 以降を実行している必要があります。
