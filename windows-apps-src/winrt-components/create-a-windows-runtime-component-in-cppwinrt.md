@@ -5,12 +5,12 @@ ms.date: 07/06/2020
 ms.topic: article
 keywords: windows 10、uwp、windows、runtime、component、components、Windows ランタイム Component、WRC、C++/WinRT
 ms.localizationpriority: medium
-ms.openlocfilehash: adf13308b1a2c360d7db53ded4edfe866de6c260
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 12fa7c499dd0203a489b5657f1e3e2634bdad8b1
+ms.sourcegitcommit: a93a309a11cdc0931e2f3bf155c5fa54c23db7c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220315"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91646295"
 ---
 # <a name="windows-runtime-components-with-cwinrt"></a>C++/WinRT を使用した Windows ランタイム コンポーネント
 
@@ -25,7 +25,7 @@ C++/winrtで Windows ランタイムコンポーネントを構築するには�
 
 このトピックの残りの部分では、C++/WinRT で Windows ランタイムコンポーネントを作成する方法と、それをアプリケーションから使用する方法について説明します。
 
-このトピックで作成する Windows ランタイムコンポーネントには、銀行口座を表すランタイムクラスが含まれています。 また、このトピックでは、bank account runtime クラスを使用して、残高を調整する関数を呼び出すコアアプリについても説明します。
+このトピックで作成する Windows ランタイムコンポーネントには、温度計を表すランタイムクラスが含まれています。 また、このトピックでは、温度計のランタイムクラスを使用し、関数を呼び出して温度を調整するコアアプリについても示します。
 
 > [!NOTE]
 > [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
@@ -33,61 +33,58 @@ C++/winrtで Windows ランタイムコンポーネントを構築するには�
 > [!IMPORTANT]
 > C++/WinRT でランタイム クラスを使用および作成する方法についての理解をサポートするために重要な概念と用語については、「[C++/WinRT での API の使用](../cpp-and-winrt-apis/consume-apis.md)」と「[C++/WinRT での作成者 API](../cpp-and-winrt-apis/author-apis.md)」を参照してください。
 
-## <a name="create-a-windows-runtime-component-bankaccountwrc"></a>Windows ランタイム コンポーネントの作成 (BankAccountWRC)
+## <a name="create-a-windows-runtime-component-thermometerwrc"></a>Windows ランタイムコンポーネント (ThermometerWRC) を作成する
 
-まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイム コンポーネント (C++/WinRT)** プロジェクトを作成し、("銀行口座 Windows ランタイム コンポーネント" 用に) *BankAccountWRC* と名前を付けます。 **[ソリューションとプロジェクトを同じディレクトリに配置する]** がオフになっていることを確認します。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。 プロジェクトに *BankAccountWRC* という名前を付けると、このトピックの残りの手順が非常に簡単になります。 
+まず、Microsoft Visual Studio で、新しいプロジェクトを作成します。 **Windows ランタイムコンポーネント (C++/WinRT)** プロジェクトを作成し、 *ThermometerWRC* ("温度計 Windows ランタイムコンポーネント") という名前を付けます。 **[ソリューションとプロジェクトを同じディレクトリに配置する]** がオフになっていることを確認します。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。 プロジェクトに *ThermometerWRC* という名前を付けると、このトピックの残りの手順で最も簡単に作業できるようになります。 
 
 プロジェクトはまだビルドしないでください。
 
-新しく作成したプロジェクトには、`Class.idl` という名前のファイルが含まれています。 ソリューション エクスプローラーで、そのファイル `BankAccount.idl` の名前を変更します (`.idl` ファイルの名前を変更すると、依存ファイル `.h` および `.cpp` も自動的に名前変更されます)。 `BankAccount.idl` の内容を、以下のリストで置き換えます。
-
-> [!NOTE]
-> 言うまでもありませんが、この方法で運用財務ソフトウェアを実装することはありません。便宜上、 `Single` この例ではを使用します。
+新しく作成したプロジェクトには、`Class.idl` という名前のファイルが含まれています。 ソリューション エクスプローラーで、そのファイル `Thermometer.idl` の名前を変更します (`.idl` ファイルの名前を変更すると、依存ファイル `.h` および `.cpp` も自動的に名前変更されます)。 `Thermometer.idl` の内容を、以下のリストで置き換えます。
 
 ```idl
-// BankAccountWRC.idl
-namespace BankAccountWRC
+// Thermometer.idl
+namespace ThermometerWRC
 {
-    runtimeclass BankAccount
+    runtimeclass Thermometer
     {
-        BankAccount();
-        void AdjustBalance(Single value);
+        Thermometer();
+        void AdjustTemperature(Single deltaFahrenheit);
     };
 }
 ```
 
-ファイルを保存します。 現時点ではプロジェクトは完成するまでビルドされませんが、ここでビルドすることは有用です。それによって、**BankAccount** ランタイム クラスを実装するためのソース コード ファイルが生成されるからです。 それでは、今すぐビルドしてみましょう (この段階で表示されることが予想されるビルド エラーは、`Class.h` と `Class.g.h` が見つからないことに関係しています)。
+ファイルを保存します。 現時点では、プロジェクトは完了までビルドされませんが、ここでは、 **温度計** のランタイムクラスを実装するソースコードファイルが生成されるため、ビルドを行うと便利です。 それでは、今すぐビルドしてみましょう (この段階で表示されることが予想されるビルド エラーは、`Class.h` と `Class.g.h` が見つからないことに関係しています)。
 
-ビルド プロセス中に、`midl.exe` ツールが実行されてコンポーネントの Windows ランタイム メタデータ ファイルが作成されます (これは `\BankAccountWRC\Debug\BankAccountWRC\BankAccountWRC.winmd` です)。 次に、`cppwinrt.exe` ツールが (`-component` オプションで) 実行され、コンポーネントの作成をサポートするソース コード ファイルが生成されます。 これらのファイルには、IDL で宣言した **BankAccount** ランタイム クラスの実装を開始するためのスタブが含まれています。 これらのスタブは `\BankAccountWRC\BankAccountWRC\Generated Files\sources\BankAccount.h` と `BankAccount.cpp` です。
+ビルド プロセス中に、`midl.exe` ツールが実行されてコンポーネントの Windows ランタイム メタデータ ファイルが作成されます (これは `\ThermometerWRC\Debug\ThermometerWRC\ThermometerWRC.winmd` です)。 次に、`cppwinrt.exe` ツールが (`-component` オプションで) 実行され、コンポーネントの作成をサポートするソース コード ファイルが生成されます。 これらのファイルには、IDL で宣言した **温度計** のランタイムクラスの実装を開始するためのスタブが含まれています。 これらのスタブは `\ThermometerWRC\ThermometerWRC\Generated Files\sources\Thermometer.h` と `Thermometer.cpp` です。
 
-プロジェクト ノードを右クリックし、 **[エクスプローラーでフォルダーを開く]** をクリックします。 これにより、エクスプローラーでプロジェクト フォルダーが開きます。 そこで、スタブ ファイル `BankAccount.h` および `BankAccount.cpp` をフォルダー `\BankAccountWRC\BankAccountWRC\Generated Files\sources\` から、ご自分のプロジェクト ファイルを含むフォルダー `\BankAccountWRC\BankAccountWRC\` にコピーし、コピー先のファイルを置き換えます。 ここで、`BankAccount.h` と `BankAccount.cpp` を開いてランタイム クラスを実装してみましょう。 で `BankAccount.h` 、 **BankAccount**の実装 (ファクトリ実装では*なく*) に新しいプライベートメンバーを追加します。
+プロジェクト ノードを右クリックし、 **[エクスプローラーでフォルダーを開く]** をクリックします。 これにより、エクスプローラーでプロジェクト フォルダーが開きます。 そこで、スタブ ファイル `Thermometer.h` および `Thermometer.cpp` をフォルダー `\ThermometerWRC\ThermometerWRC\Generated Files\sources\` から、ご自分のプロジェクト ファイルを含むフォルダー `\ThermometerWRC\ThermometerWRC\` にコピーし、コピー先のファイルを置き換えます。 ここで、`Thermometer.h` と `Thermometer.cpp` を開いてランタイム クラスを実装してみましょう。 で `Thermometer.h` 、**温度計**の実装 (ファクトリ実装では*なく*) に新しいプライベートメンバーを追加します。
 
 ```cppwinrt
-// BankAccount.h
+// Thermometer.h
 ...
-namespace winrt::BankAccountWRC::implementation
+namespace winrt::ThermometerWRC::implementation
 {
-    struct BankAccount : BankAccountT<BankAccount>
+    struct Thermometer : ThermometerT<Thermometer>
     {
         ...
 
     private:
-        float m_balance{ 0.f };
+        float m_temperatureFahrenheit { 0.f };
     };
 }
 ...
 ```
 
-で `BankAccount.cpp` 、次の一覧に示すように **AdjustBalance** メソッドを実装します。
+で `Thermometer.cpp` 、次の一覧に示すように **AdjustTemperature** メソッドを実装します。
 
 ```cppwinrt
-// BankAccount.cpp
+// Thermometer.cpp
 ...
-namespace winrt::BankAccountWRC::implementation
+namespace winrt::ThermometerWRC::implementation
 {
-    void BankAccount::AdjustBalance(float value)
+    void Thermometer::AdjustTemperature(float deltaFahrenheit)
     {
-        m_balance += value;
+        m_temperatureFahrenheit += deltaFahrenheit;
     }
 }
 ```
@@ -96,46 +93,46 @@ namespace winrt::BankAccountWRC::implementation
 
 任意の警告によってビルドが妨げられる場合は、該当する警告を解決するか、またはプロジェクトのプロパティ **C/C++**  > **General** > **Treat Warnings As Errors** を **No (/WX-)** に設定して、もう一度プロジェクトをビルドします。
 
-## <a name="create-a-core-app-bankaccountcoreapp-to-test-the-windows-runtime-component"></a>コア アプリ (BankAccountCoreApp) を作成して Windows ランタイム コンポーネントをテストする
+## <a name="create-a-core-app-thermometercoreapp-to-test-the-windows-runtime-component"></a>Windows ランタイムコンポーネントをテストするためのコアアプリ (ThermometerCoreApp) を作成する
 
-ここで (*BankAccountWRC* ソリューション、または新しいソリューションのいずれかに) 新しいプロジェクトを作成します。 **コア アプリ (C++/WinRT)** プロジェクトを作成し、*BankAccountCoreApp* と名前を付けます。 2 つのプロジェクトが同じソリューションに属している場合は、*BankAccountCoreApp* をスタートアップ プロジェクトとして設定します。
+次に、新しいプロジェクトを作成します ( *ThermometerWRC* ソリューション内または新しいプロジェクトを作成します)。 **コアアプリ (C++/WinRT)** プロジェクトを作成し、 *ThermometerCoreApp*という名前を付けます。 2つのプロジェクトが同じソリューション内にある場合は、 *ThermometerCoreApp* をスタートアッププロジェクトとして設定します。
 
 > [!NOTE]
-> 既に説明したように、Windows ランタイム コンポーネント (そのプロジェクト名は *BankAccountWRC*) の Windows ランタイム メタデータ ファイルは `\BankAccountWRC\Debug\BankAccountWRC\` フォルダーに作成されます。 このパスの最初のセグメントは、ソリューション ファイルを含むフォルダーの名前です。次のセグメントは、`Debug` という名前のサブディレクトリです。最後のセグメントは、Windows ランタイム コンポーネントの名前を付けられたサブディレクトリです。 プロジェクトに *BankAccountWRC* という名前を指定しなかった場合、メタデータ ファイルは `\<YourProjectName>\Debug\<YourProjectName>\` フォルダーに配置されます。
+> 前述のように、Windows ランタイムコンポーネント ( *ThermometerWRC*という名前のプロジェクト) の Windows ランタイムメタデータファイルがフォルダーに作成され `\ThermometerWRC\Debug\ThermometerWRC\` ます。 このパスの最初のセグメントは、ソリューション ファイルを含むフォルダーの名前です。次のセグメントは、`Debug` という名前のサブディレクトリです。最後のセグメントは、Windows ランタイム コンポーネントの名前を付けられたサブディレクトリです。 プロジェクトに *ThermometerWRC*という名前を指定しなかった場合は、メタデータファイルがフォルダーに配置され `\<YourProjectName>\Debug\<YourProjectName>\` ます。
 
-次に、コア アプリ プロジェクト (*BankAccountCoreApp*) で、参照を追加し、`\BankAccountWRC\Debug\BankAccountWRC\BankAccountWRC.winmd` を参照します (または 2 つのプロジェクトが同じソリューションに属している場合は、プロジェクト間の参照を追加します)。 **[追加]** をクリックして **[OK]** をクリックします。 ここで *BankAccountCoreApp* をビルドします。 万が一、ペイロード ファイル `readme.txt` が存在しないというエラーが表示された場合、Windows ランタイム コンポーネント プロジェクトからそのファイルを除外し、これを再ビルドしてから、*BankAccountCoreApp* を再ビルドします。
+次に、コアアプリプロジェクト (*ThermometerCoreApp*) で参照を追加し、を参照し `\ThermometerWRC\Debug\ThermometerWRC\ThermometerWRC.winmd` ます (2 つのプロジェクトが同じソリューション内にある場合は、プロジェクト間参照を追加します)。 **[追加]** をクリックして **[OK]** をクリックします。 次に、 *ThermometerCoreApp*をビルドします。 ペイロードファイルが存在しないというエラーが表示される場合は、 `readme.txt` そのファイルを Windows ランタイムコンポーネントプロジェクトから除外し、再構築してから、 *ThermometerCoreApp*をリビルドします。
 
-ビルド プロセス中に、`cppwinrt.exe` ツールが実行され、参照されている `.winmd` ファイルを投影型を含むソース コード ファイルに処理して、コンポーネントの使用をサポートします。 コンポーネントのランタイム クラス (`BankAccountWRC.h` という名前) の投影型のヘッダーは、フォルダー `\BankAccountCoreApp\BankAccountCoreApp\Generated Files\winrt\` 内に生成されます。
+ビルド プロセス中に、`cppwinrt.exe` ツールが実行され、参照されている `.winmd` ファイルを投影型を含むソース コード ファイルに処理して、コンポーネントの使用をサポートします。 コンポーネントのランタイム クラス (`ThermometerWRC.h` という名前) の投影型のヘッダーは、フォルダー `\ThermometerCoreApp\ThermometerCoreApp\Generated Files\winrt\` 内に生成されます。
 
 そのヘッダーを `App.cpp` に含めます。
 
 ```cppwinrt
 // App.cpp
 ...
-#include <winrt/BankAccountWRC.h>
+#include <winrt/ThermometerWRC.h>
 ...
 ```
 
-また `App.cpp` 、次のコードを追加して、 **BankAccount** オブジェクトをインスタンス化し (射影された型の既定のコンストラクターを使用)、銀行口座オブジェクトのメソッドを呼び出します。
+また `App.cpp` 、次のコードを追加して、 **温度計** オブジェクト (射影された型の既定のコンストラクターを使用) をインスタンス化し、温度計オブジェクトに対してメソッドを呼び出します。
 
 ```cppwinrt
 struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 {
-    BankAccountWRC::BankAccount m_bankAccount;
+    ThermometerWRC::Thermometer m_thermometer;
     ...
     
     void OnPointerPressed(IInspectable const &, PointerEventArgs const & args)
     {
-        m_bankAccount.AdjustBalance(1.f);
+        m_thermometer.AdjustTemperature(1.f);
         ...
     }
     ...
 };
 ```
 
-ウィンドウをクリックするたびに、銀行口座オブジェクトの残高が増加します。 コードをステップ実行して、アプリケーションが実際に Windows ランタイムコンポーネントを呼び出していることを確認する場合は、ブレークポイントを設定できます。
+ウィンドウをクリックするたびに、温度計のオブジェクトの温度が増加します。 コードをステップ実行して、アプリケーションが実際に Windows ランタイムコンポーネントを呼び出していることを確認する場合は、ブレークポイントを設定できます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 C++/WinRT Windows ランタイムコンポーネントにさらに多くの機能または新しい Windows ランタイムの種類を追加するには、上に示したのと同じパターンに従うことができます。 まず、IDL を使用して、公開する機能を定義します。 次に、Visual Studio でプロジェクトをビルドして、スタブ実装を生成します。 次に、必要に応じて実装を完了します。 IDL で定義したメソッド、プロパティ、およびイベントは、Windows ランタイムコンポーネントを使用するアプリケーションから参照できます。 IDL の詳細については、「 [Microsoft インターフェイス定義言語3.0 の概要](/uwp/midl-3/intro)」を参照してください。
 
@@ -145,4 +142,4 @@ Windows ランタイムコンポーネントにイベントを追加する方法
 
 | 症状 | 解決方法 |
 |---------|--------|
-|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイムコンポーネント](./creating-windows-runtime-components-in-csharp-and-visual-basic.md) を使用すると、コンパイラによって "' MyNamespace_XamlTypeInfo ' の形式のエラーが生成*されます: は ' WinRT:: MyNamespace ' のメンバーではありません。* &mdash; *MyNamespace* は Windows ランタイムコンポーネントの名前空間の名前です。 | 使用中の `pch.h` C++/WinRT アプリので、必要に応じ `#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` &mdash; て*MyNamespace*を置き換えます。 |
+|C++/WinRT アプリで、XAML を使用する [C# Windows ランタイム コンポーネント](./creating-windows-runtime-components-in-csharp-and-visual-basic.md)を使用すると、" *'MyNamespace_XamlTypeInfo' は 'winrt::MyNamespace' のメンバーではありません*" という形式のエラーがコンパイラによって生成されます&mdash;この *MyNamespace* は、Windows ランタイム コンポーネントの名前空間の名前です。 | 使用する側の C++/WinRT アプリの `pch.h` で、`#include <winrt/MyNamespace.MyNamespace_XamlTypeInfo.h>` を追加します&mdash;必要に応じて *MyNamespace* を置き換えます。 |
