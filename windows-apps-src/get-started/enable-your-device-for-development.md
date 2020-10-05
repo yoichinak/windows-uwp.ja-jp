@@ -3,21 +3,24 @@ ms.assetid: 54973C62-9669-4988-934E-9273FB0425FD
 title: デバイスを開発用に有効にする
 description: Visual Studio で開発者モードをアクティブ化することにより、開発およびデバッグ用に Windows 10 デバイスを有効にする方法について説明します。
 keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライセンス対応デバイス
-ms.date: 05/22/2020
+ms.date: 09/28/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 702e3aa166501c3e9974398ae5b89e832cfa7391
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2a227494bb597b25c090d4ff57982e5d5c739184
+ms.sourcegitcommit: 9940ed6431aadbd8d4e54ca23d8ae44d3a2d048d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89159056"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403917"
 ---
 # <a name="enable-your-device-for-development"></a>デバイスを開発用に有効にする
 
 ## <a name="activate-developer-mode-sideload-apps-and-access-other-developer-features"></a>開発者モードを有効にし、アプリのサイドローディングを行い、その他の開発者向け機能にアクセスする
 
 ![デバイスを開発用に有効にする](images/developer-poster.png)
+
+> [!IMPORTANT]
+> PC で独自のアプリケーションを作成していない場合は、開発者モードを有効にする必要はありません。 コンピューターの問題を解決しようとしている場合は、[Windows ヘルプ](https://support.microsoft.com/hub/4338813/windows-help?os=windows-10)に関するページを確認してください。 初めて開発している場合は、必要なツールをダウンロードして、[準備](get-set-up.md)することもできます。
 
 コンピューターをゲーム、Web 閲覧、メール、Office アプリなどの日々の通常の用途に使用している場合は、開発者モードを有効にする*必要はなく*、また有効にしないことをお勧めします。 その場合は、このページの情報の残りの部分は、関連のない情報ですので、 元の作業にお戻りください。
 

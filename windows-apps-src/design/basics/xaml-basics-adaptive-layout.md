@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e1498836772c3c279a1b9d85d76070b29593f5e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: aabad7a731bd0654468d7b9849d3b9a5bf6bead6
+ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91353732"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
@@ -165,17 +165,17 @@ ms.locfileid: "89174476"
     ...
 
         <!-- Large window VisualState -->
-        <VisualState x:Key="LargeWindow">
+        <VisualState>
 
         </VisualState>
 
         <!-- Medium window VisualState -->
-        <VisualState x:Key="MediumWindow">
+        <VisualState>
 
         </VisualState>
 
         <!-- Small window VisualState -->
-        <VisualState x:Key="SmallWindow">
+        <VisualState>
 
         </VisualState>
 
@@ -185,7 +185,7 @@ ms.locfileid: "89174476"
 
 ### <a name="create-statetriggers-to-apply-the-visual-state"></a>表示状態を適用する StateTriggers を作成する
 
-次に、各スナップ位置に対応する `StateTriggers` を作成します。 MainPage.xaml の `VisualStateManager` (パート 2 で作成) に次のコードを追加します。
+次に、各スナップ位置に対応する `StateTriggers` を作成します。 MainPage.xaml で、各 `VisualState` に次のコードを追加します。
 
 ```xaml
 <VisualStateManager.VisualStateGroups>
@@ -193,7 +193,7 @@ ms.locfileid: "89174476"
     ...
 
         <!-- Large window VisualState -->
-        <VisualState x:Key="LargeWindow">
+        <VisualState>
 
             <!-- Large window trigger -->
             <VisualState.StateTriggers>
@@ -203,7 +203,7 @@ ms.locfileid: "89174476"
         </VisualState>
 
         <!-- Medium window VisualState -->
-        <VisualState x:Key="MediumWindow">
+        <VisualState>
 
             <!-- Medium window trigger -->
             <VisualState.StateTriggers>
@@ -213,7 +213,7 @@ ms.locfileid: "89174476"
         </VisualState>
 
         <!-- Small window VisualState -->
-        <VisualState x:Key="SmallWindow">
+        <VisualState>
 
             <!-- Small window trigger -->
             <VisualState.StateTriggers >
@@ -266,9 +266,9 @@ ms.locfileid: "89174476"
 
 これで、この演習は終わりです。自身でさらに試すために必要な、アダプティブ レイアウトに関する知識を身につけることができました。 さらに大きな課題としては、Surface Hub などの大きな画面サイズ用にレイアウトを最適化してみることができます。 Surface Hub のレイアウトをテストする場合は、「[Visual Studio を使った Surface Hub アプリのテスト](../../debug-test-perf/test-surface-hub-apps-using-visual-studio.md)」を参照してください。
 
-行き詰まった場合は、「[XAML を使ったページ レイアウトの定義](../layout/layouts-with-xaml.md)」の以下のセクションで、詳しいガイダンスを参照できます。
+行き詰まった場合は、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md)」の以下のセクションで、詳しいガイダンスを参照できます。
 
-+ [表示状態と状態トリガー](../layout/layouts-with-xaml.md#visual-states-and-state-triggers)
++ [表示状態と状態トリガー](../layout/layouts-with-xaml.md#adaptive-layouts-with-visual-states-and-state-triggers)
 + [カスタマイズされたレイアウト](../layout/layouts-with-xaml.md#tailored-layouts)
 
 当初の写真編集アプリの作成方法を学習するには、XAML の[ユーザー インターフェイス](../basics/xaml-basics-ui.md)と[データ バインディング](../../data-binding/xaml-basics-data-binding.md)に関するチュートリアルをご覧ください。

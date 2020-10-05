@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: fb4249b2-f93c-4993-9e4d-57a62c04be66
 ms.localizationpriority: medium
-ms.openlocfilehash: 4ee8eb8ea34205f2e597bf41da61f5ab63714566
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e3f46e0d1837f391ffc7cc6ca361a2c92212565b
+ms.sourcegitcommit: 9940ed6431aadbd8d4e54ca23d8ae44d3a2d048d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162836"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403927"
 ---
 # <a name="creating-a-3d-javascript-game-using-threejs"></a>three.js を使用して 3D JavaScript ゲームを作成する
 
@@ -406,7 +406,7 @@ CodePen を使うと、立方体の色を変更したり、`init()` 関数の `c
 
 では、迷路に入り、探検を開始しましょう。 これを行うには、**PointerLockControls.js** ライブラリとカメラを使います。
 
-**PoinerLockControls.js** ライブラリでは、マウスを使用して、マウスの移動方向にカメラを回転することで、プレイヤーによる探検を可能にします。 
+**PointerLockControls.js** ライブラリでは、マウスを使用して、マウスの移動方向にカメラを回転することで、プレイヤーによる探検を可能にします。 
 
 まず、**index.html** ファイルにいくつか新しい要素を追加しましょう。
 
@@ -433,7 +433,7 @@ var blocker = document.getElementById('blocker');
 ```
 
 
-これで、`init()` 関数内で新しい `PoinerLockControls` オブジェクトを作成し、これに `camera`, を渡して、`camera` を追加します (`controls.getObject()` でアクセスします)。
+これで、`init()` 関数内で新しい `PointerLockControls` オブジェクトを作成し、これに `camera`, を渡して、`camera` を追加します (`controls.getObject()` でアクセスします)。
 
 ```javascript
 controls = new THREE.PointerLockControls(camera);

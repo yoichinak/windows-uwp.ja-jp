@@ -1,5 +1,5 @@
 ---
-Description: この記事には、Segoe MDL2 Assets フォントに付属しているグリフの一覧と、その使い方のガイダンスが含まれています。
+description: この記事には、Segoe MDL2 Assets フォントに付属しているグリフの一覧と、その使い方のガイダンスが含まれています。
 Search.Refinement.TopicID: 184
 title: Segoe MDL2 アイコンのガイドライン
 ms.assetid: DFB215C2-8A61-4957-B662-3B1991AC9BE1
@@ -9,12 +9,13 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 0663f9947249f54a888bf2d3f52f522ceb885604
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.custom: contperfq1
+ms.openlocfilehash: 5c2dc3237f2ff68ce2836fc80fa0936e13d84dd7
+ms.sourcegitcommit: f46edb85d523a4a1f5006787d357cdc9d090aefe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175786"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91414894"
 ---
 # <a name="segoe-mdl2-icons"></a>Segoe MDL2 アイコン
 
@@ -66,9 +67,7 @@ Symbol 列挙値に含まれていない **Segoe MDL2 アセット** フォン�
 * Mac の場合: フォントをダウンロードしてインストールする必要があります。<a href="https://aka.ms/SegoeFonts">Segoe UI と MDL2 のアイコン フォントを入手する</a>
 
 ## <a name="icon-list"></a>アイコン一覧
-**Segoe MDL2 アセット** フォントには、以下に示すアイコンもあります。 ここで紹介するアイコンの多くは、特殊な目的のために使用されるもので、それ以外の場合は通常使用しません。
-
-
+**Segoe MDL2 アセット** フォントには、以下に示すアイコンもあります。 これらの多くは、特殊な目的のために使用されるもので、それ以外の場合は通常使用されません。
 
 <table style="background-color: white; color: black">
 

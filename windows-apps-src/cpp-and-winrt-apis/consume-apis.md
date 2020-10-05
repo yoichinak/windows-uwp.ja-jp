@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、投影、プロジェクション、実装、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: 81c8edc65f78de14c1c42611ea1e8d97046128ae
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1b3d9e4be7c45d4d2b9b5063087a78556497dc9b
+ms.sourcegitcommit: bcf60b6d460dc4855f207ba21da2e42644651ef6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170366"
+ms.lasthandoff: 09/26/2020
+ms.locfileid: "91376250"
 ---
 # <a name="consume-apis-with-cwinrt"></a>C++/WinRT での API の使用
 
@@ -186,7 +186,7 @@ runtimeclass Gift
 }
 ```
 
-ここで、ボックス内にない **Gift** を構築したいものとします (初期化されていない **GiftBox** で構築された **Gift**)。 最初に、それを行う "*間違った*" 方法を見てみましょう。 **GiftBox** を受け取る **Gift** コンストラクターがあることはわかっています。 しかし、null **GiftBox** を渡すと (以下で行うような同一の初期化で **Gift** コンストラクターを呼び出す)、目的の結果は "*得られません*"。
+ここで、ボックス内にない **Gift** を構築したいものとします (初期化されていない **GiftBox** で構築された **Gift**)。 最初に、それを行う "*間違った*" 方法を見てみましょう。 **GiftBox** を受け取る **Gift** コンストラクターがあることはわかっています。 ただし、null **GiftBox** を渡すと (以下で行うような同一の初期化で **Gift** コンストラクターを呼び出す)、目的の結果は*得られません*。
 
 ```cppwinrt
 // These are *not* what you intended. Doing it in one of these two ways
@@ -283,13 +283,26 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 Windows ランタイム コンポーネントで実装された API の使用に関する詳細、コード、チュートリアルについては、「[C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」および「[C++/WinRT でのイベントの作成](./author-events.md)」を参照してください。
 
 ## <a name="if-the-api-is-implemented-in-the-consuming-project"></a>API が使用中のプロジェクトに実装される場合
-XAML UI で使用する型が XAML と同じプロジェクト内にある場合でも、ランタイム クラスを指定する必要があります。
+このセクションのコード例は、[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)に関するトピックから抜粋したものです。 詳細、コード、および使用しているものと同じプロジェクトに実装するランタイム クラスの使用に関するチュートリアルについてのトピックを参照してください。
 
-このシナリオでは、ランタイム クラスの Windows ランタイム メタデータ (`.winmd`) から投影される型を生成します。 この場合も、ヘッダーを含めますが、今度はその **std::nullptr_t** コンストラクターを介して投影される型を作成します。 このコンストラクターは初期化されないため、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) ヘルパー関数を介してインスタンスに値を割り当て、必要なコンストラクター引数を渡す必要があります。 使用中のコードと同じプロジェクトに実装されるランタイム クラスは、Windows ランタイム/COM のアクティブ化を介して登録またはインスタンス化する必要がありません。
+XAML UI で使用する型が XAML と同じプロジェクト内にある場合でも、ランタイム クラスを指定する必要があります。 このシナリオでは、ランタイム クラスの Windows ランタイム メタデータ (`.winmd`) から投影される型を生成します。 ここでも、ヘッダーを含めることになりますが、ランタイム クラスのインスタンスを構築する方法としてバージョン 1.0 またはバージョン 2.0 の C++/WinRT を選択できます。 バージョン 1.0 メソッドでは、[**winrt:: make**](/uwp/cpp-ref-for-winrt/make) が使用されます。バージョン 2.0 メソッドは*均一の構築*と呼ばれています。 それぞれを順番に見てみましょう。
 
-このコード例には、**空のアプリ (C++/WinRT)** プロジェクトが必要です。
+### <a name="constructing-by-using-winrtmake"></a>**winrt:: make** を使用して構築する
+既定 (C++ /WinRT バージョン 1.0) のメソッドから始めましょう。少なくとも、このパターンについては理解しておくことをお勧めします。 その **std::nullptr_t** コンストラクターを介して投影される型を作成します。 このコンストラクターは初期化されないため、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) ヘルパー関数を介してインスタンスに値を割り当て、必要なコンストラクター引数を渡す必要があります。 使用中のコードと同じプロジェクトに実装されるランタイム クラスは、Windows ランタイム/COM のアクティブ化を介して登録またはインスタンス化する必要がありません。
+
+完全なチュートリアルについては、[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)に関するページを参照してください。 このセクションでは、そのチュートリアルからの引用を示します。
 
 ```cppwinrt
+// MainPage.idl
+import "BookstoreViewModel.idl";
+namespace Bookstore
+{
+    runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
+    {
+        BookstoreViewModel MainViewModel{ get; };
+    }
+}
+
 // MainPage.h
 ...
 struct MainPage : MainPageT<MainPage>
@@ -297,10 +310,9 @@ struct MainPage : MainPageT<MainPage>
     ...
     private:
         Bookstore::BookstoreViewModel m_mainViewModel{ nullptr };
-        ...
-    };
-}
+};
 ...
+
 // MainPage.cpp
 ...
 #include "BookstoreViewModel.h"
@@ -312,7 +324,45 @@ MainPage::MainPage()
 }
 ```
 
-詳細、コード、および使用中のプロジェクトに実装するランタイム クラスの使用に関するチュートリアルについては、「[XAML コントロール、C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)」をご覧ください。
+### <a name="uniform-construction"></a>均一の構築
+C++/WinRT バージョン 2.0 以降では、"*均一の構築*" と呼ばれる最適化された形式の構築が用意されています (「[C++/WinRT 2.0 の新機能と変更点](./news.md#news-and-changes-in-cwinrt-20)」を参照してください)。
+
+完全なチュートリアルについては、[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)に関するページを参照してください。 このセクションでは、そのチュートリアルからの引用を示します。
+
+[**winrt:: make**](/uwp/cpp-ref-for-winrt/make) ではなく均一の構築を使用するには、アクティベーション ファクトリが必要です。 IDL にコンストラクターを追加して、生成することをお勧めします。
+
+```idl
+// MainPage.idl
+import "BookstoreViewModel.idl";
+namespace Bookstore
+{
+    runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
+    {
+        MainPage();
+        BookstoreViewModel MainViewModel{ get; };
+    }
+}
+```
+
+その後、以下に示すように、`MainPage.h` で、*m_mainViewModel* を 1 回だけ宣言して初期化します。
+
+```cppwinrt
+// MainPage.h
+...
+struct MainPage : MainPageT<MainPage>
+{
+    ...
+    private:
+        Bookstore::BookstoreViewModel m_mainViewModel;
+        ...
+    };
+}
+...
+```
+
+次に、`MainPage.cpp` の **Mainpage.xaml** コンストラクターでは、コード `m_mainViewModel = winrt::make<Bookstore::implementation::BookstoreViewModel>();` は必要ありません。
+
+均一の構築の詳細とコード例については、「[均一コンストラクションのオプトインと、実装への直接アクセス](./author-apis.md#opt-in-to-uniform-construction-and-direct-implementation-access)」を参照してください。
 
 ## <a name="instantiating-and-returning-projected-types-and-interfaces"></a>投影された型とインターフェイスをインスタンス化して返す
 次に、使用中のプロジェクトで投影された型とインターフェイスの例を示します。 投影された型 (この例のような型) はツールによって生成されるものであり、ユーザー自身が作成するものではないことに留意してください。

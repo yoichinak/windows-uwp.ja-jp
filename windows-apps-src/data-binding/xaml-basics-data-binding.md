@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d3363dcc47ef43fe65b3c954b213a81cc5165e1
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 10615c3bb9a137655f32ca4b5cc174ddba1ee5ef
+ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91353772"
 ---
 # <a name="tutorial-create-data-bindings"></a>チュートリアル: データ バインディングを作成する
 
@@ -457,7 +457,7 @@ UI が `ItemSize` の変化に対応できるようになったため、実際�
 
 ### <a name="attach-the-detailpage"></a>DetailPage をアタッチする
 
-1. MainPage.xaml で、`ImageGridView` という名前の `GridView` を探し、`ItemClick` 値を追加します。
+1. MainPage.xaml で、`ImageGridView` という名前の `GridView` を検索します。 項目をクリック可能にするには、`IsItemClickEnabled` を `True` に設定し、`ItemClick` イベント ハンドラーを追加します。
 
     > [!TIP]
     > 以下の変更をコピーして貼り付ける代わりに入力すると、IntelliSense ポップアップに "\<New Event Handler\>" と表示されます。 Tab キーを押すと、既定のメソッド ハンドラー名を使用して値が指定され、メソッドが自動的にスタブアウトされます (次の手順を参照)。 F12 キーを押すと、分離コード内にある、このメソッドに移動できます。
@@ -465,14 +465,15 @@ UI が `ItemSize` の変化に対応できるようになったため、実際�
     **前:**
 
     ```xaml
-    <GridView x:Name="ImageGridView"
+    <GridView x:Name="ImageGridView">
     ```
 
     **後:**
 
     ```xaml
     <GridView x:Name="ImageGridView"
-              ItemClick="ImageGridView_ItemClick"
+              IsItemClickEnabled="True"
+              ItemClick="ImageGridView_ItemClick">
     ```
 
     > [!NOTE]
