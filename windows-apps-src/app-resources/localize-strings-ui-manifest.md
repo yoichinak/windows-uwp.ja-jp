@@ -8,12 +8,12 @@ ms.date: 11/01/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 0cf6bc95eef416b481642d84eef8315451916604
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 411ecb63189084ba83f9971ded2bbe02d899aabd
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174106"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762867"
 ---
 # <a name="localize-strings-in-your-ui-and-app-package-manifest"></a>UI とアプリ パッケージ マニフェスト内の文字列をローカライズする
 
@@ -40,7 +40,7 @@ ms.locfileid: "89174106"
 
     `Strings/en-US/Resources.resw`
 
-    ![リソースの追加 (英語)](images/addresource-en-us.png)
+    ![文字列の追加リソーステーブルのスクリーンショット > E N U S > Resources. resw ファイル。](images/addresource-en-us.png)
 
     この例では、"Greeting" が、マークアップから参照できる文字列リソース識別子です。 識別子 "Greeting" について、Text プロパティの文字列が提供され、Width プロパティの文字列が提供されています。 "Greeting.Text" は、UI 要素のプロパティに対応しているため、プロパティ識別子の例です。 また、たとえば、[名前] 列で "Greeting.Foreground" を追加し、その値を "Red" に設定することもできます。 "Farewell" 識別子は、単純な文字列リソース識別子です。サブプロパティを持たず、後で説明するように、命令型コードから読み込むことができます。 [コメント] 列は、翻訳者に特別な指示を提供するのに適しています。
 
@@ -108,13 +108,13 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 
 1. アプリケーションパッケージマニフェストソースファイル ( `Package.appxmanifest` ファイル) を開きます。既定では、アプリの `Display name` は文字列リテラルとして表現されます。
 
-   ![リソースの追加 (英語)](images/display-name-before.png)
+   ![Package.appxmanifest ファイルのスクリーンショット。表示名が Adventure Works Cycles に設定された [アプリケーション] タブが表示されます。](images/display-name-before.png)
 
 2. この文字列のローカライズ可能なバージョンを作成するには、`Resources.resw` を開き、"AppDisplayName"という名前で、"Adventure Works Cycles" という値の新しい文字列リソースを追加します。
 
 3. 表示名の文字列リテラルを、作成した文字列リソース識別子 ("AppDisplayName") への参照に置き換えます。 これを行うには、`ms-resource` URI (Uniform Resource Identifier) スキームを使用します。
 
-   ![リソースの追加 (英語)](images/display-name-after.png)
+   ![Package.appxmanifest ファイルのスクリーンショット。表示名が M S リソースアプリの表示名に設定された [アプリケーション] タブが表示されます。](images/display-name-after.png)
 
 4. マニフェスト内のローカライズする各文字列について、この手順を繰り返します。 たとえば、アプリの短い名前 (スタート画面でアプリのタイルに表示されるように構成できる) です。 アプリ パッケージ マニフェスト内で、ローカライズできるすべての項目の一覧については、「[マニフェストのローカライズ可能な項目](/uwp/schemas/appxpackage/uapmanifestschema/localizable-manifest-items-win10?branch=live)」をご覧ください。
 
@@ -147,7 +147,7 @@ this.myXAMLTextBlockElement.Text = resourceLoader.GetString("Fare/Well"); // <da
 
 1 つのリソース ファイル (resw) にすべての文字列を保持することも、複数のリソース ファイルに文字列をファクタリングすることもできます。 たとえば、エラー メッセージを 1 つのリソース ファイルに、アプリ パッケージ マニフェストの文字列を別のリソース ファイルに、UI の文字列を第 3 のリソース ファイルに保持することができます。 この場合、フォルダー構造は次のようになります。
 
-![リソースの追加 (英語)](images/manifest-resources.png)
+![[ソリューション] パネルのスクリーンショット。 Adventure Works Cycles > 文字列フォルダーがドイツ語、U S 英語、およびフランス語のロケールフォルダーとファイルと共に表示されます。](images/manifest-resources.png)
 
 文字列リソース識別子の参照を特定のファイルに限定する場合は、識別子の前に `/<resources-file-name>/` を追加するだけです。 次のマークアップの例では、`ErrorMessages.resw` にリソースが含まれており、その名前が "PasswordTooWeak.Text" であり、その値がエラーの説明であることを想定しています。
 

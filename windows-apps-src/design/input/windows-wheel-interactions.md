@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 ms.assetid: e7deb1d6-feeb-471e-9a83-26386d1aaf37
 ms.localizationpriority: medium
-ms.openlocfilehash: 29a054299b933e523f8594419c4e954c3a0bf1e4
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: fd21ca0a27979a5febbc5a3a76a02a1beb2138fd
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91749968"
+ms.locfileid: "91763021"
 ---
 # <a name="surface-dial-interactions"></a>Surface Dial の操作
 
@@ -57,12 +57,12 @@ Surface Dial は、*長押し*アクションと*クリック*アクションも
    :::column:::
       **Surface Dial のオフスクリーン メニュー**
 
-      ![Surface Dial のオフスクリーン メニュー](images/windows-wheel/surface-dial-menu-offscreen.png)
+      ![Surface のダイヤルオフ画面メニューのスクリーンショット。](images/windows-wheel/surface-dial-menu-offscreen.png)
    :::column-end:::
    :::column:::
       **Surface Dial のオンスクリーン メニュー**
 
-      ![Surface Dial のオンスクリーン メニュー](images/windows-wheel/surface-dial-menu-onscreen.png)
+      ![画面に表示された画面の画面のスクリーンショット。](images/windows-wheel/surface-dial-menu-onscreen.png)
    :::column-end:::
 :::row-end:::
 
@@ -132,17 +132,17 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
 
 :::row:::
    :::column:::
-      ![アルファによる背景付きのアイコン](images/windows-wheel/surface-dial-menu-icon1.png)
+      ![アルファ背景を持つアイコンのスクリーンショット。](images/windows-wheel/surface-dial-menu-icon1.png)
 
       *アルファによる背景付きのアイコン*
    :::column-end:::
    :::column:::
-      ![既定のテーマのアイコンでホイール メニューに表示されるアイコン](images/windows-wheel/surface-dial-menu-icon2.png)
+      ![既定のテーマを持つホイールメニューに表示されるアイコンのスクリーンショット。](images/windows-wheel/surface-dial-menu-icon2.png)
 
       *既定のテーマでホイール メニューに表示されるアイコン*
    :::column-end:::
    :::column:::
-      ![Surface Dial のオンスクリーン メニュー](images/windows-wheel/surface-dial-menu-icon3.png)
+      ![ハイコントラスト白のテーマでホイールメニューに表示されるアイコンのスクリーンショット。](images/windows-wheel/surface-dial-menu-icon3.png)
 
       *ハイコントラスト白のテーマでホイール メニューに表示されるアイコン*
    :::column-end:::
@@ -171,7 +171,7 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
 
 1. まず、XAMLで UI (スライダーとトグル ボタンのみ) を宣言します。
 
-   ![サンプル アプリの UI の画像](images/windows-wheel/surface-dial-snippet-customtool1.png)  
+   ![水平スライダーが左側に設定されている放射状コントローラーサンプルのスクリーンショット。](images/windows-wheel/surface-dial-snippet-customtool1.png)  
    *サンプル アプリの UI*
 
     ```Xaml
@@ -272,7 +272,7 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
 
 アプリを実行するときに、Surface Dial を使用してアプリを操作します。 最初に、長押ししてメニューを開き、カスタム ツールを選択します。 カスタム ツールがアクティブ化されると、Dial を回転することでスライダー コントロールを調整でき、Dial をクリックしてスイッチを切り替えることができます。
 
-![Surface Dial のカスタム ツールを使用してアクティブ化されたサンプル アプリの UI の画像](images/windows-wheel/surface-dial-snippet-customtool2.png)  
+![水平スライダーが中央に設定されている放射状コントローラーサンプルのスクリーンショット。](images/windows-wheel/surface-dial-snippet-customtool2.png)  
 *Surface Dial のカスタム ツールを使用してアクティブ化されたサンプル アプリの UI*
 
 **組み込みのツールを指定する**
@@ -480,7 +480,7 @@ Surface Dial が Surface Studio のデジタイザー サーフェス上に配�
 
 1. 最初に、XAMLで UI (4つのセクションと、それぞれのスライダーとトグル ボタン) を宣言します。
 
-   ![サンプル アプリの UI の画像](images/windows-wheel/surface-dial-snippet-customtool3.png)  
+   ![4つの水平スライダーが左に設定されている放射状コントローラーサンプルのスクリーンショット。](images/windows-wheel/surface-dial-snippet-customtool3.png)  
    *サンプル アプリの UI*
 
    ```xaml 
@@ -680,14 +680,12 @@ private void ActivateGridAtLocation(Point Location)
 
 アプリを実行するときに、Surface Dial を使用してアプリを操作します。 最初に、Surface Studio の画面にデバイスを配置します。アプリがデバイスを検出し、右下のセクションに関連付けます (画像を参照してください)。 次に Surface Dial を長押ししてメニューを開き、カスタム ツールを選択します。 カスタム ツールがアクティブ化されると、Surface Dial を回転することでスライダー コントロールを調整でき、Surface Dial をクリックしてスイッチを切り替えることができます。
 
-![Surface Dial のカスタム ツールを使用してアクティブ化されたサンプル アプリの UI の画像](images/windows-wheel/surface-dial-snippet-customtool4.png)  
+![4つの水平スライダーが左に、4番目のコントローラーが強調表示されている放射状コントローラーサンプルのスクリーンショット。](images/windows-wheel/surface-dial-snippet-customtool4.png)  
 *Surface Dial のカスタム ツールを使用してアクティブ化されたサンプル アプリの UI*
 
 ## <a name="summary"></a>まとめ
 
 このトピックでは、Surface Studio 入力デバイスの概要を、UX および開発者向けのガイダンスと共に示し、オフスクリーンのシナリオおよび Surface Studio と共に使用する場合のオンスクリーンのシナリオでユーザー エクスペリエンスをカスタマイズする方法について説明しました。
-
-## <a name="feedback"></a>フィードバック
 
 質問、提案、フィードバックをに送信してください [radialcontroller@microsoft.com](mailto:radialcontroller@microsoft.com) 。
 

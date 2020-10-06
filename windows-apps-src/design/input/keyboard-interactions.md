@@ -11,12 +11,12 @@ pm-contact: chigy
 design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
-ms.openlocfilehash: ae3d4826c4468cabea318ed230da0cfbb4d5f24b
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 005ec4883eeb52a84e458ba917439d093ab0041f
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219115"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91763074"
 ---
 # <a name="keyboard-interactions"></a>キーボード操作
 
@@ -133,7 +133,7 @@ UWP アプリの場合、初期フォーカスはフォーカスを受け取る�
 
 タブオーダーのオーバーライドの詳細については、「 [フォーカスナビゲーション](focus-navigation.md) 」を参照してください。
 
-### <a name="navigation"></a>ナビゲーション
+### <a name="navigation"></a>「ナビゲーション」
 
 キーボード ナビゲーションは通常、Tab キーと方向キーによってサポートされます。
 
@@ -278,13 +278,13 @@ UWP でアクセス キーをサポートする方法について詳しくは、
 
 次の表は、よく使用されるキーボードショートカットの小さなサンプルです。 
 
-| 操作                               | キー コマンド                                      |
+| アクション                               | キー コマンド                                      |
 |--------------------------------------|--------------------------------------------------|
 | すべて選択する                           | Ctrl + A                                           |
 | 連続して選択                  | Shift + 方向キー                                  |
-| 保存                                 | Ctrl + S                                           |
+| 上書き保存                                 | Ctrl + S                                           |
 | Find                                 | Ctrl + F                                           |
-| 印刷                                | Ctrl + P                                           |
+| ［印刷］                                | Ctrl + P                                           |
 | コピー                                 | Ctrl+C                                           |
 | ［切り取り］                                  | Ctrl + X                                           |
 | 貼り付け                                | Ctrl + V                                           |
@@ -345,7 +345,7 @@ UWP コントロールは、方向キー ナビゲーションを既定でサポ
 
 レイアウトがコントロール グループのよく知られている UI パターンに従っている場合、グループに 1 つのタブ位置を割り当てるとユーザーのナビゲーション効率を向上することがあります。
 
-以下に例を示します。
+たとえば、次のようになります。
 -   `RadioButtons`
 -   `ListViews`と似ていて、1つののように動作する`ListView`
 -   タイルのグリッドと外観や動作が似ている UI (スタート メニューのタイルなど)
@@ -507,11 +507,13 @@ List 項目と GridView 項目の複数の行と列を移動する場合、必�
 サポートされているすべての入力デバイスを使ってアプリをテストし、UI 要素が一貫した直感的な方法で移動できることと、要素と目的のタブ位置の予期しない干渉がないことを確認してください。
 
 ## <a name="related-articles"></a>関連記事
+
 * [キーボード イベント](keyboard-events.md)
 * [入力デバイスの識別](identify-input-devices.md)
 * [タッチ キーボードの表示への応答](respond-to-the-presence-of-the-touch-keyboard.md)
 * [フォーカスの視覚効果のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
-* [NavigationView コントロールのキーボードの詳細](../controls-and-patterns/navigationview.md#hierarchical-navigation) 
+* [NavigationView コントロールのキーボードの詳細](../controls-and-patterns/navigationview.md#hierarchical-navigation)
+* [キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)
 
 ## <a name="appendix"></a>付録
 
@@ -576,7 +578,3 @@ List 項目と GridView 項目の複数の行と列を移動する場合、必�
 ***スクリーンキーボード***
 
 スクリーン キーボードについて詳しくは、[スクリーン キーボードに関するページ](https://support.microsoft.com/help/10762/windows-use-on-screen-keyboard)をご覧ください。
-
-## <a name="related-articles"></a>関連記事
-
-- [キーボードアクセシビリティ](../accessibility/keyboard-accessibility.md)
