@@ -4,12 +4,12 @@ description: 音声認識シェル (VES) を使用して、Xbox 上のユニバ�
 ms.date: 10/19/2017
 ms.topic: article
 keywords: windows 10、uwp、xbox、音声、音声対応シェル
-ms.openlocfilehash: b59b578a13145910be30c3f228305b874f9e9734
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: fa0f56a6821fd8858cab317654cd0ead5d731693
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636482"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750268"
 ---
 # <a name="using-speech-to-invoke-ui-elements"></a>Speech を使用した UI 要素の呼び出し
 
@@ -20,31 +20,31 @@ ms.locfileid: "91636482"
 
 - ユーザーは Xbox コンソールをオンにして、アプリを参照して目的のものを見つける必要があります。
 
-        User: "Hey Cortana, open My Games and Apps"
+    > ユーザー: "Cortana、ゲームとアプリを開く"
 
 - ユーザーは、アクティブリスニングモード (ALM) のままになっています。これは、コンソールが、毎回 "Cortana" を知らなくても、画面上に表示されるコントロールを呼び出すことを待機していることを意味します。  ユーザーは、アプリの表示に切り替えて、アプリの一覧をスクロールできるようになりました。
 
-        User: "applications"
+    > ユーザー: "アプリケーション"
 
 - ビューをスクロールするために、ユーザーは次のように簡単に表示できます。
 
-        User: "scroll down"
+    > ユーザー: "下へスクロール"
 
 - ユーザーには、関心のあるアプリケーションのボックスアートが表示されますが、名前は忘れられています。  ユーザーが音声ヒントラベルを表示するよう求められます。
 
-        User: "show labels"
+    > ユーザー: "ラベルの表示"
 
 - 言うまでもありませんが、アプリを起動できます。
 
-        User: "movies and TV"
+    > ユーザー: "映画と TV"
 
 - アクティブなリスニングモードを終了するために、ユーザーは Xbox にリッスンを停止するように指示します。
 
-        User: "stop listening"
+    > ユーザー: "リッスンの停止"
 
 - 後で、次のようにして、新しいアクティブなリッスンセッションを開始できます。
 
-        User: "Hey Cortana, make a selection" or "Hey Cortana, select"
+    > ユーザー: "Cortana について、選択する" または "Cortana を選択してください"
 
 ## <a name="ui-automation-dependency"></a>UI オートメーションの依存関係 ##
 VES は UI オートメーションクライアントであり、UI オートメーションプロバイダーを通じてアプリによって公開される情報に依存します。 これは、Windows プラットフォームのナレーター機能によって既に使用されているインフラストラクチャと同じです。  UI オートメーションを使用すると、コントロールの名前、その型、実装するコントロールパターンなど、ユーザーインターフェイス要素へのプログラムによるアクセスが可能になります。  アプリで UI が変更されると、VES は UIA update イベントに応答し、更新された UI オートメーションツリーを再解析して、この情報を使用して音声認識文法を構築し、アクション可能なすべての項目を検索します。 
@@ -168,36 +168,37 @@ VES がコントロールに対して派生する名前は、UI で実際に表�
 ## <a name="sample-ui"></a>サンプル UI ##
 XAML ベースの UI の例を次に示します。さまざまな方法で AutomationProperties.Name を設定します。
 
-    <Page
-        x:Class="VESSampleCSharp.MainPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="using:VESSampleCSharp"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d">
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <Button x:Name="button1" Content="Hello World" HorizontalAlignment="Left" Margin="44,56,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="button2" AutomationProperties.Name="Launch Game" Content="Launch" HorizontalAlignment="Left" Margin="44,106,0,0" VerticalAlignment="Top" Width="99"/>
-            <TextBlock AutomationProperties.Name="Day of Week" x:Name="label1" HorizontalAlignment="Left" Height="22" Margin="168,62,0,0" TextWrapping="Wrap" Text="Select Day of Week:" VerticalAlignment="Top" Width="137"/>
-            <ComboBox AutomationProperties.LabeledBy="{Binding ElementName=label1}" x:Name="comboBox" HorizontalAlignment="Left" Margin="310,57,0,0" VerticalAlignment="Top" Width="120">
-                <ComboBoxItem Content="Monday" IsSelected="True"/>
-                <ComboBoxItem Content="Tuesday"/>
-                <ComboBoxItem Content="Wednesday"/>
-                <ComboBoxItem Content="Thursday"/>
-                <ComboBoxItem Content="Friday"/>
-                <ComboBoxItem Content="Saturday"/>
-                <ComboBoxItem Content="Sunday"/>
-            </ComboBox>
-            <Button x:Name="button3" HorizontalAlignment="Left" Margin="44,156,0,0" VerticalAlignment="Top" Width="213">
-                <Grid>
-                    <TextBlock AutomationProperties.Name="Accept">Accept Offer</TextBlock>
-                    <TextBlock Margin="0,25,0,0" Foreground="#FF5A5A5A">Exclusive offer just for you</TextBlock>
-                </Grid>
-            </Button>
-        </Grid>
-    </Page>
-
+```xaml
+<Page
+    x:Class="VESSampleCSharp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VESSampleCSharp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="button1" Content="Hello World" HorizontalAlignment="Left" Margin="44,56,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button2" AutomationProperties.Name="Launch Game" Content="Launch" HorizontalAlignment="Left" Margin="44,106,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBlock AutomationProperties.Name="Day of Week" x:Name="label1" HorizontalAlignment="Left" Height="22" Margin="168,62,0,0" TextWrapping="Wrap" Text="Select Day of Week:" VerticalAlignment="Top" Width="137"/>
+        <ComboBox AutomationProperties.LabeledBy="{Binding ElementName=label1}" x:Name="comboBox" HorizontalAlignment="Left" Margin="310,57,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Monday" IsSelected="True"/>
+            <ComboBoxItem Content="Tuesday"/>
+            <ComboBoxItem Content="Wednesday"/>
+            <ComboBoxItem Content="Thursday"/>
+            <ComboBoxItem Content="Friday"/>
+            <ComboBoxItem Content="Saturday"/>
+            <ComboBoxItem Content="Sunday"/>
+        </ComboBox>
+        <Button x:Name="button3" HorizontalAlignment="Left" Margin="44,156,0,0" VerticalAlignment="Top" Width="213">
+            <Grid>
+                <TextBlock AutomationProperties.Name="Accept">Accept Offer</TextBlock>
+                <TextBlock Margin="0,25,0,0" Foreground="#FF5A5A5A">Exclusive offer just for you</TextBlock>
+            </Grid>
+        </Button>
+    </Grid>
+</Page>
+```
 
 上記のサンプルを使用すると、UI は、音声ヒントラベルの有無にかかわらず、次のようになります。
  
@@ -217,7 +218,7 @@ XAML ベースの UI の例を次に示します。さまざまな方法で Auto
 
 最後に、では、が `button3` `Name` `button3` 設定されていないため、VES は最初の子要素からを取得し `AutomationProperties.Name` ます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 - [UI オートメーションの基礎](/dotnet/framework/ui-automation/ui-automation-fundamentals "UI オートメーションの基礎")
 - [UI でのアクセシビリティサポートのオートメーションプロパティ](/previous-versions/windows/silverlight/dotnet-windows-silverlight/ff400332(v=vs.95) "UI でのアクセシビリティサポートのオートメーションプロパティ")
 - [よく寄せられる質問](frequently-asked-questions.md)

@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 ms.assetid: e7deb1d6-feeb-471e-9a83-26386d1aaf37
 ms.localizationpriority: medium
-ms.openlocfilehash: e9a619fc58b1b84755e33fd36ebacd99f98d6b7f
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 29a054299b933e523f8594419c4e954c3a0bf1e4
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220415"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749968"
 ---
 # <a name="surface-dial-interactions"></a>Surface Dial の操作
 
@@ -27,10 +27,18 @@ Surface Dial などの Windows Wheel デバイスは、Windows や Windows ア�
 > [!IMPORTANT]
 > このトピックでは、特に Surface Dial の操作について説明しますが、情報はすべての Windows Wheel デバイスに適用されます。 
 
-| ビデオ |   |
-| --- | --- |
-| <iframe src="https://www.youtube-nocookie.com/embed/WMklcdzcNcU" width="300" height="200" allowFullScreen="true" frameBorder="0"></iframe> | <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Programming-the-Microsoft-Surface-Dial/player" width="300" height="200" allowFullScreen="true" frameBorder="0"></iframe> |
-| *Surface Dial のアプリ パートナー* | *開発者向けの Surface Dial* |
+:::row:::
+   :::column:::
+      <iframe src="https://www.youtube-nocookie.com/embed/WMklcdzcNcU" width="300" height="200" allowFullScreen="true" frameBorder="0"></iframe>
+
+      *Surface Dial のアプリ パートナー*
+   :::column-end:::
+   :::column:::
+      <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Programming-the-Microsoft-Surface-Dial/player" width="300" height="200" allowFullScreen="true" frameBorder="0"></iframe>
+
+      *開発者向けの Surface Dial*
+   :::column-end:::
+:::row-end:::
 
 *回転*動作 (またはジェスチャ) に基づくフォームファクタを持つ Surface Dial は、プライマリ デバイスからの入力を補完または変更する、セカンダリのマルチ モーダル入力デバイスとして設計されています。 このデバイスは多くの場合、ユーザーが利き手でタスクを実行している間に (たとえばペンでインク操作をするときなど)、利き手ではない手で操作されます。 高精度のポインター入力 (タッチ、ペン、マウスなど) 用に設計されていません。 
 
@@ -45,9 +53,18 @@ Surface Dial は、*長押し*アクションと*クリック*アクションも
 >
 >Surface Dial の接触位置と境界の両方を検出することにより、システムはこの情報を使用してデバイスによるオクルージョンを処理し、Dial の外側を囲むように大きいバージョンのメニューを表示します。 この同じ情報をアプリで使用して、デバイスの存在とその予想される使用状況 (ユーザーの手や腕の配置など) の両方に合わせて UI を調整することもできます。
 
-| Surface Dial のオフスクリーン メニュー | | Surface Dial のオンスクリーン メニュー |
-| --- | --- | --- |
-| ![Surface Dial のオフスクリーン メニュー](images/windows-wheel/surface-dial-menu-offscreen.png) | | ![Surface Dial のオンスクリーン メニュー](images/windows-wheel/surface-dial-menu-onscreen.png) |
+:::row:::
+   :::column:::
+      **Surface Dial のオフスクリーン メニュー**
+
+      ![Surface Dial のオフスクリーン メニュー](images/windows-wheel/surface-dial-menu-offscreen.png)
+   :::column-end:::
+   :::column:::
+      **Surface Dial のオンスクリーン メニュー**
+
+      ![Surface Dial のオンスクリーン メニュー](images/windows-wheel/surface-dial-menu-onscreen.png)
+   :::column-end:::
+:::row-end:::
 
 ## <a name="system-integration"></a>システム統合
 
@@ -113,10 +130,23 @@ Surface Dial メニュー項目は無効な状態をサポートしていない�
 - アイコンは画像のほとんどの部分を占めている必要がある
 - 白いアイコンは、ハイ コントラスト モードで表示できるように黒い枠が必要である
 
-|   |   |   |
-| --- | --- | --- |
-| ![アルファによる背景付きのアイコン](images/windows-wheel/surface-dial-menu-icon1.png) | ![既定のテーマのアイコンでホイール メニューに表示されるアイコン](images/windows-wheel/surface-dial-menu-icon2.png) | ![Surface Dial のオンスクリーン メニュー](images/windows-wheel/surface-dial-menu-icon3.png) |
-| *アルファによる背景付きのアイコン* | *既定のテーマでホイール メニューに表示されるアイコン* | *ハイコントラスト白のテーマでホイール メニューに表示されるアイコン* |
+:::row:::
+   :::column:::
+      ![アルファによる背景付きのアイコン](images/windows-wheel/surface-dial-menu-icon1.png)
+
+      *アルファによる背景付きのアイコン*
+   :::column-end:::
+   :::column:::
+      ![既定のテーマのアイコンでホイール メニューに表示されるアイコン](images/windows-wheel/surface-dial-menu-icon2.png)
+
+      *既定のテーマでホイール メニューに表示されるアイコン*
+   :::column-end:::
+   :::column:::
+      ![Surface Dial のオンスクリーン メニュー](images/windows-wheel/surface-dial-menu-icon3.png)
+
+      *ハイコントラスト白のテーマでホイール メニューに表示されるアイコン*
+   :::column-end:::
+:::row-end:::
 
 **簡潔でわかりやすい名前を使う**  
 ツール名は、ツールのアイコンと共にツール メニューに表示され、スクリーン リーダーでも使用されます。 
@@ -291,7 +321,7 @@ public MainPage()
 > [!NOTE]
 > Surface Dial を Surface Studio の画面上に配置している場合、Surface Dial の画面上の位置を中心として表示されます。
 
-### <a name="rotate"></a>回転
+### <a name="rotate"></a>Rotate
 
 Surface Dial は、アナログ値やコントロールのスムーズな増分の調整に関連する操作のための回転をサポートすることを主な目的として設計されています。
 
@@ -316,16 +346,31 @@ Surface Dial では使用されている手を検出できませんが、ユー�
 
 Dial メニューの組み込みのツールとコマンドは、回転ベースの操作について以下のガイドラインに従っています。
 
-|   |   |   |
-| --- | --- | --- |
-| Left<br/>上へ<br/>アウト | ![Surface Dial の画像](images/windows-wheel/surface-dial-rotate.png) | Right<br/>[下へ]<br/>/ |
-|   |   |   |
+:::row:::
+   :::column:::
+      Left
+
+      ［上へ］
+
+      アウト 
+   :::column-end:::
+   :::column span="2":::
+      ![Surface Dial の画像](images/windows-wheel/surface-dial-rotate.png)
+   :::column-end:::
+   :::column:::
+      Right
+
+      ［下へ］
+
+      場所
+   :::column-end:::
+:::row-end:::
 
 | 概念的な方向 | Surface Dial へのマッピング | 時計回りの回転 | 反時計回りの回転 |
 | --- | --- | --- | --- |
 | 水平 | Surface Dial の上部に基づいて左右のマッピング | Right | Left |
-| Vertical | Surface Dial の左側に基づいて上下のマッピング | [下へ] | 上へ |
-| Z 軸 | 内 (またはより近い) が上/右にマップ<br/>外 (またはより遠い) が下/左にマップ | / | アウト |
+| Vertical | Surface Dial の左側に基づいて上下のマッピング | ［下へ］ | ［上へ］ |
+| Z 軸 | 内 (またはより近い) が上/右にマップ<br/>外 (またはより遠い) が下/左にマップ | 場所 | アウト |
 
 #### <a name="developer-guidance"></a>開発者ガイド
 
@@ -366,7 +411,7 @@ private void MyController_ButtonClicked(RadialController sender,
 }
 ```
 
-### <a name="click"></a>Click
+### <a name="click"></a>クリック
 
 Surface Dial のクリックは、マウスの左ボタンのクリックと似ています (デバイスの回転状態は、この操作に影響しません)。
 

@@ -6,12 +6,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e5f86da29900e0ef83fb0bf41d2c8d9fe59727f2
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2b16c957991889cb5f39a775397de72ff56beffc
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172516"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749979"
 ---
 # <a name="guidelines-for-cross-slide"></a>クロススライドのガイドライン
 
@@ -58,18 +58,22 @@ ms.locfileid: "89172516"
 
 **メモ**   コンテンツ領域が web ブラウザーや電子メールリーダーなどの2方向にパンされる可能性がある場合は、画像やハイパーリンクなどのオブジェクトのコンテキストメニューを呼び出すために、プレスアンドホールドの時間指定操作を使用する必要があります。
 
- 
+:::row:::
+   :::column:::
+     ![水平方向にパンする 2 次元のリスト](images/groupedlistview1.png)
 
-|                                                                                         |                                                                                         |
-|-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| ![水平方向にパンする 2 次元のリスト](images/groupedlistview1.png)                | ![垂直方向にパンする 1 次元のリスト](images/listviewlistlayout.png)                |
-| 水平方向にパンする 2 次元のリスト。 項目を選択または移動するには垂直方向にドラッグします。 | 垂直方向にパンする 1 次元のリスト。 項目を選択または移動するには水平方向にドラッグします。 |
+     水平方向にパンする 2 次元のリスト。 項目を選択または移動するには垂直方向にドラッグします。 
+   :::column-end:::
+   :::column:::
+      ![垂直方向にパンする 1 次元のリスト](images/listviewlistlayout.png)
 
- 
+      垂直方向にパンする 1 次元のリスト。 項目を選択または移動するには水平方向にドラッグします。
+   :::column-end:::
+:::row-end:::
 
 ### <span id="selection"></span><span id="SELECTION"></span>
 
-**選択**
+**次を選択する**
 
 選択は、1 つ以上のオブジェクトを起動またはアクティブ化せずにマークする操作です。 これは、マウスを 1 回クリックする操作、または Shift キーを押しながらクリックする操作 (オブジェクトが複数の場合) に相当します。
 

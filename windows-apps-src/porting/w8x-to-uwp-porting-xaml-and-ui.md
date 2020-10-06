@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a20463414f0b96ea51bdf9796c48759975bfc43e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 62085377da89d64c8ba0799dc6bab13c17675f90
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162216"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750678"
 ---
 # <a name="porting-windows-runtime-8x-xaml-and-ui-to-uwp"></a>Windows ランタイム 8.x の XAML と UI の UWP への移植
 
@@ -93,7 +93,7 @@ Windows 10 で実行されるユニバーサル 8.1 アプリでは、コント�
 
 以下に、コントロールの変更に関する具体的な例を示します。
 
-| コントロール名 | 変更 |
+| コントロール名 | Change |
 |--------------|--------|
 | **AppBar**   | **AppBar** コントロールを使っている場合 (代わりに [**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.AppBar) をお勧めします)、既定では、Windows 10 アプリでこのコントロールは非表示になりません。 これを制御するには、[**AppBar.ClosedDisplayMode**](/uwp/api/windows.ui.xaml.controls.appbar.closeddisplaymode) プロパティを使います。 |
 | **AppBar**、[**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.AppBar) | Windows 10 アプリでは、**AppBar** と [**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.AppBar) には **[詳細表示]** ボタン (省略記号で表されます) があります。 |
@@ -103,9 +103,9 @@ Windows 10 で実行されるユニバーサル 8.1 アプリでは、コント�
 | [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、[**TimePicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) | [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker) や [**TimePicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) に加えられた視覚的な変化によってアプリの外観がどうなるかを確認してください。 モバイル デバイスで実行される Windows 10 アプリでは、これらのコントロールを使っても選択ページへは移動されません。ただし、簡易非表示に対応したポップアップが使われます。 |
 | [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、[**TimePicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) | Windows 10 アプリでは、 [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker) または [**timepicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) をフライアウト内に配置することはできません。これらのコントロールをポップアップ型のコントロールに表示する場合は、 [**DatePickerFlyout**](/uwp/api/Windows.UI.Xaml.Controls.DatePickerFlyout) と [**TimePickerFlyout**](/uwp/api/Windows.UI.Xaml.Controls.TimePickerFlyout)を使用できます。 |
 | **GridView**、**ListView** | **Gridview** / **listview**の場合は、「 [gridview と listview の変更点](#gridview-and-listview-changes)」を参照してください。 |
-| [**ハブ**](/uwp/api/Windows.UI.Xaml.Controls.Hub) | Windows Phone ストア アプリでは、[**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) コントロールは最後のセクションから最初のセクションに折り返します。 Windows ランタイム 8. x アプリと Windows 10 アプリでは、ハブのセクションは折り返されません。 |
-| [**ハブ**](/uwp/api/Windows.UI.Xaml.Controls.Hub) | Windows Phone ストア アプリでは、[**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) コントロールの背景画像は、ハブ セクションに対する視差効果で移動します。 Windows ランタイム 8. x アプリと Windows 10 アプリでは、視差は使用されません。 |
-| [**ハブ**](/uwp/api/Windows.UI.Xaml.Controls.Hub)  | ユニバーサル 8.1 アプリでは、[**HubSection.IsHeaderInteractive**](/uwp/api/windows.ui.xaml.controls.hubsection.isheaderinteractive) プロパティにより、セクション ヘッダーとその横に表示される山形のグリフが対話型になります。 Windows 10 アプリでは、ヘッダーの横に対話型の "詳細表示" アフォーダンスが表示されますが、ヘッダーそのものは対話型にはなりません。 **IsHeaderInteractive** により、操作で [**Hub.SectionHeaderClick**](/uwp/api/windows.ui.xaml.controls.hub.sectionheaderclick) イベントが発生するかどうかが決まります。 |
+| [**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) | Windows Phone ストア アプリでは、[**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) コントロールは最後のセクションから最初のセクションに折り返します。 Windows ランタイム 8. x アプリと Windows 10 アプリでは、ハブのセクションは折り返されません。 |
+| [**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) | Windows Phone ストア アプリでは、[**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) コントロールの背景画像は、ハブ セクションに対する視差効果で移動します。 Windows ランタイム 8. x アプリと Windows 10 アプリでは、視差は使用されません。 |
+| [**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub)  | ユニバーサル 8.1 アプリでは、[**HubSection.IsHeaderInteractive**](/uwp/api/windows.ui.xaml.controls.hubsection.isheaderinteractive) プロパティにより、セクション ヘッダーとその横に表示される山形のグリフが対話型になります。 Windows 10 アプリでは、ヘッダーの横に対話型の "詳細表示" アフォーダンスが表示されますが、ヘッダーそのものは対話型にはなりません。 **IsHeaderInteractive** により、操作で [**Hub.SectionHeaderClick**](/uwp/api/windows.ui.xaml.controls.hub.sectionheaderclick) イベントが発生するかどうかが決まります。 |
 | **MessageDialog** | **MessageDialog** を使っている場合は、柔軟性が向上した [**ContentDialog**](/uwp/api/Windows.UI.Xaml.Controls.ContentDialog) の利用を検討してください。 [XAML UI の基本](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics) のサンプルに関するページもご覧ください。 |
 | **ListPickerFlyout**、**PickerFlyout**  | **ListPickerFlyout** と **PickerFlyout** は、Windows 10 アプリでは使われなくなりました。 単一選択ポップアップの場合は、[**MenuFlyout**](/uwp/api/Windows.UI.Xaml.Controls.MenuFlyout) を使います。より複雑なエクスペリエンスの場合は、[**Flyout**](/uwp/api/Windows.UI.Xaml.Controls.Flyout) を使います。 |
 | [**PasswordBox**](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox) | [**PasswordBox.IsPasswordRevealButtonEnabled**](/uwp/api/windows.ui.xaml.controls.passwordbox.ispasswordrevealbuttonenabled) プロパティは、Windows 10 アプリでは使われなくなり、設定しても効果はありません。 代わりに [**PasswordRevealMode**](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode) を使用します。既定では、 **Peek** (Windows ランタイム 8. x アプリのような目のグリフが表示されます) が既定で選択されます。 「 [パスワードボックスのガイドライン](../design/controls-and-patterns/password-box.md)」も参照してください。 |
@@ -187,19 +187,19 @@ Windows ランタイム 8. x アプリから XAML マークアップを再利用
 
 次の表では、[**ListViewItem**](/uwp/api/Windows.UI.Xaml.Controls.ListViewItem) コントロール テンプレートと [**GridViewItem**](/uwp/api/Windows.UI.Xaml.Controls.GridViewItem) コントロール テンプレートでの表示状態や表示状態グループに対する変更について説明します。
 
-| 8.1                 |                         | Windows 10        |                     |
+| 8.1                 | 機能の状態           | Windows 10        | 機能の状態       |
 |---------------------|-------------------------|-------------------|---------------------|
 | CommonStates        |                         | CommonStates      |                     |
 |                     | Normal                  |                   | Normal              |
 |                     | PointerOver             |                   | PointerOver         |
 |                     | 押されている                 |                   | 押されている             |
 |                     | PointerOverPressed      |                   | [利用不可]       |
-|                     | Disabled                |                   | [利用不可]       |
+|                     | 無効                |                   | [利用不可]       |
 |                     | [利用不可]           |                   | PointerOverSelected |
-|                     | [利用不可]           |                   | オン            |
+|                     | [利用不可]           |                   | 選択済み            |
 |                     | [利用不可]           |                   | PressedSelected     |
 | [利用不可]       |                         | DisabledStates    |                     |
-|                     | [利用不可]           |                   | Disabled            |
+|                     | [利用不可]           |                   | 無効            |
 |                     | [利用不可]           |                   | Enabled             |
 | SelectionHintStates |                         | [利用不可]     |                     |
 |                     | VerticalSelectionHint   |                   | [利用不可]       |
@@ -213,8 +213,8 @@ Windows ランタイム 8. x アプリから XAML マークアップを再利用
 |                     | 未選択              |                   | [利用不可]       |
 |                     | UnselectedPointerOver   |                   | [利用不可]       |
 |                     | UnselectedSwiping       |                   | [利用不可]       |
-|                     | 選択               |                   | [利用不可]       |
-|                     | オン                |                   | [利用不可]       |
+|                     | 次を選択する               |                   | [利用不可]       |
+|                     | 選択済み                |                   | [利用不可]       |
 |                     | SelectedSwiping         |                   | [利用不可]       |
 |                     | SelectedUnfocused       |                   | [利用不可]       |
 
@@ -438,7 +438,7 @@ Windows ランタイム2.x アプリでは、アプリが非アクティブ化�
 
 Windows Phone ストア アプリと Windows 10 アプリでは、[戻る] ボタンを押すと、縮小表示ビューが閉じられます。 Windows ランタイム2.x アプリの場合、組み込みの [戻る] ボタンの処理はないため、この質問は適用されません。
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>設定
 
 Windows ランタイム 8.x の **SettingsPane** クラスは、Windows 10 には適していません。 代わりに、[設定] ページを作成し、さらに、アプリ内から [設定] ページにアクセスする方法をユーザーに提供する必要があります。 このアプリの [設定] ページはトップ レベルで表示されるようにすることをお勧めしますが、ナビゲーション ウィンドウの最後のピン留めされた項目として、ここにはオプションの完全なセットがあります。
 
@@ -450,7 +450,7 @@ Windows ランタイム 8.x の **SettingsPane** クラスは、Windows 10 に�
 
 [設定] ページはアプリのウィンドウ全体を埋め、このページには [バージョン情報] と [フィードバック] があることも必要です。 設定ページの設計に関するガイダンスについては、「 [アプリ設定のガイドライン](../design/app-settings/guidelines-for-app-settings.md)」を参照してください。
 
-## <a name="text"></a>テキスト
+## <a name="text"></a>Text
 
 テキスト (または文字体裁) は UWP アプリの重要な要素です。移植するときには、ビューの視覚的なデザインが新しいデザイン言語に適合するように、ビューの視覚的なデザインを再検討することが必要になる場合があります。 次の図を使って、ユニバーサル Windows プラットフォーム (UWP) の利用可能な  **TextBlock** システム スタイルを見つけてください。 使用した Windows Phone Silverlight スタイルに対応するものを見つけます。 また、独自のユニバーサル スタイルを作成し、Windows Phone Silverlight システム スタイルからプロパティをコピーすることもできます。
 

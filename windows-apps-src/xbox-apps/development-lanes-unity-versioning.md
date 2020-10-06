@@ -4,12 +4,12 @@ description: ユニバーサル Windows プラットフォーム (UWP) を使用
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: 3e4d98892b9bd738eca788d166ef79f81ea1b047
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1c0eb9bfc6ee758b854754b0531299fb30b51d1c
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173746"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749858"
 ---
 # <a name="unity-version-control-your-uwp-project"></a>Unity: UWP プロジェクトのバージョン管理
 
@@ -31,25 +31,27 @@ ms.locfileid: "89173746"
 
 ***ファイルの種類について理解していない場合は、 「 [.Gitignore](https://git-scm.com/docs/gitignore)を参照してください。***
 
-    ##################################################################
-    # The original .gitignore file can be found at
-    # https://github.com/github/gitignore/blob/master/Unity.gitignore
-    ##################################################################
+```console
+##################################################################
+# The original .gitignore file can be found at
+# https://github.com/github/gitignore/blob/master/Unity.gitignore
+##################################################################
 
-    # standard ignores for a Unity Project
-    ...
+# standard ignores for a Unity Project
+...
 
-    # ignore the whole UWP directory
-    /UWP/**
+# ignore the whole UWP directory
+/UWP/**
 
-    # except we want to keep... (this line will be modified and removed further down)
-    !/UWP/ScrapyardPhoenix/
+# except we want to keep... (this line will be modified and removed further down)
+!/UWP/ScrapyardPhoenix/
+```
 
 ここでは、**UWP/ScrapyardPhoenix** フォルダー内のいくつかのファイルやフォルダーを選択してバージョン管理に追加します。  最初に、フォルダーの内容全体を詳しく見てみましょう。
 
 ![UWP ビルド ディレクトリ](images/uwp-build-directory.png)  
 
-## <a name="folders"></a>Folders  
+## <a name="folders"></a>フォルダー  
 
 `Assets` | ***Include*** |Microsoft Store イメージを含む  
 `Data`   | ***無視*** |Unity はプロジェクトを (シーン、シェーダー、スクリプト、Prefabs など) にコンパイルします。  
@@ -57,7 +59,7 @@ ms.locfileid: "89173746"
 `Properties` | ***Include*** |開発者が変更できる詳細設定が含まれています  
 `Unprocessed` | ***無視*** |Unity `.dll` と `.pdb` ファイルが含まれています  
 
-## <a name="files"></a>ファイル  
+## <a name="files"></a>Files  
 
 `App.cs` | ***Include*** |UWP アプリケーションのエントリポイントです。これは、他のソースファイルで変更および拡張できます。  
 `Package.appxmanifest` | ***Include*** |. Msix または .appx パッケージのアプリケーションパッケージマニフェストソースファイル  
@@ -67,25 +69,27 @@ ms.locfileid: "89173746"
 
 ## <a name="resulting-gitignore"></a>結果として得られる .gitignore
 
-    ##################################################################
-    # The original .gitignore file can be found at
-    # https://github.com/github/gitignore/blob/master/Unity.gitignore
-    ##################################################################
+```console
+##################################################################
+# The original .gitignore file can be found at
+# https://github.com/github/gitignore/blob/master/Unity.gitignore
+##################################################################
 
-    # standard ignores for a Unity Project
-    ...
+# standard ignores for a Unity Project
+...
 
-    # ignore the whole UWP directory
-    /UWP/**
+# ignore the whole UWP directory
+/UWP/**
 
-    # except we want to keep...
-    !/UWP/ScrapyardPhoenix/Assets/*
-    !/UWP/ScrapyardPhoenix/Dependencies/*
-    !/UWP/ScrapyardPhoenix/Properties/*
-    !/UWP/ScrapyardPhoenix/App.cs
-    !/UWP/ScrapyardPhoenix/Package.appxmanifest
-    !/UWP/ScrapyardPhoenix/project.json
-    !/UWP/ScrapyardPhoenix/ScrapyardPhoenix.csproj
+# except we want to keep...
+!/UWP/ScrapyardPhoenix/Assets/*
+!/UWP/ScrapyardPhoenix/Dependencies/*
+!/UWP/ScrapyardPhoenix/Properties/*
+!/UWP/ScrapyardPhoenix/App.cs
+!/UWP/ScrapyardPhoenix/Package.appxmanifest
+!/UWP/ScrapyardPhoenix/project.json
+!/UWP/ScrapyardPhoenix/ScrapyardPhoenix.csproj
+```
 
 これで、開発チームのメンバーは生成された最新の UWP プロジェクトを利用できるようになります。 新しいアセット、ソース、依存関係を、UWP プロジェクトに自由に追加できます。
 
@@ -99,6 +103,6 @@ UWP フォルダーのバージョン管理については、[これらの例](h
 
 ***ScrapyardPhoenix (ユニバーサル Windows)*** が、Xbox Live SDK などへの参照を追加する対象のプロジェクトです。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 - [既存のゲームの Xbox への移行](development-lanes-landing.md)
 - [Xbox One の UWP](index.md)

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d3b032b735b8985ae87ce78e100442085cce55e7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 603cdfe0c35d559ca3f2acacbce491ce3f54c35d
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163706"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749998"
 ---
 # <a name="playready-drm"></a>PlayReady DRM
 
@@ -287,7 +287,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
 
 <table>
     <tr>
-        <th>通信の種類</th>
+        <th>シナリオ</th>
         <th>GUID</th>
         <th>条件</th>
         <th>結果</th>
@@ -319,7 +319,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
 
 <table>
     <tr>
-        <th>通信の種類</th>
+        <th>シナリオ</th>
         <th>GUID</th>
         <th>条件</th>
         <th colspan="2">結果</th>
@@ -371,7 +371,7 @@ PlayReady DRM では、HDCP 2.0 以降がエンゲージされるとすぐに Mi
 
 <table>
     <tr>
-        <th>通信の種類</th>
+        <th>シナリオ</th>
         <th>GUID</th>
         <th>条件</th>
         <th colspan="2">結果</th>
@@ -472,30 +472,30 @@ mediaProtectionManager.Properties["Windows.Media.Protection.MediaProtectionConta
 ## <a name="query-for-protection-capabilities"></a>保護機能を照会する
 Windows 10 Version 1703 以降では、デコード コーデック、解像度、出力保護 (HDCP) などの HW DRM 機能を照会できます。 クエリを実行するには、[**IsTypeSupported**](/uwp/api/windows.media.protection.protectioncapabilities.istypesupported) メソッドを使います。このメソッドには、サポート状態を照会する機能を表す文字列と、クエリの適用先のキー システムを指定する文字列を指定します。 サポートされている文字列値の一覧については、API リファレンスの [**IsTypeSupported**](/uwp/api/windows.media.protection.protectioncapabilities.istypesupported) のページをご覧ください。 次のコード例は、このメソッドの使用方法を示しています。  
 
-    ```cs
-    using namespace Windows::Media::Protection;
+```cs
+using namespace Windows::Media::Protection;
 
-    ProtectionCapabilities^ sr = ref new ProtectionCapabilities();
+ProtectionCapabilities^ sr = ref new ProtectionCapabilities();
 
-    ProtectionCapabilityResult result = sr->IsTypeSupported(
-    L"video/mp4; codecs=\"avc1.640028\"; features=\"decode-bpp=10,decode-fps=29.97,decode-res-x=1920,decode-res-y=1080\"",
-    L"com.microsoft.playready");
+ProtectionCapabilityResult result = sr->IsTypeSupported(
+L"video/mp4; codecs=\"avc1.640028\"; features=\"decode-bpp=10,decode-fps=29.97,decode-res-x=1920,decode-res-y=1080\"",
+L"com.microsoft.playready");
 
-    switch (result)
-    {
-        case ProtectionCapabilityResult::Probably:
-        // Queue up UHD HW DRM video
-        break;
+switch (result)
+{
+    case ProtectionCapabilityResult::Probably:
+    // Queue up UHD HW DRM video
+    break;
 
-        case ProtectionCapabilityResult::Maybe:
-        // Check again after UI or poll for more info.
-        break;
+    case ProtectionCapabilityResult::Maybe:
+    // Check again after UI or poll for more info.
+    break;
 
-        case ProtectionCapabilityResult::NotSupported:
-        // Do not queue up UHD HW DRM video.
-        break;
-    }
-    ```
+    case ProtectionCapabilityResult::NotSupported:
+    // Do not queue up UHD HW DRM video.
+    break;
+}
+```
 ## <a name="add-secure-stop"></a>セキュア ストップを追加する
 
 このセクションでは、UWP アプリにセキュア ストップを追加する方法を説明します。
@@ -536,5 +536,5 @@ Xbox One の UWP アプリで PlayReady DRM を使用するには、まず、Pla
 企業と製品に応じて最適なアプローチを使用してください。
 
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 - [メディア再生](media-playback.md)

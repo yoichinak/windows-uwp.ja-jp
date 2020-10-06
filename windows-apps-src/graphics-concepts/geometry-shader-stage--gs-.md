@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 61d794e93718bc9450c1a0f3dce2e921da7e513d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8e4573547ebffa0a58b4e2347162799035d8f898
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89168076"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750008"
 ---
 # <a name="geometry-shader-gs-stage"></a>ジオメトリ シェーダー (GS) ステージ
 
@@ -51,8 +51,8 @@ ms.locfileid: "89168076"
 
 一般的な頂点の略語:
 
-|     |                 |
-|-----|-----------------|
+| 省略形 | 期間 |
+| ------------ | ---- |
 | TV  | 三角形頂点 |
 | LV  | 線頂点     |
 | AV  | 隣接頂点 |

@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c60794a52c3d8a5f597d4ab2d09490405c98f85a
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 5ec8832d4e0e8c72954bf4d0582aac8240da2efe
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218375"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750688"
 ---
 # <a name="create-adaptive-tiles"></a>アダプティブ タイルの作成
 
@@ -203,7 +203,7 @@ TileContent content = new TileContent()
 
 ![アダプティブ タイル サイズ: 小、中、ワイド、大](images/adaptive-tiles-sizes.png)
 
-## <a name="branding"></a>ブランド化
+## <a name="branding"></a>ブランド
 
 
 通知ペイロード内で branding 属性を使って、ライブ タイルの下部でブランディング (表示名とコーナー ロゴ) を制御できます。 表示なし ("none")、名前のみ表示 ("name")、ロゴのみ表示 ("logo")、名前とロゴの両方を表示 ("nameAndLogo") のいずれかを選べます。
@@ -412,16 +412,15 @@ new AdaptiveText()
 
 **基本的なテキスト スタイル**
 
-|                                |                           |             |
-|--------------------------------|---------------------------|-------------|
 | &lt;テキストヒント-style = " \* "/&gt; | フォントの高さ               | フォントの太さ |
+|--------------------------------|---------------------------|-------------|
 | caption                        | 12 epx (有効ピクセル) | Regular     |
 | body                           | 15 epx                    | Regular     |
 | base                           | 15 epx                    | 中太字    |
 | subtitle                       | 20 epx                    | Regular     |
 | title                          | 24 epx                    | Semilight   |
-| subheader                      | 34 epx                    | 白       |
-| header                         | 46 epx                    | 白       |
+| subheader                      | 34 epx                    | 淡色       |
+| header                         | 46 epx                    | 淡色       |
 
  
 
@@ -429,11 +428,11 @@ new AdaptiveText()
 
 次のバリエーションでは、テキストに上下のコンテンツが近づくように、行の高さを減らすことができます。
 
-|                  |
-|------------------|
-| titleNumeral     |
-| subheaderNumeral |
-| headerNumeral    |
+- titleNumeral
+
+- subheaderNumeral
+
+- headerNumeral
 
  
 
@@ -441,18 +440,25 @@ new AdaptiveText()
 
 各スタイルの "Subtle" バリエーションでは、テキストの不透明度を 60% に設定して、テキストの色を淡い灰色で暗くすることができます。
 
-|                        |
-|------------------------|
-| captionSubtle          |
-| bodySubtle             |
-| baseSubtle             |
-| subtitleSubtle         |
-| titleSubtle            |
-| titleNumeralSubtle     |
-| subheaderSubtle        |
-| subheaderNumeralSubtle |
-| headerSubtle           |
-| headerNumeralSubtle    |
+- captionSubtle
+
+- bodySubtle
+
+- baseSubtle
+
+- subtitleSubtle
+
+- titleSubtle
+
+- titleNumeralSubtle
+
+- subheaderSubtle
+
+- subheaderNumeralSubtle
+
+- headerSubtle
+
+- headerNumeralSubtle
 
  
 

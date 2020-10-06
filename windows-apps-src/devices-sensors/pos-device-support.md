@@ -5,12 +5,12 @@ ms.date: 06/13/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bf5d6a2413ba6aeb2e3fd86122e865e34b8729fa
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9e89011086e6c6d318d589226400789b41f8fe64
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172206"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750349"
 ---
 # <a name="supported-point-of-service-peripherals"></a>サポートされている POS 周辺機器
 
@@ -23,7 +23,7 @@ ms.locfileid: "89172206"
 |
 
 
-| 製造元  | モデル                          | 機能 | 接続    | Type         | モード                      |
+| Manufacturer  | モデル                          | 機能 | Connection    | Type         | モード                      |
 |---------------|--------------------------------|------------|--------------|--------------|---------------------------|
 | コード          | リーダー™950                    | 2D         | USB          | ハンドヘルド     | HID POS スキャナー           |
 | コード          | リーダー™1021                   | 2D         | USB          | ハンドヘルド     | HID POS スキャナー           |
@@ -75,12 +75,12 @@ ms.locfileid: "89172206"
 <hr>
 
 ### <a name="windows-devices-with-built-in-barcode-scanner"></a>組み込みのバーコードスキャナーがある Windows デバイス
-| 製造元   | モデル | オペレーティング システム |
+| Manufacturer   | モデル | オペレーティング システム |
 |----------------|-------|------------------|
 | Innowi         | ChecOut-M | Windows 10   |
 
 ### <a name="windows-mobile-devices-with-built-in-barcode-scanner"></a>組み込みのバーコードスキャナーを備えた Windows Mobile デバイス
-| 製造元   | モデル | オペレーティング システム |
+| Manufacturer   | モデル | オペレーティング システム |
 |----------------|-------|------------------|
 | Bluebird       | EF400 | Windows Mobile   |
 | Bluebird       | EF500 | Windows Mobile   |
@@ -111,7 +111,7 @@ ms.locfileid: "89172206"
 ## <a name="magnetic-stripe-reader"></a>磁気ストライプ リーダー
 Windows では、ベンダー ID と製品 ID (VID/PID) に基づいて、Magtek と IDTech の次の磁気ストライプ リーダーのサポートを提供します。
 
-| 製造元 |    モデル |  製品番号 |
+| Manufacturer |    モデル |  製品番号 |
 |--------------|-----------|--------------|
 | IDTech | SecureMag (VID:0ACD PID:2010) | IDRE-3x5xxxx |
 | | MiniMag (VID:0ACD PID:0500) |   IDMB-3x5xxxx |
@@ -123,15 +123,15 @@ Windows では、ベンダー ID と製品 ID (VID/PID) に基づいて、Magtek
 ## <a name="receipt-printer-posprinter"></a>レシート プリンター (POSPrinter)
 | 接続 | サポート |
 | -------------|-------------|
-| ネットワークと Bluetooth | <p>Windows では、Epson ESC/POS プリンター制御言語を使用して、ネットワークおよび Bluetooth で接続されているレシート プリンターをサポートしています。  以下に示すプリンターは、POSPrinter API を使用して自動的に検出されます。 ESC/POS エミュレーションを提供するその他のレシート プリンターも使用できる可能性がありますが、[帯域外ペアリング](./point-of-service.md#out-of-band-pairing) プロセスを使用して関連付ける必要があります。</p><p>注: この方法では、スリップ ステーションとジャーナル ステーションはサポートされません。</p> |
+| ネットワークと Bluetooth | <p>Windows では、Epson ESC/POS プリンター制御言語を使用して、ネットワークおよび Bluetooth で接続されているレシート プリンターをサポートしています。  以下に示すプリンターは、POSPrinter API を使用して自動的に検出されます。 ESC/POS エミュレーションを提供するその他のレシート プリンターも使用できる可能性がありますが、[帯域外ペアリング](./point-of-service.md) プロセスを使用して関連付ける必要があります。</p><p>注: この方法では、スリップ ステーションとジャーナル ステーションはサポートされません。</p> |
 | OPOS    | <p> OPOS サービス オブジェクトを介して、OPOS 互換のレシート プリンターをサポートします。 デバイスの製造元のインストール手順に従って、OPOS ドライバーをインストールします。 </p> |
 
 ### <a name="stationary-receipt-printers-networkbluetooth"></a>固定型レシート プリンター (ネットワーク/Bluetooth)
-| 製造元 |    モデル |
+| Manufacturer |    モデル |
 |--------------|-----------|
 | Epson |   TM T88V、TM-T70、TM-T20、TM U220 |
 
 ### <a name="mobile-receipt-printers-bluetooth"></a>モバイル レシート プリンター (Bluetooth)
-| 製造元 |    モデル |
+| Manufacturer |    モデル |
 |--------------|-----------|
 | Epson |   Mobilink P20 (TM-P20)、Mobilink P60 (TM-P60)、Mobilink P80 (TM-P80) |

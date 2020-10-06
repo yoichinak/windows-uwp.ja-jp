@@ -19,23 +19,23 @@
                   href: desktop/modernize/desktop-to-uwp-enhance.md
                 - name: 利用可能な Windows ランタイム API
                   href: desktop/modernize/desktop-to-uwp-supported-api.md
-            - name: UWP XAML コントロールのホスト (XAML Islands)
+            - name: WinRT XAML コントロールのホスト (XAML Islands)
               items:
                 - name: 概要
                   href: desktop/modernize/xaml-islands.md
                 - name: WPF アプリと Windows フォーム アプリでの XAML Islands
                   items:
-                    - name: 標準 UWP コントロールをホストする
+                    - name: 標準 WinRT XAML コントロールのホスト
                       href: desktop/modernize/host-standard-control-with-xaml-islands.md
-                    - name: カスタム UWP コントロールをホストする
+                    - name: カスタム WinRT XAML コントロールのホスト
                       href: desktop/modernize/host-custom-control-with-xaml-islands.md
                 - name: C++ Win32 アプリでの XAML Islands
                   items:
-                    - name: API をホストしている UWP XAML の使用
+                    - name: API をホストしている WinRT XAML の使用
                       href: desktop/modernize/using-the-xaml-hosting-api.md
-                    - name: 標準 UWP コントロールをホストする
+                    - name: 標準 WinRT XAML コントロールのホスト
                       href: desktop/modernize/host-standard-control-with-xaml-islands-cpp.md
-                    - name: カスタム UWP コントロールをホストする
+                    - name: カスタム WinRT XAML コントロールのホスト
                       href: desktop/modernize/host-custom-control-with-xaml-islands-cpp.md
                     - name: 高度なシナリオ
                       href: desktop/modernize/advanced-scenarios-xaml-islands-cpp.md

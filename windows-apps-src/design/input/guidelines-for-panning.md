@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3a5e26d48ef74631e732fb043e909869945a6366
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 596a9f2f3f234ba90b799eae982523c3a9de9732
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217052"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749938"
 ---
 # <a name="guidelines-for-panning"></a>パンのガイドライン
 
@@ -139,12 +139,23 @@ Windows 8 では 3 種類のパンがサポートされます。
 
 次の図は、特定の位置にパンして離すことでコンテンツを論理的な位置に自動的にパンする方法を示しています。
 
-|                                                                |                                                                                         |                                                                                                                 |
-|----------------------------------------------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| ![パン対応領域を示す図](images/ux-panning-snap1.png) | ![左にパンされているパン対応領域を示す図](images/ux-panning-snap2.png) | ![論理的なスナップ位置でパンを停止したパン対応領域を示す図](images/ux-panning-snap3.png) |
-| スワイプしてパンします。                                                  | タッチによる接触を離します。                                                                     | パン対応領域は、タッチによる接触が離れた場所ではなく、スナップ位置で停止します。                                |
+:::row:::
+   :::column:::
+      ![パン対応領域を示す図](images/ux-panning-snap1.png)
 
- 
+      スワイプしてパンします。
+   :::column-end:::
+   :::column:::
+      ![左にパンされているパン対応領域を示す図](images/ux-panning-snap2.png)
+
+      タッチによる接触を離します。
+   :::column-end:::
+   :::column:::
+      ![論理的なスナップ位置でパンを停止したパン対応領域を示す図](images/ux-panning-snap3.png)
+
+      パン対応領域は、タッチによる接触が離れた場所ではなく、スナップ位置で停止します。
+   :::column-end:::
+:::row-end:::
 
 **レール** コンテンツは、ディスプレイ デバイスのサイズと解像度より広かったり高かったりする場合があります。 このため、2 次元のパン (水平方向と垂直方向) が必要になることがよくあります。 レールは、このような場合に動作の主軸 (垂直方向または水平方向) に沿ってパンを強調表示することで、ユーザー エクスペリエンスを向上させます。
 
@@ -172,7 +183,7 @@ Windows 8 では 3 種類のパンがサポートされます。
 
 - [カスタム ユーザー操作](../layout/index.md)
 - [ListView と GridView の最適化](../../debug-test-perf/optimize-gridview-and-listview.md)
-- [キーボードアクセシビリティ](../accessibility/keyboard-accessibility.md)
+- [キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)
 
 **サンプル**
 - [基本的な入力のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
