@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f28e3e26d56f5741ceb0e5be13288c7dbd6c722f
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 794bf6e99701dd73ee74b07c289fe9a2e5ca9744
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220475"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749779"
 ---
 # <a name="text-box"></a>テキスト ボックス
 
@@ -26,9 +26,17 @@ TextBox には、テキスト入力を簡略化するための多くの機能が
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
+:::row:::
+   :::column:::
+      ![WinUI ロゴ](images/winui-logo-64x64.png)
+   :::column-end:::
+   :::column span="3":::
+      Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。
+   :::column-end:::
+   :::column:::
+
+   :::column-end:::
+:::row-end:::
 
 > **プラットフォーム API**: [TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[Text プロパティ](/uwp/api/windows.ui.xaml.controls.textbox.text)
 

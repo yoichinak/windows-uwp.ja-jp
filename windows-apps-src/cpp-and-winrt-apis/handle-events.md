@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、処理、イベント、デリゲート
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d2470b1aa52f8aa4be7e07bf1dfe5213054b005
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fefc7f72fb91a61ae924ac082dcac6d3cf9c044b
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166246"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750128"
 ---
 # <a name="handle-events-by-using-delegates-in-cwinrt"></a>C++/WinRT でのデリゲートを使用したイベントの処理
 
@@ -112,12 +112,12 @@ struct RoutedEventHandler : winrt::Windows::Foundation::IUnknown
 > ```
 >
 > その情報から、**UIElement.KeyDown** イベント (現在のトピック) には **KeyEventHandler** のデリゲート型があることがわかります。これは、このイベント型にデリゲートを登録するときに渡す型だからです。 次は、このトピックの [KeyEventHandler デリゲート](/uwp/api/windows.ui.xaml.input.keyeventhandler)型のリンクをたどりましょう。 この構文ブロックには関数呼び出し演算子が含まれています。 また、前述のように、必要なデリケートのパラメーターを通知します。
-> 
-> ```cppwinrt
-> void operator()(
-    winrt::Windows::Foundation::IInspectable const& sender,
-    winrt::Windows::UI::Xaml::Input::KeyRoutedEventArgs const& e) const;
-> ```
+>
+>```cppwinrt
+>void operator()(
+>   winrt::Windows::Foundation::IInspectable const& sender,
+>   winrt::Windows::UI::Xaml::Input::KeyRoutedEventArgs const& e) const;
+>```
 >
 >  ご覧のとおり、送信者として **IInspectable** を、引数として [KeyRoutedEventArgs クラス](/uwp/api/windows.ui.xaml.input.keyroutedeventargs)のインスタンスを受け取るようにデリゲートを宣言する必要があります。
 >

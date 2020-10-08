@@ -11,12 +11,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 773079129b5e05e26501f78fe177f4b5367902da
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: c1d712e9d4a12800542184cf37fb504d6f7d20d7
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217275"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750508"
 ---
 # <a name="control-templates"></a>コントロール テンプレート
 
@@ -170,10 +170,9 @@ XAML フレームワークで、コントロール テンプレートを作る�
 
 [  **VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) オブジェクトの機能をよりよく理解するために、[**CheckBox**](/uwp/api/Windows.UI.Xaml.Controls.CheckBox) が `Unchecked` 状態から `Checked` 状態に変化した後、`Indeterminate` 状態に変化してから、`Unchecked` 状態に戻るとき、どのようになるかを考えてみます。 状態の遷移を次に示します。
 
-|                                      |                                                                                                                                                                                                                                                                                                                                                |                                                   |
-|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| 状態の変化                     | 動作                                                                                                                                                                                                                                                                                                                                   | 遷移完了時の CheckBox の外観 |
-| `Unchecked` から `Checked`。       | `Checked` [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`CheckGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。                                                                                                                                                         | X が表示される。                                |
+| 状態の変化 | 動作 | 遷移完了時の CheckBox の外観 |
+| ---------------- | ------------ | ------------------------------------------------- |
+| `Unchecked` から `Checked`。       | `Checked` [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`CheckGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。                                                                                                                                                          | X が表示される。                                |
 | `Checked` から `Indeterminate`。   | `Indeterminate` [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) 値が適用され、`IndeterminateGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 1 となる。 `Checked` **VisualState** の **Setter** 値が削除され、`CheckGlyph` の [**Opacity**](/uwp/api/windows.ui.xaml.media.brush.opacity) が 0 となる。 | 円が表示される。                            |
 | `Indeterminate` から `Unchecked`。 | `Indeterminate` [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) の [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) 値が削除され、`IndeterminateGlyph` の [**Opacity**](/uwp/api/Windows.UI.Xaml.UIElement.Opacity) が 0 となる。                                                                                                                                           | 何も表示されない。                             |
 

@@ -5,12 +5,12 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: e3c6b4213ee5edf8f9a5878b4f9a1a7095220bcd
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 353ca9922bc633efa5f53b2c3a3f4d7a4cad5986
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157326"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750618"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
@@ -33,8 +33,8 @@ ms.locfileid: "89157326"
 
 ## <a name="changes-that-involve-the-language-projection"></a>言語プロジェクションに関連する変更
 
-||C#|C++/WinRT|関連項目|
-|-|-|-|-|
+| カテゴリ | C# | C++/WinRT | 関連項目 |
+| -------- | -- | --------- | -------- |
 |型指定されていないオブジェクト|`object`、または [**System.Object**](/dotnet/api/system.object)|[**Windows::Foundation::IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable)|[**EnableClipboardContentChangedNotifications** メソッドの移植](./clipboard-to-winrt-from-csharp.md#enableclipboardcontentchangednotifications)|
 |プロジェクション名前空間|`using System;`|`using namespace Windows::Foundation;`||
 ||`using System.Collections.Generic;`|`using namespace Windows::Foundation::Collections;`||
@@ -107,8 +107,8 @@ void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
 
 ## <a name="changes-that-involve-the-language-syntax"></a>言語構文に関連する変更
 
-||C#|C++/WinRT|関連項目|
-|-|-|-|-|
+| カテゴリ | C# | C++/WinRT | 関連項目 |
+| -------- | -- | --------- | -------- |
 |アクセス修飾子|`public \<member\>`|`public:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`\<member\>`|[**Button_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#button_click)|
 |データ メンバーへのアクセス|`this.variable`|`this->variable`||
 |非同期アクション|`async Task ...`|`IAsyncAction ...`||
@@ -128,10 +128,10 @@ void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
 |文字列リテラル|`"a string literal"`|`L"a string literal"`|[コンストラクター、**Current**、**FEATURE_NAME** の移植](./clipboard-to-winrt-from-csharp.md#the-constructor-current-and-feature_name)|
 |推論された (または推測された) 型|`var`|`auto`|[**BuildClipboardFormatsOutputString** メソッドの移植](./clipboard-to-winrt-from-csharp.md#buildclipboardformatsoutputstring)|
 |using ディレクティブ|`using A.B.C;`|`using namespace A::B::C;`|[コンストラクター、**Current**、**FEATURE_NAME** の移植](./clipboard-to-winrt-from-csharp.md#the-constructor-current-and-feature_name)|
-|逐語的/未加工の文字列リテラル|`@"verbatim string literal"`|`LR"(raw string literal)"`|[**DisplayToast** メソッドの移植](./clipboard-to-winrt-from-csharp.md##displaytoast)|
+|逐語的/未加工の文字列リテラル|`@"verbatim string literal"`|`LR"(raw string literal)"`|[**DisplayToast** メソッドの移植](./clipboard-to-winrt-from-csharp.md#displaytoast)|
 
 > [!NOTE]
-> ヘッダー ファイルに特定の名前空間の `using namespace` ディレクティブが含まれていない場合、その名前空間のすべての型名を完全修飾する必要があります。または、コンパイラーがそれらを見つけられるように十分に修飾する必要があります。 例として、[**DisplayToast** メソッドの移植](./clipboard-to-winrt-from-csharp.md##displaytoast)に関する記事を参照してください。
+> ヘッダー ファイルに特定の名前空間の `using namespace` ディレクティブが含まれていない場合、その名前空間のすべての型名を完全修飾する必要があります。または、コンパイラーがそれらを見つけられるように十分に修飾する必要があります。 例として、[**DisplayToast** メソッドの移植](./clipboard-to-winrt-from-csharp.md#displaytoast)に関する記事を参照してください。
 
 ### <a name="porting-classes-and-members"></a>クラスとメンバーの移植
 
@@ -151,8 +151,8 @@ C# の静的フィールドは、C++/WinRT の静的アクセサーおよびミ�
 
 ## <a name="changes-that-involve-procedures-within-the-language"></a>言語内のプロシージャに関連する変更
 
-||C#|C++/WinRT|関連項目|
-|-|-|-|-|
+| カテゴリ | C# | C++/WinRT | 関連項目 |
+| -------- | -- | --------- | -------- |
 |非同期メソッドでの有効期間の管理|なし|`auto lifetime{ get_strong() };`<br>`auto lifetime = get_strong();`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)|
 |破棄|`using (var t = v)`|`auto t{ v };`<br>`t.Close(); // or let wrapper destructor do the work`|[**CopyImage** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copyimage)|
 |オブジェクトの構築|`new MyType(args)`|`MyType{ args }`<br>`MyType(args)`|[**Scenarios** プロパティの移植](./clipboard-to-winrt-from-csharp.md#scenarios)|
@@ -266,8 +266,8 @@ Most recent status is <Run Text="{x:Bind LatestOperation.Status}"/>.
 
 C# には、文字列の作成用に組み込みの [**StringBuilder**](/dotnet/api/system.text.stringbuilder) 型があります。
 
-| | C# | C++/WinRT |
-|-|-|-|
+| カテゴリ | C# | C++/WinRT |
+| -------- | -- | --------- |
 | 文字列の作成 | `StringBuilder builder;`<br>`builder.Append(...);` | `std::wostringstream builder;`<br>`builder << ...;` |
 | Windows ランタイム文字列を追加し、null を保持 | `builder.Append(s);` | `builder << std::wstring_view{ s };` |
 | 改行を追加 |`builder.Append(Environment.NewLine);` | `builder << std::endl;` |

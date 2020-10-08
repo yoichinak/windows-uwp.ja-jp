@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d4e8d86c46144531e423ed514b2865a90d78e051
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 12b6662eb7bbfc08563dd9f7313aa0ea7d0a0e18
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217855"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749708"
 ---
 # <a name="pivot"></a>Pivot
 
@@ -25,9 +25,17 @@ ms.locfileid: "91217855"
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
+:::row:::
+   :::column:::
+      ![WinUI ロゴ](images/winui-logo-64x64.png)
+   :::column-end:::
+   :::column span="3":::
+      Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。
+   :::column-end:::
+   :::column:::
+
+   :::column-end:::
+:::row-end:::
 
 > **プラットフォーム API**: [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[NavigationView クラス](/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
 

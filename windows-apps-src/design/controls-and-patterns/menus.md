@@ -13,12 +13,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: e44da32b5eec603ed9a334b4b870ca1176047a97
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 29f7f1420e8f4284f1a4ed0c835a70e15958f95f
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218655"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91749928"
 ---
 # <a name="menus-and-context-menus"></a>メニューとショートカット メニュー
 
@@ -28,9 +28,17 @@ ms.locfileid: "91218655"
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **MenuBar** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。 |
+:::row:::
+   :::column:::
+      ![WinUI ロゴ](images/winui-logo-64x64.png)
+   :::column-end:::
+   :::column span="3":::
+      **MenuBar** コントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。
+   :::column-end:::
+   :::column:::
+
+   :::column-end:::
+:::row-end:::
 
 > **Windows UI ライブラリ API:** [MenuBar クラス](/uwp/api/microsoft.ui.xaml.controls.menubar)
 >

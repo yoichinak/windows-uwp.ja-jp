@@ -6,12 +6,12 @@ ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: acdc8d5bb9a73bf5851dfd8f75f777c2a13bcdb1
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: edaa15aa2e88252c328a368df1b7698a9b74f5e0
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173136"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750448"
 ---
 # <a name="create-a-hello-world-app-in-ccx"></a>"Hello, World!" アプリを C++/CX で作成する
 
@@ -279,24 +279,24 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 1.  App.xaml を開きます。
 2.  開始 [**Application**](/uwp/api/Windows.UI.Xaml.Application) タグで、[**RequestedTheme**](/uwp/api/windows.ui.xaml.application.requestedtheme) プロパティを編集し、その値を **Dark** に設定します。
 
-```xaml
-RequestedTheme="Dark"
-```
+    ```xaml
+    RequestedTheme="Dark"
+    ```
 
-    Here's the full [**Application**](/uwp/api/Windows.UI.Xaml.Application) tag with the dark theme :
+    濃色テーマを追加した [**Application**](/uwp/api/Windows.UI.Xaml.Application) タグ全体を次に示します。
 
-```xaml
+    ```xaml
     <Application
     x:Class="HelloWorld.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HelloWorld"
     RequestedTheme="Dark">
-```
+    ```
 
 3.  F5 キーを押して、アプリをビルドし、実行します。 濃色テーマが使われていることに注目してください。
 
-![濃色テーマのアプリ画面](images/xaml-hw-app3.png)
+    ![濃色テーマのアプリ画面](images/xaml-hw-app3.png)
 
 どちらを使えばいいでしょうか。 どちらでも好きなほうを使用できます。 お勧めするとすれば、主に画像やビデオを表示するアプリには濃色テーマ、テキストが大量に含まれるアプリには淡色テーマです。 カスタム配色を使う場合は、アプリの外観に最もよく合ったテーマを使ってください。 このチュートリアルの残りの部分では、スクリーンショットで淡色テーマを使います。
 

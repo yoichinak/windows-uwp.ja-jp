@@ -5,12 +5,12 @@ ms.date: 01/17/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 94ffa80700cea640d63f63344991144a2ac00ab6
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0e25f9cdb091f96b648ddc00d5f5cc96bf18d1d1
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157316"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750598"
 ---
 # <a name="move-to-cwinrt-from-ccx"></a>C++/CX から C++/WinRT への移行
 
@@ -39,7 +39,7 @@ C++/CX から C++/WinRT への移植は一般的に簡単ですが、[並列パ�
 
 段階的な移植プロセス用にプロジェクトを準備するには、1 つのオプションとして C++/CX プロジェクトに C++/WinRT サポートを追加する方法があります。 これを実行する手順については、「[C++/CX プロジェクトを取得して C++/WinRT サポートを追加する](./interop-winrt-cx.md#taking-a-ccx-project-and-adding-cwinrt-support)」を参照してください。 その後、段階的に移植できます。
 
-別の方法として、いずれかの C++/WinRT プロジェクト テンプレートを使用して、Visual Studio で新しいプロジェクトを作成します ([C++/WinRT の Visual Studio のサポート](./intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください)。 その後、 そのプロジェクトに C++/CX サポートを追加します。 これを実行する手順については、「[C++/WinRT プロジェクトを取得して C++/CX サポートを追加する](./interop-winrt-cx.md#taking-a-cwinrt-project-and-adding-cx-support)」を参照してください。 その後、ソース コードのそこへの移動を開始し、その際に "*一部の*" C++/CX ソース コードを C++/WinRT に移植します。
+別の方法として、いずれかの C++/WinRT プロジェクト テンプレートを使用して、Visual Studio で新しいプロジェクトを作成します ([C++/WinRT の Visual Studio のサポート](./intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください)。 その後、 そのプロジェクトに C++/CX サポートを追加します。 これを実行する手順については、「[C++/WinRT プロジェクトを取得して C++/CX サポートを追加する](./interop-winrt-cx.md#taking-a-cwinrt-project-and-adding-ccx-support)」を参照してください。 その後、ソース コードのそこへの移動を開始し、その際に "*一部の*" C++/CX ソース コードを C++/WinRT に移植します。
 
 どちらの場合も、C++/WinRT コードとまだ移植されていない C++/CX コードの間で (両方向で) 相互運用することになります。
 
@@ -64,7 +64,7 @@ C++/CX から C++/WinRT への移植は一般的に簡単ですが、[並列パ�
 移植方法 (1 回の動作での移植または段階的な移植) に関係なく、最初の手順は、移植のためにプロジェクトを準備することです。 ここでは、開始するプロジェクトの種類とその設定方法について、「[移植の方法](#strategies-for-porting)」で説明した内容を要約します。
 
 - **1 回の動作での移植**。 いずれかの C++/WinRT プロジェクト テンプレートを使用して Visual Studio で新しいプロジェクトを作成します。 C++/CX プロジェクトからその新しいプロジェクトにファイルを移動し、C++/CX ソース コードを移植します。
-- **XAML 以外のプロジェクトの段階的な移植**。 C++/CX プロジェクトに C++/WinRT サポートを追加することを選択し (「[C++/CX プロジェクトを取得して C++/WinRT サポートを追加する](./interop-winrt-cx.md#taking-a-ccx-project-and-adding-cwinrt-support)」を参照)、段階的に移植できます。 または、新しい C++/WinRT プロジェクトを作成し、それに C++/CX サポートを追加し (「[C++/WinRT プロジェクトを取得して C++/CX サポートを追加する](./interop-winrt-cx.md#taking-a-cwinrt-project-and-adding-cx-support)」を参照)、ファイルを移動して、段階的に移植することもできます。
+- **XAML 以外のプロジェクトの段階的な移植**。 C++/CX プロジェクトに C++/WinRT サポートを追加することを選択し (「[C++/CX プロジェクトを取得して C++/WinRT サポートを追加する](./interop-winrt-cx.md#taking-a-ccx-project-and-adding-cwinrt-support)」を参照)、段階的に移植できます。 または、新しい C++/WinRT プロジェクトを作成し、それに C++/CX サポートを追加し (「[C++/WinRT プロジェクトを取得して C++/CX サポートを追加する](./interop-winrt-cx.md#taking-a-cwinrt-project-and-adding-ccx-support)」を参照)、ファイルを移動して、段階的に移植することもできます。
 - **XAML プロジェクトの段階的な移植**。 新しい C++/WinRT プロジェクトを作成し、ファイルを移動して、段階的に移植します。 XAML ページの種類は常に、すべて C++/WinRT "*または*" すべて C++/CX の "*いずれか*" である必要があります。
 
 このトピックの残りの部分は、選択する移植方法に関係なく適用されます。 これには、ソース コードを C++/CX から C++/WinRT に移植するために必要な技術情報のカタログが含まれています。 段階的に移植する場合は、「[C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx.md)」および「[非同期性、および C++/WinRT と C++/CX 間の相互運用](./interop-winrt-cx-async.md)」も参照してください。

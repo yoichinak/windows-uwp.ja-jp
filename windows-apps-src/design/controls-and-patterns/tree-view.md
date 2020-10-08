@@ -14,12 +14,12 @@ dev_langs:
 - csharp
 - vb
 ms.custom: RS5, 19H1
-ms.openlocfilehash: ceade84d60b4e2f01c51c4570bb9ce425848a2d8
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: e033c98aa9336c544219786a254cebaedfcd9f29
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217205"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750148"
 ---
 # <a name="treeview"></a>TreeView
 
@@ -36,9 +36,17 @@ XAML の [TreeView](/uwp/api/windows.ui.xaml.controls.treeview) コントロー�
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、Windows アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
+:::row:::
+   :::column:::
+      ![WinUI ロゴ](images/winui-logo-64x64.png)
+   :::column-end:::
+   :::column span="3":::
+      **TreeView** コントロールは、Windows UI ライブラリの NuGet パッケージの一部として組み込まれており、パッケージには、Windows アプリの新しいコントロールと UI 機能が含まれています。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。
+   :::column-end:::
+   :::column:::
+
+   :::column-end:::
+:::row-end:::
 
 > **Windows UI ライブラリ API:** [TreeView クラス](/uwp/api/microsoft.ui.xaml.controls.treeview)、[TreeViewNode クラス](/uwp/api/microsoft.ui.xaml.controls.treeviewnode)、[TreeView.ItemsSource プロパティ](/uwp/api/microsoft.ui.xaml.controls.treeview.itemssource)
 >
@@ -134,13 +142,13 @@ XAML で宣言された単純なツリー ビューの例を以下に示しま�
 
 **TreeView.ItemsSource** を使用する場合、コンテナーからノードまたはデータ項目を取得するために (またはその逆に)、これらの API を使用できます。
 
-| **[TreeViewItem](/uwp/api/windows.ui.xaml.controls.treeviewitem)** | |
-| - | - |
+| [TreeViewItem](/uwp/api/windows.ui.xaml.controls.treeviewitem) | 説明 |
+| ------------------------------------------------------------------ | ----------- |
 | [TreeView.ItemFromContainer](/uwp/api/windows.ui.xaml.controls.treeview.itemfromcontainer) | 指定した **TreeViewItem** コンテナーのデータ項目を取得します。 |
 | [TreeView.ContainerFromItem](/uwp/api/windows.ui.xaml.controls.treeview.containerfromitem) | 指定したデータ項目の **TreeViewItem** コンテナーを取得します。 |
 
-| **[TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode)** | |
-| - | - |
+| [TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode) | 説明 |
+| -------------------------------------------------------------- | ----------- |
 | [TreeView.NodeFromContainer](/uwp/api/windows.ui.xaml.controls.treeview.nodefromcontainer) | 指定した **TreeViewItem** コンテナーの **TreeViewNode** を取得します。 |
 | [TreeView.ContainerFromNode](/uwp/api/windows.ui.xaml.controls.treeview.containerfromnode) | 指定した **TreeViewNode** の **TreeViewItem** コンテナーを取得します。 |
 
@@ -179,12 +187,12 @@ End Sub
 
 これらの API は、ツリー ビューのデータの階層の管理に使用できます。
 
-| **[TreeView](/uwp/api/windows.ui.xaml.controls.treeview)** | |
-| - | - |
+| [TreeView](/uwp/api/windows.ui.xaml.controls.treeview) | 説明 |
+| ------------------------------------------------------ | ----------- |
 | [RootNodes](/uwp/api/windows.ui.xaml.controls.treeview.rootnodes) | ツリー ビューは、1 つまたは複数のルート ノードの場合があります。 **TreeViewNode** オブジェクトを **RootNodes** コレクションに追加し、ルート ノードを作成します。 ルート ノードの **Parent** は常に **null** です。 ルート ノードの**奥行き**は0です。 |
 
-| **[TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode)** | |
-| - | - |
+| [TreeViewNode](/uwp/api/windows.ui.xaml.controls.treeviewnode) | 説明 |
+| -------------------------------------------------------------- | ----------- |
 | [Children](/uwp/api/windows.ui.xaml.controls.treeviewnode.children) | **TreeViewNode** オブジェクトを親ノードの **Children** コレクションに追加し、ノード階層を作成します。 ノードは、その **Children** コレクションのすべてのノードの **Parent** です。 |
 | [HasChildren](/uwp/api/windows.ui.xaml.controls.treeviewnode.haschildren) | ノードが子を実体化した場合は **true**。 **false** は空のフォルダーまたは項目を示します。 |
 | [HasUnrealizedChildren](/uwp/api/windows.ui.xaml.controls.treeviewnode.hasunrealizedchildren) | ノードが展開されているときにノードに入力している場合は、このプロパティを使用します。 この記事の後半にある「[展開時にノードを入力する](#fill-a-node-when-its-expanding)」をご覧ください。 |

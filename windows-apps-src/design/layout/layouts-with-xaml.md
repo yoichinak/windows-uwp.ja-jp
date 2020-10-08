@@ -8,12 +8,12 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 9aee0f0e91528258b0591f2e3c7e0ea10353b5b7
-ms.sourcegitcommit: ef3cdca5e9b8f032f46174da4574cb5593d32d56
+ms.openlocfilehash: fd2f755153b29c9be766d39fb685a3f923868946
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90593456"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750419"
 ---
 # <a name="responsive-layouts-with-xaml"></a>XAML でのレスポンシブ レイアウト
 
@@ -47,8 +47,8 @@ XAML レイアウト システムでは、静的レイアウトと柔軟なレ�
 
 次の例では、4 つの列を含む [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) で、固定、自動、比例サイズ指定を組み合わせています。
 
-&nbsp;|&nbsp;|&nbsp;
-------|------|------
+| 列 | サイズ変更 | 説明 |
+| ------ | ------ | ----------- |
 Column_1 | **自動** | 列は、コンテンツが収まるようにサイズ変更されます。
 Column_2 | * | [自動] 列の計算後、この列は残りの幅の一部を取得します。 Column_2 の幅は Column_4 の半分になります。
 Column_3 | **44** | 列の幅は 44 ピクセルに設定されます。

@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 ms.custom: 19H1
 ms.localizationpriority: medium
-ms.openlocfilehash: 741b8d26c37befa4f2497474d7cc3d663001e2ad
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: fbe23101861429f3aef9298f854a600521d20613
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219595"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750528"
 ---
 # <a name="teaching-tip"></a>教育のヒント
 
@@ -25,9 +25,17 @@ ms.locfileid: "91219595"
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](../images/winui-logo-64x64.png) | **TeachingTip** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
+:::row:::
+   :::column:::
+      ![WinUI ロゴ](../images/winui-logo-64x64.png)
+   :::column-end:::
+   :::column span="3":::
+      **TeachingTip** コントロールでは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリが必要になります。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。
+   :::column-end:::
+   :::column:::
+
+   :::column-end:::
+:::row-end:::
 
 > **Windows UI ライブラリ API:** [TeachingTip クラス](/uwp/api/microsoft.ui.xaml.controls.teachingtip)
 
