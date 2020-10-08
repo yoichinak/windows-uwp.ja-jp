@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリでは、windows デバイスでサポートされているテキストサービスからテキスト入力を受け取ることができます。コア名前空間のコアテキスト Api を使用できます。
+description: Windows アプリでは、windows デバイスでサポートされているテキストサービスからテキスト入力を受け取ることができます。コア名前空間のコアテキスト Api を使用できます。
 title: カスタム テキスト入力の概要
 ms.assetid: 58F5F7AC-6A4B-45FC-8C2A-942730FD7B74
 label: Custom text input
@@ -8,12 +8,12 @@ keywords: キーボード, テキスト, 基本的なテキスト, カスタム 
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a6183dcc690a8fe3b9d13cfa0e471f41f04ff30
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 95dbd6de78cb6670ea7e904252bbc1f9f14edb77
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220575"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829632"
 ---
 # <a name="custom-text-input"></a>カスタム テキスト入力
 
@@ -30,7 +30,7 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 カスタム テキスト編集コントロールを作成する必要がある場合は、代わりに [**Windows.UI.Text.Core**](/uwp/api/Windows.UI.Text.Core) API を使います。 これらの API は、任意の言語でのテキスト入力の処理において高い柔軟性を実現するように設計されており、アプリに最適なテキスト エクスペリエンスを提供できます。 基本的なテキスト API に組み込まれているテキスト入力および編集コントロールは、Windows デバイスでの既存のすべてのテキスト入力方式からテキスト入力を受け取ることができます。これには、[テキスト サービス フレームワーク](/windows/desktop/TSF/text-services-framework) ベースの入力方式エディター (IME) や PC での手書き入力、モバイル デバイスでの WordFlow キーボード (自動修正、予測入力、ディクテーションを提供する) が含まれます。
 
-## <a name="architecture"></a>アーキテクチャ
+## <a name="architecture"></a>Architecture
 
 
 テキスト入力システムの単純な例を次に示します。
@@ -38,7 +38,7 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 -   "アプリケーション" は、コアテキスト Api を使用して構築されたカスタムエディットコントロールをホストする Windows アプリを表します。
 -   [**Windows.UI.Text.Core**](/uwp/api/Windows.UI.Text.Core) API は、Windows 経由でのテキスト サービスとの通信を容易にします。 テキスト編集コントロールとテキスト サービス間の通信は、主に [**CoreTextEditContext**](/uwp/api/Windows.UI.Text.Core.CoreTextEditContext) オブジェクトによって処理されます。このオブジェクトが通信を容易にするメソッドとイベントを提供します。
 
-![基本的なテキストのアーキテクチャ図](images/coretext/architecture.png)
+![CoreText アーキテクチャの図](images/coretext/architecture.png)
 
 ## <a name="text-ranges-and-selection"></a>テキスト範囲と選択範囲
 
@@ -49,7 +49,8 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 基本的なテキスト API で使用されるテキスト範囲は、カーソル位置の観点で表されます。 "アプリケーション カーソル位置 (ACP)" は、次に示すように、カーソルの直前にあるテキスト ストリームの先頭からの文字数を示す 0 から始まる数値です。
 
-![テキスト ストリームの例の図](images/coretext/stream-1.png)
+![アプリケーションのキャレット位置 (ACP) の文字数を示すスクリーンショット](images/coretext/stream-1.png)
+
 ### <a name="text-ranges-and-selection"></a>テキスト範囲と選択範囲
 
 テキスト範囲と選択範囲は、次の 2 つのフィールドが含まれる [**CoreTextRange**](/uwp/api/Windows.UI.Text.Core.CoreTextRange) 構造体で表されます。
@@ -69,11 +70,11 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 ### <a name="noncontiguous-selection"></a>連続しない選択範囲
 
-一部の編集コントロールでは、連続しない選択範囲がサポートされます。 たとえば、Microsoft Office アプリでは任意の複数の選択範囲がサポートされ、多くのソース コード エディターでは列の選択がサポートされています。 ただし、基本的なテキスト API では連続しない選択範囲はサポートされません。 編集コントロールは、1 つ連続した選択範囲のみをレポートする必要があります。これは通常、連続しない選択範囲のアクティブな下位範囲です。
+一部の編集コントロールでは、連続しない選択範囲がサポートされます。 たとえば、Microsoft Office アプリでは任意の複数の選択範囲がサポートされ、多くのソース コード エディターでは列の選択がサポートされています。 ただし、コアテキスト Api では、連続していない選択はサポートされません。 編集コントロールは、1 つ連続した選択範囲のみをレポートする必要があります。これは通常、連続しない選択範囲のアクティブな下位範囲です。
 
-たとえば、次のようなテキスト ストリームがあるとします。
+たとえば、次の図は、2つの連続していない選択を含むテキストストリームを示しています。 \[ 0、1、 \] 6、11です。この場合、 \[ \] エディットコントロールは1つだけをレポートする必要があります ( \[ 0、1、 \] または \[ 6、11 \] )。
 
-![テキストストリームダイアグラム ](images/coretext/stream-2.png) の例には \[ 、0、1、 \] \[ 6、11 \] の2つの選択肢があります。 編集コントロールは、そのうちの1つだけを報告する必要があります。 \[0、1、 \] または \[ 6、11のいずれか \] です。
+![連続していないテキスト選択を示すスクリーンショット。最初の文字と最後の5文字が選択されます。](images/coretext/stream-2.png)
 
 ## <a name="working-with-text"></a>テキストの操作
 
@@ -96,7 +97,9 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 たとえば、これは、ユーザーが "d" を入力する前の編集コントロールの状態です。 挿入ポイントは \[ 10, 10 \] です。
 
-![テキストストリームダイアグラムの例 ](images/coretext/stream-3.png) ユーザーが "d" と入力すると、 [**textupdating**](/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating) イベントが次の [**Coretexttextupdatingeventargs**](/uwp/api/Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs) データと共に発生します。
+![挿入位置を示すテキストストリームダイアグラムのスクリーンショット ( \[ 10, 10 \] , 挿入前)](images/coretext/stream-3.png)
+
+ユーザーが "d" を入力すると、次の [**CoreTextTextUpdatingEventArgs**](/uwp/api/Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs) データを使って、[**TextUpdating**](/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating) イベントが発生します。
 
 -   [**Range**](/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.range)  =  範囲 \[10、10\]
 -   [**Text**](/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.text) = "d"
@@ -104,7 +107,8 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 編集コントロールで、指定された変更を適用し、[**Result**](/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.result) を **Succeeded** に設定します。 変更が適用された後のコントロールの状態は、次のようになります。
 
-![テキスト ストリームの例の図](images/coretext/stream-4.png)
+:::image type="content" source="images/coretext/stream-4.png" alt-text="挿入位置を示すテキストストリームダイアグラムのスクリーンショット (11 \[ , 11 \] )":::
+
 ### <a name="rejecting-text-updates"></a>テキストの更新の拒否
 
 要求された範囲が編集コントロールの変更してはいけない領域にある場合、テキストの更新を適用できないことがあります。 この場合、変更を適用しないでください。 代わりに、 [**Coretexttextupdatingeventargs**](/uwp/api/windows.ui.text.core.coretexttextupdatingeventargs.result) を設定して、更新が失敗したことをシステムに通知します。結果は [**Coretexttextupdatingeventargs. failed**](/uwp/api/Windows.UI.Text.Core.CoreTextTextUpdatingResult).
@@ -117,9 +121,13 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 たとえば、これは、ユーザーが "World" を貼り付ける前の編集コントロールの状態です。 挿入ポイントは \[ 6、6 \] です。
 
-![テキストストリームダイアグラムの例 ](images/coretext/stream-5.png) ユーザーが貼り付け操作を実行すると、エディットコントロールが次のテキストで終了します。
+![\[挿入前の6、6、挿入位置を示すテキストストリームダイアグラムのスクリーンショット \]](images/coretext/stream-5.png)
 
-![テキストストリームの例 ](images/coretext/stream-4.png) この場合、次の引数を指定して [**notifytextchanged**](/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged) を呼び出す必要があります。
+ユーザーは、変更が適用された後、貼り付け操作と編集コントロールを実行します。
+
+:::image type="content" source="images/coretext/stream-4.png" alt-text="挿入位置を示すテキストストリームダイアグラムのスクリーンショット (11 \[ , 11 \] )":::
+
+この場合、次の引数を使って、[**NotifyTextChanged**](/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged) を呼び出す必要があります。
 
 -   *modifiedRange*  =  modifiedRange \[6、6\]
 -   *newLength* = 5
@@ -133,11 +141,17 @@ Windows アプリでは、windows デバイスでサポートされているテ�
 
 たとえば、短縮形を正式なつづりにする修正機能を提供する編集コントロールがあるとします。 ユーザーが Space キーを押して修正機能をトリガーする前の編集コントロールの状態は、次のようになっています。 挿入ポイントは \[ 3、3 \] です。
 
-![テキストストリームダイアグラムの例 ](images/coretext/stream-6.png) ユーザーが space キーを押すと、対応する [**textupdating**](/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating) イベントが発生します。 編集コントロールは、テキストの更新を受け付けます。 修正が完了する直前の編集コントロールの状態は、次のようになります。 挿入ポイントは \[ 4, 4 \] です。
+![挿入位置を示すテキストストリームダイアグラムのスクリーンショット ( \[ 3, 3 \] )](images/coretext/stream-6.png)
 
-![](images/coretext/stream-7.png) [**textupdating**](/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating)イベントハンドラーの外部にあるテキストストリームダイアグラムの例では、エディットコントロールによって次の修正が行われます。 修正が完了した後の編集コントロールの状態は、次のようになります。 挿入ポイントは \[ 5、5 \] です。
+ユーザーが Space キーを押すと、対応する [**TextUpdating**](/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating) イベントが発生します。 編集コントロールは、テキストの更新を受け付けます。 修正が完了する直前の編集コントロールの状態は、次のようになります。 挿入ポイントは \[ 4, 4 \] です。
 
-![テキストストリームの例 ](images/coretext/stream-8.png) この場合、次の引数を指定して [**notifytextchanged**](/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged) を呼び出す必要があります。
+![挿入位置を示すテキストストリームダイアグラムのスクリーンショット ( \[ 4, 4 \] )](images/coretext/stream-7.png)
+
+[**TextUpdating**](/uwp/api/windows.ui.text.core.coretexteditcontext.textupdating) イベント ハンドラーの外部で、編集コントロールは次の修正を実行します。 修正が完了した後の編集コントロールの状態は、次のようになります。 挿入ポイントは \[ 5、5 \] です。
+
+![5, 5 の挿入ポイントを示すテキストストリームダイアグラムのスクリーンショット \[\]](images/coretext/stream-8.png)
+
+この場合、次の引数を使って、[**NotifyTextChanged**](/uwp/api/windows.ui.text.core.coretexteditcontext.notifytextchanged) を呼び出す必要があります。
 
 -   *modifiedRange*  =  modifiedRange \[1、2\]
 -   *newLength* = 2

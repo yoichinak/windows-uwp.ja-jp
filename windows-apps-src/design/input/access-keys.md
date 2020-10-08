@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリの使いやすさとアクセシビリティの両方を向上させる方法について説明します。ユーザーは、ポインターデバイス (タッチやマウスなど) ではなく、キーボードを使用して、アプリの表示可能な UI をすばやく移動したり、操作したりすることができます。
+description: Windows アプリの使いやすさとアクセシビリティの両方を向上させる方法について説明します。ユーザーは、ポインターデバイス (タッチやマウスなど) ではなく、キーボードを使用して、アプリの表示可能な UI をすばやく移動したり、操作したりすることができます。
 title: アクセス キーの設計ガイドライン
 label: Access keys design guidelines
 keywords: キーボード, アクセス キー, keytip, キーのヒント, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 77986569ec224ba36471f60c0200dfb1825472a0
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 48f1d3bd69b10a8d500bb2d29b64c0eb91c9900b
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218415"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829534"
 ---
 # <a name="access-keys"></a>アクセス キー
 
@@ -276,7 +276,7 @@ _キーヒントの自動配置の例_
 
 配置モードは、Top、Bottom、Right、Left、Hidden、Center、Auto です。
 
-![キーのヒントの配置モード](images/accesskeys/keytip-postion-modes.png)
+![キーヒント配置モードの相対位置を示すスクリーンショット](images/accesskeys/keytip-postion-modes.png)
 
 _キーのヒントの配置モード_
 
@@ -299,11 +299,11 @@ _キーのヒントの配置モード_
 > [!NOTE]
 > KeyTipPlacementMode が Auto に設定されているときは、オフセットを設定できません。
 
-KeyTipHorizontalOffset プロパティは、キーのヒントを左または右に移動する距離を指定します。 次の例は、ボタンに対するキーのヒントのオフセットを設定する方法を示しています。
+KeyTipHorizontalOffset プロパティは、キーのヒントを左または右に移動する距離を指定します。
 
-![キーのヒントの配置モード](images/accesskeys/keytip-offsets.png)
+![ボタンの垂直方向と水平方向のキーヒントのオフセットのスクリーンショット](images/accesskeys/keytip-offsets.png)
 
-_主要なヒントの垂直方向および水平方向のオフセットを設定する_
+_ボタンの垂直方向と水平方向のキーのオフセットを設定する_
 
 ``` xaml
 <Button
@@ -318,9 +318,9 @@ _主要なヒントの垂直方向および水平方向のオフセットを設�
 
 キーのヒントの場所は、キーのヒントが完全に表示されるように画面の端を基準にして自動的に調整されます。 この場合、コントロールとキーのヒントの配置ポイントとの間にある距離が、水平オフセットと垂直オフセットに指定した値と異なることがあります。
 
-![キーのヒントの配置モード](images/accesskeys/keytips-screen-edge.png)
+![キーヒント画面の端の配置のスクリーンショット](images/accesskeys/keytips-screen-edge.png)
 
-_画面の端によりキーのヒントの位置が自動的に変更される_
+_キーのヒントは、画面の端に応じて自動的に配置されます。_
 
 ## <a name="key-tip-style"></a>キーのヒントのスタイル
 
@@ -328,7 +328,7 @@ _画面の端によりキーのヒントの位置が自動的に変更される_
 
 独自のキーのヒントのスタイルを指定する必要がある場合、KeyTipFontSize (フォント サイズ)、KeyTipFontFamily (フォント ファミリ)、KeyTipBackground (背景)、KeyTipForeground (前景)、KeyTipPadding (パディング)、KeyTipBorderBrush (境界線の色)、KeyTipBorderThemeThickness (境界線の太さ) などのアプリケーション リソースを使います。
 
-![キーのヒントの配置モード](images/accesskeys/keytip-customization.png)
+![フォント、順序、色など、主要なヒントのカスタマイズオプションのスクリーンショット](images/accesskeys/keytip-customization.png)
 
 _キーのヒントのカスタマイズ オプション_
 
