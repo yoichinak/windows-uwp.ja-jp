@@ -7,16 +7,16 @@ dev_langs:
 - csharp
 keywords: windows 10、uwp、画面キャプチャ、ビデオ
 ms.localizationpriority: medium
-ms.openlocfilehash: d8f70748d025d50d19dbf2cb184ae841cced7f8a
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 9f95e310fb93292db7dc348493487fada9c6d66e
+ms.sourcegitcommit: 83eb36047380501fd1e4d023d593904ad783365b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218635"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91852379"
 ---
 # <a name="screen-capture-to-video"></a>ビデオに画面の取り込み
 
-この記事では、画面からキャプチャされたフレームをビデオファイルにエンコードする方法について説明します。 静止画像のキャプチャの詳細については、「 [Screeen capture](./screen-capture.md)」を参照してください。
+この記事では、画面からキャプチャされたフレームをビデオファイルにエンコードする方法について説明します。 静止画像のキャプチャの詳細については、「 [Screeen capture](./screen-capture.md)」を参照してください。 この記事に示されている概念と手法を利用する単純なエンドツーエンドのサンプルアプリについては、「 [SimpleRecorder](https://github.com/MicrosoftDocs/SimpleRecorder/)」を参照してください。
 
 ## <a name="overview-of-the-video-capture-process"></a>ビデオキャプチャプロセスの概要
 この記事では、ビデオファイルにウィンドウの内容を記録するサンプルアプリのチュートリアルを提供します。 このシナリオを実装するために多くのコードが必要と思われるかもしれませんが、画面レコーダーアプリの高レベルの構造は非常に単純です。 画面キャプチャプロセスでは、次の3つの主要な UWP 機能を使用します。
