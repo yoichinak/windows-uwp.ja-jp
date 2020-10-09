@@ -8,12 +8,12 @@ ms.date: 03/23/2020
 ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
-ms.openlocfilehash: 4da50161008645374fbe95de73882da9d9f9f826
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: f7a06c75b37b62436c4ef0ebcb8ccae2a6153b85
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750658"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829431"
 ---
 # <a name="controls-for-windows-apps"></a>Windows アプリ用のコントロール
 
@@ -61,23 +61,23 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 :::row:::
     :::column:::
 
-- アニメーション化された視覚的プレーヤー ([Lottie](/windows/communitytoolkit/animations/lottie)) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- アニメーション化された視覚的プレーヤー ([Lottie](/windows/communitytoolkit/animations/lottie) をご覧ください) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [自動提案ボックス](auto-suggest-box.md)
 - [ボタン](buttons.md)
 - [カレンダーの日付の選択コントロール](calendar-date-picker.md)
 - [カレンダー ビュー](calendar-view.md)
 - [チェック ボックス](checkbox.md)
-- [カラー ピッカー](color-picker.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [カラー ピッカー](color-picker.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [コンボ ボックス](combo-box.md)
 - [コマンド バー](app-bars.md)
-- [コマンド バーのポップアップ](command-bar-flyout.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [コマンド バーのポップアップ](command-bar-flyout.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [連絡先カード](contact-card.md)
 - [コンテンツ ダイアログ](dialogs-and-flyouts/dialogs.md)
 - [コンテンツ リンク](content-links.md)
 - [コンテキスト メニュー](menus.md)
 - [日付の選択コントロール](date-picker.md)
 - [ダイアログとポップアップ](dialogs-and-flyouts/index.md)
-- [ドロップ ダウン ボタン](buttons.md#create-a-drop-down-button) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ドロップ ダウン ボタン](buttons.md#create-a-drop-down-button) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [FlipView](flipview.md)
 - [Flyout](dialogs-and-flyouts/flyouts.md)
 - [フォーム](forms.md) (パターン)
@@ -90,22 +90,22 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 - [マップ コントロール](../../maps-and-location/display-maps.md)
 - [マスターと詳細](master-details.md) (パターン)
 - [メディア再生](media-playback.md)
-- [メニュー バー](menus.md#create-a-menu-bar) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [メニュー バー](menus.md#create-a-menu-bar) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [メニュー ポップアップ](menus.md)
-- [ナビゲーション ビュー](navigationview.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ナビゲーション ビュー](navigationview.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 
     :::column-end:::
     :::column:::
 
-- [数値ボックス](number-box.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [視差ビュー](..\motion\parallax.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [数値ボックス](number-box.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [視差ビュー](..\motion\parallax.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [パスワード ボックス](password-box.md)
-- [ユーザー画像](person-picture.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ユーザー画像](person-picture.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [ピボット](pivot.md)
-- [進行状況バー](progress-controls.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [進行状況リング](progress-controls.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [ラジオ ボタン](radio-button.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [評価コントロール](rating.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [進行状況バー](progress-controls.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [進行状況リング](progress-controls.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [ラジオ ボタン](radio-button.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [評価コントロール](rating.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [繰り返しボタン](buttons.md#create-a-repeat-button)
 - [リッチ エディット ボックス](rich-edit-box.md)
 - [リッチ テキスト ブロック](rich-text-block.md)
@@ -114,11 +114,11 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 - [セマンティック ズーム](semantic-zoom.md)
 - [図形](shapes.md)
 - [スライダー](slider.md)
-- [分割ボタン](buttons.md#create-a-split-button) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [分割ボタン](buttons.md#create-a-split-button) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [分割ビュー](split-view.md)
-- [スワイプ コントロール](swipe.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [タブ ビュー](tab-view.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [教育のヒント](dialogs-and-flyouts/teaching-tip.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [スワイプ コントロール](swipe.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [タブ ビュー](tab-view.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [教育のヒント](dialogs-and-flyouts/teaching-tip.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [テキスト ブロック](text-block.md)
 - [テキスト ボックス](text-box.md)
 - [時刻の選択コントロール](time-picker.md)
@@ -126,8 +126,8 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 - [トグル ボタン](buttons.md)
 - [分割トグル ボタン](buttons.md#create-a-toggle-split-button)
 - [ヒント](tooltips.md)
-- [ツリー ビュー](tree-view.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
-- [2 つのペインからなるビュー](two-pane-view.md) ![WinUI ロゴ](images/winui-logo-16x16.png)
+- [ツリー ビュー](tree-view.md) :::image type="icon" source="images/winui-logo-16x16.png":::
+- [2 つのペインからなるビュー](two-pane-view.md) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [Web ビュー](web-view.md)
 
     :::column-end:::
