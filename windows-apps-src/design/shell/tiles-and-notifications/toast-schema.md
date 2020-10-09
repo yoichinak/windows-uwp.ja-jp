@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: eab81d7a2898b76ed241a985c953849ed581d804
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c095e48e24a06caf9e31066b21f9e2b023ed51cf
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156676"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878475"
 ---
 # <a name="toast-content-schema"></a>トーストのコンテンツのスキーマ
 
@@ -21,7 +21,7 @@ ms.locfileid: "89156676"
 
 ここでは、トーストのコンテンツ内のすべてのプロパティと要素を説明します。
 
-[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ](toast-xml-schema.md)」をご覧ください。
+[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ]()」をご覧ください。
 
 [ToastContent](#toastcontent)
 * [ToastVisual](#toastvisual)
@@ -40,7 +40,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 
 | プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
-| **開い**| string | false | トーストによってアプリケーションがアクティブ化されるときにアプリケーションに渡される文字列です。 この文字列の形式とコンテンツは、アプリ独自の使用方法に合わせて、アプリによって定義されます。 ユーザーがトーストをタップまたはクリックして関連するアプリを起動すると、そのアプリは既定の方法では起動されません。起動文字列によってコンテキストがアプリに渡され、トーストのコンテンツに関連するビューがユーザーに表示されます。 |
+| **Launch**| string | false | トーストによってアプリケーションがアクティブ化されるときにアプリケーションに渡される文字列です。 この文字列の形式とコンテンツは、アプリ独自の使用方法に合わせて、アプリによって定義されます。 ユーザーがトーストをタップまたはクリックして関連するアプリを起動すると、そのアプリは既定の方法では起動されません。起動文字列によってコンテキストがアプリに渡され、トーストのコンテンツに関連するビューがユーザーに表示されます。 |
 | **ビジュアル** | [ToastVisual](#toastvisual) | true | トースト通知の視覚的な部分について説明します。 |
 | **アクション** | [IToastActions](#itoastactions) | false | 必要に応じて、ボタンや入力によってカスタム動作を作成します。 |
 | **オーディオ** | [ToastAudio](#toastaudio) | false | トースト通知のオーディオ部分について説明します。 |
@@ -48,16 +48,16 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | **ActivationOptions** | [ToastActivationOptions](#toastactivationoptions) | false | Creators Update の新機能: トースト通知のアクティブ化に関する追加オプションです。 |
 | **シナリオ** | [ToastScenario](#toastscenario) | false | アラームやリマインダーなど、トーストが使用されるシナリオを宣言します。 |
 | **DisplayTimestamp** | DateTimeOffset? | false | Creators Update の新機能: 通知のコンテンツが Windows プラットフォームで受信されたときではなく実際に配信されたときを表すカスタムのタイムスタンプによって、既定のタイムスタンプを上書きします。 |
-| **ヘッダー** | [ToastHeader](#toastheader) | false | Creators Update の新機能: 通知にカスタム ヘッダーを追加して、アクション センターで複数の通知をグループ化します。 |
+| **Header** | [ToastHeader](#toastheader) | false | Creators Update の新機能: 通知にカスタム ヘッダーを追加して、アクション センターで複数の通知をグループ化します。 |
 
 
 ### <a name="toastscenario"></a>ToastScenario
 トーストが表すシナリオを指定します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 通常のトーストの動作です。 |
-| **リマインダー** | リマインダー通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 |
+| **[Default]** | 通常のトーストの動作です。 |
+| **Reminder** | リマインダー通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 |
 | **アラーム** | アラーム通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 オーディオは既定でループするようになっていて、アラームのオーディオを使用します。 |
 | **IncomingCall** | 着信通知です。 既に展開された状態で、特殊な呼び出しの形式で表示され、無視されるまでユーザーの画面に表示されます。 オーディオは既定でループするようになっていて、着信音のオーディオを使用します。 |
 
@@ -123,9 +123,9 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptivetextstyle"></a>AdaptiveTextStyle
 テキスト スタイルは、フォント サイズ、太さ、および不透明度を制御します。 "Subtle" の不透明度は 60% の不透明度になります。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 既定値です。 スタイルがレンダラーによって決定されます。 |
+| **[Default]** | 既定値です。 スタイルがレンダラーによって決定されます。 |
 | **Caption** | 段落のフォント サイズより小さいサイズです。 |
 | **CaptionSubtle** | Caption と同じですが、不透明度が Subtle です。 |
 | **本文** | 段落本文のフォント サイズです。 |
@@ -140,7 +140,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | **Subheader.aboutdocs** | H2 のフォント サイズです。 |
 | **SubheaderSubtle** | Subheader と同じですが、不透明度が Subtle です。 |
 | **SubheaderNumeral** | Subheader と同じですが、上/下のパディングが削除されます。 |
-| **ヘッダー** | H1 のフォント サイズです。 |
+| **Header** | H1 のフォント サイズです。 |
 | **HeaderSubtle** | Header と同じですが、不透明度が Subtle です。 |
 | **HeaderNumeral** | Header と同じですが、上/下のパディングが削除されます。 |
 
@@ -148,12 +148,12 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptivetextalign"></a>AdaptiveTextAlign
 テキストの水平方向の配置を制御します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 既定値です。 配置がレンダラーによって自動的に決定されます。 |
+| **[Default]** | 既定値です。 配置がレンダラーによって自動的に決定されます。 |
 | **Auto** | 配置が現在の言語とカルチャによって決定されます。 |
 | **Left** | テキストを左側に水平方向に配置します。 |
-| **Center** | テキストを中央に水平方向に配置します。 |
+| **点** | テキストを中央に水平方向に配置します。 |
 | **Right** | テキストを右側に水平方向に配置します。 |
 
 
@@ -173,9 +173,9 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptiveimagecrop"></a>AdaptiveImageCrop
 必要な画像トリミングを指定します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
+| **[Default]** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
 | **なし** | 画像がトリミングされません。 |
 | **Circle** | 画像が円形にトリミングされます。 |
 
@@ -183,12 +183,12 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptiveimagealign"></a>AdaptiveImageAlign
 画像の水平方向の配置を指定します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
+| **[Default]** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
 | **Stretch** | 利用可能な幅いっぱいに画像が拡大されます (また同時に、画像が配置される位置に応じて、利用可能な高さいっぱいに拡大されることもあります)。 |
 | **Left** | 画像を左側に配置し、ネイディブの解像度で表示します。 |
-| **Center** | 画像を中央に水平方向に配置し、ネイティブの解像度で表示します。 |
+| **点** | 画像を中央に水平方向に配置し、ネイティブの解像度で表示します。 |
 | **Right** | 画像を右側に配置し、ネイディブの解像度で表示します。 |
 
 
@@ -222,11 +222,11 @@ Anniversary Update の新機能: サブグループは垂直方向の列で、�
 ### <a name="adaptivesubgrouptextstacking"></a>AdaptiveSubgroupTextStacking
 TextStacking は、コンテンツの垂直方向の配置を指定します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
+| **[Default]** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
 | **上位** | 上に合わせて垂直に配置されます。 |
-| **Center** | 中央に合わせて垂直に配置されます。 |
+| **点** | 中央に合わせて垂直に配置されます。 |
 | **下** | 下に合わせて垂直に配置されます。 |
 
 
@@ -236,7 +236,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 | プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
 | **Title** | string または [Bindablestring](#bindablestring) | false | タイトルの文字列 (オプション) を取得または設定します。 データ バインディングをサポートしています。 |
-| **値** | double または [AdaptiveProgressBarValue](#adaptiveprogressbarvalue) か [BindableProgressBarValue](#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 |
+| **Value** | double または [AdaptiveProgressBarValue](#adaptiveprogressbarvalue) か [BindableProgressBarValue](#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 |
 | **ValueStringOverride** | string または [Bindablestring](#bindablestring) | false | 割合を示す既定の文字列に代わって表示される文字列 (オプション) を取得または設定します。 これを指定しない場合は、"70%" などの文字が表示されます。 |
 | **状態** | string または [Bindablestring](#bindablestring) | true | 進行状況バーの下の左側に表示されるステータス文字列 (必須) を取得または設定します。 この文字列は、"ダウンロード中..." や "インストール中..." などのように、操作の状態を反映する必要があります。 |
 
@@ -246,7 +246,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 
 | プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
-| **値** | double | false | 完了率を表す値 (0.0 ～ 1.0) を取得または設定します。 |
+| **Value** | double | false | 完了率を表す値 (0.0 ～ 1.0) を取得または設定します。 |
 | **IsIndeterminate** | [bool] | false | 進行状況バーが不確定型かどうかを示す値を取得または設定します。 true の場合、**Value** は無視されます。 |
 
 
@@ -272,9 +272,9 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 ### <a name="toastgenericapplogocrop"></a>ToastGenericAppLogoCrop
 アプリ ロゴの画像のトリミングを制御します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | トリミングがレンダラーの既定の動作を使用します。 |
+| **[Default]** | トリミングがレンダラーの既定の動作を使用します。 |
 | **なし** | 画像がトリミングされず、正方形で表示されます。 |
 | **Circle** | 画像が円形にトリミングされます。 |
 
@@ -389,7 +389,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 ### <a name="toastactivationtype"></a>ToastActivationType
 ユーザーが特定の操作を行った際に使用されるアクティブ化の種類を決定します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
 | **フォアグラウンド** | 既定値です。 フォアグラウンド アプリが起動します。 |
 | **バックグラウンド** | (すべての設定が完了したと想定して) 対応するバックグラウンド タスクがトリガーされ、ユーザーの作業を中断することなくバックグラウンドでコードを実行できます (ユーザーのクイック返信メッセージの送信など)。 |
@@ -408,9 +408,9 @@ Creators Update の新機能: アクティブ化に関する追加オプショ�
 ### <a name="toastafteractivationbehavior"></a>ToastAfterActivationBehavior
 ユーザーがトーストに対して操作を行ったときに、トーストが使用する動作を指定します。
 
-| 値 | 説明 |
+| 値 | 意味 |
 |---|---|
-| **既定** | 既定の動作。 ユーザーがトーストに対して操作を行うと、トーストが無視されます。 |
+| **[Default]** | 既定の動作。 ユーザーがトーストに対して操作を行うと、トーストが無視されます。 |
 | **PendingUpdate** | ユーザーがトースト上のボタンをクリックすると、通知が "更新の保留中" の表示状態で表示されたままになります。 この "更新の保留中" の表示状態が長時間続くことを避けるため、バックグラウンド タスクから即座にトーストを更新する必要があります。 |
 
 

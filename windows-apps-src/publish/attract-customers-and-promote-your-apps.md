@@ -5,12 +5,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b6ffbbb13646fe085fa81c99f4ecf45e328a01f7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3b768fa4a2506004527ba38256a7ff1849570ca1
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164266"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878495"
 ---
 # <a name="attract-customers-and-promote-your-apps"></a>ユーザーへのアピールとアプリの宣伝
 
@@ -27,7 +27,7 @@ ms.locfileid: "89164266"
 
 これらのキャンペーンは、アプリのデバイスとカテゴリに一致するすべてのアプリで広告を実行します。 ユニバーサル キャンペーンも選択できます。ここでは、広告は MSN.com、Outlook.com、Skype など、マイクロソフトの豪華なラインナップでも表示されます。
 
-[その他の >を調べる ](create-an-ad-campaign-for-your-app.md)
+[その他の >を調べる ](../monetize/index.md)
     :::column-end:::
 :::row-end:::
 
@@ -40,7 +40,7 @@ ms.locfileid: "89164266"
 
 これらのキャンペーンは、お客様の他のアプリでのみ広告が無料で実行されます。
 
-[その他の >を調べる ](about-house-ads.md)
+[その他の >を調べる ](../monetize/index.md)
     :::column-end:::
 :::row-end:::
 
@@ -54,7 +54,7 @@ ms.locfileid: "89164266"
 
 これらのキャンペーンは、コミュニティ広告キャンペーンにも参加している他の開発者によって発行されるアプリ内広告を無料で実行します。
 
-[その他の >を調べる ](create-an-ad-campaign-for-your-app.md)
+[その他の >を調べる ](../monetize/index.md)
     :::column-end:::
 :::row-end:::
 
@@ -103,7 +103,7 @@ ms.locfileid: "89164266"
 
 ![アプリ販売促進キャンペーンについて詳しくは、こちらをご覧ください](images/app-promotion-campaigns.png)
 
-[ダッシュボードで広告キャンペーンを作成する](create-an-ad-campaign-for-your-app.md)
+[ダッシュボードで広告キャンペーンを作成する](../monetize/index.md)
 
 [REST API を使って広告キャンペーンを作成する](../monetize/run-ad-campaigns-using-windows-store-services.md)
 
@@ -119,7 +119,7 @@ ms.locfileid: "89164266"
 
 [[取得] レポート](acquisitions-report.md)
 
-[REST API を使用して分析データを取得する](../monetize/access-analytics-data-using-windows-store-services.md)
+[REST API を使った分析データの取得](../monetize/access-analytics-data-using-windows-store-services.md)
 
 ## <a name="other-ways-to-promote-your-app"></a>アプリの販売を促進するその他の方法
 

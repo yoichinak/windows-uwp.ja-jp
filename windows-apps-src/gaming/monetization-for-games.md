@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, 収益化
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f2d5ceef5ef15ac81e43447e24e2eaf61e4a22a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c827c257947ea0f365bafe497e627841b501d40d
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89159366"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878585"
 ---
 #  <a name="monetization-for-games"></a>ゲームの収益化
 
@@ -213,15 +213,15 @@ Unity を使って作成された Windows 10 UWP ゲームに AdDuplex SDK を�
 
 ## <a name="maximize-your-games-potential-through-ad-campaigns"></a>広告キャンペーンによってゲームの可能性を最大限に広げる
 
-広告を利用して、ゲームの販売促進を強化しましょう。 ゲームの[広告キャンペーンを作成](../publish/create-an-ad-campaign-for-your-app.md)すると、ゲームの販売を促進するための広告が、他の開発者のアプリやゲームに表示されます。
+広告を利用して、ゲームの販売促進を強化しましょう。 ゲームの[広告キャンペーンを作成](../monetize/index.md)すると、ゲームの販売を促進するための広告が、他の開発者のアプリやゲームに表示されます。
 
 ゲーマー ベースの増加に役立つキャンペーンを複数の種類から選択できます。
 
 |キャンペーンの種類             | ゲームの広告が表示されるアプリ                                                                                                                                                                   |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |支払い済み                      |ゲームのデバイスまたはカテゴリに一致するアプリ。                                                                                                                                                   |
-|コミュニティ (無料)            |コミュニティ広告キャンペーンにオプト インしている他の開発者が公開するアプリ。 詳しくは、「[コミュニティ広告について](../publish/about-community-ads.md)」をご覧ください。|
-|自社 (無料)                |自社が公開したアプリのみ。 詳しくは、「[自社広告について](../publish/about-house-ads.md)」をご覧ください。                                                            |
+|コミュニティ (無料)            |コミュニティ広告キャンペーンにオプト インしている他の開発者が公開するアプリ。 詳しくは、「[コミュニティ広告について](../monetize/index.md)」をご覧ください。|
+|自社 (無料)                |自社が公開したアプリのみ。 詳しくは、「[自社広告について](../monetize/index.md)」をご覧ください。                                                            |
 
 ## <a name="related-links"></a>関連リンク
 

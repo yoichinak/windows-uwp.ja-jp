@@ -6,19 +6,19 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: fd933f103bf8964997102731b653e125fae89e12
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c40ab5d6aea67477e0900441cfb02b858dbef9b2
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162446"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878455"
 ---
 # <a name="get-ad-campaign-performance-data"></a>広告キャンペーンのパフォーマンス データの取得
 
 
 日付範囲やその他のオプション フィルターを指定して、アプリケーションに関するプロモーション用広告キャンペーンのパフォーマンス データの集計サマリーを取得するには、Microsoft Store 分析 API の以下のメソッドを使います。 このメソッドは、データを JSON 形式で返します。
 
-このメソッドは、パートナーセンターの [Ad キャンペーンレポート](/windows/uwp/publish/ad-campaign-report) によって提供されるものと同じデータを返します。 広告キャンペーンについて詳しくは、「[アプリ向けの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)」をご覧ください。
+このメソッドは、パートナーセンターの [Ad キャンペーンレポート](/windows/uwp/publish/ad-campaign-report) によって提供されるものと同じデータを返します。 広告キャンペーンについて詳しくは、「[アプリ向けの広告キャンペーンの作成](./index.md)」をご覧ください。
 
 広告キャンペーンの詳細を作成、更新、取得するには、[Microsoft Store プロモーション API](run-ad-campaigns-using-windows-store-services.md) の[広告キャンペーンの管理](manage-ad-campaigns.md)メソッドを使用します。
 
@@ -150,6 +150,6 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [アプリの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)
+* [アプリの広告キャンペーンの作成](./index.md)
 * [Microsoft Store サービスを使用した広告キャンペーンの実行](run-ad-campaigns-using-windows-store-services.md)
 * [Microsoft Store サービスを使った分析データへのアクセス](access-analytics-data-using-windows-store-services.md)

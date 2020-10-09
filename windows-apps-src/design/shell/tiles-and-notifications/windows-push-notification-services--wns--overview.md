@@ -8,12 +8,12 @@ ms.topic: article
 ms.custom: contperfq1
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e2fc69f49308164307bc3c6c23479aae991d0ff7
-ms.sourcegitcommit: f46edb85d523a4a1f5006787d357cdc9d090aefe
+ms.openlocfilehash: b63e88f6d83e84bbe07fc4c5cbe7befba6dc3c8a
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91414852"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878505"
 ---
 # <a name="windows-push-notification-services-wns-overview"></a>Windows プッシュ通知サービス (WNS) の概要 
 
@@ -34,7 +34,7 @@ Windows プッシュ Notification Services (WNS) を使用すると、サード�
 
 ## <a name="registering-your-app-and-receiving-the-credentials-for-your-cloud-service"></a>アプリの登録とクラウド サービスの資格情報の取得
 
-WNS を使用して通知を送信する前に、 [こちら](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)の説明に従って、アプリをストアダッシュボードに登録する必要があります。
+WNS を使用して通知を送信する前に、 [こちら](/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)の説明に従って、アプリをストアダッシュボードに登録する必要があります。
 
 ## <a name="requesting-a-notification-channel"></a>通知チャネルの要求
 

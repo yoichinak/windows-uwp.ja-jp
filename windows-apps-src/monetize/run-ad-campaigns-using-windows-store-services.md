@@ -6,12 +6,12 @@ ms.date: 06/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store プロモーション API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: 74afbda1cc93aa0602618d6d94efe6baadf59ecb
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 2be721137e6c09913eafd2c58bab07f1ae6f2728
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89363705"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878515"
 ---
 # <a name="run-ad-campaigns-using-store-services"></a>ストア サービスを使用した広告キャンペーンの実行
 
@@ -23,7 +23,7 @@ ms.locfileid: "89363705"
 2.  Microsoft Store プロモーション API のメソッドを呼び出す前に、[Azure AD アクセス トークンを取得](#obtain-an-azure-ad-access-token)する必要があります。 トークンを取得した後、Microsoft Store プロモーション API の呼び出しでこのトークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、新しいトークンを生成できます。
 3.  [Microsoft Store プロモーション API を呼び出します](#call-the-windows-store-promotions-api)。
 
-また、パートナーセンターを使用して ad キャンペーンを作成して管理することもできます。また、Microsoft Store 昇格 API を使用してプログラムで作成した ad キャンペーンは、パートナーセンターでもアクセスできます。 パートナーセンターで ad キャンペーンを管理する方法の詳細については、「 [アプリの ad キャンペーンを作成](../publish/create-an-ad-campaign-for-your-app.md)する」を参照してください。
+また、パートナーセンターを使用して ad キャンペーンを作成して管理することもできます。また、Microsoft Store 昇格 API を使用してプログラムで作成した ad キャンペーンは、パートナーセンターでもアクセスできます。 パートナーセンターで ad キャンペーンを管理する方法の詳細については、「 [アプリの ad キャンペーンを作成](./index.md)する」を参照してください。
 
 > [!NOTE]
 > パートナーセンターアカウントを持つ開発者は、Microsoft Store 昇格 API を使用して、アプリの ad キャンペーンを管理できます。 メディア エージェンシーもこの API へのアクセスを要求して、広告主の代わりに広告キャンペーンを実行できます。 お客様がメディア エージェンシーで、この API について詳しい情報を希望される場合、またはこの API へのアクセスを要求される場合は、storepromotionsapi@microsoft.com までリクエストをお送りください。
@@ -34,7 +34,7 @@ ms.locfileid: "89363705"
 
 Microsoft Store プロモーション API を呼び出すコードの作成を開始する前に、次の前提条件が満たされていることを確認します。
 
-* この API を使用して ad キャンペーンを正常に作成して開始するには、まず、 [パートナーセンターの [ **ad キャンペーン** ] ページを使用して1つの有料広告キャンペーンを作成](../publish/create-an-ad-campaign-for-your-app.md)し、このページで少なくとも1つの支払い方法を追加する必要があります。 これを行うと、この API を使用して、広告キャンペーンの請求可能な配信ラインを正しく作成することができます。 この API を使用して作成した広告キャンペーンの配信行は、パートナーセンターの [ **ad キャンペーン** ] ページで選択した既定の支払い方法に自動的に課金されます。
+* この API を使用して ad キャンペーンを正常に作成して開始するには、まず、 [パートナーセンターの [ **ad キャンペーン** ] ページを使用して1つの有料広告キャンペーンを作成](./index.md)し、このページで少なくとも1つの支払い方法を追加する必要があります。 これを行うと、この API を使用して、広告キャンペーンの請求可能な配信ラインを正しく作成することができます。 この API を使用して作成した広告キャンペーンの配信行は、パートナーセンターの [ **ad キャンペーン** ] ページで選択した既定の支払い方法に自動的に課金されます。
 
 * 自分 (または自分の組織) に Azure AD ディレクトリがあり、自分がそのディレクトリに対する[グローバル管理者](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)のアクセス許可を持っている必要があります。 Microsoft 365 または Microsoft の他のビジネス サービスをすでに使用している場合、Azure AD ディレクトリをすでに所有しています。 それ以外の場合は、追加料金なしに[パートナー センターで新しい Azure AD を作成](../publish/associate-azure-ad-with-partner-center.md#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account)できます。
 

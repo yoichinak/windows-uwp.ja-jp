@@ -6,24 +6,24 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store プロモーション API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: 6529c1a21865b2997d36e9b254b19f971f620490
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: bf5945ca68a4ea060943cb2cc89ba907f597e4f5
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57633227"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878405"
 ---
 # <a name="manage-ad-campaigns"></a>広告キャンペーンの管理
 
 アプリのプロモーション用の広告キャンペーンを作成、編集、取得するには、[Microsoft Store プロモーション API](run-ad-campaigns-using-windows-store-services.md) の以下のメソッドを使います。 このメソッドを使って作成した各キャンペーンに関連付けることができるのは、1 つのアプリのみです。
 
->**注**&nbsp;&nbsp;プログラムで作成したキャンペーンは、パートナー センターでアクセスできるとも作成し、パートナー センターを使用して広告キャンペーンを管理できます。 パートナー センターでの広告キャンペーンの管理に関する詳細については、次を参照してください。[アプリの広告キャンペーンの作成](../publish/create-an-ad-campaign-for-your-app.md)です。
+>**Note** &nbsp; メモ &nbsp;パートナーセンターを使用して広告キャンペーンを作成および管理することもできます。また、プログラムによって作成するキャンペーンは、パートナーセンターでアクセスできます。 パートナーセンターで ad キャンペーンを管理する方法の詳細については、「 [アプリの ad キャンペーンを作成](./index.md)する」を参照してください。
 
 これらのメソッドを使ってキャンペーンを作成または更新する場合、通常は以下のメソッドも 1 つ以上呼び出し、キャンペーンに関連付けられた*配信ライン*、*ターゲット プロファイル*、*クリエイティブ*を管理します。 キャンペーン、配信ライン、ターゲット プロファイル、クリエイティブ間の関係について詳しくは、「[Microsoft Store サービスを使用した広告キャンペーンの実行](run-ad-campaigns-using-windows-store-services.md#call-the-windows-store-promotions-api)」をご覧ください。
 
-* [広告キャンペーンの配信の線を管理します。](manage-delivery-lines-for-ad-campaigns.md)
-* [広告キャンペーンの対象とするプロファイルを管理します。](manage-targeting-profiles-for-ad-campaigns.md)
-* [広告キャンペーンのクリエイティブを管理します。](manage-creatives-for-ad-campaigns.md)
+* [広告キャンペーンの配信ラインの管理](manage-delivery-lines-for-ad-campaigns.md)
+* [広告キャンペーンの対象プロファイルの管理](manage-targeting-profiles-for-ad-campaigns.md)
+* [広告キャンペーンのクリエイティブの管理](manage-creatives-for-ad-campaigns.md)
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -31,16 +31,16 @@ ms.locfileid: "57633227"
 
 * Microsoft Store プロモーション API に関するすべての[前提条件](run-ad-campaigns-using-windows-store-services.md#prerequisites)を満たします (前提条件がまだ満たされていない場合)。
 
-  >**注**&nbsp;&nbsp;の前提条件の一環としてすることを確認した[パートナー センターで少なくとも 1 つの有料広告キャンペーンを作成](../publish/create-an-ad-campaign-for-your-app.md)パートナーでは、広告キャンペーンの少なくとも 1 つの支払い方法を追加することとCenter。 この API を使用して作成する広告キャンペーンの配信の線は既定の支払い方法の選択に関する課金を自動的に、**広告キャンペーン**パートナー センターでのページ。
+  >**Note** &nbsp; メモ &nbsp;前提条件の一部として、[パートナーセンターで少なくとも1つの有料広告キャンペーンを作成](./index.md)し、パートナーセンターで広告キャンペーンの少なくとも1つの支払い方法を追加するようにしてください。 この API を使用して作成した広告キャンペーンの配信行は、パートナーセンターの [ **ad キャンペーン** ] ページで選択した既定の支払い方法に自動的に課金されます。
 
 * これらのメソッドの要求ヘッダーで使う [Azure AD アクセス トークンを取得](run-ad-campaigns-using-windows-store-services.md#obtain-an-azure-ad-access-token)します。 アクセス トークンを取得した後、アクセス トークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れたら新しいトークンを取得できます。
 
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 これらのメソッドでは、次の URL が使用されます。
 
-| メソッドの種類 | 要求 URI                                                      |  説明  |
+| メソッドの型 | 要求 URI                                                      |  説明  |
 |--------|------------------------------------------------------------------|---------------|
 | POST   | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/campaign``` |  新しい広告キャンペーンを作成します。  |
 | PUT    | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/campaign/{campaignId}``` |  *campaignId* により指定された広告キャンペーンを編集します。  |
@@ -50,10 +50,10 @@ ms.locfileid: "57633227"
 
 ### <a name="header"></a>Header
 
-| Header        | 種類   | 説明         |
+| Header        | Type   | 説明         |
 |---------------|--------|---------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
-| 追跡 ID   | GUID   | (省略可能)。 呼び出しフローを追跡する ID。                                  |
+| 承認 | string | 必須。 ベアラートークン形式の Azure AD アクセストークン**Bearer** &lt; *token* &gt; 。 |
+| 追跡 ID   | GUID   | 任意。 呼び出しフローを追跡する ID。                                  |
 
 
 <span id="parameters"/> 
@@ -62,12 +62,12 @@ ms.locfileid: "57633227"
 
 広告キャンペーンを問い合わせる GET メソッドは、次のオプション クエリ パラメーターをサポートします。
 
-| 名前        | 種類   |  説明      |    
+| 名前        | Type   |  説明      |    
 |-------------|--------|---------------|------|
 | skip  |  int   | クエリでスキップする行数です。 データ セットを操作するには、このパラメーターを使用します。 たとえば、fetch=10 と skip=0 を指定すると、データの最初の 10 行が取得され、top=10 と skip=10 を指定すると、データの次の 10 行が取得されます。    |       
 | fetch  |  int   | 要求で返すデータの行数です。    |       
 | campaignSetSortColumn  |  string   | 応答本文で、指定されたフィールドにより[キャンペーン](#campaign) オブジェクトを順序付けます。 構文は <em>CampaignSetSortColumn=field</em> です。ここで、<em>field</em> パラメーターは次のいずれかの文字列になります。</p><ul><li><strong>id</strong></li><li><strong>createdDateTime</strong></li></ul><p>既定値は **createdDateTime** です。     |     
-| isDescending  |  ブール値   | 応答本文で、[キャンペーン](#campaign) オブジェクトを降順または昇順で並べ替えます。   |         
+| isDescending  |  ブール型   | 応答本文で、[キャンペーン](#campaign) オブジェクトを降順または昇順で並べ替えます。   |         
 | storeProductId  |  string   | 指定された[ストア ID](in-app-purchases-and-trials.md#store-ids) を持つアプリに関連付けられた広告キャンペーンのみ返す場合は、この値を使います。 製品のストア ID の例は、9nblggh42cfd です。   |         
 | label  |  string   | [キャンペーン](#campaign) オブジェクトに指定された*ラベル*が含まれる広告キャンペーンのみ返す場合は、この値を使います。    |       |    
 
@@ -109,7 +109,7 @@ Authorization: Bearer <your access token>
 ```
 
 
-## <a name="response"></a>応答
+## <a name="response"></a>[応答]
 
 これらのメソッドは、呼び出したメソッドに応じて 1 つ以上の[キャンペーン](#campaign) オブジェクトを含む JSON 応答本文を返します。 次の例は、特定のキャンペーンの GET メソッドの応答本文を示しています。
 
@@ -145,25 +145,25 @@ Authorization: Bearer <your access token>
 
 これらのメソッドの要求本文と応答本文には、次のフィールドが含まれています。 この表は、読み取り専用のフィールド (つまり、PUT メソッドで変更できない) と POST メソッドの要求本文で必須のフィールドを示しています。
 
-| フィールド        | 種類   |  説明      |  読み取り専用かどうか  | Default  | POST に必須かどうか |  
+| フィールド        | Type   |  説明      |  読み取り専用  | Default  | POST に必須かどうか |  
 |--------------|--------|---------------|------|-------------|------------|
-|  id   |  整数   |  広告キャンペーンの ID です。     |   〇    |      |  X     |       
-|  name   |  string   |   広告キャンペーンの名前です。    |    X   |      |  〇     |       
-|  configuredStatus   |  string   |  開発者により指定された広告キャンペーンのステータスを指定する次のいずれかの値です。 <ul><li>**Active**</li><li>**非アクティブ**</li></ul>     |  X     |  Active    |   〇    |       
-|  effectiveStatus   |  string   |   システム検証に基づいて広告キャンペーンの有効ステータスを指定する次のいずれかの値です。 <ul><li>**Active**</li><li>**非アクティブ**</li><li>**処理**</li></ul>    |    〇   |      |   X      |       
-|  effectiveStatusReasons   |  array   |  広告キャンペーンの有効ステータスの理由を指定する次のうち 1 つ以上の値です。 <ul><li>**AdCreativesInactive**</li><li>**BillingFailed**</li><li>**AdLinesInactive**</li><li>**ValidationFailed**</li><li>**失敗しました**</li></ul>      |  〇     |     |    X     |       
-|  storeProductId   |  string   |  この広告キャンペーンが関連付けられているアプリの[ストア ID](in-app-purchases-and-trials.md#store-ids) です。 製品のストア ID の例は、9nblggh42cfd です。     |   〇    |      |  〇     |       
-|  labels   |  array   |   キャンペーンのカスタム ラベルを表す 1 つ以上の文字列です。 これらのラベルは、キャンペーンの検索とタグ付けに使われます。    |   X    |  null    |    X     |       
-|  type   | string    |  キャンペーンの種類を指定する次のいずれかの値です。 <ul><li>**有料**</li><li>**家**</li><li>**コミュニティ**</li></ul>      |   〇    |      |   〇    |       
-|  objective   |  string   |  キャンペーンの目的を指定する次のいずれかの値です。 <ul><li>**DriveInstall**</li><li>**DriveReengagement**</li><li>**DriveInAppPurchase**</li></ul>     |   X    |  DriveInstall    |   〇    |       
-|  lines   |  array   |   広告キャンペーンに関連づけられた[配信ライン](manage-delivery-lines-for-ad-campaigns.md#line)を識別する 1 つ以上のオブジェクトです。 このフィールドの各オブジェクトは、配信ラインの ID と名前を指定する *id* フィールドと *name* フィールドで構成されます。     |   X    |      |    X     |       
-|  createdDate   |  string   |  広告キャンペーンが作成された日時 (ISO 8601 形式)。     |  〇     |      |     X    |       |
+|  id   |  整数 (integer)   |  広告キャンペーンの ID です。     |   はい    |      |  いいえ     |       
+|  name   |  string   |   広告キャンペーンの名前です。    |    いいえ   |      |  はい     |       
+|  configuredStatus   |  string   |  開発者により指定された広告キャンペーンのステータスを指定する次のいずれかの値です。 <ul><li>**アクティブ**</li><li>**非アクティブ**</li></ul>     |  いいえ     |  アクティブ    |   はい    |       
+|  effectiveStatus   |  string   |   システム検証に基づいて広告キャンペーンの有効ステータスを指定する次のいずれかの値です。 <ul><li>**アクティブ**</li><li>**非アクティブ**</li><li>**処理中**</li></ul>    |    はい   |      |   いいえ      |       
+|  effectiveStatusReasons   |  array   |  広告キャンペーンの有効ステータスの理由を指定する次のうち 1 つ以上の値です。 <ul><li>**AdCreativesInactive**</li><li>**BillingFailed**</li><li>**AdLinesInactive**</li><li>**ValidationFailed**</li><li>**Failed**</li></ul>      |  はい     |     |    いいえ     |       
+|  storeProductId   |  string   |  この広告キャンペーンが関連付けられているアプリの[ストア ID](in-app-purchases-and-trials.md#store-ids) です。 製品のストア ID の例は、9nblggh42cfd です。     |   はい    |      |  はい     |       
+|  labels   |  array   |   キャンペーンのカスタム ラベルを表す 1 つ以上の文字列です。 これらのラベルは、キャンペーンの検索とタグ付けに使われます。    |   いいえ    |  null    |    いいえ     |       
+|  type   | string    |  キャンペーンの種類を指定する次のいずれかの値です。 <ul><li>**支払い済み**</li><li>**家**</li><li>**コミュニティ**</li></ul>      |   はい    |      |   はい    |       
+|  objective   |  string   |  キャンペーンの目的を指定する次のいずれかの値です。 <ul><li>**DriveInstall**</li><li>**DriveReengagement**</li><li>**DriveInAppPurchase**</li></ul>     |   いいえ    |  DriveInstall    |   はい    |       
+|  lines   |  array   |   広告キャンペーンに関連づけられた[配信ライン](manage-delivery-lines-for-ad-campaigns.md#line)を識別する 1 つ以上のオブジェクトです。 このフィールドの各オブジェクトは、配信ラインの ID と名前を指定する *id* フィールドと *name* フィールドで構成されます。     |   いいえ    |      |    いいえ     |       
+|  createdDate   |  string   |  広告キャンペーンが作成された日時 (ISO 8601 形式)。     |  はい     |      |     いいえ    |       |
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Microsoft ストアのサービスを使用して広告キャンペーンを実行します。](run-ad-campaigns-using-windows-store-services.md)
-* [広告キャンペーンの配信の線を管理します。](manage-delivery-lines-for-ad-campaigns.md)
-* [広告キャンペーンの対象とするプロファイルを管理します。](manage-targeting-profiles-for-ad-campaigns.md)
-* [広告キャンペーンのクリエイティブを管理します。](manage-creatives-for-ad-campaigns.md)
-* [広告キャンペーンのパフォーマンス データを取得します。](get-ad-campaign-performance-data.md)
+* [Microsoft Store Services を使用して ad キャンペーンを実行する](run-ad-campaigns-using-windows-store-services.md)
+* [広告キャンペーンの配信ラインの管理](manage-delivery-lines-for-ad-campaigns.md)
+* [広告キャンペーンの対象プロファイルの管理](manage-targeting-profiles-for-ad-campaigns.md)
+* [広告キャンペーンのクリエイティブの管理](manage-creatives-for-ad-campaigns.md)
+* [広告キャンペーンのパフォーマンス データの取得](get-ad-campaign-performance-data.md)

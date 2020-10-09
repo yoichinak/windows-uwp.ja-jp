@@ -6,16 +6,16 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10、UWP、カスタム、アプリ、プロモーション、キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: 4015ee5372c2068d7a9ead389fe7eb07aa50a466
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c04a9705797e69543e9aec8f4e6205c815f76800
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171126"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878435"
 ---
 # <a name="create-a-custom-app-promotion-campaign"></a>カスタム アプリ プロモーション キャンペーンの作成
 
-Windows アプリ内で実行される[アプリの広告キャンペーン](create-an-ad-campaign-for-your-app.md)の作成に加えて、他のチャネルを使ってアプリを宣伝することもできます。 たとえば、サード パーティのアプリ マーケティング プロバイダーを使ってアプリを宣伝したり、ソーシャル メディア サイトにアプリのリンクを投稿したりできます。 これらの活動は*カスタム キャンペーン*と呼ばれます。
+Windows アプリ内で実行される[アプリの広告キャンペーン](../monetize/index.md)の作成に加えて、他のチャネルを使ってアプリを宣伝することもできます。 たとえば、サード パーティのアプリ マーケティング プロバイダーを使ってアプリを宣伝したり、ソーシャル メディア サイトにアプリのリンクを投稿したりできます。 これらの活動は*カスタム キャンペーン*と呼ばれます。
 
 アプリのカスタム キャンペーンを実行する場合、カスタム キャンペーンごとに異なる*キャンペーン ID* を含んだ異なる URL を作成することによって、各キャンペーンの相対的な成果を追跡できます。 Windows 10 を実行している顧客がキャンペーン ID を含む URL をクリックすると、Microsoft はそのクリックを対応するカスタムキャンペーンに関連付け、このデータを [パートナーセンター](https://partner.microsoft.com/dashboard)で使用できるようにします。
 

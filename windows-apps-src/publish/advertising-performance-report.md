@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bb9c6a43b9411b2297cc4cbf35dfdb2177e5dab7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ea0fe6f29059a2b9ef8e5ce728d883d5349d0468
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155376"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878425"
 ---
 # <a name="advertising-performance-report"></a>広告パフォーマンス レポート
 
@@ -59,8 +59,8 @@ ms.locfileid: "89155376"
 | クリック  |  アプリ内の広告がクリックされた回数。 |
 | CTR  |  クリック スルー レート、つまり広告がクリックされた回数をインプレッション数で割った値。 |
 | Viewability | アプリで表示できる広告のインプレッションの割合。 この値の計算方法の詳細については、「 [ad ユニットの viewability を最適化](../monetize/optimize-ad-unit-viewability.md)する」を参照してください。 |
-| 取得したクレジット  | [コミュニティ広告](./about-community-ads.md)キャンペーンを実行している場合、このアプリ内にコミュニティ広告を表示することで獲得したプロモーション用広告スペースのクレジット数。  |
-| 使用したクレジット  | [コミュニティ広告](./about-community-ads.md)キャンペーンを実行している場合、このアプリの広告のために消費したクレジット数。  |
+| 取得したクレジット  | [コミュニティ広告](../monetize/index.md)キャンペーンを実行している場合、このアプリ内にコミュニティ広告を表示することで獲得したプロモーション用広告スペースのクレジット数。  |
+| 使用したクレジット  | [コミュニティ広告](../monetize/index.md)キャンペーンを実行している場合、このアプリの広告のために消費したクレジット数。  |
 
 ## <a name="related-topics"></a>関連トピック
 

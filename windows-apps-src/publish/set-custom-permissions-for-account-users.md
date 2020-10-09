@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10, uwp, ユーザー ロール, ユーザーのアクセス許可, カスタム ロール, ユーザー アクセス, アクセス許可のカスタマイズ, 標準ロール
 ms.localizationpriority: medium
-ms.openlocfilehash: f8454587e31751e3653d983dbb1d45e21a2808d9
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 3cdd1904dad82e0145305fe2709360be01518a7f
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750178"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878485"
 ---
 # <a name="set-roles-or-custom-permissions-for-account-users"></a>アカウント ユーザーの役割またはカスタムのアクセス許可の設定
 
@@ -104,7 +104,7 @@ ms.locfileid: "91750178"
 <tr><td align="left">    <b>アカウントの設定</b>                    </td><td align="left">  <a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>など、<b>[アカウント設定]</b> セクションのすべてのページを表示できます。       </td><td align="left">  <b>アカウント設定</b>セクションのすべてのページを表示できます。 <a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>と他のページを変更できますが、支払いアカウントや税プロファイルは変更できません (アクセス許可が個別に付与されている場合を除く)。            </td></tr>
 <tr><td align="left">    <b>アカウントユーザー</b>                       </td><td align="left">  <b>[ユーザー]</b> セクションでアカウントに追加されているユーザーを表示できます。          </td><td align="left">  <b>[ユーザー]</b> セクションで、ユーザーのアカウントへの追加と既存のユーザーの変更ができます。             </td></tr>
 <tr><td align="left">    <b>アカウントレベルの ad パフォーマンスレポート</b> </td><td align="left">  アカウント レベルの <a href="advertising-performance-report.md">[広告パフォーマンス] レポート</a>を表示できます。      </td><td align="left">  該当なし   </td></tr>
-<tr><td align="left">    <b>Ad キャンペーン</b>                        </td><td align="left">  アカウントで作成した<a href="create-an-ad-campaign-for-your-app.md">広告キャンペーン</a>を表示できます。      </td><td align="left">  アカウントで作成した<a href="create-an-ad-campaign-for-your-app.md">広告キャンペーン</a>を作成、管理、および表示できます。          </td></tr>
+<tr><td align="left">    <b>Ad キャンペーン</b>                        </td><td align="left">  アカウントで作成した<a href="/windows/uwp/monetize/">広告キャンペーン</a>を表示できます。      </td><td align="left">  アカウントで作成した<a href="/windows/uwp/monetize/">広告キャンペーン</a>を作成、管理、および表示できます。          </td></tr>
 <tr><td align="left">    <b>Ad 仲介</b>                        </td><td align="left">  アカウント内のすべての製品の広告仲介の構成を表示できます。    </td><td align="left">  アカウント内のすべての製品の広告仲介の構成の表示と変更ができます。        </td></tr>
 <tr><td align="left">    <b>Ad 仲介レポート</b>                </td><td align="left">  アカウント内のすべての製品の<a href="/windows/uwp/publish/advertising-performance-report">広告仲介レポート</a>を表示できます。    </td><td align="left">  該当なし    </td></tr>
 <tr><td align="left">    <b>Ad パフォーマンスレポート</b>              </td><td align="left">  アカウント内のすべての製品の <a href="advertising-performance-report.md">[広告パフォーマンス] レポート</a>を表示できます。       </td><td align="left">  該当なし         </td></tr>
@@ -112,7 +112,7 @@ ms.locfileid: "91750178"
 <tr><td align="left">    <b>関連広告</b>                       </td><td align="left">  アカウント内のすべての製品で<a href="/windows/uwp/publish/in-app-ads">アフィリエイト広告</a>の利用状況を表示できます。    </td><td align="left">  アカウント内のすべての製品に対して<a href="/windows/uwp/publish/in-app-ads">アフィリエイト広告</a>の利用状況の管理と表示ができます。                </td></tr>
 <tr><td align="left">    <b>関連会社のパフォーマンスレポート</b>      </td><td align="left">  アカウント内のすべての製品の<a href="/windows/uwp/publish/advertising-performance-report">アフィリエイト パフォーマンス レポート</a>を表示できます。   </td><td align="left">  該当なし   </td></tr>
 <tr><td align="left">    <b>アプリインストール広告レポート</b>             </td><td align="left">  <a href="/windows/uwp/publish/ad-campaign-report">[広告キャンペーン] レポート</a>を表示できます。           </td><td align="left">  該当なし   </td></tr>
-<tr><td align="left">    <b>コミュニティ広告</b>                       </td><td align="left">  アカウント内のすべての製品の無料<a href="about-community-ads.md">コミュニティ広告</a>の利用状況を表示できます。          </td><td align="left">  アカウント内のすべての製品の無料<a href="about-community-ads.md">コミュニティ広告</a>の利用状況を作成、管理、および表示できます。               </td></tr>
+<tr><td align="left">    <b>コミュニティ広告</b>                       </td><td align="left">  アカウント内のすべての製品の無料<a href="/windows/uwp/monetize/">コミュニティ広告</a>の利用状況を表示できます。          </td><td align="left">  アカウント内のすべての製品の無料<a href="/windows/uwp/monetize/">コミュニティ広告</a>の利用状況を作成、管理、および表示できます。               </td></tr>
 <tr><td align="left">    <b>連絡先情報</b>                        </td><td align="left">  [アカウント設定] セクションで<a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>を表示できます。        </td><td align="left">  [アカウント設定] セクションで<a href="/windows/uwp/publish/manage-account-settings-and-profile">連絡先情報</a>の編集と表示ができます。            </td></tr>
 <tr><td align="left">    <b>COPPA コンプライアンス</b>                    </td><td align="left">  アカウント内のすべての製品の <a href="in-app-ads.md#coppa-compliance">COPPA 準拠</a>の選択 (製品が13歳未満の子供を対象とするかどうかを示す) を表示できます。                                            </td><td align="left">  アカウント内のすべての製品の <a href="in-app-ads.md#coppa-compliance">COPPA 準拠</a>の選択 (製品が13歳未満の子供を対象とするかどうかを示す) の編集と表示ができます。         </td></tr>
 <tr><td align="left">    <b>顧客グループ</b>                     </td><td align="left">  <a href="create-customer-groups.md">顧客グループ</a>(セグメントと既知のユーザーグループ) を表示できます。      </td><td align="left">  <a href="create-customer-groups.md">顧客グループ</a>(セグメントと既知のユーザーグループ) を作成、編集、および表示できます。       </td></tr>
