@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: fe776361276341e368db1fbdf8e332a1e5dc70b5
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 336b49c999d135908fb54490b7b33057d4527079
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220195"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860153"
 ---
 # <a name="timing-and-easing"></a>タイミングとイージング
 
@@ -49,7 +49,7 @@ ms.locfileid: "91220195"
 
 Fluent のモーションのタイミングでは、ベースラインとして 500 ミリ秒 (0.5 秒) を使用します。これはユーザーが瞬間に認識する最長時間です。
 
-![ヒーロー イメージ](images/time.gif)
+![垂直方向に積み重ねられた3つの円を表示する短いビデオ。速度は150ミリ秒、300ミリ秒、500ミリ秒です。](images/time.gif)
 
 ### <a name="150ms-exit"></a>**150ミリ秒** (終了)
 
@@ -90,7 +90,7 @@ Fluent のモーションのタイミングでは、ベースラインとして 
 
 イージングは、移動時のオブジェクトの速度を操作する方法です。 Fluent モーションのすべてのエクスペリエンスを結び付ける接着剤です。 極端ですが、システムで使用されるイージングは、システム内で移動するオブジェクトの物理的な操作感を統合することができます。 これは、現実世界を模倣し、移動中のオブジェクトがその環境に属しているように感じさせる 1 つの方法です。
 
-![ヒーロー イメージ](images/easing.gif)
+![フレームの右下隅から、フレームの左上隅近くにある円を示す短いビデオが表示されます。](images/easing.gif)
 
 ## <a name="apply-easing-to-motion"></a>モーションへのイージングの適用
 

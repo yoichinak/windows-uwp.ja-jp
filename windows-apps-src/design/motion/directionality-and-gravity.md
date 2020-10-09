@@ -11,12 +11,12 @@ design-contact: jeffarn
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 649fb9e2833a425ccad78f5f0bcb69ccb4091bca
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 87047e20d4513c9120c79bb329c008dad104a352
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217805"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860091"
 ---
 # <a name="directionality-and-gravity"></a>方向性と重力
 
@@ -47,7 +47,7 @@ ms.locfileid: "91217805"
 オブジェクトを移動する場合は、不自然な衝突を避ける必要があります。 オブジェクトの取得元と移動先に注意してください。また、スクロール方向やレイアウト階層など、シーンで使用できる上位レベルのコンストラクトを常にサポートします。
     :::column-end:::
     :::column:::
-        ![逆方向へのイン](images/Direction.gif)
+        ![円を表示した後、X 軸、Y 軸、Z 軸を追加した短いビデオ。](images/Direction.gif)
     :::column-end:::
 :::row-end:::
 
@@ -94,7 +94,7 @@ ms.locfileid: "91217805"
 **後方** フォワードインと同じですが、逆になります。
     :::column-end:::
     :::column:::
-        ![逆方向へのイン](images/backwardIN.gif)
+        ![フレームの右側から入力し、フレームの中央にある円を表示する短いビデオです。](images/backwardIN.gif)
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -114,7 +114,7 @@ ms.locfileid: "91217805"
 
 ここでは、グリッドの先頭行にある要素が重力の影響を受け、要素がその場所を離れて前方に移動するときに若干下がります。
 
-![逆方向へのイン](images/continuity-photos.gif)
+![グリッドの一番上の行を離れたままにして、ウィンドウの前にズームする四角形要素を表示する短いビデオ。](images/continuity-photos.gif)
 
 ## <a name="related-articles"></a>関連記事
 

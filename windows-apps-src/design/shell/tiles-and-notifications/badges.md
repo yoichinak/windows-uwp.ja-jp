@@ -1,5 +1,5 @@
 ---
-Description: タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
+description: タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
 title: Windows アプリ向けのバッジ通知
 ms.assetid: 48ee4328-7999-40c2-9354-7ea7d488c538
 label: Tiles, badges, and notifications
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e8d3cf69da80b13ff334d89027f3ea366ac3accd
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: dea3eebc253f46f5de888a0a37fea9d3ad1ac3df
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219395"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860120"
 ---
 # <a name="badge-notifications-for-windows-apps"></a>Windows アプリ向けのバッジ通知
 
@@ -34,8 +34,8 @@ ms.locfileid: "91219395"
 
 <table>
     <tr>
-        <th>[値]</th>
-        <th>バッジ</th>
+        <th>値</th>
+        <th>Badge</th>
         <th>XML</th>
     </tr>
     <tr>
@@ -66,62 +66,62 @@ ms.locfileid: "91219395"
 </tr>
 <tr>
     <td>activity</td>
-    <td><img src="images/badges/badge-activity.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-activity.png" alt="Screenshot of the activity glyph." /></td>
     <td>`<badge value="activity"/>`</td>
 </tr>
 <tr>
     <td>alarm (アラーム)</td>
-    <td><img src="images/badges/badge-alarm.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-alarm.png" alt="Screenshot of the alarm glyph." /></td>
     <td>`<badge value="alarm"/>`</td>
 </tr>
 <tr>
     <td>アラート</td>
-    <td><img src="images/badges/badge-alert.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-alert.png" alt="Screenshot of the alert glyph." /></td>
     <td>`<badge value="alert"/>`</td>
 </tr>
 <tr>
     <td>attention (注意)</td>
-    <td><img src="images/badges/badge-attention.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-attention.png" alt="Screenshot of the attention glyph." /></td>
     <td>`<badge value="attention"/>`</td>
 </tr>
 <tr>
     <td>利用可能</td>
-    <td><img src="images/badges/badge-available.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-available.png" alt="Screenshot of the available glyph." /></td>
     <td>`<badge value="available"/>`</td>
 </tr>
 <tr>
     <td>away (離席中)</td>
-    <td><img src="images/badges/badge-away.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-away.png" alt="Screenshot of the away glyph." /></td>
     <td>`<badge value="away"/>`</td>
 </tr>
 <tr>
     <td>busy (取り込み中)</td>
-    <td><img src="images/badges/badge-busy.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-busy.png" alt="Screenshot of the busy glyph." /></td>
     <td>`<badge value="busy"/>`</td>
 </tr>
 <tr>
     <td>error</td>
-    <td><img src="images/badges/badge-error.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-error.png" alt="Screenshot of the error glyph." /></td>
     <td>`<badge value="error"/>`</td>
 </tr>
 <tr>
     <td>newMessage (新しいメッセージ)</td>
-    <td><img src="images/badges/badge-newMessage.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-newMessage.png" alt="Screenshot of the new message glyph." /></td>
     <td>`<badge value="newMessage"/>`</td>
 </tr>
 <tr>
     <td>paused (一時停止)</td>
-    <td><img src="images/badges/badge-paused.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-paused.png" alt="Screenshot of the paused glyph." /></td>
     <td>`<badge value="paused"/>`</td>
 </tr>
 <tr>
     <td>playing (再生)</td>
-    <td><img src="images/badges/badge-playing.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-playing.png" alt="Screenshot of the playing glyph." /></td>
     <td>`<badge value="playing"/>`</td>
 </tr>
 <tr>
     <td>unavailable (利用不可)</td>
-    <td><img src="images/badges/badge-unavailable.png" alt="Glyph" /></td>
+    <td><img src="images/badges/badge-unavailable.png" alt="Screenshot of the unavailable glyph" /></td>
     <td>`<badge value="unavailable"/>`</td>
 </tr>
 </table>

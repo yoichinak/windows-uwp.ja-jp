@@ -6,16 +6,16 @@ ms.topic: article
 keywords: windows 10, UWP, ACPI, GPIO, I2C, SPI, UEFI
 ms.assetid: 2fbdfc78-3a43-4828-ae55-fd3789da7b34
 ms.localizationpriority: medium
-ms.openlocfilehash: a5841a8a53c18969e8ca9171bb7b3e1af0273170
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 76ef3c6b75a5d1a4bd8daebba3a392062c845215
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216796"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860187"
 ---
 # <a name="enable-user-mode-access-to-gpio-i2c-and-spi"></a>GPIO、I2C、SPI へのユーザー モード アクセスの有効化
 
-Windows 10 には、汎用入出力 (GPIO)、統合された回線 (I2C)、シリアル周辺機器インターフェイス (SPI)、およびユニバーサル非同期受信機 (UART) のユーザーモードから直接アクセスできる新しい Api が含まれています。 Raspberry Pi 2 などの開発ボードには、これらの接続のサブセットが公開されています。これにより、カスタム回路で基本コンピューティングモジュールを拡張し、特定のアプリケーションに対処できます。 通常、これらの低レベル バスはその他の重要なオンボード機能と共有され、GPIO ピンのサブセットとバスのみがヘッダーで公開されます。 システムの安定性を維持するには、ユーザーモードアプリケーションによって変更が安全な pin とバスを指定する必要があります。
+Windows 10 には、汎用入出力 (GPIO)、Inter-Integrated 回線 (I2C)、シリアル周辺機器インターフェイス (SPI)、および universal 非同期受信機 (UART) のユーザーモードから直接アクセスするための新しい Api が含まれています。 Raspberry Pi 2 などの開発ボードには、これらの接続のサブセットが公開されています。これにより、カスタム回路で基本コンピューティングモジュールを拡張し、特定のアプリケーションに対処できます。 通常、これらの低レベル バスはその他の重要なオンボード機能と共有され、GPIO ピンのサブセットとバスのみがヘッダーで公開されます。 システムの安定性を維持するには、ユーザーモードアプリケーションによって変更が安全な pin とバスを指定する必要があります。
 
 このドキュメントでは、詳細構成と電源インターフェイス (ACPI) でこの構成を指定する方法について説明し、構成が正しく指定されたことを検証するためのツールを提供します。
 
@@ -823,11 +823,11 @@ HLK マネージャーで rhproxy デバイス ノードを選択すると、適
 
 HLK マネージャーで、[Resource Hub Proxy device] を選択します。
 
-![HLK マネージャーのスクリーンショット](images/usermode-hlk-1.png)
+![[リソースハブプロキシデバイス] オプションを選択した状態で [選択] タブが表示されている Windows ハードウェアラボキットのスクリーンショット。](images/usermode-hlk-1.png)
 
 その後、[テスト] タブをクリックし、I2C WinRT、Gpio WinRT、Spi WinRT のテストを選択します。
 
-![HLK マネージャーのスクリーンショット](images/usermode-hlk-2.png)
+![[テスト] タブと [G P I O Win R T 機能とストレステスト] オプションが選択された Windows ハードウェアラボキットのスクリーンショット。](images/usermode-hlk-2.png)
 
 [選択したテストの実行] をクリックします。 各テストに関するその他のドキュメントは、テストを右クリックして [テストの説明] をクリックすることで利用できます。
 

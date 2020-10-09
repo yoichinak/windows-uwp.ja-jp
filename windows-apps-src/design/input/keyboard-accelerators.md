@@ -1,5 +1,5 @@
 ---
-Description: アクセラレータキーを使用して、Windows アプリの使いやすさとアクセシビリティを向上させる方法について説明します。
+description: アクセラレータキーを使用して、Windows アプリの使いやすさとアクセシビリティを向上させる方法について説明します。
 title: キーボード アクセラレータ
 label: Keyboard accelerators
 template: detail.hbs
@@ -10,16 +10,16 @@ pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ec5791c212e2fdfbafd40131d96ace6c88fb519
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: e9cb4a52e56862f9be27c72ef46afced895633c3
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91749958"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860092"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 
-![Surface キーボード](images/accelerators/accelerators_hero2.png)
+![Surface キーボードのヒーローの画像](images/accelerators/accelerators_hero2.png)
 
 アクセラレータ キー (キーボード アクセラレータ) は、アプリの UI 間を移動せずに一般的な操作やコマンドを呼び出すための直感的な方法をユーザーに提供して、Windows アプリケーションの使いやすさとアクセシビリティを向上させるキーボード ショートカットです。
 
@@ -37,7 +37,7 @@ ms.locfileid: "91749958"
 
 キーボード アクセラレータは、すべてのアクションに用意されるのではなく、多くの場合はメニューで公開されているコマンドに関連付けられています (メニュー項目コンテンツにも示されています)。アクセラレータは、対応するメニュー項目がない操作に関連付けることもできます。 ただし、ユーザーはアプリケーションのメニューを使用して、利用可能なコマンド セットを見つけ、その機能を理解するため、アクセラレータができるだけ簡単に検出されるようにする必要があります (ラベルの使用や、決まったパターンの使用が役立ちます)。
 
-![メニュー項目ラベルに示されているキーボード アクセラレータ](images/accelerators/accelerators_menuitemlabel.png)  
+![メニュー項目ラベルのキーボードアクセラレータのスクリーンショット。](images/accelerators/accelerators_menuitemlabel.png)  
 *メニュー項目ラベルに示されているキーボード アクセラレータ*
 
 ## <a name="when-to-use-keyboard-accelerators"></a>キーボード アクセラレータの使用に適したケース
@@ -126,7 +126,7 @@ UWP アプリのキーボード アクセラレータを作成するには、[Ke
 </CommandBar>
 ```
 
-![ツール ヒントに示されたアクセス キーの説明](images/accelerators/accelerators_tooltip.png)  
+![ツールヒントのキーボードアクセスキーのスクリーンショット。](images/accelerators/accelerators_tooltip.png)  
 ***ツール ヒントに示されたアクセス キーの説明***
 
 [UIElement](/uwp/api/windows.ui.xaml.uielement) オブジェクトには、[KeyboardAccelerator](/uwp/api/windows.ui.xaml.input.keyboardaccelerator) コレクションおよび [KeyboardAccelerators](/uwp/api/windows.ui.xaml.uielement.KeyboardAccelerators) があり、カスタムの KeyboardAccelerator オブジェクトを指定して、キーボード アクセラレータのキー入力を定義できます。
@@ -359,7 +359,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 | 拡大 | Ctrl + + | 
 | 縮小します | Ctrl + - | 
 | 既定の表示倍率に拡大縮小 | Ctrl + 0 | 
-| 上書き保存 | Ctrl + S | 
+| 保存 | Ctrl + S | 
 | 閉じる | Ctrl + W | 
 | ［印刷］ | Ctrl + P | 
 
@@ -378,7 +378,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 > [!NOTE] 
 > コントロールに複数のアクセラレータが定義されている場合は、最初のアクセラレータのみが表示されます。
 
-![アクセラレータ キーのヒント](images/accelerators/accelerators_tooltip_savebutton_small.png)
+![Ctrl + S アクセラレータのサポートを示すツールヒントが表示されている [保存] ボタンのスクリーンショット。](images/accelerators/accelerators_tooltip_savebutton_small.png)
 
 *ヒントでのアクセラレータ キーの組み合わせ*
 
@@ -414,7 +414,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 </StackPanel>
 ```
 
-![アクセラレータ キーのヒント](images/accelerators/accelerators-button-small.png)
+![Button1、Button2、および Button3 というラベルが付いた3つのボタンのスクリーンショット。 Button2 の上にツールヒントがあり、Windows + B アクセラレータのサポートを示しています。](images/accelerators/accelerators-button-small.png)
 
 *ボタンの既定のツールヒントに追加されたアクセラレータキーコンボ*
 
@@ -426,7 +426,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 </AppBarButton>
 ```
 
-![アクセラレータ キーのヒント](images/accelerators/accelerators-appbarbutton-small.png)
+![ディスクアイコンとツールヒントが表示されたボタンのスクリーンショット。 Ctrl + S アクセラレータがかっこで囲まれた既定の保存テキストが含まれています。](images/accelerators/accelerators-appbarbutton-small.png)
 
 *AppBarButton の既定のツールヒントに追加されたアクセラレータキーコンボ*
 
@@ -452,7 +452,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 </AppBarButton>
 ```
 
-![アクセラレータ キーのヒント](images/accelerators/accelerators-appbar-menuflyoutitem-small.png)
+![アクセラレータキー combos を含む MenuFlyoutItems のあるメニューのスクリーンショット。](images/accelerators/accelerators-appbar-menuflyoutitem-small.png)
 
 *Menufl's Titem のテキストに追加されたアクセラレータキーコンボ*
 
@@ -489,7 +489,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 
 一部のプラットフォームのコントロールでは、既定でこの識別が行われます。具体的には、[MenuFlyoutItem](/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem) オブジェクトと [ToggleMenuFlyoutItem](/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem) オブジェクトで実行されます。これに対して、[AppBarButton](/uwp/api/windows.ui.xaml.controls.appbarbutton) と [AppBarToggleButton](/uwp/api/windows.ui.xaml.controls.appbartogglebutton) は、[CommandBar](/uwp/api/windows.ui.xaml.controls.commandbar) のオーバーフロー メニューにこれらが表示されたときに、この識別が行われます。
 
-![メニュー項目ラベルに示されているキーボード アクセラレータ](images/accelerators/accelerators_menuitemlabel.png)  
+![メニュー項目ラベルに記述されているキーボードアクセラレータ。](images/accelerators/accelerators_menuitemlabel.png)  
 *メニュー項目ラベルに示されているキーボード アクセラレータ*
 
 [MenuFlyoutItem](/uwp/api/Windows.UI.Xaml.Controls.MenuFlyoutItem)、[ToggleMenuFlyoutItem](/uwp/api/windows.ui.xaml.controls.togglemenuflyoutitem)、[AppBarButton](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton](/uwp/api/windows.ui.xaml.controls.appbartogglebutton) の各コントロールの [KeyboardAcceleratorTextOverride](/uwp/api/windows.ui.xaml.controls.appbarbutton.KeyboardAcceleratorTextOverride) プロパティを使用して、ラベルの既定のアクセラレータ テキストを上書きすることができます。 
@@ -527,7 +527,7 @@ TextBox などのテキスト コントロールに対する [KeyDown](/uwp/api/
 
 
 ![キーイベントシーケンス ](images/accelerators/accelerators_keyevents.png)
- ***キーイベントシーケンス***
+ ***キーイベントシーケンス***を示す図
 
 イベントの順序:
 
@@ -572,8 +572,8 @@ protected override void OnProcessKeyboardAccelerators(
 
 キーボード アクセラレータは、すべてローカライズすることをお勧めします。 これを行うには、標準的な UWP リソース (.resw) ファイルと XAML 宣言の x:Uid 属性を使用します。 この例では、Windows ランタイムによってリソースが自動的に読み込まれます。
 
-![UWP リソースを使用したキーボードアクセスのローカライズ ](images/accelerators/accelerators_localization.png)
- ***uwp リソースファイルでのキーボードアクセラレータのローカライズ***
+![UWP リソースを使用したキーボードアクセラレータのローカライズファイルの ](images/accelerators/accelerators_localization.png)
+ ***キーボードアクセラレータに関する uwp リソースファイルを使用***したローカライズ
 
 ``` xaml
 <Button x:Uid="myButton" Click="OnSave">

@@ -1,5 +1,5 @@
 ---
-Description: 特別なタイル テンプレートは、アニメーション化や、アダプティブ タイルでは不可能な機能を実行できる独特なテンプレートです。
+description: 特別なタイル テンプレートは、アニメーション化や、アダプティブ タイルでは不可能な機能を実行できる独特なテンプレートです。
 title: 特別なタイル テンプレート
 ms.assetid: 1322C9BA-D5B2-45E2-B813-865884A467FF
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4368c3d504b01a48b05fcaffdb01a71b916d9d43
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1aac8997492eba2d591d0f80f89dbc9a8f5830ba
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169306"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860206"
 ---
 # <a name="special-tile-templates"></a>特別なタイル テンプレート
  
@@ -50,9 +50,9 @@ ms.locfileid: "89169306"
 
 正方形以外のアセットの場合、自動的に水平方向/垂直方向の中央に配置され、コンテナーの幅/高さに合わせてスナップされます。
 
-![正方形以外のアセットのサイズ調整、バッジがある場合とバッジがない場合](images/assetguidance26a.png)
+![バッジの有無にかかわらず、水平方向の非正方形資産のサイズを自動的に中央揃えで示すスクリーンショット。](images/assetguidance26a.png)
 
-![正方形以外のアセットのサイズ調整、バッジがある場合とバッジがない場合](images/assetguidance26b.png)
+![バッジの有無にかかわらず、垂直方向の縦棒以外の資産のサイズを自動的に中央揃えで示すスクリーンショット。](images/assetguidance26b.png)
 
 **手順 2: ベース タイルを作成する**
 

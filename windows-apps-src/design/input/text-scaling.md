@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリと、プラットフォームテキストのスケーリングをサポートするカスタム/テンプレートコントロールをビルドします。
+description: Windows アプリと、プラットフォームテキストのスケーリングをサポートするカスタム/テンプレートコントロールをビルドします。
 title: テキストの拡大縮小
 label: Text scaling
 template: detail.hbs
@@ -8,16 +8,16 @@ ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d8f7536da045514471c1af1c2f0cfac74af91a7a
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 0d47523ca69f8088d5e13ab944c5dd2be2d1d8ba
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219945"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860168"
 ---
 # <a name="text-scaling"></a>テキストの拡大縮小
 
-![テキストのスケーリング100% から225% の例](images/coretext/text-scaling-news-hero-small.png)  
+![100 ~ 225% のテキストスケーリングの例を示すヒーローの画像。](images/coretext/text-scaling-news-hero-small.png)  
 *Windows 10 でのテキストスケーリングの例 (100% から225%)*
 
 ## <a name="overview"></a>概要
@@ -40,7 +40,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 
 ユーザーは、[設定] の [画面のサイズを大きくする] スライダーを使用してテキストのスケールを調整できます。 > > の視覚/表示画面が表示されます。
 
-![テキストのスケーリング100% から225% の例](images/coretext/text-scaling-settings-100-small.png)  
+![[コンピューターの簡単操作のビジョン/表示設定] ページのスクリーンショット。 [テキストの拡大] スライダーが表示されます。](images/coretext/text-scaling-settings-100-small.png)  
 *[設定] からのテキストスケールの設定-> 簡単なアクセス > ビジョン/表示画面*
 
 ## <a name="ux-guidance"></a>UX ガイダンス
@@ -93,7 +93,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 </Grid>
 ```
 
-![アニメーション化されるテキストの100% から225% へのスケーリング](images/coretext/text-scaling.gif)  
+![テキストを100% から225% にスケーリングするアニメーション。](images/coretext/text-scaling.gif)  
 *アニメーション化テキストの拡大縮小*
 
 ### <a name="use-auto-sizing"></a>自動サイズ調整を使用する
@@ -123,7 +123,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
           AcceptsReturn="True" TextWrapping="Wrap" />
 ```
 
-![テキストの折り返しで100% から225% へのアニメーション化されるテキスト](images/coretext/text-scaling-textwrap.gif)  
+![テキストの折り返しで100% から225% にテキストをスケーリングするアニメーション。](images/coretext/text-scaling-textwrap.gif)  
 *テキストの折り返しによるアニメーション化されるテキストの拡大縮小*
 
 ### <a name="specify-text-trimming-behavior"></a>テキストのトリミング動作を指定する
@@ -141,7 +141,7 @@ DirectWrite、GDI、および XAML SwapChainPanels は、テキストのスケ�
 </TextBlock>
 ```
 
-![テキスト領域で100% から225% にテキストをスケーリングする](images/coretext/text-scaling-clipping-small.png)  
+![テキスト領域で100% から225% に拡大縮小するテキストのスクリーンショット。](images/coretext/text-scaling-clipping-small.png)  
 *テキスト領域を使用したテキストの拡大縮小*
 
 ### <a name="use-a-tooltip"></a>ツールヒントを使用する

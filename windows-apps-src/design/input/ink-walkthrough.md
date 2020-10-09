@@ -6,16 +6,16 @@ keywords: インク、インク、チュートリアル
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a0660312746a88a61ccb7b2ca9c01d720ebb2be3
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: f726f4ab4a422cc94f00493261620ddff8b6122b
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219695"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860197"
 ---
 # <a name="tutorial-support-ink-in-your-windows-app"></a>チュートリアル: Windows アプリでインクをサポートする
 
-![Surface ペン](images/ink/ink-hero-small.png)  
+![表面ペンのヒーロー画像。](images/ink/ink-hero-small.png)  
 *Surface ペン* ([Microsoft ストア](https://www.microsoft.com/p/surface-pen/8zl5c82qmg6b)で購入できます)。
 
 このチュートリアルでは、Windows Ink での書き込みと描画をサポートする基本的な Windows アプリを作成する手順について説明します。 使用するサンプル アプリは GitHub ([サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する Windows Ink API ([Windows Ink プラットフォームのコンポーネント](#components-of-the-windows-ink-platform)をご覧ください) の使い方を示します。
@@ -29,7 +29,7 @@ ms.locfileid: "91219695"
 
 これらの機能の実装の詳細については、「 [windows アプリにおけるペンの相互作用と Windows Ink](./pen-and-stylus-interactions.md)」を参照してください。
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同等のデジタル エクスペリエンスを提供できます。すばやく手書きでメモを取ったり、ホワイトボードのデモに注釈を書き込んだり、建築製図や工業図面の作成から、個人的な作品の制作まで行えます。
 
@@ -53,7 +53,7 @@ Windows Ink を使うと、ユーザーに、ペンと紙の体験とほぼ同�
 この Visual Studio サンプルとソース コードは [GitHub](https://github.com/) の [windows-appsample-get-started-ink sample](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-Ink) からダウンロードできます。
 
 1. 緑色の **複製またはダウンロード** ボタンを選択します。  
-![リポジトリを複製する](images/ink/ink-clone.png)
+![リポジトリを複製しています。](images/ink/ink-clone.png)
 2. GitHub のアカウントを使っている場合には、[**Open in Visual Studio**] (Visual Studio で開く) を選択して、リポジトリをローカル コンピューターに複製できます。 
 3. GitHub アカウントを持っていない場合、またはプロジェクトのローカルコピーが必要な場合は、[ **ZIP のダウンロード** ] を選択します (最新の更新プログラムをダウンロードするには、定期的に確認する必要があります)。
 
@@ -80,11 +80,11 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
    > [!NOTE]
    > または、 **[デバッグ**  >  ] [**デバッグの開始**] メニュー項目を選択するか、ここに表示されている [**ローカルコンピューター**の実行] ボタンを選択します。
-   > ![Visual Studio のプロジェクトのビルド ボタン](images/ink/ink-vsrun-small.png)
+   > ![Visual Studio の [プロジェクトのビルド] ボタン。](images/ink/ink-vsrun-small.png)
 
 アプリ ウィンドウが開き、スプラッシュ画面が数秒表示されて、次のような初期画面が表示されます。
 
-![空のアプリ](images/ink/ink-app-step1-empty-small.png)
+![空のアプリのスクリーンショット。](images/ink/ink-app-step1-empty-small.png)
 
 これで、このチュートリアルの残りの部分で使用する基本的な Windows アプリが完成しました。 これ以降の手順では、インク機能を追加します。
 
@@ -123,7 +123,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ここで、アプリをもう一度実行します。 何でも自由に書き込んだり、自画像の絵などを描いてみてください。
 
-![基本的な手描き入力](images/ink/ink-app-step1-name-small.png)
+![このトピックで強調表示されている基本的なインクサンプルアプリのスクリーンショット。](images/ink/ink-app-step1-name-small.png)
 
 ## <a name="step-3-support-inking-with-touch-and-mouse"></a>手順 3: タッチとマウスを使って手描き入力をサポートする
 
@@ -181,21 +181,21 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 アプリを再度実行し、[**InkToolbar**](/uwp/api/windows.ui.xaml.controls.inktoolbar) が表示されることを確認してツールを試します。
 
-![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-inktoolbar-default-small.png)
+![このトピックで強調表示されている基本的なインクサンプルアプリのスクリーンショット (既定の InkToolbar)](images/ink/ink-inktoolbar-default-small.png)
 
 ### <a name="challenge-add-a-custom-button"></a>課題: カスタム ボタンを追加する
 <table class="wdg-noborder">
 <tr>
 <td>
 
-![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/challenge-icon.png)
+:::image type="icon" source="images/challenge-icon.png":::
 
 </td>
 <td>
 
 カスタムの **[InkToolbar](/uwp/api/windows.ui.xaml.controls.inktoolbar)** の例 (Windows Ink ワークスペースのスケッチパッド) を示します。
 
-![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-inktoolbar-sketchpad-small.png)
+![インクワークスペースの Sketchpad の [インク] ツールバーのスクリーンショット。](images/ink/ink-inktoolbar-sketchpad-small.png)
 
 [Inktoolbar](/uwp/api/windows.ui.xaml.controls.inktoolbar)のカスタマイズの詳細については、「 [Windows アプリインクアプリに Inktoolbar を追加する](ink-toolbar.md)」を参照してください。
 
@@ -213,9 +213,9 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 > 手書き認識は [**ペンと Windows Ink**] の設定を使って改善できます。
 > 1. スタート メニューを開き、[**設定**] を選択します。
 > 2. [設定] 画面で、[**デバイス**] [  >  **ペン & Windows Ink**] を選択します。
-> ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-settings-small.png)
+> ![[ペン & Windows Ink 設定] ページのスクリーンショット。](images/ink/ink-settings-small.png)
 > 3. [**手書き入力を認識します**] を選択して、[**手書き認識の個人用設定**] ダイアログを開きます。
-> ![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/ink/ink-settings-handwritingpersonalization-small.png)
+> ![[手書き認識の個人用設定] ダイアログボックスのスクリーンショット。](images/ink/ink-settings-handwritingpersonalization-small.png)
 
 ### <a name="in-the-sample"></a>このサンプルを使って、次を行います:
 1. MainPage.xaml ファイルを開きます。
@@ -286,7 +286,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 <tr>
 <td>
 
-![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/challenge-icon.png)
+:::image type="icon" source="images/challenge-icon.png":::
 
 </td>
 <td>
@@ -306,7 +306,7 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 <tr>
 <td>
 
-![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/challenge-icon.png)
+:::image type="icon" source="images/challenge-icon.png":::
 
 </td>
 <td>
@@ -385,11 +385,11 @@ Windows Ink は、Windowsでサポートされている多くの言語のテキ�
 
 デジタルの走り書きを使った、基本的なフローチャートの例を示します。
 
-![元のインクのフローチャート](images/ink/ink-app-step6-shapereco1-small.png)
+![デジタルナプキンからの基本的なフローチャートのスクリーンショット。](images/ink/ink-app-step6-shapereco1-small.png)
 
 図形認識後の同じフローチャートを次に示します。
 
-![元のインクのフローチャート](images/ink/ink-app-step6-shapereco2-small.png)
+![ユーザーが [認識図形] を選択した後のフローチャートのスクリーンショット。](images/ink/ink-app-step6-shapereco2-small.png)
 
 
 ## <a name="step-7-save-and-load-ink"></a>手順 7: インクの保存と読み込み
@@ -444,7 +444,7 @@ ISF ファイルは、インク ストロークのプロパティと動作に関
 <tr>
 <td>
 
-![Windows Ink ワークスペースのスケッチパッドの InkToolbar](images/challenge-icon.png)
+:::image type="icon" source="images/challenge-icon.png":::
 
 </td>
 
