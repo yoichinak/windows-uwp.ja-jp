@@ -5,12 +5,12 @@ ms.date: 10/03/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ed23f77936378f2348abf868a67041be84978123
-ms.sourcegitcommit: 5481bb34def681bc60fbfa42d9779053febec468
+ms.openlocfilehash: 62f1c6462e56b14396e3fdaed16221698c0333fd
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304684"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933163"
 ---
 # <a name="move-from-a-desktop-application-to-uwp"></a>デスクトップアプリケーションから UWP への移行
 
@@ -56,7 +56,7 @@ ms.locfileid: "89304684"
 
 デスクトップ アプリケーション プロジェクトから、クラス ライブラリ プロジェクトへの参照を追加します。
 
-![クラス ライブラリ参照](images/desktop-to-uwp/class-library-reference.png)
+![ドット NET プロジェクトのクラスライブラリリファレンスを呼び出す [ソリューションエクスプローラー] ウィンドウのスクリーンショット。](images/desktop-to-uwp/class-library-reference.png)
 
 次に、ツールを使用して、どの程度のコードが標準に準拠しているか調べます。 これにより、コードをライブラリに移行する前に、どの部分を再利用でき、どの部分で最小限の変更が必要になり、どの部分がアプリケーション固有にしておくのかを決定できます。
 
@@ -186,7 +186,7 @@ UI ページは XAML で設計し、デバイス固有またはプラットフ�
 
 次に、UWP プロジェクトから、.NET Standard 2.0 ライブラリ プロジェクトへの参照を追加します。
 
-![クラス ライブラリ参照](images/desktop-to-uwp/class-library-reference2.png)
+![ドット NET プロジェクトのクラスライブラリ参照への参照を呼び出す UWP ソリューションエクスプローラーウィンドウのスクリーンショット。](images/desktop-to-uwp/class-library-reference2.png)
 
 #### <a name="build-your-pages"></a>ページをビルドする
 
@@ -222,7 +222,7 @@ UWP を使い始めるには、「[UWP アプリとは](../get-started/universal
 
 Xamarin プロジェクトを追加することにより、Android デバイスと iOS デバイスをターゲットにすることができます。  
 
-![Xamarin アプリ](images/desktop-to-uwp/xamarin-apps.png)
+![Android デバイスと、Xamarin アプリを表示している i O S デバイスを示すイメージ。](images/desktop-to-uwp/xamarin-apps.png)
 
 これらのプロジェクトでは、C# でプラットフォーム固有およびデバイスに固有の API へのフル アクセスを使用して、Android アプリと iOS アプリを構築できます。 これらのアプリはプラットフォーム固有のハードウェア アクセラレーションを利用し、ネイティブ パフォーマンス用にコンパイルできます。
 
@@ -236,14 +236,14 @@ UWP の場合と同様、.NET Standard 2.0 クラス ライブラリに用意さ
 
 これらのテンプレートは、**[新しいプロジェクトの追加]** ダイアログ ボックスの **[Visual C#]** グループにあります。
 
-![Xamarin アプリ](images/desktop-to-uwp/xamarin-projects.png)
+![[新しいプロジェクトの追加] ダイアログボックスのスクリーンショット。インストールされている > Visual C シャープの選択と Android、クロスプラットフォーム、および i O S オプションが呼び出されます。](images/desktop-to-uwp/xamarin-projects.png)
 
 >[!NOTE]
 >クロスプラット フォーム プロジェクトは、プラットフォーム固有の機能がほとんどないアプリに最適です。 これらを使用して、iOS、Android、および Windows で実行されるネイティブの XAML ベース UI を 1 つ構築できます。 [こちら](/xamarin/xamarin-forms/)をご覧ください。
 
 次に、Android、iOS、またはクロスプラットフォーム プロジェクトから、クラス ライブラリ プロジェクトの参照を追加します。
 
-![クラス ライブラリ参照](images/desktop-to-uwp/class-library-reference3.png)
+![Android、i O S、またはクロスプラットフォームプロジェクトのクラスライブラリリファレンスへの参照を呼び出す [ソリューションエクスプローラー] ウィンドウのスクリーンショット。](images/desktop-to-uwp/class-library-reference3.png)
 
 #### <a name="build-your-pages"></a>ページをビルドする
 

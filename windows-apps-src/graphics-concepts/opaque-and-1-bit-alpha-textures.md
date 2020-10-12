@@ -7,14 +7,14 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 74768202554a3eb49c0df8ee5f17a4fe5f979be8
-ms.sourcegitcommit: 82edc63a5b3623abce1d5e70d8e200a58dec673c
+ms.openlocfilehash: c08489055bfd4e867310c5bdec6fea655ddc6d41
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58291810"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933013"
 ---
-# <a name="span-iddirect3dconceptsopaqueand1-bitalphatexturesspanopaque-and-1-bit-alpha-textures"></a><span id="direct3dconcepts.opaque_and_1-bit_alpha_textures"></span>不透明な直線および 1 ビットのアルファ テクスチャ
+# <a name="span-iddirect3dconceptsopaque_and_1-bit_alpha_texturesspanopaque-and-1-bit-alpha-textures"></a><span id="direct3dconcepts.opaque_and_1-bit_alpha_textures"></span>不透明なテクスチャと 1 ビットのアルファ テクスチャ
 
 テクスチャ形式 BC1 は、不透明または単一透明色のテクスチャに使用します。
 
@@ -54,24 +54,24 @@ else
 
 ブレンド前に、透明度ピクセルの RGBA コンポーネントを 0 に設定することをお勧めします。
 
-次の表は、8 バイト ブロックのメモリ レイアウトを示しています。 最初のインデックスが y 座標に対応しており、2 つ目が x 座標に対応していることを想定しています。 たとえば、テクセル\[1\]\[2\] (x, y) では、テクスチャ マップのピクセルを指す = (2, 1)。
+次の表は、8 バイト ブロックのメモリ レイアウトを示しています。 最初のインデックスが y 座標に対応しており、2 つ目が x 座標に対応していることを想定しています。 たとえば、テクセル \[ 1 2 は、 \] \[ \] (x, y) = (2, 1) のテクスチャマップピクセルを表します。
 
 8 バイト (64 ビット) ブロックのメモリ レイアウトを次に示します。
 
 | ワード アドレス | 16 ビットのワード    |
 |--------------|----------------|
-| 0            | 色\_0       |
-| 1            | 色\_1       |
-| 2            | Word のビットマップ\_0 |
-| 3            | Word のビットマップ\_1 |
+| 0            | 色 \_ 0       |
+| 1            | 色 \_ 1       |
+| 2            | ビットマップ語 \_ 0 |
+| 3            | ビットマップ語 \_ 1 |
 
  
 
-色\_0 と色\_1、2 つの両極端に色が次のようにレイアウトします。
+色 \_ 0 と色 \_ 1 (2 つの極端な色) は、次のようにレイアウトされます。
 
-| ビット        | 色                 |
+| Bits        | Color                 |
 |-------------|-----------------------|
-| 4:0 (LSB\*) | 青のカラー コンポーネント  |
+| 4:0 (LSB \* ) | 青のカラー コンポーネント  |
 | 10:5        | 緑のカラー コンポーネント |
 | 15:11       | 赤のカラー コンポーネント   |
 
@@ -79,42 +79,42 @@ else
 
 \*最下位ビット
 
-Word のビットマップ\_0 が次のようにレイアウトします。
+ビットマップ \_ の単語0は、次のようにレイアウトされます。
 
-| ビット          | テクセル           |
+| Bits          | テクセル           |
 |---------------|-----------------|
-| 1:0 (LSB)     | テクセル\[0\]\[0\] |
-| 3:2           | テクセル\[0\]\[1\] |
-| 5:4           | テクセル\[0\]\[2\] |
-| 7:6           | テクセル\[0\]\[3\] |
-| 9:8           | テクセル\[1\]\[0\] |
-| 11:10         | テクセル\[1\]\[1\] |
-| 13:12         | テクセル\[1\]\[2\] |
-| 15時 14分 (MSB\*) | テクセル\[1\]\[3\] |
+| 1:0 (LSB)     | テクセル \[ 0 \] \[ 0\] |
+| 3:2           | テクセル \[ 0 \] \[ 1\] |
+| 5:4           | テクセル \[ 0 \] \[ 2\] |
+| 7:6           | テクセル \[ 0 \] \[ 3\] |
+| 9:8           | テクセル \[ 1 \] \[ 0\] |
+| 11:10         | テクセル \[ 1 \] \[ 1\] |
+| 13:12         | テクセル \[ 1 \] \[ 2\] |
+| 15:14 (MSB \* ) | テクセル \[ 1 \] \[ 3\] |
 
  
 
 \*最上位ビット (MSB)
 
-Word のビットマップ\_1 が次のようにレイアウトします。
+ビットマップ語 \_ 1 は次のようにレイアウトされます。
 
-| ビット        | テクセル           |
+| Bits        | テクセル           |
 |-------------|-----------------|
-| 1:0 (LSB)   | テクセル\[2\]\[0\] |
-| 3:2         | テクセル\[2\]\[1\] |
-| 5:4         | テクセル\[2\]\[2\] |
-| 7:6         | テクセル\[2\]\[3\] |
-| 9:8         | テクセル\[3\]\[0\] |
-| 11:10       | テクセル\[3\]\[1\] |
-| 13:12       | テクセル\[3\]\[2\] |
-| 15:14 (MSB) | テクセル\[3\]\[3\] |
+| 1:0 (LSB)   | テクセル \[ 2 \] \[ 0\] |
+| 3:2         | テクセル \[ 2 \] \[ 1\] |
+| 5:4         | テクセル \[ 2 \] \[ 2\] |
+| 7:6         | テクセル \[ 2 \] \[ 3\] |
+| 9:8         | テクセル \[ 3 \] \[ 0\] |
+| 11:10       | テクセル \[ 3 \] \[ 1\] |
+| 13:12       | テクセル \[ 3 \] \[ 2\] |
+| 15:14 (MSB) | テクセル \[ 3 \] \[ 3\] |
 
  
 
-## <a name="span-idexampleofopaquecolorencodingspanspan-idexampleofopaquecolorencodingspanspan-idexampleofopaquecolorencodingspanexample-of-opaque-color-encoding"></a><span id="Example_of_Opaque_Color_Encoding"></span><span id="example_of_opaque_color_encoding"></span><span id="EXAMPLE_OF_OPAQUE_COLOR_ENCODING"></span>不透明な色のエンコーディングの例
+## <a name="span-idexample_of_opaque_color_encodingspanspan-idexample_of_opaque_color_encodingspanspan-idexample_of_opaque_color_encodingspanexample-of-opaque-color-encoding"></a><span id="Example_of_Opaque_Color_Encoding"></span><span id="example_of_opaque_color_encoding"></span><span id="EXAMPLE_OF_OPAQUE_COLOR_ENCODING"></span>不透明な色のエンコードの例
 
 
-不透明なエンコードの例として、赤と黒の色が極端であるとします。 赤が色\_0、および黒の色は、\_1。 それらの色の間で均一に分散したグラデーションを形成する 4 つの補間色があります。 4x4 ビットマップの値を調べるには、次の計算を使います。
+不透明なエンコードの例として、赤と黒の色が極端であるとします。 赤は color \_ 0、black は color \_ 1 です。 それらの色の間で均一に分散したグラデーションを形成する 4 つの補間色があります。 4x4 ビットマップの値を調べるには、次の計算を使います。
 
 ```cpp
 00 ? color_0
@@ -125,20 +125,20 @@ Word のビットマップ\_1 が次のようにレイアウトします。
 
 この場合、ビットマップは次の図のようになります。
 
-![拡大したビットマップ レイアウトの図](images/colors2.png)
+![赤と黒の拡張されたビットマップレイアウトの図。](images/colors2.png)
 
 これは、図に示された次の一連の色のようになります。
 
-**注**  ピクセル (0, 0) は、イメージの左上が表示されます。
+**メモ**   イメージでは、左上にピクセル (0, 0) が表示されます。
 
  
 
 ![エンコードされた不透明なグラデーションの図](images/redsquares.png)
 
-## <a name="span-idexampleof1bitalphaencodingspanspan-idexampleof1bitalphaencodingspanspan-idexampleof1bitalphaencodingspanexample-of-1-bit-alpha-encoding"></a><span id="Example_of_1_Bit_Alpha_Encoding"></span><span id="example_of_1_bit_alpha_encoding"></span><span id="EXAMPLE_OF_1_BIT_ALPHA_ENCODING"></span>1 ビットのアルファ エンコーディングの例
+## <a name="span-idexample_of_1_bit_alpha_encodingspanspan-idexample_of_1_bit_alpha_encodingspanspan-idexample_of_1_bit_alpha_encodingspanexample-of-1-bit-alpha-encoding"></a><span id="Example_of_1_Bit_Alpha_Encoding"></span><span id="example_of_1_bit_alpha_encoding"></span><span id="EXAMPLE_OF_1_BIT_ALPHA_ENCODING"></span>1ビットのアルファエンコーディングの例
 
 
-この形式を選択したときに、16 ビット符号なし整数、色\_0 の場合は、符号なし 16 ビット整数、色より小さい\_1。 この形式を使うことができる例は、青い空に映る木の葉などです。 一部のテクセルは透明とマークできますが、その場合も葉には緑の 3 つの色調を使うことができます。 2 つの色により極端な色が修正され、3 つ目は補間色になります。
+この形式は、符号なし16ビット整数 \_ 0 が符号なし16ビット整数 (色 1) より小さい場合に選択され \_ ます。 この形式を使うことができる例は、青い空に映る木の葉などです。 一部のテクセルは透明とマークできますが、その場合も葉には緑の 3 つの色調を使うことができます。 2 つの色により極端な色が修正され、3 つ目は補間色になります。
 
 そのような絵の例を、次の図に示します。
 
@@ -157,12 +157,12 @@ Word のビットマップ\_1 が次のようにレイアウトします。
 
 この場合、ビットマップは次の図のようになります。
 
-![拡大したビットマップ レイアウトの図](images/colors3.png)
+![拡大されたビットマップレイアウトの図 (明るい緑と濃い緑)。](images/colors3.png)
 
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[圧縮されたテクスチャのリソース](compressed-texture-resources.md)
+[圧縮テクスチャ リソース](compressed-texture-resources.md)
 
  
 

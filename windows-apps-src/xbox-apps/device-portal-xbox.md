@@ -6,12 +6,12 @@ ms.date: 04/09/2019
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: ed490b0474b919d4439e5b74b676d5974a3c6a30
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a7df29b6c1446d65c8e5224eede3030a25888364
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174786"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933173"
 ---
 # <a name="device-portal-for-xbox"></a>Xbox 用 Device Portal
 
@@ -43,13 +43,13 @@ ms.locfileid: "89174786"
 
 Xbox Device Portal では、Windows Device Portal で入手可能なものと同様の一連の標準的なページと共に、いくつかの固有のページが提供されます。 標準的なページについて詳しくは、「[Windows Device Portal の概要](../debug-test-perf/device-portal.md)」をご覧ください。 以下のセクションでは、Xbox Device Portal に固有のページについて説明します。
 
-### <a name="home"></a>Home
+### <a name="home"></a>ホーム
 
 Windows Device Portal の **[アプリ マネージャー]** ページと同様に、Xbox Device Portal の **[ホーム]** ページでは、**[マイ コレクション]** の下にインストールされているゲームとアプリの一覧が表示されます。 ゲームまたはアプリの名前をクリックして、その詳細を表示できます (**[パッケージ ファミリ名]** など)。 **[操作]** ドロップダウンで、ゲームまたはアプリに対して **[起動]** などの操作を行うことができます。
 
 **[Xbox Live テスト アカウント]** で、お使いの Xbox に関連付けられているアカウントを管理することができます。 ユーザーとゲスト アカウントの追加、新しいユーザーの作成、ユーザーのサインインとサインアウト、アカウントの削除を行うことができます。
 
-![Home](images/device-portal-xbox-16.png)
+![ホーム](images/device-portal-xbox-16.png)
 
 ### <a name="xbox-live-game-saves"></a>Xbox Live (セーブ データ)
 
@@ -83,15 +83,15 @@ Xbox Device Portal の **[ネットワーク]** ページは Windows Device Port
 
 ![メディアのキャプチャ](images/device-portal-xbox-12.png)
 
-### <a name="settings"></a>Settings
+### <a name="settings"></a>設定
 
 **[設定]** ページで、Xbox One のいくつかの設定を表示および編集することができます。 上部で、**[インポート]** を選択してファイルから設定をインポートし、**[エクスポート]** を選択して現在の設定を .txt ファイルにエクスポートすることができます。 設定をインポートすると、一括編集が簡単になり、特に複数の本体を構成するときに役に立ちます。 インポートする設定ファイルを作成するには、必要に応じて設定を変更してから、設定をエクスポートします。 その後、このファイルを使用して、他の本体用に設定を迅速かつ簡単にインポートすることができます。
 
 さまざまな設定があり、表示/編集するためのセクションがいくつかあります。これらについて以下で説明します。
 
-![Settings](images/device-portal-xbox-20.png)
+![[設定] ページのスクリーンショット。デバイス情報と表示設定セクションが表示されます。](images/device-portal-xbox-20.png)
 
-![Settings](images/device-portal-xbox-21.png)
+![[設定] ページのスクリーンショット。 [ローカライズ設定]、[電源設定]、[ユーザー設定] セクションが表示されます。 ](images/device-portal-xbox-21.png)
 
 #### <a name="device-information"></a>デバイス情報
 

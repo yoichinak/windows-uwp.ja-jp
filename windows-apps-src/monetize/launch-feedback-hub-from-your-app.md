@@ -1,17 +1,17 @@
 ---
-Description: アプリからフィードバック Hub を起動してフィードバックを送信することをユーザーにお勧めできます。
+description: アプリからフィードバック Hub を起動してフィードバックを送信することをユーザーにお勧めできます。
 title: アプリからのフィードバック Hub の起動
 ms.assetid: 070B9CA4-6D70-4116-9B18-FBF246716EF0
 ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, フィードバック Hub, 起動
 ms.localizationpriority: medium
-ms.openlocfilehash: 71ecb104f1864eefcf1e38f793a4af53a977f693
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 511612911d180459bd7c732803d3a98e3d4580c8
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89363105"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933133"
 ---
 # <a name="launch-feedback-hub-from-your-app"></a>アプリからのフィードバック Hub の起動
 
@@ -60,16 +60,16 @@ ms.locfileid: "89363105"
 
 フィードバック Hub を起動するために、Segoe MDL2 Assets フォントと文字コード E939 から次の標準のフィードバック アイコンを表示する UI 要素 (ボタンなど) をアプリに追加することをお勧めします。
 
-![フィードバック アイコン](images/feedback_icon.PNG)
+:::image type="icon" source="images/feedback_icon.PNG":::
 
 また、アプリでフィードバック Hub にリンクするための次の配置オプションを 1 つ以上使用することをお勧めします。
 * **アプリ バー内で直接**。 実装に応じて、アイコンのみを使用するか、テキストを追加できます (以下に示すように)。
 
-  ![フィードバック アイコン](images/feedback_appbar_placement.png)
+  ![右上隅にフィードバックアイコンがあり、その横に "フィードバック" というラベルが付いたアプリケーションのスクリーンショット。](images/feedback_appbar_placement.png)
 
 * **アプリの設定内**。 これは、フィードバック Hub へのアクセスを提供するより巧妙な方法です。 次の例では、フィードバック リンクがアプリの下にあるリンクとして表示されています。
 
-  ![フィードバック アイコン](images/feedback_settings_placement.png)
+  ![[アプリ] の下にフィードバックリンクが表示される設定ページのスクリーンショット。](images/feedback_settings_placement.png)
 
 * **イベント駆動型のポップアップ内**。 これは、Windows フィードバック Hub を起動する前に、特定の質問についてユーザーにたずねる場合に便利です。 たとえば、ユーザーがアプリで特定の機能を使用した後、その機能の満足度に関する特定の質問を表示します。 ユーザーが質問に応答した場合、アプリでフィードバック Hub が起動します。
 

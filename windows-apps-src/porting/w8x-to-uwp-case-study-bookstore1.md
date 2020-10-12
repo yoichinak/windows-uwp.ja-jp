@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 98c74ac688707c6c80b9f3098760328fea0f852a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ff8e095fc46d2c08771f3e2e002fe2d8b602ab71
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174856"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933063"
 ---
 # <a name="windows-runtime-8x-to-uwp-case-study-bookstore1"></a>Windows ランタイム 8.x から UWP へのケース スタディ - Bookstore1
 
@@ -68,11 +68,11 @@ Bookstore1 \_ 81 ソリューションは、8.1 ユニバーサルアプリプ�
 
 これで、ビルドして実行することができます。 新しい UWP アプリの外観は、Windows 10 へ移植するための具体的な作業をまだ行っていませんが、次のようになります。
 
-![最初のソース コードの変更を加えた Windows 10 アプリ](images/w8x-to-uwp-case-studies/c01-03-desk10-initial-source-code-changes.png)
+![明示的な変更のない Windows 10 アプリのスクリーンショット。](images/w8x-to-uwp-case-studies/c01-03-desk10-initial-source-code-changes.png)
 
 デスクトップ デバイスで動作中の、最初のソース コードの変更を加えた Windows 10 アプリ
 
-![最初のソース コードの変更を加えた Windows 10 アプリ](images/w8x-to-uwp-case-studies/c01-04-mob10-initial-source-code-changes.png)
+![最初のソースコードが変更された Windows 10 アプリのスクリーンショット。](images/w8x-to-uwp-case-studies/c01-04-mob10-initial-source-code-changes.png)
 
 モバイル デバイスで動作中の、最初のソース コードの変更を加えた Windows 10 アプリ
 
@@ -91,11 +91,11 @@ Bookstore1 81 アプリでは、 \_ 2 つの異なるリソースディクショ
 
 スタイル設定操作の最後のシーケンスで、アプリの外観は次のようになります。
 
-![ほとんどの移植が行われた Windows 10 アプリ](images/w8x-to-uwp-case-studies/c01-05-desk10-almost-ported.png)
+![スタイル操作の最後のシーケンスを含むアプリのスクリーンショット。](images/w8x-to-uwp-case-studies/c01-05-desk10-almost-ported.png)
 
 デスクトップ デバイスで動作中の、ほとんどの移植が行われた Windows 10 アプリ
 
-![ほとんどの移植が行われた Windows 10 アプリ](images/w8x-to-uwp-case-studies/c01-06-mob10-almost-ported.png)
+![ほぼ移植された windows 10 アプリのスクリーンショット。](images/w8x-to-uwp-case-studies/c01-06-mob10-almost-ported.png)
 
 モバイル デバイスで動作中の、ほとんどの移植が行われた Windows 10 アプリ
 

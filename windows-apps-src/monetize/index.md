@@ -6,12 +6,12 @@ ms.date: 11/29/2017
 ms.topic: article
 keywords: Windows 10, UWP, 収益化, エンゲージメント, プロモーション, ストア サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: dd6262677cd548fa8e690fde5a90ab1f2662ea2a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f2516a1708948f0322d197bf4fdd524ede6ba0b0
+ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155646"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91878545"
 ---
 # <a name="monetization-engagement-and-store-services"></a>収益化、エンゲージメント、Microsoft Store サービス
 
@@ -71,7 +71,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 
 バナー広告、スポット広告 (バナーおよびビデオ)、リニア ビデオ広告、再生可能広告、ネイティブ広告など、さまざまな広告をサポートし、ほとんどのニーズに対応しています。 マイクロソフトのプラットフォームは、OpenRTB、VAST 2.x、MRAID 2、および VPAID 3 の各標準に準拠しており、MOAT および IAS と互換性があります。
 
-[広告オプションを探す](../publish/create-an-ad-campaign-for-your-app.md)
+[広告オプションを探す]()
 [広告 SDK をインストールする](https://marketplace.visualstudio.com/items?itemName=AdMediator.MicrosoftAdvertisingSDK)
     :::column-end:::
 :::row-end:::

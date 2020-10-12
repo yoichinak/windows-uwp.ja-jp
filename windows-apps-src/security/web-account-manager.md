@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 69e60d8ef919a05493f47f086ee992afe8bfeb4c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0a67c88eb7eb70308e6dcbbd096289c0617793b1
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172836"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933073"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
@@ -71,7 +71,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 
 アプリを実行して "ログイン" ボタンをクリックすると、空のウィンドウが表示されます。 
 
-![アカウント設定ウィンドウ](images/tb-1.png)
+![アカウントが一覧表示されていない [アカウントの選択] ウィンドウのスクリーンショット。](images/tb-1.png)
 
 システムは UI シェルのみを提供するため、このウィンドウは空になっています。開発者がこのウィンドウに ID プロバイダーをプログラムで入力します。 
 
@@ -156,7 +156,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 
 上記のコードを実行すると、ウィンドウは次のようになります。 
 
-![アカウント設定ウィンドウ](images/tb-2.png)
+![アカウントが一覧表示されている [アカウントの選択] ウィンドウのスクリーンショット。](images/tb-2.png)
 
 ### <a name="request-a-token"></a>トークンの要求
 
@@ -390,7 +390,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 }
 ```
 
-![アカウント設定ウィンドウ](images/tb-3.png)
+![アカウントが一覧表示されていない [アカウントの選択] ウィンドウのスクリーンショットと、サインインしている場合は、優れたアプリが最適であるというメッセージが表示されます。](images/tb-3.png)
 
 ヘッダー テキストを長くしすぎないでください。短く簡潔なテキストにします。 ログイン プロセスが複雑で、詳しい情報を表示する必要がある場合には、カスタム リンクを使ってユーザーを別のページにリンクします。 
 
@@ -416,7 +416,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 }
 ```
 
-![アカウント設定ウィンドウ](images/tb-4.png)
+![アカウントが一覧表示されていない [アカウントの選択] ウィンドウのスクリーンショットと、プライバシーポリシーへのリンク。](images/tb-4.png)
 
 理論上は、あらゆることのために設定コマンドを使うことができます。 ただし、上記のような、直観的なアカウント関連のシナリオにのみ使うことをお勧めします。 
 

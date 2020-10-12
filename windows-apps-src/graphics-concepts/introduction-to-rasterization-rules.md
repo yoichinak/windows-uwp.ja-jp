@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 38522be28280c0a08f6cb065e5dfb5c2f26642a8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 75cb520f97f68c06f8861b90ce1068fb136bd374
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162796"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933153"
 ---
 # <a name="introduction-to-rasterization-rules"></a>ラスター化規則の概要
 
@@ -42,11 +42,11 @@ Direct3D により使われる三角形のラスター化ルールのこの説�
 
 左上隅 (0.5, 0.5) と右下隅 (2.5, 4.5) で三角形を定義した場合、この三角形の中心点は (1.5, 2.5) になります。 Direct3D ラスタライザーによりこの三角形がテッセレーションされた場合、各ピクセルの中心は明確に 4 つの各三角形の中に収まり、左上の塗りつぶし規則は必要ありません。 次の図にこれを示します。 三角形内のピクセルには、Direct3D がピクセルを含める三角形に基づいてラベルが付けられます。
 
-![4 つの三角形に分割された長方形を含む番号付きの正方形](images/noambig.png)
+![4つの三角形に分割された四角形を含む番号付き正方形のスクリーンショット。](images/noambig.png)
 
 その左上隅が (1.0, 1.0)、右下隅が (3.0, 5.0)、中心点が (2.0, 3.0) となるように前の図の長方形を移動した場合、Direct3D は左上の塗りつぶし規則を適用します。 次の図が示すように、この長方形内のほとんどのピクセルは複数の三角形の境界をまたいでいます。
 
-![4 つの三角形に分割された長方形を含む番号付きの正方形](images/fillrule.png)
+![四角形が下と右に移動した、番号付きの正方形のスクリーンショット。](images/fillrule.png)
 
 どちらの長方形でも、次の図に示すように同じピクセルが影響を受けています。
 

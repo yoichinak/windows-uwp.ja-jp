@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: 89f3d331-20cd-457b-83e8-1a22aaab2658
 ms.localizationpriority: medium
-ms.openlocfilehash: d9d9041b5e90ce8ffc16fe0158dda597f99b41bc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 96aea61073cf0c62f0c9636519018e1f19d0c8b3
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157946"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933093"
 ---
 # <a name="windows-unlock-with-windows-hello-companion-iot-devices"></a>Windows Hello コンパニオン (IoT) デバイスを使った Windows のロック解除
 
@@ -92,7 +92,7 @@ Windows Hello コンパニオン デバイスは、PC と通信する前に、�
 - ユーザーは、Windows Hello コンパニオン デバイスを使用してロックを解除する各 Windows 10 デスクトップ デバイスで PIN を設定します。
 - ユーザーは、Windows 10 デスクトップ デバイスで Windows Hello コンパニオン デバイス アプリを実行して、自分の Windows Hello コンパニオン デバイスを Windows 10 デスクトップ デバイスに登録します。
 
-注:
+メモ:
 
 - Windows Hello コンパニオンデバイスアプリの検出、ダウンロード、および起動は合理化されており、可能な場合は自動化されています (たとえば、Windows 10 デスクトップデバイス側の NFC リーダーで Windows Hello コンパニオンデバイスをタップしたときにアプリをダウンロードできます)。 ただし、これは、Windows Hello コンパニオン デバイスと Windows Hello コンパニオン デバイス アプリの責任で実行する必要があります。
 - エンタープライズ環境では、MDM によって Windows Hello コンパニオン デバイス アプリを展開できます。
@@ -102,7 +102,7 @@ Windows Hello コンパニオン デバイスは、PC と通信する前に、�
 
 次の図は、登録時の Windows Hello コンパニオン デバイスと Companion Authentication Service の対話方法を示しています。  
 
-![登録フロー](images/companion-device-2.png)
+![登録フローの図。](images/companion-device-2.png)
 
 このプロトコルでは、2 つのキーが使用されます。
 
@@ -145,7 +145,7 @@ Windows Hello コンパニオン デバイス フレームワークには、Wind
 
 2 番目の計算値は、サービスがデバイスを認証し、さらにトランスポート チャネルでのリプレイ攻撃を防ぐために使用されます。
 
-![登録フロー](images/companion-device-3.png)
+![更新された登録フローの図。](images/companion-device-3.png)
 
 ## <a name="lifecycle-management"></a>ライフサイクル管理
 
@@ -649,7 +649,7 @@ Windows Hello コンパニオン デバイス アプリは、ShowNotificationMes
 - "*デバイス名* にサインインする方法を確認してください。"
 - "*デバイス名* を使用してサインインするには、Bluetooth をオンにしてください。"
 - "*デバイス名* を使用してサインインするには、NFC をオンにしてください。"
-- " *デバイス名* を使用してサインインするには、wi-fi ネットワークに接続します。"
+- " *デバイス名* を使用してサインインするには、Wi-Fi ネットワークに接続します。"
 - " *デバイス名* をもう一度タップします。"
 - "企業により、 *デバイス名*を使用したサインインが禁止されています。 別のサインイン オプションを使用してください。"
 - "サインインするには、 *デバイス名* をタップしてください。"
