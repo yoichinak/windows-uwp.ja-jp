@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: article
 keywords: windows 10、c#、winrt、cswinrt、投影
 ms.localizationpriority: medium
-ms.openlocfilehash: 2558c37660559bb49263a5708d95ddf9086bf833
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: bc5c8e39b808fd1a8bc557fd29ba828d33d8dde4
+ms.sourcegitcommit: df4d99f9950655be725afa83f1ee7c3b73dff923
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989170"
+ms.locfileid: "92001392"
 ---
 # <a name="walkthrough-generate-a-net-5-projection-from-a-cwinrt-component-and-distribute-the-nuget"></a>チュートリアル: C++/WinRT コンポーネントから .NET 5 プロジェクションを生成し、NuGet を配布する
 
@@ -118,7 +118,6 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
     ```xml
     <PropertyGroup>
-      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
       <CsWinRTIncludes>SimpleMathComponent</CsWinRTIncludes>
       <CsWinRTGeneratedFilesDir>$(OutDir)</CsWinRTGeneratedFilesDir>
     </PropertyGroup>
@@ -126,7 +125,6 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
     この例の設定の詳細を次に示します。
 
-    - 要素は、 `AllowUnsafeBlocks` 相互運用コードを使用するかどうかを指定します。 
     - プロパティは、 `CsWinRTIncludes` プロジェクトに使用する名前空間を指定します。
     - プロパティは、 `CsWinRTGeneratedFilesDir` プロジェクションからのファイルが生成される出力ディレクトリを設定します。これは、ソースからの構築に関する次のセクションで設定します。
 
