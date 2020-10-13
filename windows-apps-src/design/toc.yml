@@ -310,7 +310,71 @@
           href: motion/key-frame-and-easing-function-animations.md
 - name: Shell
   items:
-    - name: Tiles
+    - name: トースト通知
+      items:
+        - name: UX ガイダンス
+          href: shell/tiles-and-notifications/toast-ux-guidance.md
+        - name: ローカル トーストの送信
+          items:
+            - name: UWP アプリ
+              href: shell/tiles-and-notifications/send-local-toast.md
+            - name: Win32 アプリ
+              items:
+                - name: 概要
+                  href: shell/tiles-and-notifications/toast-desktop-apps.md
+                - name: C# アプリ
+                  href: shell/tiles-and-notifications/send-local-toast-desktop.md
+                - name: C++ WRL アプリ
+                  href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
+        - name: トーストのコンテンツ
+          items:
+            - name: Content
+              href: shell/tiles-and-notifications/adaptive-interactive-toasts.md
+            - name: スキーマ
+              href: shell/tiles-and-notifications/toast-schema.md
+        - name: トーストのスケジュールを設定する
+          href: shell/tiles-and-notifications/scheduled-toast.md
+        - name: その他の機能
+          items:
+            - name: カスタム オーディオ
+              href: shell/tiles-and-notifications/custom-audio-on-toasts.md
+            - name: 進行状況バー
+              href: shell/tiles-and-notifications/toast-progress-bar.md
+            - name: 保留中の更新プログラム
+              href: shell/tiles-and-notifications/toast-pending-update.md
+            - name: カスタム タイムスタンプ
+              href: shell/tiles-and-notifications/custom-timestamps-on-toasts.md
+            - name: コレクション
+              href: shell/tiles-and-notifications/toast-collections.md
+            - name: ヘッダー
+              href: shell/tiles-and-notifications/toast-headers.md
+            - name: 通知リスナー
+              href: shell/tiles-and-notifications/notification-listener.md
+            - name: 古い
+              items:
+                - name: 通知のミラーリング
+                  href: shell/tiles-and-notifications/notification-mirroring.md
+                - name: ユニバーサル無視
+                  href: shell/tiles-and-notifications/universal-dismiss.md
+    - name: バッジ通知
+      href: shell/tiles-and-notifications/badges.md
+    - name: プッシュ通知
+      items:
+        - name: 概要
+          href: shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md
+        - name: WNS の優先順位
+          href: shell/tiles-and-notifications/wns-notification-priorities.md
+        - name: Allowlisting WNS トラフィック
+          href: shell/tiles-and-notifications/firewall-allowlist-config.md
+        - name: プッシュ通知ウィザードにより生成されるコード
+          href: shell/tiles-and-notifications/the-code-generated-by-the-push-notification-wizard.md
+    - name: タスク バー
+      items:
+        - name: アプリをタスク バーにピン留めする
+          href: shell/pin-to-taskbar.md
+    - name: タイトル バー
+      href: shell/title-bar.md
+    - name: ライブ タイル
       href: shell/tiles-and-notifications/creating-tiles.md
       items:
         - name: セカンダリ タイル
@@ -338,54 +402,8 @@
           href: shell/tiles-and-notifications/primary-tile-apis.md
         - name: 言語、スケール、コントラストに合わせたタイルとトースト通知のサポート
           href: shell/tiles-and-notifications/tile-toast-language-scale-contrast.md
-    - name: アプリをタスク バーにピン留めする
-      href: shell/pin-to-taskbar.md
-    - name: タイトル バーのカスタマイズ
-      href: shell/title-bar.md
-    - name: 通知
+    - name: その他
       items:
-        - name: トースト通知
-          items:
-            - name: UX ガイダンス
-              href: shell/tiles-and-notifications/toast-ux-guidance.md
-            - name: トーストのコンテンツ
-              href: shell/tiles-and-notifications/adaptive-interactive-toasts.md
-            - name: トーストのコンテンツのスキーマ
-              href: shell/tiles-and-notifications/toast-schema.md
-            - name: ローカル トーストの送信
-              items:
-                - name: Windows アプリ
-                  href: shell/tiles-and-notifications/send-local-toast.md
-                - name: デスクトップ アプリ
-                  items:
-                    - name: 概要
-                      href: shell/tiles-and-notifications/toast-desktop-apps.md
-                    - name: C# アプリ
-                      href: shell/tiles-and-notifications/send-local-toast-desktop.md
-                    - name: C++ WRL アプリ
-                      href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
-            - name: トーストのスケジュールを設定する
-              href: shell/tiles-and-notifications/scheduled-toast.md
-            - name: カスタム オーディオ
-              href: shell/tiles-and-notifications/custom-audio-on-toasts.md
-            - name: 進行状況バー
-              href: shell/tiles-and-notifications/toast-progress-bar.md
-            - name: 保留中の更新プログラム
-              href: shell/tiles-and-notifications/toast-pending-update.md
-            - name: カスタム タイムスタンプ
-              href: shell/tiles-and-notifications/custom-timestamps-on-toasts.md
-            - name: コレクション
-              href: shell/tiles-and-notifications/toast-collections.md
-            - name: ヘッダー
-              href: shell/tiles-and-notifications/toast-headers.md
-            - name: 通知リスナー
-              href: shell/tiles-and-notifications/notification-listener.md
-            - name: 通知のミラーリング
-              href: shell/tiles-and-notifications/notification-mirroring.md
-            - name: ユニバーサル無視
-              href: shell/tiles-and-notifications/universal-dismiss.md
-        - name: バッジ通知
-          href: shell/tiles-and-notifications/badges.md
         - name: Notifications Visualizer
           href: shell/tiles-and-notifications/notifications-visualizer.md
         - name: 通知の配信方法
@@ -397,17 +415,6 @@
               href: shell/tiles-and-notifications/alternate-channel-vapid-webpush.md
             - name: 定期的な通知
               href: shell/tiles-and-notifications/periodic-notification-overview.md
-        - name: Windows プッシュ通知サービス (WNS)
-          href: shell/tiles-and-notifications/windows-push-notification-services--wns--overview.md
-          items:
-            - name: WNS の優先順位
-              href: shell/tiles-and-notifications/wns-notification-priorities.md
-            - name: Allowlisting WNS トラフィック
-              href: shell/tiles-and-notifications/firewall-allowlist-config.md
-            - name: プッシュ通知ウィザードにより生成されるコード
-              href: shell/tiles-and-notifications/the-code-generated-by-the-push-notification-wizard.md
-        - name: 直接通知
-          href: shell/tiles-and-notifications/raw-notification-overview.md
 - name: 入力と操作
   items:
     - name: 概要
