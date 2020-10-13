@@ -1,25 +1,25 @@
 ---
 Description: Win32 C++ WRL アプリがローカルトースト通知を送信し、トーストをクリックしたユーザーを処理する方法について説明します。
-title: デスクトップ C++ WRL アプリからのローカル トースト通知の送信
-label: Send a local toast notification from desktop C++ WRL apps
+title: Win32 C++ WRL アプリからローカルトースト通知を送信する
+label: Send a local toast notification from Win32 C++ WRL apps
 template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トーストの送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C++、cpp、cplusplus、WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: f90733cb4b549b7b8f088d6ecfa652941b0769b1
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: a227ccbc52aa3c1dd8c0cd9c61cdecf140375fe2
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220145"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984658"
 ---
-# <a name="send-a-local-toast-notification-from-desktop-c-wrl-apps"></a>デスクトップ C++ WRL アプリからのローカル トースト通知の送信
+# <a name="send-a-local-toast-notification-from-win32-c-wrl-apps"></a>Win32 C++ WRL アプリからローカルトースト通知を送信する
 
-デスクトップアプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、異なるライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合は、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
+Win32 アプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、異なるライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合は、パッケージ id が存在しない可能性があるため、Win32 アプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
-> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[Desktop C# に関するページ](send-local-toast-desktop.md) をご覧ください。
+> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他の Win32 言語については、「 [Win32 C#](send-local-toast-desktop.md)」を参照してください。
 
 
 ## <a name="step-1-enable-the-windows-10-sdk"></a>手順 1: Windows 10 SDK を有効にする
@@ -372,7 +372,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR cm
 
 
 ### <a name="foreground-vs-background-activation"></a>フォアグラウンドとバックグラウンドのアクティブ化
-デスクトップ アプリでは、フォア グラウンドとバック グラウンドのアクティブ化はいずれも、COM アクティベーターの呼び出しという同じ手順で処理されます。 ウィンドウを表示するか、ウィンドウを表示せずに作業を行うだけで終了するかは、アプリのコードによって決定されます。 したがって、トーストのコンテンツで **activationType** に **background** を指定しても、動作は変わりません。
+Win32 アプリの場合、フォアグラウンドおよびバックグラウンドのアクティブ化は同じように処理されます。 COM アクティベーターが呼び出されます。 ウィンドウを表示するか、ウィンドウを表示せずに作業を行うだけで終了するかは、アプリのコードによって決定されます。 したがって、トーストのコンテンツで **activationType** に **background** を指定しても、動作は変わりません。
 
 
 ## <a name="step-9-remove-and-manage-notifications"></a>手順 9: 通知を削除および管理する
@@ -444,5 +444,5 @@ if (IsWindows10OrGreater())
 ## <a name="resources"></a>リソース
 
 * [GitHub での完全なコード サンプル](https://github.com/WindowsNotifications/desktop-toasts)
-* [デスクトップ アプリからのトースト通知](toast-desktop-apps.md)
+* [Win32 アプリからのトースト通知](toast-desktop-apps.md)
 * [トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)

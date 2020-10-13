@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: dea3eebc253f46f5de888a0a37fea9d3ad1ac3df
-ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
+ms.openlocfilehash: a49d771b7efdbb7e787db0cbadea45c255a1120e
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91860120"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984598"
 ---
 # <a name="badge-notifications-for-windows-apps"></a>Windows アプリ向けのバッジ通知
 
@@ -32,99 +32,29 @@ ms.locfileid: "91860120"
 
 ## <a name="numeric-badges"></a>数値バッジ
 
-<table>
-    <tr>
-        <th>値</th>
-        <th>Badge</th>
-        <th>XML</th>
-    </tr>
-    <tr>
-        <td>1 ～ 99 の数字。 値 0 はグリフ値 "none" と同じであり、バッジをクリアします。</td>
-        <td><img src="images/badges/badge-numeric.png" alt="A numeric badge less than 100." /></td>
-        <td>`<badge value="1"/>`</td>
-    </tr>
-    <tr>
-        <td>99 を超える数字。</td>
-        <td><img src="images/badges/badge-numeric-greater.png" alt="A numeric badge greater than 99." /></td></td>
-        <td>`<badge value="100"/>`</td>
-    </tr>    
-</table>
+値 | バッジ | XML
+--|--|--
+1 ～ 99 の数字。 値 0 はグリフ値 "none" と同じであり、バッジをクリアします。 | <img src="images/badges/badge-numeric.png" alt="A numeric badge less than 100." /> | `<badge value="1"/>`
+99 を超える数字。 | <img src="images/badges/badge-numeric-greater.png" alt="A numeric badge greater than 99." /></td> | `<badge value="100"/>`
 
 ## <a name="glyph-badges"></a>グリフ バッジ
 バッジには、数値の代わりに拡張不可能な状態グリフ セットの 1 つを表示することもできます。 
 
-<table>
-<tr>
-    <th>Status</th>
-    <th>グリフ</th>
-    <th>XML</th>
-</tr>
-<tr>
-    <td>なし</td>
-    <td>(バッジは表示されません。)</td>
-    <td>`<badge value="none"/>`</td>
-</tr>
-<tr>
-    <td>activity</td>
-    <td><img src="images/badges/badge-activity.png" alt="Screenshot of the activity glyph." /></td>
-    <td>`<badge value="activity"/>`</td>
-</tr>
-<tr>
-    <td>alarm (アラーム)</td>
-    <td><img src="images/badges/badge-alarm.png" alt="Screenshot of the alarm glyph." /></td>
-    <td>`<badge value="alarm"/>`</td>
-</tr>
-<tr>
-    <td>アラート</td>
-    <td><img src="images/badges/badge-alert.png" alt="Screenshot of the alert glyph." /></td>
-    <td>`<badge value="alert"/>`</td>
-</tr>
-<tr>
-    <td>attention (注意)</td>
-    <td><img src="images/badges/badge-attention.png" alt="Screenshot of the attention glyph." /></td>
-    <td>`<badge value="attention"/>`</td>
-</tr>
-<tr>
-    <td>利用可能</td>
-    <td><img src="images/badges/badge-available.png" alt="Screenshot of the available glyph." /></td>
-    <td>`<badge value="available"/>`</td>
-</tr>
-<tr>
-    <td>away (離席中)</td>
-    <td><img src="images/badges/badge-away.png" alt="Screenshot of the away glyph." /></td>
-    <td>`<badge value="away"/>`</td>
-</tr>
-<tr>
-    <td>busy (取り込み中)</td>
-    <td><img src="images/badges/badge-busy.png" alt="Screenshot of the busy glyph." /></td>
-    <td>`<badge value="busy"/>`</td>
-</tr>
-<tr>
-    <td>error</td>
-    <td><img src="images/badges/badge-error.png" alt="Screenshot of the error glyph." /></td>
-    <td>`<badge value="error"/>`</td>
-</tr>
-<tr>
-    <td>newMessage (新しいメッセージ)</td>
-    <td><img src="images/badges/badge-newMessage.png" alt="Screenshot of the new message glyph." /></td>
-    <td>`<badge value="newMessage"/>`</td>
-</tr>
-<tr>
-    <td>paused (一時停止)</td>
-    <td><img src="images/badges/badge-paused.png" alt="Screenshot of the paused glyph." /></td>
-    <td>`<badge value="paused"/>`</td>
-</tr>
-<tr>
-    <td>playing (再生)</td>
-    <td><img src="images/badges/badge-playing.png" alt="Screenshot of the playing glyph." /></td>
-    <td>`<badge value="playing"/>`</td>
-</tr>
-<tr>
-    <td>unavailable (利用不可)</td>
-    <td><img src="images/badges/badge-unavailable.png" alt="Screenshot of the unavailable glyph" /></td>
-    <td>`<badge value="unavailable"/>`</td>
-</tr>
-</table>
+Status | グリフ | XML
+--|--|--
+なし | (バッジは表示されません。) | `<badge value="none"/>`
+activity | <img src="images/badges/badge-activity.png" alt="Glyph" /> | `<badge value="activity"/>`
+alarm (アラーム) | <img src="images/badges/badge-alarm.png" alt="Glyph" /> | `<badge value="alarm"/>`
+アラート | <img src="images/badges/badge-alert.png" alt="Glyph" /> | `<badge value="alert"/>`
+attention (注意) | <img src="images/badges/badge-attention.png" alt="Glyph" /> | `<badge value="attention"/>`
+利用可能 | <img src="images/badges/badge-available.png" alt="Glyph" /> | `<badge value="available"/>`
+away (離席中) | <img src="images/badges/badge-away.png" alt="Glyph" /> | `<badge value="away"/>`
+busy (取り込み中) | <img src="images/badges/badge-busy.png" alt="Glyph" /> | `<badge value="busy"/>`
+error | <img src="images/badges/badge-error.png" alt="Glyph" /> | `<badge value="error"/>`
+newMessage (新しいメッセージ) | <img src="images/badges/badge-newMessage.png" alt="Glyph" /> | `<badge value="newMessage"/>`
+paused (一時停止) | <img src="images/badges/badge-paused.png" alt="Glyph" /> | `<badge value="paused"/>`
+playing (再生) | <img src="images/badges/badge-playing.png" alt="Glyph" /> | `<badge value="playing"/>`
+unavailable (利用不可) | <img src="images/badges/badge-unavailable.png" alt="Glyph" /> | `<badge value="unavailable"/>`</td>
 
 ## <a name="create-a-badge"></a>バッジの作成
 

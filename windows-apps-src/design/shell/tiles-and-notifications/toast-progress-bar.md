@@ -7,12 +7,12 @@ ms.date: 12/07/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト, 進行状況バー, トーストの進行状況バー, 通知, トーストのデータ バインディング
 ms.localizationpriority: medium
-ms.openlocfilehash: 4219154a3fe3241b9c1871c07a1fbbb2b63f2348
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8df76af7dd26792d8d1af0fa8641d76e007ef8e3
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174606"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984528"
 ---
 # <a name="toast-progress-bar-and-data-binding"></a>トーストの進行状況バーとデータ バインディング
 
@@ -35,39 +35,28 @@ ms.locfileid: "89174606"
 | プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
 | **Title** | string または [Bindablestring](toast-schema.md#bindablestring) | false | タイトルの文字列 (オプション) を取得または設定します。 データ バインディングをサポートしています。 |
-| **値** | double または [AdaptiveProgressBarValue](toast-schema.md#adaptiveprogressbarvalue) か [BindableProgressBarValue](toast-schema.md#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 0.0 ～ 1.0 の double 型または `AdaptiveProgressBarValue.Indeterminate` か `new BindableProgressBarValue("myProgressValue")` です。 |
+| **Value** | double または [AdaptiveProgressBarValue](toast-schema.md#adaptiveprogressbarvalue) か [BindableProgressBarValue](toast-schema.md#bindableprogressbarvalue) | false | 進行状況バーの値を取得または設定します。 データ バインディングをサポートしています。 既定値は 0 です。 0.0 ～ 1.0 の double 型または `AdaptiveProgressBarValue.Indeterminate` か `new BindableProgressBarValue("myProgressValue")` です。 |
 | **ValueStringOverride** | string または [Bindablestring](toast-schema.md#bindablestring) | false | 割合を示す既定の文字列に代わって表示される文字列 (オプション) を取得または設定します。 これを指定しない場合は、"70%" などの文字が表示されます。 |
 | **状態** | string または [Bindablestring](toast-schema.md#bindablestring) | true | 進行状況バーの下の左側に表示されるステータス文字列 (必須) を取得または設定します。 この文字列は、"ダウンロード中..." や "インストール中..." などのように、操作の状態を反映する必要があります。 |
 
 
 以下では、上に示した通知を生成する方法を示します。
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-ToastContent content = new ToastContent()
-{
-    Visual = new ToastVisual()
+new ToastContentBuilder()
+    .AddText("Downloading your weekly playlist...")
+    .AddVisualChild(new AdaptiveProgressBar()
     {
-        BindingGeneric = new ToastBindingGeneric()
-        {
-            Children =
-            {
-                new AdaptiveText()
-                {
-                    Text = "Downloading your weekly playlist..."
-                },
- 
-                new AdaptiveProgressBar()
-                {
-                    Title = "Weekly playlist",
-                    Value = 0.6,
-                    ValueStringOverride = "15/26 songs",
-                    Status = "Downloading..."
-                }
-            }
-        }
-    }
-};
+        Title = "Weekly playlist",
+        Value = 0.6,
+        ValueStringOverride = "15/26 songs",
+        Status = "Downloading..."
+    });
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast>
@@ -83,6 +72,8 @@ ToastContent content = new ToastContent()
     </visual>
 </toast>
 ```
+
+---
 
 ただし、進行状況バーが実際にリアルタイムに機能するには、バーの値を動的に更新する必要があります。 これは、データ バインディングを使用してトーストを更新することで実現します。
 
@@ -110,30 +101,16 @@ public void SendUpdatableToastWithProgress()
     string group = "downloads";
  
     // Construct the toast content with data bound fields
-    var content = new ToastContent()
-    {
-        Visual = new ToastVisual()
+    var content = new ToastContentBuilder()
+        .AddText("Downloading your weekly playlist...")
+        .AddVisualChild(new AdaptiveProgressBar()
         {
-            BindingGeneric = new ToastBindingGeneric()
-            {
-                Children =
-                {
-                    new AdaptiveText()
-                    {
-                        Text = "Downloading your weekly playlist..."
-                    },
-    
-                    new AdaptiveProgressBar()
-                    {
-                        Title = "Weekly playlist",
-                        Value = new BindableProgressBarValue("progressValue"),
-                        ValueStringOverride = new BindableString("progressValueString"),
-                        Status = new BindableString("progressStatus")
-                    }
-                }
-            }
-        }
-    };
+            Title = "Weekly playlist",
+            Value = new BindableProgressBarValue("progressValue"),
+            ValueStringOverride = new BindableString("progressValueString"),
+            Status = new BindableString("progressStatus")
+        })
+        .GetToastContent();
  
     // Generate the toast notification
     var toast = new ToastNotification(content.GetXml());

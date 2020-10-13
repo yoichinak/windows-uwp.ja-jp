@@ -8,12 +8,12 @@ ms.date: 06/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, 追跡可能なタイル, ライブ タイル, 追跡可能なタイル通知
 ms.localizationpriority: medium
-ms.openlocfilehash: a10e68f2926761338a95d5d2c649c84468efada8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 770c3f13d701de622c4f6ea8075dfef5f6b1afc8
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173816"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984458"
 ---
 # <a name="chaseable-tile-notifications"></a>追跡可能なタイル通知
 
@@ -140,14 +140,14 @@ protected override void OnLaunched(LaunchActivatedEventArgs args)
 ```
 
 
-### <a name="accessing-onlaunched-from-desktop-applications"></a>デスクトップアプリケーションから開始された OnLaunched へのアクセス
+### <a name="accessing-onlaunched-from-win32-applications"></a>Win32 アプリケーションから開始された OnLaunched へのアクセス
 
-デスクトップ [ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用したデスクトップアプリ (WIN32、WPF など) では、chaseable 可能なタイルも使用できます。 唯一の違いは、OnLaunched 上げ引数にアクセスすることです。 最初に [デスクトップブリッジを使用してアプリをパッケージ化](/windows/msix/desktop/source-code-overview)する必要があることに注意してください。
+[デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用した Win32 アプリ (WPF など) でも、chaseable タイルを使用できます。 唯一の違いは、OnLaunched 上げ引数にアクセスすることです。 最初に [デスクトップブリッジを使用してアプリをパッケージ化](/windows/msix/desktop/source-code-overview)する必要があることに注意してください。
 
 > [!IMPORTANT]
 > **2018 年10月の更新プログラムが必要**: API を使用するには、 `AppInstance.GetActivatedEventArgs()` SDK 17763 を対象とし、ビルド17763以降を実行する必要があります。
 
-デスクトップアプリケーションの場合、起動引数にアクセスするには、次の手順を実行します。
+Win32 アプリケーションの場合、起動引数にアクセスするには、次の手順を実行します。
 
 ```csharp
 

@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10, UWP, セカンダリ タイル
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f95699fd6eb0803824c9bcdea46d275ab4383ac
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: a4cd65093e9969531c3de683064973aab58b1680
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57653187"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984668"
 ---
 # <a name="secondary-tiles"></a>セカンダリ タイル
 
@@ -27,13 +27,13 @@ ms.locfileid: "57653187"
 
 **セカンダリ タイルをピン留めできるのはユーザーだけです。アプリでプログラムによってユーザーの承認なくピン留めすることはできません**。 ユーザーは明示的にアプリ内から "ピン留め" ボタンをクリックする必要があります。これにより、API を使ってセカンダリ タイルの作成を要求します。システムによりダイアログ ボックスが表示され、ユーザーはタイルのピン留めの確認を求められます。
 
-## <a name="quick-links"></a>クイック リンク
+## <a name="quick-links"></a>クイック リンク:
 
-| 記事 | 説明 |
+| [アーティクル] | 説明 |
 | --- | --- |
-| [セカンダリ タイルに関するガイダンス](secondary-tiles-guidance.md) | セカンダリ タイルを使用する必要がある場合について説明します。 |
-| [セカンダリ タイルをピン留め](secondary-tiles-pinning.md) | セカンダリ タイルをピン留めする方法について説明します。 |
-| [デスクトップ アプリケーションからピン留めします。](secondary-tiles-desktop-pinning.md) | Windows デスクトップ アプリケーションでは、デスクトップ ブリッジを利用して、セカンダリ タイルをピン留めできます。 |
+| [セカンダリ タイルのガイダンス](secondary-tiles-guidance.md) | セカンダリ タイルを使用する必要がある場合について説明します。 |
+| [セカンダリ タイルをピン留めする](secondary-tiles-pinning.md) | セカンダリ タイルをピン留めする方法について説明します。 |
+| [Win32 アプリからピン留めする](secondary-tiles-desktop-pinning.md) | Win32 アプリでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。 |
 
 
 ## <a name="secondary-tiles-in-relation-to-primary-tiles"></a>セカンダリ タイルとプライマリ タイルの関係
@@ -66,9 +66,9 @@ ms.locfileid: "57653187"
 * ユーザーは親アプリを削除することなくいつでもセカンダリ タイルを削除できます。
 * セカンダリ タイルは実行時に作成できます。 アプリ タイルはインストール時にしか作成できません。
 * セカンダリ タイルを追加する前に、ポップアップでユーザーへの確認が行われます。
-* プログラムでユーザーへの要求を使ってロック画面にセカンダリ タイルを選択することはできません。 ユーザーは、[PC 設定の個人用設定] ページを使用して、セカンダリ タイルを手動で追加する必要があります。
+* プログラムでユーザーへの要求を使ってロック画面にセカンダリ タイルを選択することはできません。 ユーザーは、PC 設定の [個人用設定] ページを使用して、セカンダリタイルを手動で追加する必要があります。
 
-通知の送信のため、セカンダリ タイルで使われるタイル/バッジ アップデーターとプッシュ通知チャネル用に特定のメソッドが用意されています。 これらは、プライマリ タイルで使われるバージョンと似ています。 たとえば、CreateBadgeUpdaterForApplication vs します。CreateBadgeUpdaterForSecondaryTile します。
+通知の送信のため、セカンダリ タイルで使われるタイル/バッジ アップデーターとプッシュ通知チャネル用に特定のメソッドが用意されています。 これらは、プライマリ タイルで使われるバージョンと似ています。 たとえば、CreateBadgeUpdaterForApplication に対して CreateBadgeUpdaterForSecondaryTile があります。
 
 
 ## <a name="guidance-on-secondary-tiles"></a>セカンダリ タイルのガイダンス
@@ -79,5 +79,5 @@ ms.locfileid: "57653187"
 セカンダリ タイルをピン留めする方法については、「[セカンダリ タイルをピン留めする](secondary-tiles-pinning.md)」をご覧ください。
 
 
-## <a name="desktop-applications-and-secondary-tiles"></a>デスクトップ アプリケーションとセカンダリ タイル
-デスクトップ ブリッジを使って、デスクトップ アプリケーションからセカンダリ タイルを使用する方法については、「[デスクトップ アプリケーションからセカンダリ タイルをピン留めする](secondary-tiles-desktop-pinning.md)」をご覧ください。
+## <a name="win32-applications-and-secondary-tiles"></a>Win32 アプリケーションとセカンダリタイル
+デスクトップブリッジを使用して Win32 アプリケーションからセカンダリタイルを使用する方法については、「 [win32 アプリからのセカンダリタイルのピン留め](secondary-tiles-desktop-pinning.md)」を参照してください。

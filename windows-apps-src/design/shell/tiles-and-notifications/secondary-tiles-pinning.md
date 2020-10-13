@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10、UWP、セカンダリ タイル、ピン留め、クイック スタート、コード サンプル、例
 ms.localizationpriority: medium
-ms.openlocfilehash: 0fc83fca642ae75404180edf5fad177b92153e35
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: dc65768eb90ca51a86db51dd0add00d9542df24e
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220385"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984678"
 ---
 # <a name="pin-secondary-tiles-to-start"></a>スタート画面へのセカンダリ タイルのピン留め
 
@@ -110,7 +110,7 @@ tile.VisualElements.ShowNameOnSquare310x310Logo = true;
 最後に、タイルのピン留めを要求します。 これは UI スレッドから呼び出す必要があることに注意してください。 デスクトップに、ユーザーにタイルをピン留めするかどうかの確認を求める、ダイアログが表示されます。
 
 > [!IMPORTANT]
-> デスクトップ ブリッジを使った Windows デスクトップ アプリケーションの場合は、まず「[デスクトップ アプリケーションからピン留めする](secondary-tiles-desktop-pinning.md)」に記載された追加の手順を実行する必要があります。
+> デスクトップブリッジを使用している Win32 アプリケーションの場合は、まず「 [win32 アプリからのピン留め](secondary-tiles-desktop-pinning.md)」で説明されているように、追加の手順を実行する必要があります。
 
 ```csharp
 // Pin the tile

@@ -1,33 +1,33 @@
 ---
 Description: Win32 C# アプリがローカルトースト通知を送信し、トーストをクリックしたユーザーを処理する方法について説明します。
-title: デスクトップ C# アプリからのローカル トースト通知の送信
+title: Win32 C# アプリからローカルトースト通知を送信する
 ms.assetid: E9AB7156-A29E-4ED7-B286-DA4A6E683638
-label: Send a local toast notification from desktop C# apps
+label: Send a local toast notification from Win32 C# apps
 template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トースト送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C#、C シャープ、トースト通知、wpf、送信トースト通知 wpf、送信トースト通知 winforms、送信トースト通知 c#、送信通知 wpf、送信通知 c#、トースト通知 wpf、トースト通知 C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f4f78d689352f0278f814a2e89db6f92df52b99
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: b13927bbd12a5cb306018ca02cd8730f580182cd
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220125"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984648"
 ---
-# <a name="send-a-local-toast-notification-from-desktop-c-apps"></a>デスクトップ C# アプリからのローカル トースト通知の送信
+# <a name="send-a-local-toast-notification-from-win32-c-apps"></a>Win32 C# アプリからローカルトースト通知を送信する
 
-デスクトップアプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、さまざまなライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合、パッケージ id が存在しない可能性があるため、デスクトップアプリにはいくつかの特別な手順があります。
+Win32 アプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、さまざまなライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合、パッケージ id が存在しない可能性があるため、Win32 アプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
-> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[デスクトップ C++ WRLに関するページ](send-local-toast-desktop-cpp-wrl.md) をご覧ください。
+> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、 [Win32 C++ WRL](send-local-toast-desktop-cpp-wrl.md)に関する記述を参照してください。
 
 
 ## <a name="step-1-install-the-notifications-library"></a>手順 1: 通知ライブラリをインストールする
 
 `Microsoft.Toolkit.Uwp.Notifications` [NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)をプロジェクトにインストールします。
 
-この [通知ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) には、デスクトップアプリからのトースト通知を操作するための互換性ライブラリコードが追加されています。 また、UWP Sdk を参照し、生の XML ではなく、C# を使用して通知を作成することもできます。 このクイックスタートの残りの部分は、通知ライブラリによって異なります。
+この [通知ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) には、Win32 アプリからのトースト通知を操作するための互換性ライブラリコードが追加されています。 また、UWP Sdk を参照し、生の XML ではなく、C# を使用して通知を作成することもできます。 このクイックスタートの残りの部分は、通知ライブラリによって異なります。
 
 
 ## <a name="step-2-implement-the-activator"></a>手順 2: アクティベーターを実装する
@@ -320,7 +320,7 @@ WPF の場合、アクティブ化シーケンスは次のとおりです。
 
 
 ### <a name="foreground-vs-background-activation"></a>フォアグラウンドとバックグラウンドのアクティブ化
-デスクトップ アプリでは、フォア グラウンドとバック グラウンドのアクティブ化はいずれも、COM アクティベーターの呼び出しという同じ手順で処理されます。 ウィンドウを表示するか、ウィンドウを表示せずに作業を行うだけで終了するかは、アプリのコードによって決定されます。 そのため、トーストコンテンツに**背景**の**ActivationType**を指定しても、動作は変わりません。
+Win32 アプリの場合、フォアグラウンドおよびバックグラウンドのアクティブ化は同じように処理されます。 COM アクティベーターが呼び出されます。 ウィンドウを表示するか、ウィンドウを表示せずに作業を行うだけで終了するかは、アプリのコードによって決定されます。 そのため、トーストコンテンツに**背景**の**ActivationType**を指定しても、動作は変わりません。
 
 
 ## <a name="step-7-remove-and-manage-notifications"></a>手順 7: 通知を削除して管理する
@@ -357,5 +357,5 @@ MSIX/スパースパッケージと従来の Win32 アプリの両方をイン�
 ## <a name="resources"></a>リソース
 
 * [GitHub での完全なコード サンプル](https://github.com/WindowsNotifications/desktop-toasts)
-* [デスクトップ アプリからのトースト通知](toast-desktop-apps.md)
+* [Win32 アプリからのトースト通知](toast-desktop-apps.md)
 * [トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)

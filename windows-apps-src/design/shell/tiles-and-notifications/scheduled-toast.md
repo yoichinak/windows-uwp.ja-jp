@@ -7,12 +7,12 @@ ms.date: 04/09/2020
 ms.topic: article
 keywords: windows 10、uwp、スケジュールされたトースト通知、scheduledtoastnotification、方法、クイックスタート、作業の開始、コードサンプル、チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: bc80cf04c1e1461612401ef4ced898058e2dd4ac
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 04bbf3da388bf065b2b96684cf3f27cd7534ff51
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172356"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984738"
 ---
 # <a name="schedule-a-toast-notification"></a>トースト通知をスケジュールする
 
@@ -21,7 +21,7 @@ ms.locfileid: "89172356"
 スケジュールされたトースト通知の配信ウィンドウは5分間であることに注意してください。 スケジュールされた配信時にコンピューターの電源がオフになっていて、5分以上経過している場合、通知はユーザーに関連付けられていない状態で "破棄" されます。 コンピューターの電源が切れた時間に関係なく通知を確実に配信する必要がある場合は、 [次のコードサンプル](https://github.com/WindowsNotifications/quickstart-snoozable-toasts-even-if-computer-is-off)に示すように、時間トリガー付きのバックグラウンドタスクを使用することをお勧めします。
 
 > [!IMPORTANT]
-> デスクトップアプリケーション (MSIX/スパースパッケージと従来の Win32 の両方) には、通知を送信し、アクティブ化を処理するための手順が若干異なります。 次の手順に従ってください。ただし、は `ToastNotificationManager` `DesktopNotificationManagerCompat` [デスクトップアプリ](toast-desktop-apps.md) のドキュメントのクラスで置き換えてください。
+> Win32 アプリケーション (MSIX/スパースパッケージと従来の Win32 の両方) には、通知を送信し、アクティブ化を処理するための手順が若干異なります。 次の手順に従ってください。ただし、は `ToastNotificationManager` `DesktopNotificationManagerCompat` [Win32 アプリ](toast-desktop-apps.md) のドキュメントのクラスで置き換えてください。
 
 > **重要な api**: [scheduledtoastnotification クラス](/uwp/api/Windows.UI.Notifications.ScheduledToastNotification)
 
@@ -35,77 +35,40 @@ ms.locfileid: "89172356"
 * Windows 10 UWP アプリ プロジェクト
 
 
-## <a name="install-nuget-packages"></a>NuGet パッケージのインストール
+## <a name="step-1-install-nuget-package"></a>手順 1: NuGet パッケージをインストールする
 
-プロジェクトに次の 2 つの NuGet パッケージをインストールすることをお勧めします。 今回のコード サンプルではそれらのパッケージを使います。
-
-* [Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/): 生の XML ではなく、オブジェクトを通じてトーストのペイロードを生成します。
-* [QueryString.NET](https://www.nuget.org/packages/QueryString.NET/): C# を使ってクエリ文字列を生成、解析します。
+[Microsoft. Toolkit. 通知 NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)をインストールします。 このサンプルコードでは、このパッケージを使用します。 この記事の最後には、NuGet パッケージを使用しない "plain" コードスニペットが用意されています。 このパッケージを使用すると、XML を使用せずにトースト通知を作成できます。
 
 
-## <a name="add-namespace-declarations"></a>名前空間宣言の追加
+## <a name="step-2-add-namespace-declarations"></a>手順 2: 名前空間宣言を追加する
 
 `Windows.UI.Notifications` トースト Api が含まれています。
 
 ```csharp
 using Windows.UI.Notifications;
 using Microsoft.Toolkit.Uwp.Notifications; // Notifications library
-using Microsoft.QueryStringDotNET; // QueryString.NET
 ```
 
 
-## <a name="construct-the-toast-content"></a>トーストコンテンツを構築する
+## <a name="step-3-schedule-the-notification"></a>手順 3: 通知をスケジュールする
 
-Windows 10 では、トースト通知のコンテンツは、通知の外観にすばらしい柔軟性を持たせることができるアダプティブ言語を使って表されます。 詳しくは、[トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)をご覧ください。
-
-通知ライブラリを利用すると、XML コンテンツを簡単に生成できます。 NuGet から Notifications ライブラリをインストールしていない場合は、XML を手動で作成する必要があるので、エラーが残ってしまう可能性があります。
-
-ユーザーがトーストの本文をタップしたときや、アプリが起動したときに、どのコンテンツを表示するかをアプリが判断できるように、**Launch** プロパティは常に設定する必要があります。
+ここでは、今日のお客様による宿題について学生に通知する単純なテキストベースの通知を使用します。 通知を作成してスケジュールを設定します。
 
 ```csharp
-// In a real app, these would be initialized with actual data
-string title = "ASTR 170B1";
-string content = "You have 3 items due today!";
+// Construct the content
+var content = new ToastContentBuilder()
+    .AddToastActivationInfo("itemsDueToday", ToastActivationType.Foreground)
+    .AddText("ASTR 170B1")
+    .AddText("You have 3 items due today!");
+    .GetToastContent();
 
-// Now we can construct the final toast content
-ToastContent toastContent = new ToastContent()
-{
-    Visual = new ToastVisual()
-    {
-        BindingGeneric = new ToastBindingGeneric()
-        {
-            Children =
-            {
-                new AdaptiveText()
-                {
-                    Text = title
-                },
-     
-                new AdaptiveText()
-                {
-                    Text = content
-                }
-            }
-        }
-    },
- 
-    // Arguments when the user taps body of toast
-    Launch = new QueryString()
-    {
-        { "action", "viewClass" },
-        { "classId", "3910938180" }
- 
-    }.ToString()
-};
-```
-
-## <a name="create-the-scheduled-toast"></a>スケジュールされたトーストを作成する
-
-トーストコンテンツを初期化したら、新しい [Scheduledtoastnotification](/uwp/api/Windows.UI.Notifications.ScheduledToastNotification) を作成し、コンテンツの XML と通知を配信する時間を渡します。
-
-```csharp
+    
 // Create the scheduled notification
-var toast = new ScheduledToastNotification(toastContent.GetXml(), DateTime.Now.AddSeconds(5));
+var toast = new ScheduledToastNotification(content.GetXml(), DateTime.Now.AddSeconds(5));
+
+
+// Add your scheduled toast to the schedule
+ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
 ```
 
 
@@ -120,16 +83,6 @@ Tag と Group を組み合わせると、復号主キーとして機能します
 ```csharp
 toast.Tag = "18365";
 toast.Group = "ASTR 170B1";
-```
-
-
-## <a name="schedule-the-notification"></a>通知をスケジュールする
-
-最後に、 [Toastnotifier](/uwp/api/windows.ui.notifications.toastnotifier) を作成し、addtoschedule () を呼び出して、スケジュールされたトースト通知を渡します。
-
-```csharp
-// And your scheduled toast to the schedule
-ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
 ```
 
 

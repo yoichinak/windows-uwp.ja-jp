@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: b08b34a88533d06ac7fc2f967bfc4e50e9fd8f0f
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: ed801d07991c4faa186bc0164dbf0d1323537a20
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219447"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984608"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -49,21 +49,17 @@ ms.locfileid: "91219447"
 
 トースト コンテンツは生の XML で定義されますが、トースト コンテンツを作成するために、[NuGet ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)を使って C# (または C++) オブジェクト モデルを取得することができます。 この記事では、トースト コンテンツ内に含まれるすべてのものについて説明します。
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-ToastContent content = new ToastContent()
-{
-    Launch = "app-defined-string",
- 
-    Visual = new ToastVisual()
-    {
-        BindingGeneric = new ToastBindingGeneric() { ... }
-    },
- 
-    Actions = new ToastActionsCustom() { ... },
- 
-    Audio = new ToastAudio() { ... }
-};
+new ToastContentBuilder()
+    .AddToastActivationInfo("app-defined-string", ToastActivationType.Foreground)
+    .AddText("Some text")
+    .AddButton("Archive", ToastActivationType.Background, "archive")
+    .AddAudio(new Uri("ms-appx:///Sound.mp3"));
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast launch="app-defined-string">
@@ -82,6 +78,8 @@ ToastContent content = new ToastContent()
 
 </toast>
 ```
+
+---
 
 トースト コンテンツの視覚的な表示は、次のようになります。
 
@@ -109,29 +107,16 @@ visual セクションとその子要素でサポートされているすべて�
 
 Windows 10 Anniversary Update 以降は、そのテキストに対して **HintMaxLines** プロパティを使うことで、表示されるテキストの行数を制御できます。 既定値 (最大値) は、タイトルのテキストが最大 2 行であり、それに加えて、2 つの説明要素 (2 番目と 3 番目の **AdaptiveText**) を合計で最大 4 行まで含めることができます。
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-new ToastBindingGeneric()
-{
-    Children =
-    {
-        new AdaptiveText()
-        {
-            Text = "Adaptive Tiles Meeting",
-            HintMaxLines = 1
-        },
-
-        new AdaptiveText()
-        {
-            Text = "Conf Room 2001 / Building 135"
-        },
-
-        new AdaptiveText()
-        {
-            Text = "10:00 AM - 10:30 AM"
-        }
-    }
-}
+new ToastContentBuilder()
+    .AddText("Adaptive Tiles Meeting", hintMaxLines: 1)
+    .AddText("Conf Room 2001 / Building 135")
+    .AddText("10:00 AM - 10:30 AM");
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <binding template="ToastGeneric">
@@ -140,6 +125,8 @@ new ToastBindingGeneric()
     <text>10:00 AM - 10:30 AM</text>
 </binding>
 ```
+
+---
 
 
 ## <a name="app-logo-override"></a>アプリ ロゴの上書き
@@ -150,18 +137,16 @@ new ToastBindingGeneric()
 
 **HintCrop** プロパティを使って、画像のトリミングを変更できます。 たとえば、 **円** は円でトリミングされたイメージになります。 その他の場合、画像は正方形です。 画像サイズは 100% のスケーリングで 48x48 ピクセルです。
 
-```csharp
-new ToastBindingGeneric()
-{
-    ...
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-    AppLogoOverride = new ToastGenericAppLogo()
-    {
-        Source = "https://picsum.photos/48?image=883",
-        HintCrop = ToastGenericAppLogoCrop.Circle
-    }
-}
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddAppLogoOverride(new Uri("https://picsum.photos/48?image=883"), NotificationAppLogoCrop.Circle);
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <binding template="ToastGeneric">
@@ -170,6 +155,9 @@ new ToastBindingGeneric()
 </binding>
 ```
 
+---
+
+
 
 ## <a name="hero-image"></a>ヒーロー イメージ
 
@@ -177,17 +165,16 @@ new ToastBindingGeneric()
 
 <img alt="Toast with hero image" src="images/toast-heroimage.jpg" width="364"/>
 
-```csharp
-new ToastBindingGeneric()
-{
-    ...
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-    HeroImage = new ToastGenericHeroImage()
-    {
-        Source = "https://picsum.photos/364/180?image=1043"
-    }
-}
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddHeroImage(new Uri("https://picsum.photos/364/180?image=1043"));
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <binding template="ToastGeneric">
@@ -196,6 +183,8 @@ new ToastBindingGeneric()
 </binding>
 ```
 
+---
+
 
 ## <a name="inline-image"></a>インライン画像
 
@@ -203,20 +192,16 @@ new ToastBindingGeneric()
 
 <img alt="Toast with additional image" src="images/toast-additionalimage.jpg" width="364"/>
 
-```csharp
-new ToastBindingGeneric()
-{
-    Children =
-    {
-        ...
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-        new AdaptiveImage()
-        {
-            Source = "https://picsum.photos/360/202?image=1043"
-        }
-    }
-}
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddInlineImage(new Uri("https://picsum.photos/360/202?image=1043"));
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <binding template="ToastGeneric">
@@ -224,6 +209,8 @@ new ToastBindingGeneric()
     <image src="https://picsum.photos/360/202?image=1043" />
 </binding>
 ```
+
+---
 
 
 ## <a name="image-size-restrictions"></a>画像サイズの制限
@@ -251,17 +238,16 @@ http および https のリモート Web 画像では、各画像のファイル
 
 <img alt="Toast with attribution text" src="images/toast-attributiontext.jpg" width="364"/>
 
-```csharp
-new ToastBindingGeneric()
-{
-    ...
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-    Attribution = new ToastGenericAttributionText()
-    {
-        Text = "Via SMS"
-    }
-}
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddAttributionText("Via SMS");
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <binding template="ToastGeneric">
@@ -269,6 +255,8 @@ new ToastBindingGeneric()
     <text placement="attribution">Via SMS</text>
 </binding>
 ```
+
+---
 
 
 ## <a name="custom-timestamp"></a>カスタム タイムスタンプ
@@ -279,19 +267,24 @@ new ToastBindingGeneric()
 
 カスタム タイムスタンプの使用について詳しくは、「[トーストに表示されるカスタム タイムスタンプ](custom-timestamps-on-toasts.md)」をご覧ください。
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-ToastContent toastContent = new ToastContent()
-{
-    DisplayTimestamp = new DateTime(2017, 04, 15, 19, 45, 00, DateTimeKind.Utc),
-    ...
-};
+new ToastContentBuilder()
+    ...
+    
+    .AddCustomTimeStamp(new DateTime(2017, 04, 15, 19, 45, 00, DateTimeKind.Utc));
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast displayTimestamp="2017-04-15T19:45:00Z">
   ...
 </toast>
 ```
+
+---
 
 
 ## <a name="progress-bar"></a>進行状況バー
@@ -327,56 +320,55 @@ ToastContent toastContent = new ToastContent()
 
 <img alt="Toast with additional text" src="images/toast-additionaltext.jpg" width="364"/>
 
-```csharp
-new ToastBindingGeneric()
-{
-    Children =
-    {
-        ...
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-        new AdaptiveGroup()
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddVisualChild(new AdaptiveGroup()
+    {
+        Children =
         {
-            Children =
+            new AdaptiveSubgroup()
             {
-                new AdaptiveSubgroup()
+                Children =
                 {
-                    Children =
+                    new AdaptiveText()
                     {
-                        new AdaptiveText()
-                        {
-                            Text = "52 attendees",
-                            HintStyle = AdaptiveTextStyle.Base
-                        },
-                        new AdaptiveText()
-                        {
-                            Text = "23 minute drive",
-                            HintStyle = AdaptiveTextStyle.CaptionSubtle
-                        }
+                        Text = "52 attendees",
+                        HintStyle = AdaptiveTextStyle.Base
+                    },
+                    new AdaptiveText()
+                    {
+                        Text = "23 minute drive",
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
                     }
-                },
-                new AdaptiveSubgroup()
+                }
+            },
+            new AdaptiveSubgroup()
+            {
+                Children =
                 {
-                    Children =
+                    new AdaptiveText()
                     {
-                        new AdaptiveText()
-                        {
-                            Text = "1 Microsoft Way",
-                            HintStyle = AdaptiveTextStyle.CaptionSubtle,
-                            HintAlign = AdaptiveTextAlign.Right
-                        },
-                        new AdaptiveText()
-                        {
-                            Text = "Bellevue, WA 98008",
-                            HintStyle = AdaptiveTextStyle.CaptionSubtle,
-                            HintAlign = AdaptiveTextAlign.Right
-                        }
+                        Text = "1 Microsoft Way",
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle,
+                        HintAlign = AdaptiveTextAlign.Right
+                    },
+                    new AdaptiveText()
+                    {
+                        Text = "Bellevue, WA 98008",
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle,
+                        HintAlign = AdaptiveTextAlign.Right
                     }
                 }
             }
         }
-    }
-}
+    });
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <binding template="ToastGeneric">
@@ -393,6 +385,8 @@ new ToastBindingGeneric()
     </group>
 </binding>
 ```
+
+---
 
 
 ## <a name="buttons"></a>ボタン
@@ -413,28 +407,17 @@ Buttons は次のようなさまざまな操作を実行できます。
 
 <img alt="notification with actions, example 1" src="images/adaptivetoasts-xmlsample02.jpg" width="364"/>
 
-```csharp
-ToastContent content = new ToastContent()
-{
-    ...
- 
-    Actions = new ToastActionsCustom()
-    {
-        Buttons =
-        {
-            new ToastButton("See more details", "action=viewdetails&contentId=351")
-            {
-                ActivationType = ToastActivationType.Foreground
-            },
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-            new ToastButton("Remind me later", "action=remindlater&contentId=351")
-            {
-                ActivationType = ToastActivationType.Background
-            }
-        }
-    }
-};
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddButton("See more details", ToastActivationType.Foreground, "action=viewdetails&contentId=351")
+    .AddButton("Remind me later", ToastActivationType.Background, "action=remindlater&contentId=351");
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast launch="app-defined-string">
@@ -458,6 +441,8 @@ ToastContent content = new ToastContent()
 </toast>
 ```
 
+---
+
 
 ### <a name="buttons-with-icons"></a>アイコンの付いたボタン
 
@@ -468,22 +453,29 @@ ToastContent content = new ToastContent()
 
 <img src="images\adaptivetoasts-buttonswithicons.png" width="364" alt="Toast that has buttons with icons"/>
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-new ToastButton("Dismiss", "dismiss")
-{
-    ActivationType = ToastActivationType.Background,
-    ImageUri = "Assets/ToastButtonIcons/Dismiss.png"
-}
+new ToastContentBuilder()
+    ...
+    
+    .AddButton(
+        "Dismiss",
+        ToastActivationType.Foreground,
+        "dismiss", new Uri("Assets/NotificationButtonIcons/Dismiss.png", UriKind.Relative));
 ```
 
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <action
     content="Dismiss"
-    imageUri="Assets/ToastButtonIcons/Dismiss.png"
+    imageUri="Assets/NotificationButtonIcons/Dismiss.png"
     arguments="dismiss"
     activationType="background"/>
 ```
+
+---
 
 
 ### <a name="buttons-with-pending-update-activation"></a>更新の保留アクティブ化機能を備えたボタン
@@ -506,6 +498,10 @@ new ToastButton("Dismiss", "dismiss")
 
 <img alt="Toast with context menu" src="images/toast-contextmenu.png" width="444"/>
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
+ビルダーの構文はコンテキストメニューのアクションをサポートしていないため、初期化子の構文を使用することをお勧めします。
+
 ```csharp
 ToastContent content = new ToastContent()
 {
@@ -520,6 +516,8 @@ ToastContent content = new ToastContent()
     }
 };
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast>
@@ -538,6 +536,8 @@ ToastContent content = new ToastContent()
 </toast>
 ```
 
+---
+
 > [!NOTE]
 > 追加のコンテキスト メニュー項目は、トーストの合計ボタン数の上限である 5 つのボタンに含まれます。
 
@@ -555,36 +555,23 @@ ToastContent content = new ToastContent()
 
 <img alt="notification with text input and actions" src="images/adaptivetoasts-xmlsample05.jpg" width="364"/>
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-ToastContent content = new ToastContent()
-{
+new ToastContentBuilder()
     ...
- 
-    Actions = new ToastActionsCustom()
-    {
-        Inputs =
-        {
-            new ToastTextBox("tbReply")
-            {
-                PlaceholderContent = "Type a reply"
-            }
-        },
+    
+    .AddInputTextBox("tbReply", "Type a reply")
 
-        Buttons =
-        {
-            new ToastButton("Reply", "action=reply&convId=9318")
-            {
-                ActivationType = ToastActivationType.Background,
-
-                // To place the button next to the text box,
-                // reference the text box's Id and provide an image
-                TextBoxId = "tbReply",
-                ImageUri = "Assets/Reply.png"
-            }
-        }
-    }
-};
+    .AddButton(
+        textBoxId: "tbReply", // To place button next to text box, reference text box's id
+        content: "Reply",
+        activationType: ToastActivationType.Background,
+        arguments: "action=reply&convId=9318",
+        imageUri: new Uri("Assets/Reply.png", UriKind.Relative));
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast launch="app-defined-string">
@@ -607,6 +594,9 @@ ToastContent content = new ToastContent()
 </toast>
 ```
 
+---
+
+
 
 ### <a name="inputs-with-buttons-bar"></a>入力とボタン バー
 
@@ -614,36 +604,19 @@ ToastContent content = new ToastContent()
 
 <img alt="notification with text and input actions" src="images/adaptivetoasts-xmlsample04.jpg" width="364"/>
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-ToastContent content = new ToastContent()
-{
+new ToastContentBuilder()
     ...
- 
-    Actions = new ToastActionsCustom()
-    {
-        Inputs =
-        {
-            new ToastTextBox("tbReply")
-            {
-                PlaceholderContent = "Type a reply"
-            }
-        },
+    
+    .AddInputTextBox("tbReply", "Type a reply")
 
-        Buttons =
-        {
-            new ToastButton("Reply", "action=reply&threadId=9218")
-            {
-                ActivationType = ToastActivationType.Background
-            },
-
-            new ToastButton("Video call", "action=videocall&threadId=9218")
-            {
-                ActivationType = ToastActivationType.Foreground
-            }
-        }
-    }
-};
+    .AddButton("Reply", ToastActivationType.Background, "action=reply&threadId=9218")
+    .AddButton("Video call", ToastActivationType.Foreground, "action=videocall&threadId=9218");
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast launch="app-defined-string">
@@ -669,6 +642,8 @@ ToastContent content = new ToastContent()
 </toast>
 ```
 
+---
+
 
 ### <a name="selection-input"></a>選択入力
 
@@ -676,30 +651,28 @@ ToastContent content = new ToastContent()
 
 <img alt="notification with selection input and actions" src="images/adaptivetoasts-xmlsample06.jpg" width="364"/>
 
-```csharp
-ToastContent content = new ToastContent()
-{
-    ...
- 
-    Actions = new ToastActionsCustom()
-    {
-        Inputs =
-        {
-            new ToastSelectionBox("time")
-            {
-                DefaultSelectionBoxItemId = "lunch",
-                Items =
-                {
-                    new ToastSelectionBoxItem("breakfast", "Breakfast"),
-                    new ToastSelectionBoxItem("lunch", "Lunch"),
-                    new ToastSelectionBoxItem("dinner", "Dinner")
-                }
-            }
-        },
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-        Buttons = { ... }
-};
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddToastInput(new ToastSelectionBox("time")
+    {
+        DefaultSelectionBoxItemId = "lunch",
+        Items =
+        {
+            new ToastSelectionBoxItem("breakfast", "Breakfast"),
+            new ToastSelectionBoxItem("lunch", "Lunch"),
+            new ToastSelectionBoxItem("dinner", "Dinner")
+        }
+    })
+
+    .AddButton(...)
+    .AddButton(...);
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast launch="app-defined-string">
@@ -721,6 +694,9 @@ ToastContent content = new ToastContent()
 </toast>
 ```
 
+---
+
+
 
 ### <a name="snoozedismiss"></a>[一時停止する] と [無視]
 
@@ -730,43 +706,32 @@ ToastContent content = new ToastContent()
 
 ここでは、トースト ボタンで **SelectionBoxId** プロパティを使って、[一時停止] ボタンを選択メニューの入力に関連付けています。
 
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
+
 ```csharp
-ToastContent content = new ToastContent()
-{
-    Scenario = ToastScenario.Reminder,
-
+new ToastContentBuilder()
+    .SetToastScenario(ToastScenario.Reminder)
+    
     ...
- 
-    Actions = new ToastActionsCustom()
+    
+    .AddToastInput(new ToastSelectionBox("snoozeTime")
     {
-        Inputs =
+        DefaultSelectionBoxItemId = "15",
+        Items =
         {
-            new ToastSelectionBox("snoozeTime")
-            {
-                DefaultSelectionBoxItemId = "15",
-                Items =
-                {
-                    new ToastSelectionBoxItem("5", "5 minutes"),
-                    new ToastSelectionBoxItem("15", "15 minutes"),
-                    new ToastSelectionBoxItem("60", "1 hour"),
-                    new ToastSelectionBoxItem("240", "4 hours"),
-                    new ToastSelectionBoxItem("1440", "1 day")
-                }
-            }
-        },
+            new ToastSelectionBoxItem("5", "5 minutes"),
+            new ToastSelectionBoxItem("15", "15 minutes"),
+            new ToastSelectionBoxItem("60", "1 hour"),
+            new ToastSelectionBoxItem("240", "4 hours"),
+            new ToastSelectionBoxItem("1440", "1 day")
+        }
+    })
 
-        Buttons =
-        {
-            new ToastButtonSnooze()
-            {
-                SelectionBoxId = "snoozeTime"
-            },
- 
-            new ToastButtonDismiss()
-        }
-    }
-};
+    .AddButton(new ToastButtonSnooze() { SelectionBoxId = "snoozeTime" })
+    .AddButton(new ToastButtonDismiss());
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast scenario="reminder" launch="action=viewEvent&amp;eventId=1983">
@@ -792,6 +757,8 @@ ToastContent content = new ToastContent()
 </toast>
 ```
 
+---
+
 システムの再通知操作と無視操作を使うには、次の手順を実行します。
 
 -   **Toastbuttonsnooze 通知**または**toastbuttonbuttonを**指定します
@@ -815,17 +782,16 @@ ToastContent content = new ToastContent()
 
 または、[ms-winsoundevent の一覧に関するページ](/uwp/schemas/tiles/toastschema/element-audio#attributes-and-elements)から選ぶこともできます。これらは、常に両方のプラットフォームでサポートされます。
 
-```csharp
-ToastContent content = new ToastContent()
-{
-    ...
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
-    Audio = new ToastAudio()
-    {
-        Src = new Uri("ms-appx:///Assets/NewMessage.mp3")
-    }
-}
+```csharp
+new ToastContentBuilder()
+    ...
+    
+    .AddAudio(new Uri("ms-appx:///Assets/NewMessage.mp3"));
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast launch="app-defined-string">
@@ -836,6 +802,9 @@ ToastContent content = new ToastContent()
 
 </toast>
 ```
+
+---
+
 
 トースト通知でのオーディオについては、[オーディオ スキーマに関するページ](/uwp/schemas/tiles/toastschema/element-audio)をご覧ください。 カスタム オーディオを使うトーストの送信方法については、[トーストでのカスタム オーディオの使用](custom-audio-on-toasts.md)をご覧ください。
 
@@ -851,14 +820,15 @@ ToastContent content = new ToastContent()
 * **Alarm**: リマインダーの動作に加えて、アラームは既定のアラーム音を使ってオーディオをループします。
 * **IncomingCall**: 着信呼び出し通知は、Windows Mobile デバイスでは全画面で表示されます。 その他の点では、着信音オーディオを使うことと、ボタンのスタイルが異なることを除き、アラームと同じ動作が実行されます。
 
-```csharp
-ToastContent content = new ToastContent()
-{
-    Scenario = ToastScenario.Reminder,
+#### <a name="builder-syntax"></a>[ビルダーの構文](#tab/builder-syntax)
 
+```csharp
+new ToastContentBuilder()
+    .SetToastScenario(ToastScenario.Reminder)
     ...
-}
 ```
+
+#### <a name="xml"></a>[XML](#tab/xml)
 
 ```xml
 <toast scenario="reminder" launch="app-defined-string">
@@ -867,6 +837,8 @@ ToastContent content = new ToastContent()
 
 </toast>
 ```
+
+---
 
 
 ## <a name="localization-and-accessibility"></a>ローカライズとアクセシビリティ
