@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: c095e48e24a06caf9e31066b21f9e2b023ed51cf
-ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
+ms.openlocfilehash: 6399cb3aa6c22e188ed84941c3209632511d90e4
+ms.sourcegitcommit: 8b01b9ab7293dad1259da32d1459fdd454796e12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91878475"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92020172"
 ---
 # <a name="toast-content-schema"></a>トーストのコンテンツのスキーマ
 
@@ -21,7 +21,7 @@ ms.locfileid: "91878475"
 
 ここでは、トーストのコンテンツ内のすべてのプロパティと要素を説明します。
 
-[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ]()」をご覧ください。
+[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/schema-root)」をご覧ください。
 
 [ToastContent](#toastcontent)
 * [ToastVisual](#toastvisual)
@@ -134,7 +134,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | **BaseSubtle** | Base と同じですが、不透明度が Subtle です。 |
 | **サブタイトル** | H4 のフォント サイズです。 |
 | **SubtitleSubtle** | Subtitle と同じですが、不透明度が Subtle です。 |
-| **タイトル** | H3 のフォント サイズです。 |
+| **Title** | H3 のフォント サイズです。 |
 | **TitleSubtle** | Title と同じですが、不透明度が Subtle です。 |
 | **TitleNumeral** | Title と同じですが、上/下のパディングが削除されます。 |
 | **Subheader.aboutdocs** | H2 のフォント サイズです。 |
