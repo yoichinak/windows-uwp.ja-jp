@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 75d8dfe44c9296fbaf1d8caf5127db0244fc1d8d
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: d3179a553e0d30bd009765ec55640989720628c2
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216515"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91763089"
 ---
 # <a name="introduction-to-windows-app-design"></a>Windows アプリ デザインの概要
 
@@ -67,7 +67,7 @@ UWP アプリは、すべてのデバイスに合わせて自動的に拡大縮�
 Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/uwp/api/windows.ui.xaml.controls.frame)がある[ウィンドウ](/uwp/api/windows.ui.xaml.window)で起動し、[ページ](/uwp/api/windows.ui.xaml.controls.page) インスタンス間を移動できます。
     :::column-end:::
     :::column:::
-![Frame](images/frame.svg)
+![フレームがあるウィンドウのスクリーンショット。](images/frame.svg)
     :::column-end:::
 :::row-end:::
 
@@ -78,7 +78,7 @@ Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/
 ページを整理する方法については、[ナビゲーションの基本](navigation-basics.md)に関する記事を参照してください。
     :::column-end:::
     :::column:::
-![Frame](images/collection-pages.svg)
+![コレクション ページのスクリーンショット。](images/collection-pages.svg)
     :::column-end:::
 :::row-end:::
 
@@ -94,7 +94,7 @@ Windows 10 デバイスで UWP アプリが起動されると、[フレーム](/
 
 UWP アプリの一般的なパターンを実装する方法の詳細については、「[ページのレイアウト](../layout/page-layout.md)」を参照してください。
 
-Visual Studio で [Windows Template Studio](https://github.com/Microsoft/WindowsTemplateStudio/tree/master) を使用してアプリのレイアウトを使い始めることもできます。
+Visual Studio で [Windows Template Studio](https://github.com/Microsoft/WindowsTemplateStudio) を使用してアプリのレイアウトを使い始めることもできます。
 
 ## <a name="controls"></a>コントロール
 
@@ -134,7 +134,7 @@ UWP アプリには 4 つのタイル サイズ (小、中、横長、大) が�
 UWP アプリではスマート操作が使用されます。 クリックの発生元がマウスか、スタイラスか、指によるタップかを認識または定義しなくても、クリック操作に対応したデザインを行うことができます。 ただし、[特定の入力モード](../input/input-primer.md)向けにアプリを設計することもできます。
     :::column-end:::
     :::column:::
-![入力](images/inputs.svg)
+![さまざまな入力モードを指定するアイコンのスクリーンショット。](images/inputs.svg)
     :::column-end:::
 :::row-end:::
 
@@ -146,7 +146,7 @@ UWP アプリではスマート操作が使用されます。 クリックの発
 
 ## <a name="usability"></a>使いやすさ
 
-<img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REYaAb?ver=727c">
+:::image type="content" source="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/REYaAb" alt-text="さまざまな能力を持つ人々を描画する、棒人間のイラストの短いビデオ。":::
 
 最後に重要な点として、ユーザビリティの目的は、アプリのエクスペリエンスをすべてのユーザーに開かれたものにすることです。 すべての人が、本当に包括的なユーザー エクスペリエンスの恩恵を受けます。すべてのユーザーに対してアプリを使いやすくする方法については、「[UWP アプリの操作性](../usability/index.md)」をご覧ください。
 

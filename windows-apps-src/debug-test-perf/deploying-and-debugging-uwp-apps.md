@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 ms.topic: article
 keywords: Windows 10, UWP, デバッグ, テスト, パフォーマンス
 ms.localizationpriority: medium
-ms.openlocfilehash: c18cb3c5b8a979e7c7c6485e6989736d818613ba
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: c21586bceef11b1a2c19900160796bf702578ffb
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220355"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91763053"
 ---
 # <a name="deploying-and-debugging-uwp-apps"></a>UWP アプリの展開とデバッグ
 
@@ -109,11 +109,11 @@ C# と VB の UWP プロジェクトでは、 **[開始オプション]** に **
 
 C++ と JS の UWP プロジェクトでは、 **[デバッグ プロパティ]** のフィールドとして **[コマンド ライン引数]** が表示されます。
 
-![C++ と JS でのコマンド ライン引数](images/command-line-arguments-cpp.png)
+![[構成プロパティ] > [デバッグ] オプションが選択され、テーブルにコマンド ライン引数のプロパティが表示されている App4 プロパティ ページのスクリーンショット。](images/command-line-arguments-cpp.png)
 
 コマンド ライン引数を指定すると、アプリの **OnLaunched** メソッドで引数の値にアクセスすることができます。 [  **LaunchActivatedEventArgs**](/uwp/api/windows.applicationmodel.activation.launchactivatedeventargs) オブジェクト *args* は、値が **[コマンド ライン引数]** フィールドのテキストに設定された **Arguments** プロパティを持ちます。
 
-![C++ と JS でのコマンド ライン引数](images/command-line-arguments-debugging.png)
+![C++ および JS のコマンド ライン引数のスクリーンショット。](images/command-line-arguments-debugging.png)
 
 ## <a name="authentication-modes"></a>認証モード
 

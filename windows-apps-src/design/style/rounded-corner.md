@@ -4,12 +4,12 @@ description: 角の丸めの原則、デザイン方法、カスタマイズ オ
 ms.date: 10/08/2019
 ms.topic: article
 keywords: windows 10, uwp, 角の半径, 丸め
-ms.openlocfilehash: 134a49ac57678eea0da718e93a14e3d0cf8896d5
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 044ae628ffe397005113f658191398e06fd245f5
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81001479"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636532"
 ---
 # <a name="corner-radius"></a>角の半径
 
@@ -115,11 +115,11 @@ WinUI 2.2 以降の NuGet パッケージをインストールすると、WinUI 
 
 - コントロールが別のコンテナーに格納されている場合。たとえば、ScrollBar のバーとボタンが ScrollBar コンテナーの一部であり、ScrollBar コンテナーがさらに ScrollViewer の一部である場合。
 
-![ScrollBar](images/rounded-corner/scrollbar.png)
+![角が丸められていない垂直スクロール バーのスクリーンショット。](images/rounded-corner/scrollbar.png)
 
 - フライアウト UI 要素が、1 つの端で、そのフライアウトを呼び出す UI と接している場合。
 
-![AutoSuggest](images/rounded-corner/autosuggest.png)
+![一部の角が丸められていない AutoSuggest ポップアップのスクリーンショット。](images/rounded-corner/autosuggest.png)
 
 ### <a name="keyboard-focus-rectangle-and-shadow"></a>キーボード フォーカスの四角形と影
 

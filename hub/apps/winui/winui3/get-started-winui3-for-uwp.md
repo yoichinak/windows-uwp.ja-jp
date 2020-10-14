@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, winui
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 88b17500527b5f52d7e020e1c37a72e932ec225b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 96d3854f58e8e60c4324c6602bb8ba0755620350
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157736"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762912"
 ---
 # <a name="get-started-with-winui-3-for-uwp-apps"></a>UWP アプリ用の WinUI 3 の概要
 
@@ -30,57 +30,57 @@ WinUI 3 Preview 2 では、新しいプロジェクト テンプレートが導�
 
    - それ以外の場合は、Visual Studio を起動し、 **[新しいプロジェクトの作成]** を選択します。
 
-   :::image type="content" source="images/WinUI-and-UWP/vs2019-splash-new-project.png" alt-text="Visual Studio 2019 - [新しいプロジェクトの作成]":::
+   :::image type="content" source="images/WinUI-and-UWP/vs2019-splash-new-project.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 2. **[新しいプロジェクトの作成]** ダイアログのプロジェクトのドロップダウン フィルターで、 **[C#]** 、 **[Windows]** 、および **[WinUI]** をそれぞれ選択します。
 
 3. プロジェクトの種類として、 **[Blank App (WinUI in UWP)]\(空のアプリ (UWP の WinUI)\)** を選択し、 **[次へ]** をクリックします。
 
-:::image type="content" source="images/WinUI-and-UWP/vs2019-create-new-project-dialog.png" alt-text="Visual Studio 2019 - [新しいプロジェクトの作成] ダイアログ":::
+:::image type="content" source="images/WinUI-and-UWP/vs2019-create-new-project-dialog.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 4. プロジェクト名を入力し、必要に応じてその他のオプションを選択して、 **[作成]** をクリックします。
 
-:::image type="content" source="images/WinUI-and-UWP/vs2019-configure-new-project-dialog.png" alt-text="Visual Studio 2019 - [新しいプロジェクトの構成] ダイアログ":::
+:::image type="content" source="images/WinUI-and-UWP/vs2019-configure-new-project-dialog.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1803 (ビルド 17134) に設定し、 **[OK]** をクリックします。
 
-:::image type="content" source="images/WinUI-min-target-version.png" alt-text="ターゲット バージョンと最小バージョンのダイアログ":::
+:::image type="content" source="images/WinUI-min-target-version.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 6. Visual Studio によって、次のオブジェクトを含む **UWP の WinUI** プロジェクトが生成されます。
 
     - ***<プロジェクト名>* (ユニバーサル Windows)** :アプリケーション コードが含まれます。 これは、プロジェクト ソリューションの既定のスタートアップ プロジェクトです。
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-project.png" alt-text="Visual Studio 2019 - [新しいプロジェクトの構成] ダイアログ":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-project.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
     - **Package.appxmanifest**:システムがアプリをデプロイ、表示、または更新するために必要な情報が含まれます。 詳細については、「[アプリ パッケージ マニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)」もご覧ください。
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-package-manifest.png" alt-text="Visual Studio 2019 - アプリ パッケージ マニフェスト":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-package-manifest.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
     - **App.xaml/App.xaml.cs**:アプリ インスタンスを表す `Application` クラスを定義するコード ファイル。
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-app-xaml.png" alt-text="Visual Studio 2019 - App.xaml ファイル":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-app-xaml.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-app-xaml-cs.png" alt-text="Visual Studio 2019 - App.xaml.cs ファイル":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-app-xaml-cs.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
     - **MainPage.xaml/MainPage.xaml.cs**:アプリによって表示されるメイン ウィンドウを表すコード ファイル。 これらのクラスは、WinUI に用意されている **Microsoft.UI.Xaml** 名前空間の型から派生します。
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-mainpage-xaml.png" alt-text="Visual Studio 2019 - MainPage.xaml ファイル":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-mainpage-xaml.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-mainpage-xaml-cs.png" alt-text="Visual Studio 2019 - MainPage.xaml.cs ファイル":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-file-mainpage-xaml-cs.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (ユニバーサル Window)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、「[WinUI 3 の項目テンプレート](index.md#item-templates-for-winui-3)」を参照してください。
 
-    :::image type="content" source="images/WinUI-and-UWP/vs2019-add-new-item-dialog.png" alt-text="Visual Studio 2019 - [新しい項目の追加] ダイアログ":::
+    :::image type="content" source="images/WinUI-and-UWP/vs2019-add-new-item-dialog.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 8. アプリをビルド、デプロイ、起動して、どうなるかを確認します。
 
     1. アプリは、ローカル コンピューター、シミュレーターかエミュレーター、またはリモート デバイスでデバッグできます。 ドロップ ダウンからターゲット デバイスを選択します。
 
-        :::image type="content" source="images/WinUI-and-UWP/vs2019-menu-target-device.png" alt-text="Visual Studio 2019 - [ターゲット デバイス] メニュー":::
+        :::image type="content" source="images/WinUI-and-UWP/vs2019-menu-target-device.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
     1. F5 キーを押して **[ビルド]** ボタンをクリックするか、 **[デバッグ] -> [デバッグ開始]** を選択して、ソリューションをビルドして実行し、アプリがエラーなしで実行されることを確認します。
 
-        :::image type="content" source="images/WinUI-and-UWP/vs2019-project-running.png" alt-text="Visual Studio 2019 - [ターゲット デバイス] メニュー":::
+        :::image type="content" source="images/WinUI-and-UWP/vs2019-project-running.png" alt-text="Visual Studio 2019 - [ファイル] -> [新規] -> [プロジェクト] メニュー":::
 
 ## <a name="known-issues-and-limitations"></a>既知の問題と制限事項
 

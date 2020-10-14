@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: aabad7a731bd0654468d7b9849d3b9a5bf6bead6
-ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
+ms.openlocfilehash: 1f71eb48264570df384fce672b1ca895d98e1109
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91353732"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636592"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
@@ -18,11 +18,11 @@ ms.locfileid: "91353732"
 
 画像編集プログラムには 2 つのページがあります。 _メイン ページ_には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
-![MainPage](../basics/images/xaml-basics/mainpage.png)
+![写真ラボのメイン ページのスクリーンショット。](../basics/images/xaml-basics/mainpage.png)
 
 *詳細ページ*には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 
-![DetailPage](../basics/images/xaml-basics/detailpage.png)
+![写真ラボの詳細ページのスクリーンショット。](../basics/images/xaml-basics/detailpage.png)
 
 ## <a name="prerequisites"></a>前提条件
 

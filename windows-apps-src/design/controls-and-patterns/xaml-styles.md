@@ -10,12 +10,12 @@ label: XAML styles
 template: detail.hbs
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 6dfb9c73eb6db0bb948714e1ce5e99a185b8dd3d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6e4e69b87ba78134982032f9ceca826758c1a5ba
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173866"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829656"
 ---
 # <a name="xaml-styles"></a>XAML スタイル
 
@@ -29,7 +29,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 スタイルを使うと、視覚的なプロパティの設定を、再利用可能なリソースとして抽出できます。 次の例は、[BorderBrush](/uwp/api/windows.ui.xaml.controls.control.borderbrush)、[BorderThickness](/uwp/api/windows.ui.xaml.controls.control.borderthickness)、および [Foreground](/uwp/api/windows.ui.xaml.controls.control.foreground) プロパティを設定するスタイルを適用した 3 つのボタンを示しています。 スタイルを適用することで、これらのプロパティを各コントロールで個別に設定しなくて済み、また、コントロールに同じ外観を持たせることができます。
 
-![スタイルを適用したボタン](images/styles-rainbow-buttons.png)
+![スタイルを適用した 3 つのボタンが横に並べて配置されているスクリーンショット。](images/styles-rainbow-buttons.png)
 
 スタイルは、XAML を使ってコントロールに対してインラインで定義するか、再利用可能なリソースとして定義できます。 リソースは、個々のページの XAML ファイル、App.xaml ファイル、別個のリソース ディクショナリ XAML ファイルのいずれかに定義します。 リソース ディクショナリ XAML ファイルはアプリ間で共有できます。また、単一のアプリで複数のリソース ディクショナリをマージすることも可能です。 リソースを定義する場所は、リソースが使われる範囲によって決まります。 ページ レベルのリソースは定義元のページでしか利用できません。 App.xaml とページ内の両方で同じキーが定義されている場合、ページ内のリソースが App.xaml 内のリソースよりも優先されます。 リソースが別個のリソース ディクショナリ ファイルで定義されている場合、そのスコープはリソース ディクショナリが参照される場所によって決まります。
 
@@ -149,7 +149,7 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 
 システム ブラシのオーバーライドは一般にアプリ レベルまたはページ レベルで行われます。いずれの場合も、色のオーバーライドはそのブラシを参照するすべてのコントロールに影響します。また、XAML では多くのコントロールが同じシステム ブラシを参照できます。
 
-![スタイルを適用したボタン](images/LightweightStyling_ButtonStatesExample.png)
+![2 つのボタンのスクリーンショット: 1 つは静止状態で、もう 1 つは軽量なスタイル設定が適用されています。](images/LightweightStyling_ButtonStatesExample.png)
 
 ```XAML
 <Page.Resources>
@@ -173,7 +173,7 @@ PointerOver (マウスがボタンの上に置かれている)、**PointerPresse
 
 他のケースでは、コントロールの他のバージョンを変更することなく、1 つのページ上の単一のコントロールを特定の方法で表示するように変更することが望ましい方法です。
 
-![スタイルを適用したボタン](images/LightweightStyling_CheckboxExample.png)
+![スタイルを適用された 3 つのボタンを上下に積み重ねて配列したスクリーンショット。](images/LightweightStyling_CheckboxExample.png)
 
 ```XAML
 <CheckBox Content="Normal CheckBox" Margin="5"/>

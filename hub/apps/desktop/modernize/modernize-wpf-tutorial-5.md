@@ -1,5 +1,5 @@
 ---
-description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、その他の最新のコンポーネントをお使いの WPF アプリに組み込む方法について説明します。
+description: このチュートリアルでは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを最新化する方法が示されています。
 title: MSIX によるパッケージとデプロイ
 ms.topic: article
 ms.date: 01/23/2020
@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 18b89caa0de947d2b95b46c3deb11378912b6012
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2ab83b2c9253e8cdd9adc403909a1bd03db1ccda
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161426"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762977"
 ---
 # <a name="part-5-package-and-deploy-with-msix"></a>パート 5: MSIX によるパッケージとデプロイ
 

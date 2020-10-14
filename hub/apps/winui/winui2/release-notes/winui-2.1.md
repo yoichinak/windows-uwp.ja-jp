@@ -3,12 +3,12 @@ title: WinUI 2.1 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.1 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 02e870209486a271e0455d61070cf5403333e1df
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f5087e9f5059a568e92f972c04b25d8c618015f2
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154886"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762881"
 ---
 # <a name="windows-ui-library-21"></a>Windows UI ライブラリ 2.1
 
@@ -29,7 +29,7 @@ WinUI は、GitHub でホストされているオープン ソース プロジ�
 柔軟なレイアウト システム、カスタム ビュー、および仮想化を使ってカスタム コレクション エクスペリエンスを作成するには、ItemsRepeater を使用します。
 ListView とは異なり、ItemsRepeater では包括的なエンドユーザー エクスペリエンスが提供されません。既定の UI はなく、フォーカス、選択、ユーザーの操作に関するポリシーは提供されません。 その代わり、構成要素を使用することで、独自の一意のコレクション ベースのエクスペリエンスおよびカスタム コントロールを作成することができます。 充実し、パフォーマンスに優れたエクスペリエンスの構築をサポートしています。
 
-![例](../images/ItemsRepeater%20-%20MSN%20News.gif)
+![Items Repeater コントロールの動作を示す短い動画。](../images/ItemsRepeater%20-%20MSN%20News.gif)
 
 [ドキュメント](/windows/uwp/design/controls-and-patterns/items-repeater)
 
@@ -37,7 +37,7 @@ ListView とは異なり、ItemsRepeater では包括的なエンドユーザー
 
 AnimatedVisualPlayer では、アニメーション化されたビジュアルがホストされ、その再生が制御されます。これにより、アプリにハイ パフォーマンスのカスタム モーション グラフィックスを追加できます。 たとえば、AnimatedVisualPlayer を使用して Lottie アニメーションを表示および制御します。
 
-![例](../images/AnimatedVisualPlayerUpdated.gif)
+![Animated Visual Player コントロールの動作を示す短い動画。](../images/AnimatedVisualPlayerUpdated.gif)
 
 [ドキュメント](/windows/communitytoolkit/animations/lottie)
 
@@ -45,7 +45,7 @@ AnimatedVisualPlayer では、アニメーション化されたビジュアル�
 
 TeachingTip は、アプリケーションが非侵入型でコンテンツ豊富なヒントを使用してユーザーにガイドと情報を提供できるようにする魅力的な Fluent 方式を提供します。 TeachingTip は、新しいまたは重要な機能にフォーカスを移し、タスクを実行する方法をユーザーに示すことができます。また、目前のタスクに対して文脈上関連する情報を提供することで、ワークフローを強化することができます。
 
-![例](../images/TeachingTipUpdated.gif)
+![Teaching Tip コントロールの動作を示す短い動画。](../images/TeachingTipUpdated.gif)
 
 [ドキュメント](/windows/uwp/design/controls-and-patterns/dialogs-and-flyouts/teaching-tip)
 
@@ -53,7 +53,7 @@ TeachingTip は、アプリケーションが非侵入型でコンテンツ豊�
 
 MenuBar に 'ラジオ ボタン' スタイル オプションを設定する機能が含まれています。 これにより、ラジオ ボタン グループのように関連付けられた箇条書きを含むオプションのグループが有効になります。 ロジックは開発者に対して処理されます。
 
-![例](../images/RadioMenuFlyoutItem1.png)
+![Radio Menu Fly out Item コントロールの動作を示すスクリーンショット。](../images/RadioMenuFlyoutItem1.png)
 
 [ドキュメント](/windows/uwp/design/controls-and-patterns/menus#create-a-menu-flyout-or-a-context-menu)
 
@@ -61,7 +61,7 @@ MenuBar に 'ラジオ ボタン' スタイル オプションを設定する機
 
 コンパクト モードでは、開発者は任意の数のシナリオ向けの快適なエクスペリエンスを作成できます。 リソース ディクショナリを追加するだけで、アプリケーションは平均で最大 33% 多い UI に収まります。
 
-![コンパクト密度の例](../images/CompactDensityUpdated.png)
+![Compact Density コントロールの動作を示すスクリーンショット。](../images/CompactDensityUpdated.png)
 
 [ドキュメント](/windows/uwp/design/style/spacing)
 

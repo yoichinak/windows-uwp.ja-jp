@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e4c2c8d52069bf074897ec09fa44f550066b28b5
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 942b2ff4af0fa093a0b343c37074185970f8209d
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160756"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829546"
 ---
 # <a name="tutorial-create-a-user-interface"></a>チュートリアル: ユーザー インターフェイスの作成
 
@@ -367,7 +367,7 @@ XAML エディターを使用してコントロールを追加するには
 
 ここでアプリを実行し、作成した項目テンプレートで `GridView` コントロールを確認します。 次に、背景色を変更し、グリッド項目の間にスペースを追加します。
 
-![アプリの UI チェックポイント 3](images/xaml-basics/layout-1.png)
+![項目テンプレートが表示された、実行中の Collection アプリのスクリーンショット。](images/xaml-basics/layout-1.png)
 
 ## <a name="part-4-modify-the-item-container-style"></a>パート 4: 項目コンテナーのスタイルを変更する
 
@@ -455,7 +455,7 @@ XAML エディターを使用してコントロールを追加するには
 
 アプリを実行して、この時点での結果を確認します。 アプリ ウィンドウのサイズを変更します。 画像の再配置は `GridView` コントロールによって自動的に処理されますが、幅によっては、アプリ ウィンドウの右余白が大きくなりすぎることがあります。 このような場合は、イメージを中央に配置した方が見栄えが良くなります。 これについては、次で説明します。
 
-![アプリの UI チェックポイント 3](images/xaml-basics/layout-2.png)
+![項目テンプレートが表示された、実行中の Collection アプリで、アプリ ウィンドウの右側に余分なスペースがあるスクリーンショット。](images/xaml-basics/layout-2.png)
 
 > [!Note]
 > 時間に余裕があれば、`Background` プロパティと `Margin` プロパティをさまざまな値に設定して、その結果がどうなるか試してみてください。

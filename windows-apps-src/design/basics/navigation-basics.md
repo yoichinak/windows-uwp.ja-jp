@@ -10,12 +10,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6fa0f8997db9a383097c7e0fece3d8a17d5875ab
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: e144d369dccac6a14a32168bd073bb501275097f
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220095"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91763072"
 ---
 # <a name="navigation-design-basics-for-windows-apps"></a>Windows アプリのナビゲーション デザインの基本
 
@@ -67,7 +67,7 @@ ms.locfileid: "91220095"
 
 :::row:::
     :::column:::
-        ![実行例](images/nav/do.svg)
+        ![緑色のチェック マークが付いており、"Do" と書かれている緑色のバーの最初のスクリーンショット。](images/nav/do.svg)
 
         ![ナビゲーション ビュー良好](images/nav/navview-good.svg)
 
@@ -86,7 +86,7 @@ ms.locfileid: "91220095"
 
 明確なパスを示すと、ユーザーは論理的なナビゲーションを行うことができます。 ナビゲーション オプションをわかりやすくし、ページ間の関係を明確にすることで、ユーザーが自分の位置を見失うことを防止できます。
 
-![実行例](images/nav/clarity-image.svg)
+![ユーザーのナビゲーションの明確なパスを示している、アプリケーションのモックアップのスクリーンショット。](images/nav/clarity-image.svg)
 
 > 移動先にはわかりやすいラベルが付けられているため、ユーザーは自分の位置を知ることができます。
 

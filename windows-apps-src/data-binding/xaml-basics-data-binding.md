@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 10615c3bb9a137655f32ca4b5cc174ddba1ee5ef
-ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
+ms.openlocfilehash: 3435718794cb22745e1438ef634db29076ed33c1
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91353772"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636662"
 ---
 # <a name="tutorial-create-data-bindings"></a>チュートリアル: データ バインディングを作成する
 
@@ -22,11 +22,11 @@ ms.locfileid: "91353772"
 
 PhotoLab サンプル アプリには 2 つのページがあります。 _メイン ページ_には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
-![MainPage](../design/basics/images/xaml-basics/mainpage.png)
+![写真ラボのメイン ページのスクリーンショット。](../design/basics/images/xaml-basics/mainpage.png)
 
 *詳細ページ*には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 
-![DetailPage](../design/basics/images/xaml-basics/detailpage.png)
+![写真ラボの詳細ページのスクリーンショット。](../design/basics/images/xaml-basics/detailpage.png)
 
 ## <a name="prerequisites"></a>前提条件
 

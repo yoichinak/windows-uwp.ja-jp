@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 4754af24bb7755cfa70a4f3b1f460e823985c90c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0f5f176e980323d58f4baebcef2b030ee33cd32d
+ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166016"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91750578"
 ---
 # <a name="tools-for-profiling-and-performance"></a>プロファイリングとパフォーマンスに関するツール
 
@@ -22,8 +22,6 @@ Microsoft には、ユニバーサル Windows プラットフォーム (UWP) ア
 
 次の用語も参照:
 
-|           |             |
-|-----------|-------------|
-| [Visual Studio 診断ツールを使った UWP アプリのパフォーマンスの分析](/visualstudio/profiling/profiling-tools) | Visual Studio プロファイラーには、プログラムの実行時に時間がかかっているアプリのコードの場所が表示されるため、アプリ、関数、アルゴリズムのパフォーマンスのボトルネックを見つけることができます。 |
-| [XAML パフォーマンス:XAML を使って構築されたユニバーサル Windows アプリのエクスペリエンスを最大化する手法](https://channel9.msdn.com/Events/Build/2015/3-698) | この //build セッションでは、新しいプラットフォーム機能、新しいツール機能、XAML ベースのユニバーサル Windows アプリのパフォーマンスを大幅に高める新しい手法について説明します。 |
-| [Visual Studio の新しい XAML ツール](https://channel9.msdn.com/Events/Build/2015/2-697) | この //build セッションでは、再設計された Blend のエクスペリエンス、UI デバッグ ツール、XAML エディターの拡張機能など、Visual Studio 2015 のいくつかの新機能について説明します。 これらのツールは、Visual Studio 2019 でも使用できます |
+* [Visual Studio 診断ツールを使った UWP アプリのパフォーマンスの分析](/visualstudio/profiling/profiling-tools):Visual Studio プロファイラーには、プログラムの実行時に時間がかかっているアプリのコードの場所が表示されるため、アプリ、関数、アルゴリズムのパフォーマンスのボトルネックを見つけることができます。
+* [XAML パフォーマンス:XAML を使って構築されたユニバーサル Windows アプリのエクスペリエンスを最大化する手法](https://channel9.msdn.com/Events/Build/2015/3-698):この //build セッションでは、新しいプラットフォーム機能、新しいツール機能、XAML ベースのユニバーサル Windows アプリのパフォーマンスを大幅に高める新しい手法について説明します。
+* [Visual Studio の新しい XAML ツール](https://channel9.msdn.com/Events/Build/2015/2-697):この //build セッションでは、再設計された Blend のエクスペリエンス、UI デバッグ ツール、XAML エディターの拡張機能など、Visual Studio 2015 のいくつかの新機能について説明します。 これらのツールは、Visual Studio 2019 でも使用できます。
