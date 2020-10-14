@@ -6,12 +6,12 @@ ms.date: 08/10/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 86c6f9398a61865b014400bbf4a96c8a7ce8a231
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ce7344b810c3b6683050876dce38264be6f5c8b7
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154356"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762833"
 ---
 # <a name="optimize-your-xaml-markup"></a>XAML マークアップの最適化
 
@@ -81,11 +81,11 @@ XAML プラットフォームでは大量の要素を表示できますが、目
 
 ListView を読み込んだ場合のライブ ビジュアル ツリー。 ページの要素の総数は 89 です。
 
-![リスト ビューのあるビジュアル ツリー](images/visual-tree-1.png)
+![リスト ビューが表示されているビジュアル ツリーのスクリーンショット。](images/visual-tree-1.png)
 
 ListView とその子がメモリに読み込まれています。
 
-![リスト ビューのあるビジュアル ツリー](images/memory-use-1.png)
+![ListView とその子がメモリに読み込まれていることを示すマネージド メモリ TestApp1.exe テーブルのスクリーンショット。](images/memory-use-1.png)
 
 #### <a name="option-2---better"></a>オプション 2 - やや効率的
 
@@ -97,11 +97,11 @@ ListView とその子がメモリに読み込まれています。
 
 ListView を Collapsed に設定した場合のライブ ビジュアル ツリー。 ページの要素の総数は 46 です。
 
-![折りたたまれたリスト ビューのあるビジュアル ツリー](images/visual-tree-2.png)
+![リスト ビューが折りたたまれているビジュアル ツリーのスクリーンショット。](images/visual-tree-2.png)
 
 ListView とその子がメモリに読み込まれています。
 
-![リスト ビューのあるビジュアル ツリー](images/memory-use-1.png)
+![ListView とその子がメモリに読み込まれていることを示すマネージド メモリ TestApp1.exe テーブルの更新されたスクリーンショット。](images/memory-use-1.png)
 
 #### <a name="option-3---most-efficient"></a>オプション 3 - 最も効率的
 

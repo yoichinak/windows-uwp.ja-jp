@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 324512b4bd99ee651539c270219a6adc988ae77b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: caeb8fff9eccccc57219b84b0162db68b622bd97
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165766"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91763011"
 ---
 # <a name="3-d-perspective-effects-for-xaml-ui"></a>XAML UI 用の 3-D 遠近効果
 
@@ -172,6 +172,6 @@ ms.locfileid: "89165766"
 
 このサンプルでは、オブジェクトが回転しても移動方向が変わらないことがわかります。 これは、オブジェクトが回転に関係なく画面の X 軸に沿って移動しているためです。
 
-## <a name="positioning-an-object"></a>オブジェクトの配置
+## <a name="more-complex-semi-3d-scenarios"></a>さらに複雑な擬似 3D シナリオ
 
 [**PlaneProjection**](/uwp/api/Windows.UI.Xaml.Media.PlaneProjection) を使って対応できる場合よりもさらに複雑な疑似 3D のシナリオに対しては、[**Matrix3DProjection**](/uwp/api/Windows.UI.Xaml.Media.Matrix3DProjection) 型および [**Matrix3D**](/uwp/api/Windows.UI.Xaml.Media.Media3D.Matrix3D) 型を使うことができます。 **Matrix3DProjection** には、どの [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) にも適用できる完全な 3D 変換マトリックスが備えられているため、任意のモデル変換マトリックスおよび視点マトリックスを要素に適用できます。 これらの API は最小限のものであるため、使用する場合は、3D 変換マトリックスを正しく作成するコードを記述する必要があります。 そのため、単純な 3D シナリオには、**PlaneProjection** を使う方が簡単です。

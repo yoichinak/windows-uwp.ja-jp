@@ -13,12 +13,12 @@ design-contact: ksulliv
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f507a325a89220e229b277a1ae08727054cc2a75
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 2a84dcc209fa0fcd897668293cb136a5448e7254
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219105"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829517"
 ---
 # <a name="command-bar"></a>コマンド バー
 
@@ -59,15 +59,15 @@ CommandBar コントロールは、汎用的で柔軟、軽量なコントロー
 
 既定では、コマンド バーには、一連のアイコン ボタンとオプションの [その他] ボタン (省略記号の \[•••\]) が表示されます。 後で示すコード例を使って作成されたコマンド バーを次に示します。 コマンド バーは、閉じたコンパクトな状態で表示されます。
 
-![閉じたコマンド バー](images/command-bar-compact.png)
+![閉じたコマンド バーを示すスクリーンショット。](images/command-bar-compact.png)
 
 コマンド バーは、次のように、閉じた最小の状態で表示することもできます。 詳しくは、「[開いた状態と閉じた状態](#open-and-closed-states)」をご覧ください。
 
-![閉じたコマンド バー](images/command-bar-minimal.png)
+![閉じた最小状態のコマンド バーを示すスクリーンショット。](images/command-bar-minimal.png)
 
 同じコマンド バーが開いている状態を次に示します。 ラベルは、コントロールのメイン部分を識別します。
 
-![閉じたコマンド バー](images/commandbar_anatomy_open.png)
+![開いた状態のコマンド バーを示すスクリーンショット。](images/commandbar_anatomy_open.png)
 
 コマンド バーは、4 つの主な領域に分かれています。
 - コンテンツ領域はバーの左側に配置されます。 これは、[Content](/uwp/api/windows.ui.xaml.controls.contentcontrol.content) プロパティが指定されている場合に表示されます。

@@ -1,5 +1,5 @@
 ---
-Description: ListView コントロールと GridView コントロールを使って、イメージ ギャラリーや一連のメール メッセージなどのデータのセットを表示および操作します。
+description: ListView コントロールと GridView コントロールを使って、イメージ ギャラリーや一連のメール メッセージなどのデータのセットを表示および操作します。
 title: リスト ビューとグリッド ビュー
 label: List view and grid view
 template: detail.hbs
@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 988400ae16d19525acc1dc811c91fc5af9fd97d0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 26f7e36d09857d37da4a0b4533cc8f65d2789e20
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172626"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829645"
 ---
 # <a name="list-view-and-grid-view"></a>リスト ビューとグリッド ビュー
 
@@ -53,7 +53,7 @@ ListView と GridView は、組み込みの UI と UX を使用して任意の�
 -   ItemsRepeater は、ListView または GridView では作成できない高度なカスタム UI の場合、または項目ごとに大幅に異なる動作を必要とするデータ ソースがある場合に使用する必要があります。
 
 
-ItemsRepeater の詳細については、[ガイドライン](./items-repeater.md)と [API ドキュメント](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2)のページをご覧ください。
+ItemsRepeater の詳細については、[ガイドライン](./items-repeater.md)と [API ドキュメント](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)のページをご覧ください。
 
 ## <a name="examples"></a>例
 
@@ -121,7 +121,7 @@ FruitsPanel.Children.Add(Fruits);
 ```
 上記のどちらのオプションでも、次に示すような同じ ListView が生成されます。
 
-![単純なリスト ビュー](images/listview-basic-code-example2.png)
+![果物の一覧を表示している単純なリスト ビューのスクリーンショット。](images/listview-basic-code-example2.png)
 <br/>
 <u>方法 2:ItemsSource を設定して項目を追加する</u>
 
@@ -290,7 +290,7 @@ ListView または GridView のデータ テンプレートでは、項目やデ
 ListView または GridView に項目を追加すると、コントロールによって項目コンテナー内で各項目が自動的に折り返され、すべての項目コンテナーがレイアウトされます。 この項目コンテナーのレイアウト方法は、コントロールの [ItemsPanel](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) によって決まります。  
 - **ListView** では既定で [ItemsStackPanel](/uwp/api/windows.ui.xaml.controls.itemsstackpanel) が使用され、次のような縦 1 列のリストが生成されます。
 
-![単純なリスト ビュー](images/listview-simple.png)
+![項目の一覧を表示している単純なリスト ビューのスクリーンショット。](images/listview-simple.png)
 
 - **GridView** では [ItemsWrapGrid](/uwp/api/windows.ui.xaml.controls.itemswrapgrid) が使用されます。次のように、項目が水平方向に追加され、折り返されて縦方向にスクロールします。
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: ff94c34c61dee4de8450ed0f4f89a1dfc6537f83
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1f0a91dd0370b8eda8763b63034d7c3ffaa1acd5
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173596"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762993"
 ---
 # <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
 
@@ -19,7 +19,7 @@ Windows 10 Version 1511 以降では、モバイル デバイス ファミリで
 
 開発者モードを有効にする方法については、「[デバイスを開発用に有効にする](../get-started/enable-your-device-for-development.md)」をご覧ください。
 
-![Device Portal の設定](images/device-portal/mob-dev-mode-options.png)
+![デバイスの検出と Device Portal の設定のスクリーンショット。](images/device-portal/mob-dev-mode-options.png)
 
 ## <a name="set-up-device-portal-on-windows-phone"></a>Windows Phone で Device Portal をセットアップする
 
@@ -59,7 +59,7 @@ Device Portal に接続するには、USB、ローカル ホスト、ローカ�
 
 Windows Phone の開発者設定ページの [Device Portal] セクションを次に示します。
 
-![Device Portal の設定](images/device-portal/mob-dev-mode-portal.png)
+![Windows Phone からの Device Portal 設定ページのスクリーンショット。](images/device-portal/mob-dev-mode-portal.png)
 
 テスト ラボなど、保護された環境で Device Portal を使っている場合、ローカル ネットワーク上のすべてのユーザーを信頼していて、デバイス上に個人情報が保存されておらず、固有の要件もない場合は、認証を無効にできます。 これにより、暗号化されていない通信が有効化され、電話の IP アドレスを持つすべてのユーザーが制御できるようになります。
 

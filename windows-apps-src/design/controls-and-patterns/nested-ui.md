@@ -11,12 +11,12 @@ pm-contact: chigy
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 433f24ea6c4e2fd03faa652a041f3a1c1578652e
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 319bf762d54ed341672a99d15d9e760c91d93cff
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217935"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829462"
 ---
 # <a name="nested-ui-in-list-items"></a>リスト項目の入れ子になった UI
 
@@ -35,7 +35,7 @@ ms.locfileid: "91217935"
 - *リスト項目*は、ユーザーが操作を実行できるリスト上の個別の項目を表します。
 - *入れ子になった UI* は、リスト項目自体に対する操作とは別にユーザーが操作できるリスト項目内の UI 要素を表します。
 
-![入れ子になった UI 部](images/nested-ui-example-1.png)
+![入れ子になった UI のパーツを示すスクリーンショット。](images/nested-ui-example-1.png)
 
 > 注&nbsp;&nbsp; ListView と GridView はどちらも [ListViewBase](/uwp/api/windows.ui.xaml.controls.listviewbase) クラスから派生しているため機能は同じですが、データの表示方法が異なります。 この記事では、リストについての説明は ListView コントロールにも GridView コントロールにも適用されます。
 
@@ -107,7 +107,7 @@ Windows でサポートされているすべての入力にアプリが対応し
 
 入れ子になった要素を含むリスト UI で、呼び出し処理、選択 (単一または複数) 処理、ドラッグ アンド ドロップ処理などの操作をサポートしている場合は、次の方向キーによる手法を使って、入れ子になった UI 要素を移動することがお勧めです。
 
-![入れ子になった UI 部](images/nested-ui-navigation.png)
+![A、B、C、D という文字ラベルが付いた、入れ子になった UI 要素を示すスクリーンショット。](images/nested-ui-navigation.png)
 
 **ゲームパッド**
 
@@ -147,7 +147,7 @@ Windows でサポートされているすべての入力にアプリが対応し
 
 この種類の UI は、前述の例よりもずっと複雑になる傾向があり、ユーザーが操作可能な入れ子になった要素が多数含まれます。
 
-![入れ子になった UI 部](images/nested-ui-grouping.png)
+![ユーザーが操作できる入れ子になった要素が多数表示されている、複雑な入れ子になった UI のスクリーンショット。](images/nested-ui-grouping.png)
 
 
 この UI を実現するには、リストのプロパティを次のように設定します。

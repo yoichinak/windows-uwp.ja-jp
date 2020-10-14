@@ -4,12 +4,12 @@ description: Windows UI ライブラリをインストールして使用する�
 ms.topic: reference
 ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk
-ms.openlocfilehash: 94c23ab9573df576af89d9211ced70938fd5105f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 7b7b248ce166368d315dce42f27075d3933c0781
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174136"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762847"
 ---
 # <a name="getting-started-with-the-windows-ui-2x-library"></a>Windows UI 2.x ライブラリの概要
 
@@ -33,9 +33,9 @@ ms.locfileid: "89174136"
 **Microsoft.UI.Xaml** パッケージには、すべてのアプリに適した Fluent コントロールと機能が含まれています。  
 必要に応じて、[プレリリースを含める] をオンにして、試験的な新機能が含まれている最新のプレリリース バージョンを確認することもできます。
 
-    ![NuGet パッケージ](images/ManageNugetPackages.png "NuGet パッケージのイメージの管理")
+    ![[ソリューション エクスプローラー] パネルで、プロジェクトが右クリックされ、[NuGet パッケージの管理] オプションが強調表示されているスクリーンショット。](images/ManageNugetPackages.png "NuGet パッケージのイメージの管理")
 
-    ![NuGet パッケージ](images/NugetPackages.png)
+    ![検索フィールドに winui と入力された状態の [参照] タブを示す [NuGet パッケージ マネージャー] ダイアログ ボックスのスクリーンショット。](images/NugetPackages.png)
 
 4. App.xaml リソースに Windows UI (WinUI) テーマ リソースを追加します。 これを行うには、他のアプリケーション リソースがあるかどうかに応じて 2 つの方法があります。
 

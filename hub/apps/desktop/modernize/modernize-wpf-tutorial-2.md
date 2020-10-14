@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 0b5250f1e01aece4f73d83dc7327f193a58f53cf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 24fb2507dd8f5a83b5581ff08d44210b0f5146c3
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161496"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636452"
 ---
 # <a name="part-2-add-a-uwp-inkcanvas-control-using-xaml-islands"></a>パート 2: XAML Islands を使用した UWP InkCanvas コントロールの追加
 
@@ -147,7 +147,7 @@ ms.locfileid: "89161496"
 
 13. マウスで署名スペースに何かを描画してみましょう。 今回は画面にインクが表示されます。
 
-    ![署名](images/wpf-modernize-tutorial/Signature.png)
+    ![署名スペースが表示されている [Expense Detail] のスクリーンショット。](images/wpf-modernize-tutorial/Signature.png)
 
 ## <a name="next-steps"></a>次の手順
 

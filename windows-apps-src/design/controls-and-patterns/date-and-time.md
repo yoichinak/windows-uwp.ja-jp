@@ -1,5 +1,5 @@
 ---
-Description: 日付と時刻のコントロールでは、日付と時刻を表示および設定できます。 この記事では設計ガイドラインを示し、適切なコントロールを選ぶのに役立ちます。
+description: 日付と時刻のコントロールでは、日付と時刻を表示および設定できます。 この記事では設計ガイドラインを示し、適切なコントロールを選ぶのに役立ちます。
 title: 日付コントロールと時刻コントロールのガイドライン
 ms.assetid: 4641FFBB-8D82-4290-94C1-D87617997F61
 label: Calendar, date, and time controls
@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 45f69c2216cdfd5809a978e9199d05d0d79740ee
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a7afab6e226a86b7aa8979d5d849376cf83739c4
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160426"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829578"
 ---
 # <a name="calendar-date-and-time-controls"></a>カレンダー、日付、および時刻コントロール
 
@@ -45,12 +45,12 @@ ms.locfileid: "89160426"
 
 4 つの日付および時刻コントロールから選択できますが、シナリオによって使用するコントロールは異なります。 以下の情報を参考にして、アプリに適切なコントロールを選んでください。
 
-&nbsp;|&nbsp;|&nbsp;                                                                                                                      
---------------------|-------|-------------------------------------------------------------------------------------------------------------------------------
-カレンダー ビュー       |![カレンダー ビューの例](images/controls_calendar_monthview_small.png)|常に表示されるカレンダーから 1 つの日付または日付の範囲を選ぶ場合に使用します。                   
-カレンダーの日付の選択コントロール|![カレンダーの日付の選択コントロールの例](images/calendar-date-picker-closed.png)|コンテキストに沿ったカレンダーから 1 つの日付を選ぶ場合に使用します。 
-日付の選択コントロール         |![日付の選択コントロールの例](images/date-picker-closed.png)|コンテキスト情報が重要でない既知の 1 つの日付を選ぶ場合に使用します。
-時刻の選択コントロール         |![時刻の選択コントロールの例](images/time-picker-closed.png)|1 つの時刻を選ぶ場合に使用します。                                        
+| Control | 例 | 説明 |
+| ------- | :-----: | ----------- |
+| カレンダー ビュー | ![カレンダー ビューの例](images/controls_calendar_monthview_small.png) | 常に表示されるカレンダーから 1 つの日付または日付の範囲を選ぶ場合に使用します。 |
+| カレンダーの日付の選択コントロール | ![カレンダーの日付の選択コントールのスクリーンショット。](images/calendar-date-picker-closed.png) | コンテキストに沿ったカレンダーから 1 つの日付を選ぶ場合に使用します。 |
+| 日付の選択コントロール | ![日付の選択コントロールの例](images/date-picker-closed.png) | コンテキスト情報が重要でない既知の 1 つの日付を選ぶ場合に使用します。 |
+| 時刻の選択ツール | ![時刻の選択コントロールの例](images/time-picker-closed.png) | 1 つの時刻を選ぶ場合に使用します。 |
 
 <!-- This table seems redundant, not sure it's needed.-->
 
@@ -60,7 +60,7 @@ ms.locfileid: "89160426"
 
 カレンダー ビューは、月ビュー、年ビュー、10 年ビューという 3 つの個別のビューで構成されています。 既定では、月ビューが開きますが、任意のビューをスタートアップ ビューとして指定できます。
 
-![カレンダーの日付の選択コントロールの例](images/calendar-view-3-views.png)
+![月ビュー、年ビュー、10 年ビューを表示した 3 つのカレンダー ビューのスクリーンショット。](images/calendar-view-3-views.png)
 
 - ユーザーが複数の日付を選べるようにする必要がある場合は、**CalendarView** を使う必要があります。
 - ユーザーが 1 つの日付しか選べないようにする必要があり、カレンダーを常に表示する必要がない場合は、**CalendarDatePicker** または **DatePicker** コントロールを使うことを検討してください。
@@ -71,7 +71,7 @@ ms.locfileid: "89160426"
 
 日付が設定されていない場合、エントリ ポイントにはプレースホルダー テキストが表示されます。設定されている場合は、選んだ日付が表示されます。 ユーザーがエントリ ポイントを選ぶと、カレンダー ビューが展開されて、ユーザーが日付を選べるようになります。 カレンダー ビューは他の UI をオーバーレイし、他の UI を別の位置に移動させることはありません。
 
-![カレンダーの日付の選択コントロールの例](images/calendar-date-picker-2-views.png)
+![空の日付選択テキスト ボックスが表示されたカレンダーの日付の選択コントロールと、日付が入力されて下にカレンダーが表示されている状態のスクリーンショット。](images/calendar-date-picker-2-views.png)
 
 - カレンダーの日付の選択コントロールは、予定日や出発日の選択などに使います。 
 
@@ -85,7 +85,7 @@ ms.locfileid: "89160426"
 
 - 日付の選択コントロールは、ユーザーが誕生日などの既知の日付 (カレンダーのコンテキストが重要ではない日) を選べるようにする場合に使用します。
 
-### <a name="time-picker"></a>時刻の選択コントロール
+### <a name="time-picker"></a>時刻の選択ツール
 
 **TimePicker** は、予定や出発時刻などの 1 つの時刻を選択する場合に使用します。 ユーザーまたはコードによって設定された静的な表示であるため、更新して現在の時刻を表示することはできません。
 
@@ -104,7 +104,7 @@ ms.locfileid: "89160426"
 - [日付の選択コントロール](date-picker.md)
 - [時刻の選択コントロール](time-picker.md)
 
-### <a name="globalization"></a>Globalization
+### <a name="globalization"></a>グローバリゼーション
 
 XAML の日付のコントロールでは、Windows でサポートされる各カレンダー システムがサポートされます。 それらのカレンダーは [Windows.Globalization.CalendarIdentifiers](/uwp/api/Windows.Globalization.CalendarIdentifiers) クラスで指定されます。 各コントロールは、アプリの既定の言語に適したカレンダーを使います。または、**CalendarIdentifier** プロパティを設定して特定のカレンダー システムを使うこともできます。
 
@@ -119,12 +119,12 @@ XAML の日付および時刻コントロールで使用される日付オブジ
 
 関連する概念として Calendar クラスがあります。Calendar クラスは、コンテキストでの日付の解釈方法に影響を及ぼします。 すべての Windows ランタイム アプリで、[Windows.Globalization.Calendar](/uwp/api/Windows.Globalization.Calendar) クラスを使用することができます。 C# および Visual Basic アプリでは、代わりに機能が非常によく似た [System.Globalization.Calendar](/dotnet/api/system.globalization.calendar) クラスを使用することができます  (Windows ランタイム アプリでは、基本の .NET Calendar クラスを使用することはできますが、GregorianCalendar などの具体的な実装を使用することはできません)。
 
-.NET では、[DateTime](/dotnet/api/system.datetime) という名前の型もサポートされます。これは、暗黙的に [DateTimeOffset](/dotnet/api/system.datetimeoffset) と読み替えることができます。 したがって、.NET コードで値を設定するために "DateTime" 型が使用されていた場合、それは実際には DateTimeOffset です。 DateTime と DateTimeOffset の違いについて詳しくは、「[DateTimeOffset](/dotnet/api/system.datetimeoffset)クラス」の「注釈」をご覧ください。
+.NET では、[DateTime](/dotnet/api/system.datetime) という名前の型もサポートされます。これは、暗黙的に [DateTimeOffset](/dotnet/api/system.datetimeoffset) と読み替えることができます。 したがって、.NET コードで値を設定するために "DateTime" 型が使用されていた場合、それは実際には DateTimeOffset です。 DateTime と DateTimeOffset の違いについて詳しくは、「[DateTimeOffset](/dotnet/api/system.datetimeoffset) クラス」の「注釈」をご覧ください。
 
 > [!NOTE]
 > 日付オブジェクトを受け取るプロパティは、XAML 属性文字列として設定することはできません。これは、Windows ランタイム XAML パーサーには、文字列を DateTime/DateTimeOffset オブジェクトとして日付に変換する変換ロジックがないためです。 通常、それらの値はコードで設定します。 考えられる別の方法として、データ オブジェクトとして (またはデータ コンテキストで) 利用可能な日付を定義し、その日付をデータとしてアクセスできる [\{Binding\} マークアップ拡張](../../xaml-platform/binding-markup-extension.md)表現を参照する XAML 属性をプロパティとして設定することができます。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
 - [XAML UI の基本のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics)
 - [カレンダーのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Calendar)

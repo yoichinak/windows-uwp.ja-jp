@@ -10,12 +10,12 @@ ms.custom: RS5
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: bb0f38c250d20780b301a925b24e3d1c36bda7e3
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: f7035017b1b1bfe878e4bd390fcefbe2bf3a6be5
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216605"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636562"
 ---
 # <a name="color"></a>色
 
@@ -216,7 +216,7 @@ Windows シェルのアクセント カラーのアルゴリズムによって�
 
 以下の表は、さまざまな色調のアクセント カラーと、色付きの表面上での文字色の見え方の例を示します。
 
-![色調の組み合わせ](images/color/color-on-color.png)
+![上端の薄い青から下端の濃い青まで変化する色のグラデーションを示すカラー チャートの色のスクリーンショット。](images/color/color-on-color.png)
 
 コントロールのスタイルについて詳しくは、「[XAML スタイル](../controls-and-patterns/xaml-styles.md)」をご覧ください。
 

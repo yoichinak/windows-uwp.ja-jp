@@ -3,12 +3,12 @@ title: WinUI 2.4 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.4 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: reference
-ms.openlocfilehash: 22fd028ba2059a092ee2f2be47a114fb2d618ce1
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 5e2ff23b3b0ea63002ad54a367e82e81ee1cd542
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86492827"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762920"
 ---
 # <a name="windows-ui-library-24"></a>Windows UI ライブラリ 2.4
 
@@ -28,7 +28,7 @@ NuGet パッケージのダウンロード:[Microsoft.UI.Xaml](https://www.nuget
 
 RadialGradientBrush は、Center、RadiusX、RadiusY プロパティによって定義される楕円内に描画されます。 グラデーションの色は楕円の中心から始まり、半径の位置で終了します。
 
-![放射状グラデーション ブラシ](../images/radialgradientbrush.gif)<br>
+![放射状グラデーション ブラシの動作を示す短い動画。](../images/radialgradientbrush.gif)<br>
 *放射状グラデーション ブラシ*
 
 [使用に関するガイドライン](/windows/uwp/design/style/brushes#radial-gradient-brushes)
@@ -39,7 +39,7 @@ RadialGradientBrush は、Center、RadiusX、RadiusY プロパティによって
 
 ProgressRing コントロールはモーダル操作向けに使われ、ProgressRing が消えるまでユーザーはブロックされます。 ある操作で、その操作が完了するまで、アプリとのほとんどのやり取りを中断する必要がある場合は、このコントロールを使用します。
 
-![ProgressRing コントロール](../images/progressring.gif)<br>
+![プログレス リング コントロールの動作を示す短い動画。](../images/progressring.gif)<br>
 *ProgressRing コントロール*
 
 [使用に関するガイドライン](/windows/uwp/design/controls-and-patterns/progress-controls)
@@ -70,8 +70,8 @@ TabView コントロールの更新により、タブの表示方法をより詳
 
 | 変更前 | クリック後 |
 | - | - |
-| ![TextBox のダーク テーマの更新 (変更前)](..\images\textbox-darkthemeupdates-before1.gif)<br>*TextBox のダーク テーマの更新 (変更前)* | ![TextBox のダーク テーマの更新 (変更後)](..\images\textbox-darkthemeupdates-after1.gif)<br>*TextBox のダーク テーマの更新 (変更後)* |
-| ![TextBox のダーク テーマの更新 (変更前)](..\images\textbox-darkthemeupdates-before2.gif)<br>*TextBox のダーク テーマの更新 (変更前)* | ![TextBox のダーク テーマの更新 (変更後)](..\images\textbox-darkthemeupdates-after2.gif)<br>*TextBox のダーク テーマの更新 (変更後)* |
+| ![更新前の TextBox のダーク テーマの動作を示す短い動画。](..\images\textbox-darkthemeupdates-before1.gif)<br>*TextBox のダーク テーマの更新 (変更前)* | ![更新後の TextBox のダーク テーマの動作を示す短い動画。](..\images\textbox-darkthemeupdates-after1.gif)<br>*TextBox のダーク テーマの更新 (変更後)* |
+| ![更新前の TextBox のダーク テーマの動作を示す別の短い動画。](..\images\textbox-darkthemeupdates-before2.gif)<br>*TextBox のダーク テーマの更新 (変更前)* | ![更新後の TextBox のダーク テーマの動作を示す別の短い動画。](..\images\textbox-darkthemeupdates-after2.gif)<br>*TextBox のダーク テーマの更新 (変更後)* |
 
 TextBox コントロール ファミリに含まれるコントロールの一部を次に示します。
 

@@ -1,5 +1,5 @@
 ---
-Description: TextBox、RichEditBox などの Windows テキスト コントロール (および、同様のテキスト入力エクスペリエンスを提供する AutoSuggestBox のようなコントロール) によってサポートされる、手書き入力用の手書きビューをカスタマイズします。
+description: TextBox、RichEditBox などの Windows テキスト コントロール (および、同様のテキスト入力エクスペリエンスを提供する AutoSuggestBox のようなコントロール) によってサポートされる、手書き入力用の手書きビューをカスタマイズします。
 title: 手書きビューでのテキスト入力
 label: Text input with the handwriting view
 template: detail.hbs
@@ -11,12 +11,12 @@ design-contact: minah.kim
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 64963128679f3bb50afe1ba4c939ec6367ad9561
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: ca87dcebcb792bea7c79d32600111ebc51600cab
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218805"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829502"
 ---
 # <a name="text-input-with-the-handwriting-view"></a>手書きビューでのテキスト入力
 
@@ -194,11 +194,11 @@ private void SampleTextBox_TextChanged(object sender, TextChangedEventArgs e)
 
 ここで、ディクテーションをサポートする TextBox を作成します (TextBox とディクテーション ボタンを StackPanel に配置することで実装されます)。
 
-![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation.png)
+![ディクテーションをサポートするテキスト ボックスのスクリーンショット](images/handwritingview/textbox-with-dictation.png)
 
 StackPanel が TextBox より大きくなったため、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) によってすべての複合コントロールが遮られるとは限りません。
 
-![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation-handwritingview.png)
+![TextBox の一部を隠している HandwritingView のコントロールと、TextBox が完全に隠されるように再配置された HandwritingView のコントロールのスクリーンショット](images/handwritingview/textbox-with-dictation-handwritingview.png)
 
 これに対処するには、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の PlacementTarget プロパティに整列される必要がある UI 要素を設定します。
 
@@ -231,11 +231,11 @@ StackPanel が TextBox より大きくなったため、[HandwritingView](/uwp/a
 
 前の例のように、ディクテーションをサポートする TextBox を作成します (TextBox とディクテーション ボタンを StackPanel に配置することで実装されます)。
 
-![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation.png)
+![ディクテーションをサポートする TextBox のスクリーンショット](images/handwritingview/textbox-with-dictation.png)
 
-この場合、確実にディクテーション ボタンが常に表示されているようにします。
+この場合、確実にディクテーション ボタンが表示されるように HandwritingView のサイズを変更します。
 
-![ディクテーションでの TextBox](images/handwritingview/textbox-with-dictation-handwritingview-resize.png)
+![ディクテーション ボタンを隠している HandwritingView のコントロールと、確実にディクテーション ボタンが表示されるようにサイズが変更された HandwritingView のコントロールのスクリーンショット](images/handwritingview/textbox-with-dictation-handwritingview-resize.png)
 
 これを行うには、[HandwritingView](/uwp/api/windows.ui.xaml.controls.handwritingview) の MaxWidth プロパティを、見えなくなる UI 要素の幅にバインドします。
 

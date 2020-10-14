@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Windows の設定, 開発環境, 開発ツール, 開発パス, Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL, ターミナル, nodejs, Python
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: b1b13635da3b5b06b43d1e6b009399da5a916094
-ms.sourcegitcommit: ef3cdca5e9b8f032f46174da4574cb5593d32d56
+ms.openlocfilehash: 0b3df6b081504b98933ae5b261c6e7aaf5464953
+ms.sourcegitcommit: b8d0e2c6186ab28fe07eddeec372fb2814bd4a55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90593466"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91671661"
 ---
 # <a name="set-up-your-development-environment-on-windows-10"></a>Windows 10 で開発環境を設定する
 
@@ -57,9 +57,9 @@ ms.locfileid: "90593466"
         C# と .NET Core を使用してアプリを構築します。
     :::column-end:::
     :::column:::
-       [![Java 向け Azure アイコン](../images/java-logo.png)](/azure/developer/java/)<br>
-        **[Azure での Java の概要](/azure/developer/java/)**<br>
-        Java 開発者向けのこれらのチュートリアルとツールを使用して、クラウド向けのアプリを構築します。
+       [![Docker Desktop for Windows のアイコン](../images/docker-logo.png)](../dev-environment/docker/overview.md)<br>
+        **[Docker Desktop for Windows の概要](../dev-environment/docker/overview.md)**<br>
+        Visual Studio、VS Code、.NET、Linux 用 Windows サブシステムや様々な Azure サービスのサポートを活用して、リモート開発用コンテナーを作成します。
     :::column-end:::
     :::column:::
        [![PowerShell アイコン](../images/powershell.png)](/powershell/)<br>

@@ -3,12 +3,12 @@ title: WinUI 2.2 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.2 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 4c200701e0d845d6c9b9f8797899d88cc72d8c1c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 603c2c439e47c82695c8bdf5cd16fceebc9bc068
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154906"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762940"
 ---
 # <a name="windows-ui-library-22"></a>Windows UI ライブラリ 2.2
 
@@ -32,7 +32,7 @@ WinUI は、GitHub でホストされているオープン ソース プロジ�
 
 #### <a name="tabview"></a>TabView
 
-![例](../images/tabview-gif.gif)
+![タブ ビュー コントロールの動作を示す短い動画。](../images/tabview-gif.gif)
 
 #### <a name="description"></a>説明
 
@@ -46,7 +46,7 @@ https://docs.microsoft.com/uwp/api/microsoft.ui.xaml.controls.tabview?view=winui
 
 ##### <a name="a-navigationviews-back-button-update"></a>a) NavigationView の戻るボタンの更新
 
-![例](../images/navigationview-back-button.gif)
+![ナビゲーション ビュー コントロールの戻るボタンの更新された動作を示す短い動画。](../images/navigationview-back-button.gif)
 
 ##### <a name="description"></a>説明
 
@@ -54,7 +54,7 @@ NavigationView の最小モードでは、戻るボタンが消えなくなり�
 
 ##### <a name="b-navigationview---no-auto-padding"></a>b) NavigationView - 自動埋め込みなし
 
-![例](../images/navigationview-no-auto-padding.png)
+![ナビゲーション ビュー コントロール (自動埋め込みなし) の動作を示すスクリーンショット。](../images/navigationview-no-auto-padding.png)
 
 ##### <a name="description"></a>説明
 
@@ -68,7 +68,7 @@ https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/navigationvi
 
 ##### <a name="a-corner-radius-update"></a>a) 角の半径の更新
 
-![例](../images/corner-radius.png)
+![角の半径の更新されたスタイルを示すスクリーンショット。](../images/corner-radius.png)
 
 ##### <a name="description"></a>説明
 
@@ -80,7 +80,7 @@ https://github.com/microsoft/microsoft-ui-xaml/issues/524
 
 ##### <a name="b-border-thickness-update"></a>b) 外枠の太さの更新
 
-![例](../images/border-thickness.png)
+![外枠の太さの更新されたスタイルを示すスクリーンショット。](../images/border-thickness.png)
 
 ##### <a name="description"></a>説明
 
@@ -92,7 +92,7 @@ https://github.com/microsoft/microsoft-ui-xaml/issues/835
 
 ##### <a name="c-button-visual-update"></a>c) ボタンのビジュアルの更新
 
-![例](../images/button-hover-visual-update.png)
+![ボタン コントロールの更新されたスタイルを示すスクリーンショット。](../images/button-hover-visual-update.png)
 
 ##### <a name="description"></a>説明: 
 既定のボタンのビジュアルが更新されて、マウス ポインターを置いたときに表示されるアウトラインが削除され、より明確な外観になりました。
@@ -102,7 +102,7 @@ https://github.com/microsoft/microsoft-ui-xaml/issues/953
 
 ##### <a name="d-splitbutton-visual-update"></a>c) SplitButton のビジュアルの更新
 
-![例](../images/splitbutton-visual-update.png)
+![分割ボタン コントロールの更新されたスタイルを示すスクリーンショット。](../images/splitbutton-visual-update.png)
 
 ##### <a name="description"></a>説明: 
 既定の SplitButton のビジュアルが更新され、DropDownButton と区別しやすくなりました。
@@ -112,7 +112,7 @@ https://github.com/microsoft/microsoft-ui-xaml/issues/986
 
 ##### <a name="e-toggleswitch-visual-update"></a>e) ToggleSwitch のビジュアル更新
 
-![例](../images/toggleswitch-update.png)
+![切り替えスイッチ コントロールの更新されたスタイルを示すスクリーンショット。](../images/toggleswitch-update.png)
 
 ##### <a name="description"></a>説明: 
 既定の ToggleSwitch の幅が 44 px から 40 px に縮小され、使いやすさを維持しながら視覚的にバランスがとられています。
@@ -122,7 +122,7 @@ https://github.com/microsoft/microsoft-ui-xaml/issues/836
 
 ##### <a name="f-checkbox-and-radiobutton-visual-update"></a>f) CheckBox および RadioButton のビジュアルの更新
 
-![例](../images/checkbox-radiobutton.png)
+![チェック ボックスおよびラジオ ボタン コントロールの更新されたスタイルを示すスクリーンショット](../images/checkbox-radiobutton.png)
 
 ##### <a name="description"></a>説明: 
 CheckBox および RadioButton のビジュアルが更新され、他の視覚的なスタイル変更と一致するようになりました。
@@ -146,7 +146,7 @@ Windows UI ライブラリ コントロールの操作方法に関する記事�
 
 API リファレンスのドキュメントがある場所は、[Windows UI ライブラリ API](/uwp/api/overview/winui/) です。
 
-## <a name="microsoftuixaml-22-version-history"></a>Microsoft.UI.Xaml 2.2 のバージョン履歴
+## <a name="microsoftuixaml-22-prerelease-version-history"></a>Microsoft.UI.Xaml 2.2-prerelease のバージョン履歴
 
 ### <a name="microsoftuixaml-22190702001-prerelease"></a>Microsoft.UI.Xaml 2.2.190702001-prerelease
 

@@ -6,12 +6,12 @@ ms.date: 11/16/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b02677cb6f38bc86d5123e835f658bedd83543de
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a33670f69d86a913288608ff07efb72edab8fd17
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173936"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829662"
 ---
 # <a name="draw-shapes"></a>図形の描画
 
@@ -231,7 +231,7 @@ layoutRoot.Children.Add(polyline1);
 
 この [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) をレンダリングすると、次のようになります。
 
-![レンダリングされた Path。](images/shapes-path.jpg)
+![レンダリングされたシンプルなパスのスクリーンショット。](images/shapes-path.jpg)
 
 次の例は、説明済みの手法である [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を使った [**GeometryGroup**](/uwp/api/windows.ui.xaml.media.geometrygroup) の使用方法を示しています。 この例では、**PathGeometry** の一部として使うことができる関連ジオメトリ型の一部、つまり [**PathFigure**](/uwp/api/Windows.UI.Xaml.Media.PathFigure) と、[**PathFigure.Segments**](/uwp/api/windows.ui.xaml.media.pathfigure.segments) のセグメントとなるさまざまな要素を実行します。
 
@@ -316,6 +316,6 @@ layoutRoot.Children.Add(path1);
 
 この [**Path**](/uwp/api/Windows.UI.Xaml.Shapes.Path) をレンダリングすると、次のようになります。
 
-![レンダリングされた Path。](images/shapes-path-2.png)
+![レンダリングされた複雑なパスのスクリーンショット。](images/shapes-path-2.png)
 
 [**PathGeometry**](/uwp/api/Windows.UI.Xaml.Media.PathGeometry) を使うと、[**Path.Data**](/uwp/api/windows.ui.xaml.shapes.path.data) 文字列を設定した場合よりも読みやすくなることがあります。 また、[**Path.Data**](/uwp/api/windows.ui.xaml.shapes.path.data) では、スケーラブル ベクター グラフィックス (SVG) の画像パスの定義と互換性のある構文が使われます。これにより、SVG からグラフィックスを移植したり、Blend などのツールからの出力として移植したりする際に役立ちます。

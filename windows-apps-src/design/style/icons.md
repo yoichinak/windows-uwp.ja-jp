@@ -11,12 +11,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: bb3eb985ab10bd4c28ca38f87aefe3d1fc7fd61e
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 66f9d166d0e20f82f495f98b26deceff8e136cc5
+ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216475"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91636642"
 ---
 # <a name="icons-for-windows-apps"></a>Windows アプリのアイコン
 
@@ -47,7 +47,8 @@ ms.locfileid: "91216475"
 
 :::row:::
     :::column:::
-        ![する](images/do.svg) ![標準イメージのアイコン](images/icons/icons-standard.svg)<br>
+        ![切り取り、コピー、貼り付け、保存のアイコンを示すスクリーンショット。](images/do.svg)
+        ![標準イメージのアイコン](images/icons/icons-standard.svg)<br>
 
 アイコンは、切り取り、コピー、貼り付け、保存などの操作、またはナビゲーション メニューのナビゲーション項目に使用します。
     :::column-end:::
@@ -60,12 +61,14 @@ ms.locfileid: "91216475"
 
 :::row:::
     :::column:::
-        ![する](images/do.svg) ![ショッピング カートのアイコン](images/icons/icon-shopping-cart.svg)<br>
+        ![シンプルで見覚えのあるショッピング カートのアイコンのスクリーンショット。](images/do.svg)
+        ![ショッピング カートのアイコン](images/icons/icon-shopping-cart.svg)<br>
 
 アイコンが意味する内容をユーザーが理解しやすく、小さいサイズでもはっきりとわかるほどシンプルな場合は、アイコンを使用します。
     :::column-end:::
     :::column:::
-        ![しない](images/dont.svg) ![概念イメージのアイコン](images/icons/icon-bad-example.png)<br>
+        ![複雑で見慣れないショッピング カートのアイコンのスクリーンショット。](images/dont.svg)
+        ![概念イメージのアイコン](images/icons/icon-bad-example.png)<br>
 
 アイコンの意味が明確でない場合、または明確にするには複雑な図形が必要な場合は、アイコンを使用しないでください。
     :::column-end:::

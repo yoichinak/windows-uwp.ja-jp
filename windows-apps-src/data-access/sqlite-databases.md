@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 15a6cd4313a13abfa7897de62c80024a09ad1f71
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 56b45b14f9eb73a0257993d31b05cc084f10dfef
+ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154536"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91763038"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザーのデバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
@@ -59,11 +59,11 @@ Visual Studio 2015 を使用している場合は、 **[ヘルプ]** -> **[Micro
 
 次に、クラス ライブラリをソリューションに追加します。 クラス ライブラリを使用してデータ アクセス コードを含める必要はありません。サンプルの 1 つを使用します。 ライブラリに **DataAccessLibrary** という名前を付け、ライブラリ内のクラスに **DataAccess** という名前を付けます。
 
-![クラス ライブラリ](images/class-library.png)
+![[新しいプロジェクトの追加] ダイアログ ボックスで、[インストール済み] > [Visual C#] > [Windows ユニバーサル] が選択されており、[クラス ライブラリ] オプションが強調表示されていることを示すスクリーンショット。](images/class-library.png)
 
 ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
 
-![NuGet パッケージの管理](images/manage-nuget.png)
+![[ソリューション エクスプローラー] パネルで、プロジェクトが右クリックされ、[ソリューションの NuGet パッケージの管理] オプションが強調表示されているスクリーンショット。](images/manage-nuget.png)
 
 Visual Studio 2015 を使用している場合は、 **[インストール済み]** タブを選択し、**Microsoft.NETCore.UniversalWindowsPlatform** パッケージのバージョン番号が **5.2.2** 以降であることを確認します。
 
@@ -73,7 +73,7 @@ Visual Studio 2015 を使用している場合は、 **[インストール済み
 
 **[参照]** タブを選択し、**Microsoft.Data.SQLite** パッケージを検索します。 そのパッケージのバージョン **1.1.1** (またはそれ以前) をインストールします。
 
-![SQLite パッケージ](images/sqlite-package.png)
+![[バージョン] テキスト フィールドがコールアウトされている Microsoft Data SQLite ダイアログ ボックスのスクリーンショット。](images/sqlite-package.png)
 
 このガイドの「[SQLite データベースのデータの追加と取得](#add-and-retrieve-data-in-a-sqlite-database)」のセクションに移動します。
 
@@ -93,11 +93,11 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 まず、.NET Standard 2.0 クラス ライブラリをソリューションに追加しましょう。 クラス ライブラリを使用してデータ アクセス コードを含める必要はありません。サンプルの 1 つを使用します。 ライブラリに **DataAccessLibrary** という名前を付け、ライブラリ内のクラスに **DataAccess** という名前を付けます。
 
-![クラス ライブラリ](images/dot-net-standard.png)
+![[新しいプロジェクトの追加] ダイアログ ボックスで、[インストール済み] > [Visual C#] > [.NET Standard] が選択されており、[クラス ライブラリ] オプションが強調表示されていることを示すスクリーンショット。](images/dot-net-standard.png)
 
 ソリューションを右クリックし、 **[ソリューションの NuGet パッケージの管理]** をクリックします。
 
-![NuGet パッケージの管理](images/manage-nuget-2.png)
+![[ソリューション エクスプローラー] パネルで、プロジェクトが右クリックされ、[NuGet パッケージの管理] オプションが強調表示されているスクリーンショット。](images/manage-nuget-2.png)
 
 > [!NOTE]
 > .NET Standard クラス ライブラリが UWP アプリのアプリ フォルダーやイメージ資産にアクセスできるようにするには、その**プロパティ**で、**EmbeddedResource** および **CopyAlways** としてマークする必要があります。
@@ -120,8 +120,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 
 これを行う必要はありませんが、 アプリと共に特定バージョンの SQLite を含める理由がある場合は、 **[参照]** タブを選択し、**Microsoft.Data.SQLite** パッケージを検索します。 そのパッケージのバージョン **2.0** (またはそれ以前) をインストールします。
 
-![SQLite パッケージ](images/sqlite-package-v2.png)
-
+![Microsoft Data SQLite ダイアログ ボックスで、最新の安定した 2.0.0 バージョンが選択されていることを示すスクリーンショット。 [バージョン] テキスト フィールドがコールアウトされています。](images/sqlite-package-v2.png)
 
 ## <a name="add-and-retrieve-data-in-a-sqlite-database"></a>SQLite データベースのデータの追加と取得
 

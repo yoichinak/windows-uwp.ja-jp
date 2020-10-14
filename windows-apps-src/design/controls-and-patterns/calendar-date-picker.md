@@ -1,5 +1,5 @@
 ---
-Description: カレンダーの日付の選択コントロールは、カレンダーの曜日や埋まり具合などのコンテキスト情報が必要となるカレンダー ビューから単一の日付を選ぶ用途に最適なドロップダウン コントロールです。
+description: カレンダーの日付の選択コントロールは、カレンダーの曜日や埋まり具合などのコンテキスト情報が必要となるカレンダー ビューから単一の日付を選ぶ用途に最適なドロップダウン コントロールです。
 title: カレンダーの日付の選択コントロール
 ms.assetid: 9e0213e0-046a-4906-ba86-0b49be51ca99
 label: Calendar date picker
@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a12ae302f5e904db29655eacb075a9eba5f8f3e5
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: c7061de6098c77214136f3441b43abbf35a10686
+ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217545"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91829620"
 ---
 # <a name="calendar-date-picker"></a>カレンダーの日付の選択コントロール
 
@@ -25,9 +25,17 @@ ms.locfileid: "91217545"
 
 **Windows UI ライブラリを入手する**
 
-|  |  |
-| - | - |
-| ![WinUI ロゴ](images/winui-logo-64x64.png) | Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。 |
+:::row:::
+   :::column:::
+      ![WinUI ロゴ](images/winui-logo-64x64.png)
+   :::column-end:::
+   :::column span="3":::
+      Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。
+   :::column-end:::
+   :::column:::
+
+   :::column-end:::
+:::row-end:::
 
 > **プラットフォーム API**: [CalendarDatePicker クラス](/uwp/api/Windows.UI.Xaml.Controls.CalendarDatePicker)、[Date プロパティ](/uwp/api/windows.ui.xaml.controls.calendardatepicker.date)、[DateChanged イベント](/uwp/api/windows.ui.xaml.controls.calendardatepicker.datechanged)
 
@@ -57,7 +65,7 @@ ms.locfileid: "91217545"
 
 日付が設定されていない場合、エントリ ポイントにはプレースホルダー テキストが表示されます。設定されている場合は、選んだ日付が表示されます。 ユーザーがエントリ ポイントを選ぶと、カレンダー ビューが展開されて、ユーザーが日付を選べるようになります。 カレンダー ビューは他の UI をオーバーレイし、他の UI を別の位置に移動させることはありません。
 
-![カレンダーの日付の選択コントロールの例](images/calendar-date-picker-2-views.png)
+![空の日付選択テキスト ボックスが表示されたカレンダーの日付の選択コントロールと、日付が入力されて下にカレンダーが表示されている状態のスクリーンショット。](images/calendar-date-picker-2-views.png)
 
 ## <a name="create-a-date-picker"></a>日付の選択コントロールの作成
 
@@ -72,7 +80,7 @@ arrivalCalendarDatePicker.Header = "Arrival date";
 
 結果として、カレンダーの日付の選択コントロールは、次のように表示されます。
 
-![カレンダーの日付の選択コントロールの例](images/calendar-date-picker-closed.png)
+![[到着日] というラベルが表示されている、入力済みのカレンダーの日付の選択コントロールのスクリーンショット。](images/calendar-date-picker-closed.png)
 
 カレンダーの日付の選択コントロールの内部には、日付選択用の [CalendarView](/uwp/api/Windows.UI.Xaml.Controls.CalendarView) があります。 CalendarDatePicker には [IsTodayHighlighted](/uwp/api/windows.ui.xaml.controls.calendardatepicker.istodayhighlighted) や [FirstDayOfWeek](/uwp/api/windows.ui.xaml.controls.calendardatepicker.firstdayofweek) のような CalendarView プロパティのサブセットが存在し、内部の CalendarView に転送されるため、このサブセットを使って内部の CalendarView を変更できます。 
 
