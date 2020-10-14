@@ -6,12 +6,12 @@ ms.date: 10/02/2020
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 5df07995c2e4175bc9a67010a78c353cbd9d8cfa
-ms.sourcegitcommit: b8d0e2c6186ab28fe07eddeec372fb2814bd4a55
+ms.openlocfilehash: b7c640e89f36dfcea6e0080cbbe3887e0231ddfc
+ms.sourcegitcommit: 27552ed7d3d889f50d8e01776a24b8d486a8d97c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671501"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91958725"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -82,7 +82,7 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 
 | Control |  説明 |
 |------ |--------------|
-| [MenuBar](/windows/uwp/design/controls-and-patterns/menus#create-a-menu-bar) | **CommandBar** で許容されるよりも多くの組織またはグループ化が必要になる可能性があるアプリ用のコマンド セットを公開する簡単でシンプルな方法を提供します。 |
+| [MenuBar](/windows/uwp/design/controls-and-patterns/menus#create-a-menu-bar) | **CommandBar** で許容されるよりも多くの組織またはグループ化が必要になる可能性があるアプリ用のコマンド セットをすばやく簡単に公開できます。 |
 | [DropDownButton](/windows/uwp/design/controls-and-patterns/buttons#create-a-drop-down-button) | その他のオプションを含むアタッチされたポップアップのある視覚インジケータとして山かっこを示します。  |
 | [SplitButton](/windows/uwp/design/controls-and-patterns/buttons#create-a-split-button) | 個別に呼び出せる 2 つのパーツを持つボタンを指定します。 1 つのパーツは標準のボタンのように動作し、即座にアクションを呼び出します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。|
 | [ToggleSplitButton](/windows/uwp/design/controls-and-patterns/buttons#create-a-toggle-split-button) | 個別に呼び出せる 2 つのパーツを持つボタンを指定します。 1 つのパーツは、オンまたはオフにできるトグル ボタンのように動作します。 もう一方のパーツは、ユーザーが選択できる追加オプションを含むポップアップを呼び出します。 |

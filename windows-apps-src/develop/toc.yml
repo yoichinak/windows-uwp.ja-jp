@@ -822,7 +822,11 @@
             - name: 値のカテゴリと参照
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
     - name: C#/WinRT
-      href: ../csharp-winrt/index.md
+      items:
+        - name: 概要
+          href: ../csharp-winrt/index.md
+        - name: 'チュートリアル:C++/WinRT コンポーネントから .NET 5.0 プロジェクションを生成する'
+          href: ../csharp-winrt/net-projection-from-cppwinrt-component.md
     - name: セキュリティ
       href: ../security/index.md
       items:
