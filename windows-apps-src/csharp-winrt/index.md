@@ -5,12 +5,12 @@ ms.date: 05/19/2020
 ms.topic: article
 keywords: Windows 10, UWP, Standard, C#, winrt, cswinrt, プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 8fb098cb247890dc1b3919f6123b76b54366d60f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c3cac3049dbd5d22c23716a2da38a41fb6000a71
+ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154326"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91984498"
 ---
 # <a name="cwinrt"></a>C#/WinRT
 
@@ -35,7 +35,9 @@ C#/WinRT の詳細については、[C#/WinRT GitHub リポジトリ](https://ak
 
 ## <a name="create-an-interop-assembly"></a>相互運用機能アセンブリを作成する
 
-WinRT API は、Windows メタデータ (*.winmd) ファイルに定義されています。 C#/WinRT NuGet パッケージには C#/WinRT コンパイラの **cswinrt** が含まれています。これを使用して、Windows メタデータ ファイルを処理し、.NET Standard 2.0 C# コードを生成することができます。 これらのソース ファイルを相互運用機能アセンブリにコンパイルできます。これは、[C++/WinRT](../cpp-and-winrt-apis/index.md) が C++ 言語プロジェクションのヘッダーを生成する方法と同様です。 次に、アプリケーションで参照される C#/WinRT 相互運用機能アセンブリを、C#/WinRT ランタイム アセンブリと共に配布することができます。
+WinRT API は、Windows メタデータ (*.winmd) ファイルに定義されています。 C#/WinRT NuGet パッケージ ([Microsoft.Windows.CsWinRT](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT/)) には C#/WinRT コンパイラ、**cswinrt** が含まれています。これを使用して、Windows メタデータ ファイルを処理し、.NET 5.0 C# コードを生成することができます。 これらのソース ファイルを相互運用機能アセンブリにコンパイルできます。これは、[C++/WinRT](../cpp-and-winrt-apis/index.md) が C++ 言語プロジェクションのヘッダーを生成する方法と同様です。 次に、アプリケーションで参照される C#/WinRT 相互運用機能アセンブリを、C#/WinRT ランタイム アセンブリと共に配布することができます。
+
+相互運用機能アセンブリを作成する方法を示すチュートリアルについては、[C++/WinRT コンポーネントからの .NET 5 プロジェクションの生成と NuGet の更新に関するチュートリアル](net-projection-from-cppwinrt-component.md)をご覧ください。
 
 ### <a name="invoke-cswinrtexe"></a>cswinrt.exe を呼び出す
 

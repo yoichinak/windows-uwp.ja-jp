@@ -2,13 +2,6 @@
   href: index.md
 - name: Windows アプリとは
   href: ../get-started/universal-application-platform-guide.md
-- name: 準備
-  href: ../get-started/get-set-up.md
-  items:
-    - name: デバイスを開発用に有効にする
-      href: ../get-started/enable-your-device-for-development.md
-    - name: 開発者アカウントを作る
-      href: ../get-started/sign-up.md
 - name: コーディングの開始
   href: ../get-started/create-uwp-apps.md
   items:
@@ -29,8 +22,6 @@
           href: ../get-started/create-a-basic-windows-10-app-in-cppwinrt.md
         - name: '"Hello World" アプリを C++/CX で作成する'
           href: ../get-started/create-a-basic-windows-10-app-in-cpp.md
-        - name: '"Hello World" アプリを JavaScript で作成する'
-          href: ../get-started/create-a-hello-world-app-js-uwp.md
     - name: 複雑なアプリを構築する
       href: ../get-started/plan-your-app.md
 - name: Windows アプリのサンプルの使用
