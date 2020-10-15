@@ -4,12 +4,12 @@ description: Windows パッケージ マネージャーによってアクセス�
 ms.date: 04/28/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d383dfc4e66c75c993210d382b674508ad3cef4
-ms.sourcegitcommit: 4df8c04fc6c22ec76cdb7bb26f327182f2dacafa
+ms.openlocfilehash: 08af76389627bb8c21bf7a4ddb856d09119dc917
+ms.sourcegitcommit: 837ef4b2c2375d023ee85204f72a029f9ec8f4ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85334480"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079277"
 ---
 # <a name="source-command-winget"></a>source コマンド (winget)
 
@@ -128,7 +128,7 @@ source では、ソースを操作するための次のサブ コマンドがサ
 
 **remove** サブ コマンドは、ソースを削除します。 このサブ コマンドでは、ソースを識別するために、 **--name** オプションと **name 引数**が必要です。
 
-使用方法: `winget source add [-n, --name] \<name>`
+使用方法: `winget source remove [-n, --name] \<name>`
 
 たとえば次のようになります。`winget source remove --name Contoso`
 

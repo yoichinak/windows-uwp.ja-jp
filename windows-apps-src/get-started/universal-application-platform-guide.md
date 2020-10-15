@@ -7,18 +7,18 @@ ms.topic: article
 ms.custom: contperfq1
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 416df29fcb6ac007375ff9cf2a8f22d80a12b73e
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: f435631b575a06daae9cb4d34c5419e93ba8063f
+ms.sourcegitcommit: 56e9cab45d1c6e54841d61fdf23044fa01f50c43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219825"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92011351"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
 UWP は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つです。 UWP アプリは、WinRT API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。
 
-UWP アプリの作成を始めるために必要なツールをダウンロードするには、「[準備](get-set-up.md)」を確認し、[初めてのアプリを作成](your-first-app.md)してください。
+UWP アプリの作成を始めるために必要なツールをダウンロードするには、「[準備](/windows/apps/get-set-up.md)」を確認し、[初めてのアプリを作成](your-first-app.md)してください。
 
 
 ## <a name="where-does-uwp-fit-in-the-microsoft-development-story"></a>UWP が Microsoft 開発ストーリーの中で占める位置
@@ -121,7 +121,7 @@ UWP アプリでは、オペレーティング システムによって提供さ
 
 ### <a name="get-set-up"></a>準備
 
-「[準備](get-set-up.md)」を確認し、アプリの作成を始めるために必要なツールをダウンロードしてから、[初めてのアプリを作成](your-first-app.md)してください。
+「[準備](/windows/apps/get-started/get-set-up.md)」を確認し、アプリの作成を始めるために必要なツールをダウンロードしてから、[初めてのアプリを作成](your-first-app.md)してください。
 
 ### <a name="design-your-app"></a>アプリをデザインする
 
