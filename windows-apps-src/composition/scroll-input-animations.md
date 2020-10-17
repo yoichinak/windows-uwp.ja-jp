@@ -5,12 +5,12 @@ ms.date: 10/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 25b0732b7c29653d18f0e018698ab4b6398d402a
-ms.sourcegitcommit: 6f32604876ed480e8238c86101366a8d106c7d4e
+ms.openlocfilehash: 438f108a07349da6515443e64bd4494529b8e6a0
+ms.sourcegitcommit: fe21402578a1f434769866dd3c78aac63dbea5ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67318071"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152401"
 ---
 # <a name="enhance-existing-scrollviewer-experiences"></a>既存の ScrollViewer エクスペリエンスを強化する
 
@@ -20,8 +20,8 @@ ms.locfileid: "67318071"
 
 ここでは、以下の記事で説明されている概念を理解していることを前提とします。
 
-- [入力に基づくアニメーション](input-driven-animations.md)
-- [ベースのリレーションのアニメーション](relation-animations.md)
+- [入力駆動型アニメーション](input-driven-animations.md)
+- [関係ベース アニメーション](relation-animations.md)
 
 ## <a name="why-build-on-top-of-scrollviewer"></a>ScrollViewer の最上位に構築する理由
 
@@ -43,27 +43,27 @@ ScrollViewer の位置を利用して、さまざまな動的エクスペリエ�
 
 ![シャイ ヘッダー](images/animation/shy-header.gif)
 
-## <a name="using-scrollmanipulationpropertyset"></a>ScrollManipulationPropertySet の使用
+## <a name="using-scrollviewermanipulationpropertyset"></a>ScrollViewerManipulationPropertySet の使用
 
-XAML ScrollViewer を使用して、上記のような動的エクスペリエンスを作成するには、アニメーション内のスクロール位置を参照できるようにする必要があります。 そのためには、XAML ScrollViewer から CompositionPropertySet (ScrollManipulationPropertySet と呼ばれます) にアクセスします。
-ScrollManipulationPropertySet には、Translation と呼ばれる 1 つの Vector3 プロパティが含まれています。このプロパティによって、ScrollViewer のスクロール位置にアクセスすることができます。 ScrollManipulationPropertySet にアクセスすると、ExpressionAnimation で他の CompositionPropertySet と同様に、このプロパティを参照することができます。
+XAML ScrollViewer を使用して、上記のような動的エクスペリエンスを作成するには、アニメーション内のスクロール位置を参照できるようにする必要があります。 これを行うには、ScrollViewerManipulationPropertySet と呼ばれる XAML ScrollViewer の CompositionPropertySet にアクセスします。
+ScrollViewerManipulationPropertySet には、ScrollViewer のスクロール位置へのアクセスを提供する、Translation と呼ばれる単一の Vector3 プロパティが含まれています。 ScrollManipulationPropertySet にアクセスすると、ExpressionAnimation で他の CompositionPropertySet と同様に、このプロパティを参照することができます。
 
 作業を始める際の一般的な手順:
 
-1. ElementCompositionPreview を使用して ScrollManipulationPropertySet にアクセスします。
-    - `ElementCompositionPreview.GetScrollManipulationPropertySet(ScrollViewer scroller)`
+1. ElementCompositionPreview を介して ScrollViewerManipulationPropertySet にアクセスします。
+    - `ElementCompositionPreview.GetScrollViewerManipulationPropertySet(ScrollViewer scroller)`
 1. PropertySet の Translation プロパティを参照する ExpressionAnimation を作成します。
     - 参照パラメーターは必ず設定してください。
 1. ExpressionAnimation を使用して CompositionObject のプロパティをターゲットにします。
 
 > [!NOTE]
-> GetScrollManipulationPropertySet メソッドから返された PropertySet をクラス変数に割り当てることをお勧めします。 これにより、プロパティ セットがガベージ コレクションによってクリーンアップされなくなります。そのため、参照されている ExpressionAnimation は影響を受けません。 ExpressionAnimations は、式で使用されているどのオブジェクトに対しても強参照を保持しません。
+> GetScrollViewerManipulationPropertySet メソッドから返された PropertySet をクラス変数に割り当てることをお勧めします。 これにより、プロパティ セットがガベージ コレクションによってクリーンアップされなくなります。そのため、参照されている ExpressionAnimation は影響を受けません。 ExpressionAnimations は、式で使用されているどのオブジェクトに対しても強参照を保持しません。
 
 ## <a name="example"></a>例
 
 前に示した視差のサンプルがどのように構成されているかを見てみましょう。 アプリのすべてのソース コードについては、[Window UI Dev Labs repo on GitHub](https://github.com/microsoft/WindowsCompositionSamples) (GitHub の Windows UI 開発ラボ リポジトリ) をご覧ください。
 
-最初に、ScrollManipulationPropertySet への参照を取得します。
+最初に、ScrollViewerManipulationPropertySet への参照を取得します。
 
 ```csharp
 _scrollProperties =

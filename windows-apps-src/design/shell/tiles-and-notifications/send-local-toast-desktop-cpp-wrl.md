@@ -7,19 +7,19 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トーストの送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C++、cpp、cplusplus、WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: a227ccbc52aa3c1dd8c0cd9c61cdecf140375fe2
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: e1e8aedd867dfdcabd382ebde1dd4c96a94d1001
+ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91984658"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92100320"
 ---
 # <a name="send-a-local-toast-notification-from-win32-c-wrl-apps"></a>Win32 C++ WRL アプリからローカルトースト通知を送信する
 
 Win32 アプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、異なるライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合は、パッケージ id が存在しない可能性があるため、Win32 アプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
-> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他の Win32 言語については、「 [Win32 C#](send-local-toast-desktop.md)」を参照してください。
+> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[Desktop C# に関するページ](send-local-toast-desktop.md) をご覧ください。
 
 
 ## <a name="step-1-enable-the-windows-10-sdk"></a>手順 1: Windows 10 SDK を有効にする

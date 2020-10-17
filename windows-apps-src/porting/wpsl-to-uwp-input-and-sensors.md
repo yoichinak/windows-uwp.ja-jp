@@ -1,17 +1,17 @@
 ---
-description: デバイス自体とそのセンサーに統合するコードには、ユーザーに対する入力と出力が含まれます。
+description: I/o、デバイス、およびアプリモデルの UWP に Silverlight を Windows Phone する方法について説明します。
 title: I/o、デバイス、およびアプリモデルの UWP に Windows Phone Silverlight への移植
 ms.assetid: bf9f2c03-12c1-49e4-934b-e3fa98919c53
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 09b192f38a5bedaad491ade322df252d4b9e5971
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 85f0bfaa42c6357a468f2c3babbd4a89925d2e4c
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162186"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92133015"
 ---
 #  <a name="porting-windowsphone-silverlight-to-uwp-for-io-device-and-app-model"></a>I/O、デバイス、アプリ モデルの Windows Phone Silverlight から UWP への移植
 
@@ -88,7 +88,7 @@ Windows Phone Silverlight アプリでは、アプリが実行中のデバイス
 
 アプリ パッケージ マニフェストで位置情報機能を宣言するアプリを Windows 10 で実行する場合、システムはエンド ユーザーに同意を求めます。 アプリが独自の同意プロンプトを表示する場合や、オン/オフ切り替えを提供する場合、エンド ユーザーの確認を 1 回のみにするためにその機能を削除できます。
 
-## <a name="orientation"></a>方向
+## <a name="orientation"></a>Orientation
 
 UWP アプリで **PhoneApplicationPage.SupportedOrientations** プロパティと **Orientation** プロパティに相当するのは、アプリ パッケージ マニフェストの [**uap:InitialRotationPreference**](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-splashscreen) 要素です。 まだ選択されていない場合は、**[アプリケーション]** タブを選択し、設定を記録するために **[サポートされる回転]** の 1 つ以上のチェック ボックスをオンにします。
 

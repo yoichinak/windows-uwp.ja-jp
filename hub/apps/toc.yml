@@ -7,6 +7,15 @@
           href: desktop/index.md
         - name: アプリ プラットフォームの選択
           href: desktop/choose-your-platform.md
+        - name: 準備
+          href: get-started/get-set-up.md
+          items:
+            - name: デバイスを開発用に有効にする
+              href: get-started/enable-your-device-for-development.md
+            - name: 開発者モードの機能とデバッグ
+              href: get-started/developer-mode-features-and-debugging.md
+            - name: 開発者アカウントを作る
+              href: get-started/sign-up.md
         - name: Windows アプリ用の Visual Studio テンプレート
           href: desktop/visual-studio-templates.md
         - name: デスクトップ アプリの現代化
@@ -89,8 +98,10 @@
               href: winui/winui3/get-started-winui3-for-desktop.md
             - name: UWP アプリ用の WinUI 3 の概要
               href: winui/winui3/get-started-winui3-for-uwp.md
-            - name: C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール
-              href: winui/winui3/xaml-templated-controls-cppwinrt-winui3.md
+            - name: C++/WinRT を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
+              href: winui/winui3/xaml-templated-controls-cppwinrt-winui-3.md
+            - name: C# を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
+              href: winui/winui3/xaml-templated-controls-csharp-winui-3.md
         - name: Windows UI 2.x ライブラリ
           items:
             - name: 概要

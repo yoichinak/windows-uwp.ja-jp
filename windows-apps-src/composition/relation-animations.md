@@ -1,16 +1,16 @@
 ---
 title: 関係ベース アニメーション
 description: 式のアニメーションを使用して、モーションが別のオブジェクトのプロパティに依存している場合に、リレーションベースのアニメーションを作成する方法について説明します。
-ms.date: 10/10/2017
+ms.date: 10/16/2020
 ms.topic: article
 keywords: Windows 10, UWP, アニメーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 57d2f3729430faefc7db31cad6a0ac91ddaa2e02
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 75adcd2f762fd4314d7b852811760d523ef522aa
+ms.sourcegitcommit: fe21402578a1f434769866dd3c78aac63dbea5ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166366"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152413"
 ---
 # <a name="relation-based-animations"></a>関係ベース アニメーション
 
@@ -52,10 +52,10 @@ Expression では一連のキーワードもサポートされています。キ
 
 ### <a name="creating-expressions-with-expressionbuilder"></a>ExpressionBuilder を使用して Expression を作成する
 
-UWP アプリで Expression を作成するには、2 つの方法があります。
+UWP アプリで式を作成するには、次の2つのオプションがあります。
 
-1. 公式のパブリック API を使用し、文字列として式を作成する。
-1. オープンソースの ExpressionBuilder ツールを使用し、タイプ セーフなオブジェクト モデルで式を作成する。 [Github のソースとドキュメント](https://github.com/microsoft/WindowsCompositionSamples/tree/master/ExpressionBuilder)をご覧ください。
+1. 公式のパブリック API を使用して、式を文字列として構築します。
+1. [Windows Community Toolkit](/windows/communitytoolkit/animations/expressions)に含まれている式ビルダーツールを使用して、タイプセーフなオブジェクトモデルで式を作成します。
 
 このドキュメントのために、ここでは ExpressionBuilder を使用して Expression を定義します。
 
@@ -112,7 +112,9 @@ var orbitRotation = EF.Vector3(
 ```
 
 > [!NOTE]
-> `EF` は、式ビルダーの式を定義するための省略形の "using" 表記です。
+> `EF` は、表現関数を定義するための省略形の "using" 表記です。
+>
+> `using EF = Microsoft.Toolkit.Uwp.UI.Animations.Expressions.ExpressionFunctions;`
 
 最後に、これらのコンポーネントを一緒に組み合わせ、赤い円の位置を参照して、数学的な関係を定義します。
 

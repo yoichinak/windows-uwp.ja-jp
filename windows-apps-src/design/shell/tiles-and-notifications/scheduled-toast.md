@@ -7,12 +7,12 @@ ms.date: 04/09/2020
 ms.topic: article
 keywords: windows 10、uwp、スケジュールされたトースト通知、scheduledtoastnotification、方法、クイックスタート、作業の開始、コードサンプル、チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: 04bbf3da388bf065b2b96684cf3f27cd7534ff51
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: 8ef849490df82d7677e19d1f1619d98111611be3
+ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91984738"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92100310"
 ---
 # <a name="schedule-a-toast-notification"></a>トースト通知をスケジュールする
 
@@ -21,7 +21,7 @@ ms.locfileid: "91984738"
 スケジュールされたトースト通知の配信ウィンドウは5分間であることに注意してください。 スケジュールされた配信時にコンピューターの電源がオフになっていて、5分以上経過している場合、通知はユーザーに関連付けられていない状態で "破棄" されます。 コンピューターの電源が切れた時間に関係なく通知を確実に配信する必要がある場合は、 [次のコードサンプル](https://github.com/WindowsNotifications/quickstart-snoozable-toasts-even-if-computer-is-off)に示すように、時間トリガー付きのバックグラウンドタスクを使用することをお勧めします。
 
 > [!IMPORTANT]
-> Win32 アプリケーション (MSIX/スパースパッケージと従来の Win32 の両方) には、通知を送信し、アクティブ化を処理するための手順が若干異なります。 次の手順に従ってください。ただし、は `ToastNotificationManager` `DesktopNotificationManagerCompat` [Win32 アプリ](toast-desktop-apps.md) のドキュメントのクラスで置き換えてください。
+> デスクトップアプリケーション (MSIX/スパースパッケージと従来のデスクトップの両方) には、通知を送信し、アクティブ化を処理するための手順が若干異なります。 次の手順に従ってください。ただし、は `ToastNotificationManager` `DesktopNotificationManagerCompat` [デスクトップアプリ](toast-desktop-apps.md) のドキュメントのクラスで置き換えてください。
 
 > **重要な api**: [scheduledtoastnotification クラス](/uwp/api/Windows.UI.Notifications.ScheduledToastNotification)
 

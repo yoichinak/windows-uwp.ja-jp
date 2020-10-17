@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10, UWP, セカンダリ タイル
 ms.localizationpriority: medium
-ms.openlocfilehash: a4cd65093e9969531c3de683064973aab58b1680
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: ecafd52be36b34c83d9b11757ccd733e796fd727
+ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91984668"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92100340"
 ---
 # <a name="secondary-tiles"></a>セカンダリ タイル
 
@@ -33,7 +33,7 @@ ms.locfileid: "91984668"
 | --- | --- |
 | [セカンダリ タイルのガイダンス](secondary-tiles-guidance.md) | セカンダリ タイルを使用する必要がある場合について説明します。 |
 | [セカンダリ タイルをピン留めする](secondary-tiles-pinning.md) | セカンダリ タイルをピン留めする方法について説明します。 |
-| [Win32 アプリからピン留めする](secondary-tiles-desktop-pinning.md) | Win32 アプリでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。 |
+| [デスクトップアプリからピン留めする](secondary-tiles-desktop-pinning.md) | デスクトップアプリでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。 |
 
 
 ## <a name="secondary-tiles-in-relation-to-primary-tiles"></a>セカンダリ タイルとプライマリ タイルの関係
@@ -79,5 +79,5 @@ ms.locfileid: "91984668"
 セカンダリ タイルをピン留めする方法については、「[セカンダリ タイルをピン留めする](secondary-tiles-pinning.md)」をご覧ください。
 
 
-## <a name="win32-applications-and-secondary-tiles"></a>Win32 アプリケーションとセカンダリタイル
-デスクトップブリッジを使用して Win32 アプリケーションからセカンダリタイルを使用する方法については、「 [win32 アプリからのセカンダリタイルのピン留め](secondary-tiles-desktop-pinning.md)」を参照してください。
+## <a name="desktop-applications-and-secondary-tiles"></a>デスクトップ アプリケーションとセカンダリ タイル
+デスクトップブリッジを使用してデスクトップアプリケーションからセカンダリタイルを使用する方法については、「 [デスクトップアプリからのセカンダリタイルのピン留め](secondary-tiles-desktop-pinning.md)」を参照してください。

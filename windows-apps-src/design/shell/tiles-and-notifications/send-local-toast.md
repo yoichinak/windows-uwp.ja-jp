@@ -1,27 +1,27 @@
 ---
-Description: ローカル トースト通知を送信し、トーストをクリックしてユーザーを処理する方法について説明します。
-title: ローカル トースト通知の送信
+Description: UWP アプリからローカルトースト通知を送信し、ユーザーがトーストをクリックするのを処理する方法について説明します。
+title: UWP アプリからローカルトースト通知を送信する
 ms.assetid: E9AB7156-A29E-4ED7-B286-DA4A6E683638
-label: Send a local toast notification
+label: Send a local toast notification from UWP apps
 template: detail.hbs
 ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト通知の送信, 通知, 通知の送信, トースト通知, 方法, クイックスタート, 作業の開始, コード サンプル, チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: 566a1093fc576751bdd2428c2349428a5d2ef626
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: 7b669ad3c846fec0b60ae01134b80a6d87586c62
+ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91984709"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92100290"
 ---
-# <a name="send-a-local-toast-notification"></a>ローカル トースト通知の送信
+# <a name="send-a-local-toast-notification-from-uwp-apps"></a>UWP アプリからローカルトースト通知を送信する
 
 
 トースト通知は、ユーザーが現在アプリ内にいないときに、アプリが作成してユーザーに配信できるメッセージです。 このクイック スタートでは、新しいアダプティブ テンプレートと対話型の操作を使って Windows 10 のトースト通知を作成、配信、表示する手順について紹介します。 これらの操作をローカル通知を使って説明します。これは、最も簡単に実装できる通知です。
 
 > [!IMPORTANT]
-> Win32 アプリケーション (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない win32 アプリを含む) は、通知を送信したり、アクティブ化を処理したりするためのさまざまな手順があります。 Toasts を実装する方法については、 [Win32 アプリ](toast-desktop-apps.md) のドキュメントを参照してください。
+> デスクトップアプリケーション (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていないデスクトップアプリを含む) は、通知を送信したり、アクティブ化を処理したりするためのさまざまな手順があります。 トーストを実装する方法については、「[デスクトップ アプリ](toast-desktop-apps.md)」のドキュメントを参照してください。
 
 > **重要な API**: [ToastNotification クラス](/uwp/api/Windows.UI.Notifications.ToastNotification)、[ToastNotificationActivatedEventArgs クラス](/uwp/api/Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs)
 
@@ -192,7 +192,7 @@ protected override void OnActivated(IActivatedEventArgs e)
 > 画像は、アプリのパッケージ、アプリのローカル ストレージ、または Web から使用できます。 Fall Creators Update の時点で、Web 画像の上限は通常の接続で 3 MB、従量制課金接続で 1 MB です。 まだ Fall Creators Update を実行していないデバイスでは、Web イメージは 200 KB を上限とします。
 
 > [!IMPORTANT]
-> Http イメージは、マニフェストにインターネット機能を持つ UWP/MSIX/スパースアプリでのみサポートされています。 Win32 非 MSIX/スパースアプリでは、http イメージはサポートされません。ローカルアプリデータにイメージをダウンロードし、ローカルで参照する必要があります。
+> Http イメージは、マニフェストにインターネット機能を持つ UWP/MSIX/スパースアプリでのみサポートされています。 デスクトップの非 MSIX/スパースアプリでは、http イメージはサポートされません。ローカルアプリデータにイメージをダウンロードし、ローカルで参照する必要があります。
 
 <img alt="Toast with images" src="images/send-toast-02.png" width="364"/>
 

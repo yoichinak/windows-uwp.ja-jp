@@ -1,17 +1,17 @@
 ---
-description: この移植ガイドは最後まで読むことを強くお勧めしますが、早く先へ進んで、プロジェクトのビルドと実行の段階まで到達したいと思われるのも無理のないことです。
+description: Silverlight Windows Phone Silverlight に移植するときに発生する可能性のある問題のトラブルシューティングを行います。
 title: Windows Phone Silverlight から UWP への移植に関するトラブルシューティング
 ms.assetid: d9a9a2a7-9401-4990-a992-4b13887f2661
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a2c1353882ade36b5c1b82d0b75967d010ae0dc7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9b1e73dcb74ae95729cb5c07db469a1ef1a77e35
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174826"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92133005"
 ---
 #  <a name="troubleshooting-porting-windowsphone-silverlight-to-uwp"></a>Windows Phone Silverlight から UWP への移植に関するトラブルシューティング
 
@@ -24,9 +24,9 @@ ms.locfileid: "89174826"
 
 XAML 解析例外は診断が難しい場合があります。特に、わかりやすいエラー メッセージが例外に含まれていない場合は、診断が難しくなります。 デバッガーが初回例外をキャッチするように構成されていることを確してください (早い段階で解析例外のキャッチを試行するため)。 デバッガーで例外変数を調べて、HRESULT やメッセージ内に役立つ情報が含まれているかどうかを確認できます。 また、XAML パーサーを使って、Visual Studio の出力ウィンドウを調べ、エラー メッセージの出力を確認することもできます。
 
-アプリが終了したとき、確認できたことが、ハンドルされていない例外が XAML マークアップの解析中にスローされたことのみである場合は、存在しないリソース (システム **TextBlock** スタイル キーなどのキーが Windows 10 アプリには存在せず、Windows Phone Silverlight アプリに存在するリソース) への参照が原因であると考えられます。 または、**UserControl**、カスタム コントロール、カスタム レイアウト パネルの内部で例外がスローされたことも考えられます。
+アプリが終了したとき、確認できたことが、ハンドルされていない例外が XAML マークアップの解析中にスローされたことのみである場合は、存在しないリソース (システム **TextBlock** スタイル キーなどのキーが Windows 10 アプリには存在せず、Windows Phone Silverlight アプリに存在するリソース) への参照が原因であると考えられます。 または、 **UserControl**、カスタムコントロール、またはカスタムレイアウトパネル内でスローされる例外も考えられます。
 
-最終手段として、バイナリ分割を使うことができます。 ページからマークアップのおよそ半分を削除し、アプリを再実行します。 これによって、エラーが削除した半分で発生しているか (いずれの場合でも、削除した部分はここで元に戻す必要があります)、または削除*しなかった*半分で発生しているかがわかります。 問題が特定されるまで、エラーを含む半分をさらに分割するプロセスを繰り返します。
+最終手段として、バイナリ分割を使うことができます。 ページからマークアップのおよそ半分を削除し、アプリを再実行します。 その後、削除した半分 (任意のケースで復元する必要があります) また *は削除しなかった* 半分のいずれかの場所にエラーがあるかどうかがわかります。 問題が特定されるまで、エラーを含む半分をさらに分割するプロセスを繰り返します。
 
 ## <a name="targetplatformversion"></a>TargetPlatformVersion
 

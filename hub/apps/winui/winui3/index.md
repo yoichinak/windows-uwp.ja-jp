@@ -3,12 +3,12 @@ title: WinUI 3 Preview 2 (2020 年 7 月)
 description: WinUI 3 Preview 2 リリースの概要。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: 11c7ff587c7c237c19ad627587f082be84e68bf8
-ms.sourcegitcommit: 337f31b3fe3ff434dbc2c232fb84c3b22ebd4be8
+ms.openlocfilehash: ec4a112eceef7053244d676b6070784174291ed1
+ms.sourcegitcommit: 8b01b9ab7293dad1259da32d1459fdd454796e12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804576"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92020162"
 ---
 # <a name="windows-ui-library-3-preview-2-july-2020"></a>Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)
 
@@ -99,7 +99,7 @@ WinUI 3 Preview 1 を使用してプロジェクトを作成した場合、Previ
 |----------|----------|-------------|
 | 空白のページ (WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Controls.Page** クラスから派生する新しいページを定義する XAML ファイルとコード ファイルを追加します。 |
 | 空のウィンドウ (デスクトップの WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Window** クラスから派生する新しいウィンドウを定義する XAML ファイルとコード ファイルを追加します。 |
-| カスタム コントロール (WinUI) | C++ および C# | 既定スタイルを使用してテンプレート化されたコントロールを作成するためのコード ファイルを追加します。 テンプレート化されたコントロールは、WinUI ライブラリの **Microsoft.UI.Xaml.Controls.Control** クラスから派生します。<p></p>この項目テンプレートの使用方法を示すチュートリアルについては、「[C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール](xaml-templated-controls-cppwinrt-winui3.md)」を参照してください。 テンプレート化されたコントロールの詳細については、「[カスタム XAML コントロール](/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |
+| カスタム コントロール (WinUI) | C++ および C# | 既定スタイルを使用してテンプレート化されたコントロールを作成するためのコード ファイルを追加します。 テンプレート化されたコントロールは、WinUI ライブラリの **Microsoft.UI.Xaml.Controls.Control** クラスから派生します。<p></p>この項目テンプレートの使用方法を示すチュートリアルについては、「[C++/WinRT を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール](xaml-templated-controls-cppwinrt-winui-3.md)」および「[C# を使用した UWP および WinUI 3 アプリ用のテンプレート化された XAML コントロール](xaml-templated-controls-csharp-winui-3.md)」を参照してください。 テンプレート化されたコントロールの詳細については、「[カスタム XAML コントロール](/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |
 | リソース ディクショナリ (WinUI) | C++ および C# | 空の、XAML リソースのキー付きコレクションを追加します。 詳細については、「[ResourceDictionary と XAML リソースの参照](/windows/uwp/design/controls-and-patterns/resourcedictionary-and-xaml-resource-references)」を参照してください。 |
 | リソース ファイル (WinUI) | C++ および C# | アプリ用の文字列および条件付きリソースを格納するファイルを追加します。 この項目を使用して、アプリをローカライズすることができます。 詳細については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](/windows/uwp/app-resources/localize-strings-ui-manifest)」を参照してください。 |
 | ユーザー コントロール (WinUI) | C++ および C# | WinUI ライブラリの **Microsoft.UI.Xaml.Controls.UserControl** クラスから派生するユーザー コントロールを作成するための XAML ファイルとコード ファイルを追加します。 通常、ユーザー コントロールによって関連する既存のコントロールがカプセル化され、独自のロジックが提供されます。<p></p>ユーザー コントロールの詳細については、「[カスタム XAML コントロール](/archive/msdn-magazine/2019/may/xaml-custom-xaml-controls)」を参照してください。 |

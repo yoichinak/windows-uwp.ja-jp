@@ -1,30 +1,30 @@
 ---
-Description: Win32 アプリケーションでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。
-title: Win32 アプリからのセカンダリタイルのピン留め
-label: Pin secondary tiles from Win32 apps
+Description: デスクトップアプリケーションでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。
+title: デスクトップアプリからのセカンダリタイルのピン留め
+label: Pin secondary tiles from desktop apps
 template: detail.hbs
 ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、デスクトップ ブリッジ、セカンダリ タイル、ピン留め、クイックスタート、コード サンプル、例、デスクトップ アプリケーション、Win32、WinForms、WPF
 ms.localizationpriority: medium
-ms.openlocfilehash: e45fedbb981c26945d3127d7f1c01bfc08d221f0
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: f0b1e167b0ce2e91b00b7facbdd53709efdc4887
+ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91984728"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92100270"
 ---
-# <a name="pin-secondary-tiles-from-win32-apps"></a>Win32 アプリからのセカンダリタイルのピン留め
+# <a name="pin-secondary-tiles-from-desktop-apps"></a>デスクトップアプリからのセカンダリタイルのピン留め
 
 
-[デスクトップブリッジ](https://developer.microsoft.com/windows/bridges/desktop)のおかげで、Win32 アプリケーション (WINDOWS フォーム、WPF など) はセカンダリタイルをピン留めすることができます。
+デスクトップ [ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)のおかげで、デスクトップアプリケーション (WINDOWS フォーム、WPF など) はセカンダリタイルをピン留めできます。
 
 ![セカンダリ タイルのスクリーン ショット](images/secondarytiles.png)
 
 > [!IMPORTANT]
 > **Fall Creators Update が必要**: デスクトップ ブリッジ アプリからセカンダリ タイルをピン留めするには、SDK 16299 をターゲットとし、ビルド 16299 以降を実行している必要があります。
 
-WPF または WinForms アプリケーションからのセカンダリ タイルの追加は、純粋な UWP アプリとよく似ています。 唯一の違いは、メイン ウィンドウのハンドル (HWND) を指定する必要があることです。 これは、タイルをピン留めするときに、モーダル ダイアログが表示され、タイルをピン留めするかどうかをユーザーに確認するためです。 Win32 アプリケーションで、オーナーウィンドウで SecondaryTile オブジェクトが構成されていない場合、ダイアログの描画先がわからないため、操作は失敗します。
+WPF または WinForms アプリケーションからのセカンダリ タイルの追加は、純粋な UWP アプリとよく似ています。 唯一の違いは、メイン ウィンドウのハンドル (HWND) を指定する必要があることです。 これは、タイルをピン留めするときに、モーダル ダイアログが表示され、タイルをピン留めするかどうかをユーザーに確認するためです。 デスクトップ アプリケーションが、SecondaryTile オブジェクトのオーナー ウィンドウを構成しない場合、ダイアログ ボックスを描画する位置を認識することができず、操作は失敗します。
 
 
 ## <a name="package-your-app-with-desktop-bridge"></a>デスクトップ ブリッジを使ったアプリのパッケージ化
@@ -66,7 +66,7 @@ SecondaryTile tile = new SecondaryTile(
 
 ## <a name="assign-the-window-handle"></a>ウィンドウ ハンドルを割り当てる
 
-これは、Win32 アプリケーションの重要な手順です。 オブジェクトを [IInitializeWithWindow](/windows/desktop/api/shobjidl_core/nn-shobjidl_core-iinitializewithwindow) オブジェクトにキャストします。 次に [IInitializeWithWindow.Initialize](/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iinitializewithwindow-initialize) メソッドを呼び出し、モーダル ダイアログのオーナーにするウィンドウのハンドルを渡します。 次の C# の例は、アプリのメイン ウィンドウのハンドルをメソッドに渡す方法を示しています。
+これは、デスクトップ アプリケーションにとって重要な手順です。 オブジェクトを [IInitializeWithWindow](/windows/desktop/api/shobjidl_core/nn-shobjidl_core-iinitializewithwindow) オブジェクトにキャストします。 次に [IInitializeWithWindow.Initialize](/windows/desktop/api/shobjidl_core/nf-shobjidl_core-iinitializewithwindow-initialize) メソッドを呼び出し、モーダル ダイアログのオーナーにするウィンドウのハンドルを渡します。 次の C# の例は、アプリのメイン ウィンドウのハンドルをメソッドに渡す方法を示しています。
 
 ```csharp
 // Assign the window handle
