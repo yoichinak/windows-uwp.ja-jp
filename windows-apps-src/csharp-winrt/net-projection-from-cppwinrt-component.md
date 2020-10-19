@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: article
 keywords: windows 10、c#、winrt、cswinrt、投影
 ms.localizationpriority: medium
-ms.openlocfilehash: bc5c8e39b808fd1a8bc557fd29ba828d33d8dde4
-ms.sourcegitcommit: df4d99f9950655be725afa83f1ee7c3b73dff923
+ms.openlocfilehash: 3116e176c8f156939f075e0a23d1be2352a8ecde
+ms.sourcegitcommit: 861c381a31e4a5fd75f94ca19952b2baaa2b72df
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92001392"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171141"
 ---
 # <a name="walkthrough-generate-a-net-5-projection-from-a-cwinrt-component-and-distribute-the-nuget"></a>チュートリアル: C++/WinRT コンポーネントから .NET 5 プロジェクションを生成し、NuGet を配布する
 
@@ -128,7 +128,16 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
     - プロパティは、 `CsWinRTIncludes` プロジェクトに使用する名前空間を指定します。
     - プロパティは、 `CsWinRTGeneratedFilesDir` プロジェクションからのファイルが生成される出力ディレクトリを設定します。これは、ソースからの構築に関する次のセクションで設定します。
 
-4. **Simplemの射影 .csproj**ファイルを保存して閉じます。
+4. このチュートリアルの最新の C#/WinRT バージョンでは、Windows メタデータの指定が必要になる場合があります。 これは、C#/Winrtの今後のリリースで修正される予定です。 これは、次のいずれかの方法で指定できます。
+
+    - パッケージ参照 (たとえば、 [Microsoft. Windows. SDK. contract.]( https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts/)
+    - 明示的な値は、プロパティを使用してを設定し `CsWinRTWindowsMetadata` ます。
+
+      ```xml
+      <CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
+      ```
+
+5. **Simplemの射影 .csproj**ファイルを保存して閉じます。
 
 ## <a name="build-projects-out-of-source"></a>ソースからプロジェクトをビルドする
 
