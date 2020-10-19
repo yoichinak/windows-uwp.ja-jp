@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 32054a30e56102b9c0642392d78ac75b78fb99e9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 7f0e1d460ca52c659401bbb291deafa5746b7bb6
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158226"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933113"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -73,12 +73,12 @@ steps:
 1. Azure Pipelines のナビゲーション ウィンドウで **[パイプライン]** を展開し、 **[ライブラリ]** をクリックします。
 2. **[セキュア ファイル]** タブをクリックし、 **[+ セキュア ファイル]** をクリックします。
 
-    ![セキュア ファイルのアップロード方法](images/secure-file1.png)
+    ![Azure で [ライブラリ] オプションが強調表示され、[セキュア ファイル] ページが表示されているスクリーンショット。](images/secure-file1.png)
 
 3. 証明書ファイルを参照し、 **[OK]** をクリックします。
 4. 証明書をアップロードしたら、それを選択してそのプロパティを表示します。 **[パイプラインのアクセス許可]** で、 **[すべてのパイプラインで使用するために承認します。]** を有効に切り替えます。
 
-    ![セキュア ファイルのアップロード方法](images/secure-file2.png)
+    ![[パイプラインのアクセス許可] セクションで [すべてのパイプラインで使用するために承認します] オプションが選択されているスクリーンショット。](images/secure-file2.png)
 
 5. 証明書の秘密キーにパスワードが含まれている場合は、パスワードを [Azure Key Vault](/azure/key-vault/about-keys-secrets-and-certificates) に保存し、パスワードを[変数グループ](/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 その変数を使用して、パイプラインからパスワードにアクセスできます。 パスワードは秘密キーに対してのみサポートされていることに注意してください。パスワードで保護されている証明書ファイルを使用することは、現在サポートされていません。
 

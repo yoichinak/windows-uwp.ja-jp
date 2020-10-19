@@ -8,12 +8,12 @@ ms.localizationpriority: medium
 ms.custom: RS5
 ms.author: mcleans
 author: mcleanbyron
-ms.openlocfilehash: 8a05a0a9aeb3a31e76c0510eef70b5ee3036d2f7
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: f5d1829d9fca4f5805a52ed34a1218723897c13d
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216835"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932993"
 ---
 # <a name="the-fluent-design-system-for-windows-app-creators"></a>Windows アプリ作成者用の Fluent Design System
 
@@ -69,7 +69,7 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/thumbnail-size-classes.jpg)
+        ![適切なブレークポイントの設計を示した画像。](images/fluent/thumbnail-size-classes.jpg)
     :::column-end:::
     :::column span="2":::
 **適切なブレークポイントの設計**
@@ -82,7 +82,7 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/rspd-resize.gif)
+        ![応答性の高いレイアウトを示した短いムービー。](images/fluent/rspd-resize.gif)
     :::column-end:::
     :::column span="2":::
 **レスポンシブ レイアウトの作成**
@@ -95,7 +95,7 @@ Fluent Design 機能は UWP に組み込まれています。 これらの機能
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/devices.jpg)
+        ![多様なデバイス向けの設計を示した画像。](images/fluent/devices.jpg)
     :::column-end:::
     :::column span="2":::
 **多様なデバイスの設計**
@@ -107,7 +107,7 @@ UWP アプリはさまざまな Windows ベースのデバイスで実行でき�
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/keyboard-shortcuts.jpg)
+        ![出力方法に合わせた最適化を示している画像。](images/fluent/keyboard-shortcuts.jpg)
     :::column-end:::
     :::column span="2":::
 **入力方法に合わせた最適化**
@@ -127,7 +127,7 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/thumbnail-navview.png)
+        ![適切なナビゲーションを提供する方法を示した画像。](images/fluent/thumbnail-navview.png)
     :::column-end:::
     :::column span="2":::
 **適切なナビゲーションを提供する**
@@ -139,7 +139,7 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/thumbnail-commanding.png)
+        ![対話性を高める方法を示した画像。](images/fluent/thumbnail-commanding.png)
     :::column-end:::
     :::column span="2":::
 **対話性を高める**
@@ -151,7 +151,7 @@ Fluent エクスペリエンスは一貫性のあるコントロールとパタ�
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/thumbnail-controls-2.jpg)
+        ![ジョブに最適なコントロールを使用する方法を示した画像。](images/fluent/thumbnail-controls-2.jpg)
     :::column-end:::
     :::column span="2":::
 **ジョブに最適なコントロールの使用**
@@ -183,7 +183,7 @@ UWP アプリにライトを追加する
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/Nav_Reveal_Animation.gif)
+        ![表示ハイライトを示す短いビデオ。](images/fluent/Nav_Reveal_Animation.gif)
     :::column-end:::
     :::column span="2":::
 **表示ハイライト**
@@ -193,7 +193,7 @@ UWP アプリにライトを追加する
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/traveling-focus-fullscreen-light-rf.gif)
+        ![表示フォーカスを示す短いビデオ。](images/fluent/traveling-focus-fullscreen-light-rf.gif)
     :::column-end:::
     :::column span="2":::
 **表示フォーカス**
@@ -209,7 +209,7 @@ UWP アプリに奥行きを追加する
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/_parallax_v2.gif)
+        ![視差スクロールを示す短いビデオ。](images/fluent/_parallax_v2.gif)
     :::column-end:::
     :::column span="2":::
 **視差**
@@ -241,7 +241,7 @@ UWP アプリに素材を追加する
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/acrylic_lighttheme_base.png)
+        ![アクリル レイヤーを示す画像。](images/fluent/acrylic_lighttheme_base.png)
     :::column-end:::
     :::column span="2":::
 **Acrylic**
@@ -255,7 +255,7 @@ Fluent Design で独自アプリの作成を始めてみませんか。 Adobe XD
 
 :::row:::
     :::column:::
-        ![fpo の画像](images/fluent/thumbnail-toolkits.jpg)
+        ![設計ツールキットとサンプル ページのスクリーンショット。](images/fluent/thumbnail-toolkits.jpg)
     :::column-end:::
     :::column span="2":::
 **設計ツールキットとサンプルのページ**

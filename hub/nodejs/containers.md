@@ -8,12 +8,12 @@ ms.topic: article
 keywords: ''
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: a1bd1b0f2916ccf44cc79d83f0335f55cf3863e4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bd9b912dfd4b733f57aaacfe6e8f246985e3b4f5
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166626"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933083"
 ---
 # <a name="get-started-using-docker-containers-with-nodejs"></a>Node.js で Docker コンテナーを使ってみる
 
@@ -47,7 +47,7 @@ Docker Desktop WSL 2 Tech Preview をインストールして実行するには�
 
 2. ダウンロードした Docker インストーラーを開きます。 インストール ウィザードでは、[Use Windows containers instead of Linux containers]\(Linux コンテナーではなく Windows コンテナーを使用する\) かどうかが問われますが、ここでは Linux サブシステムを使用するため、これはオフのままにします。 Docker は、既定の WSL 2 ディストリビューションの管理対象ディレクトリにインストールされ、Docker デーモン、CLI、および Compose CLI が含まれます。
 
-    ![Docker Desktop の起動](../images/install-docker-1.png)
+    ![Docker Desktop のインストール ウィザードの [Configuration]\(構成\) ページで [Add shortcut to desktop]\(デスクトップへのショートカットの追加\) オプションが選択されているスクリーンショット。](../images/install-docker-1.png)
 
 3. まだ Docker ID をお持ちでない場合は、[https://hub.docker.com/signup](https://hub.docker.com/signup) にアクセスして設定する必要があります。 ID は、すべて小文字の英数字にする必要があります。
 
@@ -55,7 +55,7 @@ Docker Desktop WSL 2 Tech Preview をインストールして実行するには�
 
 5. Tech Preview ウィンドウが開いたら、 **[Start]\(開始\)** を選択して、WSL 2 で Docker デーモンの実行 (バックグラウンド プロセス) を開始します。 WSL 2 Docker デーモンが開始されると、それに対して Docker CLI コンテキストが自動的に作成されます。
 
-    ![Docker Desktop の起動](../images/start-docker.gif)
+    ![Docker のテクニカル プレビューを起動する方法を示した短いビデオ。](../images/start-docker.gif)
 
 6. Docker がインストールされていることを確認し、バージョン番号を表示するには、コマンドライン (WSL または PowerShell) を開き、`docker --version` を入力します。
 

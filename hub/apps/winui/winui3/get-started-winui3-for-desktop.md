@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 2b946047602013704b27fb5c5565155d38dbb7f8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 164ae035d3b9dda24137bcb09dd208e718db0319
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154826"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91933103"
 ---
 # <a name="get-started-with-winui-3-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3 の概要
 
@@ -31,7 +31,7 @@ WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インタ
 
 3. プロジェクトの種類として **[Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)** を選択し、 **[次へ]** をクリックします。
 
-    ![空のアプリ プロジェクト テンプレート](images/WinUI-csharp-newproject.png)
+    ![新しいプロジェクトの作成ウィザードで空のアプリ パッケージ (デスクトップ内の Win U I) オプションが強調表示されているスクリーンショット。](images/WinUI-csharp-newproject.png)
 
 4. プロジェクト名を入力し、必要に応じてその他のオプションを選択して、 **[作成]** をクリックします。
 
@@ -43,15 +43,15 @@ WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インタ
 
     * ***<プロジェクト名>* (デスクトップ)** : このプロジェクトには、アプリのコードが格納されています。 **App.xaml.cs** コード ファイルでは、アプリ インスタンスを表す `Application` クラスを定義します。また、**MainWindow.xaml.cs** コード ファイルでは、アプリによって表示されるメイン ウィンドウを表す `MainWindow` クラスを定義します。 これらのクラスは、WinUI に用意されている **Microsoft.UI.Xaml** 名前空間の型から派生します。
 
-        ![アプリ プロジェクト](images/WinUI-csharp-appproject.png)
+        ![Visual Studio で、ソリューション エクスプローラー ペインと、メインの Windows X A M L ドット C S ファイルの内容を表示しているスクリーンショット。](images/WinUI-csharp-appproject.png)
 
     * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
 
-        ![アプリ プロジェクト](images/WinUI-csharp-packageproject.png)
+        ![Visual Studio で、ソリューション エクスプローラー ペインと、パッケージ アプリ x マニフェスト ファイルの内容を表示しているスクリーンショット。](images/WinUI-csharp-packageproject.png)
 
 7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (デスクトップ)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、[こちらのセクション](index.md#item-templates-for-winui-3)を参照してください。
 
-    ![新しい項目](images/WinUI-csharp-newitem.png)
+    ![[新しい項目の追加] ダイアログ ボックスで、[インストール済み] > [Visual C シャープの項目] > [Win U I] を選択し、[空白のページ] オプションが強調表示されているスクリーンショット。](images/WinUI-csharp-newitem.png)
 
 8. ソリューションをビルドして実行し、アプリがエラーなしで実行されることを確認します。
 
@@ -63,7 +63,7 @@ WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インタ
 
 3. プロジェクトの種類として **[Blank App, Packaged (WinUI in Desktop)]\(空のアプリ、パッケージ (WinUI in Desktop)\)** を選択し、 **[次へ]** をクリックします。
 
-    ![空のアプリ プロジェクト テンプレート](images/WinUI-cpp-newproject.png)
+    ![新しいプロジェクトの作成ウィザードで空のアプリ パッケージ (デスクトップ内の Win U I) オプションが強調表示されている別のスクリーンショット。](images/WinUI-cpp-newproject.png)
 
 4. プロジェクト名を入力し、必要に応じてその他のオプションを選択して、 **[作成]** をクリックします。
 
@@ -75,11 +75,11 @@ WinUI 3 Preview 2 では、全面的に WinUI ベースのユーザー インタ
 
     * ***<プロジェクト名>* (デスクトップ)** : このプロジェクトには、アプリのコードが格納されています。 **App.xaml** と各種 **App** コード ファイルでは、アプリ インスタンスを表す `Application` クラスを定義します。また、**MainWindow.xaml** と各種 **MainWindow** コード ファイルでは、アプリによって表示されるメイン ウィンドウを表す `MainWindow` クラスを定義します。 これらのクラスは、WinUI に用意されている **Microsoft.UI.Xaml** 名前空間の型から派生します。
 
-        ![アプリ プロジェクト](images/WinUI-cpp-appproject.png)
+        ![Visual Studio で、ソリューション エクスプローラー ペインと、メインの Windows X A M L ファイルの内容を表示しているスクリーンショット。](images/WinUI-cpp-appproject.png)
 
     * ***<プロジェクト名>* (パッケージ)** : これは、アプリを [MSIX パッケージ](/windows/msix/overview)に組み込むように構成されている [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)です。 これによって、最新のデプロイ エクスペリエンスがもたらされ、パッケージ拡張機能を使用して Windows 10 の機能と統合できるなど、さまざまなメリットがあります。 このプロジェクトは、アプリの[パッケージ マニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)を格納しており、既定では、ソリューションのスタートアップ プロジェクトになります。
 
-        ![パッケージ プロジェクト](images/WinUI-cpp-packageproject.png)
+        ![Visual Studio で、ソリューション エクスプローラー ペインと、パッケージ アプリ x マニフェスト ファイルの内容を表示している別のスクリーンショット。](images/WinUI-cpp-packageproject.png)
 
 7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー**で **[ *<プロジェクト名>* (デスクトップ)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、[こちらのセクション](index.md#item-templates-for-winui-3)を参照してください。
 

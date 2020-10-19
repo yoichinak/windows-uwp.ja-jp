@@ -1,5 +1,5 @@
 ---
-Description: スタート メニュー、アプリ タイル、タスク バー、Microsoft Store などでアプリを表すアプリ アイコン/ロゴを作成する方法。
+description: スタート メニュー、アプリ タイル、タスク バー、Microsoft Store などでアプリを表すアプリ アイコン/ロゴを作成する方法。
 title: アプリのアイコンとロゴ
 template: detail.hbs
 ms.date: 09/24/2020
@@ -9,12 +9,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ee12ed108f552b8aa95549f1e9c2f3ac09a889ae
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 4e908cbad1fb0b70fe96af50917e8b895fdda90d
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220135"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860127"
 ---
 # <a name="app-icons-and-logos"></a>アプリのアイコンとロゴ 
 
@@ -64,7 +64,7 @@ Visual Studio では、既定でアイコン アセットがアセット サブ�
       (ユーザーは、 **[設定] &gt; [ディスプレイ] &gt; [拡大縮小とレイアウト]** のページに移動して既定値を上書きできます)。
    :::column-end:::
    :::column:::
-      ![](images/icons/display-settings-screen.png)
+      ![[設定] の [ディスプレイ] ページのスクリーンショット。](images/icons/display-settings-screen.png)
    :::column-end:::
 :::row-end:::  
 
@@ -141,7 +141,7 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
             Visual Studio によってマニフェスト デザイナーが表示されます。
     :::column-end:::
     :::column:::
-            ![[ビジュアル資産] タブ](images/icons/vs-manfiest-designer.png)
+            ![マニフェスト デザイナーで [アプリケーション] タブが表示されているスクリーンショット。](images/icons/vs-manfiest-designer.png)
     :::column-end:::
 :::row-end:::    
 :::row:::
@@ -149,7 +149,7 @@ Visual Studio には、**マニフェスト デザイナー**と呼ばれるア�
         3. **[ビジュアル資産]** タブをクリックします。
     :::column-end:::
     :::column:::
-        ![[ビジュアル資産] タブ](images/icons/vs-manfiest-designer-visual-assets.png)
+        ![マニフェスト デザイナーで [ビジュアル資産] タブが表示されているスクリーンショット。](images/icons/vs-manfiest-designer-visual-assets.png)
     :::column-end:::
 :::row-end:::        
 

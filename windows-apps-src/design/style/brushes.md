@@ -6,12 +6,12 @@ ms.date: 04/28/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e70c76f3ed659a46dd9834442049849dd3b7761
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1bf42e75ed8bb6d22fe8d4829aa6df32fa130230
+ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175526"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91860046"
 ---
 # <a name="using-brushes-to-paint-backgrounds-foregrounds-and-outlines"></a>ブラシを使用して背景、前景、輪郭を描画する
 
@@ -106,7 +106,7 @@ XAML ではなくコードを使って [**SolidColorBrush**](/uwp/api/Windows.UI
 
 グラデーション境界の各点の色は、境界となる 2 つのグラデーション境界によって指定される色の組み合わせとして、直線的に補間されます。 次の図は、この例のグラデーション境界を示しています。 グラデーション境界の位置が円で示され、グラデーション軸が破線で示されています。
 
-![グラデーション境界](images/linear-gradients-stops.png)
+![図の左上から始めて斜めに図の右下に到達するまでグラデーション境界 1 から 4 を配置した様子。](images/linear-gradients-stops.png)
 
 *隣接する 2 つのグラデーション境界によって指定される色の組み合わせ*
 
@@ -160,7 +160,7 @@ XAML ではなくコードを使って [**SolidColorBrush**](/uwp/api/Windows.UI
 
 グラデーション境界間の各点の色は、隣接する 2 つのグラデーション境界によって指定される色の組み合わせとして、放射状に補間されます。 次の図は、この例のグラデーション境界を示しています。 
 
-![グラデーション境界](images/radial-gradient.png)
+![放射状グラデーションのスクリーンショット。](images/radial-gradient.png)
 
 *グラデーション境界*
 

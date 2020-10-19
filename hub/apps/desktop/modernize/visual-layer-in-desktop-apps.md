@@ -7,12 +7,12 @@ keywords: windows 10, uwp
 ms.author: jimwalk
 author: jwmsft
 ms.localizationpriority: medium
-ms.openlocfilehash: 33a5f0bc31a8fe1421f7ab0de5f229d2feb77915
-ms.sourcegitcommit: ef723e3d6b1b67213c78da696838a920c66d5d30
+ms.openlocfilehash: 8fc9b3ea0f085a12be769e9733b3f92b2700dc16
+ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82730135"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932943"
 ---
 # <a name="using-the-visual-layer-in-desktop-apps"></a>デスクトップ アプリでのビジュアル レイヤーの使用
 
@@ -22,7 +22,7 @@ UWP 以外のデスクトップ アプリケーションで Windows ランタイ
 
 ビジュアル レイヤーは、グラフィックス、エフェクト、アニメーションのための高パフォーマンスの保持モード API を提供します。 これは、Windows 10 デバイスにまたがる UI のための基礎です。 UWP XAML コントロールはビジュアル レイヤー上に構築されており、ライト、奥行き、モーション、素材、スケールなどの [Fluent Design System](/windows/uwp/design/fluent-design-system/index) の多くの側面を可能にします。
 
-![ビジュアル レイヤーで作成されたユーザー インターフェイス](images/visual-layer-interop/pull-to-animate.gif)
+![ビジュアル レイヤーを使用して作成されたユーザー インターフェイスを示す短いビデオ。](images/visual-layer-interop/pull-to-animate.gif)
 
 > _ビジュアル レイヤーで作成されたユーザー インターフェイス_
 
@@ -54,7 +54,7 @@ UWP 以外のデスクトップ アプリケーションで Windows ランタイ
 
 [コンポジションのアニメーション](/windows/uwp/composition/composition-animation)は、UI スレッドには関係なく、コンポジター プロセスで直接実行されます。 これにより滑らかさとスケールが保証されるため、多数の同時実行の明示的なアニメーションを実行できます。 徐々にプロパティの変更を実行する使い慣れたキーフレーム アニメーションに加えて、式を使用して、ユーザー入力を含むさまざまなプロパティ間の数学的な関係を設定できます。 入力駆動型アニメーションを使用すると、ユーザー入力に動的かつ流動的に応答する UI を作成できます。これにより、ユーザー エンゲージメントが向上することがあります。
 
-![ビジュアル レイヤーで作成されたユーザー インターフェイス](images/visual-layer-interop/swipe-scroller.gif)
+![ビジュアル レイヤーを使用して作成された別のユーザー インターフェイスを示す短いビデオ。](images/visual-layer-interop/swipe-scroller.gif)
 
 > _[Windows UI コンポジション サンプル ギャラリー](https://github.com/Microsoft/WindowsCompositionSamples/tree/master/SampleGallery)に示されているモーション。_
 

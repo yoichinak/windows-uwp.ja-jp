@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: fedfb42e4c1604b3570c2b4db21b12926bea3762
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 187195133dd614818d3c68473cc53b71a0b32333
+ms.sourcegitcommit: 27552ed7d3d889f50d8e01776a24b8d486a8d97c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174566"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91958745"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 
@@ -83,7 +83,7 @@ Ubuntu 18.04 LTS には Python 3.6 が既にインストールされています
     ![仮想環境を作成する](../images/wsl-venv.png)
 
 > [!TIP]
-> プロジェクトを配置する予定のディレクトリ内に仮想環境を作成することをお勧めします。 プロジェクトごとに独自の独立したディレクトリを設ける必要があり、各プロジェクトが独自の仮想環境を持つことになるため、一意の名前付けは必要ありません。 ここでは、Python の規則に従うために **.venv** という名前を使用することを提案します。 プロジェクト ディレクトリにインストールした場合、(pipenv などの) 一部のツールも既定でこの名前になります。 **.env** は環境変数の定義ファイルと競合するため、使用しないでください。 ディレクトリが存在することが `ls` から常に通知される必要はないため、一般的には、ドットで始まらない名前は推奨されません。 .gitignore ファイルに **.venv** を追加することもお勧めします。 (参考までに、[GitHub の既定の Python 用 gitignore テンプレート](https://github.com/github/gitignore/blob/50e42aa1064d004a5c99eaa72a2d8054a0d8de55/Python.gitignore#L99-L106)はこちらです。)VS Code での仮想環境を使用した作業の詳細については、[VS Code での Python 環境の使用](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
+> プロジェクトを配置する予定のディレクトリ内に仮想環境を作成することをお勧めします。 プロジェクトごとに独自の独立したディレクトリを設ける必要があり、それぞれが独自の仮想環境を持つことになるため、一意の名前付けは必要ありません。 ここでは、Python の規則に従うために **.venv** という名前を使用することを提案します。 プロジェクト ディレクトリにインストールした場合、(pipenv などの) 一部のツールも既定でこの名前になります。 **.env** は環境変数の定義ファイルと競合するため、使用しないでください。 ディレクトリが存在することが `ls` から常に通知される必要はないため、一般的には、ドットで始まらない名前は推奨されません。 .gitignore ファイルに **.venv** を追加することもお勧めします。 (参考までに、[GitHub の既定の Python 用 gitignore テンプレート](https://github.com/github/gitignore/blob/50e42aa1064d004a5c99eaa72a2d8054a0d8de55/Python.gitignore#L99-L106)はこちらです。)VS Code での仮想環境を使用した作業の詳細については、[VS Code での Python 環境の使用](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
 
 ## <a name="open-a-wsl---remote-window"></a>WSL - Remote ウィンドウを開く
 

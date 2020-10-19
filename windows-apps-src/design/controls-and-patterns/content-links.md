@@ -10,16 +10,19 @@ pm-contact: miguelrb
 design-contact: ''
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a35e065a44eb55b84f6b70f5833c8652188a8c9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 867ece1f3517b2b34836dc87ab4e6545ba3d3bbc
+ms.sourcegitcommit: 837ef4b2c2375d023ee85204f72a029f9ec8f4ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174646"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079287"
 ---
 # <a name="content-links-in-text-controls"></a>テキスト コントロールのコンテンツ リンク
 
 コンテンツ リンクを使用すると、テキスト コントロールにリッチ データを埋め込むことができます。これによってユーザーは、アプリのコンテキストから離れることなく、人物や場所に関する詳しい情報を見つけることができます。
+
+> [!IMPORTANT]
+> コンテンツ リンクを可能にする Windows の機能は、Windows 10 バージョン 1903 より後のバージョンの Windows では利用できません。 XAML テキスト コントロールのコンテンツ リンクは、バージョン 1903 より後のバージョンの Windows では機能しません。
 
 RichEditBox でユーザーがアット マーク (@) を使用してエントリにプレフィックスを付けると、そのエントリに一致する人々および/または場所の候補のリストが表示されます。 次に、たとえば、ユーザーが場所を選択すると、その場所の ContentLink がテキストに挿入されます。 ユーザーが RichEditBox からコンテンツ リンクを呼び出すと、その場所に関する地図と追加情報を示したポップアップが表示されます。
 
