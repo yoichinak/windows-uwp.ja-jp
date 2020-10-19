@@ -1,17 +1,17 @@
 ---
-description: さまざまなデバイスや画面サイズで、ナビゲーションがわかりやすく見た目にも優れた Windows アプリを設計およびコーディングする方法について説明します。
+description: さまざまな画面サイズ、ウィンドウ サイズ、解像度、向きで適切に表示される柔軟な UI を作成する方法を説明します。
 title: Windows アプリのレイアウトの概要
 keywords: UWP アプリのレイアウト, ユニバーサル Windows プラットフォーム, アプリの設計, インターフェイス
 ms.date: 09/24/2020
 ms.topic: article
 ms.assetid: 1aa12606-8a99-4db3-8311-90e02fde9cf1
 ms.localizationpriority: medium
-ms.openlocfilehash: 680533d1f2907ef724810ca073e1dc56a0b01fb5
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 8d5a47e5bf9f644023a0bc65ad4732b71219f28b
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219605"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132935"
 ---
 # <a name="layout"></a>レイアウト
 
