@@ -6,12 +6,12 @@ ms.date: 05/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2965eb3196f2a19f7d5351ee422013c6c22ba88a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 288795b2dc189dae7b350a30446410b40044d08f
+ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174306"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92192952"
 ---
 # <a name="windows-runtime-components-with-ccx"></a>C++/CX を使用した Windows ランタイム コンポーネント
 
@@ -24,7 +24,7 @@ C++ で Windows ランタイムコンポーネントを構築するには、い�
 - 複雑な操作または負荷の高い操作で C++ のパフォーマンス上のメリットを得る。
 - 既に作成されテストされている既存のコードを再利用する。
 
-JavaScript プロジェクトまたは .NET プロジェクト、および Windows ランタイム コンポーネント プロジェクトを含むソリューションを構築すると、JavaScript プロジェクト ファイルとコンパイル済みの DLL が 1 つのパッケージにマージされます。これを、シミュレーターを使ってローカルでデバッグしたり、テザリングされたデバイス上でリモートでデバッグしたりすることができます。 また、拡張 SDK としてコンポーネント プロジェクトだけを配布することもできます。 詳しくは、「[Creating a Software Development Kit](/visualstudio/extensibility/creating-a-software-development-kit?view=vs-2015)」(ソフトウェア開発キットの作成) をご覧ください。
+JavaScript プロジェクトまたは .NET プロジェクト、および Windows ランタイム コンポーネント プロジェクトを含むソリューションを構築すると、JavaScript プロジェクト ファイルとコンパイル済みの DLL が 1 つのパッケージにマージされます。これを、シミュレーターを使ってローカルでデバッグしたり、テザリングされたデバイス上でリモートでデバッグしたりすることができます。 また、拡張 SDK としてコンポーネント プロジェクトだけを配布することもできます。 詳しくは、「[Creating a Software Development Kit](/visualstudio/extensibility/creating-a-software-development-kit)」(ソフトウェア開発キットの作成) をご覧ください。
 
 一般に、C++/CX コンポーネントのコードを記述するときは、通常の C++ ライブラリと組み込み型を使用します。ただし、別の winmd パッケージ内のコードとの間でデータをやり取りする抽象バイナリインターフェイス (ABI) の境界は除きます。 ここでは、これらの型を作成および操作するために C++/CX でサポートされている Windows ランタイム型と特殊な構文を使用します。 さらに、C++/CX コードでは、デリゲートやイベントなどの型を使用して、コンポーネントから発生させ、JavaScript、Visual Basic、C++、または C# で処理できるイベントを実装します。 C++/CX 構文の詳細については、「 [Visual C++ 言語リファレンス (c++/cx)](/cpp/cppcx/visual-c-language-reference-c-cx)」を参照してください。
 
@@ -185,7 +185,7 @@ public:
 };
 ```
 
-ただし、以下のシグネチャの相違は区別できません。
+しかし、次のような違いはわかりません。
 
 ```cpp
 int GetNumber(int i);
@@ -345,7 +345,7 @@ private void GetDictionary()
 }
 ```
 
-## <a name="properties"></a>プロパティ
+## <a name="properties"></a>Properties
 C++/CX コンポーネント拡張のパブリック ref クラスは、property キーワードを使用して、パブリックデータメンバーをプロパティとして公開します。 概念は .NET プロパティと同じです。 単純プロパティは機能が暗黙的であるため、データ メンバーに似ています。 非単純プロパティには、明示的な get アクセサーと set アクセサーがあり、値の "バッキング ストア" である名前付きのプライベート変数があります。 この例では、プライベートメンバー変数 \_ propertyAValue は PropertyA のバッキングストアです。 プロパティの値が変化するときにイベントを生成できます。またクライアント アプリは、そのイベントを受け取るように登録することができます。
 
 ```cpp

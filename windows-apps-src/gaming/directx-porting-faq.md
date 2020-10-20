@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, DirectX 11
 ms.localizationpriority: medium
-ms.openlocfilehash: 81fc8e9cd762c5fc0bb602e32907c40ca5c60e46
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bc6e1c2053b6ab3afe6eb42ed8b5223feb8ffb65
+ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163136"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92192992"
 ---
 # <a name="directx-11-porting-faq"></a>DirectX 11 の移植に関する FAQ
 
@@ -54,7 +54,7 @@ Chuck Walbourn の記事シリーズでは、 [2 つのゲームのコーディ�
 
 画像を読み込むための API パスは 2 つあります。
 
--   コンテンツ パイプラインは Direct3D のテクスチャ リソースとして使われる DDS ファイルに画像を変換します。 「[ゲームまたはアプリケーションでの 3-D アセットの使用](/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)」をご覧ください。
+-   コンテンツ パイプラインは Direct3D のテクスチャ リソースとして使われる DDS ファイルに画像を変換します。 「[ゲームまたはアプリケーションでの 3-D アセットの使用](/visualstudio/designers/using-3-d-assets-in-your-game-or-app)」をご覧ください。
 -   [Windows Imaging Component](/windows/desktop/wic/-wic-lh) を使うと、さまざまな形式から画像を読み込むことができます。このコンポーネントは、Direct2D ビットマップや、Direct3D のテクスチャ リソースに使用できます。
 
 [DirectXTK](https://github.com/Microsoft/DirectXTK) または [DirectXTex](https://github.com/Microsoft/DirectXTex) の DDSTextureLoader と WICTextureLoader を使うこともできます。
@@ -116,12 +116,12 @@ Direct3D デバイスを作成するとアンチエイリアシング (マルチ
 ## <a name="what-should-i-use-instead-of-the-x-file-format-for-my-models"></a>モデルには .x ファイル形式の代わりに何を使えばよいですか。
 
 
-.x ファイル形式に代わる公式のファイル形式はありませんが、サンプルの多くで SDKMesh 形式を利用しています。 Visual Studio には、一般的な形式を CMO ファイルにコンパイルする[コンテンツ パイプライン](/visualstudio/designers/using-3-d-assets-in-your-game-or-app?view=vs-2015)があります。CMO ファイルは、Visual Studio 3D スターター キットのコードか、[DirectXTK](https://github.com/Microsoft/DirectXTK) を使って読み込むことができます。
+.X ファイル形式を公式に置き換えることはできませんが、多くのサンプルでは SDKMesh 形式が使用されています。 Visual Studio には、一般的な形式を CMO ファイルにコンパイルする[コンテンツ パイプライン](/visualstudio/designers/using-3-d-assets-in-your-game-or-app)があります。CMO ファイルは、Visual Studio 3D スターター キットのコードか、[DirectXTK](https://github.com/Microsoft/DirectXTK) を使って読み込むことができます。
 
 ## <a name="how-do-i-debug-my-shaders"></a>シェーダーをデバッグするにはどうしたらよいですか。
 
 
-Microsoft Visual Studio 2015 には、DirectX グラフィックスの診断ツールが含まれています。 「[DirectX グラフィックスのデバッグ](/visualstudio/debugger/visual-studio-graphics-diagnostics?view=vs-2015)」をご覧ください。
+Microsoft Visual Studio には、DirectX グラフィックス用の診断ツールが含まれています。 「[DirectX グラフィックスのデバッグ](/visualstudio/debugger/visual-studio-graphics-diagnostics)」をご覧ください。
 
 ##  <a name="what-is-the-direct3d-11-equivalent-for-x-function"></a>*x* 関数に相当する Direct3D 11 の要素は何ですか。
 

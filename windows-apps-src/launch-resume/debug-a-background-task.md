@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、バックグラウンドタスク
 ms.localizationpriority: medium
-ms.openlocfilehash: e7d008a6956c3acd22dcb99e6bf4e1cda1442545
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 5696d3c5ffb28ee8dc6ebd51e678894ee78ae420
+ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750168"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92192982"
 ---
 # <a name="debug-a-background-task"></a>バックグラウンド タスクのデバッグ
 
@@ -91,20 +91,20 @@ ms.locfileid: "91750168"
 
 ## <a name="background-tasks-and-visual-studio-package-deployment"></a>バックグラウンド タスクと Visual Studio パッケージの展開
 
-バックグラウンド タスクを使ったアプリが Visual Studio を使って展開され、その後、マニフェスト デザイナーで指定されたバージョン (メジャー バージョンとマイナー バージョン、またはそのどちらか一方) が更新された場合、以後、Visual Studio を使ってそのアプリを再展開すると、アプリのバックグラウンド タスクが停止することがあります。 これは、次のようにして対処できます。
+バックグラウンドタスクを使用するアプリが Visual Studio を使用して展開され、マニフェストデザイナーで指定されたバージョン (メジャーまたはマイナー) が更新された場合、その後 Visual Studio でアプリを再配置すると、アプリのバックグラウンドタスクが停止する可能性があります。 これは、次のようにして対処できます。
 
 -   更新したアプリを (Visual Studio ではなく) Windows PowerShell を使って展開します。パッケージと一緒に生成されるスクリプトを実行してください。
--   既に Visual Studio でアプリを展開したことによってアプリのバックグラウンド タスクが停止している場合は、再起動するか、いったんログオフしてからログインし直し、アプリのバックグラウンド タスクをもう一度作動させます。
+-   既に Visual Studio を使用してアプリをデプロイしていて、バックグラウンドタスクが停滞している場合は、再起動またはログオフ/ログインして、アプリのバックグラウンドタスクを再度実行します。
 -   C# プロジェクトでは、"パッケージを常に再インストール" というデバッグ オプションを選ぶことで、この問題を回避することができます。
--   展開用にアプリが最終確定するのを待ってパッケージのバージョンをインクリメントします (デバッグ中は変更しない)。
+-   アプリが最終的な配置の準備が整うまで待ってから、パッケージのバージョンを増やします (デバッグ中に変更しないでください)。
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
 -   バックグラウンド タスクは、同じバックグラウンド タスクが登録されていないことをアプリ側で必ずチェックしたうえで登録してください。 同じバックグラウンド タスクを重複して登録すると、1 回のトリガーにつきバックグラウンド タスクが複数回実行され、予期しない結果を招きます。
 -   バックグラウンド タスクがロック画面へのアクセスを必要とする場合は、バックグラウンド タスクをデバッグする前にロック画面にアプリを配置してください。 ロック画面対応アプリのマニフェスト オプションを指定する方法については、「[アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)」をご覧ください。
 -   バックグラウンド タスクの登録パラメーターは登録時に検証されます。 いずれかの登録パラメーターが有効でない場合は、エラーが返されます。 バックグラウンド タスクの登録が失敗するシナリオをアプリが適切に処理するようにします。タスクを登録しようとした後で、有効な登録オブジェクトを持っていることを前提として動作するアプリは、クラッシュする場合があります。
 
-VS を使用してバックグラウンドタスクをデバッグする方法の詳細については、「 [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法](/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio?view=vs-2015)」を参照してください。
+VS を使用してバックグラウンドタスクをデバッグする方法の詳細については、「 [UWP アプリで中断イベント、再開イベント、およびバックグラウンドイベントをトリガーする方法](/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio)」を参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -113,7 +113,7 @@ VS を使用してバックグラウンドタスクをデバッグする方法�
 * [バックグラウンド タスクの登録](register-a-background-task.md)
 * [アプリケーション マニフェストでのバックグラウンド タスクの宣言](declare-background-tasks-in-the-application-manifest.md)
 * [バックグラウンド タスクのガイドライン](guidelines-for-background-tasks.md)
-* [UWP アプリで中断イベント、再開イベント、およびバックグラウンド イベントをトリガーする方法](/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio?view=vs-2015)
+* [UWP アプリで中断イベント、再開イベント、およびバックグラウンド イベントをトリガーする方法](/visualstudio/debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio)
 * [Visual Studio code 分析を使用した UWP アプリのコード品質の分析](/visualstudio/test/analyze-the-code-quality-of-store-apps-using-visual-studio-static-code-analysis?view=vs-2015)
 
  

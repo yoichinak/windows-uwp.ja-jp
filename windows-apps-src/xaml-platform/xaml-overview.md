@@ -11,12 +11,12 @@ dev_langs:
 - vb
 - cppwinrt
 - cpp
-ms.openlocfilehash: 792712256e36b40cd376f0e378bb110ab33bc0fb
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c4e61cb04aaefdc0aeef05ce0c61ca549019791b
+ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173736"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92192962"
 ---
 # <a name="xaml-overview"></a>XAML の概要
 
@@ -66,7 +66,7 @@ Microsoft Visual Studio では、XAML テキスト エディターでも、も�
 
 "x" プレフィックス/XAML 言語の XAML 名前空間には、XAML でよく使われるプログラミング構成要素がいくつか存在します。 代表的なコントロールをいくつか次に示します。
 
-| 期間 | 説明 |
+| 用語 | 説明 |
 |------|-------------|
 | [x:Key](x-key-attribute.md) | XAML のリソースごとに一意のユーザー定義キーを設定 <xref:Windows.UI.Xaml.ResourceDictionary> します。 このキー トークンの文字列は、**StaticResource** マークアップ拡張の引数であり、後でこのキーを使って、アプリの XAML のどこかで使われた別の XAML の XAML リソースを取得することができます。 |
 | [x:Class](x-class-attribute.md) | XAML ページのコード ビハインドを提供するクラスのコード名前空間とコード クラス名を指定します。 これによって、アプリのビルド時にビルド アクションによって作成または結合されたクラスの名前が付けられます。 これらのビルド アクションは、XAML マークアップ コンパイラをサポートし、アプリがコンパイルされるときにマークアップとコード ビハインドを組み合わせます。 XAML ページのコード ビハインドをサポートするには、このようなクラスが必要です。 <xref:Windows.UI.Xaml.Window.Content%2A?displayProperty=nameWithType> 既定の Windows ランタイムアクティブ化モデルの場合。 |
@@ -137,7 +137,7 @@ Windows ランタイムは、[{x:Null} マークアップ拡張](x-null-markup-e
 
 マークアップ拡張のため、属性内のリテラル "{{" 値には特別な構文が必要です。 詳しくは、「[XAML 構文のガイド](xaml-syntax-guide.md)」をご覧ください。
 
-## <a name="events"></a>events
+## <a name="events"></a>イベント
 
 XAML は、オブジェクトとそのプロパティを記述するための宣言型言語ですが、マークアップ内のオブジェクトにイベント ハンドラーをアタッチするための構文も備えています。 XAML イベント構文では、Windows ランタイム プログラミング モデルを利用して、XAML で宣言されたイベントを統合できます。 イベントの名前は、そのイベントが処理されるオブジェクトの属性名として指定します。 属性値には、コードで定義するイベント ハンドラー関数の名前を指定します。 XAML プロセッサはこの名前を使って、読み込まれたオブジェクト ツリーにデリゲート表現を作成し、指定されたハンドラーを内部ハンドラー リストに追加します。 Windows ランタイム アプリの大半は、マークアップ ソースとコード ビハインド ソースの両方によって定義されます。
 
@@ -256,4 +256,4 @@ XAML は、Visual Studio などの IDE や XAML デザイン サーフェイス�
 > [!NOTE]
 > コードに C++/CX を使用するアプリでは、特定の [**Xamlparseexception**](/dotnet/api/Windows.UI.Xaml.markup.xamlparseexception?view=dotnet-uwp-10.0)は取得されません。 ただし、例外のメッセージによって、エラーの原因が XAML 関連であることが明らかになります。このメッセージには、**XamlParseException** と同様に、XAML ファイル内の行番号などのコンテキスト情報も含まれています。
 
-Windows ランタイムアプリのデバッグの詳細については、「 [デバッグセッションを開始する](/visualstudio/debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml?view=vs-2015)」を参照してください。
+Windows ランタイムアプリのデバッグの詳細については、「 [デバッグセッションを開始する](/visualstudio/debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml)」を参照してください。
