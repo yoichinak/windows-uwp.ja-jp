@@ -1,31 +1,28 @@
 ---
-Description: このトピックでは、ユーザーの位置にアクセスする必要があるアプリを構築する際のパフォーマンス ガイドラインを説明します。
+description: このトピックでは、ユーザーの位置にアクセスする必要があるアプリを構築する際のパフォーマンス ガイドラインを説明します。
 title: 位置認識アプリのガイドライン
 ms.assetid: 16294DD6-5D12-4062-850A-DB5837696B4D
-ms.date: 02/08/2017
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10, UWP, 位置, 地図, 位置情報
 ms.localizationpriority: medium
-ms.openlocfilehash: 2178a8812a4c900c59c370e52e7e5a5b3e0a9182
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: af9ea1a214bb3cb49dd65a77d1fde30e4bb3a064
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158666"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297747"
 ---
 # <a name="guidelines-for-location-aware-apps"></a>位置認識アプリのガイドライン
 
-
-
-
 **重要な API**
 
--   [**位置情報**](/uwp/api/Windows.Devices.Geolocation)
+-   [**地理的位置情報**](/uwp/api/Windows.Devices.Geolocation)
 -   [**Geolocator**](/uwp/api/Windows.Devices.Geolocation.Geolocator)
 
 このトピックでは、ユーザーの位置にアクセスする必要があるアプリを構築する際のパフォーマンス ガイドラインを説明します。
 
-## <a name="recommendations"></a>Recommendations
+## <a name="recommendations"></a>推奨事項
 
 
 -   location オブジェクトは、アプリで位置データが必要になった場合にのみ使用を開始します。

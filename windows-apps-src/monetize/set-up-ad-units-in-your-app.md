@@ -7,11 +7,11 @@ ms.topic: article
 keywords: Windows 10, UWP, 広告, Advertising, 広告ユニット, テスト
 ms.localizationpriority: medium
 ms.openlocfilehash: c7bafdc7d21814a03d6f7da7132d8017d7f238e5
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.sourcegitcommit: c2e4bbe46c7b37be1390cdf3fa0f56670f9d34e9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79210268"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253631"
 ---
 # <a name="set-up-ad-units-in-your-app"></a>アプリの広告ユニットをセットアップする
 
@@ -25,7 +25,7 @@ ms.locfileid: "79210268"
 UWP アプリのテストを完了し、パートナーセンターに送信する準備ができたら、パートナーセンターの [[アプリ内広告](../publish/in-app-ads.md)] ページから[ライブ ad ユニットを作成](#live-ad-units)し、この AD ユニットのアプリケーション ID と ad ユニット ID の値を使用するようにアプリコードを更新する必要があります。
 
 アプリケーション ID と広告ユニット ID の値をアプリのコードに割り当てる方法の詳細については、次の記事を参照してください。
-* [XAML および .NET での AdControl](adcontrol-in-xaml-and--net.md)
+* [XAML および .NET の AdControl](adcontrol-in-xaml-and--net.md)
 * [HTML 5 および Javascript での AdControl](adcontrol-in-html-5-and-javascript.md)
 * [スポット広告](../monetize/interstitial-ads.md)
 * [ネイティブ広告](../monetize/native-ads.md)
@@ -39,7 +39,7 @@ UWP アプリのテストを完了し、パートナーセンターに送信す�
 ### <a name="banner-ads-using-the-adcontrol-class"></a>バナー広告 (AdControl クラスを使用)
 
 * Ad ユニット ID: ```test```
-* アプリケーション ID: ```3f83fe91-d6be-434d-a0ae-7351c5a997f1```
+* アプリケーション ID:  ```3f83fe91-d6be-434d-a0ae-7351c5a997f1```
 
     > [!IMPORTANT]
     > **AdControl** では、ライブ広告のサイズは **Width** プロパティと **Height** プロパティによって定義されます。 最善の結果を得るには、コード内の **Width** プロパティと **Height** プロパティが、[バナー広告でサポートされている広告サイズ](supported-ad-sizes-for-banner-ads.md)のいずれかであることを確認します。 **Width** プロパティと **Height** プロパティは、ライブ広告のサイズに基づいて変更されません。
@@ -47,7 +47,7 @@ UWP アプリのテストを完了し、パートナーセンターに送信す�
 ### <a name="interstitial-ads-and-native-ads"></a>スポット広告やネイティブ広告
 
 * Ad ユニット ID: ```test```
-* アプリケーション ID: ```d25517cb-12d4-4699-8bdc-52040c712cab```
+* アプリケーション ID:  ```d25517cb-12d4-4699-8bdc-52040c712cab```
 
 <span id="live-ad-units" />
 
@@ -59,12 +59,12 @@ UWP アプリのテストを完了し、パートナーセンターに送信す�
     > [!NOTE]
     > 必要に応じて、[[仲介設定]](../publish/in-app-ads.md#mediation) セクションで設定を構成することで、広告ユニットの広告仲介を有効にできます。 広告仲介を使うと、複数の広告ネットワークから広告を表示して、広告収益とアプリ プロモーションの機能を最大限に引き出すことができます。表示される広告には、他の有料広告ネットワークからの広告や、Microsoft のアプリ プロモーション キャンペーン用の広告などが含まれます。 既定では、アプリがサポートする市場全体で広告の収益を最大化できるように、機械学習アルゴリズムを使った仲介設定が自動的に構成されますが、必要に応じて仲介設定を手動で構成することができます。
 
-2.  新しい ad ユニットを作成した後、[**収益化**&gt; **in app ads** ] ページで、使用可能な ad ユニットのテーブルにある AD ユニットの**アプリケーション ID**と**ad ユニット ID**を取得します。
+2.  新しい広告ユニットを作成したら、**[収益化]** &gt; **[アプリ内広告]** ページにある利用可能な広告ユニットの表で、作成した広告ユニットの**アプリケーション ID** と**広告ユニット ID** を取得します。
     > [!NOTE]
     > テスト広告ユニットとライブ UWP 広告ユニットでは、アプリケーション ID の値の形式が異なります。 テスト アプリケーション ID の値は GUID です。 パートナーセンターでライブ UWP ad ユニットを作成すると、ad ユニットの [アプリケーション ID] の値は、常にアプリのストア ID と一致します (たとえば、ストア ID 値は9NBLGGH4R315 のようになります)。
 
-3.  アプリのコードで、アプリケーション ID と広告ユニット ID の値を割り当てます。 詳しくは、次の記事をご覧ください。
-    * [XAML および .NET での AdControl](adcontrol-in-xaml-and--net.md)
+3.  アプリのコードで、アプリケーション ID と広告ユニット ID の値を割り当てます。 詳細については、以下の記事を参照してください。
+    * [XAML および .NET の AdControl](adcontrol-in-xaml-and--net.md)
     * [HTML 5 および Javascript での AdControl](adcontrol-in-html-5-and-javascript.md)
     * [スポット広告](../monetize/interstitial-ads.md)
     * [ネイティブ広告](../monetize/native-ads.md)
@@ -80,7 +80,7 @@ UWP アプリのテストを完了し、パートナーセンターに送信す�
 
 ## <a name="related-topics"></a>関連トピック
 
-* [XAML および .NET での AdControl](adcontrol-in-xaml-and--net.md)
+* [XAML および .NET の AdControl](adcontrol-in-xaml-and--net.md)
 * [HTML 5 および Javascript での AdControl](adcontrol-in-html-5-and-javascript.md)
 * [スポット広告](interstitial-ads.md)
 * [ネイティブ広告](native-ads.md)

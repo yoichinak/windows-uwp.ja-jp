@@ -7,22 +7,22 @@ ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
 ms.openlocfilehash: 638de4d2795b3b248edfdcc35dc72fa21d31fc3b
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.sourcegitcommit: c2e4bbe46c7b37be1390cdf3fa0f56670f9d34e9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79209868"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253782"
 ---
 # <a name="makepriexe-command-line-options"></a>MakePri.exe のコマンド ライン オプション
 
-[MakePri.exe](compile-resources-manually-with-makepri.md) には、`createconfig`、`dump`、`new`、`resourcepack`、`versioned` コマンドのセットが含まれます。 このトピックでは、コマンド ライン オプションの使用について説明します。
+[MakePri.exe](compile-resources-manually-with-makepri.md) には、、、、およびの一連のコマンドがあり `createconfig` `dump` `new` `resourcepack` `versioned` ます。 このトピックでは、コマンド ライン オプションの使用について説明します。
 
 > [!NOTE]
-> Windows ソフトウェア開発キットのインストール時に **[UWP 管理対象アプリの Windows SDK]** オプションをオンにすると、makepri がインストールされます。 パス `%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` にインストールされます (他のアーキテクチャ用という名前のフォルダーにもインストールされます)。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` と記述します。
+> Windows ソフトウェア開発キットのインストール時に [ **UWP 管理対象アプリの Windows SDK** ] オプションをオンにすると MakePri.exe がインストールされます。 パス `%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` (および他のアーキテクチャ用に指定されたフォルダー) にインストールされます。 たとえば、「 `C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` 」のように入力します。
 
 ## <a name="getting-help-from-the-command-line"></a>コマンドラインからのヘルプの取得
 
-`MakePri.exe help` または `MakePri.exe /?` を実行して、MakePri で使用できるコマンドを確認できます。 また、`MakePri.exe <command> /?` を発行して、コマンドの詳細を確認することもできます。また、ごくまれに、オプションの詳細を確認することも `MakePri.exe <command> <option>` ます。
+`MakePri.exe help`またはを実行し `MakePri.exe /?` て、MakePri.exe で使用できるコマンドを表示できます。 また、コマンドに `MakePri.exe <command> /?` 関する詳細情報を表示するためにを発行することもできます。また、ごくまれに、オプションの詳細を確認することもでき `MakePri.exe <command> <option>` ます。
 
 ## <a name="makepri-commands"></a>MakePri のコマンド
 
@@ -115,7 +115,7 @@ Help:
 `dump` コマンドは、指定された PRI ファイル内のすべてのリソースの一覧を含む、ダンプされた xml ファイルを出力します。 `MakePri.exe dump /?` を実行すると、このコマンドの詳しいヘルプが表示されます。
 
 > [!NOTE]
-> スキーマのないリソース パックは、PRI 構成ファイルで *omitSchemaFromResourcePacks* スイッチを使用して作成されたものです。 スキーマのないリソース パックを出力するには、`/es <main_package_PRI_file>` スイッチを使用します。 メイン ファイルを指定しない場合、"*The resources.pri in the package was corrupted so encryption failed (error PRI222: 0xdef0000f - Unspecified error occurred)* " (パッケージ内の resources.pri が破損していたため、暗号化できませんでした (エラー PRI222: 0xdef0000f - 特定できないエラーが発生しました)。
+> スキーマのないリソース パックは、PRI 構成ファイルで *omitSchemaFromResourcePacks* スイッチを使用して作成されたものです。 スキーマのないリソース パックを出力するには、`/es <main_package_PRI_file>` スイッチを使用します。 メイン ファイルを指定しない場合、"*The resources.pri in the package was corrupted so encryption failed (error PRI222: 0xdef0000f - Unspecified error occurred)*" (パッケージ内の resources.pri が破損していたため、暗号化できませんでした (エラー PRI222: 0xdef0000f - 特定できないエラーが発生しました)。
 
 ```console
 C:\>makepri dump /?
@@ -162,7 +162,7 @@ Help:
     /Help(h, ?)         : Display the usage help text
 ```
 
-## <a name="new-command"></a>New コマンド
+## <a name="new-command"></a>新しいコマンド
 
 `new` コマンドは、構成ファイルの指示に従ってプロジェクト内のファイルのインデックスを作成することにより、新しい PRI ファイルを作成します。 `MakePri.exe new /?` を実行すると、このコマンドの詳しいヘルプが表示されます。
 
@@ -418,13 +418,13 @@ MakePri は、インデクサーのメタデータ ファイルにリソース �
 
 ## <a name="47indexoptionsio-option"></a>&#47;IndexOptions (io) オプション
 
-インデックスオプションオプション (/io) を `new`、`resourcepack`、および `versioned` と共に使用して、リソースインデクサーの動作を詳細に制御できるオプションを指定します。 既定では、インデックスオプションは無効になっています。
+インデックスオプションのオプション (/io) を、、およびで使用して、 `new` `resourcepack` `versioned` リソースインデクサーの動作を詳細に制御できるオプションを指定します。 既定では、インデックスオプションは無効になっています。
 
 ```console
 /IndexOptions(io) <OPTIONS>
 ```
 
-**オプション**は、次のオプションで構成されるコンマ区切りのリストです。
+**オプション** は、次のオプションで構成されるコンマ区切りのリストです。
 
 - +/-HiddenFiles (hf)。 インデックス (+)、または非表示のファイルとフォルダーを無視します。
 - +/-LinkedFiles (lf)。 インデックス (+) を作成するか、(-) リンクされたファイルとフォルダーを無視します。
@@ -458,7 +458,7 @@ MakePri は、インデクサーのメタデータ ファイルにリソース �
 
 ## <a name="output-summary"></a>出力の概要
 
-リソース パックが作成される場合、MakePRI.exe からの出力の概要は、より詳細な形式です。 次に、一例を示します。
+リソース パックが作成される場合、MakePRI.exe からの出力の概要は、より詳細な形式です。 次に例を示します。
 
 ```console
 Index Pass Completed: ResourcePackTests\TestApp_ResourcePack
@@ -499,7 +499,7 @@ Overwrite these file(s)? [Y]es (any other key to cancel):
 
 エラー状況の例と対応するエラー メッセージを次に示します。
 
-| エラー状況 | エラー メッセージ |
+| エラー状態 | エラー メッセージ |
 | --------------- | ------------- |
 | 構成に含まれるリソース パック名の 1 つと同じ出力ファイル名が指定された。 | 無効な構成: リソース パック名 <resource pack name> を出力ファイル <outputfilename.pri> と同じにすることはできません。 |
 
@@ -547,8 +547,8 @@ Overwrite these file(s)? [Y]es (any other key to cancel):
 'VersionMajor (vma)' input parameter has been deprecated. Please specify major version in the configuration file using 'majorVersion' attribute on 'resources' node.
 ```
 
-メジャー バージョン番号を指定するには、構成ファイルで [resources@majorVersion](makepri-exe-configuration.md) 属性を使用します。
+メジャーバージョン番号を指定するには、 [resources@majorVersion](makepri-exe-configuration.md) 構成ファイルで属性を使用します。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [MakePri .exe](compile-resources-manually-with-makepri.md)
+* [MakePri.exe](compile-resources-manually-with-makepri.md)
