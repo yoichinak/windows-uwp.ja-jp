@@ -2,18 +2,21 @@
 title: ジオコーディングと逆ジオコーディングの実行
 description: このガイドでは、ジオコーディング名前空間の MapLocationFinder クラスのメソッドを呼び出すことによって、番地を地理的な場所 (ジオコーディング) に変換し、地理的な場所を番地 (reverse) に変換する方法について説明します。
 ms.assetid: B912BE80-3E1D-43BB-918F-7A43327597D2
-ms.date: 07/02/2018
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10, UWP, ジオコーディング, 地図, 位置情報
 ms.localizationpriority: medium
-ms.openlocfilehash: 011a901e2baa9ff4b8f4a5bd8018b9b7790b1852
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 992a9902081f0655885383ef90ea02ed1e79f13a
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162566"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297704"
 ---
 # <a name="perform-geocoding-and-reverse-geocoding"></a>ジオコーディングと逆ジオコーディングの実行
+
+> [!NOTE]
+> [**Mapcontrol**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) および map サービス Requite は [**mapservicetoken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken)と呼ばれるマップ認証キーを持っています。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 このガイドでは、ジオコーディング名前空間の [**MapLocationFinder**](/uwp/api/Windows.Services.Maps.MapLocationFinder) クラスのメソッドを呼び出すことによっ [**て、番地**](/uwp/api/Windows.Services.Maps) を地理的な場所 (ジオコーディング) に変換し、地理的な場所を番地 (reverse) に変換する方法について説明します。
 

@@ -2,21 +2,21 @@
 title: ジオフェンスのセットアップ
 description: アプリでジオフェンスをセットアップし、フォアグラウンドとバックグラウンドで通知を処理する方法について説明します。
 ms.assetid: A3A46E03-0751-4DBD-A2A1-2323DB09BDBA
-ms.date: 02/08/2017
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, ジオフェンス, 通知
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b991930ba37cfaec333146bf7a95b4c9a9c8b98
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ca6dad1a96f37e3a308ad10c84293a8d49fb0329
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171706"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297597"
 ---
 # <a name="set-up-a-geofence"></a>ジオフェンスのセットアップ
 
-
-
+> [!NOTE]
+> [**Mapcontrol**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) および map サービス Requite は [**mapservicetoken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken)と呼ばれるマップ認証キーを持っています。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 アプリで [**ジオフェンス**](/uwp/api/Windows.Devices.Geolocation.Geofencing.Geofence) を設定し、フォアグラウンドとバックグラウンドで通知を処理する方法について説明します。
 
@@ -313,7 +313,7 @@ public async void OnGeofenceStateChanged(GeofenceMonitor sender, object e)
 
 ### <a name="step-1-register-for-geofence-state-change-events"></a>手順 1. ジオフェンスの状態変更イベントに登録する
 
-アプリのマニフェストの **[宣言]** タブで、位置情報バックグラウンド タスクの宣言を追加します。 手順は次のとおりです。
+アプリのマニフェストの **[宣言]** タブで、位置情報バックグラウンド タスクの宣言を追加します。 これを行うには、次の手順を実行します。
 
 -   タイプが **[バックグラウンド タスク]** の宣言を追加します。
 -   **場所**のプロパティタスクの種類を設定します。

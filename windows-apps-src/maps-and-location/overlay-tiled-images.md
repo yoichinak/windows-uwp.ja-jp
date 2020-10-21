@@ -2,18 +2,21 @@
 title: 地図へのタイル画像のオーバーレイ
 description: タイル ソースを使って、地図上にサード パーティ製タイルまたはカスタム タイル画像をオーバーレイします。 タイル ソースを使って、気象データ、人口データ、地質データなどの特殊な情報をオーバーレイすることや、既定の地図を完全に置き換えることができます。
 ms.assetid: 066BD6E2-C22B-4F5B-AA94-5D6C86A09BDF
-ms.date: 07/19/2018
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10、UWP、地図、位置情報、画像、オーバーレイ
 ms.localizationpriority: medium
-ms.openlocfilehash: a2a93ac408232e71c2a5ec2bc79f99388e24e5df
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8d4a8e3f8a8566fbaae64d44fe876808f094bdd5
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171736"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297634"
 ---
 # <a name="overlay-tiled-images-on-a-map"></a>地図へのタイル画像のオーバーレイ
+
+> [!NOTE]
+> [**Mapcontrol**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) および map サービス Requite は [**mapservicetoken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken)と呼ばれるマップ認証キーを持っています。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 タイル ソースを使って、地図上にサード パーティ製タイルまたはカスタム タイル画像をオーバーレイします。 タイル ソースを使って、気象データ、人口データ、地質データなどの特殊な情報をオーバーレイすることや、既定の地図を完全に置き換えることができます。
 
@@ -423,5 +426,5 @@ InMemoryRandomAccessStream^ TileSources::CustomRandomAccessStream::get()
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](./display-maps.md)
-* [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)

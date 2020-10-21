@@ -2,18 +2,21 @@
 title: 関心のあるポイント (POI) の地図への表示
 description: プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に追加します。
 ms.assetid: CA00D8EB-6C1B-4536-8921-5EAEB9B04FCA
-ms.date: 08/11/2017
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, プッシュピン
 ms.localizationpriority: medium
-ms.openlocfilehash: c27132c0728c85238b80e710c62d2e733ee1dd5d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: feaf5edc4a25ebbc6dd3e3b7eb484ff63f8b1a23
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155806"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297771"
 ---
 # <a name="display-points-of-interest-on-a-map"></a>関心のあるポイントの地図への表示
+
+> [!NOTE]
+> [**Mapcontrol**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) および map サービス Requite は [**mapservicetoken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken)と呼ばれるマップ認証キーを持っています。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 プッシュピン、画像、図形、XAML UI 要素を使って、関心のあるポイント (POI) を地図に追加します。 POI は、地図上の特定のポイントであり、関心のあるものを表します。 たとえば、企業、市区町村、友人の所在地を示すことができます。
 
@@ -476,7 +479,7 @@ XAML ページで、レイヤーを返すビュー モデル クラスのプロ�
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](./display-maps.md)
-* [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)
 * [**MapIcon**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapIcon)
 * [**MapPolygon**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapPolygon)

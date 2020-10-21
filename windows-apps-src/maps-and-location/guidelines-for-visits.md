@@ -1,19 +1,22 @@
 ---
-Description: 実用的な位置情報追跡に役立つ強力なビジット追跡機能を使用する方法について説明します。
+description: 実用的な位置情報追跡に役立つ強力なビジット追跡機能を使用する方法について説明します。
 title: ビジット追跡の使用ガイドライン
 ms.assetid: 0c101684-48a9-4592-9ed5-6c20f3b830f2
-ms.date: 05/18/2017
+ms.date: 10/20/2020
 ms.topic: article
 keywords: windows 10, uwp, マップ, 位置情報, geovisit, ジオビジット
 ms.localizationpriority: medium
-ms.openlocfilehash: 3b1766d0f883fa42b005908dcc63102e97ff0d4f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bdca33832b4dfadb52dca45c7a060de4f05c500c
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162516"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297731"
 ---
 # <a name="guidelines-for-using-visits-tracking"></a>ビジット追跡の使用ガイドライン
+
+> [!NOTE]
+> [**Mapcontrol**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) および map サービス Requite は [**mapservicetoken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken)と呼ばれるマップ認証キーを持っています。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 ビジット機能を使用すると、位置追跡のプロセスを合理化し、多くのアプリ実用的な用途について効率化を図ることができます。 ビジットとは、ユーザーが進入/退出する、意味のある地理的な領域を指します。 ビジットは、ユーザーが対象領域に進入したときまたは退出したときのみにアプリが通知を受信できるという点で[ジオフェンス](guidelines-for-geofencing.md)に似ています。これにより、バッテリーの消耗につながる継続的な位置追跡が不要になります。 ただしジオフェンスの場合とは異なり、ビジットの領域はプラットフォーム レベルで動的に識別されるため、個々のアプリで明示的に定義する必要はありません。 また、アプリで追跡する対象ビジットの選択は、個々の場所のサブスクリプションではなく、単一の粒度設定によって処理されます。
 

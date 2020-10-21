@@ -2,20 +2,21 @@
 title: 地図へのルートとルート案内の表示
 description: MapRouteFinder クラスを使用してルートと方向を取得し、それをユニバーサル Windows プラットフォーム (UWP) アプリの MapControl に表示する方法について説明します。
 ms.assetid: BBB4C23A-8F10-41D1-81EA-271BE01AED81
-ms.date: 09/20/2017
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10, UWP, ルート, マップ, 位置情報, ルート案内
 ms.localizationpriority: medium
-ms.openlocfilehash: b015393d81d736e5886793431966d0d91976e80d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4171598f47d28942adb56860452a8ec49cb5e2c2
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171756"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297601"
 ---
 # <a name="display-routes-and-directions-on-a-map"></a>地図へのルートとルート案内の表示
 
-
+> [!NOTE]
+> [**Mapcontrol**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) および map サービス Requite は [**mapservicetoken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken)と呼ばれるマップ認証キーを持っています。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 ルートとルート案内を要求し、アプリで表示します。
 
@@ -244,5 +245,5 @@ private async void ShowRouteOnMap()
 * [Bing Maps Developer Center](https://www.bingmapsportal.com/)
 * [UWP の地図のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/MapControl)
 * [地図の設計ガイドライン](./display-maps.md)
-* [ビルド2015ビデオ: Windows アプリでの電話、タブレット、および PC でのマップと場所の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
+* [Build 2015 のビデオ:Windows アプリでの電話、タブレット、PC で使用できるマップと位置情報の活用](https://channel9.msdn.com/Events/Build/2015/2-757)
 * [UWP の交通情報アプリのサンプル](https://github.com/Microsoft/Windows-appsample-trafficapp)
