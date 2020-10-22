@@ -2,23 +2,22 @@
 title: 地図と位置情報の概要
 description: このセクションでは、アプリで地図の表示、マップ サービスの使用、位置情報の検索、ジオフェンスのセットアップを行う方法について説明します。 また、Windows マップ アプリを起動し、特定の地図やルート、ターン バイ ターン方式のルート案内を表示する方法についても説明します。
 ms.assetid: F4C1F094-CF46-4B15-9D80-C1A26A314521
-ms.date: 02/08/2017
+ms.date: 10/20/2020
 ms.topic: article
 keywords: Windows 10, UWP, 地図, 位置情報, マップ サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: c67312fe54492e20b6bb9a8b2d1cb07b5fc77c80
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 61b36aa8299d98544c44039abb138f4422e0a164
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171776"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297664"
 ---
 # <a name="maps-and-location-overview"></a>地図と位置情報の概要
 
-
-
-
 このセクションでは、アプリで地図の表示、マップ サービスの使用、位置情報の検索、ジオフェンスのセットアップを行う方法について説明します。 また、Windows マップ アプリを起動し、特定の地図やルート、ターン バイ ターン方式のルート案内を表示する方法についても説明します。
+
+[**MapControl**](/uwp/api/Windows.UI.Xaml.Controls.Maps.MapControl) とマップ サービスには、[**MapServiceToken**](/uwp/api/windows.ui.xaml.controls.maps.mapcontrol.mapservicetoken) と呼ばれるマップ認証キーが必要です。 マップ認証キーを取得して設定する方法について詳しくは、「[マップ認証キーの要求](authentication-key.md)」をご覧ください。
 
 > [!TIP]
 > アプリで地図と位置情報を使う方法について詳しくは、GitHub の [Windows-universal-samples リポジトリ](https://github.com/Microsoft/Windows-universal-samples)から次のサンプルをダウンロードしてください。
