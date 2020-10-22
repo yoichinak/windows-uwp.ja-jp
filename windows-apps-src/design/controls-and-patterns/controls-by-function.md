@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f3bda79b998038dd26f62eec983384f491793502
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 49a608f46c21cddfbd7fcb5e149c4b316bf9b175
+ms.sourcegitcommit: ce1a7efa01779721b4b618ae5605597152e424cb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160767"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92379375"
 ---
 # <a name="controls-by-function"></a>機能別コントロール
 
@@ -719,7 +719,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 デザインと使い方: [テキスト コントロール](text-controls.md)、[テキスト ブロック コントロールのガイド](text-block.md)、[リッチ テキスト ブロック コントロールのガイド](rich-text-block.md)
 
-サンプル コード: [XAML テキストのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-display-sample-2593ba0a)
+サンプル コード: [XAML テキストのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20display%20sample%20(Windows%208))
 
 ### <a name="text-box"></a>テキスト ボックス
 1 行または複数行のプレーンテキスト フィールド。
@@ -735,7 +735,7 @@ Web コンテンツをホストするコンテナー コントロール。
 
 デザインと使い方: [テキスト コントロール](text-controls.md)、[テキスト ボックス コントロールのガイド](text-box.md) 
 
-サンプル コード: [XAML テキストのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-text-display-sample-2593ba0a)
+サンプル コード: [XAML テキストのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20display%20sample%20(Windows%208))
 
 ## <a name="selection-controls"></a>選択コントロール
 

@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: e0a8a7bf38fbf44fd3544d7912729bbd42672f34
-ms.sourcegitcommit: 7c49f789f5b382b5b12efed6a81cbb4a25d44bd9
+ms.openlocfilehash: 1338b45dd5ccc7558725dd1ad1d210f3c5e7232b
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90026327"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132995"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP にデスクトップ アプリを統合する
 
@@ -1029,14 +1029,14 @@ DLL 検索順序に含まれるパッケージには、既定で、その "*有�
 #### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
 
 ```XML
-<Extension
+<uap3:Extension
     Category="windows.appExecutionAlias"
     Executable="[ExecutableName]"
     EntryPoint="Windows.FullTrustApplication">
-    <AppExecutionAlias>
+    <uap3:AppExecutionAlias>
         <desktop:ExecutionAlias Alias="[AliasName]" />
-    </AppExecutionAlias>
-</Extension>
+    </uap3:AppExecutionAlias>
+</uap3:Extension>
 ```
 
 |名前 |説明 |
