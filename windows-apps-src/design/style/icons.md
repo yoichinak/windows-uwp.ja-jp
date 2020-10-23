@@ -1,5 +1,5 @@
 ---
-Description: 優れたアイコンは、文字体裁やその他のデザイン言語と調和するものです。 これらは比喩と混用しないようにします。できるだけすばやくシンプルに、必要なことのみを伝えます。
+description: 優れたアイコンは、文字体裁やその他のデザイン言語と調和するものです。 これらは比喩と混用しないようにします。できるだけすばやくシンプルに、必要なことのみを伝えます。
 title: アイコン
 ms.assetid: b90ac02d-5467-4304-99bd-292d6272a014
 label: Icons
@@ -11,12 +11,12 @@ design-contact: Judysa
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 66f9d166d0e20f82f495f98b26deceff8e136cc5
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: 75de051bd569981d7dca6b33e8e7389c3186a09d
+ms.sourcegitcommit: cbdfac0e2d8bead6c225e815e7d6dffe1f5ef864
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636642"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344989"
 ---
 # <a name="icons-for-windows-apps"></a>Windows アプリのアイコン
 
@@ -47,13 +47,12 @@ ms.locfileid: "91636642"
 
 :::row:::
     :::column:::
-        ![切り取り、コピー、貼り付け、保存のアイコンを示すスクリーンショット。](images/do.svg)
-        ![標準イメージのアイコン](images/icons/icons-standard.svg)<br>
+        ![緑色の帯に緑色のチェック マークと Do という語が書かれている最初の画像](images/do.svg) ![切り取り、コピー、貼り付け、保存のアイコンのスクリーンショット](images/icons/icons-standard.svg)<br>
 
 アイコンは、切り取り、コピー、貼り付け、保存などの操作、またはナビゲーション メニューのナビゲーション項目に使用します。
     :::column-end:::
     :::column:::
-        ![しない](images/dont.svg) ![概念イメージのアイコン](images/icons/icons-concept.svg)<br>
+        ![赤色の帯に赤色の X 印と Don't という語が書かれている最初の画像](images/dont.svg) ![教育、タッチ、予定表のアイコンのスクリーンショット](images/icons/icons-concept.svg)<br>
 
 表現する概念のアイコンが既に存在する場合は、それを使用します (アイコンが存在するかどうかを確認するには、Segoe アイコン一覧を確認します)。
     :::column-end:::
@@ -61,14 +60,12 @@ ms.locfileid: "91636642"
 
 :::row:::
     :::column:::
-        ![シンプルで見覚えのあるショッピング カートのアイコンのスクリーンショット。](images/do.svg)
-        ![ショッピング カートのアイコン](images/icons/icon-shopping-cart.svg)<br>
+        ![緑色の帯に緑色のチェック マークと Do という語が書かれている 2 番目の画像](images/do.svg) ![シンプルでなじみのあるショッピング カート アイコンのスクリーンショット](images/icons/icon-shopping-cart.svg)<br>
 
 アイコンが意味する内容をユーザーが理解しやすく、小さいサイズでもはっきりとわかるほどシンプルな場合は、アイコンを使用します。
     :::column-end:::
     :::column:::
-        ![複雑で見慣れないショッピング カートのアイコンのスクリーンショット。](images/dont.svg)
-        ![概念イメージのアイコン](images/icons/icon-bad-example.png)<br>
+        ![赤色の帯に赤色の X 印と Don't という語が書かれている 2 番目の画像](images/dont.svg) ![複雑でなじみのないショッピング カート アイコンのスクリーンショット](images/icons/icon-bad-example.png)<br>
 
 アイコンの意味が明確でない場合、または明確にするには複雑な図形が必要な場合は、アイコンを使用しないでください。
     :::column-end:::

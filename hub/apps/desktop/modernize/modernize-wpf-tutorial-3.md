@@ -1,5 +1,5 @@
 ---
-description: このチュートリアルでは、UWP XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、さらに他の最新のコンポーネントを WPF アプリに組み込む方法について説明します。
+description: このチュートリアルでは、タッチ対応デバイスで経費報告書の日付を簡単に選択できるようにする方法について説明します。
 title: XAML Islands を使用した UWP CalendarView コントロールの追加
 ms.topic: article
 ms.date: 06/27/2019
@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: e7e09069e11fc14d0a47086bc2594edc975c11d9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 53a87f5803a6e4707b2dc6b86b32b7db003e59ef
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161456"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92133045"
 ---
 # <a name="part-3-add-a-uwp-calendarview-control-using-xaml-islands"></a>パート 3: XAML Islands を使用した UWP CalendarView コントロールの追加
 

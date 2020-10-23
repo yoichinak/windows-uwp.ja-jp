@@ -1,17 +1,17 @@
 ---
 ms.assetid: 64F7FC51-E8AC-4098-9C5F-0172E4724B5C
 title: パフォーマンス
-description: ユーザーは、高い応答性と自然な使用感、そしてバッテリーが消耗しないことをアプリに期待しています。
+description: パフォーマンスのワークフローの整理、アニメーション エラーやフレーム レートの問題の解決、および起動時間、ページ ナビゲーションの時間、メモリ使用量の調整を行う方法について説明します。
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 23548ada603e21e9230ccc3e8c63630e81b1a8ae
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f81052336985eee866fec6ae370d2795e8001859
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154146"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92133095"
 ---
 # <a name="performance"></a>パフォーマンス
 

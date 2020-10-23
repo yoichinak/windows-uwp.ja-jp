@@ -1,5 +1,5 @@
 ---
-description: このチュートリアルでは、Contoso Expenses という名前のサンプル WPF デスクトップ アプリを最新化する方法が示されています。
+description: このチュートリアルでは、MSIX を使用してアプリをパッケージ化して展開する方法について説明します。
 title: MSIX によるパッケージとデプロイ
 ms.topic: article
 ms.date: 01/23/2020
@@ -8,12 +8,12 @@ author: mcleanbyron
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.localizationpriority: medium
 ms.custom: RS5, 19H1
-ms.openlocfilehash: 2ab83b2c9253e8cdd9adc403909a1bd03db1ccda
-ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
+ms.openlocfilehash: d13971e62a6684bdb440bd0e0f68ddea606336cc
+ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762977"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92133025"
 ---
 # <a name="part-5-package-and-deploy-with-msix"></a>パート 5: MSIX によるパッケージとデプロイ
 

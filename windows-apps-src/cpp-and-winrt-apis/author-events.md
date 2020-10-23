@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, イベント
 ms.localizationpriority: medium
-ms.openlocfilehash: c70ad8efcb8bb84272a044824d8058813ed30def
-ms.sourcegitcommit: a93a309a11cdc0931e2f3bf155c5fa54c23db7c3
+ms.openlocfilehash: 66691b1cd75a27e683261c12b7a3056c53160079
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91646235"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297626"
 ---
 # <a name="author-events-in-cwinrt"></a>C++/WinRT でのイベントの作成
 
@@ -146,7 +146,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 
 ご利用のイベントがアプリケーション バイナリ インターフェイス (ABI) 間で (コンポーネントと処理を行うそのアプリケーションとの間など) アクセス可能である必要がある場合、そのイベントでは Windows ランタイム デリゲート型が使用される必要があります。 上記の例では、[**Windows::Foundation::EventHandler\<T\>** ](/uwp/api/windows.foundation.eventhandler) Windows ランタイム デリゲート型が使用されています。 [**TypedEventHandler\<TSender, TResult\>** ](/uwp/api/windows.foundation.eventhandler) は、Windows ランタイム デリゲート型のもう 1 つの例です。
 
-これら 2 つのデリゲート型用の型パラメーターは ABI をまたがる必要があるため、型パラメーターも Windows ランタイム型にする必要があります。 これには、Windows ランタイム クラス、サードパーティ製のランタイム クラス、数値や文字列などのプリミティブ型が含まれます。 その制約を忘れた場合でも、コンパイラがエラー "*WinRT 型である必要があります*" を表示してサポートしてくれます。
+これら 2 つのデリゲート型用の型パラメーターは ABI をまたがる必要があるため、型パラメーターも Windows ランタイム型にする必要があります。 これには、Windows ランタイム クラス、サードパーティ製のランタイム クラス、数値や文字列などのプリミティブ型が含まれます。 その制約を忘れた場合でも、コンパイラからのサポートとして "*T は WinRT 型である必要があります*" というエラーが表示されます。
 
 次に、コード リスティングの形式での例を示します。 このトピックの前半で作成した **ThermometerWRC** および **ThermometerCoreApp** プロジェクトから開始し、これらのプロジェクト内でコードを編集して、リスティングのコードのように見えるようにします。
 

@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c4ab2ac5a611d310abc177126cc92b88f9e3b8e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fb7229d977f2d2f32b251a524e101a8acf2b2524
+ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165156"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92193015"
 ---
 #  <a name="building-a-complex-universal-windows-platform-uwp-app"></a>複雑なユニバーサル Windows プラットフォーム (UWP) アプリを作成する
 
@@ -238,4 +238,4 @@ Microsoft のデザイン チームのアプリ作成プロセスは、5 つの�
 
 設計のやり直しを避けるために、アプリの開発があまり進まないうちに、設計内容またはプロトタイプをガイドライン、ユーザーの印象、要件に照らして検証します。 それぞれの機能について、アプリの改善に役立つ UX ガイドラインと、Microsoft Store でアプリを公開するために必要なストア要件があります。 [Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)を使って、ストア要件を技術的に満たすかどうかのテストを実行できます。 また、Microsoft Visual Studio のパフォーマンス ツールを使って、すべてのシナリオでユーザーに快適なエクスペリエンスを提供しているかどうかを確認できます。
 
-[UWP アプリの詳細な UX ガイドライン](https://developer.microsoft.com/windows/apps/design)を使って、重要な機能に集中して取り組みます。 [Visual Studio パフォーマンス ツール](/visualstudio/profiling/profiling-tools?view=vs-2015)を使って、各アプリのシナリオのパフォーマンスを分析します。
+[UWP アプリの詳細な UX ガイドライン](https://developer.microsoft.com/windows/apps/design)を使って、重要な機能に集中して取り組みます。 [Visual Studio パフォーマンス ツール](/visualstudio/profiling/profiling-feature-tour)を使って、各アプリのシナリオのパフォーマンスを分析します。

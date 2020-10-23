@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、トラブルシューティング、HRESULT、エラー
 ms.localizationpriority: medium
-ms.openlocfilehash: 94cfb51d9fd832a29c71049a2255e35c4bc6f484
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 268792dfe8053feca8c1e6fcb486bede4b26ee6a
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219965"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297727"
 ---
 # <a name="troubleshooting-cwinrt-issues"></a>C++/WinRT に関する問題のトラブルシューティング
 
@@ -39,8 +39,9 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 | C++ コンパイラーが、" *'const std::vector&lt;winrt::hstring,std::allocator&lt;_Ty&gt;&gt;' から 'const winrt::param::async_iterable&lt;winrt::hstring&gt; &'* に変換できません" というエラーを生成します。|これは、コレクションを予期している非同期 Windows ランタイム API に winrt::hstring の std::vector を渡すときに、非同期呼び出し先へのベクトルのコピーも移動も行っていない場合に発生する可能性があります。 詳細については、「[標準的な C++ のデータ型と C++/WinRT](std-cpp-data-types.md)」を参照してください。|
 | プロジェクトを開くときに、Visual Studio が "*プロジェクトのアプリケーションはインストールされていません*" というエラーを生成します。|まだ行っていない場合は、Visual Studio の **[新しいプロジェクト]** ダイアログから **C++ での開発用の Windows ユニバーサル ツール**をインストールする必要があります。 それでも問題が解決しない場合は、プロジェクトが C++/WinRT Visual Studio Extension (VSIX) に依存している可能性があります ([C++/WinRT の Visual Studio サポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関するページを参照してください)。|
 | Windows アプリ認定キットのテストが、ランタイム クラスの 1 つについて、"*Windows 基底クラスから派生しません。すべての構成可能クラスは最終的に、Windows 名前空間内の型から派生する必要があります*" というエラーを生成します。|基底クラスから派生する任意のランタイム クラス (アプリケーション内で宣言) は*構成可能*クラスと呼ばれます。 構成可能クラスの最終的な基底クラスは、Windows.* 名前空間からの型でなければなりません (例: [**Windows.UI.Xaml.DependencyObject**](/uwp/api/windows.ui.xaml.dependencyobject))。 詳細情報については、「[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md)」を参照してください。|
-| C++ コンパイラーが、EventHandler または TypedEventHandler のデリゲート特殊化に関して "*WinRT 型である必要があります*" というエラーを生成します。|代わりに **winrt::delegate&lt;...T&gt;** を使用することを考慮してください。 「[C++/WinRT でのイベントの作成](author-events.md)」を参照してください。|
-| C++ コンパイラーが、Windows ランタイムの非同期操作の特殊化に関して "*WinRT 型である必要があります*" というエラーを生成します。|代わりに並列パターン ライブラリ (PPL) の [**task**](/cpp/parallel/concrt/reference/task-class) を返すことを考慮してください。 「[同時実行操作と非同期操作](concurrency.md)」を参照してください。|
+| C++ コンパイラにより、EventHandler または TypedEventHandler のデリゲート特殊化に関して "*T は WinRT 型である必要があります*" というエラーが生成されます。|代わりに **winrt::delegate&lt;...T&gt;** を使用することを考慮してください。 「[C++/WinRT でのイベントの作成](author-events.md)」を参照してください。|
+| C++ コンパイラにより、Windows ランタイムの非同期操作の特殊化に関して "*T は WinRT 型である必要があります*" というエラーが生成されます。|代わりに並列パターン ライブラリ (PPL) の [**task**](/cpp/parallel/concrt/reference/task-class) を返すことを考慮してください。 「[同時実行操作と非同期操作](concurrency.md)」を参照してください。|
+| [**winrt::xaml_typename**](/uwp/cpp-ref-for-winrt/xaml-typename) を呼び出すと、C++ コンパイラによって "*T は WinRT 型である必要があります*" というエラーが生成されます。|**winrt::xaml_typename** により、投影された型を使用し (たとえば **BgLabelControlApp::BgLabelControl** を使用する)、実装型を使用しないようにします (たとえば **BgLabelControlApp::implementation::BgLabelControl** を使用しない)。 [XAML カスタム (テンプレート化) コントロール](xaml-cust-ctrl.md)に関するページをご覧ください。|
 | C++ コンパイラーが、"*エラー C2220: 警告がエラーとして扱われました - 'オブジェクト' ファイルは生成されませんでした*" を生成します。|警告を解決するか、または **[C/C++]**  >  **[全般]**  >  **[警告をエラーとして扱う]** を **[いいえ (/WX-)]** に設定します。|
 | オブジェクトが破棄された後で C++/WinRT オブジェクトのイベント ハンドラーが呼び出されるため、アプリがクラッシュします。|「[イベント処理デリゲートで *this* ポインターに安全にアクセスする](weak-references.md#safely-accessing-the-this-pointer-with-an-event-handling-delegate)」を参照してください。|
 | C++ コンパイラーが "*エラー C2338: これは弱参照サポート専用です*" を生成します。|**テンプレート引数として winrt::no_weak_ref** マーカー構造体を基底クラスに渡した型の、弱参照を要求しています。 「[弱参照サポートの除外](weak-references.md#opting-out-of-weak-reference-support)」を参照してください。|

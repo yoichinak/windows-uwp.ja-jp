@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: wwindows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 頻繁, 質問, 質問, faq
 ms.localizationpriority: medium
-ms.openlocfilehash: d9b402a1f140126314bc10f69880a9f01af2b2a4
-ms.sourcegitcommit: 6009896ead442b378106d82870f249dc8b55b886
+ms.openlocfilehash: b1a05dbb666b33739a083c517395359a64fee9df
+ms.sourcegitcommit: 7aaf0740a5d3a17ebf9214aa5e5d056924317673
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643806"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297656"
 ---
 # <a name="frequently-asked-questions-about-cwinrt"></a>C++/WinRT についてよく寄せられる質問
 [C++/WinRT](./intro-to-using-cpp-with-winrt.md) での Windows ランタイム API の作成と使用に関する質問への回答です。
@@ -186,7 +186,7 @@ a.f();
 
 ヘッダー ファイル `winrt/Windows.UI.Xaml.Media.Animation.h` では **GetCurrentTime** という名前のメソッドが宣言されているのに対し、`windows.h` では (`winbase.h` を介して) **GetCurrentTime** という名前のマクロが定義されています。 その 2 つが競合すると、C++ コンパイラで次のエラーが発生します。"*エラー C4002: 関数に似たマクロ呼び出し 'GetCurrentTime' の引数が多すぎます*"。
 
-同様に、`winrt/Windows.Globalization.h` では **TRY** という名前のメソッドが宣言されているのに対し、`afx.h` では **GetCurrentTime** という名前のマクロが定義されています。 これらが競合すると、C++ コンパイラで次のエラーが発生します。"*エラー C2334: '{' の前に予期しないトークンがありました。関数の本体は無視されます*"。
+同様に、`winrt/Windows.Globalization.h` では **TRY** という名前のメソッドが宣言されているのに対し、`afx.h` では **TRY** という名前のマクロが定義されています。 これらが競合すると、C++ コンパイラで次のエラーが発生します。"*エラー C2334: '{' の前に予期しないトークンがありました。関数の本体は無視されます*"。
 
 一方または両方の問題を解決するには、次のようにすることができます。
 
