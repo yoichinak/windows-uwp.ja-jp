@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7633ff363a00c90a576ad5799ef0d2b048cd5cdd
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 769d786078edd68af2e1e57bdb869e7aa4099405
+ms.sourcegitcommit: 88f3992462c88a0c5c6e85b942705bae5e4a1aac
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166856"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92499607"
 ---
 # <a name="dependency-properties-overview"></a>依存関係プロパティの概要
 
@@ -30,7 +30,7 @@ ms.locfileid: "89166856"
 - リソースやスタイルなどの多目的テンプレート パターン
 - オブジェクト ツリー内の他の要素との親子のリレーションシップから判断される値
 
-依存関係プロパティは、UI に XAML、コードに C#、Microsoft Visual Basic、または Visual C++ コンポーネント拡張機能 (C++/CX) を使って Windows ランタイム アプリを定義するためのプログラミング モデルの特定の機能を表現またはサポートしています。 次のような機能が該当します。
+依存関係プロパティは、UI に XAML、コードに C#、Microsoft Visual Basic、または Visual C++ コンポーネント拡張機能 (C++/CX) を使って Windows ランタイム アプリを定義するためのプログラミング モデルの特定の機能を表現またはサポートしています。 次のような機能が含まれています。
 
 - データ バインディング
 - スタイル
@@ -119,7 +119,7 @@ public string Label
 
 詳しくは、「[ストーリーボードに設定されたアニメーション](../design/motion/storyboarded-animations.md)」をご覧ください。
 
-### <a name="default-values"></a>既定の値
+### <a name="default-values"></a>既定値
 
 [**PropertyMetadata**](/uwp/api/Windows.UI.Xaml.PropertyMetadata) 値を持つ依存関係プロパティの既定値の設定については、「[カスタム依存関係プロパティ](custom-dependency-properties.md)」で詳しく説明しています。
 
@@ -205,9 +205,9 @@ Windows 10 では、[**RegisterPropertyChangedCallback**](/uwp/api/windows.ui.xa
 - [カスタム依存関係プロパティ](custom-dependency-properties.md)
 - [添付プロパティの概要](attached-properties-overview.md)
 - [データ バインディングの詳細](../data-binding/data-binding-in-depth.md)
-- [ストーリーボードに設定されたアニメーション](../design/motion/storyboarded-animations.md)
+- [Storyboarded アニメーション](../design/motion/storyboarded-animations.md)
 - [Windows ランタイムコンポーネントの作成](/previous-versions/windows/apps/hh441572(v=vs.140))
-- [XAML ユーザーとカスタム コントロールのサンプル](https://code.msdn.microsoft.com/windowsapps/XAML-user-and-custom-a8a9505e)
+- [XAML ユーザーとカスタム コントロールのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/master/Official%20Windows%20Platform%20Sample/XAML%20user%20and%20custom%20controls%20sample)
 
 ## <a name="apis-related-to-dependency-properties"></a>依存関係プロパティに関連する API
 
