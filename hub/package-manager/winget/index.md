@@ -1,15 +1,15 @@
 ---
 title: winget ツールを使用したアプリケーションのインストールと管理
 description: winget コマンド ライン ツールを使用すると、開発者は Windows 10 コンピューター上でアプリケーションを検出、インストール、アップグレード、削除、および構成することができます。
-ms.date: 04/28/2020
+ms.date: 10/22/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c918dccb2873f47a16669c195c47180e2129476
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0dbd2aa76fa6a9b787e73c0bbd5ce7e56b5e6a4a
+ms.sourcegitcommit: c105eb358bf693d34dfdd7a44255af69c1d5a3cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89168746"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92434463"
 ---
 # <a name="use-the-winget-tool-to-install-and-manage-applications"></a>winget ツールを使用したアプリケーションのインストールと管理
 
@@ -106,6 +106,10 @@ if %ERRORLEVEL% EQU 0 Echo Terminal installed successfully.   %ERRORLEVEL%
 ## <a name="missing-tools"></a>欠落しているツール
 
 [コミュニティ リポジトリ](../package/repository.md)にツールまたはアプリケーションが含まれていない場合。 パッケージを[リポジトリ](https://github.com/microsoft/winget-pkgs)に送信してください。 お気に入りのツールを追加することで、自分や他のすべてのユーザーが使用できるようになります。
+
+## <a name="customize-winget-settings"></a>winget 設定のカスタマイズ
+
+**winget** コマンド ラインのエクスペリエンスを構成するには、**settings.json** ファイルを変更します。 詳細については、[https://aka.ms/winget-settings](https://aka.ms/winget-settings) を参照してください。 設定はまだ試験的な状態であり、ツールのプレビュー バージョン向けにまだ最終化されていないことに注意してください。
 
 ## <a name="open-source-details"></a>オープン ソースの詳細
 
