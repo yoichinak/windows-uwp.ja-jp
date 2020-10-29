@@ -3,12 +3,12 @@ title: WinUI 3 Preview 2 (2020 年 7 月)
 description: WinUI 3 Preview 2 リリースの概要。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: ec4a112eceef7053244d676b6070784174291ed1
-ms.sourcegitcommit: 8b01b9ab7293dad1259da32d1459fdd454796e12
+ms.openlocfilehash: b7336aa054bac4c59cd535951cc3fc92d4a3486a
+ms.sourcegitcommit: aa88679989ef3c8b726e1bf5a0ed17c1206a414f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92020162"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687770"
 ---
 # <a name="windows-ui-library-3-preview-2-july-2020"></a>Windows UI ライブラリ 3 Preview 2 (2020 年 7 月)
 
@@ -19,7 +19,7 @@ Windows UI ライブラリ (WinUI) 3 は、Windows デスクトップと UWP の
 **[Preview 2 の制限事項と既知の問題](#preview-2-limitations-and-known-issues)** を参照してください。
 
 > [!Important]
-> この WinUI 3 Preview リリースは、早期評価と、開発者コミュニティからのフィードバックの収集を目的としています。 実稼働アプリには使用**できません**。
+> この WinUI 3 Preview リリースは、早期評価と、開発者コミュニティからのフィードバックの収集を目的としています。 実稼働アプリには使用 **できません** 。
 >
 > WinUI 3 Preview のリリースは 2020 年から 2021 年前半にかけて継続され、その後、最初の公式リリースが利用可能になる予定です。
 >
@@ -42,24 +42,26 @@ WinUI 3 Preview 2 には、WinUI ベースのユーザー インターフェイ�
 
     C++ アプリを構築するには、次のワークロードも含める必要があります。
     - C++ によるデスクトップ開発
-    - ユニバーサル Windows プラットフォーム ワークロード用の *C++ (v142) ユニバーサル Windows プラットフォーム ツール*のオプション コンポーネント (右ペインにある [ユニバーサル Windows プラットフォーム開発] セクションの [インストールの詳細] を参照してください)
+    - ユニバーサル Windows プラットフォーム ワークロード用の *C++ (v142) ユニバーサル Windows プラットフォーム ツール* のオプション コンポーネント (右ペインにある [ユニバーサル Windows プラットフォーム開発] セクションの [インストールの詳細] を参照してください)
 
-    Visual Studio をダウンロードしたら、プログラム内で .NET のプレビューを有効にしてください。 
+    Visual Studio をインストールしたら、プログラム内で .NET のプレビューを有効にしてください。 
     - [ツール] > [オプション] > [プレビュー機能] に移動して、[.NET Core SDK のプレビューを使用する (再起動が必要)] を選択します。 
+    
+3. **nuget.org** に対して NuGet パッケージ ソースがシステムで有効になっていることを確認します。詳細については、「[一般的な NuGet 構成](/nuget/consume-packages/configuring-nuget-behavior)」を参照してください。
 
-3. C#/.NET 5 および C++/Win32 の各アプリ用のデスクトップ WinUI プロジェクトを作成する場合は、.NET 5 Preview 5 の x64 および x86 の両バージョンもインストールする必要があります。 **.NET 5 Preview 5 は、現在 WinUI 3 でサポートされている唯一の .NET 5 のプレビューであることに注意してください**。
+4. C#/.NET 5 および C++/Win32 の各アプリ用のデスクトップ WinUI プロジェクトを作成する場合は、.NET 5 Preview 5 の x64 および x86 の両バージョンをインストールする必要があります。 **.NET 5 Preview 5 は、現在 WinUI 3 でサポートされている唯一の .NET 5 のプレビューであることに注意してください** 。
 
     - [.NET 5 Preview 5 のための x64 インストーラー](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.100-preview.5-windows-x64-installer)
     - [.NET 5 Preview 5 のための x86 インストーラー](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.100-preview.5-windows-x86-installer)
 
-4. [WinUI 3 Preview 2 VSIX パッケージ](https://aka.ms/winui3/previewdownload)をダウンロードしてインストールします。 この VSIX パッケージをインストールすると、WinUI 3 プロジェクト テンプレートと、WinUI 3 ライブラリを含む NuGet パッケージが Visual Studio 2019 に追加されます。
+5. [WinUI 3 Preview 2 VSIX パッケージ](https://aka.ms/winui3/previewdownload)をダウンロードしてインストールします。 この VSIX パッケージをインストールすると、WinUI 3 プロジェクト テンプレートと、WinUI 3 ライブラリを含む NuGet パッケージが Visual Studio 2019 に追加されます。
 
     VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](/visualstudio/ide/finding-and-using-visual-studio-extensions#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
 
 
 ## <a name="create-winui-projects"></a>WinUI プロジェクトを作成する
 
-WinUI 3 Preview 2 VSIX パッケージをインストールすると、Visual Studio の WinUI プロジェクト テンプレートのいずれかを使用して新しいプロジェクトを作成できるようになります。 **[新しいプロジェクトの作成]** ダイアログで WinUI プロジェクト テンプレートにアクセスするには、言語を **C++** または **C#** に、プラットフォームを **Windows** に、プロジェクトの種類を **WinUI** にフィルター処理します。 または、*WinUI* を検索して、使用できる C# または C++ テンプレートのいずれかを選択することもできます。
+WinUI 3 Preview 2 VSIX パッケージをインストールすると、Visual Studio の WinUI プロジェクト テンプレートのいずれかを使用して新しいプロジェクトを作成できるようになります。 **[新しいプロジェクトの作成]** ダイアログで WinUI プロジェクト テンプレートにアクセスするには、言語を **C++** または **C#** に、プラットフォームを **Windows** に、プロジェクトの種類を **WinUI** にフィルター処理します。 または、 *WinUI* を検索して、使用できる C# または C++ テンプレートのいずれかを選択することもできます。
 
 ![WinUI プロジェクト テンプレート](images/winui-projects-csharp.png)
 
@@ -91,7 +93,7 @@ WinUI 3 Preview 1 を使用してプロジェクトを作成した場合、Previ
 
 ### <a name="item-templates-for-winui-3"></a>WinUI 3 用の項目テンプレート
 
-次の項目テンプレートは、WinUI プロジェクトで使用できます。 これらの WinUI プロジェクト テンプレートにアクセスするには、**ソリューション エクスプローラー**でプロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** を選択し、 **[新しい項目の追加]** ダイアログの **[WinUI]** をクリックします。
+次の項目テンプレートは、WinUI プロジェクトで使用できます。 これらの WinUI プロジェクト テンプレートにアクセスするには、 **ソリューション エクスプローラー** でプロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** を選択し、 **[新しい項目の追加]** ダイアログの **[WinUI]** をクリックします。
 
 ![WinUI の項目テンプレート](images/winui-items-csharp.png)
 
@@ -113,35 +115,35 @@ Preview 2 のバグ修正とその他の更新の包括的な一覧を次に示�
 
 - [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) と [INotifyPropertyChanged](/dotnet/api/system.componentmodel.inotifypropertychanged) が C# デスクトップ アプリで正常に機能するようになりました
   - これにより、バックエンドで更新されている間、UI の更新されないコレクション コントロールに関連する他のいくつかの問題が解消されました。
-  - *@hshristov さん、GitHub で[似た問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2490)を提出していただきありがとうございます。*
+  - *@hshristov さん、GitHub で [似た問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2490)を提出していただきありがとうございます。*
 - Preview 2 はデスクトップ アプリの [.NET 5 Preview 5](/dotnet/api/?view=net-5.0&preserve-view=true) と互換性があるようになりました
 - WinUI 3 は [WinUI 2.4](../winui2/release-notes/winui-2.4.md) と同等になりました。これには、[階層型の NavigationView](../winui2/release-notes/winui-2.4.md#hierarchical-navigation)、[ProgressRing](../winui2/release-notes/winui-2.4.md#progressring) などの新しいコントロールと機能が含まれています。
 - クラッシュの修正:タッチでの [TabView](/windows/uwp/design/controls-and-patterns/tab-view) の使用
 - [XAML コントロール ギャラリー サンプル](#xaml-controls-gallery-winui-3-preview-2-branch)の [NavigationView](/windows/uwp/design/controls-and-patterns/navigationview) には、左コンパクト モードではなく左モードが使用されるようになりました
 - クラッシュの修正: 入力検証と [RichEditBox](/windows/uwp/design/controls-and-patterns/rich-edit-box) での高速な入力
-  - *@paulovilla さん、GitHub で[この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2563)を提出していただきありがとうございます。*
+  - *@paulovilla さん、GitHub で [この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2563)を提出していただきありがとうございます。*
 - クラッシュの修正: [TextBox](/windows/uwp/design/controls-and-patterns/text-box) メニューが表示されているときの XAML UI の操作
 - 複数のページに移動した後、[XAML コントロール ギャラリー サンプル](#xaml-controls-gallery-winui-3-preview-2-branch)のタイトル テキストがスクランブルされなくなりました
 - [WebView2](/microsoft-edge/webview2/) でタッチを使用しても、位置にわずかなオフセットが生じなくなりました
 - WinUIEdit.dll のクラスは、Windows.UI.Text 名前空間から Microsoft.UI.Text 名前空間に移動されました
 - クラッシュの修正: 複数選択モードでの [TreeView](/windows/uwp/design/controls-and-patterns/tree-view) の項目の選択 (Windows 10 バージョン 1803)
 - Point、Rect、および Size の各メンバーは、デスクトップ アプリの API の C# プロジェクションで Double 型になりました。
-  - *@dotMorten さん、GitHub で[この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2474)を提出していただきありがとうございます。*
+  - *@dotMorten さん、GitHub で [この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2474)を提出していただきありがとうございます。*
 - クラッシュの修正: .rtf ファイルでの [RichEditBox](/windows/uwp/design/controls-and-patterns/rich-edit-box) の使用
 - [TabView](/windows/uwp/design/controls-and-patterns/tab-view) の閉じるボタンに空白のツールヒントが表示されなくなりました
 - [イメージ](/windows/uwp/design/controls-and-patterns/images-imagebrushes) コントロールで SVG ファイルが正しくレンダリングされるようになりました
-  - *@mqudsi さん、GitHub で[この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2565)を提出していただきありがとうございます。*
+  - *@mqudsi さん、GitHub で [この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2565)を提出していただきありがとうございます。*
 - クラッシュの修正: Page 要素の使用または操作
 - [NavigationView](/windows/uwp/design/controls-and-patterns/navigationview) の項目をタッチで選択すると、他のすべての項目の選択が解除されるようになりました (単一選択モード)。
 - クラッシュの修正:特定のサイズの[スライダー](/windows/uwp/design/controls-and-patterns/slider) コントロールに設定された値による LayoutSliderException が発生しなくなりました 
-  - *@hig-dev さん、GitHub で[この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/477)を提出していただきありがとうございます。*
+  - *@hig-dev さん、GitHub で [この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/477)を提出していただきありがとうございます。*
 - クラッシュの修正: [ColorPicker](/windows/uwp/design/controls-and-patterns/color-picker) の使用によるシャットダウン時のクラッシュの発生
 - クラッシュの修正: [Pivot](/windows/uwp/design/controls-and-patterns/pivot) の使用によるシャットダウン時のクラッシュの発生
 - クラッシュの修正:Windows 10 バージョン 1803 でリソースが見つからないために発生する [NavigationView](/windows/uwp/design/controls-and-patterns/navigationview) のクラッシュ
 - クラッシュの修正:[RichEditBox](/windows/uwp/design/controls-and-patterns/rich-edit-box) カスタム エディターでのフォーカス 
 - クラッシュの修正:[SemanticZoom](/windows/uwp/design/controls-and-patterns/semantic-zoom) 
 - Mode=OneWay が暗黙的であるマークアップで、バインドが正常に機能するようになりました
-  - *@tomasfabian さん、GitHub で[この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2630)を提出していただきありがとうございます。*
+  - *@tomasfabian さん、GitHub で [この問題](https://github.com/microsoft/microsoft-ui-xaml/issues/2630)を提出していただきありがとうございます。*
 - アニメーションの修正:[XAML コントロール ギャラリーのサンプル](#xaml-controls-gallery-winui-3-preview-2-branch)の新機能
 
 ## <a name="new-features-and-capabilities-introduced-in-winui-3-preview-1"></a>WinUI 3 Preview 1 で導入された新機能
@@ -220,7 +222,7 @@ WinUI 3 Preview 2 は、Windows 10 April 2018 Update (バージョン 1803 - ビ
 
   WinUI 3 フレームワークは WinRT コンポーネントのセットであり、WinRT には .NET と同様の型とオブジェクトがありますが、本質的に互換性がありません。  現在、C#/WinRT プロジェクションは .NET 5 における .NET と WinRT の相互運用を処理し、.NET 5 アプリで .NET インターフェイスを自由に使用できるようにします。 
   
-  ただし、C#/WinRT は.NET Native アプリ間の相互運用を処理できないため、WinUI 3 API は UWP アプリに直接投影されます。 そのため、それらの同じ .NET インターフェイスは使用できなくなります。 **UWP アプリで .NET Native が使用されなくなると、この制限は存在しなくなります**。
+  ただし、C#/WinRT は.NET Native アプリ間の相互運用を処理できないため、WinUI 3 API は UWP アプリに直接投影されます。 そのため、それらの同じ .NET インターフェイスは使用できなくなります。 **UWP アプリで .NET Native が使用されなくなると、この制限は存在しなくなります** 。
 
   たとえば、`INotifyPropertyChanged` API はデスクトップ アプリの WinUI3 の `System.ComponentModel` 名前空間に投影されますが、UWP アプリ (およびすべての C++ アプリ) の WinUI3 の `Microsoft.UI.Xaml.Data` 名前空間に表示されます。 
   
