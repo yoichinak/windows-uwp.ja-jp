@@ -1,23 +1,23 @@
 ---
-Description: 支払いレポートには、アプリとアドオンで獲得した金額の詳細が表示されます。 また、支払いを受け取るタイミングと支払い額を確認することもできます。
+description: 支払いレポートには、アプリとアドオンで獲得した金額の詳細が表示されます。 また、支払いを受け取るタイミングと支払い額を確認することもできます。
 title: 支払いレポート
 ms.assetid: F0D070BE-8267-4CC9-B0D2-085EBA74AC98
 ms.date: 08/02/2019
 ms.topic: article
 keywords: windows 10, uwp, 入金状況, ステートメントの, 支払い額, 売り上げ, 入金い, 支払い, 収益
 ms.localizationpriority: medium
-ms.openlocfilehash: 7eab86cc1856f5ad206aa8bbceb2f2e04f5410d2
-ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
+ms.openlocfilehash: 11d83031702a642fa21a711edfdbaff69661c853
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91763109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035025"
 ---
 # <a name="payout-reports"></a>支払いレポート
 
 [ **支払いの概要** ] には、Microsoft によって獲得された金額の詳細が表示されます。 また、支払いを受け取るタイミングと支払い額を確認することもできます。
 
-Azure Marketplace で製品を販売している場合は、[ **支払いの概要**] で成功した支払いに関する情報も表示されます。 Azure Marketplace での支払いについて詳しくは、[Microsoft Azure Marketplace への参加ポリシーに関するページ](/legal/marketplace/participation-policy)と [Microsoft Azure Marketplace の発行元契約に関するページ](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)をご覧ください。
+Azure Marketplace で製品を販売している場合は、[ **支払いの概要** ] で成功した支払いに関する情報も表示されます。 Azure Marketplace での支払いについて詳しくは、[Microsoft Azure Marketplace への参加ポリシーに関するページ](/legal/marketplace/participation-policy)と [Microsoft Azure Marketplace の発行元契約に関するページ](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt)をご覧ください。
 
 > [!NOTE]
 > 支払いの対象となるには、収益が $50 の[支払いしきい値](payment-thresholds-methods-and-timeframes.md)に達している必要があります。 支払いしきい値の詳細については、このページを参照し、アプリ開発者契約を確認してください。
@@ -50,7 +50,7 @@ Azure Marketplace で製品を販売している場合は、[ **支払いの概�
 | 次回の推定支払い額 | 1回の次回の支払い (他のユーザーが近日公開されている場合でも) は、米ドルです。 |
 | 前回の支払い           | 最新の支払いの金額 (米ドル単位)、プログラム名、およびプログラム。           |
 | ソースごとの支払い     | 過去12か月間のプログラムによって表される支払いの量 (米ドル単位)。           |
-| 入金額               | [有料] または [保留中] を選択し、必要に応じて並べ替えます。 特定の支払いの詳細情報については、 [View]\(表示\) を選択します。 支払いの送金明細書のコピーをダウンロードするには、 [ダウンロード] を選択します。 トランザクション履歴データが表示されるまでに最大24時間かかる場合があるため、関連する収益がすぐに表示されない場合があります。 |
+| 支払い               | [有料] または [保留中] を選択し、必要に応じて並べ替えます。 特定の支払いの詳細情報については、 [View]\(表示\) を選択します。 支払いの送金明細書のコピーをダウンロードするには、 [ダウンロード] を選択します。 トランザクション履歴データが表示されるまでに最大24時間かかる場合があるため、関連する収益がすぐに表示されない場合があります。 |
 
 このページのデータをエクスポートするには、[エクスポート] を選択し、[データのエクスポート] ページの指示に従います。
 
@@ -225,5 +225,5 @@ Azure Marketplace で製品を販売している場合は、[ **支払いの概�
 | Payment Currency (支払い通貨)        | 支払いに使われる通貨。                                                                                                                                       |
 | Converted Payment (換算された支払い額)       | 外国為替レートを使って支払い通貨に換算した後の支払い額。                                                                                                         |
 | Tax Remit Model (税金の送金モデル)         | 税の送金を担当する当事者 (消費税、使用税、または VAT/GST 税)。                                                                                                   |
-| Eligibility Date Time (適格日時)   | 取引の収益が支払い適格になる日時 (UTC)。 支払いが作成されると、支払いには支払い作成日以前の Eligibility Date Time (対象となる日時) を持つトランザクションの収益が含まれます  (**予約済み** の .csv ファイルにのみ含まれます)。 |
-| Charges                 | お取引金額の列で集計されたすべての請求額の内訳を表示します  (Azure Marketplace の場合にのみ含まれます。**予約済み** の .csv ファイルには含まれません)。 |
+| Eligibility Date Time (適格日時)   | 取引の収益が支払い適格になる日時 (UTC)。 支払いが作成されると、支払いには支払い作成日以前の Eligibility Date Time (対象となる日時) を持つトランザクションの収益が含まれます  ( **予約済み** の .csv ファイルにのみ含まれます)。 |
+| Charges                 | お取引金額の列で集計されたすべての請求額の内訳を表示します  (Azure Marketplace の場合にのみ含まれます。 **予約済み** の .csv ファイルには含まれません)。 |

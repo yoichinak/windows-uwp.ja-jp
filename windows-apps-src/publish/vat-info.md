@@ -1,17 +1,17 @@
 ---
-Description: パートナーセンターの登録プロセス中に VAT ID 番号を入力する必要がある場合は、次の情報を参照してください。
+description: パートナーセンターの登録プロセス中に VAT ID 番号を入力する必要がある場合は、次の情報を参照してください。
 title: 付加価値税情報
 ms.assetid: 93834A6B-86D6-4647-AC01-CBCA3CB7A578
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c8521ef2988e2108dbbd619812bfde26cecc81b
-ms.sourcegitcommit: a7effa01ca1c810e792b60f89ba38ce3bf0b310e
+ms.openlocfilehash: bd863210fad66d9494d9d71115966656ccbb8893
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81545082"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034925"
 ---
 # <a name="vat-info"></a>付加価値税情報
 
@@ -29,7 +29,7 @@ ms.locfileid: "81545082"
 Microsoft では税務に関する助言を提供しておらず、次の情報はガイダンスとしてのみ提供しています。 Microsoft に対して VAT 番号を提供するうえでこのガイダンスが十分でない場合は、最新の変更について管轄の税務機関に確認してください。
 
 <table Responsive="true">
-<tr><th>[国/地域]</th><th>付加価値税情報</th></tr>
+<tr><th>国/リージョン</th><th>付加価値税情報</th></tr>
 <tr><td data-th="Country/region">オーストリア
 </td><td data-th="VAT info">
 <ul>
@@ -70,7 +70,7 @@ Microsoft では税務に関する助言を提供しておらず、次の情報�
 <li>例: 12345678、123456789、0123456789</li>
 </ul>
 </td></tr>
-<tr><td data-th="Country/region">Czechia</td><td data-th="VAT info">
+<tr><td data-th="Country/region">チェコ</td><td data-th="VAT info">
 <ul>
 <li>VAT 番号形式: 8 桁、9 桁、または 10 桁の数字</li>
 <li>国/地域コード: CZ</li>
@@ -98,7 +98,7 @@ Microsoft では税務に関する助言を提供しておらず、次の情報�
 <li>例: 12345678</li>
 </ul>
 </td></tr>
-<tr><td data-th="Country/region">France</td><td data-th="VAT info">
+<tr><td data-th="Country/region">フランス</td><td data-th="VAT info">
 <ul>
 <li>VAT 番号形式: 11 桁の数字</li>
 <li>国/地域コード: FR</li>
@@ -106,7 +106,7 @@ Microsoft では税務に関する助言を提供しておらず、次の情報�
 <li>注: 最初の文字または 2 番目の文字、あるいは最初の文字および 2 番目の文字にアルファベットが含まれ (I または Q を除く)、その後に 9 桁の数値が続く場合があります。</li>
 </ul>
 </td></tr>
-<tr><td data-th="Country/region">Germany</td><td data-th="VAT info">
+<tr><td data-th="Country/region">ドイツ</td><td data-th="VAT info">
 <ul>
 <li>VAT 番号形式: 9 桁の数字</li>
 <li>国/地域コード: DE</li>
@@ -245,9 +245,9 @@ Microsoft では税務に関する助言を提供しておらず、次の情報�
 </table>
                                                                                                                                                                   
 
- 
+ 
 
- 
+ 
 
 
 

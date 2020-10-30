@@ -1,20 +1,20 @@
 ---
-Description: 通知、対象のプラン、レビューやフィードバックへの応答などの機能を使用して、ユーザーとの関係を深め、顧客満足度を高めることができます。
+description: 通知、対象のプラン、レビューやフィードバックへの応答などの機能を使用して、ユーザーとの関係を深め、顧客満足度を高めることができます。
 title: ユーザーとの関係を深める
 ms.date: 10/31/2018
 ms.topic: article
-keywords: Windows 10, UWP
+keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e03e698a7c74dc6c3a9abec30d471a0a16427650
-ms.sourcegitcommit: 2dba9b4e81151d14ca90d36341274a3b59926197
+ms.openlocfilehash: 827001cda13b6335f9aaae06d8138c5223dbbb84
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057591"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034845"
 ---
 # <a name="engage-with-your-customers"></a>ユーザーとの関係を深める
 
-プッシュ通知、ターゲット オファー、フィードバックやレビューへの応答などの機能を使用して、ユーザーとの関係を深め、顧客満足度を高めることができます。 [パートナーセンター](https://partner.microsoft.com/dashboard)には、お客様のエンゲージメントと満足度を高めるための機能が含まれています。
+プッシュ通知、ターゲット オファー、フィードバックやレビューへの応答などの機能を使用して、ユーザーとの関係を深め、顧客満足度を高めることができます。 [パートナーセンター](https://partner.microsoft.com/dashboard) には、お客様のエンゲージメントと満足度を高めるための機能が含まれています。
 
 ## <a name="understand-your-audience"></a>対象ユーザーを把握する
 
@@ -53,7 +53,7 @@ ms.locfileid: "74057591"
 
 ダッシュボードを使ってプッシュ通知を作成し、対象ユーザー別に通知をカスタマイズして、アプリ ユーザーのセグメントに送信することができます。
 
-[通知の送信](send-push-notifications-to-your-apps-customers.md)
+[通知を送信する](send-push-notifications-to-your-apps-customers.md)
     :::column-end:::
 :::row-end:::
 

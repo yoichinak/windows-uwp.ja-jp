@@ -1,5 +1,5 @@
 ---
-Description: このトピックでは、ローテーション用の新しい Windows UI について説明します。また、この新しい対話機構を Windows アプリで使用する際に考慮する必要があるユーザーエクスペリエンスガイドラインについて説明します。
+description: このトピックでは、ローテーション用の新しい Windows UI について説明します。また、この新しい対話機構を Windows アプリで使用する際に考慮する必要があるユーザーエクスペリエンスガイドラインについて説明します。
 title: 回転
 ms.assetid: f098bc05-35b3-46b2-9e9b-9ff292d067ca
 label: Rotation
@@ -8,19 +8,19 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 135f7773a94491e1e6470c84ad428265273bc79d
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 755386b8cffa5c546d20cd561693da5d21b30799
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035105"
 ---
 # <a name="rotation"></a>回転
 
 
 この記事では、ローテーション用の新しい Windows UI について説明します。また、この新しい対話機構を Windows アプリで使用する際に考慮する必要があるユーザーエクスペリエンスガイドラインについて説明します。
 
-> **重要な API**: [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、[**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)
+> **重要な API** : [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、 [**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -44,7 +44,8 @@ ms.locfileid: "91217005"
 
 ![回転がサポートされる異なる指の配置を示す図](images/ux-rotate-positions.png)
 
-**メモ**   直感的に言えば、ほとんどの場合、回転ポイントは2つのタッチポイントの1つです。ただし、ユーザーが連絡先ポイントに関連しない回転ポイント (たとえば、描画アプリケーションやレイアウトアプリケーションなど) を指定することはできません。 以下の図では、回転の中心点がこのような制約を受けない場合に、どのようにユーザー エクスペリエンスが低下するかについて説明します。
+**注**  
+ユーザーが接触点とは無関係に回転の中心点を指定できる場合を除いて (例: 描画アプリやレイアウト アプリ)、直観に従い多くの場合、回転の中心点は 2 つのタッチした点のどちらかになります。 以下の図では、回転の中心点がこのような制約を受けない場合に、どのようにユーザー エクスペリエンスが低下するかについて説明します。
 
 1 番目の図は、最初のタッチ ポイント (親指) と 2 番目のタッチ ポイント (人差し指) を示します。人差し指は木に、親指は丸太にタッチしています。
 
@@ -59,7 +60,7 @@ ms.locfileid: "91217005"
 
 ![回転の中心点が最初に 2 つタッチした点のどちらでもなく、絵の左端の中央に制約された状態で回転する絵を示す図](images/ux-rotate-points4.png)
 
- 
+ 
 
 Windows 10 では、3種類のローテーション (free、制約、および組み合わせ) がサポートされています。
 
@@ -88,10 +89,10 @@ Windows 10 では、3種類のローテーション (free、制約、および�
 <td align="left">複合回転</td>
 <td align="left"><p>複合回転は自由回転をサポートしますが、(<a href="guidelines-for-panning.md">パン</a>におけるレールのように) 90°単位のスナップ位置のゾーンでは制約付き回転によって強制されます。 ユーザーが各 90° のゾーンの外でオブジェクトを離した場合にはオブジェクトはその位置にとどまりますが、それ以外の場合にはオブジェクトは自動的にスナップ位置まで回転します。</p>
 <div class="alert">
-<strong>メモ</strong>   ユーザーインターフェイスレールは、ターゲットの周囲の領域が特定の値または場所への移動を制限して、その選択に影響を与える機能です。
+<strong>注:</strong>  ユーザー インターフェイスのレールは、ターゲットの周辺の領域において、特定の値または位置に向けて動きが制約され選択に影響を与える機能です。
 </div>
 <div>
- 
+ 
 </div></td>
 </tr>
 </tbody>

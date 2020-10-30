@@ -1,5 +1,5 @@
 ---
-Description: ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。
+description: ユーザーがタッチ キーボード、つまりソフト入力パネル (SIP) でデータを入力できるように、ユーザーが入力すると予想されるデータの種類に合わせてテキスト コントロールの入力値の種類を設定できます。
 MS-HAID: dev\_ctrl\_layout\_txt.use\_input\_scope\_to\_change\_the\_touch\_keyboard
 MSHAttr: PreferredLib:/library/windows/apps
 Search.Product: eADQiWindows 10XVcnh
@@ -9,12 +9,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 02/08/2017
 ms.topic: article
-ms.openlocfilehash: e6e140a1967ca3ffe7775f427ccae7a7e07c5ca6
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9b274d7cafd179157571a51db1122153a33d846e
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035075"
 ---
 # <a name="use-input-scope-to-change-the-touch-keyboard"></a>入力値の種類を使ったタッチ キーボードの変更
 
@@ -27,7 +27,7 @@ ms.locfileid: "89165816"
 
 タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使用できます。 タッチキーボードは、ユーザーが **[テキストボックス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)** や **[RichEditBox](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** などの編集可能な入力フィールドをタップしたときに呼び出されます。 ユーザーが入力するデータの種類に合わせてテキストコントロールの *入力スコープ* を設定することにより、ユーザーがアプリにデータを入力する速度を大幅に向上させることができます。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
 
-たとえば、テキストボックスが4桁の PIN を入力するためだけに使用されている場合は、 [**Inputscope**](/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number**に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
+たとえば、テキストボックスが4桁の PIN を入力するためだけに使用されている場合は、 [**Inputscope**](/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
 
 > [!IMPORTANT]
 > - この情報は、SIP にのみ適用されます。 ハードウェア キーボードにも、Windows の簡単操作オプションで使用できるスクリーン キーボードにも適用されません。
@@ -35,10 +35,10 @@ ms.locfileid: "89165816"
 
 ## <a name="changing-the-input-scope-of-a-text-control"></a>テキスト コントロールの入力値の種類を変更する
 
-アプリで使用可能な入力値の種類は、**[InputScopeNameValue](/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)** 列挙体のメンバーです。 **[TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox)** または **[RichEditBox](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
+アプリで使用可能な入力値の種類は、 **[InputScopeNameValue](/uwp/api/Windows.UI.Xaml.Input.InputScopeNameValue)** 列挙体のメンバーです。 **[TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox)** または **[RichEditBox](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)** の **InputScope** プロパティを、これらの値のいずれかに設定できます。
 
 > [!IMPORTANT]
-> **[Passwordbox](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)** の**[inputscope](/uwp/api/windows.ui.xaml.controls.passwordbox.inputscope)** プロパティでサポートされるのは、**パスワード**と**numericpin**の値のみです。 それ以外の値はすべて無視されます。
+> **[Passwordbox](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)** の **[inputscope](/uwp/api/windows.ui.xaml.controls.passwordbox.inputscope)** プロパティでサポートされるのは、 **パスワード** と **numericpin** の値のみです。 それ以外の値はすべて無視されます。
 
 ここでは、各テキスト ボックスで予期されるデータと一致するように、いくつかのテキスト ボックスの入力値の種類を変更します。
 
@@ -125,7 +125,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 
 -   [**IsTextPredictionEnabled**](/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled): テキスト コントロールで予測入力が有効である場合は、入力開始時に予測される単語の一覧が表示されます。 一覧から選択できるため、単語全体を入力しなくても済みます。 予測入力は既定で有効になっています。
 
-    入力値の種類が **Default** 以外のとき、[**IsTextPredictionEnabled**](/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled) プロパティが **true** であっても、予測入力が無効になる場合があります。 詳しくは、このトピックの後半にある表をご覧ください。
+    入力値の種類が **Default** 以外のとき、 [**IsTextPredictionEnabled**](/uwp/api/windows.ui.xaml.controls.textbox.istextpredictionenabled) プロパティが **true** であっても、予測入力が無効になる場合があります。 詳しくは、このトピックの後半にある表をご覧ください。
 
 -   [**PreventKeyboardDisplayOnProgrammaticFocus**](/uwp/api/windows.ui.xaml.controls.textbox.preventkeyboarddisplayonprogrammaticfocus): このプロパティが **true** の場合は、プログラムによりフォーカスがテキスト コントロールに設定されていると、SIP が表示されなくなります。 代わりに、ユーザーがコントロールで操作するときにだけ、キーボードが表示されます。
 
@@ -134,7 +134,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 これらの表は、一般的な入力スコープ値の Windows ソフト入力パネル (SIP) のレイアウトを示しています。 **IsSpellCheckEnabled** プロパティや **IsTextPredictionEnabled** プロパティによって有効になっている機能に対する入力値の種類の影響が、入力値の種類ごとに説明されています。 これは、利用できる入力値の種類をすべて示したものではありません。
 
 > [!Tip] 
-> **&123**キーを押して数字と記号のレイアウトに変更し、 **abcd**キーを押してアルファベットレイアウトに変更することにより、アルファベットレイアウトと数字と記号の間でほとんどのタッチキーボードを切り替えることができます。
+> **&123** キーを押して数字と記号のレイアウトに変更し、 **abcd** キーを押してアルファベットレイアウトに変更することにより、アルファベットレイアウトと数字と記号の間でほとんどのタッチキーボードを切り替えることができます。
 
 ### <a name="default"></a>Default
 
@@ -143,10 +143,10 @@ phoneNumberTextBox.InputScope = new InputScope()
 既定の Windows タッチキーボード。
 
 ![既定の Windows タッチ キーボード](images/input-scopes/default.png)
-- スペルチェック: IsSpellCheckEnabled が**IsSpellCheckEnabled**  =  **true**の場合は有効、 **IsSpellCheckEnabled**  =  **false**の場合は無効
-- 自動修正: **IsSpellCheckEnabled**が  =  **true**の場合は enabled、 **IsSpellCheckEnabled**  =  **false**の場合は無効
-- 自動大文字小文字の自動設定: **IsSpellCheckEnabled**が true の場合に有効になり  =  **true**、 **IsSpellCheckEnabled**  =  **false**の場合は無効になります
-- テキスト予測: IsTextPredictionEnabled が**IsTextPredictionEnabled**  =  **true**の場合に有効、 **IsTextPredictionEnabled**  =  **false**の場合は無効
+- スペルチェック: IsSpellCheckEnabled が **IsSpellCheckEnabled**  =  **true** の場合は有効、 **IsSpellCheckEnabled**  =  **false** の場合は無効
+- 自動修正: **IsSpellCheckEnabled** が  =  **true** の場合は enabled、 **IsSpellCheckEnabled**  =  **false** の場合は無効
+- 自動大文字小文字の自動設定: **IsSpellCheckEnabled** が true の場合に有効になり  =  **true** 、 **IsSpellCheckEnabled**  =  **false** の場合は無効になります
+- テキスト予測: IsTextPredictionEnabled が **IsTextPredictionEnabled**  =  **true** の場合に有効、 **IsTextPredictionEnabled**  =  **false** の場合は無効
 
 ### <a name="currencyamountandsymbol"></a>CurrencyAmountAndSymbol
 
@@ -168,8 +168,8 @@ phoneNumberTextBox.InputScope = new InputScope()
 
 ![URL 用 Windows タッチ キーボード](images/input-scopes/url.png)
 
-- **.com** キーと ![Go キー](images/input-scopes/kbdgokey.png) (Go) キーがあります。 .Com キーを押しながら、追加のオプション (**.org**、 **.net**、リージョン固有のサフィックス) を表示し**ます。**
-- には、、、およびの各キーが含まれ**ます。** **-** **/**
+- **.com** キーと ![Go キー](images/input-scopes/kbdgokey.png) (Go) キーがあります。 .Com キーを押しながら、追加のオプション ( **.org** 、 **.net** 、リージョン固有のサフィックス) を表示し **ます。**
+- には、、、およびの各キーが含まれ **ます。** **-** **/**
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 既定では無効だが、有効にすることも可能
 - 大文字の自動設定: 既定では無効だが、有効にすることも可能
@@ -181,7 +181,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 `<TextBox InputScope="EmailSmtpAddress"/>`
 
 ![メール アドレス用の Windows タッチ キーボード](images/input-scopes/emailsmtpaddress.png)
-- には、 **@** および **.com** キーが含まれています。 .Com キーを押しながら、追加のオプション (**.org**、 **.net**、リージョン固有のサフィックス) を表示し**ます。**
+- には、 **@** および **.com** キーが含まれています。 .Com キーを押しながら、追加のオプション ( **.org** 、 **.net** 、リージョン固有のサフィックス) を表示し **ます。**
 - **_** とキーが含まれます。 **-**
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 既定では無効だが、有効にすることも可能
@@ -214,7 +214,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 `<TextBox InputScope="Search"/>`
 
 ![検索用 Windows タッチ キーボード](images/input-scopes/search.png)
-- **Enter**キーの代わりに**検索**キーを含めます。
+- **Enter** キーの代わりに **検索** キーを含めます。
 - スペル チェック: 既定では有効だが、無効にすることも可能
 - 自動修正: 既定では有効だが、無効にすることも可能
 - 大文字の自動設定: 常に無効
@@ -225,13 +225,13 @@ phoneNumberTextBox.InputScope = new InputScope()
 `<TextBox InputScope="SearchIncremental"/>`
 
 ![インクリメンタル検索用の Windows タッチキーボード](images/input-scopes/searchincremental.png)
-- **既定**と同じレイアウト
+- **既定** と同じレイアウト
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 常に無効
 - 大文字の自動設定: 常に無効
 - 予測入力: 常に無効
 
-### <a name="formula"></a>計算式
+### <a name="formula"></a>Formula
 
 `<TextBox InputScope="Formula"/>`
 
@@ -248,7 +248,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 `<TextBox InputScope="Chat"/>`
 
 ![既定の Windows タッチ キーボード](images/input-scopes/default.png)
-- **既定**と同じレイアウト
+- **既定** と同じレイアウト
 - スペル チェック: 既定では有効だが、無効にすることも可能
 - 自動修正: 既定では有効だが、無効にすることも可能
 - 大文字の自動設定: 既定では有効だが、無効にすることも可能
@@ -259,7 +259,7 @@ phoneNumberTextBox.InputScope = new InputScope()
 `<TextBox InputScope="NameOrPhoneNumber"/>`
 
 ![既定の Windows タッチ キーボード](images/input-scopes/default.png)
-- **既定**と同じレイアウト
+- **既定** と同じレイアウト
 - スペル チェック: 既定では無効だが、有効にすることも可能
 - 自動修正: 既定では無効だが、有効にすることも可能
 - 自動大文字小文字の自動設定: 既定では、有効にすることができます (各単語の最初の文字は大文字になります)。

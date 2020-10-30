@@ -1,5 +1,5 @@
 ---
-Description: タッチパッド用に最適化されているが、入力デバイス間で機能的に一貫性がある、直感的で独特なユーザー操作エクスペリエンスを備えた Windows アプリを作成します。
+description: タッチパッド用に最適化されているが、入力デバイス間で機能的に一貫性がある、直感的で独特なユーザー操作エクスペリエンスを備えた Windows アプリを作成します。
 title: タッチパッド操作
 ms.assetid: CEDEA30A-FE94-4553-A7FB-6C1FA44F06AB
 label: Touchpad interactions
@@ -8,19 +8,19 @@ keywords: タッチパッド, PTP, タッチ, ポインター, 入力, ユーザ
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 86c47a3a510f6ed0d865064e8d140c47c8dd9f78
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 6b0e0a7e45ee63d845a1d5b0057d00da11e01c18
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220435"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035095"
 ---
 # <a name="touchpad-design-guidelines"></a>タッチパッドの設計ガイドライン
 
 
 ユーザーがタッチパッドで操作できるようにアプリを設計します。 タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリのより小さいターゲットにも適しています。
 
- 
+ 
 
 ![タッチパッド](images/input-patterns/input-touchpad.jpg)
 
@@ -42,7 +42,7 @@ ms.locfileid: "91220435"
 
 タッチパッドは、間接的なマルチタッチ入力と、マウスのようなポインティング デバイスの精密入力を組み合わせたものです。 この組み合わせにより、タッチパッドはタッチに最適化された UI にも、生産性アプリとデスクトップ環境で使用される一般的に小さなターゲットにも適しています。 タッチ入力用に Windows アプリのデザインを最適化し、既定でタッチパッドのサポートを取得します。
 
-タッチパッドでサポートされている操作エクスペリエンスは複合的なので、[**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
+タッチパッドでサポートされている操作エクスペリエンスは複合的なので、 [**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを使って、タッチ入力の組み込みサポートの他にマウス スタイル UI コマンドも提供することをお勧めします。 たとえば、コンテンツをパンするだけでなく、"前へ" ボタンと "次へ" ボタンを使ってコンテンツのページをフリップできるようにします。
 
 このトピックで説明されているジェスチャとガイドラインを利用することで、アプリはタッチパッド入力を最小限のコードでシームレスにサポートできます。
 
@@ -70,7 +70,7 @@ ms.locfileid: "91220435"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">用語</th>
+<th align="left">期間</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -114,12 +114,12 @@ ms.locfileid: "91220435"
 </tbody>
 </table>
 
- 
+ 
 
 ## <a name="hardware"></a>ハードウェア
 
 
-マウス デバイス機能 ([**MouseCapabilities**](/uwp/api/Windows.Devices.Input.MouseCapabilities)) を照会して、タッチパッド ハードウェアから直接アクセスできるアプリ UI の要素を識別します。 タッチ入力とマウス入力の両方の UI を用意することをお勧めします。
+マウス デバイス機能 ( [**MouseCapabilities**](/uwp/api/Windows.Devices.Input.MouseCapabilities)) を照会して、タッチパッド ハードウェアから直接アクセスできるアプリ UI の要素を識別します。 タッチ入力とマウス入力の両方の UI を用意することをお勧めします。
 
 デバイス機能の照会について詳しくは、「[入力デバイスの識別](identify-input-devices.md)」をご覧ください。
 
@@ -139,7 +139,7 @@ ms.locfileid: "91220435"
 
 タッチパッド ポインターとして利用できる標準のカーソル セットが用意されています。 これらが要素のプライマリ操作を示すために使われます。
 
-標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 UWP アプリでは、[**PointerCursor**](/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使用して、カーソル画像を指定します。
+標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 UWP アプリでは、 [**PointerCursor**](/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使用して、カーソル画像を指定します。
 
 マウス カーソルをカスタマイズする必要がある場合は、以下のガイドラインに従ってください。
 

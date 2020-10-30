@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリを操作する方法をユーザーに指示する教育用のユーザーインターフェイス (UI) を設計します。
+description: Windows アプリを操作する方法をユーザーに指示する教育用のユーザーインターフェイス (UI) を設計します。
 title: 説明 UI のデザインのガイドライン
 label: Instructional UI
 template: detail.hbs
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: c87e2f06-339d-4413-b585-172752964f56
 ms.localizationpriority: medium
-ms.openlocfilehash: 47779a6d31d60fe87f639dfadd48275bfb15359e
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 5d9c59c300f5e8fd1ee5cc4233bedcceb1e3089c
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217125"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035155"
 ---
 # <a name="instructional-ui-guidelines"></a>説明 UI のガイドライン
 
@@ -61,11 +61,11 @@ ms.locfileid: "91217125"
 
     ![ムービー モーメント アプリの起動面](images/instructional-ui-movie.png)
 
--   **複雑なタスクの次の手順にユーザーを導く。** Windows メール アプリの受信トレイの下のヒントは、以前のメッセージにアクセスできるように、**[設定]** にユーザーを導きます。
+-   **複雑なタスクの次の手順にユーザーを導く。** Windows メール アプリの受信トレイの下のヒントは、以前のメッセージにアクセスできるように、 **[設定]** にユーザーを導きます。
 
     ![説明 UI のメッセージが表示された Windows メール アプリのスクリーン ショット (一部)](images/instructional-ui-mail-inbox.png)
 
-    ユーザーがメッセージをクリックすると、アプリの**設定**ポップアップが画面の右側に表示され、ユーザーがタスクを実行できるようになります。 次のスクリーン ショットは、ユーザーが説明 UI のメッセージをクリックする前後のメール アプリを示しています。
+    ユーザーがメッセージをクリックすると、アプリの **設定** ポップアップが画面の右側に表示され、ユーザーがタスクを実行できるようになります。 次のスクリーン ショットは、ユーザーが説明 UI のメッセージをクリックする前後のメール アプリを示しています。
 
     | 以前                                                               | これらの手順の完了後、                                                                                                        |
     |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|

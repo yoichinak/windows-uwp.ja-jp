@@ -1,17 +1,17 @@
 ---
-Description: 別のアプリが知的財産権を侵害していると考えられる場合の対処方法について説明します。
+description: 別のアプリが知的財産権を侵害していると考えられる場合の対処方法について説明します。
 title: 商標と著作権の保護
 ms.assetid: 61C4EEC0-AD4D-4828-ADEC-F18E99DD4FFC
 ms.date: 06/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 14dae80876e1e7a77151f4e814a8dcd06e039645
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: d3ae8467143dd1c254db20c237316e3984573242
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74259898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034975"
 ---
 # <a name="trademark-and-copyright-protection"></a>商標と著作権の保護
 
@@ -21,7 +21,7 @@ ms.locfileid: "74259898"
 ### <a name="1-how-may-i-report-an-infringement-of-my-intellectual-property-rights-within-a-windows-app"></a>1. Windows アプリ内の知的財産権が侵害されていることを報告するにはどうすればよいですか。
 
 
-次の[フォーム](https://support.microsoft.com/getsupport/hostpage.aspx?locale=EN-US&ln=EN-US&oaspworkflow=start_1.0.0.0&wfname=RAVCI&wf=0)を使用して、Windows アプリに関する著作権、商標、パブリシティー権の侵害申し立てを送信してください。 複数のアプリに関する著作権、商標権、または肖像権の侵害については、mktlegal@microsoft.com に申し立てを送信してください。 Microsoft の DMCA ポリシーに関する追加情報が必要な場合は、 [https://www.microsoft.com/info/cpyrtInfrg.aspx](https://www.microsoft.com/info/cpyrtInfrg.aspx)にアクセスしてください。
+次の[フォーム](https://support.microsoft.com/getsupport/hostpage.aspx?locale=EN-US&ln=EN-US&oaspworkflow=start_1.0.0.0&wfname=RAVCI&wf=0)を使用して、Windows アプリに関する著作権、商標、パブリシティー権の侵害申し立てを送信してください。 複数のアプリに関する著作権、商標権、または肖像権の侵害については、mktlegal@microsoft.com に申し立てを送信してください。 Microsoft の DMCA ポリシーに関する追加情報が必要な場合は、「」を参照してください [https://www.microsoft.com/info/cpyrtInfrg.aspx](https://www.microsoft.com/info/cpyrtInfrg.aspx) 。
 
 ### <a name="2-i-created-my-app-to-work-with-a-microsoft-productservice-may-i-use-the-microsoft-productservice-name-in-the-name-of-my-app"></a>2. Microsoft 製品/サービスと連携するアプリを作成しました。 アプリの名前に Microsoft 製品/サービスの名前を使用できますか。
 
@@ -63,9 +63,9 @@ Microsoft では、使用しないように強くお願いします。 ただし
 
 Microsoft からの通知を注意深く読み、指示に従ってください。 Microsoft からの通知には、問題を修正するために行った処置、申立人への不合意、ストアへのアプリの再申請の要求を通知するために従う具体的な手順が記載されていることがあります。
 
- 
+ 
 
- 
+ 
 
 
 

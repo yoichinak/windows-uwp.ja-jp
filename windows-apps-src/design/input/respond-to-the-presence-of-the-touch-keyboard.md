@@ -1,5 +1,5 @@
 ---
-Description: タッチ キーボードを表示または非表示にするときにアプリの UI を調整する方法について説明します。
+description: タッチ キーボードを表示または非表示にするときにアプリの UI を調整する方法について説明します。
 title: タッチ キーボードの表示への応答
 ms.assetid: 70C6130E-23A2-4F9D-88E7-7060062DA988
 label: Respond to the presence of the touch keyboard
@@ -7,12 +7,12 @@ template: detail.hbs
 keywords: キーボード, アクセシビリティ, ナビゲーション, フォーカス, テキスト, 入力, ユーザーの操作
 ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: 4af7e7533ebd985a22eedd2e11f35d8bf5f5dc8a
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: c3431fcafb86428ce5eddb8ea7a6b0187b64a5e5
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216905"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035085"
 ---
 # <a name="respond-to-the-presence-of-the-touch-keyboard"></a>タッチ キーボードの表示への応答
 
@@ -54,7 +54,7 @@ Windows アプリの開発に慣れていない場合は、以下のトピック
 
 - フォームに対する操作が行われている間はタッチ キーボードを表示します。
 
-- テキスト入力のコンテキストでフォーカスがテキスト入力フィールドから移動したときに、カスタムコントロールに適切な UI オートメーション [AutomationControlType](/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType) が割り当てられていることを確認します。 たとえば、テキスト入力シナリオの半ばでメニューを開くときに、キーボードを表示したままにするには、このメニューに Menu の **AutomationControlType** が必要です。
+- テキスト入力のコンテキストでフォーカスがテキスト入力フィールドから移動したときにキーボードの表示を持続させるには、カスタム コントロールに適切な UI オートメーションの [AutomationControlType](/uwp/api/Windows.UI.Xaml.Automation.Peers.AutomationControlType) を使います。 たとえば、テキスト入力シナリオの半ばでメニューを開くときに、キーボードを表示したままにするには、このメニューに Menu の **AutomationControlType** が必要です。
 
 - UI オートメーション プロパティを操作してタッチ キーボードを制御しないでください。 UI オートメーション プロパティの正確さに依存する他のアクセシビリティ ツールがあります。
 
@@ -62,7 +62,7 @@ Windows アプリの開発に慣れていない場合は、以下のトピック
 
     タッチキーボードは画面の大部分を occludes しているため、ユーザーがフォーム上のコントロールを移動すると、フォーカスが設定された入力フィールドが表示されるようになります。現在表示されていないコントロールも含まれます。
 
-    UI をカスタマイズする場合は、[**InputPane**](/uwp/api/Windows.UI.ViewManagement.InputPane) オブジェクトで公開される [Showing](/uwp/api/windows.ui.viewmanagement.inputpane.showing) イベントと [Hiding](/uwp/api/windows.ui.viewmanagement.inputpane.hiding) イベントを処理して、タッチ キーボードの表示について同様の動作を提供します。
+    UI をカスタマイズする場合は、 [**InputPane**](/uwp/api/Windows.UI.ViewManagement.InputPane) オブジェクトで公開される [Showing](/uwp/api/windows.ui.viewmanagement.inputpane.showing) イベントと [Hiding](/uwp/api/windows.ui.viewmanagement.inputpane.hiding) イベントを処理して、タッチ キーボードの表示について同様の動作を提供します。
 
     ![タッチ キーボードが表示または非表示になっているフォーム](images/touch-keyboard-pan1.png)
 
@@ -211,7 +211,7 @@ void Scenario2_ShowHideEvents::OnHiding(InputPane^ /*sender*/, InputPaneVisibili
 ## <a name="related-articles"></a>関連記事
 
 - [キーボード操作](keyboard-interactions.md)
-- [キーボードアクセシビリティ](../accessibility/keyboard-accessibility.md)
+- [キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)
 - [カスタム オートメーション ピア](../accessibility/custom-automation-peers.md)
 
 ### <a name="samples"></a>サンプル
