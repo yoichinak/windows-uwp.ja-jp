@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリをアクティブ化して1つのアクションを実行する音声コマンドを使用して、Cortana の基本的な機能を拡張します。
+description: Windows アプリをアクティブ化して1つのアクションを実行する音声コマンドを使用して、Cortana の基本的な機能を拡張します。
 title: Cortana の操作
 ms.assetid: 4C11A7CF-DA26-4CA1-A9B9-FE52670101F5
 label: Cortana
@@ -8,12 +8,12 @@ keywords: Cortana, Cortana のキャンバス, Cortana の設計, ユーザー �
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d79f62a98e30ef67743abd6a6dd00ce24d3fa13
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 270c3e4838c6edc3ac0aedc7092a545028ceff86
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220595"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032195"
 ---
 # <a name="cortana-interactions-in-windows-apps"></a>Windows アプリにおける Cortana のやり取り
 
@@ -37,6 +37,6 @@ Cortanaの機能とサービスに関する開発者向けドキュメントは�
 
 **サンプル**
 * [Cortana 音声コマンドのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CortanaVoiceCommand)
- 
+ 
 
- 
+ 

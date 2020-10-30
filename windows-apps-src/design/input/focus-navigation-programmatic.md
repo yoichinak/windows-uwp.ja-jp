@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリのキーボード、ゲームパッド、およびユーザー補助ツールを使用して、フォーカスナビゲーションをプログラムで管理する方法について説明します。
+description: Windows アプリのキーボード、ゲームパッド、およびユーザー補助ツールを使用して、フォーカスナビゲーションをプログラムで管理する方法について説明します。
 title: キーボード、ゲームパッド、アクセシビリティ ツールでのプログラムによるフォーカス ナビゲーション
 label: Programmatic focus navigation
 keywords: キーボード, ゲーム コントローラー, リモコン, ナビゲーション, ナビゲーション方法, 入力, ユーザーの操作, アクセシビリティ, 操作性
@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: ef2e62404766d822343537cea2aca8e512482093
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: b64eeafda6abe146d05e29d491850da3b36a1999
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220535"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032175"
 ---
 # <a name="programmatic-focus-navigation"></a>プログラムによるフォーカス ナビゲーション
 
@@ -329,4 +329,4 @@ private void OnLosingFocus(UIElement sender, LosingFocusEventArgs args)
 
 - [キーボード、ゲームパッド、リモコン、アクセシビリティ ツールのフォーカス ナビゲーション](focus-navigation.md)
 - [キーボード操作](keyboard-interactions.md)
-- [キーボードアクセシビリティ](../accessibility/keyboard-accessibility.md)
+- [キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)

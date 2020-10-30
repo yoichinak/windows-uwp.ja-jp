@@ -1,5 +1,5 @@
 ---
-Description: ローカルトースト通知を後で表示するようにスケジュールする方法について説明します。
+description: ローカルトースト通知を後で表示するようにスケジュールする方法について説明します。
 title: トースト通知をスケジュールする
 label: Schedule a toast notification
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 04/09/2020
 ms.topic: article
 keywords: windows 10、uwp、スケジュールされたトースト通知、scheduledtoastnotification、方法、クイックスタート、作業の開始、コードサンプル、チュートリアル
 ms.localizationpriority: medium
-ms.openlocfilehash: 8ef849490df82d7677e19d1f1619d98111611be3
-ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
+ms.openlocfilehash: 2a138458634f0246d7e6bed9d6d65c2479dac3c9
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92100310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030695"
 ---
 # <a name="schedule-a-toast-notification"></a>トースト通知をスケジュールする
 
@@ -23,14 +23,14 @@ ms.locfileid: "92100310"
 > [!IMPORTANT]
 > デスクトップアプリケーション (MSIX/スパースパッケージと従来のデスクトップの両方) には、通知を送信し、アクティブ化を処理するための手順が若干異なります。 次の手順に従ってください。ただし、は `ToastNotificationManager` `DesktopNotificationManagerCompat` [デスクトップアプリ](toast-desktop-apps.md) のドキュメントのクラスで置き換えてください。
 
-> **重要な api**: [scheduledtoastnotification クラス](/uwp/api/Windows.UI.Notifications.ScheduledToastNotification)
+> **重要な api** : [scheduledtoastnotification クラス](/uwp/api/Windows.UI.Notifications.ScheduledToastNotification)
 
 
 ## <a name="prerequisites"></a>前提条件
 
 このトピックを十分に理解するには、次のものが役立ちます。
 
-* トースト通知に関する用語と概念についての実用的知識。 詳細については、「 [トーストとアクションセンターの概要](/archive/blogs/tiles_and_toasts/toast-notification-and-action-center-overview-for-windows-10)」を参照してください。
+* トースト通知に関する用語と概念についての実用的知識。 詳しくは、[トーストとアクション センターの概要](/archive/blogs/tiles_and_toasts/toast-notification-and-action-center-overview-for-windows-10)に関するブログをご覧ください。
 * Windows 10 のトースト通知のコンテンツに関する知識。 詳しくは、[トースト コンテンツのドキュメント](adaptive-interactive-toasts.md)をご覧ください。
 * Windows 10 UWP アプリ プロジェクト
 

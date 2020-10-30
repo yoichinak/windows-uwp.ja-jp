@@ -1,17 +1,17 @@
 ---
-Description: Windows 10 に関する基本的な開発者の質問に対する回答について説明します。
+description: Windows 10 に関する基本的な開発者の質問に対する回答について説明します。
 title: Windows 10 開発者向け FAQ
 ms.topic: article
 ms.date: 06/02/2020
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: f321815658a1b59d941f8b2c0e1fa5aa0142b4f7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3cbf4570f34f464a000cc906d31456a1e5a33a29
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157676"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030525"
 ---
 # <a name="windows-10x-developer-faq"></a>Windows 10 開発者向け FAQ
 
@@ -33,7 +33,7 @@ Windows 10 は、デュアル画面デバイスで使用できるように最適
 
 ### <a name="does-this-replace-desktop-windows-10"></a>これにより、デスクトップの Windows 10 が置換されるのですか。
 
-不正解です。 Windows 10 は、Windows 10 のデスクトップリリースと並行してリリースされます。 Windows 10 のデスクトップリリースでは、最新のデスクトップアプリケーションのストーリーに対する拡張機能と機能強化が引き続き提供されます。 Windows 10 は、デュアルスクリーンプラットフォームをサポートするために最適化された別のプラットフォームです。
+いいえ。 Windows 10 は、Windows 10 のデスクトップリリースと並行してリリースされます。 Windows 10 のデスクトップリリースでは、最新のデスクトップアプリケーションのストーリーに対する拡張機能と機能強化が引き続き提供されます。 Windows 10 は、デュアルスクリーンプラットフォームをサポートするために最適化された別のプラットフォームです。
 
 ### <a name="when-will-windows-10x-be-released"></a>Windows 10 がリリースされるのはいつですか。
 

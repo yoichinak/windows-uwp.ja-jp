@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリのキーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからの入力をシミュレートし、自動化します。
+description: Windows アプリのキーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからの入力をシミュレートし、自動化します。
 title: 入力の挿入によるユーザー入力のシミュレート
 label: Input injection
 template: detail.hbs
@@ -7,18 +7,18 @@ keywords: デバイス, デジタイザー, 入力, 操作, 挿入
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: e4e1497ea30400c550cb0cbb2309801ff8145fd6
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 0cd1a56ca46c3e9ea401794ff5b9964545ce0c5d
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030125"
 ---
 # <a name="simulate-user-input-through-input-injection"></a>入力の挿入によるユーザー入力のシミュレート
 
 Windows アプリケーションのキーボード、マウス、タッチ、ペン、ゲームパッドなどのデバイスからのユーザー入力をシミュレートし、自動化します。
 
-> **Important APIs**: [**Windows.UI.Input.Preview.Injection**](/uwp/api/windows.ui.input.preview.injection)
+> **Important APIs** : [**Windows.UI.Input.Preview.Injection**](/uwp/api/windows.ui.input.preview.injection)
 
 ## <a name="overview"></a>概要
 

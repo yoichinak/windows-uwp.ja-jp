@@ -1,5 +1,5 @@
 ---
-Description: Windows Ink のストロークをテキストおよび図形として認識するのには、手書き認識とインクの分析を使います。
+description: Windows Ink のストロークをテキストおよび図形として認識するのには、手書き認識とインクの分析を使います。
 title: Windows Ink のストロークをテキストおよび図形として認識する
 ms.assetid: C2F3F3CE-737F-4652-98B7-5278A462F9D3
 label: Recognize Windows Ink strokes as text
@@ -8,22 +8,22 @@ keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkC
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 66b5303d65e1fefbf3eb8a156ce4ca4c10afda96
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: ec0d3907f5f30ca224a6f2274422cdfec22c592d
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220565"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032245"
 ---
 # <a name="recognize-windows-ink-strokes-as-text-and-shapes"></a>Windows Ink のストロークをテキストおよび図形として認識する
 
 Windows Ink に組み込まれている認識機能により、インク ストロークをテキストと図形に変換します。
 
-> **重要な API**: [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、[**Windows.UI.Input.Inking**](/uwp/api/Windows.UI.Input.Inking)
+> **重要な API** : [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、 [**Windows.UI.Input.Inking**](/uwp/api/Windows.UI.Input.Inking)
 
 ## <a name="free-form-recognition-with-ink-analysis"></a>インクの分析による自由形式の認識
 
-ここでは、Windows Ink の分析エンジン ([Windows.UI.Input.Inking.Analysis](/uwp/api/windows.ui.input.inking.analysis)) を使って、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) での一連の自由形式のストロークを分類、分析し、テキストまたは図形として認識する方法を示します。 (テキストおよび図形の認識に加えて、ドキュメント構造、箇条書き、および汎用的な描画の認識にもインクの分析を使うことができます。)
+ここでは、Windows Ink の分析エンジン ( [Windows.UI.Input.Inking.Analysis](/uwp/api/windows.ui.input.inking.analysis)) を使って、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) での一連の自由形式のストロークを分類、分析し、テキストまたは図形として認識する方法を示します。 (テキストおよび図形の認識に加えて、ドキュメント構造、箇条書き、および汎用的な描画の認識にもインクの分析を使うことができます。)
 
 > [!NOTE]
 > フォーム入力など、基本的な単一行のプレーン テキスト シナリオの場合、後述の「[制約付き手書き認識](#constrained-handwriting-recognition)」をご覧ください。
@@ -34,7 +34,7 @@ Windows Ink に組み込まれている認識機能により、インク スト�
 
 1. まず、UI を設定します (MainPage.xaml)。 
 
-   UI には、[Recognize] ボタン、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、標準的な [**Canvas**](/uwp/api/windows.ui.xaml.controls.canvas) があります。 [Recognize] ボタンが押されると、インク キャンバスにおけるすべてのインク ストロークが分析され、(認識された場合は) 対応する図形とテキストが標準のキャンバスに描画されます。 次に、元のインク ストロークがインク キャンバスから削除されます。
+   UI には、[Recognize] ボタン、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、標準的な [**Canvas**](/uwp/api/windows.ui.xaml.controls.canvas) があります。 [Recognize] ボタンが押されると、インク キャンバスにおけるすべてのインク ストロークが分析され、(認識された場合は) 対応する図形とテキストが標準のキャンバスに描画されます。 次に、元のインク ストロークがインク キャンバスから削除されます。
 
    ```xaml
    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -78,8 +78,8 @@ Windows Ink に組み込まれている認識機能により、インク スト�
    ```
 
 4. 次に、基本的なインク入力の動作をいくつか設定します。
-    - [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペン、マウス、タッチからの入力データをインク ストローク ([**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 
-    - インク ストロークは、指定した [**InkDrawingAttributes**](/windows/desktop/tablet/inkdrawingattributes-class) を使って、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングされます。 
+    - [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペン、マウス、タッチからの入力データをインク ストローク ( [**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 
+    - インク ストロークは、指定した [**InkDrawingAttributes**](/windows/desktop/tablet/inkdrawingattributes-class) を使って、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングされます。 
     - [Recognize] ボタンのクリック イベントのリスナーも宣言します。
 
     ```csharp
@@ -109,11 +109,11 @@ Windows Ink に組み込まれている認識機能により、インク スト�
     ```
 
 5. この例では、[Recognize] ボタンのクリック イベント ハンドラーでインクの分析を実行します。
-    - まず、[**InkCanvas.InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.InkPresenter) の [**StrokeContainer**](/uwp/api/windows.ui.input.inking.inkpresenter.StrokeContainer) で [**GetStrokes**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.GetStrokes) を呼び出して、現在のインク ストロークすべてのコレクションを取得します。
+    - まず、 [**InkCanvas.InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.InkPresenter) の [**StrokeContainer**](/uwp/api/windows.ui.input.inking.inkpresenter.StrokeContainer) で [**GetStrokes**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.GetStrokes) を呼び出して、現在のインク ストロークすべてのコレクションを取得します。
     - インク ストロークが存在する場合、InkAnalyzer の [**AddDataForStrokes**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer#Windows_UI_Input_Inking_Analysis_InkAnalyzer_AddDataForStrokes_Windows_Foundation_Collections_IIterable_Windows_UI_Input_Inking_InkStroke__) への呼び出しでそれを渡します。
-    - ここでは描画とテキストの両方を認識しようとしていますが、[**SetStrokeDataKind**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.setstrokedatakind) メソッドを使って、テキストのみを認識する (ドキュメント構造と箇条書きを含む) か、または描画のみを認識する (図形の認識を含む) かを指定できます。
-    - [**AnalyzeAsync**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.AnalyzeAsync) を呼び出してインクの分析を初期化し、[**InkAnalysisResult**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult) を取得します。
-    - [**Status**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult.Status) が **Updated** の状態を返す場合、[**InkAnalysisNodeKind.InkWord**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisnodekind) と [**InkAnalysisNodeKind.InkDrawing**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisnodekind) の両方の [**FindNodes**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisroot.findnodes) を呼び出します。
+    - ここでは描画とテキストの両方を認識しようとしていますが、 [**SetStrokeDataKind**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.setstrokedatakind) メソッドを使って、テキストのみを認識する (ドキュメント構造と箇条書きを含む) か、または描画のみを認識する (図形の認識を含む) かを指定できます。
+    - [**AnalyzeAsync**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.AnalyzeAsync) を呼び出してインクの分析を初期化し、 [**InkAnalysisResult**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult) を取得します。
+    - [**Status**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult.Status) が **Updated** の状態を返す場合、 [**InkAnalysisNodeKind.InkWord**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisnodekind) と [**InkAnalysisNodeKind.InkDrawing**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisnodekind) の両方の [**FindNodes**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisroot.findnodes) を呼び出します。
     - ノードの種類の両方のセットを反復処理し、(インク キャンバスの下にある) 認識キャンバスで対応するテキストや図形を描画します。
     - 最後に、認識されたノードを InkAnalyzer から削除し、対応するインク ストロークをインク キャンバスから削除します。
 
@@ -285,7 +285,7 @@ Windows Ink に組み込まれている認識機能により、インク スト�
 
 前のセクション ([インクの分析による自由形式の認識](#free-form-recognition-with-ink-analysis)) では、[インクの分析 API](/uwp/api/windows.ui.input.inking.analysis) を使用して分析を行い、InkCanvas 領域内の任意のインク ストロークを認識する方法を説明しました。
 
-このセクションでは、(インクの分析ではなく) Windows Ink 手書き認識エンジンを使って、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 上の一連のストロークを、(インストールされた既定の言語パックに基づいて) テキストに変換する方法を説明します。
+このセクションでは、(インクの分析ではなく) Windows Ink 手書き認識エンジンを使って、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 上の一連のストロークを、(インストールされた既定の言語パックに基づいて) テキストに変換する方法を説明します。
 
 > [!NOTE]
 > このセクションに示す基本的な手書き認識は、フォームの入力など、単一行のテキスト入力シナリオに最適です。 ドキュメント構造、リスト項目、図形、描画 (テキスト認識に加えて) の分析と解釈を含むより高度な認識シナリオの場合は、前のセクションの「[インクの分析による自由形式の認識](#free-form-recognition-with-ink-analysis)」をご覧ください。
@@ -296,7 +296,7 @@ Windows Ink に組み込まれている認識機能により、インク スト�
 
 1. まず、UI を設定します。
 
-   UI には、[Recognize] ボタン、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、認識結果を表示する領域を用意します。    
+   UI には、[Recognize] ボタン、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、認識結果を表示する領域を用意します。    
 
    ```xaml
    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -335,7 +335,7 @@ Windows Ink に組み込まれている認識機能により、インク スト�
 
 3. 次に、基本的なインク入力の動作をいくつか設定します。
 
-    [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 インク ストロークは、指定した [**InkDrawingAttributes**](/windows/desktop/tablet/inkdrawingattributes-class) を使って、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングされます。 [Recognize] ボタンのクリック イベントのリスナーも宣言します。
+    [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ( [**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 インク ストロークは、指定した [**InkDrawingAttributes**](/windows/desktop/tablet/inkdrawingattributes-class) を使って、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングされます。 [Recognize] ボタンのクリック イベントのリスナーも宣言します。
 
     ```csharp
     public MainPage()
@@ -361,14 +361,14 @@ Windows Ink に組み込まれている認識機能により、インク スト�
 
 4. 最後に、基本的な手書き認識を実行します。 この例では、[Recognize] ボタンのクリック イベント ハンドラーを使って、手書き認識を実行します。
 
-   - [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってすべてのインク ストロークが [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) オブジェクトに格納されます。 インク ストロークを **InkPresenter** の [**StrokeContainer**](/uwp/api/windows.ui.input.inking.inkpresenter.strokecontainer) プロパティを介して公開し、[**GetStrokes**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.getstrokes) メソッドを使って取得します。 
+   - [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってすべてのインク ストロークが [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) オブジェクトに格納されます。 インク ストロークを **InkPresenter** の [**StrokeContainer**](/uwp/api/windows.ui.input.inking.inkpresenter.strokecontainer) プロパティを介して公開し、 [**GetStrokes**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.getstrokes) メソッドを使って取得します。 
 
     ```csharp
     // Get all strokes on the InkCanvas.
         IReadOnlyList<InkStroke> currentStrokes = inkCanvas.InkPresenter.StrokeContainer.GetStrokes();
     ```
 
-    - 手書き認識プロセスの管理用に、[**InkRecognizerContainer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizerContainer) を作成します。
+    - 手書き認識プロセスの管理用に、 [**InkRecognizerContainer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizerContainer) を作成します。
 
     ```csharp
     // Create a manager for the InkRecognizer object
@@ -477,27 +477,28 @@ Windows Ink に組み込まれている認識機能により、インク スト�
 
 Windows のインク プラットフォームに組み込まれている手書き認識には、Windows がサポートするロケールと言語の詳細なサブセットが含まれています。
 
-[**InkRecognizer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizer) によってサポートされている言語の一覧については、[**InkRecognizer.Name**](/uwp/api/windows.ui.input.inking.inkrecognizer.name) プロパティに関するトピックをご覧ください。
+[**InkRecognizer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizer) によってサポートされている言語の一覧については、 [**InkRecognizer.Name**](/uwp/api/windows.ui.input.inking.inkrecognizer.name) プロパティに関するトピックをご覧ください。
 
 アプリでは、インストール済みの一連の手書き認識エンジンを照会し、それらのいずれかを使うか、ユーザーが好きな言語を選べるようにできます。
 
-**メモ**   インストールされている言語の一覧を表示するには、**設定 &gt; 時 & 言語**] に移動します。 インストールされている言語は [ **言語**] の下に表示されます。
+**注**  
+インストールされている言語の一覧を表示するには、 **設定 &gt; 時 & 言語** ] に移動します。 インストールされている言語は [ **言語** ] の下に表示されます。
 
 新しい言語パックをインストールし、その言語の手書き認識を有効にするには、次の手順に従ってください。
 
-1. [設定] [ ** &gt; タイム & &gt; 言語**] [言語] [言語] &
+1. [設定] [ **&gt; タイム & &gt; 言語** ] [言語] [言語] &
 2. **[言語の追加]** を選びます。
 3. 一覧で言語を選んでから、地域のバージョンを選びます。 これで、選んだ言語が **[地域と言語]** ページに表示されます。
-4. 言語をクリックし、**[オプション]** を選びます。
-5. **[言語のオプション]** ページで、**手書き認識エンジン**をダウンロードします (完全言語パック、音声認識エンジン、キーボード レイアウトもダウンロードできます)。
+4. 言語をクリックし、 **[オプション]** を選びます。
+5. **[言語のオプション]** ページで、 **手書き認識エンジン** をダウンロードします (完全言語パック、音声認識エンジン、キーボード レイアウトもダウンロードできます)。
 
-ここでは、選ばれた手書き認識エンジンを使って、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) での一連のインク ストロークを解釈する方法を示します。
+ここでは、選ばれた手書き認識エンジンを使って、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) での一連のインク ストロークを解釈する方法を示します。
 
 認識は、ユーザーが手書きの終了時にボタンをクリックすると開始されます。
 
 1. まず、UI を設定します。
 
-   UI には、[Recognize] ボタン、インストール済みの手書き認識エンジンの一覧を表示するコンボ ボックス、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、認識結果を表示する領域を用意します。
+   UI には、[Recognize] ボタン、インストール済みの手書き認識エンジンの一覧を表示するコンボ ボックス、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)、認識結果を表示する領域を用意します。
 
     ```xaml
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -543,7 +544,7 @@ Windows のインク プラットフォームに組み込まれている手書�
 
 2. 次に、基本的なインク入力の動作をいくつか設定します。
 
-   [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ([**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 インク ストロークは、指定した [**InkDrawingAttributes**](/windows/desktop/tablet/inkdrawingattributes-class) を使って、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングされます。
+   [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) は、ペンとマウスのいずれからの入力データもインク ストローク ( [**InputDeviceTypes**](/uwp/api/windows.ui.input.inking.inkpresenter.inputdevicetypes)) として解釈するように構成します。 インク ストロークは、指定した [**InkDrawingAttributes**](/windows/desktop/tablet/inkdrawingattributes-class) を使って、 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) にレンダリングされます。
 
    `InitializeRecognizerList` 関数を呼び出して、インストール済みの手書き認識エンジンの一覧を認識エンジン コンボ ボックスに入れます。
 
@@ -580,7 +581,7 @@ Windows のインク プラットフォームに組み込まれている手書�
 
 3. インストール済みの手書き認識エンジンの一覧を認識エンジン コンボ ボックスに入れます。
 
-   手書き認識プロセスの管理用に、[**InkRecognizerContainer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizerContainer) を作成します。 このオブジェクトを使って、[**GetRecognizers**](/uwp/api/windows.ui.input.inking.inkrecognizercontainer.getrecognizers) を呼び出し、インストール済みの手書き認識エンジンの一覧を取得して、認識エンジン コンボ ボックスに入れます。
+   手書き認識プロセスの管理用に、 [**InkRecognizerContainer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizerContainer) を作成します。 このオブジェクトを使って、 [**GetRecognizers**](/uwp/api/windows.ui.input.inking.inkrecognizercontainer.getrecognizers) を呼び出し、インストール済みの手書き認識エンジンの一覧を取得して、認識エンジン コンボ ボックスに入れます。
 
     ```csharp
     // Populate the recognizer combo box with installed recognizers.
@@ -602,7 +603,7 @@ Windows のインク プラットフォームに組み込まれている手書�
     
 4. 認識エンジン コンボ ボックスの選択が変更されていれば、手書き認識エンジンを更新します。
 
-   [**InkRecognizerContainer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizerContainer) を使って、認識エンジン コンボ ボックスから選ばれた認識エンジンに基づいて、[**SetDefaultRecognizer**](/uwp/api/windows.ui.input.inking.inkrecognizercontainer.setdefaultrecognizer) を呼び出します。
+   [**InkRecognizerContainer**](/uwp/api/Windows.UI.Input.Inking.InkRecognizerContainer) を使って、認識エンジン コンボ ボックスから選ばれた認識エンジンに基づいて、 [**SetDefaultRecognizer**](/uwp/api/windows.ui.input.inking.inkrecognizercontainer.setdefaultrecognizer) を呼び出します。
 
     ```csharp
     // Handle recognizer change.
@@ -616,7 +617,7 @@ Windows のインク プラットフォームに組み込まれている手書�
 
 5. 最後に、選ばれた手書き認識エンジンに基づいて、手書き認識を実行します。 この例では、[Recognize] ボタンのクリック イベント ハンドラーを使って、手書き認識を実行します。
 
-   - [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってすべてのインク ストロークが [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) オブジェクトに格納されます。 インク ストロークを **InkPresenter** の [**StrokeContainer**](/uwp/api/windows.ui.input.inking.inkpresenter.strokecontainer) プロパティを介して公開し、[**GetStrokes**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.getstrokes) メソッドを使って取得します。
+   - [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) によってすべてのインク ストロークが [**InkStrokeContainer**](/uwp/api/Windows.UI.Input.Inking.InkStrokeContainer) オブジェクトに格納されます。 インク ストロークを **InkPresenter** の [**StrokeContainer**](/uwp/api/windows.ui.input.inking.inkpresenter.strokecontainer) プロパティを介して公開し、 [**GetStrokes**](/uwp/api/windows.ui.input.inking.inkstrokecontainer.getstrokes) メソッドを使って取得します。
 
     ```csharp
     // Get all strokes on the InkCanvas.
@@ -736,7 +737,7 @@ Windows のインク プラットフォームに組み込まれている手書�
     DispatcherTimer recoTimer;
     ```
 
-2. 音声認識を開始するボタンを用意する代わりに、[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の 2 つのストローク イベント ([**StrokesCollected**](/uwp/api/windows.ui.input.inking.inkpresenter.strokescollected) と [**StrokeStarted**](/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted)) のリスナーを追加し、基本的なタイマー ([**DispatcherTimer**](/uwp/api/Windows.UI.Xaml.DispatcherTimer)) の [**Tick**](/uwp/api/windows.ui.xaml.dispatchertimer.tick) 間隔を 1 秒に設定します。
+2. 音声認識を開始するボタンを用意する代わりに、 [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) の 2 つのストローク イベント ( [**StrokesCollected**](/uwp/api/windows.ui.input.inking.inkpresenter.strokescollected) と [**StrokeStarted**](/uwp/api/windows.ui.input.inking.inkstrokeinput.strokestarted)) のリスナーを追加し、基本的なタイマー ( [**DispatcherTimer**](/uwp/api/Windows.UI.Xaml.DispatcherTimer)) の [**Tick**](/uwp/api/windows.ui.xaml.dispatchertimer.tick) 間隔を 1 秒に設定します。
 
     ```csharp
     public MainPage()
@@ -769,7 +770,7 @@ Windows のインク プラットフォームに組み込まれている手書�
 3. 次に、最初のステップで定義した InkPresenter イベントのハンドラーを定義することができます (さらに [**OnNavigatingFrom**](/uwp/api/windows.ui.xaml.controls.page.onnavigatingfrom) ページ イベントを上書きしてタイマーを管理します)。
 
     - [**StrokesCollected**](/uwp/api/windows.ui.input.inking.inkpresenter.strokescollected)  
-    InkAnalyzer にインク ストロークを追加 ([**AddDataForStrokes**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.adddataforstrokes)) し、(ユーザーがペンを持ち上げるか、マウス ボタンから指を離すことで) インク入力を止めると、認識タイマーを開始します。 インク入力がなくなってから 1 秒後に、認識を開始します。  
+    InkAnalyzer にインク ストロークを追加 ( [**AddDataForStrokes**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.adddataforstrokes)) し、(ユーザーがペンを持ち上げるか、マウス ボタンから指を離すことで) インク入力を止めると、認識タイマーを開始します。 インク入力がなくなってから 1 秒後に、認識を開始します。  
 
         [**SetStrokeDataKind**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.setstrokedatakind) メソッドを使って、テキストのみを認識する (ドキュメント構造と箇条書きを含む) か、または描画のみを認識する (図形の認識を含む) かを指定できます。
 
@@ -814,9 +815,9 @@ Windows のインク プラットフォームに組み込まれている手書�
     }
     ```
 
-4. 最後に、手書き認識を実行します。 この例では、[**DispatcherTimer**](/uwp/api/Windows.UI.Xaml.DispatcherTimer) の [**Tick**](/uwp/api/windows.ui.xaml.dispatchertimer.tick) イベント ハンドラーを使って、手書き認識を開始します。
-    - [**AnalyzeAsync**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.AnalyzeAsync) を呼び出してインクの分析を初期化し、[**InkAnalysisResult**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult) を取得します。
-    - [**Status**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult.Status) が **Updated** の状態を返す場合、[**InkAnalysisNodeKind.InkWord**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisnodekind) のノードの種類の [**FindNodes**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisroot.findnodes) を呼び出します。
+4. 最後に、手書き認識を実行します。 この例では、 [**DispatcherTimer**](/uwp/api/Windows.UI.Xaml.DispatcherTimer) の [**Tick**](/uwp/api/windows.ui.xaml.dispatchertimer.tick) イベント ハンドラーを使って、手書き認識を開始します。
+    - [**AnalyzeAsync**](/uwp/api/windows.ui.input.inking.analysis.inkanalyzer.AnalyzeAsync) を呼び出してインクの分析を初期化し、 [**InkAnalysisResult**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult) を取得します。
+    - [**Status**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisresult.Status) が **Updated** の状態を返す場合、 [**InkAnalysisNodeKind.InkWord**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisnodekind) のノードの種類の [**FindNodes**](/uwp/api/windows.ui.input.inking.analysis.inkanalysisroot.findnodes) を呼び出します。
     - ノードを反復処理して、認識されたテキストを表示します。
     - 最後に、認識されたノードを InkAnalyzer から削除し、対応するインク ストロークをインク キャンバスから削除します。
 

@@ -1,17 +1,17 @@
 ---
-Description: リソースを要求すると、現在のリソース コンテキストにある程度一致するリソース候補がいくつか存在する場合があります。 リソース管理システムはすべての候補を分析して、返すのに最もよい候補を決定します。 このトピックでは、そのプロセスの詳細について説明し、例を示します。
+description: リソースを要求すると、現在のリソース コンテキストにある程度一致するリソース候補がいくつか存在する場合があります。 リソース管理システムはすべての候補を分析して、返すのに最もよい候補を決定します。 このトピックでは、そのプロセスの詳細について説明し、例を示します。
 title: リソース管理システムでのリソースの照合と選択の仕組み
 template: detail.hbs
 ms.date: 10/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: de34411d9c7d226857214472e691dd6b41f10a18
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d430aae696b0f021e2412a73f137ea6db826937b
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57593887"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031855"
 ---
 # <a name="how-the-resource-management-system-matches-and-chooses-resources"></a>リソース管理システムでのリソースの照合と選択の仕組み
 リソースを要求すると、現在のリソース コンテキストにある程度一致するリソース候補がいくつか存在する場合があります。 リソース管理システムはすべての候補を分析して、返すのに最もよい候補を決定します。 これはすべての修飾子を考慮して、すべての候補をランク付けすることで実行されます。
@@ -20,7 +20,7 @@ ms.locfileid: "57593887"
 
 言語タグの照合のしくみの詳細については、「[リソース管理システムでの言語タグの照合の仕組み](how-rms-matches-lang-tags.md)」を参照してください。
 
-スケールやコントラストのような修飾子の場合、常に最低限の一致が存在します。 たとえば、「スケール 100」と「スケール 400」のコンテキストが一致する小規模な程度を修飾しないものの、候補だけでなく「スケール 200」または完全に一致する) (「スケール ~ 400」に適した候補です。
+スケールやコントラストのような修飾子の場合、常に最低限の一致が存在します。 たとえば、"scale-400" というコンテキストに対して、"scale-100" で修飾された候補は、"scale-200" または (完全一致の) "scale-400" で修飾された候補ほどではなくても、ある程度は一致します。
 
 しかし、言語や住んでいる地域のような修飾子の場合、比較してもまったく一致しないことがあります (ある程度の一致の他に)。 たとえば、言語が "en-US" で修飾された候補は、"en-GB" というコンテキストに対して部分的に一致しますが、"fr" で修飾された候補はまったく一致しません。 同様に、住んでいる地域が "155" (西欧) で修飾された候補は、住んでいる地域の設定が "FR" のユーザーのコンテキストにある程度一致しますが、"US" で修飾された候補はまったく一致しません。
 
@@ -80,7 +80,7 @@ en/images/logo.scale-100.jpg
 en/images/logo.scale-400.jpg
 ```
 
-高度な [**NamedResource.ResolveAll**](/uwp/api/windows.applicationmodel.resources.core.namedresource.resolveall?branch=live) メソッドを使うと、コンテキスト設定に一致する順にすべての候補を取得できます。 前述の例では、**ResolveAll** は次の順序で候補を返します。
+高度な [**NamedResource.ResolveAll**](/uwp/api/windows.applicationmodel.resources.core.namedresource.resolveall?branch=live) メソッドを使うと、コンテキスト設定に一致する順にすべての候補を取得できます。 前述の例では、 **ResolveAll** は次の順序で候補を返します。
 
 ```console
 en/images/logo.scale-400.jpg

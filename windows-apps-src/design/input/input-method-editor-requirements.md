@@ -1,5 +1,5 @@
 ---
-Description: カスタム入力方式エディター (IME) を開発します。ユーザーは、標準の QWERTY キーボードで簡単に表現できない言語のテキストを入力できます。
+description: カスタム入力方式エディター (IME) を開発します。ユーザーは、標準の QWERTY キーボードで簡単に表現できない言語のテキストを入力できます。
 title: IME (Input Method Editor) の要件
 label: Input Method Editor (IME) requirements
 template: detail.hbs
@@ -7,12 +7,12 @@ keywords: ime、Input Method Editor、入力、対話
 ms.date: 07/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a34c15826bff757b7c4277b87cc5fed53a6f109
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 74c223aefa525bb6109521c8b91a9a849e2f5586
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030135"
 ---
 # <a name="custom-input-method-editor-ime-requirements"></a>IME (カスタム入力方式エディター) の要件
 
@@ -22,13 +22,13 @@ Ime の概要については、「 [Input Method Editor (ime)](input-method-edit
 
 ## <a name="default-ime"></a>既定の IME
 
-ユーザーは任意のアクティブな Ime を選択できます (**設定 > 時刻 & 言語-> 言語-> 優先 > 言語**-言語パック-オプション)。優先する言語の既定の ime になります。
+ユーザーは任意のアクティブな Ime を選択できます ( **設定 > 時刻 & 言語-> 言語-> 優先 > 言語** -言語パック-オプション)。優先する言語の既定の ime になります。
 
 :::image type="content" source="images/IMEs/ime-preferred-languages.png" alt-text="優先する言語設定":::
 
 [言語オプション] の [設定] 画面で、優先する言語の既定のキーボードを選択します。
 
-:::image type="content" source="images/IMEs/ime-preferred-languages-keyboard.png" alt-text="優先言語キーボード":::
+:::image type="content" source="images/IMEs/ime-preferred-languages-keyboard.png" alt-text="優先する言語設定":::
 
 > [!Important]
 > カスタム IME の既定のキーボードを設定するために、レジストリに直接書き込むことはお勧めしません。
@@ -147,37 +147,7 @@ if (ToUnicode(VK_PACKET, 0, abKbdState, &wch, 1, 0) == 1)
 
 検索機能を使用して検索機能をユーザーに提供し、検索ウィンドウと統合します。
 
-:::image type="content" source="images/IMEs/ime-search-pane.png" alt-text="検索ウィンドウと IME の候補":::<br/>
-*検索ウィンドウと IME の候補*
-
-検索ウィンドウは、ユーザーがすべてのアプリで検索を実行できるようにするための一元的な場所です。 IME ユーザーの場合、Windows は、互換性のある Ime を Windows と統合して効率と使いやすさを向上させるための一意の検索エクスペリエンスを提供します。
-
-検索と互換性のある IME を入力したユーザーには、次の2つの主な利点があります。
-
-- IME と検索エクスペリエンスのシームレスな相互作用。 IME 候補は検索ボックスの下にインラインで表示され、occluding 検索候補は表示されません。 ユーザーはキーボードを使用して、検索ボックス、IME 変換候補、および検索候補の間をシームレスに移動できます。
-- アプリケーションによって提供される、関連する結果や提案にすばやくアクセスできます。 アプリは、現在のすべての変換候補にアクセスして、より関連性の高い候補を提供します。 検索候補の優先順位を向上させるために、変換は関連性の高い順にアプリに与えられます。 ユーザーは、[発音] を入力するだけで、変換せずに必要な結果を検索して選択します。
-
-IME は、次の条件を満たしている場合、統合された検索エクスペリエンスと互換性があります。
-
-- Windows スタイルシェルと互換性があります。
-- TSF UILess mode Api を実装します。 詳細については、「 [UILess モードの概要](/windows/win32/tsf/uiless-mode-overview)」を参照してください。
-- TSF 検索統合 Api、 [ITfFnSearchCandidateProvider](/windows/win32/api/ctffunc/nn-ctffunc-itffnsearchcandidateprovider) 、および [ITfIntegratableCandidateListUIElement](/windows/win32/api/ctffunc/nn-ctffunc-itfintegratablecandidatelistuielement)を実装します。
-
-検索ウィンドウでアクティブ化すると、互換性のある IME は UIless モードで配置され、UI を表示できません。 代わりに、前のスクリーンショットに示したように、変換候補を Windows に送信して、インライン候補リストコントロールに表示します。
-
-また、IME は、現在の検索を実行するために使用する候補を送信します。 これらの候補は、変換の候補と同じにすることも、検索用にカスタマイズすることもできます。
-
-適切な検索候補は、次の条件を満たしています。
-
-- プレフィックスが重複していません。 たとえば、北京大学 and北京は、もう一方のプレフィックスであるため、冗長です。
-- 重複候補はありません。 重複候補は、結果のフィルター処理に役立たないので、検索には役立ちません。 たとえば、北京大学に一致する結果も北京に一致します。
-- 予測候補はありません。変換のみです。 たとえば、ユーザーが「be」と入力した場合、IME は北を候補として返すことができますが、北京大学は返しません。 通常、予測候補には制限があります。
-
-条件を満たしていない Ime は、他のコントロールと同じように検索の表示と互換性がありません。また、UI の統合と検索候補を利用することもできません。 アプリは、ユーザーの作成が完了した後にのみクエリを受信します。
-
-検索コントラクトをサポートするアプリがクエリを受け取ると、クエリイベントには "queryTextAlternatives" 配列が含まれます。この配列には、最も関連性の高いものから最も関連性が低いものから順に順位付けされた既知の代替候補がすべて含まれています。
-
-代替手段が提供されている場合、アプリは各代替手段をクエリとして処理し、任意の代替候補に一致するすべての結果を返す必要があります。 アプリは、ユーザーが同時に複数のクエリを発行した場合と同じように動作し、結果を提供するサービスに対して "or" クエリを本質的に発行します。 パフォーマンス上の考慮事項として、アプリでは、最も関連性の高い代替手段のうちの 5 ~ 20 までの一致を制限することがよくあります。
+:::image type="content" source="images/IMEs/ime-search-pane.png" alt-text="優先する言語設定" クエリを本質的に発行します。 パフォーマンス上の考慮事項として、アプリでは、最も関連性の高い代替手段のうちの 5 ~ 20 までの一致を制限することがよくあります。
 
 ## <a name="ui-design-guidelines"></a>UI デザインのガイドライン
 
@@ -208,9 +178,9 @@ IME モードのアイコンは、50% の不透明度で黒で1ピクセルの�
 
 | アイコン | 説明 |
 | --- | --- |
-| :::image type="content" source="images/IMEs/ime-brand-icon-traditional-chinese.png" alt-text="繁体字中国語 ChangeJie のサンプル IME ブランドアイコン。"::: | 繁体字中国語 ChangeJie のサンプル IME ブランドアイコン。 |
-| :::image type="content" source="images/IMEs/ime-brand-icon-traditional-chinese-new.png" alt-text="繁体字中国語の新しい ChangeJie のサンプル IME ブランドアイコン。"::: | 繁体字中国語 ChangeJie のサンプル IME ブランドアイコン。 |
-| :::image type="content" source="images/IMEs/ime-mode-icon-chinese.png" alt-text="中国語モードアイコン"::: | IME モードの例のアイコン。 |
+| :::image type="content" source="images/IMEs/ime-brand-icon-traditional-chinese.png" alt-text="優先する言語設定"::: | 繁体字中国語 ChangeJie のサンプル IME ブランドアイコン。 |
+| :::image type="content" source="images/IMEs/ime-brand-icon-traditional-chinese-new.png" alt-text="優先する言語設定"::: | 繁体字中国語 ChangeJie のサンプル IME ブランドアイコン。 |
+| :::image type="content" source="images/IMEs/ime-mode-icon-chinese.png" alt-text="優先する言語設定"::: | IME モードの例のアイコン。 |
 
 ### <a name="owned-window"></a>所有ウィンドウ
 
@@ -257,22 +227,22 @@ Microsoft Visual Studio を使用して IME を構築する場合は、Flexera S
 
 - Visual Studio をインストールします。
 - Visual Studio を起動します。
-- [ **ファイル** ] メニューの [ **新規作成** ] をポイントし、[ **プロジェクト**] をクリックします。 [ **新しいプロジェクト** ] ダイアログボックスが開きます。
-- 左側のウィンドウで、[ **テンプレート] > 他のプロジェクトの種類 > セットアップと配置**] に移動し、[ **InstallShield の制限付きエディションを有効に**する] をクリックして、[ **OK**] をクリックします。 インストール手順に従います。
+- [ **ファイル** ] メニューの [ **新規作成** ] をポイントし、[ **プロジェクト** ] をクリックします。 **[新しいプロジェクト]** ダイアログ ボックスが開きます。
+- 左側のウィンドウで、[ **テンプレート] > 他のプロジェクトの種類 > セットアップと配置** ] に移動し、[ **InstallShield の制限付きエディションを有効に** する] をクリックして、[ **OK** ] をクリックします。 インストール手順に従います。
 - Visual Studio を再起動します。
 - IME ソリューション (.sln) ファイルを開きます。
-- ソリューションエクスプローラーで、ソリューションを右クリックして [ **追加**] をポイントし、[ **新しいプロジェクト**] をクリックします。 [ **新しいプロジェクトの追加** ] ダイアログボックスが表示されます。
-- 左側のツリービューコントロールで、[ **テンプレート] > その他のプロジェクトの種類 > [InstallShield 限定版**] の順に移動します。
-- 中央のウィンドウで、[ **InstallShield の制限付きエディションプロジェクト**] をクリックします。
+- ソリューションエクスプローラーで、ソリューションを右クリックして [ **追加** ] をポイントし、[ **新しいプロジェクト** ] をクリックします。 [ **新しいプロジェクトの追加** ] ダイアログボックスが表示されます。
+- 左側のツリービューコントロールで、[ **テンプレート] > その他のプロジェクトの種類 > [InstallShield 限定版** ] の順に移動します。
+- 中央のウィンドウで、[ **InstallShield の制限付きエディションプロジェクト** ] をクリックします。
 - [ **名前** ] テキストボックスに「setupime」と入力し、[ **OK]** をクリックします。
-- [ **Project Assistant** ] ダイアログボックスで、[ **アプリケーション情報**] をクリックします。
+- [ **Project Assistant** ] ダイアログボックスで、[ **アプリケーション情報** ] をクリックします。
 - 会社名とその他のフィールドを入力します。
-- [ **アプリケーションファイル**] をクリックします。
-- 左側のウィンドウで、 **[INSTALLDIR]** フォルダーを右クリックし、[ **新しいフォルダー**] を選択します。 フォルダーに "プラグイン" という名前を指定します。
-- [ **ファイルの追加**] をクリックします。 IME DLL に移動し、[ **プラグイン** ] フォルダーに追加します。 IME 辞書に対してこの手順を繰り返します。
-- IME DLL を右クリックし、[ **プロパティ**] を選択します。 [ **プロパティ** ] ダイアログボックスが表示されます。
+- [ **アプリケーションファイル** ] をクリックします。
+- 左側のウィンドウで、 **[INSTALLDIR]** フォルダーを右クリックし、[ **新しいフォルダー** ] を選択します。 フォルダーに "プラグイン" という名前を指定します。
+- [ **ファイルの追加** ] をクリックします。 IME DLL に移動し、[ **プラグイン** ] フォルダーに追加します。 IME 辞書に対してこの手順を繰り返します。
+- IME DLL を右クリックし、[ **プロパティ** ] を選択します。 [ **プロパティ** ] ダイアログボックスが表示されます。
 - [ **プロパティ** ] ダイアログボックスで、[ **COM & .net の設定** ] タブをクリックします。
-- [ **登録の種類**] で [ **自己登録** ] を選択し、[ **OK**] をクリックします。
+- [ **登録の種類** ] で [ **自己登録** ] を選択し、[ **OK** ] をクリックします。
 - ソリューションをビルドします。 IME DLL が構築され、InstallShield によって、ユーザーが Windows に IME をインストールできるようにする setup.exe ファイルが作成されます。
 
 独自のインストールエクスペリエンスを作成するには、 [Itfinputprocessorprofilemgr:: RegisterProfile](/windows/win32/api/msctf/nf-msctf-itfinputprocessorprofilemgr-registerprofile) メソッドを呼び出して、インストール時に IME を登録します。 レジストリエントリを直接記述しないでください。
@@ -286,9 +256,9 @@ Microsoft Visual Studio を使用して IME を構築する場合は、Flexera S
 Ime がアクセシビリティ要件に準拠し、ナレーターを操作できるようにするには、次の規則を実装します。 候補リストをアクセス可能にするには、Ime がこの規則に従う必要があります。
 
 - 候補リストには、変換候補の一覧または予測候補の一覧の "IME_Prediction_Window" の **UIA_AutomationIdPropertyId** が "IME_Candidate_Window" と同じである必要があります。
-- 候補リストが表示され、表示されなくなると、型 **UIA_MenuOpenedEventId** と **UIA_MenuClosedEventId**のイベントがそれぞれ生成されます。
-- 現在選択されている候補が変更されると、候補リストによって **UIA_SelectionItem_ElementSelectedEventId**が発生します。 選択した要素には、 **TRUE**に等しい**UIA_SelectionItemIsSelectedPropertyId**プロパティが設定されている必要があります。
-- 候補リストの各項目の **UIA_NamePropertyId** は、候補の名前である必要があります。 必要に応じて、 **UIA_HelpTextPropertyId**を通じて候補を明確にするための追加情報を提供できます。
+- 候補リストが表示され、表示されなくなると、型 **UIA_MenuOpenedEventId** と **UIA_MenuClosedEventId** のイベントがそれぞれ生成されます。
+- 現在選択されている候補が変更されると、候補リストによって **UIA_SelectionItem_ElementSelectedEventId** が発生します。 選択した要素には、 **TRUE** に等しい **UIA_SelectionItemIsSelectedPropertyId** プロパティが設定されている必要があります。
+- 候補リストの各項目の **UIA_NamePropertyId** は、候補の名前である必要があります。 必要に応じて、 **UIA_HelpTextPropertyId** を通じて候補を明確にするための追加情報を提供できます。
 
 ## <a name="related-topics"></a>関連トピック
 

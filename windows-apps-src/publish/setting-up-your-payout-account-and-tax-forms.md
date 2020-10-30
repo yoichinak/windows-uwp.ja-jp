@@ -1,17 +1,17 @@
 ---
-Description: Microsoft Store のアプリの売上から金額を受け取るには、支払いアカウントを設定し、必要な税フォームに記入する必要があります。
+description: Microsoft Store のアプリの売上から金額を受け取るには、支払いアカウントを設定し、必要な税フォームに記入する必要があります。
 title: 支払いアカウントと税フォームを設定する
 ms.assetid: 690A2EBC-11B1-4547-B422-54F15A6C26A7
 ms.date: 1/17/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b7f7209d77e05453126f885e37a251e8b6511e95
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 563e8e5df010d869183fb0a3c734eaae521a759e
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030275"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>支払いアカウントと税フォームを設定する
 
@@ -47,7 +47,7 @@ Microsoft Store のアプリの売上から金額を受け取るには、支払�
 > [!IMPORTANT]
 > 国や地域によって税の要件は異なります。 納める必要がある税金の正確な額は、アプリを販売する国と地域によって異なります。 Microsoft がお客様に代わって売上税と使用税を支払う国については、「[アプリ開発者契約](/legal/windows/agreements/app-developer-agreement)」をご覧ください。 その他の国の場合、登録した国によっては、アプリの販売に関する売上税と使用税を該当する課税当局にお客様が直接支払う必要がある可能性があります。 加えて、パートナー様が受け取るアプリ販売収益は、収入として課税対象になる場合があります。 お客様の Microsoft Store 開発者アクティビティに適した税金情報を決定するのに最適な、お住まいの国または地域の関連する機関にお問い合わせいただくことを強くお勧めします。
 
-1. [パートナーセンター](https://partner.microsoft.com/dashboard)で、右上隅にある [**アカウント設定**] アイコンを選択し、[**開発者の設定**] を選択します。
+1. [パートナーセンター](https://partner.microsoft.com/dashboard)で、右上隅にある [ **アカウント設定** ] アイコンを選択し、[ **開発者の設定** ] を選択します。
 2. 左側のナビゲーション メニューで、 **[支払いと税金]** を選択し、 **[Payout and tax assignments]\(支払いと税金の割り当て\)** を選択します。
 
     ![支払いと税金プロファイルの割り当て](images/payout-tax-profile-assignment.png)
@@ -87,7 +87,7 @@ Microsoft Store のアプリの売上から金額を受け取るには、支払�
 
 ### <a name="create-a-payment-profile"></a>支払いプロファイルを作成する
 
-1. [パートナーセンター](https://partner.microsoft.com/dashboard)で、右上隅にある [**設定**] 歯車アイコンを選択し、[**開発者の設定**] を選択します。
+1. [パートナーセンター](https://partner.microsoft.com/dashboard)で、右上隅にある [ **設定** ] 歯車アイコンを選択し、[ **開発者の設定** ] を選択します。
 2. *[支払いと税金]* の下にある **[支払いと税プロファイルの割り当て]** を選択します。
 
     > [!NOTE]
@@ -139,7 +139,7 @@ Microsoft Store のアプリの売上から金額を受け取るには、支払�
 
 変更を加える必要がある場合や、間違った情報を修正する必要がある場合は、既存の支払いプロファイルを編集することができます。
 
-1. [パートナーセンター](https://partner.microsoft.com/dashboard)で、右上隅にある [**設定**] 歯車アイコンを選択し、[**開発者の設定**] を選択します。
+1. [パートナーセンター](https://partner.microsoft.com/dashboard)で、右上隅にある [ **設定** ] 歯車アイコンを選択し、[ **開発者の設定** ] を選択します。
 2. *[支払いと税金]* の見出しの下にある **[支払いと税プロファイル]** を選択します。
 3. 支払いプロファイルは、その状態と共に一覧表示されます。 編集するプロファイルを見つけて、右端にある **[編集]** をクリックします。
 

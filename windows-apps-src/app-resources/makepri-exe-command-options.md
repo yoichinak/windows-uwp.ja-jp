@@ -1,17 +1,17 @@
 ---
-Description: MakePri.exe には、createconfig、dump、new、resourcepack、versioned コマンドのセットが含まれます。 このトピックでは、その使用方法について説明します。
+description: MakePri.exe には、createconfig、dump、new、resourcepack、versioned コマンドのセットが含まれます。 このトピックでは、その使用方法について説明します。
 title: MakePri.exe のコマンド ライン オプション
 template: detail.hbs
 ms.date: 04/10/2018
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 638de4d2795b3b248edfdcc35dc72fa21d31fc3b
-ms.sourcegitcommit: c2e4bbe46c7b37be1390cdf3fa0f56670f9d34e9
+ms.openlocfilehash: 7443efbb227bf3f9ea64db58902ebeb67b02f676
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031735"
 ---
 # <a name="makepriexe-command-line-options"></a>MakePri.exe のコマンド ライン オプション
 
@@ -115,7 +115,7 @@ Help:
 `dump` コマンドは、指定された PRI ファイル内のすべてのリソースの一覧を含む、ダンプされた xml ファイルを出力します。 `MakePri.exe dump /?` を実行すると、このコマンドの詳しいヘルプが表示されます。
 
 > [!NOTE]
-> スキーマのないリソース パックは、PRI 構成ファイルで *omitSchemaFromResourcePacks* スイッチを使用して作成されたものです。 スキーマのないリソース パックを出力するには、`/es <main_package_PRI_file>` スイッチを使用します。 メイン ファイルを指定しない場合、"*The resources.pri in the package was corrupted so encryption failed (error PRI222: 0xdef0000f - Unspecified error occurred)*" (パッケージ内の resources.pri が破損していたため、暗号化できませんでした (エラー PRI222: 0xdef0000f - 特定できないエラーが発生しました)。
+> スキーマのないリソース パックは、PRI 構成ファイルで *omitSchemaFromResourcePacks* スイッチを使用して作成されたものです。 スキーマのないリソース パックを出力するには、`/es <main_package_PRI_file>` スイッチを使用します。 メイン ファイルを指定しない場合、" *The resources.pri in the package was corrupted so encryption failed (error PRI222: 0xdef0000f - Unspecified error occurred)* " (パッケージ内の resources.pri が破損していたため、暗号化できませんでした (エラー PRI222: 0xdef0000f - 特定できないエラーが発生しました)。
 
 ```console
 C:\>makepri dump /?

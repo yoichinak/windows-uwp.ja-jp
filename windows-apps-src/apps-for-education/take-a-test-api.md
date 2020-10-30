@@ -1,17 +1,17 @@
 ---
-Description: Microsoft テスト アプリ用の JavaScript API を使用すると、セキュリティ保護された評価を行うことができます。 テスト アプリでは、学生がテスト中に他のコンピューターやインターネット リソースを使用することを防ぐセキュリティ保護されたブラウザーが提供されます。
+description: Microsoft テスト アプリ用の JavaScript API を使用すると、セキュリティ保護された評価を行うことができます。 テスト アプリでは、学生がテスト中に他のコンピューターやインターネット リソースを使用することを防ぐセキュリティ保護されたブラウザーが提供されます。
 title: テスト JavaScript API。
 ms.assetid: 9bff6318-504c-4d0e-ba80-1a5ea45743da
 ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, 教育
 ms.localizationpriority: medium
-ms.openlocfilehash: 2eeb190fc95e46a95813affd432948d38c0328a4
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 29a5d2749531e12ef7ce9b44cd6598c38cd089db
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218395"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031525"
 ---
 # <a name="take-a-test-javascript-api"></a>テスト JavaScript API
 
@@ -58,7 +58,7 @@ ms.locfileid: "91218395"
 `void SecureBrowser.security.lockDown(Boolean enable, Function onSuccess, Function onError);`
 
 **パラメーター**  
-* `enable` - ロック画面の上にテストアプリを実行し、この[ドキュメント](/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)で説明されているポリシーを適用する**場合は true** 。 **false** は、アプリがロックダウンされていない場合は、ロック画面上で実行しているテスト アプリを停止して閉じます。アプリがロックダウンされている場合は、何も行われません。  
+* `enable` - ロック画面の上にテストアプリを実行し、この [ドキュメント](/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)で説明されているポリシーを適用する **場合は true** 。 **false** は、アプリがロックダウンされていない場合は、ロック画面上で実行しているテスト アプリを停止して閉じます。アプリがロックダウンされている場合は、何も行われません。  
 * `onSuccess` -[省略可能] ロックダウンが正常に有効または無効にされた後に呼び出される関数。 `Function(Boolean currentlockdownstate)` という形式にする必要があります。  
 * `onError` -[省略可能] ロックダウン操作が失敗した場合に呼び出す関数。 `Function(Boolean currentlockdownstate)` という形式にする必要があります。  
 
@@ -132,7 +132,7 @@ Windows 10 バージョン 1709
 
 <span id="close"/>
 
-### <a name="close"></a>閉じる
+### <a name="close"></a>close
 ブラウザーを閉じて、デバイスのロックを解除します。 ユーザーがブラウザーを終了するときに、テスト アプリケーションでこれを呼び出す必要があります。
 
 **構文**  
@@ -241,7 +241,7 @@ Windows 10 バージョン 1709
 `feature` -クエリする機能を決定する文字列。 有効な機能の文字列は、"screenMonitoring"、"printing"、"textSuggestions" (大文字と小文字を区別しない) です。
 
 **戻り値**  
-この関数は、JavaScript Object または `{<feature>:true|false}` の形式のリテラルのいずれかを返します。 照会した機能が有効である場合は **true**、機能が有効になっていないか、機能の文字列が正しくない場合は **false**。
+この関数は、JavaScript Object または `{<feature>:true|false}` の形式のリテラルのいずれかを返します。 照会した機能が有効である場合は **true** 、機能が有効になっていないか、機能の文字列が正しくない場合は **false** 。
 
 **要件** Windows 10 バージョン 1703
 
@@ -258,8 +258,8 @@ Windows 10 バージョン 1709
 **パラメーター**  
 * `feature` -設定する機能を決定する文字列。 有効な機能の文字列は、`"screenMonitoring"`、`"printing"`、`"textSuggestions"` (大文字と小文字を区別しない) です。  
 * `value` -機能の目的の設定。 `"true"` または `"false"` にする必要があります。  
-* `onSuccess` -[省略可能] 設定操作が正常に完了した後に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、*jsonValue* は `{<feature>:true|false|undefined}` という形式です。  
-* `onError` -[省略可能] 設定操作が失敗した場合に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、*jsonValue* は `{<feature>:true|false|undefined}` という形式です。
+* `onSuccess` -[省略可能] 設定操作が正常に完了した後に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、 *jsonValue* は `{<feature>:true|false|undefined}` という形式です。  
+* `onError` -[省略可能] 設定操作が失敗した場合に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、 *jsonValue* は `{<feature>:true|false|undefined}` という形式です。
 
 **解説**  
 対象となる機能がブラウザーに不明である場合、この関数は `undefined` の値をコールバック関数に渡します。
@@ -277,7 +277,7 @@ Windows 10 バージョン 1709
 `Boolean SecureBrowser.security.isRemoteSession();`
 
 **戻り値**  
-現在のセッションがリモートの場合は **true**、それ以外の場合は **false** です。
+現在のセッションがリモートの場合は **true** 、それ以外の場合は **false** です。
 
 **必要条件**  
 Windows 10 バージョン 1709
@@ -293,7 +293,7 @@ Windows 10 バージョン 1709
 `Boolean SecureBrowser.security.isVMSession();`
 
 **戻り値**  
-現在のセッションが仮想マシンで実行されている場合は **true**、それ以外の場合は **false** です。
+現在のセッションが仮想マシンで実行されている場合は **true** 、それ以外の場合は **false** です。
 
 **解説**  
 この API のチェックは、適切な API を実装している特定のハイパーバイザーで実行されている VM セッションのみを検出できます。

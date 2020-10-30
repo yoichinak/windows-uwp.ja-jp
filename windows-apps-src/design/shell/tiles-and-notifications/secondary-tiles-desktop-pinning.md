@@ -1,5 +1,5 @@
 ---
-Description: デスクトップアプリケーションでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。
+description: デスクトップアプリケーションでは、デスクトップブリッジによってセカンダリタイルをピン留めすることができます。
 title: デスクトップアプリからのセカンダリタイルのピン留め
 label: Pin secondary tiles from desktop apps
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 05/25/2017
 ms.topic: article
 keywords: Windows 10、デスクトップ ブリッジ、セカンダリ タイル、ピン留め、クイックスタート、コード サンプル、例、デスクトップ アプリケーション、Win32、WinForms、WPF
 ms.localizationpriority: medium
-ms.openlocfilehash: f0b1e167b0ce2e91b00b7facbdd53709efdc4887
-ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
+ms.openlocfilehash: 1c6451510816e36bed5574f0ae69254c9f4d34f6
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92100270"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030655"
 ---
 # <a name="pin-secondary-tiles-from-desktop-apps"></a>デスクトップアプリからのセカンダリタイルのピン留め
 
@@ -22,7 +22,7 @@ ms.locfileid: "92100270"
 ![セカンダリ タイルのスクリーン ショット](images/secondarytiles.png)
 
 > [!IMPORTANT]
-> **Fall Creators Update が必要**: デスクトップ ブリッジ アプリからセカンダリ タイルをピン留めするには、SDK 16299 をターゲットとし、ビルド 16299 以降を実行している必要があります。
+> **Fall Creators Update が必要** : デスクトップ ブリッジ アプリからセカンダリ タイルをピン留めするには、SDK 16299 をターゲットとし、ビルド 16299 以降を実行している必要があります。
 
 WPF または WinForms アプリケーションからのセカンダリ タイルの追加は、純粋な UWP アプリとよく似ています。 唯一の違いは、メイン ウィンドウのハンドル (HWND) を指定する必要があることです。 これは、タイルをピン留めするときに、モーダル ダイアログが表示され、タイルをピン留めするかどうかをユーザーに確認するためです。 デスクトップ アプリケーションが、SecondaryTile オブジェクトのオーナー ウィンドウを構成しない場合、ダイアログ ボックスを描画する位置を認識することができず、操作は失敗します。
 
@@ -46,7 +46,7 @@ public interface IInitializeWithWindow
 }
 ```
 
-または、C++ で記述されている場合、コードに **shobjidl.h** ヘッダー ファイルへの参照を追加します。 このヘッダー ファイルには、*IInitializeWithWindow* インターフェイスの宣言が含まれています。
+または、C++ で記述されている場合、コードに **shobjidl.h** ヘッダー ファイルへの参照を追加します。 このヘッダー ファイルには、 *IInitializeWithWindow* インターフェイスの宣言が含まれています。
 
 
 ## <a name="initialize-the-secondary-tile"></a>セカンダリ タイルを初期化する
@@ -90,7 +90,7 @@ bool isPinned = await tile.RequestCreateAsync();
 ## <a name="send-tile-notifications"></a>タイル通知を送信する
 
 > [!IMPORTANT]
-> **2018 年 4 月のバージョン 17134.81 以降が必要**: ビルド 17134.81 以降を実行してデスクトップ ブリッジ アプリからセカンダリ タイルにタイル通知またはバッジ通知を送信する必要があります。 この.81 サービス更新プログラムの前に、デスクトップ ブリッジ アプリからセカンダリ タイルにタイル通知またはバッジ通知を送信するときに a 0x80070490 *要素が見つかりません*という例外が発生します。
+> **2018 年 4 月のバージョン 17134.81 以降が必要** : ビルド 17134.81 以降を実行してデスクトップ ブリッジ アプリからセカンダリ タイルにタイル通知またはバッジ通知を送信する必要があります。 この.81 サービス更新プログラムの前に、デスクトップ ブリッジ アプリからセカンダリ タイルにタイル通知またはバッジ通知を送信するときに a 0x80070490 *要素が見つかりません* という例外が発生します。
 
 タイル通知またはバッジ通知の送信は UWP アプリと同じです。 手順については、「[ローカル タイル通知の送信](sending-a-local-tile-notification.md)」を参照してください。
 

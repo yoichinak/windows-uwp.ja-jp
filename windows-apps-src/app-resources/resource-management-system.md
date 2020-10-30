@@ -1,17 +1,17 @@
 ---
-Description: ビルド時に、リソース管理システムは、アプリとしてパッケージ化されているリソースのさまざまなバリエーションすべてのインデックスを作成します。 実行時に、システムは、有効になっているユーザーやコンピューターの設定を検出し、それらの設定に最適なリソースを読み込みます。
+description: ビルド時に、リソース管理システムは、アプリとしてパッケージ化されているリソースのさまざまなバリエーションすべてのインデックスを作成します。 実行時に、システムは、有効になっているユーザーやコンピューターの設定を検出し、それらの設定に最適なリソースを読み込みます。
 title: リソース管理システム
 template: detail.hbs
 ms.date: 10/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: afe538292fe804dcf042c969005978c3161ec6b6
-ms.sourcegitcommit: 963316e065cf36c17b6360c3f89fba93a1a94827
+ms.openlocfilehash: 083f49dd8a269bd3a0277084cadc175271d5e501
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868879"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031625"
 ---
 # <a name="resource-management-system"></a>リソース管理システム
 リソース管理システムには、ビルド時と実行時の両方の機能があります。 ビルド時に、システムは、アプリとしてパッケージ化されているリソースのさまざまなバリエーションすべてのインデックスを作成します。 このインデックスがパッケージ リソース インデックス (PRI) であり、アプリのパッケージにも含まれています。 実行時に、システムは、有効になっているユーザーやコンピューターの設定を検出し、PRI でその情報を参照して、それらの設定に最適なリソースを自動的に読み込みます。
@@ -21,7 +21,7 @@ ms.locfileid: "82868879"
 
 - PRI ファイルには、実際の文字列リソースと、パッケージ内のさまざまなファイルを参照するファイル パスのインデックス付きセットが格納されます。
 - パッケージには、通常、言語ごとに 1 つの、resources.pri という名前の PRI ファイルが含まれます。
-- 各パッケージのルートにある resources.pri ファイルは、[**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) がインスタンス化されたときに自動的に読み込まれます。
+- 各パッケージのルートにある resources.pri ファイルは、 [**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) がインスタンス化されたときに自動的に読み込まれます。
 - PRI ファイルを作成したりダンプしたりするには、[MakePRI.exe](compile-resources-manually-with-makepri.md) というツールを使います。
 - 既に Visual Studio のコンパイル ワークフローに統合されているため、一般的なアプリの開発では、MakePRI.exe は必要ありません。 また、Visual Studio は専用の UI で PRI ファイルの編集をサポートしています。 ただし、ローカライズ担当者やローカライズ担当者が使うツールでは、MakePRI.exe が必要になる場合があります。
 - 各 PRI ファイルは、リソース マップと呼ばれる、リソースの名前付きコレクションを含みます。 パッケージの PRI ファイルが読み込まれたときに、リソース マップ名がパッケージ識別名と一致するかが確認されます。
@@ -30,16 +30,16 @@ ms.locfileid: "82868879"
 ## <a name="uwp-api-access-to-app-resources"></a>アプリ リソースへの UWP API のアクセス
 
 ### <a name="basic-functionality-resourceloader"></a>基本機能 (ResourceLoader)
-プログラムによってアプリ リソースにアクセスする最も簡単な方法は、[**Windows.ApplicationModel.Resources**](/uwp/api/windows.applicationmodel.resources?branch=live) 名前空間と [**ResourceLoader**](/uwp/api/windows.applicationmodel.resources.resourceloader?branch=live) クラスを使う方法です。 **ResourceLoader** を使うと、一連のリソース ファイル、参照ライブラリ、または他のパッケージの文字列リソースへの基本的なアクセスが可能になります。
+プログラムによってアプリ リソースにアクセスする最も簡単な方法は、 [**Windows.ApplicationModel.Resources**](/uwp/api/windows.applicationmodel.resources?branch=live) 名前空間と [**ResourceLoader**](/uwp/api/windows.applicationmodel.resources.resourceloader?branch=live) クラスを使う方法です。 **ResourceLoader** を使うと、一連のリソース ファイル、参照ライブラリ、または他のパッケージの文字列リソースへの基本的なアクセスが可能になります。
 
 ### <a name="advanced-functionality-resourcemanager"></a>高度な機能 (ResourceManager)
-[**Windows.ApplicationModel.Resources.Core**](/uwp/api/windows.applicationmodel.resources.core?branch=live) 名前空間の [**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) クラスは、リソースに関する追加情報 (列挙、検査など) を提供します。 このクラスは、**ResourceLoader** クラスが提供する情報よりも多くの情報を提供します。
+[**Windows.ApplicationModel.Resources.Core**](/uwp/api/windows.applicationmodel.resources.core?branch=live) 名前空間の [**ResourceManager**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager?branch=live) クラスは、リソースに関する追加情報 (列挙、検査など) を提供します。 このクラスは、 **ResourceLoader** クラスが提供する情報よりも多くの情報を提供します。
 
 [**NamedResource**](/uwp/api/windows.applicationmodel.resources.core.namedresource?branch=live) オブジェクトは、複数の言語またはその他の修飾されたバリアントを持つ個別の論理リソースです。 `Header1` などの文字列リソース識別子や、`logo.jpg` などのリソース ファイル名を持つ、アセットやリソースの論理ビューを記述します。
 
 [**ResourceCandidate**](/uwp/api/windows.applicationmodel.resources.core.resourcecandidate?branch=live) オブジェクトは、英語向けの文字列 "Hello World" や **scale-100** 解像度に固有の修飾子付きのイメージ リソースである "logo.scale-100.jpg" など、単一の具象リソース値と修飾子の組み合わせです。
 
-アプリで使うことができるリソースは、[**ResourceMap**](/uwp/api/windows.applicationmodel.resources.core.resourcemap?branch=live) オブジェクトを使ってアクセスできる階層コレクションに格納されます。 **ResourceManager** クラスを使うと、アプリで使われる各種のトップレベルの **ResourceMap** インスタンスにアクセスできます。これらのインスタンスは、アプリのさまざまなパッケージに対応しています。 [**MainResourceMap**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager.MainResourceMap) の値は、参照されているフレームワーク パッケージではなく現在のアプリ パッケージのリソース マップに対応しています。 それぞれの **ResourceMap** には、パッケージのマニフェストに指定されたパッケージ名に基づく名前が付けられます。 **ResourceMap** には、**NamedResource** オブジェクトが格納されているサブツリー (「[**ResourceMap.GetSubtree**](/uwp/api/windows.applicationmodel.resources.core.resourcemap.getsubtree?branch=live)」をご覧ください) が含まれています。 通常、サブツリーは、リソースが含まれるリソース ファイルに対応します。 詳しくは、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)と[表示倍率、テーマ、ハイ コントラスト、その他の設定に合わせた画像とアセットの読み込み](images-tailored-for-scale-theme-contrast.md)」をご覧ください。
+アプリで使うことができるリソースは、 [**ResourceMap**](/uwp/api/windows.applicationmodel.resources.core.resourcemap?branch=live) オブジェクトを使ってアクセスできる階層コレクションに格納されます。 **ResourceManager** クラスを使うと、アプリで使われる各種のトップレベルの **ResourceMap** インスタンスにアクセスできます。これらのインスタンスは、アプリのさまざまなパッケージに対応しています。 [**MainResourceMap**](/uwp/api/windows.applicationmodel.resources.core.resourcemanager.MainResourceMap) の値は、参照されているフレームワーク パッケージではなく現在のアプリ パッケージのリソース マップに対応しています。 それぞれの **ResourceMap** には、パッケージのマニフェストに指定されたパッケージ名に基づく名前が付けられます。 **ResourceMap** には、 **NamedResource** オブジェクトが格納されているサブツリー (「 [**ResourceMap.GetSubtree**](/uwp/api/windows.applicationmodel.resources.core.resourcemap.getsubtree?branch=live)」をご覧ください) が含まれています。 通常、サブツリーは、リソースが含まれるリソース ファイルに対応します。 詳しくは、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)と[表示倍率、テーマ、ハイ コントラスト、その他の設定に合わせた画像とアセットの読み込み](images-tailored-for-scale-theme-contrast.md)」をご覧ください。
 
 次に例を示します。
 

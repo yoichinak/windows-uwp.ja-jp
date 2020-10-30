@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリケーションで、タッチ、マウス、ペン/スタイラス、タッチパッドなどのポインティングデバイスからの入力データの受信、処理、および管理を行います。
+description: Windows アプリケーションで、タッチ、マウス、ペン/スタイラス、タッチパッドなどのポインティングデバイスからの入力データの受信、処理、および管理を行います。
 title: ポインター入力の処理
 ms.assetid: BDBC9E33-4037-4671-9596-471DCF855C82
 label: Handle pointer input
@@ -8,12 +8,12 @@ keywords: ペン, マウス, タッチパッド, タッチ, ポインター, 入
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 11402ae9f2ea99c583d82d1998ad238eac44576c
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: bae166c1671421c13302df0d2f85e505985d3f2e
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219855"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030745"
 ---
 # <a name="handle-pointer-input"></a>ポインター入力の処理
 
@@ -43,7 +43,7 @@ Windows アプリケーションで、ポインティングデバイス (タッ�
 Windows アプリは、次のポインターイベントをリッスンできます。
 
 > [!NOTE]
-> ポインターの入力を特定の UI 要素に制限するには、ポインター イベント ハンドラー内で、その要素に対して [**CapturePointer**](/uwp/api/windows.ui.xaml.uielement.capturepointer) を呼び出します。 要素によってポインターがキャプチャされると、そのオブジェクトだけがポインター入力イベントを受け取ります。これは、ポインターがオブジェクトの境界領域の外部に移動した場合でも同様です。 **CapturePointer** が成功するには、[**IsInContact**](/uwp/api/windows.ui.xaml.input.pointer.isincontact) (マウス ボタンの押下、タッチやスタイラスの接触) が true であることが必要です。
+> ポインターの入力を特定の UI 要素に制限するには、ポインター イベント ハンドラー内で、その要素に対して [**CapturePointer**](/uwp/api/windows.ui.xaml.uielement.capturepointer) を呼び出します。 要素によってポインターがキャプチャされると、そのオブジェクトだけがポインター入力イベントを受け取ります。これは、ポインターがオブジェクトの境界領域の外部に移動した場合でも同様です。 **CapturePointer** が成功するには、 [**IsInContact**](/uwp/api/windows.ui.xaml.input.pointer.isincontact) (マウス ボタンの押下、タッチやスタイラスの接触) が true であることが必要です。
 
 <table>
 <colgroup>
@@ -72,10 +72,10 @@ Windows アプリは、次のポインターイベントをリッスンできま
 <td align="left"><p><a href="/uwp/api/windows.ui.xaml.uielement.pointercapturelost"><strong>PointerCaptureLost</strong></a></p></td>
 <td align="left"><p>別の UI 要素がポインターをキャプチャした場合、ポインターが離された場合、別のポインターがプログラムでキャプチャされた場合に発生します。</p>
 <div class="alert">
-<strong>メモ</strong>   対応するポインターキャプチャイベントがありません。
+<strong>注</strong>  対応するポインター キャプチャ イベントはありません。
 </div>
 <div>
- 
+ 
 </div></td>
 </tr>
 <tr class="odd">
@@ -120,7 +120,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 <p>マウス入力が最初に検出されると、割り当てられている単一ポインターと関連付けられます。 マウス ボタン (左ボタン、ホイール、または右ボタン) をクリックすると、<a href="/uwp/api/windows.ui.xaml.uielement.pointermoved">PointerMoved</a> イベントによってポインターとそのボタンの間に 2 番目の関連付けが行われます。</p></td>
 </tr>
 </tbody>
-</table> 
+</table> 
 
 ## <a name="pointer-event-example"></a>ポインター イベントの例
 
@@ -193,7 +193,7 @@ Windows アプリは、次のポインターイベントをリッスンできま
 
 ほとんどの場合、イベント ハンドラーの [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) を使ってポインター情報を取得することをお勧めします。
 
-必要なポインターの詳細をイベント引数が公開していない場合は、[**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) の [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) メソッドと [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) メソッドによって公開される拡張 [**PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) 情報にアクセスできます。
+必要なポインターの詳細をイベント引数が公開していない場合は、 [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) の [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) メソッドと [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) メソッドによって公開される拡張 [**PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) 情報にアクセスできます。
 
 次のコードでは、アクティブな各ポインターを追跡するためのグローバル ディクショナリ オブジェクトを設定し、ターゲット オブジェクトのさまざまなポインター イベント リスナーを識別しています。
 
@@ -237,10 +237,11 @@ public MainPage()
 
 次に、UI フィードバックを使って基本的なポインター イベント ハンドラーを示します。
 
--   このハンドラーは、[**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントを管理します。 イベント ログにイベントを追加し、アクティブなポインターのディクショナリにポインターを追加して、ポインターの詳細を表示します。
+-   このハンドラーは、 [**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントを管理します。 イベント ログにイベントを追加し、アクティブなポインターのディクショナリにポインターを追加して、ポインターの詳細を表示します。
 
     > [!NOTE]
-    > [**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントと [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) イベントは、常にペアで発生するわけではありません。 アプリでは、ポインターの押下を終了させる可能性のあるすべてのイベント ([**PointerExited**](/uwp/api/windows.ui.xaml.uielement.pointerexited)、[**PointerCanceled**](/uwp/api/windows.ui.xaml.uielement.pointercanceled)、[**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) など) をリッスンして処理する必要があります。      
+    > [**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントと [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) イベントは、常にペアで発生するわけではありません。 アプリでは、ポインターの押下を終了させる可能性のあるすべてのイベント ( [**PointerExited**](/uwp/api/windows.ui.xaml.uielement.pointerexited)、 [**PointerCanceled**](/uwp/api/windows.ui.xaml.uielement.pointercanceled)、 [**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) など) をリッスンして処理する必要があります。
+         
 
 ```csharp
 /// <summary>
@@ -282,7 +283,7 @@ void Target_PointerPressed(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   このハンドラーは、[**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを管理します。 イベント ログにイベントを追加し、ポインター コレクションにポインターを追加して、ポインターの詳細を表示します。
+-   このハンドラーは、 [**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered) イベントを管理します。 イベント ログにイベントを追加し、ポインター コレクションにポインターを追加して、ポインターの詳細を表示します。
 
 ```csharp
 /// <summary>
@@ -319,10 +320,10 @@ private void Target_PointerEntered(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   このハンドラーは、[**PointerMoved**](/uwp/api/windows.ui.xaml.uielement.pointermoved) イベントを管理します。 イベント ログにイベントを追加し、ポインターの詳細を更新します。
+-   このハンドラーは、 [**PointerMoved**](/uwp/api/windows.ui.xaml.uielement.pointermoved) イベントを管理します。 イベント ログにイベントを追加し、ポインターの詳細を更新します。
 
     > [!Important]
-    > マウス入力が最初に検出されると、割り当てられている単一ポインターと関連付けられます。 マウス ボタン (左ボタン、ホイール、または右ボタン) をクリックすると、[**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントによってポインターとそのボタンの間に 2 番目の関連付けが行われます。 [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) イベントは、同じマウス ボタンを離したときにだけ発生します (イベントが完了するまではそのポインターに他のボタンが関連付けられることはありません)。 この排他的な関連付けのために、他のマウス ボタンをクリックした場合は、[**PointerMoved**](/uwp/api/windows.ui.xaml.uielement.pointermoved) イベントによってルーティングされます。     
+    > マウス入力が最初に検出されると、割り当てられている単一ポインターと関連付けられます。 マウス ボタン (左ボタン、ホイール、または右ボタン) をクリックすると、 [**PointerPressed**](/uwp/api/windows.ui.xaml.uielement.pointerpressed) イベントによってポインターとそのボタンの間に 2 番目の関連付けが行われます。 [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) イベントは、同じマウス ボタンを離したときにだけ発生します (イベントが完了するまではそのポインターに他のボタンが関連付けられることはありません)。 この排他的な関連付けのために、他のマウス ボタンをクリックした場合は、 [**PointerMoved**](/uwp/api/windows.ui.xaml.uielement.pointermoved) イベントによってルーティングされます。     
 
 ```csharp
 /// <summary>
@@ -369,7 +370,7 @@ private void Target_PointerMoved(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   このハンドラーは、[**PointerWheelChanged**](/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged) イベントを管理します。 イベント ログにイベントを追加し、ポインター配列にポインターを追加して (必要な場合)、ポインターの詳細を表示します。
+-   このハンドラーは、 [**PointerWheelChanged**](/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged) イベントを管理します。 イベント ログにイベントを追加し、ポインター配列にポインターを追加して (必要な場合)、ポインターの詳細を表示します。
 
 ```csharp
 /// <summary>
@@ -451,7 +452,7 @@ void Target_PointerReleased(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   このハンドラーは、[**PointerExited**](/uwp/api/windows.ui.xaml.uielement.pointerexited) イベントを管理します (デジタイザーとの接触を維持する場合)。 イベント ログにイベントを追加し、ポインター配列からポインターを削除して、ポインターの詳細を更新します。
+-   このハンドラーは、 [**PointerExited**](/uwp/api/windows.ui.xaml.uielement.pointerexited) イベントを管理します (デジタイザーとの接触を維持する場合)。 イベント ログにイベントを追加し、ポインター配列からポインターを削除して、ポインターの詳細を更新します。
 
 ```csharp
 /// <summary>
@@ -486,7 +487,7 @@ private void Target_PointerExited(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   このハンドラーは、[**PointerCanceled**](/uwp/api/windows.ui.xaml.uielement.pointercanceled) イベントを管理します。 イベント ログにイベントを追加し、ポインター配列からポインターを削除して、ポインターの詳細を更新します。
+-   このハンドラーは、 [**PointerCanceled**](/uwp/api/windows.ui.xaml.uielement.pointercanceled) イベントを管理します。 イベント ログにイベントを追加し、ポインター配列からポインターを削除して、ポインターの詳細を更新します。
 
 ```csharp
 /// <summary>
@@ -525,10 +526,10 @@ private void Target_PointerCanceled(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   このハンドラーは、[**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) イベントを管理します。 イベント ログにイベントを追加し、ポインター配列からポインターを削除して、ポインターの詳細を更新します。
+-   このハンドラーは、 [**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) イベントを管理します。 イベント ログにイベントを追加し、ポインター配列からポインターを削除して、ポインターの詳細を更新します。
 
     > [!NOTE]
-    > [**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) が [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) の代わりに発生することがあります。 ポインターのキャプチャは、さまざまな理由で失われることがあります。たとえば、ユーザーの操作、プログラムによる別のポインターのキャプチャ、[**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) の呼び出しなどが原因となります。     
+    > [**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) が [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) の代わりに発生することがあります。 ポインターのキャプチャは、さまざまな理由で失われることがあります。たとえば、ユーザーの操作、プログラムによる別のポインターのキャプチャ、 [**PointerReleased**](/uwp/api/windows.ui.xaml.uielement.pointerreleased) の呼び出しなどが原因となります。     
 
 ```csharp
 /// <summary>
@@ -569,7 +570,7 @@ private void Target_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
 
 ### <a name="get-pointer-properties"></a>ポインターのプロパティを取得する
 
-前に説明したように、ほとんどの拡張ポインター情報を、[**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) の [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) と [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) メソッドを介して取得した [**Windows.UI.Input.PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) オブジェクトから取得する必要があります。 次のコード スニペットでその方法を示します。
+前に説明したように、ほとんどの拡張ポインター情報を、 [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) の [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) と [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) メソッドを介して取得した [**Windows.UI.Input.PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) オブジェクトから取得する必要があります。 次のコード スニペットでその方法を示します。
 
 -   最初に、ポインターごとに新しい [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を作成します。
 
@@ -678,7 +679,7 @@ String QueryPointer(PointerPoint ptrPt)
 ## <a name="primary-pointer"></a>プライマリ ポインター
 タッチ デジタイザーやタッチパッドなどの一部の入力デバイスでは、マウスまたはペンといった一般的な単一ポインターよりも多くのポインターをサポートします (Surface Hub での 2 つのペン入力のサポートが代表的な例です)。 
 
-単一のプライマリ ポインターを識別し、区別するには、**[PointerPointerProperties](/uwp/api/windows.ui.input.pointerpointproperties)** クラスの読み取り専用の **[IsPrimary](/uwp/api/windows.ui.input.pointerpointproperties.IsPrimary)** プロパティを使います (プライマリ ポインターとは、常に入力シーケンスで検出される最初のポインターを指します)。 
+単一のプライマリ ポインターを識別し、区別するには、 **[PointerPointerProperties](/uwp/api/windows.ui.input.pointerpointproperties)** クラスの読み取り専用の **[IsPrimary](/uwp/api/windows.ui.input.pointerpointproperties.IsPrimary)** プロパティを使います (プライマリ ポインターとは、常に入力シーケンスで検出される最初のポインターを指します)。 
 
 プライマリ ポインターを識別することにより、プライマリ ポインターを使って、マウスやペン入力のエミュレート、操作のカスタマイズ、他の特定の機能や UI の提供を行うことができます。
 
@@ -697,7 +698,7 @@ String QueryPointer(PointerPoint ptrPt)
 
 ### <a name="visual-feedback"></a>視覚的なフィードバック
 
-ここでは、XAML の **[Ellipse](/uwp/api/windows.ui.xaml.shapes.ellipse)** オブジェクトに基づいて、**[UserControl](/uwp/api/windows.ui.xaml.controls.usercontrol)** を定義します。これにより、各ポインターのキャンバス上の位置が強調表示されます。また、**[Storyboard](/uwp/api/windows.ui.xaml.media.animation.storyboard)** を使って、プライマリ ポインターに対応する楕円をアニメーション化します。
+ここでは、XAML の **[Ellipse](/uwp/api/windows.ui.xaml.shapes.ellipse)** オブジェクトに基づいて、 **[UserControl](/uwp/api/windows.ui.xaml.controls.usercontrol)** を定義します。これにより、各ポインターのキャンバス上の位置が強調表示されます。また、 **[Storyboard](/uwp/api/windows.ui.xaml.media.animation.storyboard)** を使って、プライマリ ポインターに対応する楕円をアニメーション化します。
 
 **XAML を次に示します。**
 

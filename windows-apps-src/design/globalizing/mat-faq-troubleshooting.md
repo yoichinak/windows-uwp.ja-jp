@@ -1,17 +1,17 @@
 ---
-Description: このトピックでは、多言語アプリ ツールキット (MAT) 4.0 に関連したよくある質問と問題の回答を示します。
+description: このトピックでは、多言語アプリ ツールキット (MAT) 4.0 に関連したよくある質問と問題の回答を示します。
 title: 多言語アプリ ツールキットに関する FAQ とトラブルシューティング
 template: detail.hbs
 ms.date: 11/13/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 07e087dbb0cb2fcbd4dd1d098f84c49543f3a885
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 86c7805f92adf3551729783e2359c85103a0c13e
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74258142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030755"
 ---
 # <a name="multilingual-app-toolkit-40-faq--troubleshooting"></a>多言語アプリ ツールキット 4.0 に関する FAQ とトラブルシューティング
 
@@ -41,7 +41,7 @@ ms.locfileid: "74258142"
 
 ## <a name="when-i-build-my-project-i-dont-see-a-message-saying-that-a-multilingual-app-toolkit-build-has-started"></a>プロジェクトのビルド時に、"多言語アプリ ツールキットでビルドが開始されました" というメッセージが表示されません。
 
-プロジェクトの MAT を有効にしたことを確認します。 **[ツール]** メニューで、 **[多言語アプリ ツールキット]**  >  **[選択を有効にする]** の順に選択します。 以前のバージョンでプロジェクトを有効にした場合は、無効にしたうえで、 **[ツール]** メニューを使って多言語アプリ ツールキットをもう一度有効にする必要があります。 これにより、プロジェクトが更新されて、新しいバージョンのツールキットで作業できるようになります。
+プロジェクトの MAT を有効にしたことを確認します。 **[ツール]** メニューで、 **[多言語アプリ ツールキット]** > **[選択を有効にする]** の順に選択します。 以前のバージョンでプロジェクトを有効にした場合は、無効にしたうえで、 **[ツール]** メニューを使って多言語アプリ ツールキットをもう一度有効にする必要があります。 これにより、プロジェクトが更新されて、新しいバージョンのツールキットで作業できるようになります。
 
 "Visual Studio のすべてのエディションのビルド タスク" に対応するコンポーネントがインストールされていることを確認してください。 このビルド コンポーネントのインストール処理中には拡張機能もインストールされますが、その際にこれを手動で選択解除することができます。 このコンポーネントは、.xlf ファイルを更新し、PRI ファイルに翻訳を追加するために必要です。 このコンポーネントがインストールされて正常に機能している場合は、次のビルド メッセージが表示されます。
 
@@ -81,7 +81,7 @@ No XLIFF language files were found. The app will not contain any localized resou
 
 多言語アプリ ツールキットを効果的に使用する前に、まずアプリをローカライズする必要があります。 これは、「[多言語アプリ ツールキット 4.0 の使用](use-mat.md)」で詳しく説明します。
 
-## <a name="what-is-microsoft-translator"></a>Microsoft Translator とは何ですか。
+## <a name="what-is-microsoft-translator"></a>Microsoft Translator とは
 
 Microsoft Translator は、機械ベースの翻訳に対応するクラウドベースのサービスです。 人の手による翻訳を手軽に利用できない場合は、機械翻訳が翻訳を利用する手段として適しています。 詳しくは、[Microsoft Translator に関するページ](https://www.microsofttranslator.com/)をご覧ください。
 
@@ -128,7 +128,7 @@ Merge of Loc PRI file failed calling makepri.exe: "0x80004005"
 
 ## <a name="is-there-a-way-to-find-out-more-information-about-the-errors-im-seeing"></a>表示されるエラーについてさらに詳しい情報を確認する方法はありますか。
 
-はい、Visual Studio で詳しいログを有効にすることができます。 **[ツール]**  >  **[オプション]**  >  **[プロジェクトおよびソリューション]**  >  **[ビルド/実行]** の順にクリックします。 **[MSBuild プロジェクト ビルドの出力の詳細]**  を [最小] から [標準] またはそれ以上に変更します。
+はい、Visual Studio で詳しいログを有効にすることができます。 [ **ツール** ] [オプション] [  >  **Options**  >  **プロジェクトおよびソリューション** ] [  >  **ビルドおよび実行** ] をクリックします。 **[MSBuild プロジェクト ビルドの出力の詳細]**  を [最小] から [標準] またはそれ以上に変更します。
 
 MSBuild をコマンド ラインから実行した場合も、追加のメッセージが表示されることがあります。
 
@@ -177,6 +177,6 @@ Microsoft Store の認定プロセスを開始する前に、`<project-name>.qps
 
 ## <a name="related-topics"></a>関連トピック
 
-* [多言語アプリツールキット4.0 を使用する](use-mat.md)
+* [多言語アプリ ツールキット 4.0 の使用](use-mat.md)
 * [Microsoft Translator](https://www.microsofttranslator.com/)
-* [MakePri のコマンドラインオプション](../../app-resources/makepri-exe-command-options.md)
+* [MakePri.exe のコマンド ライン オプション](../../app-resources/makepri-exe-command-options.md)

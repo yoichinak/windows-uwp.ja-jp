@@ -1,24 +1,24 @@
 ---
-Description: MakePri.exe は、PRI ファイルを作成およびダンプするために使用できるコマンド ライン ツールです。 このツールは、Microsoft Visual Studio の MSBuild の一部として統合されていますが、パッケージを手動で作成したり、カスタム ビルド システムを使って作成する場合にも使うことができます。
+description: MakePri.exe は、PRI ファイルを作成およびダンプするために使用できるコマンド ライン ツールです。 このツールは、Microsoft Visual Studio の MSBuild の一部として統合されていますが、パッケージを手動で作成したり、カスタム ビルド システムを使って作成する場合にも使うことができます。
 title: MakePri.exe を使用して手動でリソースをコンパイルする
 template: detail.hbs
 ms.date: 10/23/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: c23eced05d7539c869a40db1f2b641282b75f503
-ms.sourcegitcommit: 963316e065cf36c17b6360c3f89fba93a1a94827
+ms.openlocfilehash: 579aaf5f833f2d3ddb8e4d8c080a6f94ac21f40f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031865"
 ---
 # <a name="compile-resources-manually-with-makepriexe"></a>MakePri.exe を使用して手動でリソースをコンパイルする
 
 MakePri.exe は、PRI ファイルを作成およびダンプするために使用できるコマンド ライン ツールです。 このツールは、Microsoft Visual Studio の MSBuild の一部として統合されていますが、パッケージを手動で作成したり、カスタム ビルド システムを使って作成する場合にも使うことができます。
 
 > [!NOTE]
-> Windows ソフトウェア開発キットのインストール時に [ **UWP 管理対象アプリの Windows SDK** ] オプションをオンにすると、makepri がインストールされます。 パス`%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` (および他のアーキテクチャ用に指定されたフォルダー) にインストールされます。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` のようにします。
+> Windows ソフトウェア開発キットのインストール時に [ **UWP 管理対象アプリの Windows SDK** ] オプションをオンにすると MakePri.exe がインストールされます。 パス `%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` (および他のアーキテクチャ用に指定されたフォルダー) にインストールされます。 たとえば、「 `C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` 」のように入力します。
 
 ## <a name="in-this-section"></a>このセクションの内容
 |トピック|説明|
@@ -43,11 +43,11 @@ MakePri.exe は、通常、`new`、`versioned`、`resourcepack` オプション�
 
 ### <a name="resources-found-for-languages-languages-but-no-resources-found-for-default-languages-languages-change-the-default-language-or-qualify-resources-with-the-default-language"></a>言語 ' <言語 ' > ' のリソースが見つかりましたが、既定の言語: ' <言語 > ' のリソースが見つかりませんでした。 既定の言語を変更するか、既定の言語でリソースを修飾します。
 
-この警告は、指定された名前付きリソースに対して、language 修飾子でマークされているように見えても、既定の言語の候補が見つからない場合に、ファイルまたは文字列リソースを検出すると表示されます。 ファイルやフォルダーの名前に修飾子を使用するプロセスについては、「[言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)」をご覧ください。 ファイルやフォルダーの名前に言語名を含めることはできますが、リソースはその明示された既定の言語に対して修飾されているとは見なされません。 たとえば、プロジェクトで使う既定の言語が "en-US" で、"de/logo.png" という名前のファイルがプロジェクトにある場合に、既定の言語の "en-US" でマークされたファイルがないと、この警告が出力されます。 この警告が出力されないようにするには、ファイルまたは文字列リソースを既定の言語で修飾するか、または既定の言語を変更する必要があります。 既定の言語を変更するには、Visual Studio でソリューションを開いた状態で、`Package.appxmanifest` を開きます。 [アプリケーション] タブで、既定の言語が適切に設定されている ("en"や "en-us" など) ことを確認します。
+この警告は、MakePri.exe または MSBuild が、言語の修飾子でマークされていると思われる、指定された名前付きリソースのファイルまたは文字列リソースを検出したが、既定の言語の候補が見つからない場合に表示されます。 ファイルやフォルダーの名前に修飾子を使用するプロセスについては、「[言語、スケール、その他の修飾子用にリソースを調整する](tailor-resources-lang-scale-contrast.md)」をご覧ください。 ファイルやフォルダーの名前に言語名を含めることはできますが、リソースはその明示された既定の言語に対して修飾されているとは見なされません。 たとえば、プロジェクトで使う既定の言語が "en-US" で、"de/logo.png" という名前のファイルがプロジェクトにある場合に、既定の言語の "en-US" でマークされたファイルがないと、この警告が出力されます。 この警告が出力されないようにするには、ファイルまたは文字列リソースを既定の言語で修飾するか、または既定の言語を変更する必要があります。 既定の言語を変更するには、Visual Studio でソリューションを開いた状態で、`Package.appxmanifest` を開きます。 [アプリケーション] タブで、既定の言語が適切に設定されている ("en"や "en-us" など) ことを確認します。
 
-### <a name="no-default-or-neutral-resource-given-for-resource-identifier-the-application-may-throw-an-exception-for-certain-user-configurations-when-retrieving-the-resources"></a>'<resource identifier>' に既定のリソースまたはニュートラルリソースが指定されていません。 アプリケーションは、リソースを取得するときに、特定のユーザー構成に対して例外をスローすることがあります。
+### <a name="no-default-or-neutral-resource-given-for-resource-identifier-the-application-may-throw-an-exception-for-certain-user-configurations-when-retrieving-the-resources"></a>' ' に既定のリソースまたはニュートラルリソースが指定されていません <resource identifier> 。 アプリケーションは、リソースを取得するときに、特定のユーザー構成に対して例外をスローすることがあります。
 
-この警告は、リソースが不明確な言語修飾子でマークされているように見えるファイルまたはリソースを検出すると、表示されます。 修飾子はありますが、実行時にそのリソース識別子に対して特定のリソース候補を返すことができるという保証がありません。 特定の言語、住んでいる地域、またはその他の修飾子のリソース候補について、既定値であるかまたはユーザーのコンテキストに常に一致することが検出されない場合、この警告が表示されます。 実行時に、ユーザーの言語設定やホームの場所 (**設定** > **時間 & 言語** > **領域 & 言語**) などの特定のユーザー構成については、リソースの取得に使用される api が予期しない例外をスローすることがあります。 この警告が出力されないようにするには、既定のリソースを用意する必要があります。たとえば、プロジェクトの既定の言語やグローバルな住んでいる地域 (homeregion-001) のリソースを用意します。
+この警告は、MakePri.exe または MSBuild が、リソースが不明確な言語の修飾子でマークされているように見えるファイルまたはリソースを検出した場合に表示されます。 修飾子はありますが、実行時にそのリソース識別子に対して特定のリソース候補を返すことができるという保証がありません。 特定の言語、住んでいる地域、またはその他の修飾子のリソース候補について、既定値であるかまたはユーザーのコンテキストに常に一致することが検出されない場合、この警告が表示されます。 実行時に、ユーザーの言語設定やホームの場所 ( **設定** 時間 & 言語領域 & 言語) などの特定のユーザー構成については、  >  **Time & Language**  >  **Region & language** リソースの取得に使用される api が予期しない例外をスローすることがあります。 この警告が出力されないようにするには、既定のリソースを用意する必要があります。たとえば、プロジェクトの既定の言語やグローバルな住んでいる地域 (homeregion-001) のリソースを用意します。
 
 ## <a name="using-makepriexe-in-a-build-system"></a>ビルド システムでの MakePri.exe の使用
 
@@ -57,7 +57,7 @@ MakePri.exe は、通常、`new`、`versioned`、`resourcepack` オプション�
 
 さらに、ビルド システムでは、PRI 形式に固有のインデクサーを使って、ビルド済みの PRI ファイルを他のコンポーネント (クラス ライブラリ、アセンブリ、SDK、DLL など) のパッケージの PRI に追加できます。
 
-他のコンポーネント、クラス ライブラリ、アセンブリ、DLL、SDK 用に PRI ファイルをビルドする場合は、**initialPath** 構成を使って、格納先のアプリと競合しない独自のサブリソース マップがコンポーネント リソースにあることを確認します。
+他のコンポーネント、クラス ライブラリ、アセンブリ、DLL、SDK 用に PRI ファイルをビルドする場合は、 **initialPath** 構成を使って、格納先のアプリと競合しない独自のサブリソース マップがコンポーネント リソースにあることを確認します。
 
 ## <a name="related-topics"></a>関連トピック
 * [MakePri.exe のコマンド ライン オプション](makepri-exe-command-options.md)

@@ -1,5 +1,5 @@
 ---
-Description: このトピックでは、ユーザープロファイルの言語一覧、アプリケーションマニフェストの言語一覧、アプリのランタイム言語の一覧を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
+description: このトピックでは、ユーザープロファイルの言語一覧、アプリケーションマニフェストの言語一覧、アプリのランタイム言語の一覧を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
 title: ユーザー プロファイルの言語とアプリ マニフェストの言語について
 ms.assetid: 22D3A937-736A-4121-8285-A55DED56E594
 template: detail.hbs
@@ -7,17 +7,17 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: ee2ba09c9b8b307a56bd71e720a9f6db8f45a813
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: ee79eae52898bda81312fedd50e117cabeec7b3a
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220245"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030765"
 ---
 # <a name="understand-user-profile-languages-and-app-manifest-languages"></a>ユーザー プロファイルの言語とアプリ マニフェストの言語について
-Windows ユーザーは、**設定**  >  **時間 & 言語**  >  **領域 & 言語**を使用して、優先する表示言語の順序付きリストを構成したり、1つの優先する表示言語を構成したりできます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。
+Windows ユーザーは、 **設定**  >  **時間 & 言語**  >  **領域 & 言語** を使用して、優先する表示言語の順序付きリストを構成したり、1つの優先する表示言語を構成したりできます。 言語には場合によっては地域バリアントがあります。 たとえば、スペインで話されるスペイン語、メキシコで話されるスペイン語、米国で話されるスペイン語などを選ぶことができます。
 
-また、[**設定**時間] では、[言語] & [言語] を & しますが、[言語] とは異なり、  >  **Time & Language**  >  **Region & language**ユーザーは世界中の場所 (地域) を指定できます。 表示言語 (および地域バリアント) の設定は地域の設定を決定するものではありません。その逆も同様です。 たとえば、現在フランスに住んでいるユーザーが、優先される Windows 表示言語としてスペイン語 (メキシコ) を選択している場合があります。
+また、[ **設定** 時間] では、[言語] & [言語] を & しますが、[言語] とは異なり、  >  **Time & Language**  >  **Region & language** ユーザーは世界中の場所 (地域) を指定できます。 表示言語 (および地域バリアント) の設定は地域の設定を決定するものではありません。その逆も同様です。 たとえば、現在フランスに住んでいるユーザーが、優先される Windows 表示言語としてスペイン語 (メキシコ) を選択している場合があります。
 
 Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)として表されます。 たとえば、BCP-47 言語タグ "en-US" は **[設定]** の英語 (米国)に対応しています。 適切な Windows ランタイム Api は、BCP-47 言語タグの文字列表現を受け入れて返します。
 
@@ -26,7 +26,7 @@ Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.
 次の 3 つのセクションでは、"ユーザー プロファイルの言語の一覧"、"アプリ マニフェストの言語の一覧"、"アプリの実行時の言語の一覧" という用語を定義します。 これらの用語は、この機能領域のこのトピックおよびその他のトピックで使用しますので、意味を把握しておくことが重要です。
 
 ## <a name="user-profile-language-list"></a>ユーザー プロファイルの言語の一覧
-ユーザープロファイルの言語一覧は、[**設定**時にユーザーが設定したリストの名前です。 [言語の言語] & [言語の言語] で  >  **&**  >  **Region & language**  >  **Languages**ます。 コードでは、[**GlobalizationPreferences.Languages**](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages) プロパティを使用して、読み取り専用の文字列一覧としてユーザー プロファイルの言語の一覧にアクセスできます。この一覧では、各文字列は "en-US" または "ja-JP" などの単一の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) です。
+ユーザープロファイルの言語一覧は、[ **設定** 時にユーザーが設定したリストの名前です。 [言語の言語] & [言語の言語] で  >  **&**  >  **Region & language**  >  **Languages** ます。 コードでは、 [**GlobalizationPreferences.Languages**](/uwp/api/windows.system.userprofile.globalizationpreferences.Languages) プロパティを使用して、読み取り専用の文字列一覧としてユーザー プロファイルの言語の一覧にアクセスできます。この一覧では、各文字列は "en-US" または "ja-JP" などの単一の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) です。
 
 ```csharp
     IReadOnlyList<string> userLanguages = Windows.System.UserProfile.GlobalizationPreferences.Languages;
@@ -35,7 +35,7 @@ Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.
 ## <a name="app-manifest-language-list"></a>アプリ マニフェストの言語の一覧
 アプリ マニフェストの言語の一覧は、アプリでサポートを宣言している (または宣言する) 言語の一覧です。 この一覧は、ローカライズまで開発ライフサイクルを通じてアプリを進行させるにつれて大きくなります。
 
-一覧はコンパイル時に決定されますが、決定方法を正確に制御するための 2 つのオプションがあります。 1 つ目のオプションは、Visual Studio でプロジェクト内のファイルから一覧を決定する方法です。 これを行うには、まずアプリのパッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) の **[アプリケーション]** タブでアプリの**既定の言語**を設定します。 次に、同じファイルにこの構成が含まれていることを確認します (既定では含まれています)。
+一覧はコンパイル時に決定されますが、決定方法を正確に制御するための 2 つのオプションがあります。 1 つ目のオプションは、Visual Studio でプロジェクト内のファイルから一覧を決定する方法です。 これを行うには、まずアプリのパッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) の **[アプリケーション]** タブでアプリの **既定の言語** を設定します。 次に、同じファイルにこの構成が含まれていることを確認します (既定では含まれています)。
 
 ```xml
   <Resources>
@@ -59,7 +59,7 @@ Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.
 
 アプリが Microsoft Store にある場合、アプリ マニフェストの言語の一覧の言語は、ユーザーに表示される言語になります。 特に Microsoft Store でサポートされる BCP-47 言語タグの一覧については、「[サポートされている言語](../../publish/supported-languages.md)」を参照してください。
 
-コードでは、[**ApplicationLanguages.ManifestLanguages**](/uwp/api/windows.globalization.applicationlanguages.ManifestLanguages) プロパティを使用して、読み取り専用の文字列一覧としてアプリ マニフェストの言語の一覧にアクセスできます。この一覧では、各文字列は単一の BCP-47 言語タグです。
+コードでは、 [**ApplicationLanguages.ManifestLanguages**](/uwp/api/windows.globalization.applicationlanguages.ManifestLanguages) プロパティを使用して、読み取り専用の文字列一覧としてアプリ マニフェストの言語の一覧にアクセスできます。この一覧では、各文字列は単一の BCP-47 言語タグです。
 
 ```csharp
     IReadOnlyList<string> userLanguages = Windows.Globalization.ApplicationLanguages.ManifestLanguages;
@@ -70,9 +70,9 @@ Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.
 
 具体的には、アプリの実行時の言語の一覧は次の項目で構成されています。
 
-1.  **(オプション) 第 1 言語の上書き**。 [**PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳細については、「[アプリ リソースとローカライズのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Application%20resources%20and%20localization%20sample%20(Windows%208))」を参照してください。
-2.  **アプリでサポートされるユーザーの言語**。 これは、アプリ マニフェストの言語の一覧でフィルター処理されたユーザー プロファイルの言語の一覧です。 アプリでサポートされる言語でユーザーの言語をフィルター処理することで、ソフトウェア開発キット (SDK)、クラス ライブラリ、依存性のあるフレームワーク パッケージ、そのアプリの間で一貫性が保たれます。
-3.  **1 と 2 が空の場合、アプリでサポートされる既定または最初の言語**。 ユーザー プロファイルの言語の一覧に、アプリでサポートされる言語が含まれない場合は、アプリで最優先にサポートされる言語がアプリの実行時の言語として選ばれます。
+1.  **(オプション) 第 1 言語の上書き** 。 [**PrimaryLanguageOverride**](/uwp/api/Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride) は、独自の独立した言語選択をユーザーに提示するアプリや、既定の言語選択を無効にしなければならない重大な理由があるアプリで利用できる、シンプルな上書き設定です。 詳細については、「[アプリ リソースとローカライズのサンプルに関するページ](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Application%20resources%20and%20localization%20sample%20(Windows%208))」を参照してください。
+2.  **アプリでサポートされるユーザーの言語** 。 これは、アプリ マニフェストの言語の一覧でフィルター処理されたユーザー プロファイルの言語の一覧です。 アプリでサポートされる言語でユーザーの言語をフィルター処理することで、ソフトウェア開発キット (SDK)、クラス ライブラリ、依存性のあるフレームワーク パッケージ、そのアプリの間で一貫性が保たれます。
+3.  **1 と 2 が空の場合、アプリでサポートされる既定または最初の言語** 。 ユーザー プロファイルの言語の一覧に、アプリでサポートされる言語が含まれない場合は、アプリで最優先にサポートされる言語がアプリの実行時の言語として選ばれます。
 
 コードでは、[ResourceContext.QualifierValues](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.QualifierValues) プロパティを使用して、BCP-47 言語タグのセミコロンで区切られた一覧を含む文字列の形式でアプリの実行時の言語の一覧にアクセスできます。
 
@@ -98,7 +98,7 @@ Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.
 **メモ** アプリの既定の言語のリソースでも、言語の修飾子を指定する必要があります。 たとえば、アプリの既定の言語が英語 (米国) の場合は、アセットをとして修飾し `\Assets\Images\en-US\logo.png` ます。
 
 - Windows では、en-us や en GB などの地域別のバリアントを含む複雑な照合が実行されます。 そのため、必要に応じて region サブタグを含めます。 「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。
-- 言語に対して非表示スクリプト値が定義されていない場合は、修飾子に言語スクリプトのサブタグを指定します。 たとえば、zh-tw または zh-tw の代わりに、zh-tw、zh-tw-TW、または zh-hant-Zh-tw を使用します (詳細については、 [IANA 言語のサブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)を参照してください)。
+- 言語に Suppress-Script 値が定義されていない場合は、修飾子に言語スクリプトのサブタグを指定します。 たとえば、zh-tw または zh-tw の代わりに、zh-tw、zh-tw-TW、または zh-hant-Zh-tw を使用します (詳細については、 [IANA 言語のサブタグレジストリ](https://www.iana.org/assignments/language-subtag-registry)を参照してください)。
 - 1つの標準言語を持つ言語では、地域の修飾子を含める必要はありません。 たとえば、ja-jp ではなく ja を使用します。
 - 一部のツールやその他のコンポーネント (機械翻訳など) では、データの理解に役立つ地域言語情報など特定の言語タグを探す場合があります。
 
@@ -112,17 +112,17 @@ Windows アプリの場合、言語は [BCP-47 言語タグ](https://tools.ietf.
 - テキストのフォントや高さなどの言語スクリプトに基づくリソースの場合は、指定されたスクリプトで不明な言語タグを使用します: ' &lt; und &gt; '。 たとえば、ラテン語フォントの場合は `und-Latn\\fonts.css` を使い、キリル語フォントの場合は `und-Cryl\\fonts.css` を使います。
 
 ## <a name="set-the-http-accept-language-request-header"></a>HTTP Accept-Language 要求ヘッダーの設定
-呼び出す Web サービスがアプリと同じ程度ローカライズされているかどうかを検討します。 一般的な web 要求での Windows アプリからの HTTP 要求、および XMLHttpRequest (XHR) は、標準の HTTP Accept 要求ヘッダーを使用します。 既定では、HTTP ヘッダーは、ユーザー プロファイルの言語の一覧に設定されます。 この一覧内の各言語は、言語と重み付け (q) のニュートラルを含むようにさらに拡張されます。 たとえば、fr-FR と en-US のユーザーの言語一覧では、HTTP Accept-Language 要求ヘッダーは "fr-FR, fr, en-US, en ("fr-FR,fr;q=0.8,en-US;q=0.5,en;q=0.3")" となります。 ただし、たとえば天気予報アプリで UI がフランス語 (フランス) で表示されていて、ユーザーの優先順位一覧の中で最上位にリストされている言語がドイツ語の場合、アプリ内で整合性を維持するために、サービスからフランス語 (フランス) を明示的に要求する必要があります。
+呼び出す Web サービスがアプリと同じ程度ローカライズされているかどうかを検討します。 一般的な web 要求での Windows アプリからの HTTP 要求、および XMLHttpRequest (XHR) は、標準の HTTP Accept-Language 要求ヘッダーを使用します。 既定では、HTTP ヘッダーは、ユーザー プロファイルの言語の一覧に設定されます。 この一覧内の各言語は、言語と重み付け (q) のニュートラルを含むようにさらに拡張されます。 たとえば、fr-FR と en-US のユーザーの言語一覧では、HTTP Accept-Language 要求ヘッダーは "fr-FR, fr, en-US, en ("fr-FR,fr;q=0.8,en-US;q=0.5,en;q=0.3")" となります。 ただし、たとえば天気予報アプリで UI がフランス語 (フランス) で表示されていて、ユーザーの優先順位一覧の中で最上位にリストされている言語がドイツ語の場合、アプリ内で整合性を維持するために、サービスからフランス語 (フランス) を明示的に要求する必要があります。
 
 ## <a name="apis-in-the-windowsglobalization-namespace"></a>Windows.Globalization 名前空間の API
-通常、[**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間の API は、アプリの実行時の言語の一覧を使って言語を判断します。 どの言語にも対応する形式が存在しない場合は、ユーザー ロケールが使われます。 これはシステム クロックに使われているものと同じロケールです。 ユーザーロケールは、[**設定**] [  >  **& 時間**]、[言語の  >  **地域**  >  **] & 日付、時刻、& 地域の設定**  >  **領域: 日付、時刻、または数値の形式の変更**] から使用できます。 **Windows.Globalization** API には、アプリの実行時の言語の一覧の代わりに使う言語の一覧を指定するための上書きもあります。
+通常、 [**Windows.Globalization**](/uwp/api/windows.globalization?branch=live) 名前空間の API は、アプリの実行時の言語の一覧を使って言語を判断します。 どの言語にも対応する形式が存在しない場合は、ユーザー ロケールが使われます。 これはシステム クロックに使われているものと同じロケールです。 ユーザーロケールは、[ **設定** ] [  >  **& 時間** ]、[言語の  >  **地域**  >  **] & 日付、時刻、& 地域の設定**  >  **領域: 日付、時刻、または数値の形式の変更** ] から使用できます。 **Windows.Globalization** API には、アプリの実行時の言語の一覧の代わりに使う言語の一覧を指定するための上書きもあります。
 
 [**Language**](/uwp/api/windows.globalization.language?branch=live) クラスを使うと、言語のスクリプト、表示名、本来の名称などの、特定の言語についての詳細も調べることができます。
 
 ## <a name="use-geographic-region-when-appropriate"></a>必要に応じて、地理的な地域を使う
-[**設定**  >  **時刻 & 言語**の  >  **地域 &**  >  **国または地域**] では、ユーザーは世界の場所を指定できます。 ユーザーに表示するコンテンツの選択方法として、言語ではなく、この設定を使うことができます。 たとえば、ニュース アプリは、既定では、この地域のコンテンツを表示します。
+[ **設定**  >  **時刻 & 言語** の  >  **地域 &**  >  **国または地域** ] では、ユーザーは世界の場所を指定できます。 ユーザーに表示するコンテンツの選択方法として、言語ではなく、この設定を使うことができます。 たとえば、ニュース アプリは、既定では、この地域のコンテンツを表示します。
 
-コードでは、[**GlobalizationPreferences.HomeGeographicRegion**](/uwp/api/windows.system.userprofile.globalizationpreferences.HomeGeographicRegion) プロパティを使ってこの設定にアクセスできます。
+コードでは、 [**GlobalizationPreferences.HomeGeographicRegion**](/uwp/api/windows.system.userprofile.globalizationpreferences.HomeGeographicRegion) プロパティを使ってこの設定にアクセスできます。
 
 [**GeographicRegion**](/uwp/api/windows.globalization.geographicregion?branch=live) クラスを使うと、地域の表示名、本来の名称、使用通貨などの、特定地域についての詳細を調べることができます
 

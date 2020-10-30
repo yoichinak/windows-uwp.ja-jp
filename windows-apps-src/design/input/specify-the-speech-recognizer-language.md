@@ -1,5 +1,5 @@
 ---
-Description: 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。
+description: 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。
 title: 音声認識エンジンの言語の指定
 ms.assetid: 4C463A1B-AF6A-46FD-A839-5D6724955B38
 label: Specify the speech recognizer language
@@ -8,19 +8,19 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a19e4ec876ca5dfa313c56e5653b3a27a4155765
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: fa8137b5bf05bb8099a803fedd7e056fc14d9d70
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031325"
 ---
 # <a name="specify-the-speech-recognizer-language"></a>音声認識エンジンの言語の指定
 
 
 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。
 
-> **重要な API**: [**SupportedTopicLanguages**](/uwp/api/windows.media.speechrecognition.speechrecognizer.supportedtopiclanguages)、[**SupportedGrammarLanguages**](/uwp/api/windows.media.speechrecognition.speechrecognizer.supportedgrammarlanguages)、[**Language**](/uwp/api/Windows.Globalization.Language)
+> **重要な API** : [**SupportedTopicLanguages**](/uwp/api/windows.media.speechrecognition.speechrecognizer.supportedtopiclanguages)、 [**SupportedGrammarLanguages**](/uwp/api/windows.media.speechrecognition.speechrecognizer.supportedgrammarlanguages)、 [**Language**](/uwp/api/Windows.Globalization.Language)
 
 
 ここでは、システムにインストールされている言語を列挙し、どの言語が既定の言語であるかを指定します。また、音声認識用に別の言語を選びます。
@@ -56,9 +56,9 @@ var language = SpeechRecognizer.SystemSpeechLanguage;
 
 インストールされている言語はデバイスによって異なる場合があります。 特定の制約を使う際にある言語に依存する場合は、その言語が存在するかどうかを確認してください。
 
-**メモ**   新しい言語パックをインストールすると、再起動が必要になります。 \_指定された言語がサポートされていない場合、またはインストールが完了していない場合は、エラーコード SPERR が見つからないという例外 \_ (0x8004503a) が発生します。
+**注**  新しい言語パックをインストールした場合は、再起動が必要です。 \_指定された言語がサポートされていない場合、またはインストールが完了していない場合は、エラーコード SPERR が見つからないという例外 \_ (0x8004503a) が発生します。
 
- 
+ 
 
 [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) クラスの 2 つの静的プロパティのいずれかを調べて、デバイスでサポートされる言語を特定します。
 
@@ -69,7 +69,7 @@ var language = SpeechRecognizer.SystemSpeechLanguage;
 ## <a name="specify-a-language"></a>言語を指定する
 
 
-言語を指定するには、[**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) コンストラクターで [**Language**](/uwp/api/Windows.Globalization.Language) オブジェクトを渡します。
+言語を指定するには、 [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) コンストラクターで [**Language**](/uwp/api/Windows.Globalization.Language) オブジェクトを渡します。
 
 ここでは、認識言語として "en-US" を指定します。
 
@@ -79,14 +79,14 @@ var language = new Windows.Globalization.Language("en-US");
 var recognizer = new SpeechRecognizer(language); 
 ```
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
 
-トピック制約を構成するには、[**SpeechRecognitionTopicConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint) を [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) の [**Constraints**](/uwp/api/windows.media.speechrecognition.speechrecognizer.constraints) コレクションに追加して、[**CompileConstraintsAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync) を呼び出します。 サポートされているトピックの言語で認識エンジンが初期化されていない場合は、**TopicLanguageNotSupported** の [**SpeechRecognitionResultStatus**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus) が返されます。
+トピック制約を構成するには、 [**SpeechRecognitionTopicConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint) を [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) の [**Constraints**](/uwp/api/windows.media.speechrecognition.speechrecognizer.constraints) コレクションに追加して、 [**CompileConstraintsAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync) を呼び出します。 サポートされているトピックの言語で認識エンジンが初期化されていない場合は、 **TopicLanguageNotSupported** の [**SpeechRecognitionResultStatus**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus) が返されます。
 
-一覧の制約を構成するには、[**SpeechRecognitionListConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint) を [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) の [**Constraints**](/uwp/api/windows.media.speechrecognition.speechrecognizer.constraints) コレクションに追加して、[**CompileConstraintsAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync) を呼び出します。 カスタム一覧の言語を直接指定することはできません。 代わりに、認識エンジンの言語を使って一覧が処理されます。
+一覧の制約を構成するには、 [**SpeechRecognitionListConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint) を [**SpeechRecognizer**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer) の [**Constraints**](/uwp/api/windows.media.speechrecognition.speechrecognizer.constraints) コレクションに追加して、 [**CompileConstraintsAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync) を呼び出します。 カスタム一覧の言語を直接指定することはできません。 代わりに、認識エンジンの言語を使って一覧が処理されます。
 
-SRGS 文法は、[**SpeechRecognitionGrammarFileConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint) クラスによって表されるオープン スタンダードの XML 形式です。 カスタム一覧とは異なり、SRGS マークアップで文法の言語を指定できます。 [**CompileConstraintsAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync)認識エンジンが SRGS マークアップと同じ言語に初期化されていない場合は、**TopicLanguageNotSupported** の [**SpeechRecognitionResultStatus**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus)  により失敗します。
+SRGS 文法は、 [**SpeechRecognitionGrammarFileConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint) クラスによって表されるオープン スタンダードの XML 形式です。 カスタム一覧とは異なり、SRGS マークアップで文法の言語を指定できます。 [**CompileConstraintsAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.compileconstraintsasync)認識エンジンが SRGS マークアップと同じ言語に初期化されていない場合は、 **TopicLanguageNotSupported** の [**SpeechRecognitionResultStatus**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus)  により失敗します。
 
 ## <a name="related-articles"></a>関連記事
 
@@ -95,6 +95,6 @@ SRGS 文法は、[**SpeechRecognitionGrammarFileConstraint**](/uwp/api/Windows.M
 **サンプル**
 
 * [音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)
- 
+ 
 
- 
+ 

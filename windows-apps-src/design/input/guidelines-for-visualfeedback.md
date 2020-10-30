@@ -1,5 +1,5 @@
 ---
-Description: 視覚的なフィードバックを使用して、Windows アプリとの対話が検出、解釈、および処理されるときにユーザーを表示します。
+description: 視覚的なフィードバックを使用して、Windows アプリとの対話が検出、解釈、および処理されるときにユーザーを表示します。
 title: 視覚的なフィードバック
 ms.assetid: bf2f3672-95f0-4c8c-9a72-0934f2d3b767
 label: Visual feedback
@@ -8,18 +8,18 @@ keywords: 視覚的なフィードバック, フォーカス フィードバッ�
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1afc1c884a7a01ef1021f37476d1e29430c62e3c
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: b82ff29de09766aa348a548c5bd484b7c46db31f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219835"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030515"
 ---
 # <a name="guidelines-for-visual-feedback"></a>視覚的なフィードバックのガイドライン
 
 視覚的なフィードバックは、対話式操作が検出、解釈、処理されていることをユーザーに示すために使います。 視覚的なフィードバックは、対話式操作を促進することによってユーザーを支援します。 対話式操作の成功を示すことによって、ユーザーのコントロール感を向上させます。 また、システム状態の中継やエラーの削減も可能になります。
 
-> **重要な API**: [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input)、[**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、[**Windows.UI.Core**](/uwp/api/Windows.UI.Core)
+> **重要な API** : [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input)、 [**Windows.UI.Input**](/uwp/api/Windows.UI.Input)、 [**Windows.UI.Core**](/uwp/api/Windows.UI.Core)
 
 ## <a name="recommendations"></a>Recommendations
 
@@ -27,7 +27,7 @@ ms.locfileid: "91219835"
     - 表示状態のプロパティなど、コントロールのプロパティのカスタマイズの詳細については、「[XAML スタイル](../controls-and-patterns/xaml-styles.md)」を参照してください。
     - コントロール テンプレートに対する変更の詳細については、「[UserControl クラス](/uwp/api/windows.ui.xaml.controls.usercontrol)」を参照してください。
     - コントロール テンプレートに大幅な変更を加える必要がある場合は、独自にテンプレート化したカスタム コントロールを作成することを検討してください。 テンプレート化したカスタム コントロールの例については、「[カスタム編集コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/CustomEditControl)」を参照してください。
-- タッチの視覚エフェクトがアプリの使用を妨げる可能性がある場合は、使わないでください。 詳しくは、「[**ShowGestureFeedback**](/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback)」をご覧ください。
+- タッチの視覚エフェクトがアプリの使用を妨げる可能性がある場合は、使わないでください。 詳しくは、「 [**ShowGestureFeedback**](/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback)」をご覧ください。
 - どうしても必要な場合以外は、フィードバックを表示しないでください。 その場所でしか意味がない場合を除き、視覚的なフィードバックを表示せずに、UI の簡潔さを維持してください。
 - Windows の組み込みジェスチャの視覚的なフィードバックの動作は大幅にカスタマイズしないでください。この動作をカスタマイズすると、ユーザー エクスペリエンスに一貫性がなくなり、混乱する可能性があります。
 
@@ -44,7 +44,7 @@ ms.locfileid: "91219835"
 
 視覚的なフィードバックは、一般に入力デバイス (タッチ、タッチバッド、マウス、ペン/スタイラス、キーボードなど) に依存します。 たとえば、マウスの組み込みフィードバックには、通常はカーソルの移動と変化が伴います。一方、タッチとペンの場合は接触の視覚エフェクトが必要です。キーボードによる入力とナビゲーションの場合は、フォーカス用の四角形と強調表示を使います。
 
-プラットフォーム ジェスチャのフィードバック動作を設定するには、[**ShowGestureFeedback**](/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback) を使います。
+プラットフォーム ジェスチャのフィードバック動作を設定するには、 [**ShowGestureFeedback**](/uwp/api/windows.ui.input.gesturerecognizer.showgesturefeedback) を使います。
 
 フィードバック UI をカスタマイズする場合は、すべての入力モードをサポートした適切なフィードバックを提供してください。
 
@@ -58,16 +58,16 @@ Windows には、次のような接触の視覚エフェクトが組み込まれ
 
 すべての Windows アプリでは、定義済みのさまざまなフォーカスの視覚効果が、アプリケーション内にある対話可能なコントロールの周囲に示されます。 新しいフォーカスの視覚効果は、すべてカスタマイズ可能であり、必要に応じて無効にすることができます。
 
-Xbox とテレビの使用で一般的な **10 フィート エクスペリエンス**では、Windows は**表示フォーカス**をサポートします。これは、ボタンなどのフォーカス可能な要素がゲームパッドやキーボードの入力でフォーカスを取得したときに、その境界線をアニメーション化する照明効果です。
+Xbox とテレビの使用で一般的な **10 フィート エクスペリエンス** では、Windows は **表示フォーカス** をサポートします。これは、ボタンなどのフォーカス可能な要素がゲームパッドやキーボードの入力でフォーカスを取得したときに、その境界線をアニメーション化する照明効果です。
 
 ## <a name="color-branding--customizing"></a>色のブランド化とカスタマイズ
 
 ### <a name="border-properties"></a>境界線のプロパティ
 
-視認性の高いフォーカスの視覚効果は、プライマリ境界線とセカンダリ境界線という 2 つの部分で構成されます。 プライマリ境界線は、**2 px** の幅があり、セカンダリ境界線の*外側*に描画されます。 セカンダリ境界線は、**1 px** の幅があり、プライマリ境界線の*内側*に描画されます。
+視認性の高いフォーカスの視覚効果は、プライマリ境界線とセカンダリ境界線という 2 つの部分で構成されます。 プライマリ境界線は、 **2 px** の幅があり、セカンダリ境界線の *外側* に描画されます。 セカンダリ境界線は、 **1 px** の幅があり、プライマリ境界線の *内側* に描画されます。
 ![視認性の高いフォーカスの視覚効果 (赤線で示されています)](images/FocusRectRedlines.png)
 
-それぞれの境界線 (プライマリおよびセカンダリ) の太さを変更するには、**FocusVisualPrimaryThickness** をプライマリ境界線に対して使用し、 **FocusVisualSecondaryThickness** をセカンダリ境界線に対して使用します。
+それぞれの境界線 (プライマリおよびセカンダリ) の太さを変更するには、 **FocusVisualPrimaryThickness** をプライマリ境界線に対して使用し、 **FocusVisualSecondaryThickness** をセカンダリ境界線に対して使用します。
 ```XAML
 <Slider Width="200" FocusVisualPrimaryThickness="5" FocusVisualSecondaryThickness="2"/>
 ```
@@ -75,7 +75,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 余白は [**Thickness**](/dotnet/api/system.windows.thickness) という種類のプロパティで指定されます。このため、コントロールの特定の側にのみ表示されるように、余白をカスタマイズすることができます。 以下を参照: ![ 高い可視性フォーカスの視覚的な余白の太さ (下のみ)](images/FocusThicknessSide.png)
 
-余白は、コントロールの視覚的な境界と、フォーカスビジュアルの *2 番目の境界線*の間の間隔です。 既定の余白は、コントロールの境界から離れて **1px** ます。 このマージンは、 **FocusVisualMargin** プロパティを変更することで、コントロールごとに編集できます。
+余白は、コントロールの視覚的な境界と、フォーカスビジュアルの *2 番目の境界線* の間の間隔です。 既定の余白は、コントロールの境界から離れて **1px** ます。 このマージンは、 **FocusVisualMargin** プロパティを変更することで、コントロールごとに編集できます。
 ```XAML
 <Slider Width="200" FocusVisualMargin="-5"/>
 ```
@@ -83,7 +83,7 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 
 *負の値で示される余白は、コントロールの中央から遠ざけるようにして境界線を描画し、正の値で示される余白は、コントロールの中央に近づけるようにして境界線を描画します。*
 
-コントロールでフォーカスの視覚効果を完全に無効にするには、**UseSystemFocusVisuals** を無効にするだけです。
+コントロールでフォーカスの視覚効果を完全に無効にするには、 **UseSystemFocusVisuals** を無効にするだけです。
 ```XAML
 <Slider Width="200" UseSystemFocusVisuals="False"/>
 ```
@@ -133,6 +133,6 @@ Xbox とテレビの使用で一般的な **10 フィート エクスペリエ�
 - [入力: Windows 8 のジェスチャのサンプルに関するページ](/samples/browse/?redirectedfrom=MSDN-samples)
 - [入力: 操作とジェスチャのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
 - [DirectX タッチ入力のサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%2B%2B%5D-Windows%208%20app%20samples/C%2B%2B/Windows%208%20app%20samples/DirectX%20touch%20input%20sample%20(Windows%208))
- 
+ 
 
- 
+ 

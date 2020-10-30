@@ -1,5 +1,5 @@
 ---
-Description: このガイドは、Windows 情報保護 (WIP) ポリシーによって管理される企業データ、および個人データを処理するように、アプリを対応させる場合に役立ちます。
+description: このガイドは、Windows 情報保護 (WIP) ポリシーによって管理される企業データ、および個人データを処理するように、アプリを対応させる場合に役立ちます。
 MSHAttr: PreferredLib:/library/windows/apps
 Search.Product: eADQiWindows 10XVcnh
 title: Windows 情報保護 (WIP) 開発者向けガイド
@@ -8,16 +8,16 @@ ms.topic: article
 keywords: Windows 10, UWP, WIP, Windows 情報保護, 企業データ, エンタープライズ データ保護, EDP, 対応アプリ
 ms.assetid: 913ac957-ea49-43b0-91b3-e0f6ca01ef2c
 ms.localizationpriority: medium
-ms.openlocfilehash: d6454fdf63fb757c703ec31dba46a86e2a46aec6
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a1afea58fd7fc7c7868103fc9c7a8510f9f81908
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163256"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032065"
 ---
 # <a name="windows-information-protection-wip-developer-guide"></a>Windows 情報保護 (WIP) 開発者向けガイド
 
-*対応*アプリは企業データと個人データを区別し、管理者によって定義された Windows 情報保護 (WIP) ポリシーに基づいて、どちらを保護するかを判別します。
+*対応* アプリは企業データと個人データを区別し、管理者によって定義された Windows 情報保護 (WIP) ポリシーに基づいて、どちらを保護するかを判別します。
 
 このガイドでは、こうしたアプリの作成方法について説明します。 アプリの作成が完了すると、ポリシー管理者はこのようなアプリを信頼し、アプリによる組織のデータの利用を許可することができます。 また、従業員からも、組織のモバイル デバイス管理 (MDM) から登録を解除した場合や、完全に組織を去ることになった場合でも、デバイス上の個人データをそのまま残す方法が望まれています。
 
@@ -82,7 +82,7 @@ WIP Setup Developer Assistant 内の各セクションに情報を追加する�
     ```xml
        <rescap:Capability Name="enterpriseDataPolicy"/>
     ```
-   >*参考情報*: "rescap" プレフィックスは、*制限された機能* を意味しています。 「[特殊な用途および制限された用途に関する機能](../packaging/app-capability-declarations.md)」をご覧ください。
+   >*参考情報* : "rescap" プレフィックスは、 *制限された機能* を意味しています。 「[特殊な用途および制限された用途に関する機能](../packaging/app-capability-declarations.md)」をご覧ください。
 
 4. 次の名前空間をパッケージ マニフェスト ファイルに追加します。
 
@@ -268,7 +268,7 @@ else
 
 この保護されたスレッド上には個人用ファイルを作成しないでください。それらのファイルは自動的に暗号化されるためです。
 
-[**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) メソッドは、エンドポイントがポリシーによって管理されているかどうかに関係なく、[**ThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.threadnetworkcontext) オブジェクトを返します。 アプリで個人のリソースと企業のリソースの両方を処理する場合は、すべての ID に対して [**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) を呼び出してください。  リソースを取得したら、ThreadNetworkContext を破棄して、現在のスレッドからすべての ID タグを消去します。
+[**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) メソッドは、エンドポイントがポリシーによって管理されているかどうかに関係なく、 [**ThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.threadnetworkcontext) オブジェクトを返します。 アプリで個人のリソースと企業のリソースの両方を処理する場合は、すべての ID に対して [**ProtectionPolicyManager.CreateCurrentThreadNetworkContext**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.createcurrentthreadnetworkcontext) を呼び出してください。  リソースを取得したら、ThreadNetworkContext を破棄して、現在のスレッドからすべての ID タグを消去します。
 
 > **API** <br>
 [ProtectionPolicyManager.GetForCurrentView](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.getforcurrentview)<br>
@@ -391,7 +391,7 @@ private static async Task<IBuffer> GetDataFromNetworkRedirectHelperMethod(Uri re
 
 **クリップボードからのデータを使用するアクセス許可を取得する**
 
-クリップボードからデータを取得するには、アクセス許可を Windows に要求します。 そのためには、[**DataPackageView.RequestAccessAsync**](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync) を使用します。
+クリップボードからデータを取得するには、アクセス許可を Windows に要求します。 そのためには、 [**DataPackageView.RequestAccessAsync**](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.requestaccessasync) を使用します。
 
 ```csharp
 public static async Task PasteText(TextBox textBox)
@@ -445,7 +445,7 @@ private bool IsClipboardAllowedAsync()
 
 **ユーザーに対して同意ダイアログ ボックスが表示されないようにする**
 
-新しいドキュメントは、*個人用*でも*企業用*でもありません。 そのドキュメントは、単なる新規のドキュメントです。 ユーザーが企業データをそのドキュメントに貼り付ける場合、Windows によってポリシーが適用され、ユーザーに対して同意ダイアログ ボックスが表示されます。 次のコードを使用すると、このような状況が発生しなくなります。 このタスクは、データの保護に役立つものではありません。 このタスクは、アプリで完全に新規の項目を作成する場合に、同意ダイアログ ボックスがユーザーに表示されなくするためのものです。
+新しいドキュメントは、 *個人用* でも *企業用* でもありません。 そのドキュメントは、単なる新規のドキュメントです。 ユーザーが企業データをそのドキュメントに貼り付ける場合、Windows によってポリシーが適用され、ユーザーに対して同意ダイアログ ボックスが表示されます。 次のコードを使用すると、このような状況が発生しなくなります。 このタスクは、データの保護に役立つものではありません。 このタスクは、アプリで完全に新規の項目を作成する場合に、同意ダイアログ ボックスがユーザーに表示されなくするためのものです。
 
 ```csharp
 private async void PasteText(bool isNewEmptyDocument)
@@ -489,7 +489,7 @@ private async void PasteText(bool isNewEmptyDocument)
 
 従業員がアプリで自分の情報を共有するように選んだ場合、アプリではその情報の内容を含んでいる新しい項目が開きます。
 
-前に説明したとおり、新しい項目は*個人用*でも*企業用*でもありません。 そのドキュメントは、単なる新規のドキュメントです。 コードで企業のコンテンツを項目に追加する場合、Windows によってポリシーが適用され、ユーザーに対して同意ダイアログ ボックスが表示されます。 次のコードを使用すると、このような状況が発生しなくなります。
+前に説明したとおり、新しい項目は *個人用* でも *企業用* でもありません。 そのドキュメントは、単なる新規のドキュメントです。 コードで企業のコンテンツを項目に追加する場合、Windows によってポリシーが適用され、ユーザーに対して同意ダイアログ ボックスが表示されます。 次のコードを使用すると、このような状況が発生しなくなります。
 
 ```csharp
 protected override async void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
@@ -559,7 +559,7 @@ protected override async void OnShareTargetActivated(ShareTargetActivatedEventAr
 
 ### <a name="protect-data-that-appears-in-pages"></a>ページ内に表示されるデータを保護する
 
-データをページ内に表示するとき、Windows に対して、そのデータの種類 (個人用または企業用) を知らせます。 そのためには、現在のアプリ ビューに*タグ*を付けるか、アプリのプロセス全体にタグを付けます。
+データをページ内に表示するとき、Windows に対して、そのデータの種類 (個人用または企業用) を知らせます。 そのためには、現在のアプリ ビューに *タグ* を付けるか、アプリのプロセス全体にタグを付けます。
 
 ビューまたはプロセスにタグを付けるとき、Windows によってポリシーが適用されます。 これにより、アプリで制御できない操作に起因するデータ漏洩を防ぐことができます。 たとえば、コンピューターでユーザーが Ctrl + V キーを使用して、ビューから企業の情報をコピーし、その情報を他のアプリに貼り付けるとします。 Windows では、この操作が行われるのを防ぎます。 また Windows は、共有コントラクトを適用する際にも役立ちます。
 
@@ -987,7 +987,7 @@ else
 
 ### <a name="protect-data-that-your-app-shares-through-a-share-contract"></a>アプリが共有コントラクトを介して共有しているデータを保護する
 
-ユーザーがアプリからコンテンツを共有できるようにする場合は、共有コントラクトを実装し、[**DataTransferManager.DataRequested**](/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested) イベントを処理する必要があります。
+ユーザーがアプリからコンテンツを共有できるようにする場合は、共有コントラクトを実装し、 [**DataTransferManager.DataRequested**](/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.datarequested) イベントを処理する必要があります。
 
 イベント ハンドラーで、データ パッケージ内に企業の資格情報のコンテキストを設定します。
 
@@ -1045,9 +1045,9 @@ private async void CopyProtectionFromOneFileToAnother
 
 デバイスがロックされているときは、メモリ内の機密データをすべて削除します。 ユーザーがデバイスをロック解除したとき、アプリではデータを安全に元に戻すことができます。
 
-画面がロックされていることをアプリで認識できるように、[**ProtectionPolicyManager.ProtectedAccessSuspending**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccesssuspending) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成している場合にのみ発生します。 Windows では、デバイスにプロビジョニングされたデータ保護キーが一時的に削除されます。 Windows によってこれらのキーが削除されるため、デバイスがロックされている間 (デバイスが所有者の手元にない場合も考えられます)、暗号化されたデータに対して未承認のアクセスができなくなります。  
+画面がロックされていることをアプリで認識できるように、 [**ProtectionPolicyManager.ProtectedAccessSuspending**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccesssuspending) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成している場合にのみ発生します。 Windows では、デバイスにプロビジョニングされたデータ保護キーが一時的に削除されます。 Windows によってこれらのキーが削除されるため、デバイスがロックされている間 (デバイスが所有者の手元にない場合も考えられます)、暗号化されたデータに対して未承認のアクセスができなくなります。  
 
-画面がロック解除されていることをアプリで認識できるように、[**ProtectionPolicyManager.ProtectedAccessResumed**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成しているかどうかに関係なく発生します。
+画面がロック解除されていることをアプリで認識できるように、 [**ProtectionPolicyManager.ProtectedAccessResumed**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedaccessresumed) イベントを処理します。 このイベントは、管理者がロック ポリシーに従って安全なデータ保護を構成しているかどうかに関係なく発生します。
 
 #### <a name="remove-sensitive-data-in-memory-when-the-screen-is-locked"></a>画面がロックされているときに、メモリの機密データを削除する
 
@@ -1132,7 +1132,7 @@ private async void ProtectionPolicyManager_ProtectedAccessResumed(object sender,
 
 ## <a name="handle-enterprise-data-when-protected-content-is-revoked"></a>保護されたコンテンツが無効になった場合の企業データの処理
 
-デバイスが MDM から登録解除されたとき、またはポリシー管理者が企業データへのアクセスを明示的に無効にしたときに、アプリに通知する必要がある場合は、[**ProtectionPolicyManager_ProtectedContentRevoked**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedcontentrevoked) イベントを処理します。
+デバイスが MDM から登録解除されたとき、またはポリシー管理者が企業データへのアクセスを明示的に無効にしたときに、アプリに通知する必要がある場合は、 [**ProtectionPolicyManager_ProtectedContentRevoked**](/uwp/api/windows.security.enterprisedata.protectionpolicymanager.protectedcontentrevoked) イベントを処理します。
 
 次の例では、メール アプリ用の企業のメールボックス内にあるデータが無効になっているかどうかを確認します。
 

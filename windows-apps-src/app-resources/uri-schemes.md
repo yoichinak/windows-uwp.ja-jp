@@ -1,17 +1,17 @@
 ---
-Description: アプリのパッケージ、アプリのデータ フォルダー、またはクラウドからのファイルを参照するために使用できる URI (Uniform Resource Identifier) スキームはいくつかあります。 また、URI スキームを使用して、アプリのリソース ファイル (.resw) から読み込まれた文字列を参照することもできます。
+description: アプリのパッケージ、アプリのデータ フォルダー、またはクラウドからのファイルを参照するために使用できる URI (Uniform Resource Identifier) スキームはいくつかあります。 また、URI スキームを使用して、アプリのリソース ファイル (.resw) から読み込まれた文字列を参照することもできます。
 title: URI スキーム
 template: detail.hbs
 ms.date: 10/16/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f5bf063c12362fe26e3810e6153b857b7c1a2e4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8806992ebb7f4335ca0a748c1b2bce4a6de39fae
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170526"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031547"
 ---
 # <a name="uri-schemes"></a>URI スキーム
 
@@ -31,7 +31,7 @@ hier-part   = "//" authority path-abempty
             / path-empty
 ```
 
-つまり、URI には原則として 3 つのコンポーネントがあります。 URI *スキーム* には、2 つのスラッシュの直後に "*機関*" コンポーネントがあります (空白にすることも可能)。 この直後にあるのが "*パス*" です。 例として URI `http://www.contoso.com/welcome.png` では、スキームが "`http://`"、機関が "`www.contoso.com`"、パスが "`/welcome.png`" です。 別の例として、URI `ms-appx:///logo.png` では、機関コンポーネントが空であり、既定値が使用されています。
+つまり、URI には原則として 3 つのコンポーネントがあります。 URI *スキーム* には、2 つのスラッシュの直後に " *機関* " コンポーネントがあります (空白にすることも可能)。 この直後にあるのが " *パス* " です。 例として URI `http://www.contoso.com/welcome.png` では、スキームが "`http://`"、機関が "`www.contoso.com`"、パスが "`/welcome.png`" です。 別の例として、URI `ms-appx:///logo.png` では、機関コンポーネントが空であり、既定値が使用されています。
 
 フラグメント コンポーネントは、このトピックで説明している URI のスキーム固有の処理では無視されます。 リソースの取得と比較の間、フラグメント コンポーネントは意味を持ちません。 ただし、特定の実装上のレイヤーでは、フラグメントを解釈してセカンダリ リソースを取得することがあります。
 
@@ -41,7 +41,7 @@ hier-part   = "//" authority path-abempty
 
 このトピックで説明している URI スキームはすべて、スキームの正規化とリソース取得について一般的な URI 規則 (RFC 3986) に従っています。 これらの URI の正規化された形式では、大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます。
 
-このトピックで説明されているすべての URI スキームでは、標準では*スキーム*、*機関*、および*パス*の大文字と小文字が区別されません。それ以外でも、大文字と小文字を区別せずシステムによって処理されます。 **注** そのルールの唯一の例外は、`ms-resource` の*機関*で、大文字と小文字が区別されます。
+このトピックで説明されているすべての URI スキームでは、標準では *スキーム* 、 *機関* 、および *パス* の大文字と小文字が区別されません。それ以外でも、大文字と小文字を区別せずシステムによって処理されます。 **注** そのルールの唯一の例外は、`ms-resource` の *機関* で、大文字と小文字が区別されます。
 
 ## <a name="ms-appx-and-ms-appx-web"></a>ms-appx と ms-appx-web
 
@@ -253,7 +253,7 @@ ms-resource://john:password@contoso.myapp:8080/Resources/String1
 
 例と詳しい情報については、「[UI とアプリ パッケージ マニフェスト内の文字列をローカライズする](localize-strings-ui-manifest.md)」と「[言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート](../design/shell/tiles-and-notifications/tile-toast-language-scale-contrast.md)」をご覧ください。
 
-パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる取得では、 *ignoreCase*がに設定された[comparestringordinal](/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)が使用され `true` ます。
+パス コンポーネント `ms-resource` では、一般的な URI と同様、大文字と小文字が区別されます。 ただし、基になる取得では、 *ignoreCase* がに設定された [comparestringordinal](/windows/desktop/api/winstring/nf-winstring-windowscomparestringordinal)が使用され `true` ます。
 
 正規化された URI 形式では大文字と小文字が保持され、RFC 3986 の非予約文字がパーセントデコードされます ("%" 記号の後に 2 桁の 16 進数表現)。 文字 "?"、"#"、"/"、"*"、および "" (二重引用符) は、ファイル名やフォルダー名などのデータを表すパスでパーセントエンコードする必要があります。 パーセントエンコードされたすべての文字は、取得前にデコードされます。 したがって、という名前のリソースファイルから文字列リソースを取得するには `Hello#World.resw` 、この URI を使用します。
 

@@ -1,17 +1,17 @@
 ---
-Description: アプリにユーザーのデバイスの特定の設定に一致するリソースがない場合、アプリの既定のリソースが使用されます。 このトピックでは、これらの既定のリソースの内容を指定する方法について説明します。
+description: アプリにユーザーのデバイスの特定の設定に一致するリソースがない場合、アプリの既定のリソースが使用されます。 このトピックでは、これらの既定のリソースの内容を指定する方法について説明します。
 title: アプリで使用する既定のリソースを指定する
 template: detail.hbs
 ms.date: 11/14/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 5dfd09f2a1a3ab326c09434ee2c613ae57214d59
-ms.sourcegitcommit: b52ddecccb9e68dbb71695af3078005a2eb78af1
+ms.openlocfilehash: 4db2fbce788bac38a0f3a54a108f91c8293de6ba
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74254643"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031554"
 ---
 # <a name="specify-the-default-resources-that-your-app-uses"></a>アプリで使用する既定のリソースを指定する
 
@@ -25,7 +25,7 @@ ms.locfileid: "74254643"
 
 これらの既定値の内容は、2 つの方法のいずれかで構成できます。 構成ファイルをプロジェクトに追加するか、またはプロジェクト ファイルを直接編集することができます。 これらのうち使いやすいオプション、またはビルド システムで最適に機能するオプションを使用してください。
 
-## <a name="option-1-use-priconfigdefaultxml-to-specify-default-qualifier-values"></a>オプション 1. priconfig.default.xml を使用して、既定の修飾子の値を指定する
+## <a name="option-1-use-priconfigdefaultxml-to-specify-default-qualifier-values"></a>方法 1. priconfig.default.xml を使用して、既定の修飾子の値を指定する
 
 1. Visual Studio で、新しい項目をプロジェクトに追加します。 XML ファイルを選択し、ファイルに `priconfig.default.xml` という名前を付けます。
 2. ソリューション エクスプ ローラーで、`priconfig.default.xml` を選択し、[プロパティ] ウィンドウを確認します。 ファイルの [ビルド アクション] を [なし] に設定し、[出力ディレクトリにコピー] を [コピーしない] に設定します。
@@ -44,9 +44,9 @@ ms.locfileid: "74254643"
    </default>
    ```
    
-   **メモ** 値 `LANGUAGE-TAG(S)` は、アプリの既定の言語と同期する必要があります。 それが単一の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) である場合は、アプリの既定の言語は同じタグである必要があります。 それが言語タグのコンマ区切りのリストである場合、アプリの既定の言語はリストの最初のタグである必要があります。 アプリ パッケージ マニフェスト ソース ファイル ( **) の** [アプリケーション]**タブの**[既定の言語]`Package.appxmanifest` フィールドでアプリの既定の言語を設定します。
+   **メモ** 値 `LANGUAGE-TAG(S)` は、アプリの既定の言語と同期する必要があります。 それが単一の [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) である場合は、アプリの既定の言語は同じタグである必要があります。 それが言語タグのコンマ区切りのリストである場合、アプリの既定の言語はリストの最初のタグである必要があります。 アプリ パッケージ マニフェスト ソース ファイル (`Package.appxmanifest`) の **[アプリケーション]** タブの **[既定の言語]** フィールドでアプリの既定の言語を設定します。
 
-4. 各 `<qualifier>` 要素は Visual Studio に対して、各修飾子名の既定値として使用する値を指示します。 ファイルの内容はこれまでのものであり、Visual Studio の動作を実際には変更していません。 つまり、これらの内容が既定値であるため、Visual Studio はこれらの内容を持つファイルが存在しているかのように*既に動作しました*。 そのため、既定値を独自の既定値で上書きするには、ファイル内の値を変更する必要があります。 最初の 3 つの値を編集した場合、ファイルの外観は次のようになります。
+4. 各 `<qualifier>` 要素は Visual Studio に対して、各修飾子名の既定値として使用する値を指示します。 ファイルの内容はこれまでのものであり、Visual Studio の動作を実際には変更していません。 つまり、これらの内容が既定値であるため、Visual Studio はこれらの内容を持つファイルが存在しているかのように *既に動作しました* 。 そのため、既定値を独自の既定値で上書きするには、ファイル内の値を変更する必要があります。 最初の 3 つの値を編集した場合、ファイルの外観は次のようになります。
    ```xml
    <default>
       <qualifier name="Language" value="de-DE" />
@@ -80,7 +80,7 @@ ms.locfileid: "74254643"
 
 `FILE-PATH-AND-NAME` をファイルのパスおよび名前に置き換えます。
 
-## <a name="option-2-use-your-project-file-to-specify-default-qualifier-values"></a>オプション 2. プロジェクト ファイルを使用して、既定の修飾子の値を指定する
+## <a name="option-2-use-your-project-file-to-specify-default-qualifier-values"></a>方法 2. プロジェクト ファイルを使用して、既定の修飾子の値を指定する
 
 これは、オプション 1 に代わる方法です。 オプション 1 のしくみを理解したら、オプション 2 の方が開発またはビルドのワークフローに最適である場合、オプション 2 を代わりに選択することができます。
 

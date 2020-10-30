@@ -1,32 +1,32 @@
 ---
-Description: このトピックでは、リソースのインデックスを生成するために MakePri.exe ツールによって使われる形式に固有のインデクサーについて説明します。
+description: このトピックでは、リソースのインデックスを生成するために MakePri.exe ツールによって使われる形式に固有のインデクサーについて説明します。
 title: MakePri.exe の形式に固有のインデクサー
 template: detail.hbs
 ms.date: 10/18/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d30a0321de872dac11070c52dd0598b2276bcab
-ms.sourcegitcommit: ca1b5c3ab905ebc6a5b597145a762e2c170a0d1c
+ms.openlocfilehash: 3794d369ae9d47cfc7aad1b24ca2768b04024581
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79200960"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031695"
 ---
 # <a name="makepriexe-format-specific-indexers"></a>MakePri.exe の形式に固有のインデクサー
 
-このトピックでは、リソースのインデックスを生成するために [MakePri.exe](compile-resources-manually-with-makepri.md) ツールによって使われる形式に固有のインデクサーについて説明します。
+このトピックでは、 [MakePri.exe](compile-resources-manually-with-makepri.md) ツールがリソースのインデックスを生成するために使用する、形式固有のインデクサーについて説明します。
 
 > [!NOTE]
-> Windows ソフトウェア開発キットのインストール時に **[UWP 管理対象アプリの Windows SDK]** オプションをオンにすると、makepri がインストールされます。 パス `%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` にインストールされます (他のアーキテクチャ用という名前のフォルダーにもインストールされます)。 たとえば、`C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` と記述します。
+> Windows ソフトウェア開発キットのインストール時に [ **UWP 管理対象アプリの Windows SDK** ] オプションをオンにすると MakePri.exe がインストールされます。 パス `%WindowsSdkDir%bin\<WindowsTargetPlatformVersion>\x64\makepri.exe` (および他のアーキテクチャ用に指定されたフォルダー) にインストールされます。 たとえば、「 `C:\Program Files (x86)\Windows Kits\10\bin\10.0.17713.0\x64\makepri.exe` 」のように入力します。
 
 MakePri.exe は、通常、`new`、`versioned`、`resourcepack` コマンドと共に使用されます。 「[MakePri.exe のコマンド ライン オプション](makepri-exe-command-options.md)」をご覧ください。 これらのオプションを使うと、ソース ファイルがインデックス化され、リソースのインデックスが生成されます。 MakePri.exe は、さまざまな別個のインデクサーを使って異なるソース リソース ファイルまたはリソースのコンテナーを読み取ります。 最も単純なインデクサーは、`.jpg` 画像 や `.png` 画像などのフォルダーの内容をインデックス化するフォルダー インデクサーです。
 
-形式に固有のインデクサーは、`<indexer-config>`MakePri.exe 構成ファイル`<index>`の [ 要素内で ](makepri-exe-configuration.md) 要素を指定することによって識別します。 `type` 属性は、使われる形式に固有のインデクサーを識別します。
+形式に固有のインデクサーは、[MakePri.exe 構成ファイル](makepri-exe-configuration.md)の `<index>` 要素内で `<indexer-config>` 要素を指定することによって識別します。 `type` 属性は、使われる形式に固有のインデクサーを識別します。
 
 インデックス化の処理中にリソース コンテナーが検出されると、その内容がインデックス化されます (コンテナー自体はインデックスに追加されません)。 たとえば、フォルダー インデクサーによって検出された `.resjson` ファイルは `.resjson` インデクサーによってインデックス化されます。このとき、`.resjson` ファイル自体はインデックスに表示されません。 **注** こうした状態になるには、そのコンテナーに関連付けられたインデクサーの `<indexer-config>` 要素が構成ファイルに記述されている必要があります。
 
-通常、フォルダーや `.resw` ファイル&mdash;などのエンティティ&mdash;が含まれている修飾子は、フォルダー内のファイルや `.resw` ファイル内の文字列など、その中のすべてのリソースに適用されます。
+通常、フォルダーまたはファイルなど、包含エンティティで見つかった修飾子 &mdash; `.resw` は、 &mdash; フォルダー内のファイルやファイル内の文字列など、そのエンティティ内のすべてのリソースに適用され `.resw` ます。
 
 ## <a name="folder"></a>Folder
 
@@ -92,7 +92,7 @@ PRI ファイルに含まれるすべてのリソース名、修飾子、値は�
 
 ## <a name="priinfo"></a>PriInfo
 
-PriInfo インデクサーは、`type` 属性 PRIINFO で識別されます。 詳細ダンプ ファイルの内容をインデックス化します。 詳細なダンプ ファイルを生成するには、`makepri dump` オプションを指定して `/dt detailed` を実行します。 このインデクサーの構成要素は、次のスキーマに準拠します。
+PriInfo インデクサーは、`type` 属性 PRIINFO で識別されます。 詳細ダンプ ファイルの内容をインデックス化します。 詳細なダンプ ファイルを生成するには、`/dt detailed` オプションを指定して `makepri dump` を実行します。 このインデクサーの構成要素は、次のスキーマに準拠します。
 
 ```xml
 <xs:schema id="priinfo" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
@@ -282,7 +282,7 @@ ResFiles インデクサーは、`type` 属性 RESFILES で識別されます。
 </xs:schema>
 ```
 
-`.resfiles` ファイルは、ファイル パスのフラットな一覧が格納されたテキスト ファイルです。 `.resfiles` ファイルには、"//" コメントを格納できます。 次に、一例を示します。
+`.resfiles` ファイルは、ファイル パスのフラットな一覧が格納されたテキスト ファイルです。 `.resfiles` ファイルには、"//" コメントを格納できます。 次に例を示します。
 
 <blockquote>
 <pre>
@@ -319,7 +319,7 @@ ResJSON インデクサーは、`type` 属性 RESJSON で識別されます。 �
 
 ファイルには "//" コメントを格納できます。これらのコメントは、解析時に無視されます。
 
-`initialPath` 属性を指定すると、リソース名の前にこの初期パスが追加され、すべてのリソースがこの初期パスに配置されます。 通常、クラス ライブラリ リソースをインデックス化する場合にこの属性を使います。 既定は空白です。
+`initialPath` 属性を指定すると、リソース名の前にこの初期パスが追加され、すべてのリソースがこの初期パスに配置されます。 通常、クラス ライブラリ リソースをインデックス化する場合にこの属性を使います。 既定値は空白です。
 
 ## <a name="resw"></a>ResW
 
@@ -395,11 +395,11 @@ ResW インデクサーは、`type` 属性 RESW で識別されます。 文字�
 
 `convertDotsToSlashes` 属性は、リソース名 (データ要素名属性) に見つかったすべてのドット (".") 文字をスラッシュ ("/") に変換します (ただし、"[" と "]" の間に配置されたドット文字は除きます)。
 
-`initialPath` 属性を指定すると、リソース名の前にこの初期パスが追加され、すべてのリソースがこの初期パスに配置されます。 通常、クラス ライブラリ リソースをインデックス化する場合にこの属性を使います。 既定は空白です。
+`initialPath` 属性を指定すると、リソース名の前にこの初期パスが追加され、すべてのリソースがこの初期パスに配置されます。 通常、クラス ライブラリ リソースをインデックス化する場合にこの属性を使います。 既定値は空白です。
 
 ## <a name="related-topics"></a>関連トピック
 
 * [MakePri.exe を使用して手動でリソースをコンパイルする](compile-resources-manually-with-makepri.md)
-* [MakePri のコマンドラインオプション](makepri-exe-command-options.md)
-* [MakePri の構成ファイル](makepri-exe-configuration.md)
-* [JavaScript Object Notation のアプリケーション/json メディアの種類 (JSON)](https://www.ietf.org/rfc/rfc4627.txt)
+* [MakePri.exe のコマンド ライン オプション](makepri-exe-command-options.md)
+* [MakePri.exe 構成ファイル](makepri-exe-configuration.md)
+* [JavaScript Object Notation (JSON) の application/json メディア型に関するページ](https://www.ietf.org/rfc/rfc4627.txt)

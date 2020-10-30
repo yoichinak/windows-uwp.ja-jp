@@ -1,6 +1,6 @@
 ---
-title: マウスを使用しないフォーカス ナビゲーション
-Description: フォーカスナビゲーションを使用して、Windows アプリでの包括的で一貫性のある相互作用エクスペリエンスを提供する方法について説明します。これには、キーボードパワーユーザー、障碍のあるユーザー補助の要件、およびテレビ画面と Xbox One の10フィートのエクスペリエンスが含まれます。
+title: 'マウスを使用しないフォーカス ナビゲーション '
+description: フォーカスナビゲーションを使用して、Windows アプリでの包括的で一貫性のある相互作用エクスペリエンスを提供する方法について説明します。これには、キーボードパワーユーザー、障碍のあるユーザー補助の要件、およびテレビ画面と Xbox One の10フィートのエクスペリエンスが含まれます。
 label: ''
 template: detail.hbs
 keywords: キーボード, ゲーム コントローラー, リモコン, ナビゲーション, 方向内部ナビゲーション, 方向領域, ナビゲーション方法, 入力, ユーザーの操作, アクセシビリティ, 操作性
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6119a6b7d7621857e3317589a3b4a64ba3d5d2ea
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 3d7b77f627cd09c988c90b44167be7b5e452fe67
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217225"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032215"
 ---
 # <a name="focus-navigation-for-keyboard-gamepad-remote-control-and-accessibility-tools"></a>キーボード、ゲームパッド、リモコン、アクセシビリティ ツールのフォーカス ナビゲーション
 
@@ -52,25 +52,25 @@ Pc 上の Windows アプリでカスタムコントロールのキーボード�
   - 重視する場合は、これらのグループにサブグループを含めるかどうか。
 - レイアウトではカスタムの方向ナビゲーション (方向キー) とタブ オーダーが必要となるか。
 
-[Engineering Software for Accessibility](https://www.microsoft.com/download/details.aspx?id=19262) eBook (アクセシビリティ ソフトウェアのエンジニアリングに関する eBook) の「*Designing the Logical Hierarchy*」(論理的な階層の設計) の章では、これらのことがわかりやすく説明されています。
+[Engineering Software for Accessibility](https://www.microsoft.com/download/details.aspx?id=19262) eBook (アクセシビリティ ソフトウェアのエンジニアリングに関する eBook) の「 *Designing the Logical Hierarchy* 」(論理的な階層の設計) の章では、これらのことがわかりやすく説明されています。
 
 ## <a name="2d-directional-navigation-for-keyboard"></a>キーボードの 2D 方向ナビゲーション
 
 コントロールやコントロール グループの 2D 内部ナビゲーション領域のことを、"方向領域" と呼びます。 フォーカがこのオブジェクトに移動すると、キーボードの方向キー (左、右、上、下) を使用して、方向領域内の子要素間を移動することができます。
 
 ![方向領域 ](images/keyboard/directional-area-small.png)
- *2d 内部ナビゲーション領域、またはコントロールグループの方向*領域
+ *2d 内部ナビゲーション領域、またはコントロールグループの方向* 領域
 
 [XYFocusKeyboardNavigation](/uwp/api/windows.ui.xaml.uielement#Windows_UI_Xaml_UIElement_XYFocusKeyboardNavigation) プロパティ (設定できる値は [Auto](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)、[Enabled](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)、[Disabled](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)) を使用して、キーボードの方向キーでの 2D 内部ナビゲーションを管理できます。
 
 > [!NOTE]
-> タブ オーダーは、このプロパティの影響を受けません。 ナビゲーション エクスペリエンスがわかりにくくならないように、アプリケーションのタブ ナビゲーションの順序では、方向領域の子要素を明示的に*指定しない*ことをお勧めします。 要素のタブ移動動作について詳しくは、[UIElement.TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement#Windows_UI_Xaml_UIElement_TabFocusNavigation) プロパティと [TabIndex](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティをご覧ください。
+> タブ オーダーは、このプロパティの影響を受けません。 ナビゲーション エクスペリエンスがわかりにくくならないように、アプリケーションのタブ ナビゲーションの順序では、方向領域の子要素を明示的に *指定しない* ことをお勧めします。 要素のタブ移動動作について詳しくは、[UIElement.TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement#Windows_UI_Xaml_UIElement_TabFocusNavigation) プロパティと [TabIndex](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティをご覧ください。
 
 ### <a name="auto-default-behavior"></a>[Auto](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode) (既定の動作)
 
-Auto に設定すると、方向ナビゲーションの動作は要素の先祖 (継承階層) に基づいて決まります。 すべての先祖が既定のモードになっている場合 (**Auto** に設定されている場合)、キーボードを使用した方向ナビゲーションは*サポートされません*。
+Auto に設定すると、方向ナビゲーションの動作は要素の先祖 (継承階層) に基づいて決まります。 すべての先祖が既定のモードになっている場合 ( **Auto** に設定されている場合)、キーボードを使用した方向ナビゲーションは *サポートされません* 。
 
-### <a name="disabled"></a>[[無効]](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)
+### <a name="disabled"></a>[Disabled](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)
 
 **XYFocusKeyboardNavigation** を **Disabled** に設定すると、コントロールとその子要素への方向ナビゲーションがブロックされます。
 
@@ -211,7 +211,7 @@ Auto に設定すると、方向ナビゲーションの動作は要素の先祖
 
 矢印キーは、コントロールまたはコントロールグループ内の2D 方向ナビゲーションに使用できますが、Windows アプリケーションのすべてのコントロール間を移動するために Tab キーを使用することもできます。 
 
-すべての対話型のコントロールは、既定で Tab キーによるナビゲーションをサポートしています ([IsEnabled](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_IsEnabled) プロパティと [IsTabStop](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop) プロパティが **true**)。論理的なタブ オーダーは、アプリケーションのコントロール レイアウトからから派生します。 ただし、既定の順序は表示順序と対応するとは限りません。 実際の表示位置は親レイアウト コンテナーと特定のプロパティに依存し、それらを子要素で設定することでレイアウトに影響することがあります。
+すべての対話型のコントロールは、既定で Tab キーによるナビゲーションをサポートしています ( [IsEnabled](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_IsEnabled) プロパティと [IsTabStop](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop) プロパティが **true** )。論理的なタブ オーダーは、アプリケーションのコントロール レイアウトからから派生します。 ただし、既定の順序は表示順序と対応するとは限りません。 実際の表示位置は親レイアウト コンテナーと特定のプロパティに依存し、それらを子要素で設定することでレイアウトに影響することがあります。
 
 フォーカスがアプリケーション内をジャンプするようなカスタムのタブ オーダーは使用しないでください。 たとえば、フォーム内のコントロールの一覧には、上から下および左から右へと移動するタブ オーダーが必要です (ロケールによって異なります)。
 
@@ -224,7 +224,7 @@ Auto に設定すると、方向ナビゲーションの動作は要素の先祖
 > [!NOTE]
 > [ControlTemplate](/uwp/api/windows.ui.xaml.controls.controltemplate) を使わないオブジェクトに対して [Control.TabNavigation](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_TabNavigation) プロパティの代わりにこのプロパティを使用して、それらのオブジェクトの外観を定義します。
 
-前のセクションで説明したように、ナビゲーション エクスペリエンスがわかりにくくならないように、アプリケーションのタブ ナビゲーションの順序では、方向領域の子要素を明示的に*指定しない*ことをお勧めします。 要素のタブ移動動作について詳しくは、[UIElement.TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement#Windows_UI_Xaml_UIElement_TabFocusNavigation) プロパティと [TabIndex](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティをご覧ください。   
+前のセクションで説明したように、ナビゲーション エクスペリエンスがわかりにくくならないように、アプリケーションのタブ ナビゲーションの順序では、方向領域の子要素を明示的に *指定しない* ことをお勧めします。 要素のタブ移動動作について詳しくは、[UIElement.TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement#Windows_UI_Xaml_UIElement_TabFocusNavigation) プロパティと [TabIndex](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティをご覧ください。   
 > Windows 10 Creators Update (ビルド 10.0.15063) より前のバージョンでは、タブ設定は [ControlTemplate](/uwp/api/windows.ui.xaml.controls.controltemplate) オブジェクトに制限されていました。 詳しくは、[Control.TabNavigation](/uwp/api/windows.ui.xaml.controls.control#Windows_UI_Xaml_Controls_Control_TabNavigation) をご覧ください。
 
 [TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement#Windows_UI_Xaml_UIElement_TabFocusNavigation) は、[KeyboardNavigationMode](/uwp/api/windows.ui.xaml.input.keyboardnavigationmode) 型の値を保持します。設定できる値は次のとおりです (以下の例はカスタム コントロール グループではありません。また、方向キーでの内部ナビゲーションを必要としていません)。
@@ -326,7 +326,7 @@ Auto に設定すると、方向ナビゲーションの動作は要素の先祖
 
 コントロールのすべての子要素がスコープと見なされます。また、こうしたスコープの要素のいずれか 1 つにさらに子要素がある場合、それらの子要素は別のスコープと見なされます。 スコープのビジュアル ツリーにある最初の要素を選ぶことにより、あいまいさが解決されます。 
 
-タブ オーダーからコントロールを除外するには、[IsTabStop](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop) プロパティを **false** に設定します。
+タブ オーダーからコントロールを除外するには、 [IsTabStop](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_IsTabStop) プロパティを **false** に設定します。
 
 [TabIndex](/uwp/api/Windows.UI.Xaml.Controls.Control#Windows_UI_Xaml_Controls_Control_TabIndex) プロパティを設定することで、既定のタブ オーダーを上書きできます。
 
@@ -440,14 +440,14 @@ Xbox/TV のアプリとエクスペリエンスの構築に関する一般的な
 
 これらのプロパティに設定できる値は、[Auto](/uwp/api/windows.ui.xaml.input.xyfocusnavigationstrategy) (既定)、[NavigationDirectionDistance](/uwp/api/windows.ui.xaml.input.xyfocusnavigationstrategy)、[Projection](/uwp/api/windows.ui.xaml.input.xyfocusnavigationstrategy)、[RectilinearDistance ](/uwp/api/windows.ui.xaml.input.xyfocusnavigationstrategy) です。
 
-**Auto** に設定された場合、要素の動作は要素の先祖に基づいて決まります。 すべての要素が **Auto** に設定されている場合、**Projection** が使用されます。
+**Auto** に設定された場合、要素の動作は要素の先祖に基づいて決まります。 すべての要素が **Auto** に設定されている場合、 **Projection** が使用されます。
 
 > [!NOTE]
 > 前にフォーカスがあった要素やナビゲーション方向の軸までの近さなど、その他の要因により、結果が影響を受ける場合があります。
 
 ### <a name="projection"></a>Projection
 
-Projection 方法を使うと、現在フォーカスがある要素の端をナビゲーションの方向に*投影*するときに接触した最初の要素にフォーカスが移動します。
+Projection 方法を使うと、現在フォーカスがある要素の端をナビゲーションの方向に *投影* するときに接触した最初の要素にフォーカスが移動します。
 
 この例では、各フォーカス ナビゲーションの方向は Projection に設定されます。 フォーカスが B3 をバイパスして、B1 から B4 にどのように移動するかについて注意してください。 こうした移動は、B3 が射影ゾーンにないことが原因です。 また、B1 から左に移動するときに、フォーカス候補がどうして識別されないのかについても注意してください。 これは、B1 に対する B2 の相対的な位置によって、B3 が候補から除外されるためです。 B3 が B2 と同じ行にあれば、B3 は左側へのナビゲーションに対して有効な候補となります。 B2 のナビゲーション方向の軸までの近さには遮るものがないため、B2 は有効な候補となります。
 
@@ -459,7 +459,7 @@ Projection 方法を使うと、現在フォーカスがある要素の端をナ
 
 NavigationDirectionDistance 方法では、ナビゲーション方向の軸に最も近い要素にフォーカスが移動します。
 
-ナビゲーション方向に対応する境界の四角形の端が*拡張*され、*投影*されて、ターゲットとなる候補が識別されます。 最初に接触した要素がターゲットとして識別されます。 複数の候補がある場合は、最も近い要素がターゲットとして識別されます。 さらに複数の候補がある場合には、最も上で最も左の要素が候補として識別されます。
+ナビゲーション方向に対応する境界の四角形の端が *拡張* され、 *投影* されて、ターゲットとなる候補が識別されます。 最初に接触した要素がターゲットとして識別されます。 複数の候補がある場合は、最も近い要素がターゲットとして識別されます。 さらに複数の候補がある場合には、最も上で最も左の要素が候補として識別されます。
 
 ![NavigationDirectionDistance によるナビゲーション方法](images/keyboard/xyfocusnavigationstrategy-navigationdirectiondistance.gif)
 
@@ -484,4 +484,4 @@ RectilinearDistance 方法では、2D 直線距離に基づいて最も近い要
 ## <a name="related-articles"></a>関連記事
 - [プログラムによるフォーカス ナビゲーション](focus-navigation-programmatic.md)
 - [キーボード操作](keyboard-interactions.md)
-- [キーボードアクセシビリティ](../accessibility/keyboard-accessibility.md)
+- [キーボードのアクセシビリティ](../accessibility/keyboard-accessibility.md)
