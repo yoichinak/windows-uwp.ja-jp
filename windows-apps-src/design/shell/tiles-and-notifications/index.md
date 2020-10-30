@@ -1,5 +1,5 @@
 ---
-Description: タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
+description: タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
 title: タイル、バッジ、通知
 ms.assetid: 48ee4328-7999-40c2-9354-7ea7d488c538
 label: Tiles, badges, and notifications
@@ -8,19 +8,19 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 580edca578a0d518d89b5d2fdb30c9304be35cef
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: dbcc4138c0f09d3ad620e4d1c192dd63bb522052
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033685"
 ---
 # <a name="tiles-badges-and-notifications-for-windows-apps"></a>Windows アプリのタイル、バッジ、通知
  
 
 タイル、バッジ、トースト、通知を使用して、アプリへのエントリ ポイントを提供し、ユーザーに最新情報を提示する方法について説明します。
 
-> **重要な API**: [UWP Community Toolkit Notifications NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
+> **重要な API** : [UWP Community Toolkit Notifications NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
 
 <p><img style="float: left; margin: 0px 15px 15px 0px;" src="images/tile-and-live-tile.png" alt="Screenshot of a static tile and a live tile displaying a notification and a badge." />
 タイルとは、スタート メニュー上でアプリを表すものです。 すべての Windows アプリにタイルがあります。 さまざまなタイル サイズ (小、普通、大、ワイド) を有効にすることもできます。</p>
@@ -32,14 +32,14 @@ ms.locfileid: "91636622"
 <p><em>トースト通知</em>は、<em>トースト</em> (または<em>バナー</em>) と呼ばれるポップアップ UI 要素を介してアプリがユーザーに送信する通知です。 通知は、ユーザーがアプリを使用中かどうかを問わず表示できます。</p>
 <p><em>プッシュ通知</em>または <em>直接通知</em>は、Windows プッシュ通知サービス (WNS) またはバックグラウンド タスクのいずれかからアプリに送信される通知です。 これらの通知には、関心のあるイベントが発生したことをユーザーに通知することで応答するか、お好みの方法で応答することができます。</p>
 
- 
+ 
 ## <a name="tiles"></a>Tiles
 | アーティクル | 説明 |
 | --- | --- |
 | [タイルの作成](creating-tiles.md) | アプリの既定のタイルをカスタマイズし、さまざまな画面サイズのアセットを提供します。 |
 | [アプリ アイコン アセット](../../style/app-icons-and-logos.md) | Windows 10 オペレーティング システム全体でさまざまな形式で表示される、アプリ アイコン アセットは、Windows アプリにとって名刺のようなものです。 このガイドラインでは、システム内でアプリ アイコン アセットが表示される場所の詳細について説明し、最も洗練されたアイコンを作成する方法に関して詳細なデザインのヒントを提供します。 |
 | [プライマリ タイル API](primary-tile-apis.md) | アプリのプライマリ タイルをピン留めして、プライマリ タイルが現在ピン留めされているかどうかを確認する要求です。 |
-| [タイルのコンテンツ](create-adaptive-tiles.md) | タイル通知のコンテンツは、Windows 10 の新機能であるアダプティブ タイル テンプレートで指定されます。シンプルで柔軟なマークアップ言語を使って、さまざまな画面密度に合わせて変化する独自のタイル通知コンテンツをデザインできるようになります。 この記事では、Windows アプリのアダプティブ ライブ タイルを作成する方法について説明します。 |
+| [タイルのコンテンツ](create-adaptive-tiles.md) | タイル通知のコンテンツは、Windows 10 の新機能であるアダプティブ タイル テンプレートで指定されます。シンプルで柔軟なマークアップ言語を使って、さまざまな画面密度に合わせて変化する独自のタイル通知コンテンツをデザインできるようになります。 この記事では、Windows アプリのアダプティブ ライブ タイルを作成する方法について説明します。 |
 | [タイルのコンテンツのスキーマ](../tiles-and-notifications/tile-schema.md) | アダプティブ タイルの作成に使う要素と属性を次に示します。 |
 | [特別なタイル テンプレート](special-tile-templates-catalog.md) | 特別なタイル テンプレートは、アニメーション化や、アダプティブ タイルでは不可能な機能を実行できる独特なテンプレートです。 |
 | [ローカル タイル通知の送信](sending-a-local-tile-notification.md) | ローカル タイル通知を送信して、ライブ タイルにリッチな動的コンテンツを追加する方法について説明します。 |

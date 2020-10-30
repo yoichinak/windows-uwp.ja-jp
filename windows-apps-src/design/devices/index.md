@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリをサポートするデバイスを理解することは、各フォーム ファクター向けの最適なユーザー エクスペリエンスを提供するために役立ちます。
+description: Windows アプリをサポートするデバイスを理解することは、各フォーム ファクター向けの最適なユーザー エクスペリエンスを提供するために役立ちます。
 title: Windows デバイスの UI に関する考慮事項
 ms.assetid: 7665044E-F007-495D-8D56-CE7C2361CDC4
 label: Device primer
@@ -8,12 +8,12 @@ keywords: デバイス, 入力, 操作
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d32fd2ba2ee35c19aeaa66d2c6b2c1f81be2a59
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 2267a0a704d0f637b60e38cdaa50b1afa2ec3f9a
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217835"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030545"
 ---
 #  <a name="ui-considerations-for-windows-devices"></a>Windows デバイスの UI に関する考慮事項
 
@@ -94,7 +94,7 @@ UI に関する考慮事項
 
 ## <a name="xbox-and-tv"></a>Xbox とテレビ
 
-ソファーに座りながらゲームパッドやリモコンを使って部屋の反対側にあるテレビを操作することを、**10 フィート エクスペリエンス**といいます。 通常は画面から約 10 フィート (約 3 m) の距離に座るため、このように呼ばれています。 この場合、たとえば PC の操作 (*2 フィート* エクスペリエンスと呼ばれます) には見られない、特有の課題があります。 テレビ画面に接続し、ゲームパッドやリモコンを使うこともある Xbox One やその他のデバイス向けアプリを開発している場合、この点を常に意識しておく必要があります。
+ソファーに座りながらゲームパッドやリモコンを使って部屋の反対側にあるテレビを操作することを、 **10 フィート エクスペリエンス** といいます。 通常は画面から約 10 フィート (約 3 m) の距離に座るため、このように呼ばれています。 この場合、たとえば PC の操作 ( *2 フィート* エクスペリエンスと呼ばれます) には見られない、特有の課題があります。 テレビ画面に接続し、ゲームパッドやリモコンを使うこともある Xbox One やその他のデバイス向けアプリを開発している場合、この点を常に意識しておく必要があります。
 
 10 フィート エクスペリエンスを提供する Windows アプリの設計は、ここに記載されているその他のデバイス カテゴリでの設計とは非常に異なります。 詳しくは、「[Xbox およびテレビ向け設計](designing-for-tv.md)」をご覧ください。
 
@@ -131,7 +131,7 @@ UI に関する考慮事項
 
 すべてのコンピューティング デバイスの中で最も広く使われている電話では、限られた画面領域と基本的な入力方法を使って、さまざまな操作を行うことができます。 電話にはさまざまなサイズがあり、大きい電話はファブレットと呼ばれます。 ファブレットでのアプリのエクスペリエンスは、電話でのエクスペリエンスと似ていますが、画面領域が大きくなることで、コンテンツ操作時に重要な変更が可能になります。
 
-互換性のある Windows 10 Mobile デバイスの新しいエクスペリエンスである電話用 Continuum を使用すると、ユーザーが電話をモニターに接続し、マウスやキーボードを使用して、その電話をノート PC のように使うことができます。 詳しくは、「[電話用 Continuum](/windows-hardware/design/device-experiences/continuum-phone)」をご覧ください。
+互換性のある Windows 10 Mobile デバイスの新しいエクスペリエンスである電話用 Continuum を使用すると、ユーザーが電話をモニターに接続し、マウスやキーボードを使用して、その電話をノート PC のように使うことができます。 詳しくは、「[電話用 Continuum](/windows-hardware/design/device-experiences/continuum-phone)」をご覧ください。
 
 画面サイズ
 -   電話の場合、4" ～ 5"
@@ -164,7 +164,7 @@ UI に関する考慮事項
 -   移動センサー (複数)
 -   位置センサー (複数)
 
- 
+ 
 
 ## <a name="surface-hub-devices"></a>Surface Hub デバイス
 
@@ -197,7 +197,7 @@ UI に関する考慮事項
 -   カメラ
 -   マイク
 
- 
+ 
 
 ## <a name="windows-iot-devices"></a>Windows IoT デバイス
 

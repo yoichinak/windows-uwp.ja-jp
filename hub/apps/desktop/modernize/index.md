@@ -1,17 +1,17 @@
 ---
-Description: 最新の XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、その他のモダン コンポーネントをお使いのデスクトップ アプリケーションに組み込みます。
+description: 最新の XAML ユーザー インターフェイスを追加し、MSIX パッケージを作成し、その他のモダン コンポーネントをお使いのデスクトップ アプリケーションに組み込みます。
 title: Windows 用デスクトップ アプリの現代化
 ms.topic: article
 ms.date: 10/02/2020
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b7c640e89f36dfcea6e0080cbbe3887e0231ddfc
-ms.sourcegitcommit: 27552ed7d3d889f50d8e01776a24b8d486a8d97c
+ms.openlocfilehash: 99bb68ff7d990b0b633df0c4efa2d8eafad759cd
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91958725"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031065"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -55,7 +55,7 @@ MSIX パッケージにデスクトップ Windows アプリをパッケージ化
 
 ## <a name="host-winrt-xaml-controls-xaml-islands"></a>WinRT XAML コントロールのホスト (XAML Islands)
 
-Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (HWND) に関連付けられた WPF、Windows フォーム、または C++ Win32 アプリ内の任意の UI 要素に直接 [UWP XAML コントロール](/windows/uwp/design/controls-and-patterns/controls-by-function)を追加できます。 つまり、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)、[Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールなど最新の UWP 機能を、デスクトップ アプリのウィンドウやその他のディスプレイ サーフェスに完全に統合できます。 この開発者シナリオは "*XAML Islands*" とも呼ばれます。
+Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (HWND) に関連付けられた WPF、Windows フォーム、または C++ Win32 アプリ内の任意の UI 要素に直接 [UWP XAML コントロール](/windows/uwp/design/controls-and-patterns/controls-by-function)を追加できます。 つまり、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)、[Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールなど最新の UWP 機能を、デスクトップ アプリのウィンドウやその他のディスプレイ サーフェスに完全に統合できます。 この開発者シナリオは " *XAML Islands* " とも呼ばれます。
 
 詳細については、[デスクトップ アプリでの WinRT XAML コントロール](xaml-islands.md)をご覧ください
 
@@ -72,7 +72,7 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 デスクトップ アプリに ID を付与する方法はいくつかあります。
 
 * [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
-* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
+* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む " *スパース MSIX パッケージ* " を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
 <a id="desktop-uwp-controls"></a>
 

@@ -1,5 +1,5 @@
 ---
-Description: ダイアログとポップアップは、ユーザーが要求したとき、または通知や許可を必要とする状況が発生したときに表示される一時的な UI 要素です。
+description: ダイアログとポップアップは、ユーザーが要求したとき、または通知や許可を必要とする状況が発生したときに表示される一時的な UI 要素です。
 title: ダイアログとポップアップ
 template: detail.hbs
 ms.date: 07/06/2018
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c61d1478c38df315a3fe3c20151de8c2bfbca4e2
-ms.sourcegitcommit: f727b68e86a86c94eff00f67ed79a1c12666e7bc
+ms.openlocfilehash: bf4746a6d3a024fec31045bbf9c63d3b11315b8c
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81123584"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033845"
 ---
 # <a name="dialogs-and-flyouts"></a>ダイアログとポップアップ
 
@@ -38,7 +38,7 @@ ms.locfileid: "81123584"
 
 ダイアログとは異なり、ポップアップは、それ以外の場所をタップまたはクリックするか、Esc キーまたは戻るボタンを押すか、アプリ ウィンドウのサイズを変更するか、デバイスの向きを変更することで、すばやく閉じることができます。
 
-## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
 ダイアログとポップアップにより、ユーザーが重要な情報を認識していることを確認できますが、ユーザー エクスペリエンスは中断されます。 ダイアログはモーダル (ブロック) であるため、ユーザーは中断され、ダイアログの操作を行うまで他の操作を行うことはできません。 ポップアップの煩わしさはダイアログより低くなりますが、多用すると、煩わしくなります。
 
@@ -48,7 +48,7 @@ ms.locfileid: "81123584"
 
    <p><b>ダイアログの用途</b> <br/>
 <ul>
-<li>続行前にユーザーが読んだり確認したりする<b>必要のある重要な</b>情報を表示する場合。 たとえば、次のものがあります。
+<li>続行前にユーザーが読んだり確認したりする<b>必要のある重要な</b>情報を表示する場合。 たとえば、次のようになります。
 <ul>
   <li>ユーザーのセキュリティが侵害される可能性がある場合</li>
   <li>ユーザーが重要な資産に永続的な変更を加えようとしている場合</li>

@@ -1,5 +1,5 @@
 ---
-Description: このセクションでは、アプリの文字列、画像、ファイル リソースを作成、パッケージ化、利用する方法を示します。
+description: このセクションでは、アプリの文字列、画像、ファイル リソースを作成、パッケージ化、利用する方法を示します。
 title: アプリ リソースとリソース管理システム
 label: Intro
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 10/20/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: cb64294710ca1d28c11308161665e72e37342193
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3d6b23284c24de4b611301668c52894b57ed2500
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031805"
 ---
 # <a name="app-resources-and-the-resource-management-system"></a>アプリ リソースとリソース管理システム
 

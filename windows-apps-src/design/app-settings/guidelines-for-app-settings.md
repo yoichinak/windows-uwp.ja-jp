@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 09db3caefccfce3ff110cb034efa27ff53c4154a
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 3d4bb343f2a8535fae60e19cd417099a99ae852d
+ms.sourcegitcommit: 6c1d2dd99221242d5d09f17e99f87302143c6180
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218225"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92644320"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 
@@ -82,7 +82,7 @@ ms.locfileid: "91218225"
 - 濃色
 - Windows の既定
 
-また、Windows 設定アプリの [色] ページへのハイパーリンクを追加して、ユーザーが現在の既定のアプリ モードにアクセスして変更できるようにすることもお勧めします。 ハイパーリンク テキストには、"Windows の色の設定" という文字列を使用します。
+また、Windows 設定アプリの [色] ページへのハイパーリンクを追加して、ユーザーが現在の既定のアプリ モードにアクセスして変更できるようにすることもお勧めします。 ハイパーリンク テキストには "Windows の色の設定" という文字列を使用し、URI には `ms-settings:colors` を使用します。
 
 !["モードを選ぶ" セクション](images/appsettings_mode.png)
 
