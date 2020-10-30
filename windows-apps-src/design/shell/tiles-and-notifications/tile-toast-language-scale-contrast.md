@@ -1,17 +1,17 @@
 ---
-Description: タイルやトーストには、表示言語や、表示倍率、ハイ コントラストなど、実行時のコンテキストに合わせた文字列や画像を読み込むことができます。
+description: タイルやトーストには、表示言語や、表示倍率、ハイ コントラストなど、実行時のコンテキストに合わせた文字列や画像を読み込むことができます。
 title: 言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート
 template: detail.hbs
 ms.date: 10/12/2017
 ms.topic: article
 keywords: Windows 10, UWP, リソース, 画像, アセット, MRT, 修飾子
 ms.localizationpriority: medium
-ms.openlocfilehash: 88bcd5d6ce59d0561e76f46f6291f58ad03ddf3c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0048da25cd1e775391c2523e37cb936243b7308c
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156736"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033115"
 ---
 # <a name="tile-and-toast-notification-support-for-language-scale-and-high-contrast"></a>言語、スケール、ハイ コントラストに合わせたタイルとトースト通知のサポート
 
@@ -29,7 +29,7 @@ ms.locfileid: "89156736"
 <text id="1">ms-resource:Farewell</text>
 ```
 
-`ms-resource` URI スキームを省略した場合、テキスト本文は単なる文字列リテラルとなり、** 識別子への参照にはなりません。
+`ms-resource` URI スキームを省略した場合、テキスト本文は単なる文字列リテラルとなり、  識別子への参照にはなりません。
 
 ```xml
 <text id="1">Farewell</text>
@@ -66,7 +66,7 @@ URI スキーム `ms-resource` および `ms-appx` が自動で修飾子の照�
 
 次に、画像を提供するアプリ サービスに、どの画像を返すか決定するためのクエリ文字列を調べて使用する HTTP ハンドラーを実装します。
 
-また、[タイル](/uwp/schemas/tiles/tilesschema/schema-root?branch=live)または[トースト](/uwp/schemas/tiles/toastschema/schema-root?branch=live)通知の XML ペイロードで [**addImageQuery**](/uwp/schemas/tiles/tilesschema/element-visual?branch=live) 属性を `true` に設定する必要があります。 **AddImageQuery**属性は、 `visual` `binding` `image` タイルスキーマとトーストスキーマの両方の、、およびの各要素に表示されます。 要素に **addImageQuery** を明示的に設定すると、祖先に設定された値が上書きされます。 たとえば、`image` 要素の **addImageQuery** の値が `true` であれば、その親の `binding` 要素の **addImageQuery** の `false` が上書きされます。
+また、 [タイル](/uwp/schemas/tiles/tilesschema/schema-root?branch=live)または [トースト](/uwp/schemas/tiles/toastschema/schema-root?branch=live)通知の XML ペイロードで [**addImageQuery**](/uwp/schemas/tiles/tilesschema/element-visual?branch=live) 属性を `true` に設定する必要があります。 **AddImageQuery** 属性は、 `visual` `binding` `image` タイルスキーマとトーストスキーマの両方の、、およびの各要素に表示されます。 要素に **addImageQuery** を明示的に設定すると、祖先に設定された値が上書きされます。 たとえば、`image` 要素の **addImageQuery** の値が `true` であれば、その親の `binding` 要素の **addImageQuery** の `false` が上書きされます。
 
 使用できるクエリ文字列は次のとおりです。
 

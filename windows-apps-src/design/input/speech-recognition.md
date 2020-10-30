@@ -1,5 +1,5 @@
 ---
-Description: 音声認識を使って、入力を行ったり、操作やコマンドを指定したり、タスクを実行したりできます。
+description: 音声認識を使って、入力を行ったり、操作やコマンドを指定したり、タスクを実行したりできます。
 title: 音声認識
 ms.assetid: 553C0FB7-35BC-4894-9EF1-906139E17552
 label: Speech recognition
@@ -8,19 +8,19 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 10/25/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 249af1260b261733454fa353adc695818d113afc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ad721bc64de87fc8bb1a56f687860738bebed56c
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165896"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030055"
 ---
 # <a name="speech-recognition"></a>音声認識
 
 
 音声認識を使って、入力を行ったり、操作やコマンドを指定したり、タスクを実行したりできます。
 
-> **重要な API**: [**Windows.Media.SpeechRecognition**](/uwp/api/Windows.Media.SpeechRecognition)
+> **重要な API** : [**Windows.Media.SpeechRecognition**](/uwp/api/Windows.Media.SpeechRecognition)
 
 音声認識機能は、音声認識ランタイム、ランタイムをプログラミングするための認識 API、ディクテーションと Web 検索のための定義済みの文法、ユーザーが音声認識機能を見つけて使うときに役立つ既定のシステム UI で構成されています。
 
@@ -28,7 +28,7 @@ ms.locfileid: "89165896"
 
 アプリで音声認識をサポートするには、ユーザーがデバイスのマイクに接続して有効にし、アプリで使用するアクセス許可を Microsoft のプライバシーポリシーに付与する必要があります。
 
-マイクのオーディオフィードにアクセスして使用するためのアクセス許可を要求するシステムダイアログをユーザーに自動的に表示するには (下記の[音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)の例)、[アプリケーションパッケージマニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)の**マイク**[デバイス機能](/uwp/schemas/appxpackage/appxmanifestschema/element-devicecapability)を設定するだけです。 詳細については、「 [アプリ機能の宣言](../../packaging/app-capability-declarations.md)」を参照してください。
+マイクのオーディオフィードにアクセスして使用するためのアクセス許可を要求するシステムダイアログをユーザーに自動的に表示するには (下記の [音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)の例)、 [アプリケーションパッケージマニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)の **マイク**[デバイス機能](/uwp/schemas/appxpackage/appxmanifestschema/element-devicecapability)を設定するだけです。 詳細については、「 [アプリ機能の宣言](../../packaging/app-capability-declarations.md)」を参照してください。
 
 ![マイクアクセスのプライバシーポリシー](images/speech/privacy.png)
 
@@ -208,7 +208,7 @@ var AudioCapturePermissions = WinJS.Class.define(
 
 ## <a name="recognize-speech-input"></a>音声入力の認識
 
-*制約*は、音声入力でアプリが認識する単語と語句 (ボキャブラリ) を定義します。 制約は、音声認識の中心にあり、アプリが音声認識の精度をより詳細に制御できるようにします。
+*制約* は、音声入力でアプリが認識する単語と語句 (ボキャブラリ) を定義します。 制約は、音声認識の中心にあり、アプリが音声認識の精度をより詳細に制御できるようにします。
 
 音声入力を認識するには、次の種類の制約を使用できます。
 
@@ -221,11 +221,11 @@ var AudioCapturePermissions = WinJS.Class.define(
 Web 検索文法は、ユーザーが話す可能性のある多数の単語と語句を含んでいる点でディクテーション文法と似ています ただし、ユーザーが Web 検索で一般的に使う用語の認識に最適化されています。
 
 > [!NOTE]
-> 定義済みのディクテーション文法と Web 検索文法は容量が大きく、(デバイス上ではなく) オンライン上に存在するため、カスタム文法をデバイスにインストールした場合に比べるとパフォーマンスが劣る可能性があります。     
+> 定義済みのディクテーション文法と Web 検索文法は容量が大きく、(デバイス上ではなく) オンライン上に存在するため、カスタム文法をデバイスにインストールした場合に比べるとパフォーマンスが劣る可能性があります。     
 
 このような定義済みの文法は、10 秒までの長さの音声入力を認識でき、開発者による作成作業は必要ありません。 ただし、ネットワークへの接続が必要になります。
 
-Web サービスの制約を使用するには、**[設定] -> [プライバシー] -> [音声認識、手描き入力、入力の設定]** で [自分を知ってもらう] オプションをオンにして、**[設定]** で音声入力とディクテーションのサポートを有効にする必要があります。
+Web サービスの制約を使用するには、 **[設定] -> [プライバシー] -> [音声認識、手描き入力、入力の設定]** で [自分を知ってもらう] オプションをオンにして、 **[設定]** で音声入力とディクテーションのサポートを有効にする必要があります。
 
 ここでは、音声入力が有効になっているかどうかをテストし、有効になっていない場合は [設定]、[プライバシー] の [音声認識、手描き入力、入力の設定] ページを開く方法を示します。
 
@@ -235,7 +235,7 @@ Web サービスの制約を使用するには、**[設定] -> [プライバシ�
 private static uint HResultPrivacyStatementDeclined = 0x80045509;
 ```
 
-認識中に標準例外をキャッチし、[**HResult**](/uwp/api/Windows.Foundation.HResult) 値が HResultPrivacyStatementDeclined 変数の値以下であるかどうかをテストします。 該当する場合は、警告を表示し、`await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-accounts"));` を呼び出して [設定] ページを開きます。
+認識中に標準例外をキャッチし、 [**HResult**](/uwp/api/Windows.Foundation.HResult) 値が HResultPrivacyStatementDeclined 変数の値以下であるかどうかをテストします。 該当する場合は、警告を表示し、`await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-accounts"));` を呼び出して [設定] ページを開きます。
 
 ```csharp
 catch (Exception exception)
@@ -278,9 +278,9 @@ Speech Recognition Grammar Specification (SRGS) 文法は静的ドキュメン�
 
 音声コマンド定義 (VCD) XML ファイルを使って、アプリをアクティブ化して操作を開始するためにユーザーが発声できる音声コマンドを定義します。 詳細については、「 [Cortana による音声コマンドを使用したフォアグラウンドアプリのアクティブ化](/cortana/voice-commands/launch-a-foreground-app-with-voice-commands-in-cortana)」を参照してください。
 
-SpeechRecognitionVoiceCommandDefinitionConstraint を参照してください[ **SpeechRecognitionVoiceCommandDefinitionConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint)/
+SpeechRecognitionVoiceCommandDefinitionConstraint を参照してください [ **SpeechRecognitionVoiceCommandDefinitionConstraint**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint)/
 
-**メモ**   使用する制約の種類の種類は、作成する認識エクスペリエンスの複雑さによって異なります。 どの種類の制約も特定の認識タスクに最適な選択肢となる可能性があり、アプリですべての種類の制約を使う場合もあります。
+**メモ**  使用する制約の種類の種類は、作成する認識エクスペリエンスの複雑さによって異なります。 どの種類の制約も特定の認識タスクに最適な選択肢となる可能性があり、アプリですべての種類の制約を使う場合もあります。
 制約を使う場合は、「[カスタム認識の制約の定義](define-custom-recognition-constraints.md)」をご覧ください。
 
 ユニバーサル Windows アプリで定義済みのディクテーション文法によって、言語のほとんどの単語と短い語句が認識されます。 これは、カスタム制約なしで音声認識エンジン オブジェクトをインスタンス化すると既定で有効になります。
@@ -289,7 +289,7 @@ SpeechRecognitionVoiceCommandDefinitionConstraint を参照してください[ *
 
 - 音声認識エンジンを作成します。
 - 既定のユニバーサル Windows アプリ制約をコンパイルします (音声認識エンジンの文法セットには文法が追加されていません)。
-- [**RecognizeWithUIAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognizewithuiasync) メソッドに用意された基本的な認識 UI と TTS フィードバックを使って音声の聞き取りを開始します。 既定の UI が必要でない場合は、[**RecognizeAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognizeasync) メソッドを使います。
+- [**RecognizeWithUIAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognizewithuiasync) メソッドに用意された基本的な認識 UI と TTS フィードバックを使って音声の聞き取りを開始します。 既定の UI が必要でない場合は、 [**RecognizeAsync**](/uwp/api/windows.media.speechrecognition.speechrecognizer.recognizeasync) メソッドを使います。
 
 ```CSharp
 private async void StartRecognizing_Click(object sender, RoutedEventArgs e)
@@ -334,7 +334,7 @@ private async void StartRecognizing_Click(object sender, RoutedEventArgs e)
 
 ![SGRS 文法ファイルに基づく制約の場合の、最終的な認識画面](images/speech-listening-complete.png)
 
-**[聞き取り中]** 画面では、アプリが認識できる単語または語句の例を表示できます。 ここでは、[**SpeechRecognizerUIOptions**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions) クラス ([**SpeechRecognizer.UIOptions**](/uwp/api/windows.media.speechrecognition.speechrecognizer.uioptions) プロパティを呼び出して取得する) のプロパティを使って **[聞き取り中]** 画面のコンテンツをカスタマイズする方法について説明します。
+**[聞き取り中]** 画面では、アプリが認識できる単語または語句の例を表示できます。 ここでは、 [**SpeechRecognizerUIOptions**](/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions) クラス ( [**SpeechRecognizer.UIOptions**](/uwp/api/windows.media.speechrecognition.speechrecognizer.uioptions) プロパティを呼び出して取得する) のプロパティを使って **[聞き取り中]** 画面のコンテンツをカスタマイズする方法について説明します。
 
 ```CSharp
 private async void WeatherSearch_Click(object sender, RoutedEventArgs e)

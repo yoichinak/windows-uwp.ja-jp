@@ -1,5 +1,5 @@
 ---
-Description: Microsoft Store で Windows アプリをアクセス可能として宣言するための要件について説明します。
+description: Microsoft Store で Windows アプリをアクセス可能として宣言するための要件について説明します。
 ms.assetid: 59FA3B87-75A6-4B30-BA7C-A0E769D68050
 title: ストア内のアクセシビリティ
 label: Accessibility in the Store
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b554adbcc074112604b8713409ee4d05e21dcc0f
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 4a46f757629489250ed417a9a67488cba7ec7240
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216455"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032705"
 ---
 # <a name="accessibility-in-the-store"></a>ストア内のアクセシビリティ  
 
@@ -21,7 +21,7 @@ ms.locfileid: "91216455"
 
 Microsoft Store で Windows アプリをアクセス可能として宣言するための要件について説明します。
 
-Microsoft Store で認定を受けるためにアプリを提出している間に、アプリがアクセシビリティ対応であることを宣言することができます。 アクセシビリティ対応アプリであることを宣言すると、視覚に障碍があるユーザーのように、アクセシビリティ対応アプリに興味を持っているユーザーが簡単にそのアプリを見つけられるようになります。 ユーザーは、Microsoft Store での検索時に**アクセシビリティ対応**のフィルターを使うことで、アクセシビリティ対応アプリを見つけます。 また、アクセシビリティ対応アプリであることを宣言すると、アプリの説明に**アクセシビリティ対応**のタグが追加されます。
+Microsoft Store で認定を受けるためにアプリを提出している間に、アプリがアクセシビリティ対応であることを宣言することができます。 アクセシビリティ対応アプリであることを宣言すると、視覚に障碍があるユーザーのように、アクセシビリティ対応アプリに興味を持っているユーザーが簡単にそのアプリを見つけられるようになります。 ユーザーは、Microsoft Store での検索時に **アクセシビリティ対応** のフィルターを使うことで、アクセシビリティ対応アプリを見つけます。 また、アクセシビリティ対応アプリであることを宣言すると、アプリの説明に **アクセシビリティ対応** のタグが追加されます。
 
 アプリがアクセシビリティ対応であることを宣言して、次のうちの 1 つ以上を使う主なシナリオでユーザーが必要とする [基本的なアクセシビリティ情報](basic-accessibility-information.md) が用意されていることを示します。
 
@@ -40,7 +40,7 @@ Microsoft Store で認定を受けるためにアプリを提出している間�
     * キーボード ショートカットを使ってアプリの主な機能を利用する。
     * キーボードがないデバイスで、タブと矢印を同等に扱うためにナレーターのタッチ ジェスチャを使う。
 * アプリの UI が視覚上のアクセシビリティに対応している。最低でも 4.5:1 のテキスト コントラスト比がある、情報を伝えるときに色だけに依存していない、など。
-* [**Inspect**](/windows/desktop/WinAuto/inspect-objects)、[**UIAVerify**](/windows/desktop/WinAuto/ui-automation-verify) などのアクセシビリティ テスト ツールを使ってアクセシビリティの実装が検証されていて、このようなツールで報告される優先度 1 のエラーをすべて解決している。
+* [**Inspect**](/windows/desktop/WinAuto/inspect-objects)、 [**UIAVerify**](/windows/desktop/WinAuto/ui-automation-verify) などのアクセシビリティ テスト ツールを使ってアクセシビリティの実装が検証されていて、このようなツールで報告される優先度 1 のエラーをすべて解決している。
 * ナレーター、拡大鏡、スクリーン キーボード、ハイ コントラスト テーマ、調整された DPI 設定を使って、エンド ツー エンドでアプリの主なシナリオを検証している。
 
 これらの手順と、その実行に役立つリソースへのリンクを確認する場合は、「[アクセシビリティのチェック リスト](accessibility-checklist.md)」をご覧ください。

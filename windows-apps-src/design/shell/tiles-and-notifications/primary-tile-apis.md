@@ -1,5 +1,5 @@
 ---
-Description: セカンダリ タイルをスタート画面にピン留めできるのと同様、独自のアプリのプライマリ タイルをプログラムでスタート画面にピン留めできます。 また、現在ピン留めされているかどうかを確認できます。
+description: セカンダリ タイルをスタート画面にピン留めできるのと同様、独自のアプリのプライマリ タイルをプログラムでスタート画面にピン留めできます。 また、現在ピン留めされているかどうかを確認できます。
 title: プライマリ タイル API
 label: Primary tile API's
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: Windows 10, UWP, StartScreenManager, プライマリ タイルをピン留めする, プライマリ タイル API, タイルのピン留めの確認, ライブ タイル
 ms.localizationpriority: medium
-ms.openlocfilehash: 569ef5de9298a0fb9da58e4aaa88689c35b98c72
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 83cf11d80ffcd03148cbe5e784aaad5836357796
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93029695"
 ---
 # <a name="primary-tile-apis"></a>プライマリ タイル API
  
@@ -20,20 +20,20 @@ ms.locfileid: "89172346"
 プライマリ タイル API を使うと、スタートにアプリが現在ピン留めされているかどうかを確認して、アプリのプライマリ タイルのピン留めを要求できます。
 
 > [!IMPORTANT]
-> **Creators Update が必要**: プライマリ タイル API を使用するには、SDK 15063 以降をターゲットとし、ビルド 15063 以降を実行している必要があります。
+> **Creators Update が必要** : プライマリ タイル API を使用するには、SDK 15063 以降をターゲットとし、ビルド 15063 以降を実行している必要があります。
 
-> **重要な API**: [**StartScreenManager クラス**](/uwp/api/windows.ui.startscreen.startscreenmanager)、[ContainsAppListEntryAsync](/uwp/api/windows.ui.startscreen.startscreenmanager#Windows_UI_StartScreen_StartScreenManager_ContainsAppListEntryAsync_Windows_ApplicationModel_Core_AppListEntry_)、[RequestAddAppListEntryAsync](/uwp/api/windows.ui.startscreen.startscreenmanager#Windows_UI_StartScreen_StartScreenManager_RequestAddAppListEntryAsync_Windows_ApplicationModel_Core_AppListEntry_)
+> **重要な API** : [**StartScreenManager クラス**](/uwp/api/windows.ui.startscreen.startscreenmanager)、 [ContainsAppListEntryAsync](/uwp/api/windows.ui.startscreen.startscreenmanager#Windows_UI_StartScreen_StartScreenManager_ContainsAppListEntryAsync_Windows_ApplicationModel_Core_AppListEntry_)、 [RequestAddAppListEntryAsync](/uwp/api/windows.ui.startscreen.startscreenmanager#Windows_UI_StartScreen_StartScreenManager_RequestAddAppListEntryAsync_Windows_ApplicationModel_Core_AppListEntry_)
 
 
 ## <a name="when-to-use-primary-tile-apis"></a>プライマリ タイル API を使う状況
 
 アプリのプライマリ タイルに対する優れたエクスペリエンスの設計に多くの労力をかけたので、アプリのプライマリ タイルをスタート画面にピン留めするようユーザーに要求できるようになりました。 ただし、コードについて詳しく説明する前に、エクスペリエンスを設計するときの注意点を示します。
 
-* アプリに "ライブ タイルのピン留め" を実行するよう明確に呼びかける、スムーズで簡単に無視できる UX を作成すること。****
-* アプリのライブ タイルをピン留めするようユーザーに要求する前に、アプリのライブ タイルの価値について明確に説明すること。****
-* タイルが既にピン留めされているか、デバイスでピン留めがサポートされていない場合、アプリのタイルをピン留めするようユーザーに要求しないこと (詳しくは後で説明します)。****
-* アプリのタイルをピン留めするようユーザーに繰り返し要求しないこと (ユーザーが不快になる恐れがあります)。****
-* 明示的なユーザー操作を必要としない場合や、アプリが最小化されているか開いていないときに、ピン留めの API を呼び出さないこと。****
+* アプリに "ライブ タイルのピン留め" を実行するよう明確に呼びかける、スムーズで簡単に無視できる UX を作成すること。 
+* アプリのライブ タイルをピン留めするようユーザーに要求する前に、アプリのライブ タイルの価値について明確に説明すること。 
+* タイルが既にピン留めされているか、デバイスでピン留めがサポートされていない場合、アプリのタイルをピン留めするようユーザーに要求しないこと (詳しくは後で説明します)。 
+* アプリのタイルをピン留めするようユーザーに繰り返し要求しないこと (ユーザーが不快になる恐れがあります)。 
+* 明示的なユーザー操作を必要としない場合や、アプリが最小化されているか開いていないときに、ピン留めの API を呼び出さないこと。 
 
 
 ## <a name="checking-whether-the-apis-exist"></a>API が存在するかどうかを確認する

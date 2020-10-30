@@ -1,17 +1,17 @@
 ---
-Description: ポインター アニメーションを使って、ユーザーが項目をタップまたはクリックしたときに視覚的なフィードバックをユーザーに提供します。
+description: ポインター アニメーションを使って、ユーザーが項目をタップまたはクリックしたときに視覚的なフィードバックをユーザーに提供します。
 title: ポインター クリックのアニメーション
 ms.assetid: EEB10A2C-629A-4705-8468-4D019D74DDFF
 ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d429f55b6c8004ea0b5e16f842f5c7ee492d754d
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 1f2d6367ebd8e87cbb32f7a12a829dba7fa38ace
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218849"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034185"
 ---
 # <a name="pointer-click-animations"></a>ポインター クリックのアニメーション
 
@@ -20,7 +20,7 @@ ms.locfileid: "91218849"
 ポインター アニメーションを使って、ユーザーが項目をタップまたはクリックしたときに視覚的なフィードバックをユーザーに提供します。 ポインター ダウン アニメーション (押された項目を若干縮小して傾ける) は、項目が最初にタップされたときに再生されます。 ポインター アップ アニメーション (項目を元の位置に復元する) は、ユーザーがポインターから指を離したときに再生されます。
 
 
-> **重要な API**: [**PointerUpThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)、[**PointerDownThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)
+> **重要な API** : [**PointerUpThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)、 [**PointerDownThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)
 
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
@@ -35,6 +35,6 @@ ms.locfileid: "91218849"
 * [**PointerUpThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)
 * [**PointerDownThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)
 
- 
+ 
 
- 
+ 

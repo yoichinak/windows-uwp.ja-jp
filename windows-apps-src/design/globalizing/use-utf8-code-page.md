@@ -1,17 +1,17 @@
 ---
-Description: UTF-8 文字エンコードを使用して、web アプリとその他の \* nix ベースプラットフォーム (Unix、Linux、およびバリアント) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
+description: UTF-8 文字エンコードを使用して、web アプリとその他の \* nix ベースプラットフォーム (Unix、Linux、およびバリアント) 間の最適な互換性を確保し、ローカリゼーションのバグを最小限に抑え、テストのオーバーヘッドを削減します。
 title: Windows UTF-8 コードページを使用する
 template: detail.hbs
 ms.date: 06/12/2019
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 72e422ee3e1a911658b2fe4957967aeba116c353
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8aefe7bc45bc7c41347fe8fc4b8192347c3e4354
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173466"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034305"
 ---
 # <a name="use-the-utf-8-code-page"></a>UTF-8 コード ページの使用
 

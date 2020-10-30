@@ -1,17 +1,17 @@
 ---
-Description: パートナーセンターアカウントにユーザーを追加し、特定のアクセス許可を持つロールを割り当てます。
+description: パートナーセンターアカウントにユーザーを追加し、特定のアクセス許可を持つロールを割り当てます。
 title: アカウント ユーザーの管理
 ms.assetid: 9245F0D0-7D8F-4741-AFB4-FBA5601D0A9B
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10、uwp、アカウントユーザー、ユーザーの管理、azure ad、マルチユーザー、複数のユーザー
 ms.localizationpriority: medium
-ms.openlocfilehash: b95b19aace3ba788135dbdb02e3fda5f21635eb6
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 0f3d4ca7738257801b70f3658eb0b34563863ede
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174806"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034635"
 ---
 # <a name="manage-account-users"></a>アカウント ユーザーの管理
 

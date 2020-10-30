@@ -1,17 +1,17 @@
 ---
-Description: アプリ、アドオン (アプリ内製品)、広告収益の支払いについて説明します。
+description: アプリ、アドオン (アプリ内製品)、広告収益の支払いについて説明します。
 title: 支払いを受ける
 ms.assetid: 37D1EF45-C4A8-4849-8819-3D4A4898215C
 ms.date: 05/29/2020
 ms.topic: article
 keywords: windows 10, uwp, 支払い, アプリの販売, アプリの収益, 受け取り, Microsoft Store の手数料, 支払い保留, パーセント
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e2b67984c43d799f0f4e3a1c6662b57bdc6ae9d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 7138a30abb3e2de46c94de96614cc0e404ede675
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89167396"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93029745"
 ---
 # <a name="getting-paid"></a>支払いを受ける
 アプリ、アドオン、広告収益の支払いに関する重要な情報を次に示します。
@@ -49,7 +49,7 @@ Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で
 
 ## <a name="payout-reporting"></a>支払いレポート
 
-[パートナー センター](https://partner.microsoft.com/dashboard)の**支払いの概要**で、支払い情報に関する詳細にアクセスし、レポートをダウンロードすることができます。 ここに表示される情報と、収益を分類する方法の詳細については、[支払いの概要](payout-summary.md)に関するページを参照してください。
+[パートナー センター](https://partner.microsoft.com/dashboard)の **支払いの概要** で、支払い情報に関する詳細にアクセスし、レポートをダウンロードすることができます。 ここに表示される情報と、収益を分類する方法の詳細については、[支払いの概要](payout-summary.md)に関するページを参照してください。
 
 
 ## <a name="payout-timeframe"></a>支払い期間
@@ -59,7 +59,7 @@ Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で
 
 ##  <a name="payout-hold-status"></a>支払い保留状態
 
-既定では、前述のように月単位で支払いを送信します。 ただし、必要であれば、プログラムの支払いを保留状態にして、ご利用のアカウントへの送金を止めることもできます。 支払いを保持することを選択した場合は、お客様が獲得した収益を引き続き記録し、 **支払いの概要**に詳細を入力します。 ただしパートナー様によって保留状態が解除されるまでは、Microsoft からの支払いは口座に送金されません。
+既定では、前述のように月単位で支払いを送信します。 ただし、必要であれば、プログラムの支払いを保留状態にして、ご利用のアカウントへの送金を止めることもできます。 支払いを保持することを選択した場合は、お客様が獲得した収益を引き続き記録し、 **支払いの概要** に詳細を入力します。 ただしパートナー様によって保留状態が解除されるまでは、Microsoft からの支払いは口座に送金されません。
 
 支払いを保留状態にするには、 **[開発者向け設定]** に移動します。 **[支払いと税金]** の **[支払いと税金プロファイルの割り当て]** セクションで、支払いを保留にするプログラムを見つけます。 **[支払の保留]** チェックボックスをクリックすると、このプログラムの支払いが保留になります。 支払い保留状態はいつでも変更できますが、その決定は、翌月の支払いに影響することに注意してください。 たとえば、4月の支払い額を保持する場合は、3月の終わりまでに支払いの保留状態を **On** に設定してください。
 
@@ -69,6 +69,6 @@ Microsoft Store の手数料は、アドオンも含めて、Microsoft Store で
 > **[支払い保留ステータス]** は各プログラム (Microsoft Store、広告、Azure Marketplace など) に個別に適用されます。 すべてのプログラムの支払いを保留にする場合は、各プログラムで個別に支払いを保留にする必要があります。
 
 
- 
+ 
 
- 
+ 

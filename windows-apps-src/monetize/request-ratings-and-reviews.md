@@ -1,16 +1,16 @@
 ---
-Description: プログラムを使用して、ユーザーがアプリを評価して確認できるようにするためのいくつかの方法について説明します。
+description: プログラムを使用して、ユーザーがアプリを評価して確認できるようにするためのいくつかの方法について説明します。
 title: アプリの評価とレビューを求める
 ms.date: 01/22/2019
 ms.topic: article
 keywords: Windows 10, UWP, 評価, レビュー
 ms.localizationpriority: medium
-ms.openlocfilehash: c0a668ac66f48e386a6299a64e5bcc18cec4fccc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9dbc33eaaf3adcb05a6ad37e2f54ceec4769f530
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158376"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034405"
 ---
 # <a name="request-ratings-and-reviews-for-your-app"></a>アプリの評価とレビューを求める
 
@@ -101,7 +101,7 @@ private async Task PromptUserToRateApp()
 }
 ```
 
-**RequestRateAndReviewAppAsync**メソッドは、windows 10 バージョン1809で導入されたものであり、 **Windows 10 10 月2018更新プログラムを対象とするプロジェクトでのみ使用できます (10.0;ビルド 17763)** 以降のリリース (Visual Studio)。
+**RequestRateAndReviewAppAsync** メソッドは、windows 10 バージョン1809で導入されたものであり、 **Windows 10 10 月2018更新プログラムを対象とするプロジェクトでのみ使用できます (10.0;ビルド 17763)** 以降のリリース (Visual Studio)。
 
 ### <a name="response-data-for-the-rating-and-review-request"></a>評価とレビューの要求に対する応答データ
 
@@ -110,8 +110,8 @@ private async Task PromptUserToRateApp()
 次の例は、ユーザーが評価またはレビューを正しく提出した後のこの要求の戻り値を示しています。
 
 ```json
-{ 
-  "status": "success", 
+{ 
+  "status": "success", 
   "data": {
     "updated": false
   },
@@ -122,8 +122,8 @@ private async Task PromptUserToRateApp()
 次の例は、ユーザーが評価またはレビューを提出しなかった後のこの要求の戻り値を示しています。
 
 ```json
-{ 
-  "status": "aborted", 
+{ 
+  "status": "aborted", 
   "errorDetails": "Navigation was unsuccessful"
 }
 ```

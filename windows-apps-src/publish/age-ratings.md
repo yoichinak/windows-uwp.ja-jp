@@ -1,21 +1,21 @@
 ---
-Description: アプリの申請プロセスの [年齢区分] ページでは、アプリに関する情報を提供して、International Age Ratings Coalition (IARC) から適切な年齢区分を受け取ることができるようにすることができます。
+description: アプリの申請プロセスの [年齢区分] ページでは、アプリに関する情報を提供して、International Age Ratings Coalition (IARC) から適切な年齢区分を受け取ることができるようにすることができます。
 title: 年齢区分
 ms.assetid: B501A773-517B-4158-8364-C1BE630DC512
 ms.date: 05/08/2018
 ms.topic: article
 keywords: windows 10, uwp, 年齢区分, ゲームの評価, iarc, 評価, アンケート, レーティング機関, コンテンツ区分
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e8ffdcf1daf9198ded9658c471e765acf5ab8f3
-ms.sourcegitcommit: 7754c1cb1a348f3311417ea7df3e9d168fe39517
+ms.openlocfilehash: d7b51bcad51142b35865608ebced1e3dbea5e4d1
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74694778"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034645"
 ---
 # <a name="age-ratings"></a>年齢区分
 
-[アプリの申請プロセス](app-submissions.md)の **[年齢区分]** ページでアプリに関する情報を提供すると、[International Age Ratings Coalition (IARC)](https://www.globalratings.com/) 評価システムが管理する適切な年齢区分とコンテンツ区分を受け取ることができます。 これらの区分は、アプリのコンテンツの適切性に関する区分であって、アプリの対象ユーザーの年齢ではありません。
+[アプリ送信プロセス](app-submissions.md)の **年齢** 区分ページを使用すると、 [国際年齢区分 (iarc)](https://www.globalratings.com/)評価システムによって管理される適切な年齢とコンテンツの規制を受け取ることができるように、アプリに関する情報を提供できます。 これらの区分は、アプリのコンテンツの適切性に関する区分であって、アプリの対象ユーザーの年齢ではありません。
 
 ## <a name="answering-the-age-ratings-questionnaire"></a>年齢区分についての質問表への回答
 

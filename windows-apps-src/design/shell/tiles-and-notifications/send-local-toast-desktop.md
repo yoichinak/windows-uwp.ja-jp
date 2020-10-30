@@ -1,5 +1,5 @@
 ---
-Description: デスクトップの C# アプリがローカルトースト通知を送信し、トーストをクリックしたユーザーを処理する方法について説明します。
+description: デスクトップの C# アプリがローカルトースト通知を送信し、トーストをクリックしたユーザーを処理する方法について説明します。
 title: デスクトップ C# アプリからのローカル トースト通知の送信
 ms.assetid: E9AB7156-A29E-4ED7-B286-DA4A6E683638
 label: Send a local toast notification from desktop C# apps
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、win32、デスクトップ、トースト通知、トーストの送信、ローカルトーストの送信、デスクトップブリッジ、msix、スパースパッケージ、C#、C シャープ、トースト通知、wpf、送信トースト通知 wpf、送信トースト通知 winforms、送信トースト通知 c#、送信通知 wpf、送信通知 c#、トースト通知 wpf、トースト通知 C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 1fa6b23e775beee993051b23b828c59316ac1382
-ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
+ms.openlocfilehash: cb91a76db38623b533a925ea1df4728bc0fead78
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92100300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034475"
 ---
 # <a name="send-a-local-toast-notification-from-desktop-c-apps"></a>デスクトップ C# アプリからのローカル トースト通知の送信
 
@@ -60,7 +60,7 @@ public class MyNotificationActivator : NotificationActivator
 
 #### <a name="msixsparse-packages"></a>[MSIX/スパースパッケージ](#tab/msix-sparse)
 
-[Msix](/windows/msix/desktop/source-code-overview)または[スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用している場合 (または、両方をサポートしている場合) は、 **package.appxmanifest**に次のように追加します。
+[Msix](/windows/msix/desktop/source-code-overview)または [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps)を使用している場合 (または、両方をサポートしている場合) は、 **package.appxmanifest** に次のように追加します。
 
 1. **xmlns:com** のための宣言
 2. **xmlns:desktop** のための宣言
@@ -162,7 +162,7 @@ DesktopNotificationManagerCompat.RegisterActivator<MyNotificationActivator>();
 
 ## <a name="step-5-send-a-notification"></a>手順 5: 通知を送信する
 
-通知を送信する手順は、**DesktopNotificationManagerCompat** クラスを使用して **ToastNotifier** を作成することを除き、UWP アプリとまったく同じです。 互換ライブラリでは、MSIX/スパースパッケージと従来のデスクトップの違いが自動的に処理されるため、コードをフォークする必要がありません。 従来のデスクトップでは、互換ライブラリによって、 **RegisterAumidAndComServer** を呼び出すときに指定した AUMID がキャッシュされます。これにより、AUMID を提供するタイミングや、提供するタイミングについて心配する必要はありません。
+通知を送信する手順は、 **DesktopNotificationManagerCompat** クラスを使用して **ToastNotifier** を作成することを除き、UWP アプリとまったく同じです。 互換ライブラリでは、MSIX/スパースパッケージと従来のデスクトップの違いが自動的に処理されるため、コードをフォークする必要がありません。 従来のデスクトップでは、互換ライブラリによって、 **RegisterAumidAndComServer** を呼び出すときに指定した AUMID がキャッシュされます。これにより、AUMID を提供するタイミングや、提供するタイミングについて心配する必要はありません。
 
 > [!NOTE]
 > [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) をインストールすると、以下に示すように、生の XML ではなく、C# を使って通知を作成できます。
@@ -192,7 +192,7 @@ DesktopNotificationManagerCompat.CreateToastNotifier().Show(toast);
 
 ## <a name="step-6-handling-activation"></a>手順 6: アクティブ化の処理
 
-ユーザーがトーストをクリックすると、**NotificationActivator** クラスの **OnActivated** メソッドが呼び出されます。
+ユーザーがトーストをクリックすると、 **NotificationActivator** クラスの **OnActivated** メソッドが呼び出されます。
 
 OnActivated メソッド内では、トーストで指定した引数を解析し、ユーザーが入力または選択したユーザー入力を取得したうえで、それに応じてアプリをアクティブ化できます。
 
@@ -275,7 +275,7 @@ public class MyNotificationActivator : NotificationActivator
 }
 ```
 
-アプリが閉じている間の起動を適切にサポートするため、`App.xaml.cs` ファイル内で **OnStartup** メソッド (WPF アプリ用) を上書きして、トーストから起動しているかどうかを判定することができます。 トーストから起動している場合は、起動引数が "-ToastActivated" に指定されています。 この引数が指定されている場合、通常の起動アクティブ化コードの実行をすべて停止して、**OnActivated** コードによる起動処理が完了するのを待つ必要があります。
+アプリが閉じている間の起動を適切にサポートするため、`App.xaml.cs` ファイル内で **OnStartup** メソッド (WPF アプリ用) を上書きして、トーストから起動しているかどうかを判定することができます。 トーストから起動している場合は、起動引数が "-ToastActivated" に指定されています。 この引数が指定されている場合、通常の起動アクティブ化コードの実行をすべて停止して、 **OnActivated** コードによる起動処理が完了するのを待つ必要があります。
 
 ```csharp
 protected override async void OnStartup(StartupEventArgs e)
@@ -315,12 +315,12 @@ WPF の場合、アクティブ化シーケンスは次のとおりです。
 
 アプリが実行されていない場合:
 
-1. `App.xaml.cs` で、**Args** に "-ToastActivated" を指定して **OnStartup** が呼び出されます。
+1. `App.xaml.cs` で、 **Args** に "-ToastActivated" を指定して **OnStartup** が呼び出されます。
 2. **NotificationActivator** で **OnActivated** が呼び出されます。
 
 
 ### <a name="foreground-vs-background-activation"></a>フォアグラウンドとバックグラウンドのアクティブ化
-デスクトップ アプリでは、フォア グラウンドとバック グラウンドのアクティブ化はいずれも、COM アクティベーターの呼び出しという同じ手順で処理されます。 ウィンドウを表示するか、ウィンドウを表示せずに作業を行うだけで終了するかは、アプリのコードによって決定されます。 そのため、トーストコンテンツに**背景**の**ActivationType**を指定しても、動作は変わりません。
+デスクトップ アプリでは、フォア グラウンドとバック グラウンドのアクティブ化はいずれも、COM アクティベーターの呼び出しという同じ手順で処理されます。 ウィンドウを表示するか、ウィンドウを表示せずに作業を行うだけで終了するかは、アプリのコードによって決定されます。 そのため、トーストコンテンツに **背景** の **ActivationType** を指定しても、動作は変わりません。
 
 
 ## <a name="step-7-remove-and-manage-notifications"></a>手順 7: 通知を削除して管理する
@@ -351,7 +351,7 @@ MSIX/スパースパッケージと従来のデスクトップアプリの両方
 
 ## <a name="known-issues"></a>既知の問題
 
-**修正済み: トーストのクリック後、アプリがフォーカスされない**: ビルド 15063 以前では、COM サーバーをアクティブ化したときに、フォアグラウンドの権利がアプリケーションに移転されませんでした。 そのため、アプリをフォアグラウンドに移動しようとしても、点滅するのみで移動できませんでした。 この問題を解決する方法はありませんでした。 この問題は、16299 以降のビルドでは解決済みです。
+**修正済み: トーストのクリック後、アプリがフォーカスされない** : ビルド 15063 以前では、COM サーバーをアクティブ化したときに、フォアグラウンドの権利がアプリケーションに移転されませんでした。 そのため、アプリをフォアグラウンドに移動しようとしても、点滅するのみで移動できませんでした。 この問題を解決する方法はありませんでした。 この問題は、16299 以降のビルドでは解決済みです。
 
 
 ## <a name="resources"></a>リソース

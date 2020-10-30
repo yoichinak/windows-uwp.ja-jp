@@ -1,17 +1,17 @@
 ---
-Description: パートナーセンターまたは他の方法を使用して、Windows アプリの詳細な分析を取得します。
+description: パートナーセンターまたは他の方法を使用して、Windows アプリの詳細な分析を取得します。
 title: アプリのパフォーマンスの分析
 ms.assetid: 3A3C6F10-0DB1-416D-B632-CD388EA66759
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10、uwp、分析、レポート、ダッシュボード、アプリ、データ、メトリック
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b14ee776b31e21fbb8a0ee1d66b933648549b69
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 08ee9c5ddf729ac7a9026c36bc9fbddad0af5dc5
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162086"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032985"
 ---
 # <a name="analyze-app-performance"></a>アプリのパフォーマンスの分析
 
@@ -21,7 +21,7 @@ ms.locfileid: "89162086"
 
 ## <a name="view-key-analytics-for-all-your-apps"></a>すべてのアプリについての主要な分析を表示する
 
-最もダウンロードされたアプリについての主要な分析を表示するには、**[分析]** を展開し、**[概要]** を選びます。 既定では、概要ページには、有効期間内の取得数が最も多い 5 つのアプリに関する情報が表示されます。 別の発行済みのアプリを選んで表示するには、**[フィルター]** を選びます。
+最もダウンロードされたアプリについての主要な分析を表示するには、 **[分析]** を展開し、 **[概要]** を選びます。 既定では、概要ページには、有効期間内の取得数が最も多い 5 つのアプリに関する情報が表示されます。 別の発行済みのアプリを選んで表示するには、 **[フィルター]** を選びます。
 
 ## <a name="view-individual-reports-for-each-app"></a>アプリごとに個別レポートを表示する
 

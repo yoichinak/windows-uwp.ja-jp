@@ -1,24 +1,24 @@
 ---
-Description: アプリが無料であるかどうかにかかわらず、コンテンツ、その他のアプリ、アプリの新機能 (ゲームの次のレベルのロック解除など) をアプリ内から直接販売できます。 ここでは、アプリ内で製品を販売できるようにする方法について説明します。
+description: アプリが無料であるかどうかにかかわらず、コンテンツ、その他のアプリ、アプリの新機能 (ゲームの次のレベルのロック解除など) をアプリ内から直接販売できます。 ここでは、アプリ内で製品を販売できるようにする方法について説明します。
 title: アプリ内製品購入の有効化
 ms.assetid: D158E9EB-1907-4173-9889-66507957BD6B
 keywords: UWP, アドオン, アプリ内購入, IAP, Windows.ApplicationModel.Store
 ms.date: 08/25/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ac6fc8a6ac39c106e3d5d593a36595097c4bde45
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: b24a48034585411af5edfb0950fc4f96b189519f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364115"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033475"
 ---
 # <a name="enable-in-app-product-purchases"></a>アプリ内製品購入の有効化
 
 アプリが無料であるかどうかにかかわらず、コンテンツ、その他のアプリ、アプリの新機能 (ゲームの次のレベルのロック解除など) をアプリ内から直接販売できます。 ここでは、アプリ内で製品を販売できるようにする方法について説明します。
 
 > [!IMPORTANT]
-> この記事では、[Windows.ApplicationModel.Store](/uwp/api/windows.applicationmodel.store) 名前空間のメンバーを使って、アプリ内製品の購入を有効化する方法について説明します。 この名前空間は更新されなくなり、新機能も追加されないため、代わりに [Windows.Services.Store](/uwp/api/windows.services.store) 名前空間を使用することをお勧めします。 **Windows**では、ストアで管理されているアドオンやサブスクリプションなど、最新のアドオンの種類がサポートされており、パートナーセンターとストアでサポートされる将来の種類の製品や機能と互換性があるように設計されています。 **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、**Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 **Windows.Services.Store** 名前空間を使用したアプリ内製品購入の有効化について詳しくは、[この記事](enable-in-app-purchases-of-apps-and-add-ons.md)をご覧ください。
+> この記事では、[Windows.ApplicationModel.Store](/uwp/api/windows.applicationmodel.store) 名前空間のメンバーを使って、アプリ内製品の購入を有効化する方法について説明します。 この名前空間は更新されなくなり、新機能も追加されないため、代わりに [Windows.Services.Store](/uwp/api/windows.services.store) 名前空間を使用することをお勧めします。 **Windows** では、ストアで管理されているアドオンやサブスクリプションなど、最新のアドオンの種類がサポートされており、パートナーセンターとストアでサポートされる将来の種類の製品や機能と互換性があるように設計されています。 **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、 **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 **Windows.Services.Store** 名前空間を使用したアプリ内製品購入の有効化について詳しくは、 [この記事](enable-in-app-purchases-of-apps-and-add-ons.md)をご覧ください。
 
 > [!NOTE]
 > アプリ内製品は、アプリの試用版では提供できません。 アプリの試用版を使用中のユーザーがアプリ内製品を購入できるのは、通常版のアプリを購入する場合のみです。
@@ -83,7 +83,7 @@ ms.locfileid: "89364115"
   > [!NOTE]
   > コードで使用するアプリ内プラントークンは、パートナーセンターの対応するアドオンに対して指定した [製品 ID](../publish/set-your-add-on-product-id.md#product-id) 値と一致する必要があります。
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
 コンシューマブルなアプリ内購入オプション (購入して使い切った後、必要に応じて再購入できる項目) を顧客に提供することに関心がある場合は、「[コンシューマブルなアプリ内製品購入の有効化](enable-consumable-in-app-product-purchases.md)」をご覧ください。
 
@@ -92,7 +92,7 @@ ms.locfileid: "89364115"
 ## <a name="related-topics"></a>関連トピック
 
 
-* [コンシューマブルなアプリ内製品購入の有効化](enable-consumable-in-app-product-purchases.md)
+* [使用可能なアプリ内製品の購入を有効にする](enable-consumable-in-app-product-purchases.md)
 * [アプリ内製品の大規模なカタログの管理](manage-a-large-catalog-of-in-app-products.md)
 * [受領通知を使った製品購入の確認](use-receipts-to-verify-product-purchases.md)
 * [ストア サンプル (試用版とアプリ内購入のデモンストレーション)](https://github.com/Microsoft/Windows-universal-samples/tree/win10-1507/Samples/Store)

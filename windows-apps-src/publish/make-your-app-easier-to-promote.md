@@ -1,17 +1,17 @@
 ---
-Description: アプリが人の目に留まるようにしましょう。 アプリの品質を高めることのほかにも、Microsoft Store やその他のサイトで注目を集めるためにできることがあります。
+description: アプリが人の目に留まるようにしましょう。 アプリの品質を高めることのほかにも、Microsoft Store やその他のサイトで注目を集めるためにできることがあります。
 title: アプリの販売促進を容易にする
 ms.assetid: 375A73EB-A010-4319-AEFF-3DC3E3691220
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp, 販売促進, プロモーション, おすすめ, ショーケース, Microsoft Store
 ms.localizationpriority: medium
-ms.openlocfilehash: c2503dbd6d585452c8bfec0ac217e2144a4da384
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ea42ff2d4aa7f953ed98813de3d4b2ead1547b16
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161906"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033895"
 ---
 # <a name="make-your-app-easier-to-promote"></a>アプリの販売促進を容易にする
 
@@ -27,7 +27,7 @@ Microsoft Store では、さまざまなアプリをカテゴリ別またはテ�
 
     Microsoft Store でアプリを取り上げる際に、[アプリのスクリーン ショットや画像](app-screenshots-and-images.md)がさまざまなレイアウトで使われる場合があります。 アプリを表す優れたスクリーン ショットを設計する必要があり、最初のスクリーン ショットは特に代表的で魅力のあるものを選びます。 スクリーンショットのセットを複数用意して、アプリがサポートするデバイスの種類ごとに、アプリがどのように表示されるかを示すとよいでしょう。
 
-    Microsoft Store でアプリが取り上げられる可能性を最大限に高めるには、該当する画像をすべて Store 登録情報の **[Microsoft Store ロゴ]** セクションと **[追加のアート資産]** セクションに含めてください。 **9:16 ポスターアート (720 x 1080 または 1440 x 2160 ピクセル)** と**16:9 スーパーヒーローアート (1920 x 1080 または 3840 x 2160 ピクセル)** の画像は、特に重要です。 アプリで Xbox または Holographic デバイス ファミリがサポートされている場合、それらのデバイス ファミリの該当する画像もすべて提供することをお勧めします。 詳細とガイドラインについては、「[アプリのスクリーンショット、画像、トレーラー](app-screenshots-and-images.md)」をご覧ください。
+    Microsoft Store でアプリが取り上げられる可能性を最大限に高めるには、該当する画像をすべて Store 登録情報の **[Microsoft Store ロゴ]** セクションと **[追加のアート資産]** セクションに含めてください。 **9:16 ポスターアート (720 x 1080 または 1440 x 2160 ピクセル)** と **16:9 スーパーヒーローアート (1920 x 1080 または 3840 x 2160 ピクセル)** の画像は、特に重要です。 アプリで Xbox または Holographic デバイス ファミリがサポートされている場合、それらのデバイス ファミリの該当する画像もすべて提供することをお勧めします。 詳細とガイドラインについては、「[アプリのスクリーンショット、画像、トレーラー](app-screenshots-and-images.md)」をご覧ください。
 
 -   **無料バージョンと有料バージョンを別々に作るのではなく、1 つのバージョンとしてアプリを作る**
 
@@ -43,4 +43,4 @@ Microsoft Store では、さまざまなアプリをカテゴリ別またはテ�
 
 
 
- 
+ 

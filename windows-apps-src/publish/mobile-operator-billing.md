@@ -1,17 +1,17 @@
 ---
-Description: Microsoft Store は、この機能をサポートするモバイルオペレーターの支払い方法として携帯電話の課金を提供します。
+description: Microsoft Store は、この機能をサポートするモバイルオペレーターの支払い方法として携帯電話の課金を提供します。
 title: 携帯電話会社による課金
 ms.assetid: C8A5A4BA-6B39-42FC-B8C4-ED1B7F774CC1
 ms.date: 05/29/2020
 ms.topic: article
 keywords: windows 10, uwp, 携帯電話会社, 携帯電話への課金, 携帯電話会社による課金
 ms.localizationpriority: medium
-ms.openlocfilehash: 9dbdd2a86d33cf1392844294952eb9223676e256
-ms.sourcegitcommit: 426ccbdaa26bd16c7f0b270e8a51ac4ba87a5b60
+ms.openlocfilehash: df31cfbf113d91680f1570d37ae091e12e5a11de
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91590651"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034735"
 ---
 # <a name="mobile-operator-billing"></a>携帯電話会社による課金
 
@@ -21,7 +21,7 @@ ms.locfileid: "91590651"
 Microsoft Store では、Windows 10 を実行するデバイス、Windows 10 Mobile を実行するスマートフォン、Xbox One 本体用の支払い方法として、携帯電話会社による課金を提供しています。 ユーザーの携帯電話会社でこの機能がサポートされている場合、ユーザーは支払い方法として携帯電話会社による課金を追加し、この支払い方法を使用してモバイル アカウントによる Microsoft Store での購入を行うことができます。
 
 > [!TIP]
->  お客様の携帯電話会社が携帯電話の請求を提供していても、お客様のデバイスでこのオプションが見つからない場合は、次の [手順](https://support.microsoft.com/instantanswers/b25d6dd6-fb8b-3710-1e13-4d30eb01b51f)を確認してください。
+>  ユーザーの携帯電話会社が携帯電話会社による課金を提供していても、ユーザーのデバイスにこのオプションがない場合は、こちらの[手順](https://support.microsoft.com/instantanswers/b25d6dd6-fb8b-3710-1e13-4d30eb01b51f)をご覧ください。
 
 弊社は、定期的に携帯電話会社と協力して、この支払方法の機能を拡張しています。 以下のリストにない携帯電話会社を案内したい場合は、その携帯電話会社に連絡し、この支払い方法を追加するよう要請してください。
 

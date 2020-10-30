@@ -1,21 +1,21 @@
 ---
-Description: 製品宣言を使用すると、アプリが適切に Microsoft Store に表示され、適切な顧客のセットに提供されるようになります。
+description: 製品宣言を使用すると、アプリが適切に Microsoft Store に表示され、適切な顧客のセットに提供されるようになります。
 title: 製品の宣言
 ms.assetid: 3AF618F3-2B47-4A57-B7E8-1DF979D4A82C
 ms.date: 10/31/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c4e8677a27128e6a33a844f5a887e921ca9ced3
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3469992a73a4e90e25ce34883319343ad6986d75
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89167366"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034615"
 ---
 # <a name="product-declarations"></a>製品の宣言
 
-[送信プロセス](app-submissions.md)の [[プロパティ](enter-app-properties.md)] ページの [**製品宣言**] セクションでは、アプリが適切に表示され、適切な一連の顧客に提供されることを確認できます。また、アプリの使用方法を理解するのに役立ちます。
+[送信プロセス](app-submissions.md)の [ [プロパティ](enter-app-properties.md)] ページの [ **製品宣言** ] セクションでは、アプリが適切に表示され、適切な一連の顧客に提供されることを確認できます。また、アプリの使用方法を理解するのに役立ちます。
 
 以下のセクションでは、各宣言がアプリに適用されるかどうかを判断する際に考慮する必要があるいくつかの宣言とその用途について説明します。 次に示すように、これらの宣言の2つは既定でオンになっています。製品のカテゴリによっては、追加の宣言が表示される場合もあります。 すべての宣言を確認し、送信内容が正確に反映されていることを確認してください。
 
@@ -40,7 +40,7 @@ ms.locfileid: "89167366"
 詳しくは、「[アクセシビリティ](../design/accessibility/accessibility.md)」、「[アクセシビリティ テスト](../design/accessibility/accessibility-testing.md)」、「[ストア内のアクセシビリティ](../design/accessibility/accessibility-in-the-store.md)」をご覧ください。
 
 > [!IMPORTANT]
-> 特定の目的のために特別に設計し、テストしていない限り、アプリをアクセス可能として表示しないでください。 アプリをアクセシビリティ対応と宣言しているのにアクセシビリティを実際にサポートしていないと、コミュニティから否定的なフィードバックを受けるおそれがあります。
+> 特定の目的のために特別に設計し、テストしていない限り、アプリをアクセス可能として表示しないでください。 アプリをアクセシビリティ対応と宣言しているのにアクセシビリティを実際にサポートしていないと、コミュニティから否定的なフィードバックを受けるおそれがあります。
 
 ## <a name="customers-can-install-this-app-to-alternate-drives-or-removable-storage"></a>ユーザーは、代替ドライブやリムーバブル ストレージにこのアプリをインストールできます。
 
@@ -62,8 +62,8 @@ ms.locfileid: "89167366"
 
 
 
- 
+ 
 
- 
+ 
 
- 
+ 

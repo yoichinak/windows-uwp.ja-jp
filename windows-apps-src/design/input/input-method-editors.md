@@ -1,5 +1,5 @@
 ---
-Description: IME (Input Method Editor) は、標準の QWERTY キーボードでは簡単に表現できない言語のテキストをユーザーが入力できるようにするソフトウェアコンポーネントです。
+description: IME (Input Method Editor) は、標準の QWERTY キーボードでは簡単に表現できない言語のテキストをユーザーが入力できるようにするソフトウェアコンポーネントです。
 title: 入力方式エディター (IME)
 label: Input Method Editors (IME)
 template: detail.hbs
@@ -7,12 +7,12 @@ keywords: ime、Input Method Editor、入力、対話
 ms.date: 07/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e7782dea8cd634fd9fe3bac4a3e4c870cd680e9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1f70f08e61df1b609a0ab505e35ef314a90a91fd
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89159946"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030085"
 ---
 # <a name="input-method-editors-ime"></a>入力方式エディター (IME)
 

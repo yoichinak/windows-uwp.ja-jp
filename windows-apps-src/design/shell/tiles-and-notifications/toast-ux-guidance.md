@@ -1,5 +1,5 @@
 ---
-Description: ユーザーの生産性と満足度を高めるために、効果的でユーザー重視の通知を作成する方法について説明します。
+description: ユーザーの生産性と満足度を高めるために、効果的でユーザー重視の通知を作成する方法について説明します。
 title: トースト UX のガイダンス
 label: Toast UX Guidance
 template: detail.hbs
@@ -7,17 +7,17 @@ ms.date: 05/18/2018
 ms.topic: article
 keywords: windows 10、uwp、通知、コレクション、グループ、ux、ux ガイダンス、ガイダンス、アクション、トースト、アクションセンター、noninterruptive、有効な通知、非侵入通知、アクション可能、管理、整理
 ms.localizationpriority: medium
-ms.openlocfilehash: 9879d052882532e4d47c27c0b636f728293311cf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d6ad253ccfa744864caa8d0229d09ba40d066771
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033045"
 ---
 # <a name="toast-notification-ux-guidance"></a>トースト通知 UX のガイダンス
 通知は、最新の生活の中で必要な部分です。これにより、ユーザーの生産性を高め、アプリや web サイトを使用したり、更新プログラムを最新の状態に保つことができます。 ただし、通知は、ユーザー中心の方法で設計されていない場合、非常に役に立ち、過度に影響を受けやすいものにすることができます。 通知は、1回の右クリックでオフになっています。オフにすると、無効になり、再び有効になります。  そのため、通知がユーザーの画面領域と時間の敬意になっていることを確認し、このエンゲージメントチャネルを開いたままにしておくことができます。
 
-> **重要な api**: [Windows Community Toolkit の通知 nuget パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
+> **重要な api** : [Windows Community Toolkit の通知 nuget パッケージ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)
 
 Microsoft では、Windows テレメトリ、およびその他の最初とサードパーティのケーススタディを分析し、優れた通知ストーリーを作成するための4つのルールについて説明しました。  プラットフォームに関係なく、これらの規則は確実に適用可能であり、通知がユーザーに対して肯定的な影響を与えるのを支援します。
 

@@ -1,17 +1,17 @@
 ---
-Description: SendRequestAsync メソッドを使用すると、Windows SDK で使用可能な API をまだ持っていない操作の Microsoft Store に要求を送信できます。
+description: SendRequestAsync メソッドを使用すると、Windows SDK で使用可能な API をまだ持っていない操作の Microsoft Store に要求を送信できます。
 title: Microsoft Store に要求を送信する
 ms.assetid: 070B9CA4-6D70-4116-9B18-FBF246716EF0
 ms.date: 03/22/2018
 ms.topic: article
 keywords: Windows 10, UWP, StoreRequestHelper, SendRequestAsync
 ms.localizationpriority: medium
-ms.openlocfilehash: a02be93a56d6066ebd4d9547c8cc9ea1a96c9e09
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 53b525617ac72aec67349645430bc5995253460f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164496"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034665"
 ---
 # <a name="send-requests-to-the-microsoft-store"></a>Microsoft Store に要求を送信する
 
@@ -22,19 +22,19 @@ Windows 10 バージョン 1607 以降、Windows SDK の [Windows.Services.Store
 > [!NOTE]
 > **SendRequestAsync** メソッドは、Windows 10 バージョン 1607 以降をターゲットとするアプリにのみ使うことができます。 このメソッドでサポートされている要求の一部は、Windows 10 バージョン 1607 より後のリリースでのみサポートされます。
 
-**SendRequestAsync** は、[StoreRequestHelper](/uwp/api/windows.services.store.storerequesthelper) クラスの静的メソッドです。 このメソッドを呼び出すには、次の情報をメソッドに渡す必要があります。
+**SendRequestAsync** は、 [StoreRequestHelper](/uwp/api/windows.services.store.storerequesthelper) クラスの静的メソッドです。 このメソッドを呼び出すには、次の情報をメソッドに渡す必要があります。
 * 操作を実行するユーザーに関する情報を提供する [StoreContext](/uwp/api/windows.services.store.storecontext) オブジェクト。 このオブジェクトについて詳しくは、「[StoreContext クラスの概要](in-app-purchases-and-trials.md#get-started-with-the-storecontext-class)」をご覧ください。
 * ストアに送信する要求を識別する整数。
 * 要求が任意の引数をサポートする場合、要求と共に渡す引数を含む JSON 形式の文字列も渡すことができます。
 
-このメソッドの呼び出し方法を次の例に示します。 この例では、**Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間のステートメントを使う必要があります。
+このメソッドの呼び出し方法を次の例に示します。 この例では、 **Windows.Services.Store** 名前空間と **System.Threading.Tasks** 名前空間のステートメントを使う必要があります。
 
 ```csharp
 public async Task<bool> AddUserToFlightGroup()
 {
     StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(
         StoreContext.GetDefault(), 8,
-        "{ \"type\": \"AddToFlightGroup\", \"parameters\": { \"flightGroupId\": \"your group ID\" } }");
+        "{ \"type\": \"AddToFlightGroup\", \"parameters\": { \"flightGroupId\": \"your group ID\" } }");
 
     if (result.ExtendedError == null)
     {
@@ -80,9 +80,9 @@ public async Task<bool> AddUserToFlightGroup()
 次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *GetRemoteVariables* に割り当てる必要があります。 パートナーセンターで、リモート変数を定義したプロジェクトの ID に *projectId* フィールドを割り当てます。
 
 ```json
-{ 
-    "type": "GetRemoteVariables", 
-    "parameters": "{ \"projectId\": \"your project ID\" }" 
+{ 
+    "type": "GetRemoteVariables", 
+    "parameters": "{ \"projectId\": \"your project ID\" }" 
 }
 ```
 
@@ -90,15 +90,15 @@ public async Task<bool> AddUserToFlightGroup()
 
 |  フィールド  |  説明  |
 |----------------------|---------------|
-|  *非同期*                   |  ブール値。**true** はユーザーまたはデバイス ID が要求に存在していなかったことを示し、**false** はユーザーまたはデバイス ID が要求に存在していたことを示します。  |
+|  *非同期*                   |  ブール値。 **true** はユーザーまたはデバイス ID が要求に存在していなかったことを示し、 **false** はユーザーまたはデバイス ID が要求に存在していたことを示します。  |
 |  *name*                   |  デバイスまたはユーザーが所属する最も順位の高いフライト グループの名前を含む文字列です。  |
 |  *設定*                   |  開発者がフライト グループに構成したリモート変数の名前を値を含むキー/値ペアのディクショナリです。  |
 
 次の例では、この要求の戻り値を示します。
 
 ```json
-{ 
-  "anonymous": false, 
+{ 
+  "anonymous": false, 
   "name": "Insider Slow",
   "settings":
   {
@@ -123,9 +123,9 @@ public async Task<bool> AddUserToFlightGroup()
 次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *AddToFlightGroup* に割り当てる必要があります。 *flightGroupId* フィールドを、デバイスまたはユーザーを追加するフライト グループの ID に割り当てます。
 
 ```json
-{ 
-    "type": "AddToFlightGroup", 
-    "parameters": "{ \"flightGroupId\": \"your group ID\" }" 
+{ 
+    "type": "AddToFlightGroup", 
+    "parameters": "{ \"flightGroupId\": \"your group ID\" }" 
 }
 ```
 
@@ -146,9 +146,9 @@ public async Task<bool> AddUserToFlightGroup()
 次の例は、JSON 形式のデータを *parametersAsJson* に渡す方法を示しています。 *type* フィールドは、文字列 *RemoveFromFlightGroup* に割り当てる必要があります。 *flightGroupId* フィールドを、デバイスまたはユーザーを削除するフライト グループの ID に割り当てます。
 
 ```json
-{ 
-    "type": "RemoveFromFlightGroup", 
-    "parameters": "{ \"flightGroupId\": \"your group ID\" }" 
+{ 
+    "type": "RemoveFromFlightGroup", 
+    "parameters": "{ \"flightGroupId\": \"your group ID\" }" 
 }
 ```
 

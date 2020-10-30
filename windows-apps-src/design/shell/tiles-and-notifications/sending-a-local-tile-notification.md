@@ -1,5 +1,5 @@
 ---
-Description: 'この記事では、アダプティブ タイル テンプレートを使って、ローカル タイル通知をプライマリ タイルやセカンダリ タイルに送信する方法について説明します '
+description: 'この記事では、アダプティブ タイル テンプレートを使って、ローカル タイル通知をプライマリ タイルやセカンダリ タイルに送信する方法について説明します '
 title: ローカル タイル通知の送信
 ms.assetid: D34B0514-AEC6-4C41-B318-F0985B51AF8A
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a8e3bee4a32c4a66ece5f486386340e9f9122f87
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6b93f9731fb9bf843ce9bb03bd8c6526546c4249
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156806"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034465"
 ---
 # <a name="send-a-local-tile-notification"></a>ローカル タイル通知の送信
  
@@ -24,7 +24,7 @@ Windows 10 では、アプリのプライマリ タイルはアプリ マニフ�
 > [!NOTE] 
 >詳しくは「[アダプティブ タイルの作成](create-adaptive-tiles.md)」と「[タイルのコンテンツのスキーマ](../tiles-and-notifications/tile-schema.md)」をご覧ください。
 
- 
+ 
 
 ## <a name="install-the-nuget-package"></a>NuGet パッケージのインストール
 
@@ -36,7 +36,7 @@ Windows 10 では、アプリのプライマリ タイルはアプリ マニフ�
 ## <a name="add-namespace-declarations"></a>名前空間宣言の追加
 
 
-タイル API にアクセスするには、[**Windows.UI.Notifications**](/uwp/api/Windows.UI.Notifications) 名前空間を追加します。 **Microsoft.Toolkit.Uwp.Notifications** 名前空間も追加することをお勧めします。これにより、タイルのヘルパー API を使うことができます (これらの API にアクセスするには、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)の NuGet パッケージをインストールする必要があります)。
+タイル API にアクセスするには、 [**Windows.UI.Notifications**](/uwp/api/Windows.UI.Notifications) 名前空間を追加します。 **Microsoft.Toolkit.Uwp.Notifications** 名前空間も追加することをお勧めします。これにより、タイルのヘルパー API を使うことができます (これらの API にアクセスするには、 [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)の NuGet パッケージをインストールする必要があります)。
 
 ```csharp
 using Windows.UI.Notifications;
@@ -125,7 +125,7 @@ TileContent content = new TileContent()
 ## <a name="create-the-notification"></a>通知を作成する
 
 
-通知のコンテンツを決定したら、新しい [**TileNotification**](/uwp/api/Windows.UI.Notifications.TileNotification) を作成する必要があります。 **TileNotification** コンストラクターは Windows ランタイムの [**XmlDocument**](/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトを受け取ります。このオブジェクトは、[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)を使っている場合に、**TileContent.GetXml** メソッドから取得することができます。
+通知のコンテンツを決定したら、新しい [**TileNotification**](/uwp/api/Windows.UI.Notifications.TileNotification) を作成する必要があります。 **TileNotification** コンストラクターは Windows ランタイムの [**XmlDocument**](/uwp/api/windows.data.xml.dom.xmldocument) オブジェクトを受け取ります。このオブジェクトは、 [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)を使っている場合に、 **TileContent.GetXml** メソッドから取得することができます。
 
 次のコード例では、新しいタイルの通知を作成します。
 
@@ -152,7 +152,7 @@ tileNotification.ExpirationTime = DateTimeOffset.UtcNow.AddMinutes(10);
 
 **プライマリ タイル**
 
-通知をプライマリ タイルに送信するには、[**TileUpdateManager**](/uwp/api/Windows.UI.Notifications.TileUpdateManager) を使ってプライマリ タイル用のタイル アップデーターを作成し、"Update" を呼び出して通知を送信します。 表示されるかどうかに関係なく、アプリのプライマリ タイルは常に存在します。そのため、タイルがピン留めされていない場合でも、通知をタイルに送信することができます。 ユーザーが後でプライマリ タイルをピン留めする場合、送信した通知はタイルをピン留めしたときに表示されます。
+通知をプライマリ タイルに送信するには、 [**TileUpdateManager**](/uwp/api/Windows.UI.Notifications.TileUpdateManager) を使ってプライマリ タイル用のタイル アップデーターを作成し、"Update" を呼び出して通知を送信します。 表示されるかどうかに関係なく、アプリのプライマリ タイルは常に存在します。そのため、タイルがピン留めされていない場合でも、通知をタイルに送信することができます。 ユーザーが後でプライマリ タイルをピン留めする場合、送信した通知はタイルをピン留めしたときに表示されます。
 
 次のコード例では、通知をプライマリ タイルに送信します。
 
@@ -199,7 +199,7 @@ TileUpdateManager.CreateTileUpdaterForApplication().Clear();
 
 ![通知を含んだタイルと消去された後のタイル](images/sending-local-tile-03.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 
 **通知キューの使用**
@@ -293,6 +293,6 @@ var notification = new TileNotification(doc);
 * [**Windows.UI.Notifications 名前空間**](/uwp/api/Windows.UI.Notifications)
 * [通知キューの使用方法 (XAML)](/previous-versions/windows/apps/hh868234(v=win.10))
 * [通知の配信](choosing-a-notification-delivery-method.md)
- 
+ 
 
- 
+ 

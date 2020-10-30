@@ -1,17 +1,17 @@
 ---
-Description: このトピックでは、英語 (米国) 以外の言語にローカライズされた Windows アプリで使用できるフォントの一覧を示します。
+description: このトピックでは、英語 (米国) 以外の言語にローカライズされた Windows アプリで使用できるフォントの一覧を示します。
 title: 国際フォント
 template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: 1200b80347a67bb1c9a6414a18697ca9d30bc29f
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 4af2cb68f92f21750bafa8a86e5dd036d5247c4b
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220605"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034355"
 ---
 # <a name="international-fonts"></a>国際フォント
 
@@ -112,7 +112,7 @@ ms.locfileid: "91220605"
 | スペイン語 | es-ES | Segoe UI |
 | スウェーデン語 | sv-SE | Segoe UI |
 | タジク語 (キリル) | tg-Cyrl-TJ | Segoe UI |
-| タミル語 | ta-IN | Nirmala UI |
+| タミール語 | ta-IN | Nirmala UI |
 | タタール語 | tt-RU | Segoe UI |
 | テルグ語 | te-IN | Nirmala UI |
 | タイ語 | th-TH | Leelawadee UI |

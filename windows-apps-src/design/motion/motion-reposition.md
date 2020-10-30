@@ -1,5 +1,5 @@
 ---
-Description: 位置変更アニメーションを使って、1 つまたは複数の要素を新しい位置に移動します。
+description: 位置変更アニメーションを使って、1 つまたは複数の要素を新しい位置に移動します。
 title: 位置変更アニメーション
 ms.assetid: 25D1EE31-5C25-4F21-B34C-FBD8FB1C8FFF
 label: Motion--Reposition
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 95d8d69bdd289a8ff5d995995f71cfbd8688ae9b
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 1048763756c272ea9a8e94e1ae3adfe92d624a34
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034115"
 ---
 # <a name="reposition-animations"></a>位置変更アニメーション
 
@@ -21,7 +21,7 @@ ms.locfileid: "91217715"
 
 位置変更アニメーションを使って、1 つまたは複数の要素を新しい位置に移動します。
 
-> **重要な API**: [**RepositionThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)、[**RepositionThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
+> **重要な API** : [**RepositionThemeAnimation クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)、 [**RepositionThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
 
 ## <a name="dos-and-donts"></a>推奨と非推奨
 
@@ -38,4 +38,4 @@ ms.locfileid: "91217715"
 * [**RepositionThemeTransition クラス**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
 
 
- 
+ 

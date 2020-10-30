@@ -1,5 +1,5 @@
 ---
-Description: この記事では、トーストのコンテンツ内のすべてのプロパティと要素を説明します。
+description: この記事では、トーストのコンテンツ内のすべてのプロパティと要素を説明します。
 title: トーストのコンテンツのスキーマ
 ms.assetid: 7CBC3BD5-D9C3-4781-8BD0-1F28039E1FA8
 label: Toast content schema
@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6399cb3aa6c22e188ed84941c3209632511d90e4
-ms.sourcegitcommit: 8b01b9ab7293dad1259da32d1459fdd454796e12
+ms.openlocfilehash: 7116f1aa6f06eda1351183963ea8169625a8df70
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92020172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033025"
 ---
 # <a name="toast-content-schema"></a>トーストのコンテンツのスキーマ
 
@@ -40,15 +40,15 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 
 | プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
-| **Launch**| string | false | トーストによってアプリケーションがアクティブ化されるときにアプリケーションに渡される文字列です。 この文字列の形式とコンテンツは、アプリ独自の使用方法に合わせて、アプリによって定義されます。 ユーザーがトーストをタップまたはクリックして関連するアプリを起動すると、そのアプリは既定の方法では起動されません。起動文字列によってコンテキストがアプリに渡され、トーストのコンテンツに関連するビューがユーザーに表示されます。 |
-| **ビジュアル** | [ToastVisual](#toastvisual) | true | トースト通知の視覚的な部分について説明します。 |
+| **開い**| string | false | トーストによってアプリケーションがアクティブ化されるときにアプリケーションに渡される文字列です。 この文字列の形式とコンテンツは、アプリ独自の使用方法に合わせて、アプリによって定義されます。 ユーザーがトーストをタップまたはクリックして関連するアプリを起動すると、そのアプリは既定の方法では起動されません。起動文字列によってコンテキストがアプリに渡され、トーストのコンテンツに関連するビューがユーザーに表示されます。 |
+| **Visual** | [ToastVisual](#toastvisual) | true | トースト通知の視覚的な部分について説明します。 |
 | **アクション** | [IToastActions](#itoastactions) | false | 必要に応じて、ボタンや入力によってカスタム動作を作成します。 |
 | **オーディオ** | [ToastAudio](#toastaudio) | false | トースト通知のオーディオ部分について説明します。 |
 | **ActivationType** | [ToastActivationType](#toastactivationtype) | false | ユーザーがトーストの本文をクリックしたときに使用されるアクティブ化の種類を指定します。 |
 | **ActivationOptions** | [ToastActivationOptions](#toastactivationoptions) | false | Creators Update の新機能: トースト通知のアクティブ化に関する追加オプションです。 |
 | **シナリオ** | [ToastScenario](#toastscenario) | false | アラームやリマインダーなど、トーストが使用されるシナリオを宣言します。 |
 | **DisplayTimestamp** | DateTimeOffset? | false | Creators Update の新機能: 通知のコンテンツが Windows プラットフォームで受信されたときではなく実際に配信されたときを表すカスタムのタイムスタンプによって、既定のタイムスタンプを上書きします。 |
-| **Header** | [ToastHeader](#toastheader) | false | Creators Update の新機能: 通知にカスタム ヘッダーを追加して、アクション センターで複数の通知をグループ化します。 |
+| **ヘッダー** | [ToastHeader](#toastheader) | false | Creators Update の新機能: 通知にカスタム ヘッダーを追加して、アクション センターで複数の通知をグループ化します。 |
 
 
 ### <a name="toastscenario"></a>ToastScenario
@@ -140,7 +140,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 | **Subheader.aboutdocs** | H2 のフォント サイズです。 |
 | **SubheaderSubtle** | Subheader と同じですが、不透明度が Subtle です。 |
 | **SubheaderNumeral** | Subheader と同じですが、上/下のパディングが削除されます。 |
-| **Header** | H1 のフォント サイズです。 |
+| **ヘッダー** | H1 のフォント サイズです。 |
 | **HeaderSubtle** | Header と同じですが、不透明度が Subtle です。 |
 | **HeaderNumeral** | Header と同じですが、上/下のパディングが削除されます。 |
 
@@ -247,7 +247,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 | プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
 | **Value** | double | false | 完了率を表す値 (0.0 ～ 1.0) を取得または設定します。 |
-| **IsIndeterminate** | [bool] | false | 進行状況バーが不確定型かどうかを示す値を取得または設定します。 true の場合、**Value** は無視されます。 |
+| **IsIndeterminate** | [bool] | false | 進行状況バーが不確定型かどうかを示す値を取得または設定します。 true の場合、 **Value** は無視されます。 |
 
 
 ### <a name="bindableprogressbarvalue"></a>BindableProgressBarValue
@@ -316,7 +316,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 |---|---|---|---|
 | **入力** | IList<[Itoastinput](#itoastinput)> | false | テキスト ボックスや選択入力などの入力です。 最大 5 つの入力が許可されます。 |
 | **ボタン** | IList<[Itoastbutton](#itoastbutton)> | false | ボタンが、すべての入力の後ろに表示されます (または、ボタンがクイック返信ボタンとして使用されている場合は入力の隣に表示されます)。 最大 5 つのボタンが許可されます (コンテキスト メニュー項目もある場合はこれより少なくなります)。 |
-| **ContextMenuItems** | IList<[Toastcontextmenuitem](#toastcontextmenuitem)> | false | Anniversary Update の新機能: ユーザーが通知を右クリックした場合に追加の操作を提供する、カスタムのコンテキスト メニュー項目です。 ボタンとコンテキスト メニュー項目の数は、最大で*合わせて* 5 つに制限されます。 |
+| **ContextMenuItems** | IList<[Toastcontextmenuitem](#toastcontextmenuitem)> | false | Anniversary Update の新機能: ユーザーが通知を右クリックした場合に追加の操作を提供する、カスタムのコンテキスト メニュー項目です。 ボタンとコンテキスト メニュー項目の数は、最大で *合わせて* 5 つに制限されます。 |
 
 
 ## <a name="itoastinput"></a>IToastInput

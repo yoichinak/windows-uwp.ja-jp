@@ -1,5 +1,5 @@
 ---
-Description: 言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。
+description: 言語とカルチャの構成が異なるシステムで適切に機能するようにアプリを設計して開発します。
 Search.Refinement.TopicID: 180
 title: グローバリゼーションのガイドライン
 ms.assetid: 0342DC3F-DDD1-4DD4-872E-A4EC340CAE79
@@ -8,12 +8,12 @@ ms.date: 11/02/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: d71cf2289654860b47aef18c117ac9d6d36fab0a
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: f97408596750c2f9a8d2ad61ad2754627e23426f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493247"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033715"
 ---
 # <a name="guidelines-for-globalization"></a>グローバリゼーションのガイドライン
 
@@ -27,15 +27,15 @@ ms.locfileid: "86493247"
 | 国際的な計測単位と通貨をサポートする。 | 使われる単位と尺度は国によって異なりますが、最も使われているのはメートル法とヤード ポンド法です。 長さ、温度、範囲などの計測を扱う場合は、正しいシステム計測をサポートしてください。 [**GeographicRegion.CurrenciesInUse**](/uwp/api/windows.globalization.geographicregion.CurrenciesInUse) プロパティを使って、地域で使用されている通貨のセットを取得します。 |
 | 文字エンコードに Unicode を使う。 | 既定では、Microsoft Visual Studio は、すべてのドキュメントに Unicode 文字エンコードを使います。 別のエディターを使っている場合は、適切な Unicode 文字エンコードでソース ファイルが保存されるようにしてください。 Windows ランタイム API はどれも、UTF-16 エンコードの文字列を返します。 |
 | 国際的な用紙サイズをサポートする。 | 最も一般的な用紙サイズは国によって異なるため、用紙サイズによって変化する機能 (印刷など) を含める場合には、必ず一般的な国際サイズをサポートし、テストしてください。 |
-| キーボードまたは IME の言語を記録する。 | アプリがユーザーにテキスト入力を求めるときに、現在有効なキーボード レイアウトまたは入力方式エディター (IME) の言語タグが記録されるようにします。 こうすると、その入力が後で表示されるときに適切な書式設定でユーザーに提示されます。 現在の入力言語の取得には、[**Language.CurrentInputMethodLanguageTag**](/uwp/api/windows.globalization.language.CurrentInputMethodLanguageTag) プロパティを使います。 |
+| キーボードまたは IME の言語を記録する。 | アプリがユーザーにテキスト入力を求めるときに、現在有効なキーボード レイアウトまたは入力方式エディター (IME) の言語タグが記録されるようにします。 こうすると、その入力が後で表示されるときに適切な書式設定でユーザーに提示されます。 現在の入力言語の取得には、 [**Language.CurrentInputMethodLanguageTag**](/uwp/api/windows.globalization.language.CurrentInputMethodLanguageTag) プロパティを使います。 |
 | 言語からユーザーの地域を想定する、または地域からユーザーの言語を想定することはしない。 | 言語と地域は別の概念です。 特定の地理的な言語バリアント (en-GB (英国で話される英語) など) を話しても、住んでいる国または地域はまったく異なる場合があります。 UI テキストなどのためにアプリがユーザーの言語について認識する必要があるか、ライセンスなどのためにアプリがユーザーの地域について認識する必要があるかを検討してください。 詳細については、「[ユーザー プロファイルの言語とアプリ マニフェストの言語について](manage-language-and-region.md)」を参照してください。 |
-| 言語タグを比較するためのルールは重要となる。 | [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47)は複雑です。 言語タグの比較では、スクリプト情報、前のタグ、複数の地域バリアントの対応付けに伴う問題など、多数の問題が発生します。 Windows のリソース管理システムでは、対応付けが自動的に行われます。 開発者はどの言語で作られたリソース セットでも指定でき、システムがユーザーとアプリのために適切なものを選びます。 「[アプリ リソースとリソース管理システム](../../app-resources/index.md)」および「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。 |
+| 言語タグを比較するためのルールは重要となる。 | [BCP-47 言語タグ](https://tools.ietf.org/html/bcp47) は複雑です。 言語タグの比較では、スクリプト情報、前のタグ、複数の地域バリアントの対応付けに伴う問題など、多数の問題が発生します。 Windows のリソース管理システムでは、対応付けが自動的に行われます。 開発者はどの言語で作られたリソース セットでも指定でき、システムがユーザーとアプリのために適切なものを選びます。 「[アプリ リソースとリソース管理システム](../../app-resources/index.md)」および「[リソース管理システムでの言語タグの照合の仕組み](../../app-resources/how-rms-matches-lang-tags.md)」を参照してください。 |
 | 異なるテキストの長さとフォント サイズがラベルとテキストの入力コントロールに対応するように UI を設計する。 | 異なる言語に翻訳された文字列は、長さが大きく異なる場合があるため、コンテンツに合わせて UI コントロールのサイズを動的に変更する必要があります。 他の言語には、通常のアルファベットの上や下に記号が付いている文字 (Å、Ņ など) があります。 標準的なフォント サイズと行の高さを使って、縦方向に十分なスペースを確保します。 言語のフォントによっては、フォントの最小サイズを大きくして読みやすさを維持する必要がある場合があります。 [Windows.Globalization.Fonts](/uwp/api/windows.globalization.fonts?branch=live) 名前空間のクラスを参照してください。 |
 | 読み取り順序のミラーリングをサポートする。 | テキストの配置と読み取りは、英語のように左から右の順にも、アラビア語やヘブライ語のように右から左の順 (RTL) にも行うことができます。 読み取り順が自国語とは異なる言語に製品をローカライズする場合は、UI 要素のレイアウトが左右反転をサポートする必要があります。 戻るボタン、UI 切り替え効果、画像などのアイテムですら、左右反転が必要になることがあります。 詳細については、「[レイアウトやフォントの調整と RTL のサポート](adjust-layout-and-fonts--and-support-rtl.md)」を参照してください。 |
-| テキストとフォントを正しく表示する。 | テキストに適したフォント、フォント サイズ、方向は、市場によって異なります。 詳細については、「[**レイアウトやフォントの調整と RTL のサポート**](adjust-layout-and-fonts--and-support-rtl.md)」および「[国際フォント](loc-international-fonts.md)」を参照してください。 |
+| テキストとフォントを正しく表示する。 | テキストに適したフォント、フォント サイズ、方向は、市場によって異なります。 詳細については、「 [**レイアウトやフォントの調整と RTL のサポート**](adjust-layout-and-fonts--and-support-rtl.md)」および「 [国際フォント](loc-international-fonts.md)」を参照してください。 |
 
 ## <a name="important-apis"></a>重要な API
- 
+ 
 * [グローバリゼーション](/uwp/api/Windows.Globalization?branch=live)
 * [GeographicRegion.CurrenciesInUse](/uwp/api/windows.globalization.geographicregion.CurrenciesInUse)
 * [Language.CurrentInputMethodLanguageTag](/uwp/api/windows.globalization.language.CurrentInputMethodLanguageTag)

@@ -1,5 +1,5 @@
 ---
-Description: この記事では、タイルのコンテンツ内にあるすべてのプロパティと要素について説明します。
+description: この記事では、タイルのコンテンツ内にあるすべてのプロパティと要素について説明します。
 title: タイルのコンテンツのスキーマ
 ms.assetid: 7CBC3BD5-D9C3-4781-8BD0-1F28039E1FA8
 label: Tile content schema
@@ -8,12 +8,12 @@ ms.date: 07/28/2017
 ms.topic: article
 keywords: Windows 10, UWP, タイル, タイル通知, タイルのコンテンツ, スキーマ, タイルのペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: eaf4583be8fdc5f0a70dddb7261b9b2d6d6afc09
-ms.sourcegitcommit: 26bb75084b9d2d2b4a76d4aa131066e8da716679
+ms.openlocfilehash: 4d1953e6d745a41c3bdd85d5f4dd3c6c9df8b900
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75684192"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034415"
 ---
 # <a name="tile-content-schema"></a>タイルのコンテンツのスキーマ
 
@@ -24,55 +24,55 @@ ms.locfileid: "75684192"
 [Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ](../tiles-and-notifications/adaptive-tiles-schema.md)」をご覧ください。
 
 [TileContent](#tilecontent)
-* [タイルビジュアル](#tilevisual)
-  * [タイルバインド](#tilebinding)
-    * [タイル Bindingcontentadaptive](#tilebindingcontentadaptive)
-    * [タイル Bindingcontentアイコン](#tilebindingcontenticonic)
-    * [タイル Bindingcontentcontact](#tilebindingcontentcontact)
-    * [タイル Bindingcontentpeople](#tilebindingcontentpeople)
-    * [タイル Bindingcontentphotos](#tilebindingcontentphotos)
+* [TileVisual](#tilevisual)
+  * [TileBinding](#tilebinding)
+    * [TileBindingContentAdaptive](#tilebindingcontentadaptive)
+    * [TileBindingContentIconic](#tilebindingcontenticonic)
+    * [TileBindingContentContact](#tilebindingcontentcontact)
+    * [TileBindingContentPeople](#tilebindingcontentpeople)
+    * [TileBindingContentPhotos](#tilebindingcontentphotos)
 
 
 ## <a name="tilecontent"></a>TileContent
 TileContent は、視覚効果などのタイル通知のコンテンツを説明する最上位のオブジェクトです。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
-| **ビジュアル** | [ToastVisual](#tilevisual) | true | タイル通知の視覚的な部分について説明します。 |
+| **Visual** | [ToastVisual](#tilevisual) | true | タイル通知の視覚的な部分について説明します。 |
 
 
 ## <a name="tilevisual"></a>TileVisual
 タイルの視覚的な部分には、すべてのタイルのサイズを対象とした視覚的な仕様、および視覚に関連するプロパティが含まれています。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
-| **TileSmall** | [タイルバインド](#tilebinding) | false | 小さいタイルのサイズに対応したコンテンツを指定するための、小さいバインディングが提供されます (オプション)。 |
-| **TileMedium** | [タイルバインド](#tilebinding) | false | 中型のタイルのサイズに対応したコンテンツを指定するための、中型のバインディングが提供されます (オプション)。 |
-| **タイル幅** | [タイルバインド](#tilebinding) | false | ワイドなタイルのサイズに対応したコンテンツを指定するための、ワイド サイズのバインディングが提供されます (オプション)。 |
-| **TileLarge** | [タイルバインド](#tilebinding) | false | 大きいタイルのサイズに対応したコンテンツを指定するための、大きいバインディングが提供されます (オプション)。 |
-| **ブランド** | TileBranding | false | アプリのブランドを表示するためにタイルで使用されるフォームです。 既定では、既定のタイルからブランド化を継承します。 |
-| **DisplayName** | string | false | この通知が表示されているときにタイルの表示名を上書きする文字列です (オプション)。 |
+| **TileSmall** | [TileBinding](#tilebinding) | false | 小さいタイルのサイズに対応したコンテンツを指定するための、小さいバインディングが提供されます (オプション)。 |
+| **TileMedium** | [TileBinding](#tilebinding) | false | 中型のタイルのサイズに対応したコンテンツを指定するための、中型のバインディングが提供されます (オプション)。 |
+| **TileWide** | [TileBinding](#tilebinding) | false | ワイドなタイルのサイズに対応したコンテンツを指定するための、ワイド サイズのバインディングが提供されます (オプション)。 |
+| **TileLarge** | [TileBinding](#tilebinding) | false | 大きいタイルのサイズに対応したコンテンツを指定するための、大きいバインディングが提供されます (オプション)。 |
+| **ブランド化** | TileBranding | false | アプリのブランドを表示するためにタイルで使用されるフォームです。 既定では、既定のタイルからブランド化を継承します。 |
+| **表示名** | string | false | この通知が表示されているときにタイルの表示名を上書きする文字列です (オプション)。 |
 | **引数** | string | false | Anniversary Update の新機能: アプリで定義されたデータです。ユーザーがライブ タイルからアプリを起動したときに、LaunchActivatedEventArgs の TileActivatedInfo プロパティを使用してアプリに戻されます。 これにより、ユーザーがライブ タイルをタップしたときに表示されたタイル通知がどれであるかがわかります。 Anniversary Update が適用されていないデバイスでは、このプロパティは無視されるだけです。 |
 | **LockDetailedStatus1** | string | false | これを指定する場合は、TileWide バインディングも指定する必要があります。 このプロパティは、ユーザーがタイルを状態の詳細を表示するアプリとして選択した場合に、ロック画面に表示されるテキストの最初の行に該当します。 |
 | **LockDetailedStatus2** | string | false | これを指定する場合は、TileWide バインディングも指定する必要があります。 このプロパティは、ユーザーがタイルを状態の詳細を表示するアプリとして選択した場合に、ロック画面に表示されるテキストの 2 行目に該当します。 |
 | **LockDetailedStatus3** | string | false | これを指定する場合は、TileWide バインディングも指定する必要があります。 このプロパティは、ユーザーがタイルを状態の詳細を表示するアプリとして選択した場合に、ロック画面に表示されるテキストの 3 行目に該当します。 |
-| **BaseUri** | URI | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
+| **BaseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
 | **AddImageQuery** | bool? | false | true に設定すると、トースト通知で指定された画像 URL に Windows がクエリ文字列を追加できるようになります。 この属性は、サーバーが画像をホストしていてクエリ文字列を処理できる場合に使用します。サーバーがこのために、クエリ文字列に基づいて画像の変化形を取得しているか、またはクエリ文字列を無視して使わずに指定の画像を返しているかどうかは問いません。 このクエリ文字列は、スケール、コントラスト設定、および言語を指定するものです。たとえば、通知で指定されている値 "www.website.com/images/hello.png" は "www.website.com/images/hello.png?ms-scale=100&ms-contrast=standard&ms-lang=en-us" になります。 |
-| **言語**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
+| **Language**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
 
 ## <a name="tilebinding"></a>TileBinding
 バインディング オブジェクトには、特定のタイルのサイズに対応した視覚的なコンテンツが含まれています。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
 | **コンテンツ** | [ITileBindingContent](#itilebindingcontent) | false | タイルに表示される視覚的なコンテンツです。 [TileBindingContentAdaptive](#tilebindingcontentadaptive)、[TileBindingContentIconic](#tilebindingcontenticonic)、[TileBindingContentContact](#tilebindingcontentcontact)、[TileBindingContentPeople](#tilebindingcontentpeople)、または [TileBindingContentPhotos](#tilebindingcontentphotos) のいずれかです。 |
-| **ブランド** | TileBranding | false | アプリのブランドを表示するためにタイルで使用されるフォームです。 既定では、既定のタイルからブランド化を継承します。 |
-| **DisplayName** | string | false | このタイルのサイズに対応したタイルの表示名を上書きする文字列です (オプション)。 |
+| **ブランド化** | TileBranding | false | アプリのブランドを表示するためにタイルで使用されるフォームです。 既定では、既定のタイルからブランド化を継承します。 |
+| **表示名** | string | false | このタイルのサイズに対応したタイルの表示名を上書きする文字列です (オプション)。 |
 | **引数** | string | false | Anniversary Update の新機能: アプリで定義されたデータです。ユーザーがライブ タイルからアプリを起動したときに、LaunchActivatedEventArgs の TileActivatedInfo プロパティを使用してアプリに戻されます。 これにより、ユーザーがライブ タイルをタップしたときに表示されたタイル通知がどれであるかがわかります。 Anniversary Update が適用されていないデバイスでは、このプロパティは無視されるだけです。 |
-| **BaseUri** | URI | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
+| **BaseUri** | Uri | false | 画像ソースの属性において相対 URL と組み合わされる、既定のベース URL です。 |
 | **AddImageQuery** | bool? | false | true に設定すると、トースト通知で指定された画像 URL に Windows がクエリ文字列を追加できるようになります。 この属性は、サーバーが画像をホストしていてクエリ文字列を処理できる場合に使用します。サーバーがこのために、クエリ文字列に基づいて画像の変化形を取得しているか、またはクエリ文字列を無視して使わずに指定の画像を返しているかどうかは問いません。 このクエリ文字列は、スケール、コントラスト設定、および言語を指定するものです。たとえば、通知で指定されている値 "www.website.com/images/hello.png" は "www.website.com/images/hello.png?ms-scale=100&ms-contrast=standard&ms-lang=en-us" になります。 |
-| **言語**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
+| **Language**| string | false | ローカライズされたリソースを使用する際の視覚的なペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 このロケールは、バインディングかテキストで指定されるあらゆるロケールによって上書きされます。 未指定の場合は、システム ロケールが代わりに使用されます。 |
 
 
 ## <a name="itilebindingcontent"></a>ITileBindingContent
@@ -80,47 +80,47 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 
 | 実装 |
 | --- |
-| [タイル Bindingcontentadaptive](#tilebindingcontentadaptive) |
-| [タイル Bindingcontentアイコン](#tilebindingcontenticonic) |
-| [タイル Bindingcontentcontact](#tilebindingcontentcontact) |
-| [タイル Bindingcontentpeople](#tilebindingcontentpeople) |
-| [タイル Bindingcontentphotos](#tilebindingcontentphotos) |
+| [TileBindingContentAdaptive](#tilebindingcontentadaptive) |
+| [TileBindingContentIconic](#tilebindingcontenticonic) |
+| [TileBindingContentContact](#tilebindingcontentcontact) |
+| [TileBindingContentPeople](#tilebindingcontentpeople) |
+| [TileBindingContentPhotos](#tilebindingcontentphotos) |
 
 
 ## <a name="tilebindingcontentadaptive"></a>TileBindingContentAdaptive
 すべてのサイズでサポートされます。 タイルのコンテンツを指定する場合に推奨される方法です。 アダプティブ タイル テンプレートは Windows 10 の新機能で、アダプティブなプロパティを利用してさまざまなカスタム タイルを作成できます。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか | 説明 |
+| プロパティ | Type | 必須 | 説明 |
 |---|---|---|---|
 | **Children** | IList<ITileBindingContentAdaptiveChild> | false | インラインの視覚要素です。 [AdaptiveText](#adaptivetext)、[AdaptiveImage](#adaptiveimage)、および [AdaptiveGroup](#adaptivegroup) の各オブジェクトを追加することができます。 子は、垂直方向の StackPanel 形式で表示されます。 |
 | **BackgroundImage** | [TileBackgroundImage](#tilebackgroundimage) | false | すべてのタイルのコンテンツの後ろに表示される背景画像です (オプション)。フルブリードで表示されます。 |
 | **PeekImage** | [TilePeekImage](#tilepeekimage) | false | タイルでアニメーション化されるプレビュー画像です (オプション)。 |
-| **TextStacking** | [Ti・ Extスタッキング](#tiletextstacking) | false | 子のコンテンツ全体を対象としたテキストの積み重ね (縦方向の配置) を制御します。 |
+| **TextStacking** | [TileTextStacking](#tiletextstacking) | false | 子のコンテンツ全体を対象としたテキストの積み重ね (縦方向の配置) を制御します。 |
 
 
 ## <a name="adaptivetext"></a>AdaptiveText
 アダプティブなテキスト要素です。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
-| **テキスト** | string | false | 表示するテキストです。 |
+| **[テキスト]** | string | false | 表示するテキスト。 |
 | **HintStyle** | [AdaptiveTextStyle](#adaptivetextstyle) | false | このスタイルは、テキストのフォント サイズ、太さ、および不透明度を制御します。 |
 | **HintWrap** | bool? | false | true に設定すると、テキストの折り返しが有効になります。 既定は false です。 |
 | **HintMaxLines** | int? | false | 表示が許可される、テキスト要素の最大行数です。 |
 | **HintMinLines** | int? | false | 表示する必要のある、テキスト要素の最小行数です。 |
-| **HintAlign** | [AdaptiveTextAlign](#adaptivetextalign) | false | テキストの水平方向の配置です。 |
-| **言語** | string | false | XML ペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 ここで指定されたロケールは、バインディングか視覚的な要素で指定されたその他のあらゆるロケールを上書きします。 この値がリテラル文字列の場合、この属性の既定値はユーザーの UI 言語になります。 この値が文字列リファレンスの場合、この属性の既定値は、文字列を解決する際に Windows ランタイムで選択されたロケールになります。 |
+| **HintAlign** | [AdaptiveTextAlign](#adaptivetextalign) | false | テキストの水平方向の配置。 |
+| **Language** | string | false | XML ペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 ここで指定されたロケールは、バインディングか視覚的な要素で指定されたその他のあらゆるロケールを上書きします。 この値がリテラル文字列の場合、この属性の既定値はユーザーの UI 言語になります。 この値が文字列リファレンスの場合、この属性の既定値は、文字列を解決する際に Windows ランタイムで選択されたロケールになります。 |
 
 
 ### <a name="adaptivetextstyle"></a>AdaptiveTextStyle
 テキスト スタイルは、フォント サイズ、太さ、および不透明度を制御します。 "Subtle" の不透明度は 60% の不透明度になります。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | 既定値です。 スタイルがレンダラーによって決定されます。 |
-| **[キャプション]** | 段落のフォント サイズより小さいサイズです。 |
+| **[Default]** | 既定値です。 スタイルがレンダラーによって決定されます。 |
+| **Caption** | 段落のフォント サイズより小さいサイズです。 |
 | **CaptionSubtle** | Caption と同じですが、不透明度が Subtle です。 |
-| **Body** | 段落本文のフォント サイズです。 |
+| **本文** | 段落本文のフォント サイズです。 |
 | **BodySubtle** | Body と同じですが、不透明度が Subtle です。 |
 | **常用** | 段落本文のフォント サイズで、太字です。 基本的には、Body の太字バージョンと言えます。 |
 | **BaseSubtle** | Base と同じですが、不透明度が Subtle です。 |
@@ -128,11 +128,11 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 | **SubtitleSubtle** | Subtitle と同じですが、不透明度が Subtle です。 |
 | **Title** | H3 のフォント サイズです。 |
 | **TitleSubtle** | Title と同じですが、不透明度が Subtle です。 |
-| **このように** | Title と同じですが、上/下のパディングが削除されます。 |
+| **TitleNumeral** | Title と同じですが、上/下のパディングが削除されます。 |
 | **Subheader.aboutdocs** | H2 のフォント サイズです。 |
 | **SubheaderSubtle** | Subheader と同じですが、不透明度が Subtle です。 |
 | **SubheaderNumeral** | Subheader と同じですが、上/下のパディングが削除されます。 |
-| **Header** | H1 のフォント サイズです。 |
+| **ヘッダー** | H1 のフォント サイズです。 |
 | **HeaderSubtle** | Header と同じですが、不透明度が Subtle です。 |
 | **HeaderNumeral** | Header と同じですが、上/下のパディングが削除されます。 |
 
@@ -140,19 +140,19 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ### <a name="adaptivetextalign"></a>AdaptiveTextAlign
 テキストの水平方向の配置を制御します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | 既定値です。 配置がレンダラーによって自動的に決定されます。 |
-| **自動** | 配置が現在の言語とカルチャによって決定されます。 |
-| **左** | テキストを左側に水平方向に配置します。 |
+| **[Default]** | 既定値です。 配置がレンダラーによって自動的に決定されます。 |
+| **Auto** | 配置が現在の言語とカルチャによって決定されます。 |
+| **Left** | テキストを左側に水平方向に配置します。 |
 | **点** | テキストを中央に水平方向に配置します。 |
-| **右** | テキストを右側に水平方向に配置します。 |
+| **Right** | テキストを右側に水平方向に配置します。 |
 
 
 ## <a name="adaptiveimage"></a>AdaptiveImage
 インライン画像です。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
 | **ソース** | string | true | 画像への URL です。 ms-appx、ms-appdata、および http がサポートされます。 Fall Creators Update の時点で、Web 画像の上限は通常の接続で 3 MB、従量制課金接続で 1 MB です。 まだ Fall Creators Update を実行していないデバイスでは、Web イメージは 200 KB を上限とします。 |
 | **HintCrop** | [AdaptiveImageCrop](#adaptiveimagecrop) | false | 必要な画像トリミングを制御します。 |
@@ -165,29 +165,29 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ### <a name="adaptiveimagecrop"></a>AdaptiveImageCrop
 必要な画像トリミングを指定します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
+| **[Default]** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
 | **なし** | 画像がトリミングされません。 |
-| **付い** | 画像が円形にトリミングされます。 |
+| **Circle** | 画像が円形にトリミングされます。 |
 
 
 ### <a name="adaptiveimagealign"></a>AdaptiveImageAlign
 画像の水平方向の配置を指定します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
-| **変形** | 利用可能な幅いっぱいに画像が拡大されます (また同時に、画像が配置される位置に応じて、利用可能な高さいっぱいに拡大されることもあります)。 |
-| **左** | 画像を左側に配置し、ネイディブの解像度で表示します。 |
+| **[Default]** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
+| **Stretch** | 利用可能な幅いっぱいに画像が拡大されます (また同時に、画像が配置される位置に応じて、利用可能な高さいっぱいに拡大されることもあります)。 |
+| **Left** | 画像を左側に配置し、ネイディブの解像度で表示します。 |
 | **点** | 画像を中央に水平方向に配置し、ネイティブの解像度で表示します。 |
-| **右** | 画像を右側に配置し、ネイディブの解像度で表示します。 |
+| **Right** | 画像を右側に配置し、ネイディブの解像度で表示します。 |
 
 
 ## <a name="adaptivegroup"></a>AdaptiveGroup
 グループは、グループ内のコンテンツについて、全体を表示すべきか、収まりきらない場合は全体を表示すべきでないかを意味的に識別します。 複数の列を作成することも可能にします。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
 | **Children** | IList<[AdaptiveSubgroup](#adaptivesubgroup)> | false | サブグループが垂直方向の列として表示されます。 AdaptiveGroup 内の任意のコンテンツを提供するにはサブグループを使用する必要があります。 |
 
@@ -195,7 +195,7 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ## <a name="adaptivesubgroup"></a>AdaptiveSubgroup
 サブグループは垂直方向の列で、テキストと画像を含めることができます。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
 | **Children** | IList<[IAdaptiveSubgroupChild](#iadaptivesubgroupchild)> | false | [AdaptiveText](#adaptivetext) と [AdaptiveImage](#adaptiveimage) は、サブグループの有効な子です。 |
 | **HintWeight** | int? | false | 別のサブグループを基準として太さを指定することで、このサブグループの列の幅を制御します。 |
@@ -214,10 +214,10 @@ TileContent は、視覚効果などのタイル通知のコンテンツを説�
 ### <a name="adaptivesubgrouptextstacking"></a>AdaptiveSubgroupTextStacking
 TextStacking は、コンテンツの垂直方向の配置を指定します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
-| **上** | 上に合わせて垂直に配置されます。 |
+| **[Default]** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
+| **上位** | 上に合わせて垂直に配置されます。 |
 | **点** | 中央に合わせて垂直に配置されます。 |
 | **下** | 下に合わせて垂直に配置されます。 |
 
@@ -225,7 +225,7 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ## <a name="tilebackgroundimage"></a>TileBackgroundImage
 タイルにフルブリードで表示される背景画像です。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
 | **ソース** | string | true | 画像への URL です。 ms-appx、ms-appdata、および http(s) がサポートされます。 http の画像は、サイズを 200 KB 以下にする必要があります。 |
 | **HintOverlay** | int? | false | 背景画像での黒のオーバーレイです。 この値は、黒のオーバーレイの不透明度を制御します。0 ではオーバーレイなし、100 は完全な黒を表します。 既定値は 20 です。 |
@@ -237,17 +237,17 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ### <a name="tilebackgroundimagecrop"></a>TileBackgroundImageCrop
 背景画像のトリミングを制御します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | トリミングがレンダラーの既定の動作を使用します。 |
+| **[Default]** | トリミングがレンダラーの既定の動作を使用します。 |
 | **なし** | 画像がトリミングされず、正方形で表示されます。 |
-| **付い** | 画像が円形にトリミングされます。 |
+| **Circle** | 画像が円形にトリミングされます。 |
 
 
 ## <a name="tilepeekimage"></a>TilePeekImage
 タイルでアニメーション化されるプレビュー画像です。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
 | **ソース** | string | true | 画像への URL です。 ms-appx、ms-appdata、および http(s) がサポートされます。 http の画像は、サイズを 200 KB 以下にする必要があります。 |
 | **HintOverlay** | int? | false | 1511 の新機能: プレビュー画像上に設定される黒のオーバーレイです。 この値は、黒のオーバーレイの不透明度を制御します。0 ではオーバーレイなし、100 は完全な黒を表します。 既定値は 20 です。 以前のバージョンでは、このプロパティは無視され、プレビュー画像は値 0 (オーバーレイなし) で表示されます。 |
@@ -259,20 +259,20 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ### <a name="tilepeekimagecrop"></a>TilePeekImageCrop
 プレビュー画像のトリミングを制御します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | トリミングがレンダラーの既定の動作を使用します。 |
+| **[Default]** | トリミングがレンダラーの既定の動作を使用します。 |
 | **なし** | 画像がトリミングされず、正方形で表示されます。 |
-| **付い** | 画像が円形にトリミングされます。 |
+| **Circle** | 画像が円形にトリミングされます。 |
 
 
 ### <a name="tiletextstacking"></a>TileTextStacking
 テキストの積み重ねは、コンテンツの垂直方向の配置を指定します。
 
-| Value | 意味 |
+| 値 | 意味 |
 |---|---|
-| **[既定]** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
-| **上** | 上に合わせて垂直に配置されます。 |
+| **[Default]** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
+| **上位** | 上に合わせて垂直に配置されます。 |
 | **点** | 中央に合わせて垂直に配置されます。 |
 | **下** | 下に合わせて垂直に配置されます。 |
 
@@ -280,40 +280,40 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ## <a name="tilebindingcontenticonic"></a>TileBindingContentIconic
 小さいサイズおよび中型のサイズでサポートされます。 アイコン タイル テンプレートを有効にします。このテンプレートを利用すると、Windows Phone のクラシック スタイルのように、タイル上でアイコンとバッジを並べて表示することができます。 アイコンの横に示される番号の設定は、個別のバッジ通知に基づいて行われます。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
-| **Icon** | [タイル Basicimage](#tilebasicimage) | true | 少なくとも、デスクトップとモバイル、および小さいタイルと中型のタイルの両方をサポートするために、縦横比が正方形となる画像を、解像度 200 x 200、PNG 形式で指定します。また、不透明度と色 (白のみ) も指定します。 詳しくは、「[特別なタイル テンプレート](../tiles-and-notifications/special-tile-templates-catalog.md)」をご覧ください。 |
+| **アイコン** | [TileBasicImage](#tilebasicimage) | true | 少なくとも、デスクトップとモバイル、および小さいタイルと中型のタイルの両方をサポートするために、縦横比が正方形となる画像を、解像度 200 x 200、PNG 形式で指定します。また、不透明度と色 (白のみ) も指定します。 詳しくは、「[特別なタイル テンプレート](../tiles-and-notifications/special-tile-templates-catalog.md)」をご覧ください。 |
 
 
 ## <a name="tilebindingcontentcontact"></a>TileBindingContentContact
 モバイルのみに使用できます。 小さいサイズ、中型のサイズ、ワイド サイズでサポートされます。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
-| **画像** | [タイル Basicimage](#tilebasicimage) | true | 表示する画像です。 |
-| **テキスト** | [タイル Basictext](#tilebasictext) | false | 表示されるテキストの行です。 小さいタイルには表示されません。 |
+| **画像** | [TileBasicImage](#tilebasicimage) | true | 表示するイメージ。 |
+| **[テキスト]** | [TileBasicText](#tilebasictext) | false | 表示されるテキストの行です。 小さいタイルには表示されません。 |
 
 
 ## <a name="tilebindingcontentpeople"></a>TileBindingContentPeople
 1511 の新機能: 中型のサイズ、ワイド サイズ、大きいサイズでサポートされます (デスクトップおよびモバイル)。 以前、このプロパティはモバイルのみに対応しており、中型のサイズとワイド サイズでサポートされていました。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
-| **イメージ** | IList<[TileBasicImage](#tilebasicimage)> | true | 円形に表示される画像です。 |
+| **イメージ** | IList<[タイル Basicimage](#tilebasicimage)> | true | 円形に表示される画像です。 |
 
 
 ## <a name="tilebindingcontentphotos"></a>TileBindingContentPhotos
 写真のスライドショーを使用してアニメーション化します。 すべてのサイズでサポートされます。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
-| **イメージ** | IList<[TileBasicImage](#tilebasicimage)> | true | 最大で 12 枚の画像を指定できます (モバイルの場合は 9 枚まで表示できます)。これらの画像はスライドショーに使用されます。 12 枚を超える画像を指定すると、例外がスローされます。 |
+| **イメージ** | IList<[タイル Basicimage](#tilebasicimage)> | true | 最大で 12 枚の画像を指定できます (モバイルの場合は 9 枚まで表示できます)。これらの画像はスライドショーに使用されます。 12 枚を超える画像を指定すると、例外がスローされます。 |
 
 
 ### <a name="tilebasicimage"></a>TileBasicImage
 さまざまな特別なテンプレートで使用される画像です。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
 | **ソース** | string | true | 画像への URL です。 ms-appx、ms-appdata、および http(s) がサポートされます。 http の画像は、サイズを 200 KB 以下にする必要があります。 |
 | **AlternateText** | string | false | アクセシビリティ対応目的で使用される、画像を説明する代替テキストです。 |
@@ -323,13 +323,13 @@ TextStacking は、コンテンツの垂直方向の配置を指定します。
 ### <a name="tilebasictext"></a>TileBasicText
 さまざまな特別なテンプレートで使用される基本的なテキスト要素です。
 
-| プロパティ | タスクバーの検索ボックスに | 必須かどうか |説明 |
+| プロパティ | Type | 必須 |説明 |
 |---|---|---|---|
-| **テキスト** | string | false | 表示するテキストです。 |
-| **言語** | string | false | XML ペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 ここで指定されたロケールは、バインディングか視覚的な要素で指定されたその他のあらゆるロケールを上書きします。 この値がリテラル文字列の場合、この属性の既定値はユーザーの UI 言語になります。 この値が文字列リファレンスの場合、この属性の既定値は、文字列を解決する際に Windows ランタイムで選択されたロケールになります。 |
+| **[テキスト]** | string | false | 表示するテキスト。 |
+| **Language** | string | false | XML ペイロードの対象ロケールです。"en-US" や "fr-FR" のように BCP-47 言語タグとして指定されます。 ここで指定されたロケールは、バインディングか視覚的な要素で指定されたその他のあらゆるロケールを上書きします。 この値がリテラル文字列の場合、この属性の既定値はユーザーの UI 言語になります。 この値が文字列リファレンスの場合、この属性の既定値は、文字列を解決する際に Windows ランタイムで選択されたロケールになります。 |
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [クイックスタート: ローカルタイルの通知を送信する](../tiles-and-notifications/sending-a-local-tile-notification.md)
-* [GitHub の通知ライブラリ](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/dev/Notifications)
+* [Quickstart: Send a local tile notification (クイックスタート: ローカル タイル通知の送信)](../tiles-and-notifications/sending-a-local-tile-notification.md)
+* [GitHub の Notifications ライブラリ](https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/dev/Notifications)

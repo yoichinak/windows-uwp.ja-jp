@@ -1,26 +1,26 @@
 ---
-Description: UWP アプリからカスタムイベントをログに記録し、パートナーセンターの使用状況レポートでこれらのイベントを確認することができます。
+description: UWP アプリからカスタムイベントをログに記録し、パートナーセンターの使用状況レポートでこれらのイベントを確認することができます。
 title: パートナー センターのカスタム イベントをログに記録する
 ms.date: 06/01/2018
 ms.topic: article
 keywords: windows 10, uwp, Microsoft Store Services SDK, イベントをログ記録
 ms.assetid: 4aa591e0-c22a-4c90-b316-0b5d0410af19
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a1df08b62199bf1249af8bfbbb00921874a671c
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 3cc89272984ffdda47c488e7bb2f24b4f37d3a41
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364105"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033455"
 ---
 # <a name="log-custom-events-for-partner-center"></a>パートナー センターのカスタム イベントをログに記録する
 
-パートナーセンターの [使用状況レポート](../publish/usage-report.md) では、ユニバーサル WINDOWS プラットフォーム (UWP) アプリで定義したカスタムイベントに関する情報を取得できます。 カスタムイベントは、アプリ内のイベントやアクティビティを表す任意の文字列です。 たとえば、ゲームで *firstLevelPassed*、*secondLevelPassed* という名前のカスタム イベントを定義して、ユーザーがゲームの各レベルをクリアしたときに記録されるようにできます。
+パートナーセンターの [使用状況レポート](../publish/usage-report.md) では、ユニバーサル WINDOWS プラットフォーム (UWP) アプリで定義したカスタムイベントに関する情報を取得できます。 カスタムイベントは、アプリ内のイベントやアクティビティを表す任意の文字列です。 たとえば、ゲームで *firstLevelPassed* 、 *secondLevelPassed* という名前のカスタム イベントを定義して、ユーザーがゲームの各レベルをクリアしたときに記録されるようにできます。
 
-アプリからのカスタム イベントをログに記録するには、カスタム イベントの文字列を Microsoft Store Services SDK で提供されている [Log](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドに渡します。 カスタムイベントの合計発生回数は、パートナーセンターの[使用状況レポート](../publish/usage-report.md)の [**カスタムイベント**] セクションで確認できます。
+アプリからのカスタム イベントをログに記録するには、カスタム イベントの文字列を Microsoft Store Services SDK で提供されている [Log](/uwp/api/microsoft.services.store.engagement.storeservicescustomeventlogger.log) メソッドに渡します。 カスタムイベントの合計発生回数は、パートナーセンターの [使用状況レポート](../publish/usage-report.md)の [ **カスタムイベント** ] セクションで確認できます。
 
 > [!NOTE]
-> パートナーセンターにログを記録するカスタムイベントは、 [Windows イベント](/windows/desktop/Events/windows-events)とは無関係であり、 **イベントビューアー**には表示されません。
+> パートナーセンターにログを記録するカスタムイベントは、 [Windows イベント](/windows/desktop/Events/windows-events)とは無関係であり、 **イベントビューアー** には表示されません。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -32,11 +32,11 @@ ms.locfileid: "89364105"
 
 2. Visual Studio でプロジェクトを開きます。
 
-3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、**[参照の追加]** をクリックします。
+3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** をクリックします。
 
-4. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張機能]** をクリックします。
+4. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックします。
 
-5. SDK の一覧で、**[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、**[OK]** をクリックします。
+5. SDK の一覧で、 **[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、 **[OK]** をクリックします。
 
 6. カスタム イベントを記録する各コード ファイルの先頭に、次のステートメントを追加します。
     :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/StoreSDKSamples/cs/LogEvents.cs" id="EngagementNamespace":::

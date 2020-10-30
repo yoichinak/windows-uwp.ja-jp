@@ -1,24 +1,24 @@
 ---
-Description: ユーザーがアプリを無料で使うことができる試用期間を設け、その期間中は一部の機能を除外または制限することで、アプリを通常版にアップグレードするようユーザーに促すことができます。
+description: ユーザーがアプリを無料で使うことができる試用期間を設け、その期間中は一部の機能を除外または制限することで、アプリを通常版にアップグレードするようユーザーに促すことができます。
 title: 試用版での機能の除外または制限
 ms.assetid: 1B62318F-9EF5-432A-8593-F3E095CA7056
 keywords: Windows 10, UWP, 試用, アプリ内購入, IAP, Windows.ApplicationModel.Store
 ms.date: 08/25/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a0ecc6a6d219262513508114cee226d72d91e386
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 701769386f9637574cfb7f38f7458a1434796730
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89362745"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033975"
 ---
 # <a name="exclude-or-limit-features-in-a-trial-version"></a>試用版での機能の除外または制限
 
 ユーザーがアプリを無料で使うことができる試用期間を設け、その期間中は一部の機能を除外または制限することで、アプリを通常版にアップグレードするようユーザーに促すことができます。 どのような機能を制限するかをコーディング開始前に決め、完全なライセンスが購入されたときにだけその機能が正しく動作するようにアプリを設定します。 また、ユーザーがアプリを購入する前の試用期間中にだけバナーや透かしなどを表示する機能を有効にすることもできます。
 
 > [!IMPORTANT]
-> この記事では、[Windows.ApplicationModel.Store](/uwp/api/windows.applicationmodel.store) 名前空間のメンバーを使って、試用版機能を実装する方法について説明します。 この名前空間は更新されなくなり、新機能も追加されないため、代わりに [Windows.Services.Store](/uwp/api/windows.services.store) 名前空間を使用することをお勧めします。 **Windows**では、ストアで管理されているアドオンやサブスクリプションなど、最新のアドオンの種類がサポートされており、パートナーセンターとストアでサポートされる将来の種類の製品や機能と互換性があるように設計されています。 **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、**Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 **Windows.Services.Store** 名前空間を使用した試用版機能の実装について詳しくは、[この記事](implement-a-trial-version-of-your-app.md)をご覧ください。
+> この記事では、[Windows.ApplicationModel.Store](/uwp/api/windows.applicationmodel.store) 名前空間のメンバーを使って、試用版機能を実装する方法について説明します。 この名前空間は更新されなくなり、新機能も追加されないため、代わりに [Windows.Services.Store](/uwp/api/windows.services.store) 名前空間を使用することをお勧めします。 **Windows** では、ストアで管理されているアドオンやサブスクリプションなど、最新のアドオンの種類がサポートされており、パートナーセンターとストアでサポートされる将来の種類の製品や機能と互換性があるように設計されています。 **Windows.Services.Store** 名前空間は、Windows 10 バージョン 1607 で導入され、Visual Studio で、 **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットとするプロジェクトでのみ使用できます。 **Windows.Services.Store** 名前空間を使用した試用版機能の実装について詳しくは、 [この記事](implement-a-trial-version-of-your-app.md)をご覧ください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -61,9 +61,9 @@ ms.locfileid: "89362745"
 
 ## <a name="step-2-initialize-the-license-info"></a>手順 2: ライセンス情報を初期化する
 
-アプリを初期化するときに、この例で示されているように、アプリの [LicenseInformation](/uwp/api/Windows.ApplicationModel.Store.LicenseInformation) オブジェクトを取得してください。 **licenseInformation** は、**LicenseInformation** 型のグローバル変数またはフィールドと仮定します。
+アプリを初期化するときに、この例で示されているように、アプリの [LicenseInformation](/uwp/api/Windows.ApplicationModel.Store.LicenseInformation) オブジェクトを取得してください。 **licenseInformation** は、 **LicenseInformation** 型のグローバル変数またはフィールドと仮定します。
 
-ここでは、[CurrentApp](/uwp/api/Windows.ApplicationModel.Store.CurrentApp) ではなく [CurrentAppSimulator](/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator) を使って、シミュレートされたライセンス情報を取得します。 アプリのリリース バージョンを**ストア**に提出する前に、コード内のすべての **CurrentAppSimulator** の参照を **CurrentApp** と置き換える必要があります。
+ここでは、[CurrentApp](/uwp/api/Windows.ApplicationModel.Store.CurrentApp) ではなく [CurrentAppSimulator](/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator) を使って、シミュレートされたライセンス情報を取得します。 アプリのリリース バージョンを **ストア** に提出する前に、コード内のすべての **CurrentAppSimulator** の参照を **CurrentApp** と置き換える必要があります。
 
 > [!div class="tabbedCodeSnippets"]
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/InAppPurchasesAndLicenses/cs/TrialVersion.cs" id="InitializeLicenseTest":::
@@ -93,13 +93,13 @@ ms.locfileid: "89362745"
 
 ## <a name="step-5-test-the-features-using-simulated-calls-to-the-license-api"></a>手順 5: シミュレートされたライセンス API 呼び出しで機能をテストする
 
-シミュレートされたデータを使用してアプリをテストします。 **Currentappsimulator**は WindowsStoreProxy.xml という名前の XML ファイルからテスト固有のライセンス情報を取得します。このファイルは、% UserProfile% \\ AppData \\ ローカル \\ パッケージの \\ &lt; パッケージ名 &gt; \\ localstate \\ Microsoft \\ Windows Store \\ apidata にあります。 WindowsStoreProxy.xml を編集して、アプリや機能のシミュレートされた有効期限日を変更できます。 すべてが意図したとおりに動作するように、想定されるすべての有効期限とライセンスの構成をテストします。 詳しくは、「[CurrentAppSimulator での WindowsStoreProxy.xml ファイルの使用](in-app-purchases-and-trials-using-the-windows-applicationmodel-store-namespace.md#proxy)」をご覧ください。
+シミュレートされたデータを使用してアプリをテストします。 **Currentappsimulator** は WindowsStoreProxy.xml という名前の XML ファイルからテスト固有のライセンス情報を取得します。このファイルは、% UserProfile% \\ AppData \\ ローカル \\ パッケージの \\ &lt; パッケージ名 &gt; \\ localstate \\ Microsoft \\ Windows Store \\ apidata にあります。 WindowsStoreProxy.xml を編集して、アプリや機能のシミュレートされた有効期限日を変更できます。 すべてが意図したとおりに動作するように、想定されるすべての有効期限とライセンスの構成をテストします。 詳しくは、「[CurrentAppSimulator での WindowsStoreProxy.xml ファイルの使用](in-app-purchases-and-trials-using-the-windows-applicationmodel-store-namespace.md#proxy)」をご覧ください。
 
 このパスとファイルがない場合は、インストール時か実行時にそれらを作る必要があります。 WindowsStoreProxy.xml が所定の場所にない状態で [CurrentAppSimulator.LicenseInformation](/uwp/api/windows.applicationmodel.store.currentappsimulator.licenseinformation) プロパティにアクセスしようとすると、エラーになります。
 
 ## <a name="step-6-replace-the-simulated-license-api-methods-with-the-actual-api"></a>手順 6: シミュレートされたライセンス API メソッドを実際の API に置き換える
 
-シミュレートされたライセンス サーバーでアプリをテストした後、認定用にストアにアプリを提出する前に、**CurrentAppSimulator** を **CurrentApp** に置き換えます (次のコード例を参照)。
+シミュレートされたライセンス サーバーでアプリをテストした後、認定用にストアにアプリを提出する前に、 **CurrentAppSimulator** を **CurrentApp** に置き換えます (次のコード例を参照)。
 
 > [!IMPORTANT]
 > アプリはストアへの提出時に **CurrentApp** オブジェクトを使っている必要があり、そうでない場合は認定が不合格になります。
@@ -119,6 +119,6 @@ ms.locfileid: "89362745"
 * [アプリの価格と使用可能状況の設定](../publish/set-app-pricing-and-availability.md)
 * [CurrentApp](/uwp/api/Windows.ApplicationModel.Store.CurrentApp)
 * [CurrentAppSimulator](/uwp/api/Windows.ApplicationModel.Store.CurrentAppSimulator)
- 
+ 
 
- 
+ 

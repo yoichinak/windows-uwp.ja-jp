@@ -1,17 +1,17 @@
 ---
-Description: パートナーセンターから送信するプッシュ通知を受信するように UWP アプリを登録する方法について説明します。
+description: パートナーセンターから送信するプッシュ通知を受信するように UWP アプリを登録する方法について説明します。
 title: ターゲット プッシュ通知用のアプリの構成
 ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10、uwp、Microsoft Store Services SDK、対象のプッシュ通知、パートナーセンター
 ms.assetid: 30c832b7-5fbe-4852-957f-7941df8eb85a
 ms.localizationpriority: medium
-ms.openlocfilehash: abb901c1b067dcf3609cbfb5c4cf3f81c9dc465c
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 2296ae29ddcfd868e31c294f8859d4f4b925fca8
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364135"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033535"
 ---
 # <a name="configure-your-app-for-targeted-push-notifications"></a>ターゲット プッシュ通知用のアプリの構成
 
@@ -25,9 +25,9 @@ ms.locfileid: "89364135"
 
 1. Microsoft Store Services SDK を開発用コンピューターにインストールしていない場合には、[Microsoft Store Services SDK をインストール](microsoft-store-services-sdk.md#install-the-sdk)します。 
 2. Visual Studio でプロジェクトを開きます。
-3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、**[参照の追加]** をクリックします。
-4. **[参照マネージャー]** で、**[ユニバーサル Windows]** を展開し、**[拡張機能]** をクリックします。
-5. SDK の一覧で、**[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、**[OK]** をクリックします。
+3. ソリューション エクスプローラーで、プロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** をクリックします。
+4. **[参照マネージャー]** で、 **[ユニバーサル Windows]** を展開し、 **[拡張機能]** をクリックします。
+5. SDK の一覧で、 **[Microsoft Engagement Framework]** の横にあるチェック ボックスをオンにして、 **[OK]** をクリックします。
 
 ## <a name="register-for-push-notifications"></a>プッシュ通知に登録する
 
@@ -51,7 +51,7 @@ ms.locfileid: "89364135"
       :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/StoreSDKSamples/cs/DevCenterNotifications.cs" id="RegisterNotificationChannelAsync2":::
 
 > [!NOTE]
-> **RegisterNotificationChannelAsync** メソッドを呼び出すと、MicrosoftStoreEngagementSDKId.txt という名前のファイルが、アプリのローカル アプリ データ ストア ([ApplicationData.LocalFolder](/uwp/api/Windows.Storage.ApplicationData.LocalFolder) プロパティによって返されるフォルダー) に作成されます。 このファイルには、ターゲット プッシュ通知インフラストラクチャで使用される ID が含まれています。 アプリがこのファイルを変更または削除しないことを確認してください。 ファイルの変更や削除が行われると、通知の複数のインスタンスを受け取ったり、他の方法で通知が正しく動作しない可能性があります。
+> **RegisterNotificationChannelAsync** メソッドを呼び出すと、MicrosoftStoreEngagementSDKId.txt という名前のファイルが、アプリのローカル アプリ データ ストア ( [ApplicationData.LocalFolder](/uwp/api/Windows.Storage.ApplicationData.LocalFolder) プロパティによって返されるフォルダー) に作成されます。 このファイルには、ターゲット プッシュ通知インフラストラクチャで使用される ID が含まれています。 アプリがこのファイルを変更または削除しないことを確認してください。 ファイルの変更や削除が行われると、通知の複数のインスタンスを受け取ったり、他の方法で通知が正しく動作しない可能性があります。
 
 <span id="notification-customers" />
 
@@ -65,7 +65,7 @@ ms.locfileid: "89364135"
 
 アプリが通知を受信するように登録され、 [パートナーセンターからアプリの顧客にプッシュ通知を送信](../publish/send-push-notifications-to-your-apps-customers.md)すると、ユーザーがプッシュ通知に応答してアプリを起動すると、アプリ内の次のエントリポイントのいずれかが呼び出されます。 ユーザーがアプリを起動したときに実行するコードがある場合は、アプリのこれらのエントリ ポイントのいずれかにコードを追加できます。
 
-  * プッシュ通知にフォアグラウンドのアクティブ化の種類がある場合には、プロジェクトの**アプリ**クラスの [OnActivated](/uwp/api/windows.ui.xaml.application.onactivated) メソッドを上書きして、このメソッドにコードを追加します。
+  * プッシュ通知にフォアグラウンドのアクティブ化の種類がある場合には、プロジェクトの **アプリ** クラスの [OnActivated](/uwp/api/windows.ui.xaml.application.onactivated) メソッドを上書きして、このメソッドにコードを追加します。
 
   * プッシュ通知にバックグラウンドのアクティブ化の種類がある場合には、[バックグラウンド タスク](../launch-resume/support-your-app-with-background-tasks.md)の [Run](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドにコードを追加します。
 
@@ -83,7 +83,7 @@ ms.locfileid: "89364135"
 
   :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/StoreSDKSamples/cs/App.xaml.cs" id="OnActivated":::
 
-* プッシュ通知にバックグラウンドのアクティブ化の種類がある場合、[バックグラウンド タスク](../launch-resume/support-your-app-with-background-tasks.md)の [Run](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドからこのメソッドを呼び出し、このメソッドに渡された [ToastNotificationActionTriggerDetail](/uwp/api/Windows.UI.Notifications.ToastNotificationActionTriggerDetail) オブジェクトで使用可能な引数を渡します。 次のコード例では、コード ファイルに **Microsoft.Services.Store.Engagement**、**Windows.ApplicationModel.Background**、**Windows.UI.Notifications** の名前空間の **using** ステートメントがあることを前提としています。
+* プッシュ通知にバックグラウンドのアクティブ化の種類がある場合、[バックグラウンド タスク](../launch-resume/support-your-app-with-background-tasks.md)の [Run](/uwp/api/windows.applicationmodel.background.ibackgroundtask.run) メソッドからこのメソッドを呼び出し、このメソッドに渡された [ToastNotificationActionTriggerDetail](/uwp/api/Windows.UI.Notifications.ToastNotificationActionTriggerDetail) オブジェクトで使用可能な引数を渡します。 次のコード例では、コード ファイルに **Microsoft.Services.Store.Engagement** 、 **Windows.ApplicationModel.Background** 、 **Windows.UI.Notifications** の名前空間の **using** ステートメントがあることを前提としています。
 
   :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/StoreSDKSamples/cs/DevCenterNotifications.cs" id="Run":::
 
@@ -95,7 +95,7 @@ ms.locfileid: "89364135"
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/monetize/StoreSDKSamples/cs/DevCenterNotifications.cs" id="UnregisterNotificationChannelAsync":::
 
-このメソッドは通知に使用されているチャネルを無効にするため、アプリは*いずれの*サービスからもプッシュ通知を受信しなくなることに注意してください。 チャネルを閉じた後、パートナーセンターからのターゲットのプッシュ通知や、WNS を使用したその他の通知など、サービスに対してチャネルを再度使用することはできません。 このアプリでプッシュ通知の送信を再開するには、アプリは新しいチャネルを要求する必要があります。
+このメソッドは通知に使用されているチャネルを無効にするため、アプリは *いずれの* サービスからもプッシュ通知を受信しなくなることに注意してください。 チャネルを閉じた後、パートナーセンターからのターゲットのプッシュ通知や、WNS を使用したその他の通知など、サービスに対してチャネルを再度使用することはできません。 このアプリでプッシュ通知の送信を再開するには、アプリは新しいチャネルを要求する必要があります。
 
 ## <a name="related-topics"></a>関連トピック
 

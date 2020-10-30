@@ -1,5 +1,5 @@
 ---
-Description: トースト通知を送信するためのデスクトップアプリの各種オプションについて説明します
+description: トースト通知を送信するためのデスクトップアプリの各種オプションについて説明します
 title: デスクトップ アプリからのトースト通知
 label: Toast notifications from desktop apps
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、デスクトップブリッジ、msix、スパースパッケージ、toasts の送信オプション、com サーバー、com アクティベーター、com、フェイク com、com なし、com を使用しない com、送信トースト
 ms.localizationpriority: medium
-ms.openlocfilehash: 139ab767e0cc5eb11d0116563e8e1b7e00ae5dc2
-ms.sourcegitcommit: c5df8832e9df8749d0c3eee9e85f4c2d04f8b27b
+ms.openlocfilehash: 9cdd8e57311400c8603f4eb99e9bfd1a2230f2ce
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92100330"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033095"
 ---
 # <a name="toast-notifications-from-desktop-apps"></a>デスクトップ アプリからのトースト通知
 
@@ -28,7 +28,7 @@ ms.locfileid: "92100330"
 
 次の表は、デスクトップ アプリ内のトーストをサポートするためのオプション、および対応するサポートされる機能を示しています。 この表を使用してシナリオに最適なオプションを選択します。<br/><br/>
 
-| オプション | 視覚化 | アクション | 入力 | プロセス内でのアクティブ化 |
+| オプション | ビジュアル | アクション | 入力 | プロセス内でのアクティブ化 |
 | -- | -- | -- | -- | -- |
 | [COM アクティベーター](#preferred-option---com-activator) | ✔️ | ✔️ | ✔️ | ✔️ |
 | [COM なし / Stub CLSID](#alternative-option---no-com--stub-clsid) | ✔️ | ✔️ | ❌ | ❌ |
@@ -38,7 +38,7 @@ ms.locfileid: "92100330"
 
 これは、デスクトップアプリで使用できる推奨オプションであり、すべての通知機能をサポートしています。 "COM アクティベーター" について心配することはありません。以前に COM サーバーを記述したことがない場合でも、これを非常に簡単にするライブラリ [C#](send-local-toast-desktop.md) および [C++ アプリ](send-local-toast-desktop-cpp-wrl.md)があります。<br/><br/>
 
-| 視覚化 | アクション | 入力 | プロセス内でのアクティブ化 |
+| ビジュアル | アクション | 入力 | プロセス内でのアクティブ化 |
 | -- | -- | -- | -- |
 | ✔️ | ✔️ | ✔️ | ✔️ |
 
@@ -61,7 +61,7 @@ COM アクティベーター オプションでは、アプリで次の通知テ
 
 これは、COM アクティベーターを実装できない場合の代替オプションです。 ただし、入力サポート (トーストでのテキスト ボックス) やプロセス内でのアクティブ化など、いくつかの機能が犠牲になります。<br/><br/>
 
-| 視覚化 | アクション | 入力 | プロセス内でのアクティブ化 |
+| ビジュアル | アクション | 入力 | プロセス内でのアクティブ化 |
 | -- | -- | -- | -- |
 | ✔️ | ✔️ | ❌ | ❌ |
 

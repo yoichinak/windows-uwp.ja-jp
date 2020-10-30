@@ -1,5 +1,5 @@
 ---
-Description: アプリでマウス入力に応答するには、タッチ入力やペン入力で使うのと同じ基本的なポインター イベントを処理します。
+description: アプリでマウス入力に応答するには、タッチ入力やペン入力で使うのと同じ基本的なポインター イベントを処理します。
 title: マウス操作
 ms.assetid: C8A158EF-70A9-4BA2-A270-7D08125700AC
 label: Mouse
@@ -8,16 +8,16 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 84390e7b929412e4058c1a7e6507ff171344bd53
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: dfefda0e09159c398334ae77bc29dcd8fc3f628a
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034725"
 ---
 # <a name="mouse-interactions"></a>マウス操作
 
-タッチ入力用に Windows アプリのデザインを最適化し、既定で基本的なマウスサポートを利用します。 
+タッチ入力用に Windows アプリのデザインを最適化し、既定で基本的なマウスサポートを利用します。 
 
 ![マウス](images/input-patterns/input-mouse.jpg)
 
@@ -38,7 +38,7 @@ ms.locfileid: "91218935"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">用語</th>
+<th align="left">期間</th>
 <th align="left">説明</th>
 </tr>
 </thead>
@@ -59,10 +59,10 @@ ms.locfileid: "91218935"
 <td align="left"><p>右クリックによる選択とコマンド</p></td>
 <td align="left"><p>右クリックして、ナビゲーション バー (使用できる場合) と、グローバル コマンドを含むアプリ バーを表示します。 要素を右クリックして選択し、その要素に対応する状況依存のコマンドを備えたアプリ バーを表示します。</p>
 <div class="alert">
-<strong>メモ</strong>   選択またはアプリバーのコマンドが適切な UI 動作でない場合にコンテキストメニューを表示するには、右クリックします。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
+<strong>メモ</strong>  選択またはアプリバーのコマンドが適切な UI 動作でない場合にコンテキストメニューを表示するには、右クリックします。 ただし、すべてのコマンド動作にアプリ バーを使うことを強くお勧めします。
 </div>
 <div>
- 
+ 
 </div></td>
 </tr>
 <tr class="odd">
@@ -86,7 +86,7 @@ ms.locfileid: "91218935"
 
 ## <a name="mouse-input-events"></a>マウス入力イベント
 
-ほとんどのマウス入力は、すべての [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 これには以下が含まれます。
+ほとんどのマウス入力は、すべての [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) オブジェクトでサポートされている一般的なルーティング入力イベントを使用して処理できます。 次の設定があります。
 
 - [**Bring@ View要求**](/uwp/api/windows.ui.xaml.uielement.bringintoviewrequested)
 - [**受信した文字**](/uwp/api/windows.ui.xaml.uielement.characterreceived)
@@ -144,7 +144,7 @@ ms.locfileid: "91218935"
 
 マウス ポインターとして利用できる標準のカーソル セットが用意されています。 これらが要素のプライマリ操作を示すために使われます。
 
-標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 カーソル画像は、[**PointerCursor**](/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使って指定します。
+標準のカーソルには、それぞれ対応する既定の画像が関連付けられています。 ユーザーまたはアプリは、標準のカーソルに関連付けられている既定の画像をいつでも変更できます。 カーソル画像は、 [**PointerCursor**](/uwp/api/windows.ui.core.corewindow.pointercursor) 関数を使って指定します。
 
 マウス カーソルをカスタマイズする必要がある場合は、以下のガイドラインに従ってください。
 

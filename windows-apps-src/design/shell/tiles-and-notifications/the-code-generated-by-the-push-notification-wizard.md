@@ -1,5 +1,5 @@
 ---
-Description: Visual Studio でウィザードを使うことで、Azure のモバイル サービスで作成されたモバイル サービスからプッシュ通知を生成できます。
+description: Visual Studio でウィザードを使うことで、Azure のモバイル サービスで作成されたモバイル サービスからプッシュ通知を生成できます。
 title: プッシュ通知ウィザードにより生成されるコード
 ms.assetid: 340F55C1-0DDF-4233-A8E4-C15EF9030785
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: bc6c52859b74d7cd40dd39c0ae588ad690c0138b
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: f9af0301dcf8944127ab814155466335940642f0
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220115"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034445"
 ---
 # <a name="code-generated-by-the-push-notification-wizard"></a>プッシュ通知ウィザードにより生成されるコード
  
@@ -29,7 +29,7 @@ Visual Studio でウィザードを使うことで、Azure のモバイル サ�
 -   モバイル サービスのデータベース サーバーでチャネル テーブルを作成します。 テーブルには、アプリ インスタンスにプッシュ通知を送るために必要な情報が格納されます。
 -   4 つの機能 (削除、挿入、読み取り、更新) のスクリプトを作成します。
 -   カスタム API を含むスクリプト notifyallusers.js を作成します。この API は、すべてのクライアントにプッシュ通知を送ります。
--   App.xaml.cs、App.xaml.vb、または App.xaml.cpp ファイルに宣言を追加したり、JavaScript プロジェクトの新しいファイルである service.js に宣言を追加したりします。 宣言では、モバイル サービスへの接続に必要な情報を含む MobileServiceClient オブジェクトが宣言されます。 App.*MyServiceName*Client という名前を使って、アプリ内のどのページからでも *MyServiceName*Client という名前のこの MobileServiceClient オブジェクトにアクセスできます。
+-   App.xaml.cs、App.xaml.vb、または App.xaml.cpp ファイルに宣言を追加したり、JavaScript プロジェクトの新しいファイルである service.js に宣言を追加したりします。 宣言では、モバイル サービスへの接続に必要な情報を含む MobileServiceClient オブジェクトが宣言されます。 App. *MyServiceName* Client という名前を使って、アプリ内のどのページからでも *MyServiceName* Client という名前のこの MobileServiceClient オブジェクトにアクセスできます。
 
 services.js ファイルには、次のコードが含まれています。
 
@@ -42,7 +42,7 @@ var <mobile-service-name>Client = new Microsoft.WindowsAzure.MobileServices.Mobi
 ## <a name="registration-for-push-notifications"></a>プッシュ通知への登録
 
 
-Push. register. では \* 、UploadChannel メソッドによってデバイスが登録され、プッシュ通知が受信されます。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「[**PushNotificationChannelManager**](/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
+Push. register. では \* 、UploadChannel メソッドによってデバイスが登録され、プッシュ通知が受信されます。 ストアは、アプリのインストールされたインスタンスを追跡し、プッシュ通知チャネルを提供します。 「 [**PushNotificationChannelManager**](/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager)」をご覧ください。
 
 クライアント コードは、JavaScript のバックエンドと .NET のバックエンドの両方に似ています。 既定では、JavaScript バックエンド サービスのプッシュ通知を追加すると、notifyAllUsers カスタム API のサンプル呼び出しが UploadChannel メソッドに挿入されます。
 
@@ -207,9 +207,9 @@ function sendNotifications(request) {
 
 sendNotifications 関数は、1 つの通知をトースト通知として送信します。 他の種類のプッシュ通知を使うこともできます。
 
-**ヒント**   スクリプトの編集中にヘルプを表示する方法については、「[サーバー側 JavaScript での IntelliSense の有効化](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx)」を参照してください。
+**ヒント**  スクリプトの編集中にヘルプを表示する方法については、 [サーバー側の JavaScript で IntelliSense を有効にする方法](https://blogs.msdn.com/b/visualstudio/archive/2013/07/26/enabling-intellisense-for-mobile-services-javascript-in-visual-studio.aspx)に関するページをご覧ください。
 
- 
+ 
 
 ## <a name="push-notification-types"></a>プッシュ通知の種類
 
@@ -224,7 +224,7 @@ Windows アプリのガイドラインに従ってプッシュ通知を使用す
 
 プッシュ通知でライブ タイルを更新する場合は、「[タイルとバッジのガイドラインとチェック リスト](./creating-tiles.md)」のガイドラインにも従ってください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 
 ### <a name="using-the-windows-push-notification-services-wns"></a>Windows プッシュ通知サービス (WNS) の使用
@@ -233,9 +233,9 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 
 モバイル サービスでスケジュール済みタスクを実行して、プッシュ通知を送ることもできます。 「[Mobile Services での繰り返し発生するジョブのスケジュール](/azure/)」をご覧ください。
 
-**警告**   プッシュ通知ウィザードを1回実行した後は、もう一度ウィザードを実行して別のモバイルサービスの登録コードを追加しないでください。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、**CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、ウィザードで生成されたコードを push. register \* で移動することで、これを実現できます。OnLaunched 上げイベントの外部にある **Createpushnotificationchannelforapplicationasync**の呼び出しを含めますが、その詳細はアプリのアーキテクチャによって異なります。
+**警告**  プッシュ通知ウィザードは 1 回だけ実行してください。もう一度実行して、別のモバイル サービスの登録コードを追加しないようにしてください。 このウィザードをプロジェクトごとに複数回実行すると、生成されるコードで [**CreatePushNotificationChannelForApplicationAsync**](/uwp/api/Windows.Networking.PushNotifications.PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync) メソッドの呼び出しが重複し、ランタイムの例外が発生します。 複数のモバイル サービスのプッシュ通知を登録するには、ウィザードを 1 回だけ実行し、登録コードを上書きして、 **CreatePushNotificationChannelForApplicationAsync** の呼び出しが同時に実行されないようにしてください。 たとえば、ウィザードで生成されたコードを push. register \* で移動することで、これを実現できます。OnLaunched 上げイベントの外部にある **Createpushnotificationchannelforapplicationasync** の呼び出しを含めますが、その詳細はアプリのアーキテクチャによって異なります。
 
- 
+ 
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -245,6 +245,6 @@ Window Azure のモバイル サービスの柔軟性が不十分な場合、C# 
 * [Window Azure のモバイル サービスへの接続 (JavaScript)](/previous-versions/windows/apps/dn263160(v=win.10))
 * [Window Azure のモバイル サービスへの接続 (C#/C++/VB)](/previous-versions/windows/apps/dn263175(v=win.10))
 * [クイック スタート: モバイル サービスでのプッシュ通知の追加 (JavaScript)](/previous-versions/windows/apps/dn263163(v=win.10))
- 
+ 
 
- 
+ 

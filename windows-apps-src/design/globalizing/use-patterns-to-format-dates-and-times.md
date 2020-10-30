@@ -1,5 +1,5 @@
 ---
-Description: カスタムテンプレートおよびパターンと共に Windows.globalization.datetimeformatting API を使用して、目的の形式で日付と時刻を表示します。
+description: カスタムテンプレートおよびパターンと共に Windows.globalization.datetimeformatting API を使用して、目的の形式で日付と時刻を表示します。
 title: パターンを使った日付と時刻の書式設定
 ms.assetid: 012028B3-9DA2-4E72-8C0E-3E06BEC3B3FE
 label: Use patterns to format dates and times
@@ -8,12 +8,12 @@ ms.date: 11/09/2017
 ms.topic: article
 keywords: Windows 10, UWP, グローバリゼーション, ローカライズの可否, ローカライズ
 ms.localizationpriority: medium
-ms.openlocfilehash: da4d9b2c7380a085efdcb234ad210eafca40b1c3
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: dbabbcaccd88b187a03c83909bcb38d5f64b30bb
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034315"
 ---
 # <a name="use-templates-and-patterns-to-format-dates-and-times"></a>テンプレートとパターンを使った日付と時刻の書式設定
 
@@ -23,15 +23,15 @@ ms.locfileid: "86493607"
 
 [**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスでは、世界中の言語と地域に対応するように、日付と時刻をさまざまな方法で適切に書式設定できます。 年、月、日などについて標準形式を使うことができます。 または、"longdate" または "month day" のような **DateTimeFormatter** コンストラクターの *formatTemplate* 引数に書式テンプレートを渡すことができます。
 
-ただし、表示する [**DateTime**](/uwp/api/windows.foundation.datetime?branch=live) オブジェクトの構成要素の順序や形式をより細かく制御する場合は、コンストラクターの *formatTemplate* 引数に書式パターンを渡すことができます。 書式パターンでは、特別な構文を使用します。これにより、 **DateTime**オブジェクトの個々のコンポーネントを &mdash; 月の名前のみ、または年の値のみを使用して、 &mdash; 選択した任意のカスタム書式で表示することができます。 さらに、パターンをローカライズして、他の言語や地域に対応させることができます。
+ただし、表示する [**DateTime**](/uwp/api/windows.foundation.datetime?branch=live) オブジェクトの構成要素の順序や形式をより細かく制御する場合は、コンストラクターの *formatTemplate* 引数に書式パターンを渡すことができます。 書式パターンでは、特別な構文を使用します。これにより、 **DateTime** オブジェクトの個々のコンポーネントを &mdash; 月の名前のみ、または年の値のみを使用して、 &mdash; 選択した任意のカスタム書式で表示することができます。 さらに、パターンをローカライズして、他の言語や地域に対応させることができます。
 
-**メモ**   これは、書式パターンの概要にすぎません。 書式テンプレートと書式パターンの詳細については、[**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスの「解説」セクションを参照してください。
+**注**  ここで説明しているのは、単なる書式パターンの概要です。 書式テンプレートと書式パターンの詳細については、 [**DateTimeFormatter**](/uwp/api/windows.globalization.datetimeformatting?branch=live) クラスの「解説」セクションを参照してください。
 
 ## <a name="the-difference-between-format-templates-and-format-patterns"></a>書式テンプレートと書式パターンの違い
 
 書式テンプレートは、カルチャに依存しない形式の文字列です。 そのため、書式テンプレートを使用して **DateTimeFormatter** を作成する場合、フォーマッタでは現在の言語の正しい順序で書式コンポーネントを表示します。 逆に、書式パターンはカルチャ固有です。 書式パターンを使用して **DateTimeFormatter** 作成している場合、フォーマッタでは与えられたとおりにパターンを使用します。 その結果、パターンは、すべてのカルチャに対して有効であるとは限りません。
 
-例を使用してこの違いを説明しましょう。 単純な書式テンプレート (パターンではない) を**DateTimeFormatter** コンストラクターに渡します。 これは、書式テンプレート "month day" です。
+例を使用してこの違いを説明しましょう。 単純な書式テンプレート (パターンではない) を **DateTimeFormatter** コンストラクターに渡します。 これは、書式テンプレート "month day" です。
 
 ```csharp
 var dateFormatter = new Windows.Globalization.DateTimeFormatting.DateTimeFormatter("month day");
@@ -113,7 +113,7 @@ var time = timeFormatter.Format(dateToFormat);
 string output = string.Format(resourceLoader.GetString("CustomDateTimeFormatString"), date, time);
 ```
 
-`CustomDateTimeFormatString`リソースファイル (resw) 内のローカライズ可能なリソースを参照するリソース識別子です。 既定の言語 (米国) の場合、この値は "|" に設定され、"" {0} {1} が日付であること {0} と "" が時刻であることを示すコメントと共に設定され {1} ます。 このようにして、翻訳者は必要に応じて書式項目を調整できます。 たとえば、時刻を日付より前に配置する方が一部の言語や地域では自然であると思われる場合は、項目の順序を変更できます。 また、"|" を別の区切り文字に置き換えることもできます。
+`CustomDateTimeFormatString` リソースファイル (resw) 内のローカライズ可能なリソースを参照するリソース識別子です。 既定の言語 (米国) の場合、この値は "|" に設定され、"" {0} {1} が日付であること {0} と "" が時刻であることを示すコメントと共に設定され {1} ます。 このようにして、翻訳者は必要に応じて書式項目を調整できます。 たとえば、時刻を日付より前に配置する方が一部の言語や地域では自然であると思われる場合は、項目の順序を変更できます。 また、"|" を別の区切り文字に置き換えることもできます。
 
 また、この例を実装する別の方法として、2 つのフォーマッタを照会して書式パターンを検索し、それらの書式パターンを連結して、結果として生成される書式パターンから 3 つ目のフォーマッタを構築することができます。
 

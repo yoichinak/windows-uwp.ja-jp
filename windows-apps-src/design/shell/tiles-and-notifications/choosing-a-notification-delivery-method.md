@@ -1,5 +1,5 @@
 ---
-Description: この記事では、8212、local、スケジュール、定期的、およびプッシュ&8212 の4つの通知オプション&について説明します。これは、 \# \# タイルとバッジの更新とトースト通知の内容を提供します。
+description: この記事では、8212、local、スケジュール、定期的、およびプッシュ&8212 の4つの通知オプション&について説明します。これは、 \# \# タイルとバッジの更新とトースト通知の内容を提供します。
 title: 通知配信方法の選択
 ms.assetid: FDB43EDE-C5F2-493F-952C-55401EC5172B
 label: Choose a notification delivery method
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a7a929cb88e20cc47562ab4920fd0fc94304fae2
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: f85918eb0c8f936cc5be393217cd47d66a8b7ff5
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034005"
 ---
 # <a name="choose-a-notification-delivery-method"></a>通知配信方法の選択
 
@@ -61,7 +61,7 @@ ms.locfileid: "91219155"
 </ul></td>
 </tr>
 <tr class="even">
-<td align="left">スケジュール</td>
+<td align="left">スケジュール済み</td>
 <td align="left">タイル、トースト</td>
 <td align="left">指定した時間に更新が行われるように事前に通知をスケジュールする API 呼び出しのセットです。</td>
 <td align="left"><ul>
@@ -92,7 +92,7 @@ ms.locfileid: "91219155"
 </tbody>
 </table>
 
- 
+ 
 
 ## <a name="local-notifications"></a>ローカル通知
 
@@ -168,6 +168,6 @@ API 呼び出しはローカルですが、通知では Web 画像を参照で�
 * [定期的な通知の概要](periodic-notification-overview.md)
 * [Windows プッシュ通知サービス (WNS) の概要](windows-push-notification-services--wns--overview.md)
 * [GitHub の Windows アプリ通知コードサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Notifications)
- 
+ 
 
- 
+ 

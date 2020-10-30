@@ -1,5 +1,5 @@
 ---
-Description: キーボード操作、色とコントラストの設定、支援技術のサポートなど、アクセス可能な Windows アプリを開発する方法について説明します。
+description: キーボード操作、色とコントラストの設定、支援技術のサポートなど、アクセス可能な Windows アプリを開発する方法について説明します。
 ms.assetid: 9311D23A-B340-42F0-BEFE-9261442AF108
 title: 包括性を備えた Windows 10 アプリの開発
 label: Developing inclusive Windows 10 apps
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 856ed1222cd393ec2730226f9c4faadf7e9ad0d7
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: ff42cc2ac8ffb965b5f58db081cd86106f4145ef
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219815"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93029875"
 ---
 # <a name="developing-inclusive-windows-apps"></a>包括的な Windows アプリの開発  
 
@@ -47,7 +47,7 @@ ms.locfileid: "91219815"
 
 UI 要素のキーボード ナビゲーションについて詳しくは、「[キーボードのアクセシビリティ](keyboard-accessibility.md)」をご覧ください。  
 
-また、[アクセシビリティ ソフトウェアのエンジニアリング](https://www.microsoft.com/download/details.aspx?id=19262)に関する eBook の_論理的な階層の設計_のチャプターにも、これらのことがわかりやすく説明されています。
+また、 [アクセシビリティ ソフトウェアのエンジニアリング](https://www.microsoft.com/download/details.aspx?id=19262)に関する eBook の _論理的な階層の設計_ のチャプターにも、これらのことがわかりやすく説明されています。
 
 ## <a name="color-and-contrast"></a>色とコントラスト  
 Windows に組み込まれているアクセシビリティ機能の 1 つに、コンピューター画面に表示されたテキストや画像の色コントラストを大きくするハイ コントラスト モードがあります。 一部のユーザーは、色コントラストを大きくすることで、目の疲れを軽減し、読みやすくなります。 ハイ コントラスト モードで UI を確認したら、コントロールがシステム カラー (ハード コードされた色ではなく) によって一貫した方法で色分けされていることを確認し、ハイ コントラストを使用しないユーザーに表示される画面にすべてのコントロールが表示されることを確認することができます。  

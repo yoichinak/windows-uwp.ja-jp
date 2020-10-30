@@ -1,5 +1,5 @@
 ---
-Description: Cortana の音声コマンド、音声認識、音声合成を使って、アプリに音声操作を組み込むことができます。
+description: Cortana の音声コマンド、音声認識、音声合成を使って、アプリに音声操作を組み込むことができます。
 title: 音声操作
 ms.assetid: 646DB3CE-FA81-4727-8C21-936C81079439
 label: Speech interactions
@@ -8,12 +8,12 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 94a93f9b1506d2b4dfcdad260bf86bf39c15d875
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d42802f4efb131f413b192f4e5f851f630ce4e57
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93029865"
 ---
 # <a name="speech-interactions"></a>音声操作
 
@@ -24,7 +24,7 @@ ms.locfileid: "89173346"
 **TTS:** 音声合成エンジン (声) を使って、テキスト文字列を音声に変換します。 入力文字列は、基本的でシンプルなテキスト、またはより複雑な Speech Synthesis Markup Language (SSML) のいずれかになります。 SSML は、発音、音量、ピッチ、速度、強調など、音声出力の特性を制御する標準的な方法です。
 
 **音声関連のその他のコンポーネント:** 
-Windows アプリケーションの**Cortana**は、カスタマイズされた音声コマンド (読み上げまたは入力) を使用してアプリをフォアグラウンドに起動します (アプリは [スタート] メニューから起動した場合と同様にフォーカスを取得します)。または、バックグラウンドサービスとしてアクティブ化します (**cortana**はフォーカスを保持しますが、アプリからの結果を提供し **Cortana** UI でアプリの機能を公開する場合は、「[Cortana voice command (VCD) guidelines](/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
+Windows アプリケーションの **Cortana** は、カスタマイズされた音声コマンド (読み上げまたは入力) を使用してアプリをフォアグラウンドに起動します (アプリは [スタート] メニューから起動した場合と同様にフォーカスを取得します)。または、バックグラウンドサービスとしてアクティブ化します ( **cortana** はフォーカスを保持しますが、アプリからの結果を提供し **Cortana** UI でアプリの機能を公開する場合は、「 [Cortana voice command (VCD) guidelines](/cortana/voice-commands/vcd)」(Cortana 音声コマンド (VCD) のガイドライン) をご覧ください。
 
 ## <a name="speech-interaction-design"></a>音声操作の設計
 
@@ -163,7 +163,7 @@ SRGS で定義された制約を使う音声認識エンジンにおける組み
 
     -   各文法の規模を小さくします。 文法に含める語句を少なくする方が、規模の大きな文法に多数の語句が含まれている場合よりも、認識精度が高くなる傾向があります。 アプリ全体に対して 1 つの文法を設定するよりも、特定のシナリオごとに別々の小規模な文法を設定することをお勧めします。
     -   ユーザーには、各アプリのコンテキストに基づいて何と話しかければよいかを知らせ、必要に応じて文法を無効にします。
-    -   文法は、ユーザーがさまざまな形でコマンドを音声入力できるように設計します。 たとえば、**GARBAGE** 規則を使って、文法で定義されていない音声入力を照合することができます。 これにより、ユーザーはアプリにとって意味を持たない語句を含めて話すことができます。 たとえば、"お願い"、"それと"、"ええと"、"多分" などの語句を含めることができます。
+    -   文法は、ユーザーがさまざまな形でコマンドを音声入力できるように設計します。 たとえば、 **GARBAGE** 規則を使って、文法で定義されていない音声入力を照合することができます。 これにより、ユーザーはアプリにとって意味を持たない語句を含めて話すことができます。 たとえば、"お願い"、"それと"、"ええと"、"多分" などの語句を含めることができます。
     -   音声入力の認識率を高めるには、[sapi:subset](/previous-versions/office/developer/speech-technologies/jj572474(v=office.14)) 要素を使います。 この要素は、部分的な語句の照合をサポートするための、SRGS 仕様に対する Microsoft の拡張機能です。
     -   音節が 1 つしかない語句は、文法に定義しないようにしてください。 音節が 2 つ以上ある語句の方が、正確に認識されやすくなります。
     -   同じように聞こえる語句を使わないようにしてください。 たとえば、"hello"、"bellow"、"fellow" などの語句を使うと音声認識エンジンが混乱し、認識精度が低くなる可能性があります。
@@ -209,8 +209,8 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 | [音声認識](speech-recognition.md) | 音声認識を使って、入力を行ったり、操作やコマンドを指定したり、タスクを実行したりできます。 |
 | [音声認識エンジンの言語の指定](specify-the-speech-recognizer-language.md) | 音声認識に使われるインストール済みの言語を選ぶ方法について説明します。 |
 | [カスタム認識の制約の定義](define-custom-recognition-constraints.md) | 音声認識のカスタム制約を定義して使う方法について説明します。 |
-| [継続的なディクテーションの有効化](enable-continuous-dictation.md) |長い形式の継続的なディクテーション音声入力をキャプチャし、認識する方法について説明します。 |
-| [音声入力の問題の管理](manage-issues-with-audio-input.md) | オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。 |
+| [連続ディクテーションを有効にする](enable-continuous-dictation.md) |長い形式の継続的なディクテーション音声入力をキャプチャし、認識する方法について説明します。 |
+| [オーディオ入力に関する問題の管理](manage-issues-with-audio-input.md) | オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。 |
 | [音声認識のタイムアウトの設定](set-speech-recognition-timeouts.md) | 音声認識エンジンが無音または認識できないサウンド (雑音) を無視し、音声入力を待機する時間の長さを設定します。 |
 
 ## <a name="related-articles"></a>関連記事
@@ -218,9 +218,9 @@ TTS では、プレーンテキストまたは SSML から音声出力が生成�
 * [音声操作]()
 * [Cortana の操作](./cortana-interactions.md)
 
- **サンプル**
+ **サンプル**
 
 * [音声認識と音声合成のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/SpeechRecognitionAndSynthesis)
- 
+ 
 
- 
+ 

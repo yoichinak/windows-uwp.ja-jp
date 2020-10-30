@@ -1,23 +1,23 @@
 ---
-Description: パートナーセンターで各アプリに関連する詳細を管理および表示し、A/B テストやマップなどのサービスを構成します。
+description: パートナーセンターで各アプリに関連する詳細を管理および表示し、A/B テストやマップなどのサービスを構成します。
 title: アプリの管理とサービス
 ms.assetid: 99DA2BC1-9B5D-4746-8BC0-EC723D516EEF
 ms.date: 03/21/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e34a4d87ae3df23f8641a09d1558b8c8606667fa
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e973e9b3a8f3c9ba63a091f4e542e36a84c26128
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032755"
 ---
 # <a name="app-management-and-services"></a>アプリの管理とサービス
 
 [パートナーセンター](https://partner.microsoft.com/dashboard)で各アプリに関連する詳細を管理および表示したり、通知、A/B テスト、マップなどのサービスを構成したりすることができます。
 
-パートナーセンターでアプリを使用する場合、 **サービス** と **アプリ管理**の左側のナビゲーションメニューにセクションが表示されます。 これらのセクションを展開すると、次の機能にアクセスできます。
+パートナーセンターでアプリを使用する場合、 **サービス** と **アプリ管理** の左側のナビゲーションメニューにセクションが表示されます。 これらのセクションを展開すると、次の機能にアクセスできます。
 
 ## <a name="services"></a>サービス
 
@@ -35,11 +35,11 @@ ms.locfileid: "89164286"
 
 詳しくは、「[A/B テストを使用してアプリの試験的機能を実行する](../monetize/run-app-experiments-with-a-b-testing.md)」をご覧ください。
 
-## <a name="maps"></a>マップ
+## <a name="maps"></a>Maps
 
 Windows 10 または Windows 8.x を対象としたアプリでマップ サービスを使うには、[Bing 地図デベロッパー センター](https://www.bingmapsportal.com/)にアクセスしてください。 Bing Maps デベロッパーセンターからマップ認証キーを要求してアプリに追加する方法の詳細については、「 [request a maps authentication key](../maps-and-location/authentication-key.md) 」を参照してください。 
 
-[ **マップ** ] ページは、以前に発行された Windows Phone 8.1 以前のアプリに対してのみ使用してください。 これらのアプリでマップサービスを使用するには、アプリのコードに含めるマップサービスアプリケーション ID とトークンを要求する必要があります。 [トークンの **取得**] をクリックすると、マップサービスアプリケーション ID (**ApplicationID**) が生成され、アプリのサービス認証トークン (**authenticationtoken**) がマップされます。 アプリをパッケージ化して送信する前に、これらの値をコードに追加してください。 詳細については、「[Windows Phone 8 でマップ コントロールをページに追加する方法](/previous-versions/windows/apps/jj207033(v=vs.105))」を参照してください。
+[ **マップ** ] ページは、以前に発行された Windows Phone 8.1 以前のアプリに対してのみ使用してください。 これらのアプリでマップサービスを使用するには、アプリのコードに含めるマップサービスアプリケーション ID とトークンを要求する必要があります。 [トークンの **取得** ] をクリックすると、マップサービスアプリケーション ID ( **ApplicationID** ) が生成され、アプリのサービス認証トークン ( **authenticationtoken** ) がマップされます。 アプリをパッケージ化して送信する前に、これらの値をコードに追加してください。 詳細については、「[Windows Phone 8 でマップ コントロールをページに追加する方法](/previous-versions/windows/apps/jj207033(v=vs.105))」を参照してください。
 
 ## <a name="product-collections-and-purchases"></a>製品のコレクションと購入
 
@@ -53,7 +53,7 @@ Microsoft Store collection API と Microsoft Store purchase API を使用して�
 
 詳しくは、「[テナント全体の同意を要求する](/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant)」をご覧ください。
 
-## <a name="app-management"></a>アプリ管理
+## <a name="app-management"></a>アプリの管理
 
 **[アプリ管理]** セクションでは、ID とパッケージの詳細を確認したり、アプリの名前を管理したりできます。
 
@@ -78,11 +78,11 @@ Microsoft Store collection API と Microsoft Store purchase API を使用して�
 
 各パッケージの名前、バージョン、およびアーキテクチャが表示されます。 **[詳細]** をクリックすると、サポートされる言語、アプリの機能、ファイル サイズなどの詳しい情報が表示されます。 パッケージごとに表示される情報は、対象となるオペレーティング システムとその他の要因によって異なることがあります。 
 
-OEM アクセス許可を持つ開発者は、**[現在のパッケージ]** ページから [プレインストール パッケージを生成](generate-preinstall-packages-for-oems.md) することもできます。
+OEM アクセス許可を持つ開発者は、 **[現在のパッケージ]** ページから [プレインストール パッケージを生成](generate-preinstall-packages-for-oems.md) することもできます。
 
 ## <a name="wnsmpns"></a>WNS/MPNS
 
-**WNS/MPNS**セクションには、アプリの顧客に通知を作成して送信するためのオプションが用意されています。 
+**WNS/MPNS** セクションには、アプリの顧客に通知を作成して送信するためのオプションが用意されています。 
 
 > [!TIP]
 > UWP アプリの場合は、パートナーセンターの **通知** 機能を使用することをお勧めします。 この機能を使用すると、お客様のすべてのお客様に通知を送信することができます。また、お客様の [セグメント](create-customer-segments.md)で定義した条件を満たす Windows 10 のお客様の対象となるサブセットに通知を送信することもできます。 詳しくは、「[アプリのユーザーに通知を送信する](send-push-notifications-to-your-apps-customers.md)」をご覧ください。
@@ -94,6 +94,6 @@ OEM アクセス許可を持つ開発者は、**[現在のパッケージ]** ペ
 -   **Microsoft Azure Mobile Apps** を使うと、プッシュ通知の送信や、アプリ ユーザーの認証や管理、クラウドでのアプリ データの保存をすることができます。 詳しくは、[モバイル アプリに関するドキュメント](/azure/app-service-mobile/)をご覧ください。
 
 -   **Microsoft プッシュ通知サービス (MPNS)** は、以前に公開された .xap パッケージと共に Windows Phone に使用できます。 ここで構成を行わなくても、認証されていない通知を限られた数送信することができますが、制限が減らないように認証済みの通知を使うことをお勧めします。 MPNS を使用している場合は、[ **WNS/MPNS** ] ページで指定したフィールドに証明書をアップロードする必要があります。 詳しくは、「[Windows Phone 8 のプッシュ通知を送信するように認証済み Web サービスを設定する](/previous-versions/windows/apps/ff941099(v=vs.105))」をご覧ください。
- 
+ 
 
- 
+ 
