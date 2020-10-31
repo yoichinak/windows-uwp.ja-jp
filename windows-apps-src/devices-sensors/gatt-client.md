@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d4ec2c3d849833b4a1673c4a4f425f32c42d00f
-ms.sourcegitcommit: 662fcfdc08b050947e289a57520a2f99fad1a620
+ms.openlocfilehash: 339a154c3acf39c4f574d22907cf697db658552b
+ms.sourcegitcommit: 74c2c878b9dbb92785b89f126359c3f069175af2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91353762"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122403"
 ---
 # <a name="bluetooth-gatt-client"></a>Bluetooth GATT クライアント
 
@@ -23,7 +23,7 @@ ms.locfileid: "91353762"
 - 特性値が変化したときの通知の受信登録
 
 > [!Important]
-> *Package.appxmanifest*で "bluetooth" 機能を宣言する必要があります。
+> *Package.appxmanifest* で "bluetooth" 機能を宣言する必要があります。
 >
 > `<Capabilities> <DeviceCapability Name="bluetooth" /> </Capabilities>`
 
@@ -34,7 +34,7 @@ ms.locfileid: "91353762"
 
 ## <a name="overview"></a>概要
 
-開発者は、[**Windows.Devices.Bluetooth.GenericAttributeProfile**](/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) 名前空間の API を使って Bluetooth LE デバイスにアクセスすることができます。 Bluetooth LE デバイスは、その機能をコレクションを通じて公開します。コレクションには次の情報が含まれています。
+開発者は、 [**Windows.Devices.Bluetooth.GenericAttributeProfile**](/uwp/api/Windows.Devices.Bluetooth.GenericAttributeProfile) 名前空間の API を使って Bluetooth LE デバイスにアクセスすることができます。 Bluetooth LE デバイスは、その機能をコレクションを通じて公開します。コレクションには次の情報が含まれています。
 
 - サービス
 - 特性
@@ -52,7 +52,11 @@ Bluetooth LE GATT API は、生のトランスポートにアクセスするの�
 
 Bluetooth SIG は、利便性向上のため、[一連のプロファイル](https://www.bluetooth.com/specifications/adopted-specifications#gattspec)を一般公開しています。
 
-## <a name="query-for-nearby-devices"></a>近くのデバイスの照会
+## <a name="examples"></a>例
+
+完全なサンプルについては、「 [Bluetooth 低エネルギーサンプル](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/BluetoothLE)」を参照してください。
+
+### <a name="query-for-nearby-devices"></a>近くのデバイスの照会
 
 近くのデバイスを照会するための主なメソッドは 2 つあります。
 
@@ -89,7 +93,7 @@ deviceWatcher.Start();
 
 DeviceWatcher を開始すると、対象のデバイスの [Added](/uwp/api/windows.devices.enumeration.devicewatcher.added) イベントのハンドラーで、クエリを満たすデバイスごとに [DeviceInformation](/uwp/api/Windows.Devices.Enumeration.DeviceInformation) を受信します。 DeviceWatcher について詳しくは、[Github](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/DeviceEnumerationAndPairing) にある完全なサンプルをご覧ください。
 
-## <a name="connecting-to-the-device"></a>デバイスへの接続
+### <a name="connecting-to-the-device"></a>デバイスへの接続
 
 目的のデバイスが検出されたら、[DeviceInformation.Id](/uwp/api/windows.devices.enumeration.deviceinformation.id) を使用して、対象のデバイスの Bluetooth LE デバイス オブジェクトを取得します。
 
@@ -113,12 +117,12 @@ bluetoothLeDevice.Dispose();
 > [!NOTE]
 > このメソッドだけを呼び出すことによって [BluetoothLEDevice](/uwp/api/windows.devices.bluetooth.bluetoothledevice) オブジェクトを作成することは、必ずしも接続を開始するわけではありません。 接続を開始するには、 [MaintainConnection](/uwp/api/windows.devices.bluetooth.genericattributeprofile.gattsession.maintainconnection)をに設定するか、BluetoothLEDevice でキャッシュされていない `true` サービスの探索方法を呼び出すか、デバイスに対して読み取り/書き込み操作を実行します。 **BluetoothLEDevice**
 >
-> - **MaintainConnection**が true に設定されている場合、システムは接続を無期限に待機し、デバイスが利用可能になったときに接続します。 **MaintainConnection**はプロパティであるため、アプリケーションが待機するものはありません。
+> - **MaintainConnection** が true に設定されている場合、システムは接続を無期限に待機し、デバイスが利用可能になったときに接続します。 **MaintainConnection** はプロパティであるため、アプリケーションが待機するものはありません。
 > - GATT でのサービスの検出と読み取り/書き込み操作の場合、システムは有限の時間だけ待機します。 瞬時から数分で。 スタック上のトラフィックを把握する要因と、要求をキューに登録する方法を示します。 他の保留中の要求がなく、リモートデバイスに到達できない場合、システムは7秒間待機してからタイムアウトします。他の保留中の要求がある場合は、キュー内の各要求が処理に 7 (7) 秒かかることがあります。そのため、キューの後ろの方が待機時間が長くなります。
 >
 > 現時点では、接続プロセスを取り消すことはできません。
 
-## <a name="enumerating-supported-services-and-characteristics"></a>サポートされているサービスと特性の列挙
+### <a name="enumerating-supported-services-and-characteristics"></a>サポートされているサービスと特性の列挙
 
 BluetoothLEDevice オブジェクトが取得されたので、次の手順はデバイスが公開するデータを検出することです。 これを行うための最初の手順は、サービスの照会です。
 
@@ -146,7 +150,7 @@ if (result.Status == GattCommunicationStatus.Success)
 
 OS は、操作を実行できる対象の GattCharacteristic オブジェクトの読み取り専用のリストを返します。
 
-## <a name="perform-readwrite-operations-on-a-characteristic"></a>特性の読み取り/書き込み操作の実行
+### <a name="perform-readwrite-operations-on-a-characteristic"></a>特性の読み取り/書き込み操作の実行
 
 特性は、GATT ベースの通信の基本単位です。 これには、デバイス上の各種データを表す値が含まれています。 たとえば、バッテリ レベル特性には、デバイスのバッテリ レベルを表す値が含まれます。
 
@@ -196,20 +200,20 @@ if (result == GattCommunicationStatus.Success)
 }
 ```
 
-> **ヒント**: [DataReader](/uwp/api/windows.storage.streams.datareader) と [Datawriter](/uwp/api/windows.storage.streams.datawriter) は、多くの Bluetooth api から取得した未加工のバッファーを操作するときに不可欠されます。
+> **ヒント** : [DataReader](/uwp/api/windows.storage.streams.datareader) と [Datawriter](/uwp/api/windows.storage.streams.datawriter) は、多くの Bluetooth api から取得した未加工のバッファーを操作するときに不可欠されます。
 
-## <a name="subscribing-for-notifications"></a>通知の受信登録
+### <a name="subscribing-for-notifications"></a>通知の受信登録
 
 特性が Indicate または Notify をサポートしているかどうかを確認します (確認するには特性のプロパティを調べます)。
 
-> **余談**: Indicate は、それぞれの値変更イベントが、クライアント デバイスからの受信確認とセットになっているため、より信頼性が高いと見なされています。 多くの GATT トランザクションでは、非常に高い信頼性よりも電力の節約が重視されるため、Notify の方が一般的です。 いずれの場合も、そのすべてがコントローラー レイヤーで処理されるため、アプリは関与しません。 これらを総称して単に「通知」と呼びますが、覚えておいてください。
+> **余談** : Indicate は、それぞれの値変更イベントが、クライアント デバイスからの受信確認とセットになっているため、より信頼性が高いと見なされています。 多くの GATT トランザクションでは、非常に高い信頼性よりも電力の節約が重視されるため、Notify の方が一般的です。 いずれの場合も、そのすべてがコントローラー レイヤーで処理されるため、アプリは関与しません。 これらを総称して単に「通知」と呼びますが、覚えておいてください。
 
 通知を取得する前に処理することが 2 つあります。
 
 - Client Characteristic Configuration Descriptor (CCCD) への書き込み
 - Characteristic.ValueChanged イベントの処理
 
-CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 これを行うには、次の手順を実行します。
+CCCD への書き込みによって、特定の特性値が変化するたびに、このクライアントでその変化を把握する必要があることを、サーバー デバイスに指示します。 この操作を行うには、次の手順を実行します。
 
 ```csharp
 GattCommunicationStatus status = await selectedCharacteristic.WriteClientCharacteristicConfigurationDescriptorAsync(
@@ -235,3 +239,4 @@ void Characteristic_ValueChanged(GattCharacteristic sender,
     // Parse the data however required.
 }
 ```
+
