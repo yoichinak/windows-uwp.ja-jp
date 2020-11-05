@@ -1,5 +1,5 @@
 ---
-Description: パスワード ボックスは、プライバシーの目的で入力文字が非表示になるテキスト入力ボックスです。
+description: パスワード ボックスは、プライバシーの目的で入力文字が非表示になるテキスト入力ボックスです。
 title: パスワード ボックスのガイドライン
 ms.assetid: 332B04D6-4FFE-42A4-8B3D-ABE8266C7C18
 dev.assetid: 4BFDECC6-9BC5-4FF5-8C63-BB36F6DDF2EF
@@ -12,12 +12,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3ba2df600e294aab959a090d8b5a5f8645a40d55
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: cb5bce63243869db0f8d9ae46a4c3c2b3844086c
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91749728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030885"
 ---
 # <a name="password-box"></a>パスワード ボックス
 
@@ -39,7 +39,7 @@ ms.locfileid: "91749728"
    :::column-end:::
 :::row-end:::
 
-> **プラットフォーム API**: [PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)、[Password プロパティ](/uwp/api/windows.ui.xaml.controls.passwordbox.password)、[PasswordChar プロパティ](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar)、[PasswordRevealMode プロパティ](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode)、[PasswordChanged イベント](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged)
+> **プラットフォーム API** : [PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)、 [Password プロパティ](/uwp/api/windows.ui.xaml.controls.passwordbox.password)、 [PasswordChar プロパティ](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchar)、 [PasswordRevealMode プロパティ](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordrevealmode)、 [PasswordChanged イベント](/uwp/api/windows.ui.xaml.controls.passwordbox.passwordchanged)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 

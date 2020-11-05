@@ -1,5 +1,5 @@
 ---
-Description: TabView は、動的なタブに複数のドキュメントを整理するための柔軟な方法です
+description: TabView は、動的なタブに複数のドキュメントを整理するための柔軟な方法です
 title: タブ ビュー
 template: detail.hbs
 ms.date: 09/24/2020
@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3010feeb1a19f8c4d38883415cc315b8d863bb82
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: f34e2a882746ac833d2b78373a96496c1f079864
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91749738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034775"
 ---
 # <a name="tabview"></a>TabView
 
@@ -34,7 +34,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
    :::column-end:::
 :::row-end:::
 
-> **Windows UI ライブラリ API**: [TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、[TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
+> **Windows UI ライブラリ API** : [TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、 [TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
 
 > [!TIP]
 > このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
@@ -43,8 +43,8 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
-一般に、タブ付き UI は、機能と外観が異なる 2 種類のスタイルのいずれかで提供されます。**静的タブ**は、設定ウィンドウでよく見られるタブの種類です。 通常、内容があらかじめ定義されている固定順序の複数のページが含まれます。
-**ドキュメント タブ**は、Microsoft Edge のようなブラウザーで見られるタブの種類です。 ユーザーは、タブの作成、削除、再配置、ウィンドウ間でのタブの移動、タブの内容の変更を行うことができます。
+一般に、タブ付き UI は、機能と外観が異なる 2 種類のスタイルのいずれかで提供されます。 **静的タブ** は、設定ウィンドウでよく見られるタブの種類です。 通常、内容があらかじめ定義されている固定順序の複数のページが含まれます。
+**ドキュメント タブ** は、Microsoft Edge のようなブラウザーで見られるタブの種類です。 ユーザーは、タブの作成、削除、再配置、ウィンドウ間でのタブの移動、タブの内容の変更を行うことができます。
 
 [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) では、UWP アプリ用のドキュメント タブが提供されています。 次のような場合は TabView を使用します。
 

@@ -1,5 +1,5 @@
 ---
-Description: 書式付きテキスト、ハイパーリンク、イメージなどを含んだリッチ テキスト ドキュメントの入力と編集には、RichEditBox コントロールを使うことができます。 このコントロールの IsReadOnly プロパティを true に設定すると、RichEditBox を読み取り専用にできます。
+description: 書式付きテキスト、ハイパーリンク、イメージなどを含んだリッチ テキスト ドキュメントの入力と編集には、RichEditBox コントロールを使うことができます。 このコントロールの IsReadOnly プロパティを true に設定すると、RichEditBox を読み取り専用にできます。
 title: RichEditBox
 ms.assetid: 4AFC0DFA-3B89-434D-9F86-4309CCFF7839
 label: Rich edit box
@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7ff0b8cc337c8afe3d7c06ffabca4eb0fa0d5a8d
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: bb5ee48152b96c430e3b6ab8cf320b3055620865
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750328"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035215"
 ---
 # <a name="rich-edit-box"></a>リッチ エディット ボックス
 
@@ -36,7 +36,7 @@ ms.locfileid: "91750328"
    :::column-end:::
 :::row-end:::
 
-> **プラットフォーム API**: [RichEditBox クラス](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[Document プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.document)、[IsReadOnly プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、[IsSpellCheckEnabled プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
+> **プラットフォーム API** : [RichEditBox クラス](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、 [Document プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.document)、 [IsReadOnly プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.isreadonly)、 [IsSpellCheckEnabled プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -69,7 +69,7 @@ ms.locfileid: "91750328"
 
 ## <a name="create-a-rich-edit-box"></a>リッチ エディット ボックスを作成します。
 
-既定では、RichEditBox はスペル チェックをサポートします。 スペル チェックを無効にするには、[IsSpellCheckEnabled](/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled) プロパティを **false** に設定します。 詳しくは、「[スペル チェックのガイドライン](text-controls.md)」をご覧ください。
+既定では、RichEditBox はスペル チェックをサポートします。 スペル チェックを無効にするには、 [IsSpellCheckEnabled](/uwp/api/windows.ui.xaml.controls.richeditbox.isspellcheckenabled) プロパティを **false** に設定します。 詳しくは、「[スペル チェックのガイドライン](text-controls.md)」をご覧ください。
 
 RichEditBox のコンテンツを取得するには、このコントロールの [Document](/uwp/api/windows.ui.xaml.controls.richeditbox.document) プロパティを使います。 RichTextBlock コントロールと異なり、RichEditBox のコンテンツは [Windows.UI.Text.ITextDocument](/windows/desktop/api/tom/nn-tom-itextdocument) オブジェクトです。このコンテンツは、[Windows.UI.Xaml.Documents.Block](/uwp/api/Windows.UI.Xaml.Documents.Block) オブジェクトをそのコンテンツとして使います。 ITextDocument インターフェイスは、ドキュメントの読み込みとストリームへの保存、テキスト範囲の取得、アクティブな選択内容の取得、変更の取り消しとやり直し、既定の書式設定属性の設定などに利用できます。
 

@@ -1,5 +1,5 @@
 ---
-Description: メール、本、道路標識、メニューに書かれた価格、タイヤの空気圧のマーキング、道路脇のポールに掲示されたポスターなど、日常生活の中で文字を目にする機会はたくさんあります。
+description: メール、本、道路標識、メニューに書かれた価格、タイヤの空気圧のマーキング、道路脇のポールに掲示されたポスターなど、日常生活の中で文字を目にする機会はたくさんあります。
 title: テキスト コントロール
 ms.assetid: 43DC68BF-FA86-43D2-8807-70A359453048
 label: Text controls
@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b06767e5009a4d7654fa7937498319a1bbed671
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ca8facaa63f0eb4c99e518c2fafb0e87208b759d
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173886"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033005"
 ---
 # <a name="text-controls"></a>テキスト コントロール
 
@@ -25,7 +25,7 @@ ms.locfileid: "89173886"
 - 読み取り専用テキストを表示するためのコントロールは、[TextBlock](text-block.md) および [RichTextBlock](rich-text-block.md) です。
 - テキストの入力および編集用のコントロールは次のとおりです:[TextBox](text-box.md)、[RichEditBox](rich-edit-box.md)、[AutoSuggestBox](auto-suggest-box.md)、[PasswordBox](password-box.md)。
 
-> **重要な API**:[TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、[RichTextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、[TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)、[RichEditBox クラス](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、[AutoSuggestBox クラス](/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、[PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
+> **重要な API** : [TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、 [RichTextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)、 [TextBox クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBox)、 [RichEditBox クラス](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox)、 [AutoSuggestBox クラス](/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox)、 [PasswordBox クラス](/uwp/api/Windows.UI.Xaml.Controls.PasswordBox)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 
@@ -39,13 +39,13 @@ TextBlock は、一般的に、RichTextBlock より使い方が簡単で、テ�
 
 テキストのレンダリング方法をカスタマイズするための書式設定オプションも、同じものが数多く用意されています。 テキスト内に改行を配置することはできますが、TextBlock は単一の段落を表示するために設計されており、テキストのインデントはサポートされていません。
 
-複数の段落、段組テキスト、インライン UI 要素 (画像など) をサポートする必要がある場合は、**RichTextBlock** を使います。 RichTextBlock には、高度なテキスト レイアウトのための機能がいくつか用意されています。
+複数の段落、段組テキスト、インライン UI 要素 (画像など) をサポートする必要がある場合は、 **RichTextBlock** を使います。 RichTextBlock には、高度なテキスト レイアウトのための機能がいくつか用意されています。
 
 RichTextBlock のコンテンツ プロパティは [Blocks](/uwp/api/windows.ui.xaml.controls.richtextblock.blocks) プロパティです。このプロパティでは、[Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) 要素によって段落に基づくテキストがサポートされています。 アプリ内でコントロールのテキスト コンテンツに簡単にアクセスすることができる **Text** プロパティは含まれていません。  
 
 ### <a name="text-input"></a>テキスト入力
 
-フォームなどで書式設定されていないテキストをユーザーが入力、編集できるようにするには、**TextBox** コントロールを使用します。 TextBox 内のテキストの取得と設定には、[Text](/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用します。
+フォームなどで書式設定されていないテキストをユーザーが入力、編集できるようにするには、 **TextBox** コントロールを使用します。 TextBox 内のテキストの取得と設定には、[Text](/uwp/api/windows.ui.xaml.controls.textbox.text) プロパティを使用します。
 
 TextBox を読み取り専用にすることはできますが、これは一時的な条件付きの状態である必要があります。 テキストを編集可能にしない場合は、代わりに TextBlock を使用することを検討してください。
 
@@ -135,7 +135,7 @@ Windows 10 バージョン 1803 以降では、XAML テキスト入力ボック�
 
 タッチ キーボードは、アプリがタッチ スクリーン付きのデバイスで実行されているときにテキスト入力に使用できます。 タッチ キーボードは、TextBox または RichEditBox などの編集可能な入力フィールドをユーザーがタップしたときに呼び出されます。 ユーザーが入力すると予想されるデータの種類と一致するようにテキスト コントロールの入力値の種類を設定することで、ユーザーがより速く簡単にアプリにデータを入力できるようになります。 入力値の種類は、システムに対してコントロールが予期しているテキスト入力の種類のヒントとなるため、システムはその入力の種類用の特殊なタッチ キーボード レイアウトを提供できます。
 
-たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、[InputScope](/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
+たとえば、テキスト ボックスが 4 桁の PIN の入力専用の場合は、 [InputScope](/uwp/api/windows.ui.xaml.controls.textbox.inputscope) プロパティを **Number** に設定します。 これにより、システムに数字キーパッド レイアウトの表示が指示されるため、ユーザーは簡単に PIN を入力できます。
 
 >重要  
 >入力スコープの設定によって、入力の検証が実行されるわけではありません。また、ユーザーが、ハードウェア キーボードやその他の入力デバイスから入力できなくなることもありません。 必要に応じて、コードで入力を検証する必要があります。
@@ -148,7 +148,7 @@ Windows 10 バージョン 1803 以降では、XAML テキスト入力ボック�
 
 Windows には、フォントに各グリフの複数の色付きレイヤーを含めるための機能があります。 たとえば、Segoe UI Emoji フォントは、顔文字とその他の絵文字のカラー バージョンを定義します。
 
-標準テキスト コントロールとリッチ テキスト コントロールは、カラー フォントの表示をサポートしています。 既定では、**IsColorFontEnabled** プロパティは **true** であり、これらの追加のレイヤーを使用するフォントはカラーでレンダリングされます。 システムに既定のカラー フォントは Segoe UI Emoji フォントで、コントロールはこのフォントにフォールバックしてグリフをカラーで表示します。
+標準テキスト コントロールとリッチ テキスト コントロールは、カラー フォントの表示をサポートしています。 既定では、 **IsColorFontEnabled** プロパティは **true** であり、これらの追加のレイヤーを使用するフォントはカラーでレンダリングされます。 システムに既定のカラー フォントは Segoe UI Emoji フォントで、コントロールはこのフォントにフォールバックしてグリフをカラーで表示します。
 
 ```xaml
 <TextBlock FontSize="30">Hello ☺⛄☂♨⛅</TextBlock>

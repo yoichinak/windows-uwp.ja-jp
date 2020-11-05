@@ -1,17 +1,17 @@
 ---
-Description: TwoPaneView は、2 つの個別のコンテンツ領域を持つアプリの表示を管理するために役立つレイアウト コントロールです。
+description: TwoPaneView は、2 つの個別のコンテンツ領域を持つアプリの表示を管理するために役立つレイアウト コントロールです。
 title: 2 つのペインからなるビュー
 template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 681405694880024e158b4ef5798ca2862a38fde2
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 76a6264a8ce1704e9bd209a6246c81ba9665265f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750228"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034435"
 ---
 # <a name="two-pane-view"></a>2 つのペインからなるビュー
 
@@ -23,7 +23,7 @@ ms.locfileid: "91750228"
 TwoPaneView コントロールは、すべての Windows デバイス上で動作します。さらに、特別なコーディングを必要とせずに、デュアルスクリーン デバイスを自動的に最大限に活用できるように設計されています。 デュアルスクリーン デバイスでは、2 ペイン ビューを使うことで、ユーザー インターフェイス (UI) が画面間のすき間にまたがる場合でもきれいに分割され、コンテンツがすき間の両側に表示されます。
 
 > [!NOTE]
-> "_デュアルスクリーン デバイス_" は、固有の機能を持つ特殊な種類のデバイスです。 これは、複数のモニターが搭載されたデスクトップ デバイスとは同じではありません。 デュアルスクリーン デバイスの詳細については、「[デュアルスクリーン デバイスの概要](/dual-screen/introduction)」を参照してください。 (複数のモニターに合わせてアプリを最適化する方法の詳細については、「[Show multiple views](../layout/show-multiple-views.md)」 (複数のビューの表示) を参照してください。)
+> " _デュアルスクリーン デバイス_ " は、固有の機能を持つ特殊な種類のデバイスです。 これは、複数のモニターが搭載されたデスクトップ デバイスとは同じではありません。 デュアルスクリーン デバイスの詳細については、「[デュアルスクリーン デバイスの概要](/dual-screen/introduction)」を参照してください。 (複数のモニターに合わせてアプリを最適化する方法の詳細については、「[Show multiple views](../layout/show-multiple-views.md)」 (複数のビューの表示) を参照してください。)
 
 **Windows UI ライブラリを入手する**
 
@@ -60,15 +60,15 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 
 ![2 ペイン ビューのアプリをシングル スクリーンで使用](images/two-pane-view/tpv-single.png)
 
-> "_シングルスクリーン上のアプリ_。"
+> " _シングルスクリーン上のアプリ_ 。"
 
 ![2 ペイン ビューのアプリをデュアルスクリーンの横長モードで使用](images/two-pane-view/tpv-dual-wide.png)
 
-> "_横長モードでデュアルスクリーン デバイス全体に表示されるアプリ_"。
+> " _横長モードでデュアルスクリーン デバイス全体に表示されるアプリ_ "。
 
 ![2 ペイン ビューのアプリをデュアルスクリーンの縦長モードで使用](images/two-pane-view/tpv-dual-tall.png)
 
-> "_縦長モードでデュアルスクリーン デバイス全体に表示されるアプリ_"。
+> " _縦長モードでデュアルスクリーン デバイス全体に表示されるアプリ_ "。
 
 ## <a name="how-it-works"></a>しくみ
 
@@ -102,7 +102,7 @@ TwoPaneView コントロールは、すべての Windows デバイス上で動�
 
 2 ペイン ビューの各ペインには、1 つの XAML `UIElement` を保持できます。 コンテンツを追加するには、通常、各ペインに XAML レイアウト パネルを配置し、他のコントロールとコンテンツをパネルに追加します。 ペインのサイズを変更し、横長モードと縦長モードを切り替えることができるため、各ペインのコンテンツがこのような変更に適応できることを確認する必要があります。 アダプティブ UI の作成の詳細については、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md)」と「[レイアウト パネル](../layout/layout-panels.md)」を参照してください。
 
-この例では、前述の「_例_」セクションで示したシンプルな画像と情報アプリ UI を作成します。 アプリがデュアルスクリーンにまたがっている場合、画像と情報は別々の画面に表示されます。 シングル スクリーン上では、使用可能な空間の大きさに応じて、コンテンツを 2 つのペインに表示するか、1 つのペインに結合することができます。 (1 つのペインにのみ空間がある場合、Pane2 のコンテンツを Pane1 に移動し、ユーザー スクロールで非表示のコンテンツを表示できるようにします。 このコードについては、後述する「_モードの変更への対応_」を参照してください)。
+この例では、前述の「 _例_ 」セクションで示したシンプルな画像と情報アプリ UI を作成します。 アプリがデュアルスクリーンにまたがっている場合、画像と情報は別々の画面に表示されます。 シングル スクリーン上では、使用可能な空間の大きさに応じて、コンテンツを 2 つのペインに表示するか、1 つのペインに結合することができます。 (1 つのペインにのみ空間がある場合、Pane2 のコンテンツを Pane1 に移動し、ユーザー スクロールで非表示のコンテンツを表示できるようにします。 このコードについては、後述する「 _モードの変更への対応_ 」を参照してください)。
 
 ![デュアル スクリーンにまたがるサンプル アプリの小さい画像](images/two-pane-view/tpv-left-right.png)
 
@@ -198,7 +198,7 @@ MyTwoPaneView.PanePriority = Microsoft.UI.Xaml.Controls.TwoPaneViewPriority.Pane
 
 ### <a name="pane-sizing"></a>ペインのサイズ設定
 
-シングル スクリーン上では、ペインのサイズは、[Pane1Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane1length) および [Pane2Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane2length) プロパティによって決まります。 これらには、_auto_ および _star_(\*) のサイズ設定をサポートする [GridLength](/uwp/api/windows.ui.xaml.gridlength) 値が使用されます。 自動サイズ設定と比例サイズ設定の詳細については、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md#layout-properties)」の「_レイアウト プロパティ_」を参照してください。
+シングル スクリーン上では、ペインのサイズは、[Pane1Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane1length) および [Pane2Length](/uwp/api/microsoft.ui.xaml.controls.twopaneview.pane2length) プロパティによって決まります。 これらには、 _auto_ および _star_ (\*) のサイズ設定をサポートする [GridLength](/uwp/api/windows.ui.xaml.gridlength) 値が使用されます。 自動サイズ設定と比例サイズ設定の詳細については、「 [XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md#layout-properties)」の「 _レイアウト プロパティ_ 」を参照してください。
 
 既定では、`Pane1Length` は `Auto` に設定され、コンテンツに合わせてサイズが自動調整されます。 `Pane2Length` は `*` に設定され、残りのすべての空間が使用されます。
 
@@ -235,7 +235,7 @@ MyTwoPaneView.PanePriority = Microsoft.UI.Xaml.Controls.TwoPaneViewPriority.Pane
 
 
 > [!NOTE]
-> 前述したように、アプリがデュアル スクリーンにまたがっている場合、これらのプロパティは無視され、表示モードはデバイスの "_配置_" に基づいて決定されます。
+> 前述したように、アプリがデュアル スクリーンにまたがっている場合、これらのプロパティは無視され、表示モードはデバイスの " _配置_ " に基づいて決定されます。
 
 #### <a name="wide-configuration-options"></a>横長構成のオプション
 
@@ -294,7 +294,7 @@ MyTwoPaneView.PanePriority = Microsoft.UI.Xaml.Controls.TwoPaneViewPriority.Pane
 
 ![縦長モードでまたがって表示されるサンプル アプリの小さい画像](images/two-pane-view/tpv-top-bottom.png)
 
-> "_縦長モード_"
+> " _縦長モード_ "
 
 1 つのペインを表示するだけの空間しかない場合は、ユーザーがスクロールしてすべてのコンテンツを表示できるように、`Pane2` のコンテンツを `Pane1` に移動します。 次のようになります。
 

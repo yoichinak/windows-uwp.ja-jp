@@ -1,16 +1,16 @@
 ---
-Description: AppWindow クラスを使用して、アプリのさまざまな部分を個別のウィンドウに表示します。
+description: AppWindow クラスを使用して、アプリのさまざまな部分を個別のウィンドウに表示します。
 title: AppWindow クラスを使用してアプリのセカンダリ ウィンドウを表示する
 ms.date: 07/19/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b89d9100157cf40266bb983e258aa187f65dc93
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: a3f8644612954c4693ad28d3c1b41870855b37ca
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68867464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034885"
 ---
 # <a name="show-multiple-views-with-appwindow"></a>AppWindow を使用して複数のビューを表示する
 
@@ -34,7 +34,7 @@ ms.locfileid: "68867464"
 
 > _ドッキング解除されたカラー ピッカーとセカンダリ ウィンドウを持つサンプル アプリ_
 
-> **重要な API**:[Windows.UI.WindowManagement 名前空間](/uwp/api/windows.ui.windowmanagement)、[AppWindow クラス](/uwp/api/windows.ui.windowmanagement.appwindow)
+> **重要な API** : [Windows.UI.WindowManagement 名前空間](/uwp/api/windows.ui.windowmanagement)、 [AppWindow クラス](/uwp/api/windows.ui.windowmanagement.appwindow)
 
 ## <a name="api-overview"></a>API の概要
 
@@ -296,7 +296,7 @@ public sealed partial class AppWindowPage : Page
 colorPickerAppWindow.RequestSize(new Size(300, 428));
 ```
 
-ウィンドウの位置を管理するためのメソッドには、次のように _RequestMove*_ という名前が付けられています。[RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、[RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、[RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、[RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
+ウィンドウの位置を管理するためのメソッドには、次のように _RequestMove*_ という名前が付けられています。 [RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、 [RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、 [RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、 [RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
 
 次の例では、このコードはウィンドウを、そのウィンドウの生成元のメイン ビューの横に移動します。
 
@@ -499,7 +499,7 @@ private async void DetachColorPickerButton_Click(object sender, RoutedEventArgs 
 
 既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 [ContentDialog](/uwp/api/windows.ui.xaml.controls.contentdialog) を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) の内部で使用する場合は、ダイアログの XamlRoot を XAML ホストのルートに手動で設定する必要があります。
 
-それを行うには、ContentDialog の [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを、既に AppWindow 内にある要素と同じ [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) に設定します。 ここでは、このコードはボタンの [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーの内部にあるため、_送信者_ (クリックされた Button) を使用して XamlRoot を取得できます。
+それを行うには、ContentDialog の [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを、既に AppWindow 内にある要素と同じ [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) に設定します。 ここでは、このコードはボタンの [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーの内部にあるため、 _送信者_ (クリックされた Button) を使用して XamlRoot を取得できます。
 
 ```csharp
 if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))

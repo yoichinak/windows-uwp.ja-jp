@@ -1,5 +1,5 @@
 ---
-Description: Web ビュー コントロールでは、Microsoft Edge レンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューが埋め込まれます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
+description: Web ビュー コントロールでは、Microsoft Edge レンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューが埋め込まれます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
 title: Web ビュー
 ms.assetid: D3CFD438-F9D6-4B72-AF1D-16EF2DFC1BB1
 label: Web view
@@ -8,18 +8,18 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 46fc3c0eb087891de4fe622f0770bc7f1b2955d7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f2f3bf022210e5b5f329cb5824cb36708154b977
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163306"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034385"
 ---
 # <a name="web-view"></a>Web ビュー
 
 Web ビュー コントロールでは、Microsoft Edge レンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューが埋め込まれます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
 
-> **重要な API**: [WebView クラス](/uwp/api/Windows.UI.Xaml.Controls.WebView)
+> **重要な API** : [WebView クラス](/uwp/api/Windows.UI.Xaml.Controls.WebView)
 
 ## <a name="is-this-the-right-control"></a>適切なコントロールの選択
 
@@ -59,7 +59,7 @@ Web ビュー コントロールでは、Microsoft Edge レンダリング エ�
 
 WebView は Control サブクラスではありませんが、キーボードの入力フォーカスを受け取って、タブ順に関与します。 ただし、[Focus](/uwp/api/windows.ui.xaml.controls.webview.focus) メソッド、そして [GotFocus](/uwp/api/windows.ui.xaml.uielement.gotfocus) イベントと [LostFocus](/uwp/api/windows.ui.xaml.uielement.lostfocus) イベントを提供しますが、タブ関連のプロパティはありません。 タブ順での位置は、XAML ドキュメントの順序での位置と同じです。 タブ順には、入力フォーカスを受け取ることができる Web ビューのコンテンツの要素がすべて含まれています。 
 
-[WebView](/uwp/api/Windows.UI.Xaml.Controls.WebView) クラスのページの「Event」表からもわかるとおり、Web ビューは、[KeyDown](/uwp/api/windows.ui.xaml.uielement.keydown) や [KeyUp](/uwp/api/windows.ui.xaml.uielement.keyup)、[PointerPressed](/uwp/api/windows.ui.xaml.uielement.pointerpressed) といった [UIElement](/uwp/api/Windows.UI.Xaml.UIElement) から継承されたユーザー入力イベントのほとんどをサポートしていません。 その代わり、[InvokeScriptAsync](/uwp/api/windows.ui.xaml.controls.webview.invokescriptasync) を JavaScript の **eval** 関数と共に使って、HTML イベント ハンドラーを利用したり、HTML イベント ハンドラーの **window.external.notify** を通じて [WebView.ScriptNotify](/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) に対応するアプリに通知したりできます。
+[WebView](/uwp/api/Windows.UI.Xaml.Controls.WebView) クラスのページの「Event」表からもわかるとおり、Web ビューは、[KeyDown](/uwp/api/windows.ui.xaml.uielement.keydown) や [KeyUp](/uwp/api/windows.ui.xaml.uielement.keyup)、[PointerPressed](/uwp/api/windows.ui.xaml.uielement.pointerpressed) といった [UIElement](/uwp/api/Windows.UI.Xaml.UIElement) から継承されたユーザー入力イベントのほとんどをサポートしていません。 その代わり、 [InvokeScriptAsync](/uwp/api/windows.ui.xaml.controls.webview.invokescriptasync) を JavaScript の **eval** 関数と共に使って、HTML イベント ハンドラーを利用したり、HTML イベント ハンドラーの **window.external.notify** を通じて [WebView.ScriptNotify](/uwp/api/windows.ui.xaml.controls.webview.scriptnotify) に対応するアプリに通知したりできます。
 
 ### <a name="navigating-to-content"></a>コンテンツに移動する
 
@@ -80,7 +80,7 @@ Web ビューの初期コンテンツを設定するには、XAML の [Source](/
 
 Source プロパティはコードで設定できますが、それよりも **Navigate** メソッドの 1 つを使ってコードにコンテンツを読み込むほうがよいでしょう。 
 
-Web コンテンツを読み込むには、[Navigate](/uwp/api/windows.ui.xaml.controls.webview.navigate) メソッドを http または https スキームを使う **Uri** と共に用います。 
+Web コンテンツを読み込むには、 [Navigate](/uwp/api/windows.ui.xaml.controls.webview.navigate) メソッドを http または https スキームを使う **Uri** と共に用います。 
 
 ```csharp
 webView1.Navigate("http://www.contoso.com");
@@ -88,15 +88,15 @@ webView1.Navigate("http://www.contoso.com");
 
 POST 要求と HTTP ヘッダーを有する URI へと移動するには、[NavigateWithHttpRequestMessage](/uwp/api/windows.ui.xaml.controls.webview.navigatewithhttprequestmessage) メソッドを使います。 このメソッドは、[HttpRequestMessage.Method](/uwp/api/windows.web.http.httprequestmessage.method) プロパティの値として [HttpMethod.Post](/uwp/api/windows.web.http.httpmethod.post) と [HttpMethod.Get](/uwp/api/windows.web.http.httpmethod.get) のみをサポートします。 
 
-圧縮されておらず、暗号化もされていないコンテンツをアプリの [LocalFolder](/uwp/api/windows.storage.applicationdata.localfolder) データ ストアまたは [TemporaryFolder](/uwp/api/windows.storage.applicationdata.temporaryfolder) データ ストアから読み込むには、**Navigate** メソッドを、[ms-appdata](../../app-resources/uri-schemes.md) スキームを使う **Uri** と共に用います。 このスキームを Web ビューがサポートするには、ローカル フォルダーまたは一時フォルダーの下にサブフォルダーを設け、そこにコンテンツを配置する必要があります。 これにより、「ms-appdata:///local/*フォルダー*/*ファイル*.html」や「ms-appdata:///temp/*フォルダー*/*ファイル*.html」といった URI への移動が可能になります (圧縮され、暗号化されたファイルを読み込む場合は、[NavigateToLocalStreamUri](/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) に関するページをご覧ください)。 
+圧縮されておらず、暗号化もされていないコンテンツをアプリの [LocalFolder](/uwp/api/windows.storage.applicationdata.localfolder) データ ストアまたは [TemporaryFolder](/uwp/api/windows.storage.applicationdata.temporaryfolder) データ ストアから読み込むには、 **Navigate** メソッドを、 [ms-appdata](../../app-resources/uri-schemes.md) スキームを使う **Uri** と共に用います。 このスキームを Web ビューがサポートするには、ローカル フォルダーまたは一時フォルダーの下にサブフォルダーを設け、そこにコンテンツを配置する必要があります。 これにより、「ms-appdata:///local/ *フォルダー*/*ファイル*.html」や「ms-appdata:///temp/ *フォルダー*/*ファイル*.html」といった URI への移動が可能になります (圧縮され、暗号化されたファイルを読み込む場合は、[NavigateToLocalStreamUri](/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) に関するページをご覧ください)。 
 
-これらの第 1 レベルのサブフォルダーは、他の第 1 レベルのサブフォルダー内のコンテンツから分離されます。 たとえば「ms-appdata:///temp/folder1/file.html」に移動はできますが、このファイル内のリンクに「ms-appdata:///temp/folder2/file.html」は指定できません。 ただし、**ms-appx-web** スキームを使ってアプリ パッケージの HTML コンテンツにリンクしたり、**http** または **https** の URI スキームを使って Web コンテンツにリンクしたりすることはできます。
+これらの第 1 レベルのサブフォルダーは、他の第 1 レベルのサブフォルダー内のコンテンツから分離されます。 たとえば「ms-appdata:///temp/folder1/file.html」に移動はできますが、このファイル内のリンクに「ms-appdata:///temp/folder2/file.html」は指定できません。 ただし、 **ms-appx-web** スキームを使ってアプリ パッケージの HTML コンテンツにリンクしたり、 **http** または **https** の URI スキームを使って Web コンテンツにリンクしたりすることはできます。
 
 ```csharp
 webView1.Navigate("ms-appdata:///local/intro/welcome.html");
 ```
 
-アプリ パッケージからコンテンツを読み込むには、**Navigate** メソッドを [ms-appx-web](/previous-versions/windows/apps/jj655406(v=win.10)) スキームを使った **Uri** と共に用います。 
+アプリ パッケージからコンテンツを読み込むには、 **Navigate** メソッドを [ms-appx-web](/previous-versions/windows/apps/jj655406(v=win.10)) スキームを使った **Uri** と共に用います。 
 
 ```csharp
 webView1.Navigate("ms-appx-web:///help/about.html");

@@ -1,5 +1,5 @@
 ---
-Description: サウンドを使用して、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
+description: サウンドを使用して、アプリケーションのユーザー エクスペリエンスの完成をサポートし、アプリケーションのオーディオ面の特徴を際立たせます。オーディオは、すべてのプラットフォームで Windows の使い勝手を一致させるために必要なものです。
 label: Sound
 title: サウンド
 template: detail.hbs
@@ -12,12 +12,12 @@ design-contact: mattben
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c479a47a53c5f52bab1febf490957355264bfc4
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: cd7c394f66eb1da585a605d96ed50804b8aab375
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89159877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93033185"
 ---
 # <a name="sound"></a>サウンド
 
@@ -49,7 +49,7 @@ UWP には使いやすいサウンド システムが用意されていて、"�
 ```C#
 ElementSoundPlayer.State = ElementSoundPlayerState.On;
 ```
-**ElementSoundPlayer** には、次の 3 つの異なる状態があります: **On**、**Off**、および **Auto**。
+**ElementSoundPlayer** には、次の 3 つの異なる状態があります: **On** 、 **Off** 、および **Auto** 。
 
 **Off** に設定すると、アプリの実行環境にかかわらず、サウンドが再生されることはありません。 **On** に設定すると、すべてのプラットフォームで、アプリのサウンドが再生されます。
 
@@ -60,20 +60,20 @@ ElementSoundPlayer.SpatialAudioMode = ElementSpatialAudioMode.Off
 ```
 
 **SpatialAudioMode** プロパティの有効な値は以下のとおりです。 
-- **Auto**: サウンドがオンのときに、空間オーディオがオンになります。 
-- **Off**: サウンドがオンでも、空間オーディオは常にオフです。
-- **On**: 空間オーディオが常に再生されます。
+- **Auto** : サウンドがオンのときに、空間オーディオがオンになります。 
+- **Off** : サウンドがオンでも、空間オーディオは常にオフです。
+- **On** : 空間オーディオが常に再生されます。
 
 空間オーディオと XAML による空間オーディオの処理方法について詳しくは、[「オーディオ グラフ」の「空間オーディオ」](../../audio-video-camera/audio-graphs.md#spatial-audio)をご覧ください。
 
 ### <a name="sound-for-tv-and-xbox"></a>テレビや Xbox のサウンド
 
-サウンドは 10 フィート エクスペリエンスの重要なパーツであるため、既定では、**ElementSoundPlayer** の状態が **Auto**、つまり、アプリが Xbox で実行されているときにのみサウンドが再生されます。
+サウンドは 10 フィート エクスペリエンスの重要なパーツであるため、既定では、 **ElementSoundPlayer** の状態が **Auto** 、つまり、アプリが Xbox で実行されているときにのみサウンドが再生されます。
 Xbox やテレビ向けの設計について詳しくは、「[Xbox およびテレビ向け設計](../devices/designing-for-tv.md)」の記事をご覧ください。
 
 ## <a name="sound-volume-override"></a>音量設定のオーバーライド
 
-アプリ内のすべてのサウンドは、**Volume** コントロールで小さくすることができます。 しかし、アプリ内のサウンドを*システムの音量より大きく*することができません。
+アプリ内のすべてのサウンドは、 **Volume** コントロールで小さくすることができます。 しかし、アプリ内のサウンドを *システムの音量より大きく* することができません。
 
 アプリの音量レベルを設定するには、次のように呼び出します。
 ```C#
@@ -85,7 +85,7 @@ ElementSoundPlayer.Volume = 0.5;
 
 コントロールの既定のサウンドが望ましくない場合は、これを無効にできます。 サウンドを無効にするには、コントロールで **ElementSoundMode** を使います。
 
-**ElementSoundMode** には、次の 2 つの状態があります: **Off** と **Default**。 設定しないと、**Default** になります。 **Off** に設定すると、コントロールが再生するすべてのサウンドはミュートされます (*フォーカスを除く*)。
+**ElementSoundMode** には、次の 2 つの状態があります: **Off** と **Default** 。 設定しないと、 **Default** になります。 **Off** に設定すると、コントロールが再生するすべてのサウンドはミュートされます ( *フォーカスを除く* )。
 
 ```XAML
 <Button Name="ButtonName" Content="More Info" ElementSoundMode="Off"/>
@@ -103,12 +103,12 @@ ButtonName.ElementSoundState = ElementSoundMode.Off;
 
 ### <a name="invoking-an-element"></a>要素の呼び出し
 
-現在のシステムで最も一般的な、コントロールにトリガーされるサウンドは、**Invoke** サウンドです。 このサウンドは、ユーザーがタップ、クリック、入力、スペース、または、ゲームパッドの [A] ボタンを押すことでコントロールを呼び出したときに、再生されます。
+現在のシステムで最も一般的な、コントロールにトリガーされるサウンドは、 **Invoke** サウンドです。 このサウンドは、ユーザーがタップ、クリック、入力、スペース、または、ゲームパッドの [A] ボタンを押すことでコントロールを呼び出したときに、再生されます。
 
 通常このサウンドは、ユーザーが[入力デバイス](../input/index.md)を介して明示的に単純なコントロールまたはコントロールの一部を対象としたときにのみ再生されます。
 
 
-任意のコントロール イベントからこのサウンドを再生するには、シンプルに **ElementSoundPlayer** から Play メソッドを呼び出し、**ElementSound.Invoke** に渡します。
+任意のコントロール イベントからこのサウンドを再生するには、シンプルに **ElementSoundPlayer** から Play メソッドを呼び出し、 **ElementSound.Invoke** に渡します。
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Invoke);
 ```
@@ -117,12 +117,12 @@ ElementSoundPlayer.Play(ElementSoundKind.Invoke);
 
 XAML には多くのポップアップやダイアログ、閉じることができる UI があり、これらのオーバーレイのいずれかをトリガーするすべての操作で **Show** または **Hide** サウンドを呼び出す必要があります、
 
-オーバーレイのコンテンツ ウィンドウをビューに読み込むときに、**Show** サウンドを呼び出す必要があります。
+オーバーレイのコンテンツ ウィンドウをビューに読み込むときに、 **Show** サウンドを呼び出す必要があります。
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Show);
 ```
-逆に、オーバーレイのコンテンツ ウィンドウを閉じる (または簡易非表示にする) ときに、**Hide** サウンドを呼び出す必要があります。
+逆に、オーバーレイのコンテンツ ウィンドウを閉じる (または簡易非表示にする) ときに、 **Hide** サウンドを呼び出す必要があります。
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.Hide);
@@ -131,21 +131,21 @@ ElementSoundPlayer.Play(ElementSoundKind.Hide);
 
 アプリのページ内でパネルまたはビューの間を移動する場合 ([タブとピボット](../controls-and-patterns/pivot.md)に関するページを参照してください)、通常は双方向の移動になります。 つまり、現在表示しているアプリのページを離れずに、次のビュー/パネルまたは前のビュー/パネルに移動できます。
 
-このナビゲーションの概念に関するオーディオ エクスペリエンスは、**MovePrevious** サウンドと **MoveNext** サウンドに包含されています。
+このナビゲーションの概念に関するオーディオ エクスペリエンスは、 **MovePrevious** サウンドと **MoveNext** サウンドに包含されています。
 
-リストの*次の項目*と考えられるビュー/パネルに移動するときは、次のように呼び出します。
+リストの *次の項目* と考えられるビュー/パネルに移動するときは、次のように呼び出します。
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.MoveNext);
 ```
-リストの*前の項目*と考えられるビュー/パネルに移動するときは、次のように呼び出します。
+リストの *前の項目* と考えられるビュー/パネルに移動するときは、次のように呼び出します。
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.MovePrevious);
 ```
 ### <a name="back-navigation"></a>戻るナビゲーション
 
-アプリ内で現在のページから前のページにナビゲーションするときは、**GoBack** サウンドを呼び出す必要があります。
+アプリ内で現在のページから前のページにナビゲーションするときは、 **GoBack** サウンドを呼び出す必要があります。
 
 ```C#
 ElementSoundPlayer.Play(ElementSoundKind.GoBack);
@@ -154,7 +154,7 @@ ElementSoundPlayer.Play(ElementSoundKind.GoBack);
 
 マイクロソフトのシステムの **Focus** サウンドは、唯一の暗黙的なサウンドです。 つまり、ユーザーは、何かを直接操作していなくてもサウンドが聞こえます。
 
-フォーカスは、ユーザーがアプリをナビゲーションしたときに発生します。これは、ゲームパッド、キーボード、リモコン、または Kinect で実行できます。 通常、**Focus** サウンドは、*PointerEntered またはマウス ホバー イベント時には再生されません*。
+フォーカスは、ユーザーがアプリをナビゲーションしたときに発生します。これは、ゲームパッド、キーボード、リモコン、または Kinect で実行できます。 通常、 **Focus** サウンドは、 *PointerEntered またはマウス ホバー イベント時には再生されません* 。
 
 コントロールがフォーカスされたときに **Focus** サウンドを再生するように設定するには、次のように呼び出します。
 

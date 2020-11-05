@@ -1,5 +1,5 @@
 ---
-Description: トグル スイッチは、ユーザーが項目をオンまたはオフに切り替えることができる物理的なスイッチを表します。
+description: トグル スイッチは、ユーザーが項目をオンまたはオフに切り替えることができる物理的なスイッチを表します。
 title: トグル スイッチ コントロールのガイドライン
 ms.assetid: 753CFEA4-80D3-474C-B4A9-555F872A3DEF
 label: Toggle switches
@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 5c8df28335bf67c00f0429d6967e9013c73ec351
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 03714fef129ccb51bd84a73317bfda702317f313
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154196"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034715"
 ---
 # <a name="toggle-switches"></a>トグル スイッチ
 
@@ -25,7 +25,7 @@ ms.locfileid: "89154196"
 
 トグル スイッチ コントロールを作成するには、[ToggleSwitch クラス](/uwp/api/windows.ui.xaml.controls.toggleswitch)を使用します。
 
-> **プラットフォーム API**: [ToggleSwitch クラス](/uwp/api/windows.ui.xaml.controls.toggleswitch)、[IsOn プロパティ](/uwp/api/windows.ui.xaml.controls.toggleswitch.ison)、[Toggled イベント](/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled)
+> **プラットフォーム API** : [ToggleSwitch クラス](/uwp/api/windows.ui.xaml.controls.toggleswitch)、 [IsOn プロパティ](/uwp/api/windows.ui.xaml.controls.toggleswitch.ison)、 [Toggled イベント](/uwp/api/windows.ui.xaml.controls.toggleswitch.toggled)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか? 
 

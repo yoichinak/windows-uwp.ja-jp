@@ -1,5 +1,5 @@
 ---
-Description: 隣接するコントロールに入力する必要がある内容をユーザーに説明するためにラベルを使います。 また、関連するコントロールのグループにラベルを付けることや、関連するコントロールのグループの近くに説明テキストを表示することができます。
+description: 隣接するコントロールに入力する必要がある内容をユーザーに説明するためにラベルを使います。 また、関連するコントロールのグループにラベルを付けることや、関連するコントロールのグループの近くに説明テキストを表示することができます。
 title: ラベル
 ms.assetid: CFACCCD4-749F-43FB-947E-2591AE673804
 label: Labels
@@ -11,12 +11,12 @@ pm-contact: miguelrb
 design-contact: ksulliv
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 68b062dc4bd70c81b1b8b57808fad8e9c7498d75
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9c1dc878280b24424aa4bb20d5a1d6324838b127
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034545"
 ---
 # <a name="labels"></a>ラベル
 
@@ -24,7 +24,7 @@ ms.locfileid: "89172616"
 
 ラベルは、コントロールまたは関連するコントロールのグループの名前やタイトルです。
 
-> **重要な API**: Header プロパティ、[TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
+> **重要な API** : Header プロパティ、 [TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
 
 XAML では、多くのコントロールに組み込みの Header プロパティがあり、これを使ってラベルを表示します。 Header プロパティがないコントロールの場合、またはコントロールのグループにラベルを付ける場合は、代わりに [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を使います。
 
@@ -53,6 +53,6 @@ XAML では、多くのコントロールに組み込みの Header プロパテ�
 * [RichEditBox.Header プロパティ](/uwp/api/windows.ui.xaml.controls.richeditbox.header)
 * [TextBlock クラス](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
 
- 
+ 
 
- 
+ 

@@ -1,5 +1,5 @@
 ---
-Description: コレクション内の画像 (アルバム内の写真や製品の詳細ページ内の項目など) を一度に 1 つずつ表示します。
+description: コレクション内の画像 (アルバム内の写真や製品の詳細ページ内の項目など) を一度に 1 つずつ表示します。
 title: FlipView コントロールのガイドライン
 ms.assetid: A4E05D92-1A0E-4CDD-84B9-92199FF8A8A3
 label: Flip view
@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: dc55d4c74420523739caa0f696feb65f8b7e0a2c
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 1637845752d713482ad668cfb7078d5e4c138e84
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219425"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032305"
 ---
 # <a name="flip-view"></a>フリップ ビュー
 
@@ -29,7 +29,7 @@ ms.locfileid: "91219425"
 
 Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこのコントロールの新しいテンプレートが含まれます。 詳しくは、「[角の半径](../style/rounded-corner.md)」をご覧ください。 WinUI は、Windows アプリの新しいコントロールと UI 機能が含まれる NuGet パッケージです。 インストール手順などについて詳しくは、「[Windows UI Library (Windows UI ライブラリ)](/uwp/toolkits/winui/)」をご覧ください。
 
-> **プラットフォーム API:** [FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、[ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、[ItemTemplate プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
+> **プラットフォーム API:** [FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、 [ItemsSource プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource)、 [ItemTemplate プロパティ](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -61,9 +61,9 @@ Windows UI ライブラリ 2.2 以降には、丸めた角を使用するこの�
 
 ## <a name="create-a-flip-view"></a>フリップ ビューを作成する
 
-FlipView は [ItemsControl](/uwp/api/windows.ui.xaml.controls.itemscontrol) であるため、あらゆる種類の項目をコレクションを含めることができます。 ビューのデータを設定するには、項目を [**Items**](/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに追加するか、[**ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ ソースに設定します。
+FlipView は [ItemsControl](/uwp/api/windows.ui.xaml.controls.itemscontrol) であるため、あらゆる種類の項目をコレクションを含めることができます。 ビューのデータを設定するには、項目を [**Items**](/uwp/api/windows.ui.xaml.controls.itemscontrol.items) コレクションに追加するか、 [**ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ ソースに設定します。
 
-既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](/uwp/api/windows.ui.xaml.datatemplate) を作成して、個々の項目を表示するために使うコントロールのレイアウトを定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
+既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 フリップ ビューでの項目の表示方法を正確に指定するには、 [**DataTemplate**](/uwp/api/windows.ui.xaml.datatemplate) を作成して、個々の項目を表示するために使うコントロールのレイアウトを定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
 
 ### <a name="add-items-to-the-items-collection"></a>Items コレクションへの項目の追加
 
@@ -88,13 +88,13 @@ flipView1.Items.Add("Item 2");
 stackPanel1.Children.Add(flipView1);
 ```
 
-フリップ ビューに項目を追加すると、追加した項目は [**FlipViewItem**](/uwp/api/Windows.UI.Xaml.Controls.FlipViewItem) コンテナーに自動的に設定されます。 項目の表示方法を変更するには、[**ItemContainerStyle**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) プロパティを設定して、項目コンテナーにスタイルを適用します。 
+フリップ ビューに項目を追加すると、追加した項目は [**FlipViewItem**](/uwp/api/Windows.UI.Xaml.Controls.FlipViewItem) コンテナーに自動的に設定されます。 項目の表示方法を変更するには、 [**ItemContainerStyle**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemcontainerstyle) プロパティを設定して、項目コンテナーにスタイルを適用します。 
 
 XAML で項目を定義すると、定義した項目は Items コレクションに自動的に追加されます。
 
 ### <a name="set-the-items-source"></a>項目ソースの設定
 
-通常、フリップ ビューを使って、データベースやインターネットなどのソースからデータを表示します。 データ ソースからフリップ ビューのデータを設定するには、[**ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ項目のコレクションに設定します。
+通常、フリップ ビューを使って、データベースやインターネットなどのソースからデータを表示します。 データ ソースからフリップ ビューのデータを設定するには、 [**ItemsSource**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemssource) プロパティをデータ項目のコレクションに設定します。
 
 以下の例では、コードでコレクションのインスタンスに直接フリップ ビューの ItemsSource を設定しています。
 
@@ -134,7 +134,7 @@ ItemsSource が `itemsViewSource` という名前の [**CollectionViewSource**](
 
 ### <a name="specify-the-look-of-the-items"></a>項目の表示方法の指定
 
-既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 通常は、よりリッチな表現でデータを表示する必要があります。 フリップ ビューでの項目の表示方法を正確に指定するには、[**DataTemplate**](/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
+既定では、データ項目は、バインドされているデータ オブジェクトの文字列表現としてフリップ ビューに表示されます。 通常は、よりリッチな表現でデータを表示する必要があります。 フリップ ビューでの項目の表示方法を正確に指定するには、 [**DataTemplate**](/uwp/api/Windows.UI.Xaml.DataTemplate) を作成します。 DataTemplate の XAML では、個々の項目を表示するために使うコントロールのレイアウトと外観を定義します。 レイアウト内のコントロールは、データ オブジェクトのプロパティにバインドすることも、インラインでコンテンツを定義することもできます。 DataTemplate は、FlipView の [**ItemTemplate**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemtemplate) プロパティに割り当てます。
 
 この例では、FlipView の ItemTemplate がインラインで定義されています。 画像名を表示するためにオーバーレイが画像に追加されます。 
 

@@ -1,5 +1,5 @@
 ---
-Description: XAML のテーマ リソースは、アクティブなシステム テーマに応じて異なる値を適用するリソースのセットです。
+description: XAML のテーマ リソースは、アクティブなシステム テーマに応じて異なる値を適用するリソースのセットです。
 MS-HAID: dev\_ctrl\_layout\_txt.xaml\_theme\_resources
 MSHAttr: PreferredLib:/library/windows/apps
 Search.Product: eADQiWindows 10XVcnh
@@ -11,18 +11,18 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ac4f7c7705fef0a3a7a1d556635e1c80e9c04a29
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 6da668c005f95d51f6fb0588f60fdcf63aea4fd7
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91217213"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034425"
 ---
 # <a name="xaml-theme-resources"></a>XAML テーマ リソース
 
 XAML のテーマ リソースは、アクティブなシステム テーマに応じて異なる値を適用するリソースのセットです。 XAML フレームワークでは、3 つのテーマがサポートされています。"Light"、"Dark"、および "HighContrast" です。
 
-**前提条件**:このトピックでは、既に「[ResourceDictionary と XAML リソースの参照](resourcedictionary-and-xaml-resource-references.md)」を読んでいることを前提としています。
+**前提条件** :このトピックでは、既に「 [ResourceDictionary と XAML リソースの参照](resourcedictionary-and-xaml-resource-references.md)」を読んでいることを前提としています。
 
 ## <a name="theme-resources-v-static-resources"></a>テーマ リソース v 静的なリソース
 
@@ -55,7 +55,7 @@ XAML のテーマ リソースは、アクティブなシステム テーマに�
 
 ## <a name="the-xaml-color-ramp-and-theme-dependent-brushes"></a>XAML 色見本とテーマ依存のブラシ
 
-XAML における *Windows 色見本*は、"Light"、"Dark"、"HighContrast" の各テーマの色のセットを組み合わせることで構成されます。 システム テーマを変更する場合でも、システム テーマを独自の XAML 要素に適用する場合でも、カラー リソースがどのように構成されるかを理解することが重要です。
+XAML における *Windows 色見本* は、"Light"、"Dark"、"HighContrast" の各テーマの色のセットを組み合わせることで構成されます。 システム テーマを変更する場合でも、システム テーマを独自の XAML 要素に適用する場合でも、カラー リソースがどのように構成されるかを理解することが重要です。
 
 Windows アプリで色を適用する方法について詳しくは、[Windows アプリでの色使い](../style/color.md)に関する記事をご覧ください。
 
@@ -206,7 +206,7 @@ For many examples of how the brushes are used in the XAML control templates, see
 
 ## <a name="the-xaml-type-ramp"></a>XAML の書体見本
 
-themeresources.xaml ファイルには、UI 上のテキスト コンテナー (具体的には [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) または [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)) に適用できる [Style](/uwp/api/Windows.UI.Xaml.Style) を定義するリソースがいくつか定義されています。 これらは、既定の暗黙的なスタイルとは異なります。 これらのスタイルを使うと、「[フォントのガイドライン](../style/typography.md)」で説明されている *Windows の書体見本*に一致する XAML UI 定義を簡単に作成できるようになります。
+themeresources.xaml ファイルには、UI 上のテキスト コンテナー (具体的には [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) または [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)) に適用できる [Style](/uwp/api/Windows.UI.Xaml.Style) を定義するリソースがいくつか定義されています。 これらは、既定の暗黙的なスタイルとは異なります。 これらのスタイルを使うと、「 [フォントのガイドライン](../style/typography.md)」で説明されている *Windows の書体見本* に一致する XAML UI 定義を簡単に作成できるようになります。
 
 これらのスタイルは、テキスト コンテナー全体に適用されるテキスト属性を設定するものです。 テキストの一部にのみスタイルを適用する場合は、コンテナー内のテキスト要素に属性を設定します。たとえば、[TextBlock.Inlines](/uwp/api/windows.ui.xaml.controls.textblock.inlines) の [Run](/uwp/api/Windows.UI.Xaml.Documents.Run) や [RichTextBlock.Blocks](/uwp/api/windows.ui.xaml.controls.richtextblock.blocks) の [Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) を使うことができます。
 
@@ -228,7 +228,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 
 ### <a name="basetextblockstyle"></a>BaseTextBlockStyle
 
-**TargetType**:[TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
+**TargetType** : [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)
 
 他のすべての [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) コンテナー スタイルに対する一般的なプロパティを提供します。
 
@@ -338,7 +338,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 
 ### <a name="baserichtextblockstyle"></a>BaseRichTextBlockStyle
 
-**TargetType**:[RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)
+**TargetType** : [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock)
 
 他のすべての [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) コンテナー スタイルに対する一般的なプロパティを提供します。
 
@@ -375,7 +375,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 </Style>
 ```
 
-**注**:  [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) スタイルには、[TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に含まれているテキスト見本スタイルのすべては含まれていません。これは主に、**RichTextBlock** のブロック ベースのドキュメント オブジェクト モデルでは、個々のテキスト要素への属性の設定がより簡単になっているためです。 また、XAML コンテンツ プロパティを使って [TextBlock.Text](/uwp/api/windows.ui.xaml.controls.textblock.text) を設定する方式では、スタイルを設定できるテキスト要素が存在しない状況になるため、コンテナーにスタイルを設定する必要があります。 これに対して **RichTextBlock** では、テキスト コンテンツは常に [Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) などの固有のテキスト要素になり、そこにページ ヘッダーやページ サブヘッダー、類似のテキスト見本定義の XAML スタイルを適用できるため、この問題はありません。
+**注** :   [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) スタイルには、 [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) に含まれているテキスト見本スタイルのすべては含まれていません。これは主に、 **RichTextBlock** のブロック ベースのドキュメント オブジェクト モデルでは、個々のテキスト要素への属性の設定がより簡単になっているためです。 また、XAML コンテンツ プロパティを使って [TextBlock.Text](/uwp/api/windows.ui.xaml.controls.textblock.text) を設定する方式では、スタイルを設定できるテキスト要素が存在しない状況になるため、コンテナーにスタイルを設定する必要があります。 これに対して **RichTextBlock** では、テキスト コンテンツは常に [Paragraph](/uwp/api/Windows.UI.Xaml.Documents.Paragraph) などの固有のテキスト要素になり、そこにページ ヘッダーやページ サブヘッダー、類似のテキスト見本定義の XAML スタイルを適用できるため、この問題はありません。
 
 ## <a name="miscellaneous-named-styles"></a>その他の名前付きスタイル
 
@@ -383,11 +383,11 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 
 ### <a name="textblockbuttonstyle"></a>TextBlockButtonStyle
 
-**TargetType**:[ButtonBase](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase)
+**TargetType** : [ButtonBase](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase)
 
-ユーザーがクリックしてアクションを実行できるテキストを表示する必要がある場合は、このスタイルを [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) に適用します。 このテキストには、対話型であることがわかるように現在のアクセント カラーを使ったスタイルが設定され、テキストに適したフォーカス四角形が表示されます。 [HyperlinkButton](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) の暗黙的なスタイルとは異なり、**TextBlockButtonStyle** のテキストには下線は付きません。
+ユーザーがクリックしてアクションを実行できるテキストを表示する必要がある場合は、このスタイルを [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) に適用します。 このテキストには、対話型であることがわかるように現在のアクセント カラーを使ったスタイルが設定され、テキストに適したフォーカス四角形が表示されます。 [HyperlinkButton](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) の暗黙的なスタイルとは異なり、 **TextBlockButtonStyle** のテキストには下線は付きません。
 
-このテンプレートは、表示テキストにもスタイルを設定して、**SystemControlHyperlinkBaseMediumBrush** ("PointerOver" 状態の場合)、**SystemControlHighlightBaseMediumLowBrush** ("Pressed" 状態の場合)、**SystemControlDisabledBaseLowBrush** ("Disabled" 状態の場合) が使われるようにします。
+このテンプレートは、表示テキストにもスタイルを設定して、 **SystemControlHyperlinkBaseMediumBrush** ("PointerOver" 状態の場合)、 **SystemControlHighlightBaseMediumLowBrush** ("Pressed" 状態の場合)、 **SystemControlDisabledBaseLowBrush** ("Disabled" 状態の場合) が使われるようにします。
 
 **TextBlockButtonStyle** リソースを適用した [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) の例を以下に示します。
 
@@ -402,9 +402,9 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 
 ### <a name="navigationbackbuttonnormalstyle"></a>NavigationBackButtonNormalStyle
 
-**TargetType**:[ボタン](/uwp/api/Windows.UI.Xaml.Controls.Button)
+**TargetType** : [ボタン](/uwp/api/Windows.UI.Xaml.Controls.Button)
 
-この [Style](/uwp/api/Windows.UI.Xaml.Style) は、ナビゲーション アプリの戻るボタンとして使うことができる [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) 用の完全なテンプレートを提供します。 既定の寸法は 40 x 40 ピクセルです。 スタイルを調整するには、**Button** の [Height](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)、[Width](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)、[FontSize](/uwp/api/windows.ui.xaml.controls.control.fontsize)、その他のプロパティを明示的に設定するか、[BasedOn](/uwp/api/windows.ui.xaml.style.basedon) を使って派生スタイルを作成します。
+この [Style](/uwp/api/Windows.UI.Xaml.Style) は、ナビゲーション アプリの戻るボタンとして使うことができる [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) 用の完全なテンプレートを提供します。 既定の寸法は 40 x 40 ピクセルです。 スタイルを調整するには、 **Button** の [Height](/uwp/api/Windows.UI.Xaml.FrameworkElement.Height)、 [Width](/uwp/api/Windows.UI.Xaml.FrameworkElement.Width)、 [FontSize](/uwp/api/windows.ui.xaml.controls.control.fontsize)、その他のプロパティを明示的に設定するか、 [BasedOn](/uwp/api/windows.ui.xaml.style.basedon) を使って派生スタイルを作成します。
 
 **NavigationBackButtonNormalStyle** リソースを適用した [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) の例を以下に示します。
 
@@ -418,7 +418,7 @@ themeresources.xaml ファイルには、UI 上のテキスト コンテナー (
 
 ### <a name="navigationbackbuttonsmallstyle"></a>NavigationBackButtonSmallStyle
 
-**TargetType**:[ボタン](/uwp/api/Windows.UI.Xaml.Controls.Button)
+**TargetType** : [ボタン](/uwp/api/Windows.UI.Xaml.Controls.Button)
 
 この [Style](/uwp/api/Windows.UI.Xaml.Style) は、ナビゲーション アプリの戻るボタンとして使うことができる [Button](/uwp/api/Windows.UI.Xaml.Controls.Button) 用の完全なテンプレートを提供します。 **NavigationBackButtonNormalStyle** と同様ですが、寸法は 30 x 30 ピクセルになります。
 

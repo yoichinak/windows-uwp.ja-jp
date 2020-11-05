@@ -1,5 +1,5 @@
 ---
-Description: ItemsRepeater は、項目のコレクションを生成して表示するための軽量なコントロールです。
+description: ItemsRepeater は、項目のコレクションを生成して表示するための軽量なコントロールです。
 title: ItemsRepeater
 label: ItemsRepeater
 template: detail.hbs
@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 52938a03e7e0287a200cedc5b8edb98169483425
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 43434a0354a39ae37798e959a9eb919465989dba
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750668"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034575"
 ---
 # <a name="itemsrepeater"></a>ItemsRepeater
 
@@ -73,10 +73,10 @@ ItemsRepeater には組み込みの項目コレクションはありません。
 
 [**ItemsRepeater**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) は [**Control**](/uwp/api/windows.ui.xaml.controls.control) から派生しないため、コントロール テンプレートはありません。 したがって、ListView やその他のコレクション コントロールのようにスクロールの操作は組み込まれていません。
 
-**ItemsRepeater** を使用する場合は、[**ScrollViewer**](/uwp/api/windows.ui.xaml.controls.scrollviewer) コントロールでラップし、スクロール機能を提供する必要があります。
+**ItemsRepeater** を使用する場合は、 [**ScrollViewer**](/uwp/api/windows.ui.xaml.controls.scrollviewer) コントロールでラップし、スクロール機能を提供する必要があります。
 
 > [!NOTE]
-> 以前のバージョンの Windows (Windows 10 バージョン 1809 *より前* にリリースされたもの) でアプリを実行する場合は、[**ItemsRepeaterScrollHost**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeaterscrollhost) 内で **ScrollViewer** をホストする必要もあります。 
+> 以前のバージョンの Windows (Windows 10 バージョン 1809 *より前* にリリースされたもの) でアプリを実行する場合は、 [**ItemsRepeaterScrollHost**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeaterscrollhost) 内で **ScrollViewer** をホストする必要もあります。 
 > ```xaml
 > <muxc:ItemsRepeaterScrollHost>
 >     <ScrollViewer>
@@ -84,17 +84,17 @@ ItemsRepeater には組み込みの項目コレクションはありません。
 >     </ScrollViewer>
 > </muxc:ItemsRepeaterScrollHost>
 > ```
-> 最新バージョン (バージョン 1809 以降) の Windows 10 でのみアプリを実行する場合は、[**ItemsRepeaterScrollHost**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeaterscrollhost) を使用する必要はありません。
+> 最新バージョン (バージョン 1809 以降) の Windows 10 でのみアプリを実行する場合は、 [**ItemsRepeaterScrollHost**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeaterscrollhost) を使用する必要はありません。
 >
-> Windows 10 バージョン 1809 より前の場合、**ScrollViewer** では、**ItemsRepeater** に必要な [ **IScrollAnchorProvider**](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider) インターフェイスが実装されませんでした。  **ItemsRepeaterScrollHost** では、**ItemsRepeater** が以前のリリースの **ScrollViewer** と連動し、ユーザーに表示される項目の見える場所が適切に保持されるようにします。  それ以外の場合、リスト内の項目が変更されたり、アプリのサイズが変更されたりした場合に、項目が突然移動されたり、消されたりするように表示されることがあります。
+> Windows 10 バージョン 1809 より前の場合、 **ScrollViewer** では、 **ItemsRepeater** に必要な [ **IScrollAnchorProvider**](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider) インターフェイスが実装されませんでした。  **ItemsRepeaterScrollHost** では、 **ItemsRepeater** が以前のリリースの **ScrollViewer** と連動し、ユーザーに表示される項目の見える場所が適切に保持されるようにします。  それ以外の場合、リスト内の項目が変更されたり、アプリのサイズが変更されたりした場合に、項目が突然移動されたり、消されたりするように表示されることがあります。
 
 ## <a name="create-an-itemsrepeater"></a>ItemsRepeater を作成する
 
-[**ItemsRepeater**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用するには、**ItemsSource** プロパティを設定し、表示するデータを指定する必要があります。 その後、[**ItemTemplate**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate) プロパティを設定し、項目の表示方法を指示します。
+[**ItemsRepeater**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用するには、 **ItemsSource** プロパティを設定し、表示するデータを指定する必要があります。 その後、 [**ItemTemplate**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemtemplate) プロパティを設定し、項目の表示方法を指示します。
 
 ### <a name="itemssource"></a>ItemsSource
 
-ビューを設定するには、[**ItemsSource**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemssource) プロパティをデータ項目のコレクションに設定します。 ここでは、**ItemsSource** がコードでコレクションのインスタンスに直接設定されています。
+ビューを設定するには、 [**ItemsSource**](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.itemssource) プロパティをデータ項目のコレクションに設定します。 ここでは、 **ItemsSource** がコードでコレクションのインスタンスに直接設定されています。
 
 ```csharp
 ObservableCollection<string> Items = new ObservableCollection<string>();
@@ -140,10 +140,10 @@ itemsRepeater1.ItemsSource = Items;
 
 ![データ テンプレートを使って表示された項目](images/listview-itemstemplate.png)
 
-ビューで多くの項目が表示される場合、項目の **DataTemplate** で使用される要素の数がパフォーマンスに大きく影響する可能性があります。 **DataTemplate** を使用してリスト項目の外観を定義する詳しい方法のその例については、「[項目のコンテナーとテンプレート](item-containers-templates.md)」を参照してください。
+ビューで多くの項目が表示される場合、項目の **DataTemplate** で使用される要素の数がパフォーマンスに大きく影響する可能性があります。 **DataTemplate** を使用してリスト項目の外観を定義する詳しい方法のその例については、「 [項目のコンテナーとテンプレート](item-containers-templates.md)」を参照してください。
 
 > [!TIP]
-> 便宜上、静的リソースとして参照するのではなく、テンプレートをインラインで宣言する必要がある場合は、**ItemsRepeater** の直接の子として、**DataTemplate** または **DataTemplateSelector** を指定することができます。  これは、**ItemTemplate** プロパティの値として割り当てられます。 たとえば、これが有効です。
+> 便宜上、静的リソースとして参照するのではなく、テンプレートをインラインで宣言する必要がある場合は、 **ItemsRepeater** の直接の子として、 **DataTemplate** または **DataTemplateSelector** を指定することができます。  これは、 **ItemTemplate** プロパティの値として割り当てられます。 たとえば、これが有効です。
 > ```xaml
 > <ItemsRepeater ItemsSource="{x:Bind Items}">
 >     <DataTemplate>
@@ -153,9 +153,9 @@ itemsRepeater1.ItemsSource = Items;
 > ```
 
 > [!TIP]
-> **ListView** やその他のコレクション コントロールとは異なり、**ItemsRepeater** では、余白、パディング、選択ビジュアル、ビジュアル状態のポインターなど、既定のポリシーを含む追加の項目コンテナーがある **DataTemplate** の要素は折り返されません。 代わりに、**ItemsRepeater** では、**DataTemplate** で定義された内容のみが表示されます。 項目をリスト ビュー項目と同じ外観にする必要がある場合は、データ テンプレートで、**ListViewItem** などの、コンテナーを明示的に含めることができます。 **ItemsRepeater** では  **ListViewItem** ビジュアルが表示されますが、選択や複数選択チェックボックスの表示など、その他の機能は自動的に利用されません。
+> **ListView** やその他のコレクション コントロールとは異なり、 **ItemsRepeater** では、余白、パディング、選択ビジュアル、ビジュアル状態のポインターなど、既定のポリシーを含む追加の項目コンテナーがある **DataTemplate** の要素は折り返されません。 代わりに、 **ItemsRepeater** では、 **DataTemplate** で定義された内容のみが表示されます。 項目をリスト ビュー項目と同じ外観にする必要がある場合は、データ テンプレートで、 **ListViewItem** などの、コンテナーを明示的に含めることができます。 **ItemsRepeater** では  **ListViewItem** ビジュアルが表示されますが、選択や複数選択チェックボックスの表示など、その他の機能は自動的に利用されません。
 >
-> 同様に、データ コレクションが、**Button** (`List<Button>`) などの、実際のコントロールのコレクションである場合は、**DataTemplate** に  **ContentPresenter** を配置してコントロールを表示することができます。
+> 同様に、データ コレクションが、 **Button** (`List<Button>`) などの、実際のコントロールのコレクションである場合は、 **DataTemplate** に  **ContentPresenter** を配置してコントロールを表示することができます。
 
 #### <a name="datatemplateselector"></a>DataTemplateSelector
 
@@ -172,10 +172,10 @@ itemsRepeater1.ItemsSource = Items;
 </ItemsRepeater>
 ```
 
-**ItemsRepeater** で使用する **DataTemplateSelector** を定義する場合、[**SelectTemplateCore(Object)** ](/uwp/api/windows.ui.xaml.controls.datatemplateselector.selecttemplatecore#Windows_UI_Xaml_Controls_DataTemplateSelector_SelectTemplateCore_System_Object_) メソッドのオーバーライドを実装するだけで済みます。 詳しい説明と例については、[**DataTemplateSelector**](/uwp/api/windows.ui.xaml.controls.datatemplateselector) に関するページを参照してください。
+**ItemsRepeater** で使用する **DataTemplateSelector** を定義する場合、 [**SelectTemplateCore(Object)**](/uwp/api/windows.ui.xaml.controls.datatemplateselector.selecttemplatecore#Windows_UI_Xaml_Controls_DataTemplateSelector_SelectTemplateCore_System_Object_) メソッドのオーバーライドを実装するだけで済みます。 詳しい説明と例については、 [**DataTemplateSelector**](/uwp/api/windows.ui.xaml.controls.datatemplateselector) に関するページを参照してください。
 
 > [!NOTE]
-> より高度なシナリオで要素を作成する方法を管理する **DataTemplate** の代わりに、独自の [**Windows.UI.Xaml.Controls.IElementFactory**](/uwp/api/windows.ui.xaml.controls.ielementfactory) を実装し、**ItemTemplate** として使用することができます。  これには、要求されたときにコンテンツを生成する役割があります。
+> より高度なシナリオで要素を作成する方法を管理する **DataTemplate** の代わりに、独自の [**Windows.UI.Xaml.Controls.IElementFactory**](/uwp/api/windows.ui.xaml.controls.ielementfactory) を実装し、 **ItemTemplate** として使用することができます。  これには、要求されたときにコンテンツを生成する役割があります。
 
 ## <a name="configure-the-data-source"></a>データ ソースを構成する
 
@@ -201,7 +201,7 @@ itemsRepeater1.ItemsSource = Items;
 
     インデックスを使用してコントロールで項目にアクセスできるようにし、内部の冗長コピーの回避を可能にします。
 
-    **警告**: [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装せずに list/vector を変更した場合、UI では反映されません。
+    **警告** : [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged) を実装せずに list/vector を変更した場合、UI では反映されません。
 
 - [INotifyCollectionChanged](/dotnet/api/system.collections.specialized.inotifycollectionchanged)(.NET)
 
@@ -215,15 +215,15 @@ itemsRepeater1.ItemsSource = Items;
 
     **INotifyCollectionChanged** インターフェイスと同様、これにより、コントロールでデータ ソース内の変更を監視し、対応できるようになります。
 
-    **警告**: Windows.Foundation.IObservableVector\<T> では '移動' アクションはサポートされません。 そのため、UI で項目の表示状態が失われる可能性があります。  たとえば、現在選択されているか、'削除' の後、'追加' によって移動が行われた場所にフォーカスがあるか、あるいはその両方の状態の項目のフォーカスが失われ、選択できなくなります。
+    **警告** : Windows.Foundation.IObservableVector\<T> では '移動' アクションはサポートされません。 そのため、UI で項目の表示状態が失われる可能性があります。  たとえば、現在選択されているか、'削除' の後、'追加' によって移動が行われた場所にフォーカスがあるか、あるいはその両方の状態の項目のフォーカスが失われ、選択できなくなります。
 
-    Platform.Collections.Vector\<T> では IObservableVector\<T> が使用され、これと同じ制限があります。 '移動' アクションのサポートが必要な場合は、**INotifyCollectionChanged** インターフェイスを使用します。  .NET ObservableCollection\<T> クラスでは **INotifyCollectionChanged** が使用されます。
+    Platform.Collections.Vector\<T> では IObservableVector\<T> が使用され、これと同じ制限があります。 '移動' アクションのサポートが必要な場合は、 **INotifyCollectionChanged** インターフェイスを使用します。  .NET ObservableCollection\<T> クラスでは **INotifyCollectionChanged** が使用されます。
 
 - [IKeyIndexMapping](/uwp/api/microsoft.ui.xaml.controls.ikeyindexmapping)
 
   - 一意識別子を各項目に関連付けることができる場合。  コレクション変更アクションとして 'リセット' を使用する場合にお勧めします。
 
-    コントロールで、**INotifyCollectionChanged** または **IObservableVector** イベントの一部としてハード 'リセット' アクションを受信した後、既存の UI を非常に効率的に回復できるようにします。 リセットを受信した後、コントロールでは、既に作成されている要素に現在のデータを関連付けるために、指定された一意の ID が使用されます。 キーをインデックスにマップしない場合、コントロールでは、データの UI の作成を最初からやり直す必要があると見なす必要があります。
+    コントロールで、 **INotifyCollectionChanged** または **IObservableVector** イベントの一部としてハード 'リセット' アクションを受信した後、既存の UI を非常に効率的に回復できるようにします。 リセットを受信した後、コントロールでは、既に作成されている要素に現在のデータを関連付けるために、指定された一意の ID が使用されます。 キーをインデックスにマップしない場合、コントロールでは、データの UI の作成を最初からやり直す必要があると見なす必要があります。
 
 IKeyIndexMapping 以外の、上記のインターフェイスでは、ItemsRepeater で、ListView や GridView の場合と同じ動作が提供されます。
 
@@ -312,33 +312,33 @@ private async void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChang
 
 このリストには使用可能な値が示されています。 定義では、既定の **Orientation** が **Horizontal** であることが前提となります。
 
-- **None**: 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
-- **Fill**:使用可能なスペースを使い切るように、項目に追加の幅 (垂直の場合は高さ) が指定されます。
-- **Uniform**:使用可能なスペースを使い切るように、項目に追加の幅が指定され、縦横比を維持するために追加の高さが指定されます (垂直の場合は、高さと幅が切り替わります)。
+- **None** : 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
+- **Fill** :使用可能なスペースを使い切るように、項目に追加の幅 (垂直の場合は高さ) が指定されます。
+- **Uniform** :使用可能なスペースを使い切るように、項目に追加の幅が指定され、縦横比を維持するために追加の高さが指定されます (垂直の場合は、高さと幅が切り替わります)。
 
 この図は、水平レイアウトでの **ItemsStretch** 値の効果を示しています。
 
 ![均一なグリッド項目のストレッチ](images/uniform-grid-item-stretch.png)
 
-**ItemsStretch** が **None** の場合は、[ItemsJustification](/uwp/api/microsoft.ui.xaml.controls.uniformgridlayout.itemsjustification) プロパティを設定し、余分なスペースを使用して項目を揃える方法を指定できます。
+**ItemsStretch** が **None** の場合は、 [ItemsJustification](/uwp/api/microsoft.ui.xaml.controls.uniformgridlayout.itemsjustification) プロパティを設定し、余分なスペースを使用して項目を揃える方法を指定できます。
 
 このリストには使用可能な値が示されています。 定義では、既定の **Orientation** が **Horizontal** であることが前提となります。
 
-- **Start**:項目は行の先頭に揃えられます。 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
-- **Center**:項目は行の中央に揃えられます。 余分なスペースは、行の先頭と末尾に均等に分割されます。
-- **End**:項目は行の末尾に揃えられます。 余分なスペースが行の先頭に未使用のまま残されます。
-- **SpaceAround**:項目は均等に分散されます。 各項目の前後に同量のスペースが追加されます。
-- **SpaceBetween**:項目は均等に分散されます。 各項目の間に同量のスペースが追加されます。 行の先頭と末尾にはスペースは追加されません。
-- **SpaceEvenly**:項目は、各項目間および行の先頭と末尾の両方に、等しいスペースで均等に分散されます。
+- **Start** :項目は行の先頭に揃えられます。 余分なスペースが行の末尾に未使用のまま残されます。 これは既定です。
+- **Center** :項目は行の中央に揃えられます。 余分なスペースは、行の先頭と末尾に均等に分割されます。
+- **End** :項目は行の末尾に揃えられます。 余分なスペースが行の先頭に未使用のまま残されます。
+- **SpaceAround** :項目は均等に分散されます。 各項目の前後に同量のスペースが追加されます。
+- **SpaceBetween** :項目は均等に分散されます。 各項目の間に同量のスペースが追加されます。 行の先頭と末尾にはスペースは追加されません。
+- **SpaceEvenly** :項目は、各項目間および行の先頭と末尾の両方に、等しいスペースで均等に分散されます。
 
 この図には、垂直レイアウトでの **ItemsStretch** 値の効果が示されています (行ではなく、列に適用)。
 
 ![均一なグリッド項目の位置揃え](images/uniform-grid-item-justification.png)
 
 > [!TIP]
-> **ItemsStretch** プロパティは、レイアウトの_測定_ パスに影響します。 **ItemsJustification** プロパティは、レイアウトの_配置_ パスに影響します。
+> **ItemsStretch** プロパティは、レイアウトの _測定_ パスに影響します。 **ItemsJustification** プロパティは、レイアウトの _配置_ パスに影響します。
 
-この例では、**ItemsRepeater.Layout** プロパティを **UniformGridLayout** に設定する方法を示します。
+この例では、 **ItemsRepeater.Layout** プロパティを **UniformGridLayout** に設定する方法を示します。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -441,7 +441,7 @@ private void OnElementClearing(ItemsRepeater sender, ElementClearingEventArgs ar
 
 これにより、ItemsRepeater でスクロール位置 0 からのやり直しが回避されます。 また、リセットで変更されなかったデータの UIElement をすばやく復元でき、その結果、パフォーマンスが向上します。
 
-この例では、_MyItemsSource_ が項目の基になるリストを折り返すカスタム データ ソースである、垂直スタックで項目のリストを表示する方法を示します。 _Data_ プロパティが公開され、これを使用して新しいリストを再度割り当て、項目ソースとして使用し、その後、リセットをトリガーすることができます。
+この例では、 _MyItemsSource_ が項目の基になるリストを折り返すカスタム データ ソースである、垂直スタックで項目のリストを表示する方法を示します。 _Data_ プロパティが公開され、これを使用して新しいリストを再度割り当て、項目ソースとして使用し、その後、リセットをトリガーすることができます。
 
 ```xaml
 <ScrollViewer x:Name="sv">
@@ -578,9 +578,9 @@ public class MyItemsSource : IReadOnlyList<ItemBase>, IKeyIndexMapping, INotifyC
 [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を使用すれば、各項目を表示する独自の種類のコントロールを備えたカスタム コレクション コントロールを作成することができます。
 
 > [!NOTE]
-> これは **ItemsControl** を使用する場合と似ていますが、**ItemsControl** から派生させ、コントロール テンプレートに **ItemsPresenter** を配置するのではなく、**Control** から派生させ、コントロール テンプレートに **ItemsRepeater** を挿入します。 **ItemsRepeater** はカスタム コレクション コントロールに "含まれ" ているのに対して、**ItemsControl** はカスタム コレクション コントロール "である" ことになります。 これは、サポートしない継承済みのプロパティではなく、公開するプロパティを明示的に選ぶ必要もあることを意味します。
+> これは **ItemsControl** を使用する場合と似ていますが、 **ItemsControl** から派生させ、コントロール テンプレートに **ItemsPresenter** を配置するのではなく、 **Control** から派生させ、コントロール テンプレートに **ItemsRepeater** を挿入します。 **ItemsRepeater** はカスタム コレクション コントロールに "含まれ" ているのに対して、 **ItemsControl** はカスタム コレクション コントロール "である" ことになります。 これは、サポートしない継承済みのプロパティではなく、公開するプロパティを明示的に選ぶ必要もあることを意味します。
 
-この例では、_MediaCollectionView_ という名前のカスタム コントロールのテンプレートで [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を配置し、そのプロパティを公開する方法を示します。
+この例では、 _MediaCollectionView_ という名前のカスタム コントロールのテンプレートで [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater) を配置し、そのプロパティを公開する方法を示します。
 
 ```xaml
 <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
@@ -791,12 +791,12 @@ ItemsRepeater で提供されるフォーカス移動のためのキーボード
 
 ItemsRepeater の [XYFocusKeyboardNavigation モード](/uwp/api/windows.ui.xaml.input.xyfocuskeyboardnavigationmode)は、既定で _Enabled_ になっています。 目的のエクスペリエンスに応じて、Home、End、PageUp、PageDown などの一般的な[キーボード操作](../input/keyboard-interactions.md)のサポートの追加を検討してください。
 
-ItemsRepeater では、項目の既定のタブ順序が (仮想化されているかどうかに関わらず)、データ内に項目が指定されているのと同じ順序に従っていることが自動的に確保されます。 ItemsRepeater では、既定でその [TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement.tabfocusnavigation) プロパティが、一般的な既定値である _Local_ ではなく、[Once](/uwp/api/windows.ui.xaml.input.keyboardnavigationmode) に設定されます。
+ItemsRepeater では、項目の既定のタブ順序が (仮想化されているかどうかに関わらず)、データ内に項目が指定されているのと同じ順序に従っていることが自動的に確保されます。 ItemsRepeater では、既定でその [TabFocusNavigation](/uwp/api/windows.ui.xaml.uielement.tabfocusnavigation) プロパティが、一般的な既定値である _Local_ ではなく、 [Once](/uwp/api/windows.ui.xaml.input.keyboardnavigationmode) に設定されます。
 
 > [!NOTE]
 > ItemsRepeater では、最後にフォーカスが置かれた項目が自動的に記憶されません。  これは、ユーザーが Shift + Tab キーを使用したときに、最後に認識された項目に移動される可能性があることを意味します。
 
-### <a name="announcing-item-_x_-of-_y_-in-screen-readers"></a>スクリーン リーダーでの "_Y_ の _X_ 項目" の読み上げ
+### <a name="announcing-item-_x_-of-_y_-in-screen-readers"></a>スクリーン リーダーでの " _Y_ の _X_ 項目" の読み上げ
 
 **PositionInSet** や **SizeOfSet** の値などの、適切なオートメーション プロパティの設定を管理する必要があり、項目の追加、移動、削除などが行われた場合、確実に最新の状態が保たれているようにする必要があります。
 
@@ -804,7 +804,7 @@ ItemsRepeater では、項目の既定のタブ順序が (仮想化されてい�
 
 これを実現する最善の方法は、項目コントロールのオートメーション ピアで [GetPositionInSetCore](/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getpositioninsetcore) および [GetSizeOfSetCore](/uwp/api/windows.ui.xaml.automation.peers.automationpeer.getsizeofsetcore) メソッドを実装し、コントロールによって表されるデータ セットの項目の位置をレポートすることです。 支援技術によるアクセスの実行時にのみ、値が計算され、それを最新の状態に保つことが大変なことではなくなります。 値はデータの順序と一致します。
 
-この例では、_CardControl_ と呼ばれるカスタム コントロールを表示するときに、これをどのように実行するかを示します。
+この例では、 _CardControl_ と呼ばれるカスタム コントロールを表示するときに、これをどのように実行するかを示します。
 
 ```xaml
 <ScrollViewer >

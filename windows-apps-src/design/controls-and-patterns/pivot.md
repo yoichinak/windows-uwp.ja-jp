@@ -1,5 +1,5 @@
 ---
-Description: Pivot コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
+description: Pivot コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
 title: Pivot
 template: detail.hbs
 ms.date: 09/24/2020
@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 12b6662eb7bbfc08563dd9f7313aa0ea7d0a0e18
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: eaef3bb57eb8719ac4183f21b764ece98cae22fe
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91749708"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030855"
 ---
 # <a name="pivot"></a>Pivot
 
@@ -37,7 +37,7 @@ ms.locfileid: "91749708"
    :::column-end:::
 :::row-end:::
 
-> **プラットフォーム API**: [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[NavigationView クラス](/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
+> **プラットフォーム API** : [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、 [NavigationView クラス](/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
 
 ## <a name="examples"></a>例
 
@@ -199,7 +199,7 @@ Pivot は [ItemsControl](/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) であ�
 - ピボット ラベルをタップすると対応するページに移動し、アクティブなピボット ラベルは最初の位置までカルーセル表示されます。
 - カルーセル内のピボット項目は、最後のピボット セクションから最初のピボット セクションにループします。
 
-> **注** ピボット ヘッダーを [10 フィート環境](../devices/designing-for-tv.md)でカルーセル表示しないでください。 Xbox 上でアプリを実行する場合は、[IsHeaderItemsCarouselEnabled](/uwp/api/Windows.UI.Xaml.Controls.Pivot.IsHeaderItemsCarouselEnabled) プロパティを **false** に設定します。
+> **注** ピボット ヘッダーを [10 フィート環境](../devices/designing-for-tv.md)でカルーセル表示しないでください。 Xbox 上でアプリを実行する場合は、 [IsHeaderItemsCarouselEnabled](/uwp/api/Windows.UI.Xaml.Controls.Pivot.IsHeaderItemsCarouselEnabled) プロパティを **false** に設定します。
 
 ## <a name="recommendations"></a>推奨事項
 

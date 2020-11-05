@@ -1,19 +1,19 @@
 ---
-Description: Windows 10 ビルド 10240 と開発者ツールの更新プログラムでは、引き続きユニバーサル Windows プラットフォームによって強化されたツール、機能、およびエクスペリエンスを提供しています。
-title: Windows 10 ビルド 10240 の新機能 - 2015 年 7 月
+description: Windows 10 ビルド 10240 と開発者ツールの更新プログラムでは、引き続きユニバーサル Windows プラットフォームによって強化されたツール、機能、およびエクスペリエンスを提供しています。
+title: Windows 10 ビルド 10240 の新着情報 - 2015 年 7 月
 keywords: Windows 10, 1507, 10240
 ms.date: 11/02/2017
 ms.topic: article
 ms.assetid: 4853e55b-2232-4589-903a-ccb60e07aeb8
 ms.localizationpriority: medium
-ms.openlocfilehash: eee6552ce26bbe3c24ae6c6647c8297ba7d7487b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 282026436355c1bcaab504d2818c2a30ff09e20d
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172806"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93029915"
 ---
-# <a name="whats-new-in-windows10-for-developers-build-10240"></a>Windows 10 ビルド 10240 の開発者向け新機能
+# <a name="whats-new-in-windows-10-for-developers-build-10240"></a>Windows 10 ビルド 10240 の開発者向け新着情報
 
 Windows 10 ビルド 10240 と更新された SDK では、優れたユニバーサル Windows プラットフォーム アプリを作るためツール、機能、エクスペリエンスを利用できます。 Windows 10 への[ツールと SDK のインストール](https://developer.microsoft.com/windows/downloads#_blank)が完了したら、[新しいユニバーサル Windows アプリを作成](../get-started/create-uwp-apps.md)したり、[Windows の既存のアプリ コード](../porting/index.md)がどのように使えるかを試したりすることができます。
 
@@ -90,7 +90,7 @@ Windows の基本的なテキスト API | 新しい [Windows.UI.Text.Core](/uwp/
 Cortana | 音声コマンドが Cortana の基本機能を拡張し、外部アプリケーションで単一の操作を起動して実行します。 アプリの基本的な機能を統合して、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、Cortana は、アプリとユーザーの仲介役となります。 多くの場合、これによってユーザーの時間と労力を大幅に減らすことができます。 [Cortana のキャンバスにアプリを統合](/previous-versions/windows/apps/dn974230(v=win.10))する方法について説明します。 アイデアが必要な場合は、[ユニバーサル Windows アプリの設計の基本](../design/layout/index.md)に関するページで、Cortana に固有の設計に関する推奨事項とユーザー エクスペリエンスのガイドラインをご確認いただけます。
 エクスプローラー | 新しい [Windows.System.Launcher.LaunchFolderAsync](/uwp/api/windows.system.launcher.launchfolderasync) メソッドでは、エクスプローラーを起動して、指定したフォルダーの内容を表示できます。
 共有ストレージ | 新しい [Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager](/uwp/api/windows.applicationmodel.datatransfer.sharedstorageaccessmanager) クラスとそのメソッドでは、URI のアクティブ化を使って他のアプリを起動するときに共有トークンを渡し、別のアプリとファイルを共有できます。 ターゲット アプリはトークンを利用して、ソース アプリが共有しているファイルを取得します。
-Settings | ms-settings プロトコルと [LaunchUriAsync](/uwp/api/windows.system.launcher.launchuriasync) メソッドを使って組み込みの設定ページを表示できます。 たとえば、次のコードは Wi-Fi の設定ページを表示します。**bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings://network/wifi"));** <br /><br />表示できる設定ページの一覧については、「[ms-settings プロトコルを使って組み込みの設定ページを表示する方法](/previous-versions/windows/apps/jj207014(v=vs.105))」を参照してください。
+Settings | ms-settings プロトコルと [LaunchUriAsync](/uwp/api/windows.system.launcher.launchuriasync) メソッドを使って組み込みの設定ページを表示できます。 たとえば、次のコードは Wi-Fi の設定ページを表示します。 **bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings://network/wifi"));** <br /><br />表示できる設定ページの一覧については、「[ms-settings プロトコルを使って組み込みの設定ページを表示する方法](/previous-versions/windows/apps/jj207014(v=vs.105))」を参照してください。
 App-to-App communication | Windows 10 の新しい[アプリ間通信](/previous-versions/windows/apps/dn997827(v=win.10)) API により、Windows アプリケーション (および Windows Web アプリケーション) 間での相互起動やデータとファイルの交換が可能になります。 これらの新しい API を使うと、複数のアプリケーションを使う必要のあった複雑な作業をシームレスに処理できるようになります。 たとえば、アプリでソーシャル ネットワー キング アプリを起動して連絡先を選択したり、チェックアウト アプリケーションを起動して支払処理を完了したりできます。
 アプリ サービス | アプリ サービスは、Windows 10 でアプリが他のアプリにサービスを提供する方法の 1 つです。 アプリ サービスは、バックグラウンド タスクの形式を取ります。 フォアグラウンド アプリは、別のアプリでアプリ サービスを呼び出してバックグラウンドでタスクを実行できます。 アプリ サービス API のリファレンス情報については、[Windows.ApplicationModel.AppService](/uwp/api/Windows.ApplicationModel.AppService) をご覧ください。
 アプリ パッケージ マニフェスト | Windows 10 の[パッケージ マニフェスト スキーマ](/uwp/schemas/appxpackage/appx-package-manifest)のリファレンスへの更新には、追加、削除、変更された要素が含まれています。 このスキーマのすべての要素、属性、タイプに関するリファレンス情報については、「[要素の階層](/uwp/schemas/appxpackage/uapmanifestschema/root-elements)」をご覧ください。
@@ -100,7 +100,7 @@ App-to-App communication | Windows 10 の新しい[アプリ間通信](/previous
 機能 | 説明
  :---- | :----
 Microsoft Surface Hub | Microsoft Surface Hub は、高性能なチーム共同作業デバイスであり、Surface Hub または接続されているデバイスからネイティブで実行されるユニバーサル Windows アプリに対応する大画面プラットフォームです。 ビジネス向けの独自アプリを作成し、大画面、タッチ入力、手描き入力、広範なオンボード ハードウェア (カメラ、センサーなど) を活用しましょう。<br /><br />[ユニバーサル Windows アプリの設計の基本](../design/layout/index.md)に関するページで、Surface Hub に固有の設計に関する推奨事項とユーザー エクスペリエンスのガイドラインをご確認いただけます。 次のドキュメントでは、ユニバーサル Windows アプリのレスポンシブ デザイン手法を説明しています。 <br /><br />共同の共有アプリのサポートについては、[SharedModeSettings](/uwp/api/windows.system.profile.sharedmodesettings) に関するページをご覧ください。 手描き入力と新しい [InkCanvas](/uwp/api/windows.ui.xaml.controls.inkcanvas) コントロールでのマルチポイント手描き入力のサポートについて詳しくは、[Windows.UI.Input.Inking](/uwp/api/windows.ui.input.inking) に関するページと [Windows.UI.Input.Inking.Core](/uwp/api/windows.ui.input.inking.core) に関するページをご覧ください。 センサー入力の処理については、[デバイス、プリンター、センサーの統合](/previous-versions/windows/apps/br229563(v=win.10))に関するページをご覧ください。
-インストール先 | Windows 10 では、位置情報へのアクセス許可をユーザーに求める画面を表示する新しいメソッド、[RequestAccessAsync](/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) が導入されます。 ユーザーが**設定**アプリの**位置情報に関するプライバシー設定**で位置情報に関するプライバシーを設定します。 次の場合にのみ、アプリでユーザーの位置情報にアクセスできます。 **[このデバイスの位置情報]** がオンになっている場合 *(Windows 10 for phones には適用されません)* 、位置情報サービス設定の " **[位置情報]** " がオンになっている場合、 **[位置情報を使えるようにするアプリを選ぶ]** で、アプリがオンになっている場合。 <br /><br />ユーザーの位置情報にアクセスする前に、**RequestAccessAsync** を呼び出すことが重要です。 このときに、アプリをフォアグラウンドで実行し、**RequestAccessAsync** を UI スレッドから呼び出す必要があります。 位置情報に対するアクセス許可をユーザーがアプリに与えるまで、アプリは位置情報にアクセスできません。
+インストール先 | Windows 10 では、位置情報へのアクセス許可をユーザーに求める画面を表示する新しいメソッド、[RequestAccessAsync](/uwp/api/windows.devices.geolocation.geolocator.requestaccessasync) が導入されます。 ユーザーが **設定** アプリの **位置情報に関するプライバシー設定** で位置情報に関するプライバシーを設定します。 次の場合にのみ、アプリでユーザーの位置情報にアクセスできます。 **[このデバイスの位置情報]** がオンになっている場合 *(Windows 10 for phones には適用されません)* 、位置情報サービス設定の " **[位置情報]** " がオンになっている場合、 **[位置情報を使えるようにするアプリを選ぶ]** で、アプリがオンになっている場合。 <br /><br />ユーザーの位置情報にアクセスする前に、 **RequestAccessAsync** を呼び出すことが重要です。 このときに、アプリをフォアグラウンドで実行し、 **RequestAccessAsync** を UI スレッドから呼び出す必要があります。 位置情報に対するアクセス許可をユーザーがアプリに与えるまで、アプリは位置情報にアクセスできません。
 AllJoyn | [Windows.Devices.AllJoyn](/uwp/api/windows.devices.alljoyn) Windows ランタイム名前空間には、AllJoyn オープン ソース ソフトウェア フレームワークとサービスのマイクロソフトによる実装が導入されています。 これらの API により、Windows デバイス用のユニバーサル アプリは、AllJoyn に基づくモノのインターネット (IoT) のシナリオに他のデバイスと共に参加できるようになります。 AllJoyn C API について詳しくは、[AllSeen Alliance](https://allseenalliance.org/) でドキュメントをダウンロードしてください。 デバイス アプリでの AllJoyn シナリオの実現に使用できる Windows コンポーネントを生成するには、このリリースに含まれている [AllJoynCodeGen](/previous-versions/windows/apps/dn913809(v=win.10)) ツールを使います。 <br /><br />**注:** Windows 10 IoT Core が、小型デバイス用の新しいクラスで使用できるようになりました。これで、Windows と Visual Studio を使って "モノのインターネット" (IoT) デバイスを作成できます。 詳しくは、[Windows デベロッパー センターで Windows IoT](https://developer.microsoft.com/windows/iot) についてご覧ください。
 モバイルでの印刷 API (XAML) | There is a single, unified set of APIs that let you print from your XAML-based UWP apps across device families, including mobile devices. Windows.Graphics.Printing 名前空間と Windows.UI.Xaml.Printing 名前空間の慣れ親しんでいる印刷関連の API を使って、印刷機能をモバイル アプリに追加できるようになりました。
 バッテリ | [Windows.Devices.Power](/uwp/api/windows.devices.power) 名前空間のバッテリー API を使うと、アプリを実行しているデバイスに接続されたバッテリーについて、詳しい情報をアプリで取得できます。 個々のバッテリー コントローラーまたはすべてのバッテリー コントローラーの集合を表す [Battery](/uwp/api/windows.devices.power.battery) オブジェクトを作成します (それぞれ、[FromIdAsync](/uwp/api/windows.devices.power.battery.fromidasync) または [AggregateBattery](/uwp/api/windows.devices.power.battery.aggregatebattery) によって作成されている場合)。 [GetReport](/uwp/api/windows.devices.power.battery.getreport) メソッドを使って、対応するバッテリーの充電量、容量、状態を示す [BatteryReport](/uwp/api/windows.devices.power.batteryreport) オブジェクトを取得します。
@@ -121,7 +121,7 @@ SoftwareBitmapSource | ユニバーサル Windows アプリでは、XAML 画像�
 機能 | 説明
  :---- | :----
 HTTP ライブ ストリーミング | 新しい [AdaptiveMediaSource](/uwp/api/windows.media.streaming.adaptive.adaptivemediasource) クラスを使って、アダプティブ ビデオ ストリーミング機能をアプリに追加できます。 ストリーミング マニフェスト ファイルを指定してオブジェクトを初期化します。 サポートされているマニフェストの形式として、Http Live Streaming (HLS) と Dynamic Adaptive Streaming over HTTP (DASH) があります。 オブジェクトの XAML メディア要素にバインドされると、アダプティブ再生が始まります。 利用可能なビットレート、最小ビットレート、最大ビットレートなどのストリームのプロパティを照会して、必要に応じて設定できます。
-メディア ファンデーションの Transcode Video Processor (XVP) によるメディア ファンデーション トランスフォーム (MFT) のサポート | メディア ファンデーション トランスフォーム (MFT) を利用する Windows アプリでは、**メディア ファンデーションの Transcode Video Processor** (XVP) を使って、生のビデオ データを変換、拡大縮小、変形することができます。新しい [MF_XVP_CALLER_ALLOCATES_OUTPUT](/windows/desktop/medfound/mf-xvp-caller-allocates-output) 属性では、Microsoft DirectX ビデオ アクセラレーション (DXVA) モードであっても、呼び出し元によって割り当てられたテクスチャへの出力ができます。 新しい [IMFVideoProcessorControl2](/windows/desktop/api/mfidl/nn-mfidl-imfvideoprocessorcontrol2) インターフェイスでは、アプリでハードウェア効果を有効にし、サポートされているハードウェア効果を照会して、ビデオ プロセッサによって実行される回転操作をオーバーライドすることができます。
+メディア ファンデーションの Transcode Video Processor (XVP) によるメディア ファンデーション トランスフォーム (MFT) のサポート | メディア ファンデーション トランスフォーム (MFT) を利用する Windows アプリでは、 **メディア ファンデーションの Transcode Video Processor** (XVP) を使って、生のビデオ データを変換、拡大縮小、変形することができます。新しい [MF_XVP_CALLER_ALLOCATES_OUTPUT](/windows/desktop/medfound/mf-xvp-caller-allocates-output) 属性では、Microsoft DirectX ビデオ アクセラレーション (DXVA) モードであっても、呼び出し元によって割り当てられたテクスチャへの出力ができます。 新しい [IMFVideoProcessorControl2](/windows/desktop/api/mfidl/nn-mfidl-imfvideoprocessorcontrol2) インターフェイスでは、アプリでハードウェア効果を有効にし、サポートされているハードウェア効果を照会して、ビデオ プロセッサによって実行される回転操作をオーバーライドすることができます。
 コード変換 | 新しい [MediaProcessingTrigger](/uwp/api/Windows.ApplicationModel.Background.MediaProcessingTrigger) API では、アプリでメディアのトランスコードをバックグラウンド タスクとして実行することができます。これにより、フォアグラウンド アプリが終了してもトランスコード処理を続けることができます。
 MediaElement のメディア エラー イベント | ユニバーサル Windows アプリでは、メディア コンテンツに少なくとも 1 つの有効なストリームがある限り、いずれかのストリームのデコードでエラーが発生しても、[MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) が複数のストリームを含むコンテンツを再生します。 たとえば、オーディオとビデオ ストリームを含むコンテンツのビデオ ストリームが失敗した場合は、[MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) がオーディオ ストリームの再生を続けます。 [PartialMediaFailureDetected](/uwp/api/windows.ui.xaml.controls.mediaelement.partialmediafailuredetected) によってストリーム内のいずれかのストリームがデコードできなかったことが通知されます。 また、失敗したストリームの種類も通知されるため、その情報を UI に反映することができます。 メディア ストリーム内のすべてのストリームが失敗した場合は [MediaFailed](/uwp/api/windows.ui.xaml.controls.mediaelement.mediafailed) イベントが発生します。
 MediaElement を使ったアダプティブ ビデオ ストリーミングのサポート | [MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) には、アダプティブ ビデオ ストリーミングをサポートする新しい [SetPlaybackSource](/uwp/api/windows.ui.xaml.controls.mediaelement.setplaybacksource) メソッドがあります。 このメソッドを使って、メディア ソースを AdaptiveMediaSource に設定します。

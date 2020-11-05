@@ -1,5 +1,5 @@
 ---
-Description: ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。
+description: ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。
 title: ハイパーリンク
 ms.assetid: 74302FF0-65FC-4820-B59A-718A765EF7F0
 label: Hyperlinks
@@ -12,18 +12,18 @@ design-contact: kimsea
 dev-contact: stpete
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 471e17199d6a1858625ce418ea756d79cf8600f9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 90dfaa44205ac8eebfcb21227368e2daa492d3c4
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160136"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93030565"
 ---
 # <a name="hyperlinks"></a>ハイパーリンク
 
-ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。 XAML アプリにハイパーリンクを追加するには 2 つの方法、**ハイパーリンク** テキスト要素と **HyperlinkButton** コントロールがあります。
+ハイパーリンクはユーザーを、アプリの別の部分、別のアプリ、または別のブラウザー アプリを使って呼び出した URI (Uniform Resource Identifier) に誘導します。 XAML アプリにハイパーリンクを追加するには 2 つの方法、 **ハイパーリンク** テキスト要素と **HyperlinkButton** コントロールがあります。
 
-> **プラットフォーム API**: [ハイパーリンク テキスト要素](/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、[HyperlinkButton コントロール](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
+> **プラットフォーム API** : [ハイパーリンク テキスト要素](/uwp/api/Windows.UI.Xaml.Documents.Hyperlink)、 [HyperlinkButton コントロール](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton)
 
 ![ハイパーリンク ボタン](images/controls/hyperlink-button.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "89160136"
 
 -   テキスト コントロール内でインライン **ハイパーリンク** テキスト要素を使用します。 ハイパーリンク要素は他のテキスト要素とともに表示され、すべて InlineCollection で使うことができます。 自動テキスト折り返しを必要とするが、大きいサイズのヒット ターゲットを必要としない場合は、テキスト ハイパーリンクを使います。 ハイパーリンク テキストのサイズは小さく、ターゲットとして使うのが難しくなることがあります (特にタッチ操作の場合)。
 -   スタンドアロンのハイパーリンクには **HyperlinkButton** を使用します。 HyperlinkButton は、ボタンを使用する任意の場所で使用できる特殊なボタン コントロールです。
--   クリック可能なイメージを作成するには[イメージ](/uwp/api/windows.ui.xaml.controls.image) と一緒にそのコンテンツとして **HyperlinkButton** を使用します。
+-   クリック可能なイメージを作成するには [イメージ](/uwp/api/windows.ui.xaml.controls.image) と一緒にそのコンテンツとして **HyperlinkButton** を使用します。
 
 ## <a name="examples"></a>例
 
@@ -71,7 +71,7 @@ ms.locfileid: "89160136"
 
 ![テキスト要素としてのハイパーリンクの例](images/controls_hyperlink-element.png) 
 
-> **ヒント**&nbsp;&nbsp;テキスト コントロールでハイパーリンクを XAML のその他のテキスト要素と一緒に使用する場合、[スパン](/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ハイパーリンクとその他の要素間に空白を保持します。
+> **ヒント**&nbsp;&nbsp;テキスト コントロールでハイパーリンクを XAML のその他のテキスト要素と一緒に使用する場合、 [スパン](/uwp/api/windows.ui.xaml.documents.span) コンテナーにコンテンツを配置してスパンに `xml:space="preserve"` 属性を適用すると、ハイパーリンクとその他の要素間に空白を保持します。
 
 ## <a name="create-a-hyperlinkbutton"></a>HyperlinkButton を作成する
 
@@ -105,7 +105,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 
 ## <a name="handle-navigation"></a>ナビゲーションの処理
 
-どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。**NavigateUri** プロパティを設定するか、または**クリック**イベントを処理することができます。 
+どちらの種類のハイパーリンクでも同様にナビゲーションを処理します。 **NavigateUri** プロパティを設定するか、または **クリック** イベントを処理することができます。 
 
 **URI に移動**
 
@@ -114,7 +114,7 @@ helpLinkButton.NavigateUri = new Uri("http://www.contoso.com");
 > [!NOTE]
 > URI は [Windows.Foundation.Uri](/uwp/api/windows.foundation.uri) クラスで表されます。 .NET を使用したプログラミングでは、このクラスは表示されないため、[System.Uri](/dotnet/api/system.uri)クラスを使用する必要があります。 詳しくは、これらのクラスのリファレンス ページをご覧ください。
 
-**http:** または **https:** スキームを使用する必要はありません。 ブラウザーに読み込むのに適したリソース コンテンツがこれらの場所にある場合は、**ms-appx:** 、**ms-appdata:** 、または **ms-resources:** などのスキームを使うことができます。 ただし、**file:** スキームは明確に禁止されます。 詳しくは、「[URI スキーム](/previous-versions/windows/apps/jj655406(v=win.10))」 をご覧ください。
+**http:** または **https:** スキームを使用する必要はありません。 ブラウザーに読み込むのに適したリソース コンテンツがこれらの場所にある場合は、 **ms-appx:** 、 **ms-appdata:** 、または **ms-resources:** などのスキームを使うことができます。 ただし、 **file:** スキームは明確に禁止されます。 詳しくは、「[URI スキーム](/previous-versions/windows/apps/jj655406(v=win.10))」 をご覧ください。
 
 ユーザーがハイパーリンクをクリックすると、URI の種類とスキームのシステムのハンドラーに NavigateUri プロパティの値が渡されます。 システムは、NavigateUri の指定された URI のスキームに対して登録されているアプリを起動します。
 

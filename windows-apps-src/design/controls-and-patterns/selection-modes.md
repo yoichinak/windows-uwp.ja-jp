@@ -1,5 +1,5 @@
 ---
-Description: 選択モードでは、ユーザーは、単一の項目または複数の項目を選択して、それらの項目に対して操作を実行できます。
+description: 選択モードでは、ユーザーは、単一の項目または複数の項目を選択して、それらの項目に対して操作を実行できます。
 title: 選択モード
 label: Selection mode
 template: detail.hbs
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: d7b781e6074468fbe73446e4057e36ff31266d05
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: 1f3ec8d816ecd6de0cb08ca685a69cc693f4f47c
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72165099"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93035195"
 ---
 # <a name="selection-mode-overview"></a>選択モードの概要
 

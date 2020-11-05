@@ -1,5 +1,5 @@
 ---
-Description: データ テンプレート セレクターを使用して、項目のプロパティに基づいて項目のスタイルをカスタマイズします。
+description: データ テンプレート セレクターを使用して、項目のプロパティに基づいて項目のスタイルをカスタマイズします。
 title: データ テンプレートの選択
 label: Data template selection
 template: detail.hbs
@@ -7,18 +7,18 @@ ms.date: 10/18/2019
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: anawish
-ms.openlocfilehash: 382e28b38347a4901e781a12637423260c4bd3e3
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 5b10afc03a1936c033977a53bd12effdae1c2ead
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89160386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032335"
 ---
 # <a name="data-template-selection-styling-items-based-on-their-properties"></a>データ テンプレートの選択:プロパティに基づいて項目のスタイルを設定する
 
 コレクションのコントロールのカスタマイズしたデザインは、[DataTemplate](/uwp/api/windows.ui.xaml.datatemplate) によって管理されます。 データ テンプレートによって、各項目のレイアウトおよびスタイルが定義され、そのマークアップがコレクション内のすべての項目に適用されます。 この記事では、[DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector) を使用して、選択した特定の項目のプロパティまたは値に基づきコレクションに異なるデータ テンプレートを適用し、使用するデータ テンプレートを選択する方法について説明します。
 
-> **重要な API**:[DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector)、[DataTemplate](/uwp/api/windows.ui.xaml.datatemplate)
+> **重要な API** : [DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector)、 [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate)
 
 [DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector) は、カスタム テンプレート選択ロジックを有効にするクラスです。 コレクション内の特定の項目に対して使用するデータ テンプレートを指定するルールを定義できます。 このロジックを実装するには、コード ビハインドで DataTemplateSelector のサブクラスを作成し、どの項目のカテゴリにどのデータ テンプレートを使用するかを決定するロジックを定義します (たとえば、特定の種類の項目や特定のプロパティ値を持つ項目など)。 このクラスのインスタンスは、使用するデータ テンプレートの定義と共に、XAML ファイルの Resources セクションで宣言します。 これらのリソースは、XAML で参照できるように `x:Key` 値で識別します。
 
@@ -133,4 +133,4 @@ public class MyDataTemplateSelector : DataTemplateSelector
 - _項目ごとの要素の削減_ - データ テンプレート内の UI 要素の数を適切な最小値に維持します。
 - 異種コレクションでのコンテナー リサイクル
   - _ChoosingItemContainer_ の使用 - このイベントは異なる項目に異なるデータ テンプレートを使用するための効率的な方法です。 最適なパフォーマンスを実現するには、キャッシュを最適化し、特定のデータに応じたデータ テンプレートを選択する必要があります。
-  - _項目テンプレート セレクター_の使用 - 一部のインスタンスでは、パフォーマンスに影響を与えるために項目テンプレート セレクター (`DataTemplateSelector`) を使用しないようにする必要があります。
+  - _項目テンプレート セレクター_ の使用 - 一部のインスタンスでは、パフォーマンスに影響を与えるために項目テンプレート セレクター (`DataTemplateSelector`) を使用しないようにする必要があります。

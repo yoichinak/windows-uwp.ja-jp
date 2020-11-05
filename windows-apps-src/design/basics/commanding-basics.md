@@ -1,5 +1,5 @@
 ---
-Description: Windows アプリのコマンド要素は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。
+description: Windows アプリのコマンド要素は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。
 title: Windows アプリのコマンド デザインの基本
 ms.assetid: 1DB48285-07B7-4952-80EF-02B57D4469F2
 label: Command design basics
@@ -10,16 +10,16 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: dfd744bd2ab9c7909eec0c62af1939261a5a3bb7
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 5b6bfac1c27a857b38c2995200590afd81576d0d
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218275"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032455"
 ---
 # <a name="command-design-basics-for-windows-apps"></a>Windows アプリのコマンド デザインの基本
 
-Windows アプリの "*コマンド要素*" は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 "*コマンド インターフェイス*" は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
+Windows アプリの " *コマンド要素* " は、ユーザーがメール送信、項目の削除、フォームの送信などのアクションを実行できる対話型の UI 要素です。 " *コマンド インターフェイス* " は、共通のコマンド要素、それをホストするコマンド サーフェス、サポートされている対話、提供されているエクスペリエンスで構成されます。
 
 ## <a name="provide-the-best-command-experience"></a>最善のコマンド エクスペリエンスを提供する
 

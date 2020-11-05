@@ -1,5 +1,5 @@
 ---
-Description: マスターと詳細パターンでは、マスター リストと、現在選択されている項目の詳細が表示されます。 このパターンは、メールや連絡先リストまたはアドレス帳によく使用されます。
+description: マスターと詳細パターンでは、マスター リストと、現在選択されている項目の詳細が表示されます。 このパターンは、メールや連絡先リストまたはアドレス帳によく使用されます。
 title: マスターと詳細
 ms.assetid: 45C9FE8B-ECA6-44BF-8DDE-7D12ED34A7F7
 label: Master/details
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 60cd7eaa9e5ef317641e105004f2456e82ee48ca
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 605d42417145b9f6ecc8f71a0191afe6049de9c5
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93034525"
 ---
 # <a name="masterdetails-pattern"></a>マスターと詳細パターン
 
@@ -21,7 +21,7 @@ ms.locfileid: "91219985"
 
 マスターと詳細パターンには、コンテンツのマスター ウィンドウ (通常は[リスト ビュー](lists.md)を含む) と詳細ウィンドウがあります。 マスター リストの項目を選ぶと、詳細ウィンドウが更新されます。 このパターンは、メールやアドレス帳によく使われます。
 
-> **重要な API**:[ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)、[SplitView クラス](/uwp/api/windows.ui.xaml.controls.splitview)
+> **重要な API** : [ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)、 [SplitView クラス](/uwp/api/windows.ui.xaml.controls.splitview)
 
 ![マスターと詳細パターンの例](images/HIGSecOne_MasterDetail.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "91219985"
 | 320 epx から 640 epx        | 上下に並べて表示           |
 | 641 epx 以上       | 左右に並べて表示      |
 
- 
+ 
 ## <a name="stacked-style"></a>上下に並べて表示するスタイル
 
 上下に並べて表示するスタイルでは、マスターまたは詳細のうち 1 つのウィンドウだけを一度に表示できます。
@@ -62,7 +62,7 @@ ms.locfileid: "91219985"
 
 マスター ビュー ページでは、イメージとテキストが含まれるリストを表示するのに[リスト ビュー](lists.md) コントロールが適しています。 
 
-詳細ビュー ページの場合、最も意味のある[コンテンツ要素](../layout/layout-panels.md)を使います。 多くの個別フィールドがある場合は、**グリッド** レイアウトを使って要素をフォームに配置することを検討します。
+詳細ビュー ページの場合、最も意味のある[コンテンツ要素](../layout/layout-panels.md)を使います。 多くの個別フィールドがある場合は、 **グリッド** レイアウトを使って要素をフォームに配置することを検討します。
 
 ページ間の移動については、「[Windows アプリでのナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください。
 
@@ -82,7 +82,7 @@ ms.locfileid: "91219985"
 
 マスター ウィンドウでは、イメージとテキストが含まれるリストを表示するのに[リスト ビュー](lists.md) コントロールが適しています。
 
-詳細コンテンツの場合、最も意味のある[コンテンツ要素](../layout/layout-panels.md)を使います。 多くの個別フィールドがある場合は、**グリッド** レイアウトを使って要素をフォームに配置することを検討します。
+詳細コンテンツの場合、最も意味のある[コンテンツ要素](../layout/layout-panels.md)を使います。 多くの個別フィールドがある場合は、 **グリッド** レイアウトを使って要素をフォームに配置することを検討します。
 
 ## <a name="adaptive-layout"></a>アダプティブ レイアウト
 
@@ -91,7 +91,7 @@ ms.locfileid: "91219985"
 ![アダプティブのマスター詳細レイアウト](images/patterns_masterdetail.png)
 
 ### <a name="create-an-adaptive-masterdetails-pattern"></a>アダプティブのマスターと詳細パターンの作成
-アダプティブ レイアウトを作成するには、UI にさまざまな [**VisualStates**](/uwp/api/windows.ui.xaml.visualstate) を定義し、[**AdaptiveTriggers**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使用してさまざまな状態のブレークポイントを宣言します。
+アダプティブ レイアウトを作成するには、UI にさまざまな [**VisualStates**](/uwp/api/windows.ui.xaml.visualstate) を定義し、 [**AdaptiveTriggers**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使用してさまざまな状態のブレークポイントを宣言します。
 
 ## <a name="get-the-sample-code"></a>サンプル コードの入手
 

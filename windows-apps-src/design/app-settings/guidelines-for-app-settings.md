@@ -1,5 +1,5 @@
 ---
-Description: この記事では、アプリ設定を作成し、表示する際のベスト プラクティスについて説明します。
+description: この記事では、アプリ設定を作成し、表示する際のベスト プラクティスについて説明します。
 title: アプリ設定のガイドライン
 ms.assetid: 2D765E90-3FA0-42F5-A5CB-BEDC14C3F60A
 label: Guidelines
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d4bb343f2a8535fae60e19cd417099a99ae852d
-ms.sourcegitcommit: 6c1d2dd99221242d5d09f17e99f87302143c6180
+ms.openlocfilehash: 1b3f3388951dc2e3d854fcb97269e5bfb0449a6e
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92644320"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032405"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 

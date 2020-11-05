@@ -1,5 +1,5 @@
 ---
-Description: DatePicker は、ユーザーがタッチ、マウス、またはキーボード入力を使ってローカライズされた日付値を選択できる標準化された方法です。
+description: DatePicker は、ユーザーがタッチ、マウス、またはキーボード入力を使ってローカライズされた日付値を選択できる標準化された方法です。
 title: 日付の選択コントロール
 ms.assetid: d4a01425-4dee-4de3-9a05-3e85c3fc03cb
 isNew: true
@@ -13,12 +13,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a1f4b40734b39a6b908baab74f09ded32f250ef5
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: b196ba3c7475240ec1e7a5bdfc8c1ad9f39e4c50
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93032345"
 ---
 # <a name="date-picker"></a>日付の選択コントロール
 
@@ -40,7 +40,7 @@ DatePicker は、ユーザーがタッチ、マウス、またはキーボード
    :::column-end:::
 :::row-end:::
 
-> **プラットフォーム API:** [DatePicker クラス](/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、[Date プロパティ](/uwp/api/windows.ui.xaml.controls.datepicker.date)
+> **プラットフォーム API:** [DatePicker クラス](/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、 [Date プロパティ](/uwp/api/windows.ui.xaml.controls.datepicker.date)
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -85,7 +85,7 @@ birthDatePicker.Header = "Date of birth";
 
 ![日付の選択コントロールの例](images/date-picker-closed.png)
 
-> **注:** &nbsp;&nbsp;日付値の重要な情報については、「日付と時刻コントロール」の「[DateTime と Calendar の値](date-and-time.md#datetime-and-calendar-values)」をご覧ください。
+> **注:** &nbsp;&nbsp;日付値の重要な情報については、「日付と時刻コントロール」の「 [DateTime と Calendar の値](date-and-time.md#datetime-and-calendar-values)」をご覧ください。
 
 ## <a name="get-the-sample-code"></a>サンプル コードの入手
 

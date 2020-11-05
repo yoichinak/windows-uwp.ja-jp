@@ -1,5 +1,5 @@
 ---
-Description: アプリで最新の Windows 10 機能を使用できるように、パッケージ化されていないデスクトップ アプリに ID を付与する方法について説明します。
+description: アプリで最新の Windows 10 機能を使用できるように、パッケージ化されていないデスクトップ アプリに ID を付与する方法について説明します。
 title: パッケージ化されていないデスクトップ アプリに ID を付与する
 ms.date: 04/23/2020
 ms.topic: article
@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 6c2adc41fd33692d3cc3deb78ed8dd0659709a11
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 30fab5da3727153b8e1f33924ffcb6177843eb4e
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172706"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031165"
 ---
 # <a name="grant-identity-to-non-packaged-desktop-apps"></a>パッケージ化されていないデスクトップ アプリに ID を付与する
 
@@ -21,7 +21,7 @@ Windows 10 の拡張機能の多くは、バックグラウンド タスク、�
 
 Windows 10 バージョン 2004 より前の OS リリースでは、デスクトップ アプリに ID を付与する唯一の方法は、[署名済みの MSIX パッケージでパッケージ化](/windows/msix/desktop/desktop-to-uwp-root)することです。 これらのアプリの場合、ID はパッケージ マニフェストに指定され、ID 登録はマニフェストの情報に基づいて MSIX 展開パイプラインによって処理されます。 パッケージ マニフェストで参照されるすべてのコンテンツは、MSIX パッケージ内に存在します。
 
-Windows 10 バージョン 2004 以降では、アプリで*スパース パッケージ*をビルドして登録することで、MSIX パッケージにパッケージ化されていないデスクトップ アプリにパッケージ ID を付与できます。 このサポートにより、展開のために MSIX パッケージをまだ導入できないデスクトップ アプリで、パッケージ ID を必要とする Windows 10 拡張機能を使用できるようになります。 詳細な背景情報については、[このブログ投稿](https://blogs.windows.com/windowsdeveloper/2019/10/29/identity-registration-and-activation-of-non-packaged-win32-apps/#HBMFEM843XORqOWx.97)を参照してください。
+Windows 10 バージョン 2004 以降では、アプリで *スパース パッケージ* をビルドして登録することで、MSIX パッケージにパッケージ化されていないデスクトップ アプリにパッケージ ID を付与できます。 このサポートにより、展開のために MSIX パッケージをまだ導入できないデスクトップ アプリで、パッケージ ID を必要とする Windows 10 拡張機能を使用できるようになります。 詳細な背景情報については、[このブログ投稿](https://blogs.windows.com/windowsdeveloper/2019/10/29/identity-registration-and-activation-of-non-packaged-win32-apps/#HBMFEM843XORqOWx.97)を参照してください。
 
 デスクトップ アプリにパッケージ ID を付与するスパース パッケージをビルドして登録するには、次の手順に従います。
 
@@ -36,14 +36,14 @@ Windows 10 バージョン 2004 以降では、アプリで*スパース パッ�
 
 ### <a name="sparse-packages"></a>スパース パッケージ
 
-*スパース パッケージ*にはパッケージ マニフェストが含まれていますが、他のアプリ バイナリやコンテンツは含まれていません。 スパース パッケージのマニフェストでは、事前に定義された外部の場所で、パッケージ外部のファイルを参照できます。 これにより、アプリ全体に対して MSIX パッケージをまだ導入できないアプリケーションで、一部の Windows 10 拡張機能によって必要とされるパッケージ ID を取得できるようになります。
+*スパース パッケージ* にはパッケージ マニフェストが含まれていますが、他のアプリ バイナリやコンテンツは含まれていません。 スパース パッケージのマニフェストでは、事前に定義された外部の場所で、パッケージ外部のファイルを参照できます。 これにより、アプリ全体に対して MSIX パッケージをまだ導入できないアプリケーションで、一部の Windows 10 拡張機能によって必要とされるパッケージ ID を取得できるようになります。
 
 > [!NOTE]
 > スパース パッケージを使用するデスクトップ アプリでは、MSIX パッケージを使用して完全に展開される場合の一部の利点が得られません。 これらの利点には、改ざん防止、ロックダウンされた場所へのインストール、展開、実行時、およびアンインストール時の OS による完全な管理などがあります。
 
 ### <a name="package-external-location"></a>パッケージ外部の場所
 
-スパース パッケージをサポートするために、パッケージ マニフェスト スキーマでは、[**Properties**](/uwp/schemas/appxpackage/uapmanifestschema/element-properties) 要素の下にある省略可能な [**uap10:AllowExternalContent**](/uwp/schemas/appxpackage/uapmanifestschema/element-uap10-allowexternalcontent) 要素がサポートされるようになりました。 これにより、パッケージ マニフェストでは、ディスク上の特定の場所にあるパッケージ外部のコンテンツを参照できます。
+スパース パッケージをサポートするために、パッケージ マニフェスト スキーマでは、 [**Properties**](/uwp/schemas/appxpackage/uapmanifestschema/element-properties) 要素の下にある省略可能な [**uap10:AllowExternalContent**](/uwp/schemas/appxpackage/uapmanifestschema/element-uap10-allowexternalcontent) 要素がサポートされるようになりました。 これにより、パッケージ マニフェストでは、ディスク上の特定の場所にあるパッケージ外部のコンテンツを参照できます。
 
 たとえば、アプリの実行可能ファイルとその他のコンテンツを C:\Program Files\MyDesktopApp\, にインストールする、パッケージ化されていない既存のデスクトップ アプリがある場合は、マニフェスト内に **uap10:AllowExternalContent** 要素を含むスパース パッケージを作成できます。 アプリのインストール プロセス中、またはアプリの初回起動時に、スパース パッケージをインストールし、アプリで使用する外部の場所として C:\Program Files\MyDesktopApp\ を宣言することができます。
 
@@ -132,9 +132,9 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx /p <c
 
 ### <a name="add-the-package-identity-metadata-to-your-desktop-application-manifest"></a>デスクトップ アプリケーション マニフェストにパッケージ ID メタデータを追加する
 
-また、デスクトップ アプリと共に[サイドバイサイド アプリケーション マニフェスト](/windows/win32/sbscs/application-manifests)を追加し、アプリの ID 属性を宣言する属性と共に [**msix**](/windows/win32/sbscs/application-manifests#msix) 要素を含める必要があります。 これらの属性の値は、実行可能ファイルの起動時にアプリの ID を決定するために OS によって使用されます。
+また、デスクトップ アプリと共に [サイドバイサイド アプリケーション マニフェスト](/windows/win32/sbscs/application-manifests)を追加し、アプリの ID 属性を宣言する属性と共に [**msix**](/windows/win32/sbscs/application-manifests#msix) 要素を含める必要があります。 これらの属性の値は、実行可能ファイルの起動時にアプリの ID を決定するために OS によって使用されます。
 
-次の例は、**msix** 要素を含むサイドバイサイド アプリケーション マニフェストを示しています。
+次の例は、 **msix** 要素を含むサイドバイサイド アプリケーション マニフェストを示しています。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,7 +157,7 @@ SignTool.exe sign /fd SHA256 /a /f <path to certificate>\MyCertificate.pfx /p <c
 
 ## <a name="register-your-sparse-package-at-run-time"></a>実行時にスパース パッケージを登録する
 
-デスクトップ アプリにパッケージ ID を付与するには、[**PackageManager**](/uwp/api/windows.management.deployment.packagemanager) クラスの [**AddPackageByUriAsync**](/uwp/api/windows.management.deployment.packagemanager.addpackagebyuriasync) メソッドを使用して、スパース パッケージを登録する必要があります。 このメソッドは、Windows 10 バージョン 2004 以降で使うことができます。 アプリを初めて実行するときにスパース パッケージを登録するコードをアプリに追加したり、デスクトップ アプリのインストール中にパッケージを登録するコードを実行したりできます (たとえば、MSI を使用してデスクトップ アプリをインストールする場合、カスタム アクションからこのコードを実行できます)。
+デスクトップ アプリにパッケージ ID を付与するには、 [**PackageManager**](/uwp/api/windows.management.deployment.packagemanager) クラスの [**AddPackageByUriAsync**](/uwp/api/windows.management.deployment.packagemanager.addpackagebyuriasync) メソッドを使用して、スパース パッケージを登録する必要があります。 このメソッドは、Windows 10 バージョン 2004 以降で使うことができます。 アプリを初めて実行するときにスパース パッケージを登録するコードをアプリに追加したり、デスクトップ アプリのインストール中にパッケージを登録するコードを実行したりできます (たとえば、MSI を使用してデスクトップ アプリをインストールする場合、カスタム アクションからこのコードを実行できます)。
 
 次の例は、スパース パッケージを登録する方法を示しています。 このコードでは [**AddPackageOptions**](/uwp/api/windows.management.deployment.addpackageoptions) オブジェクトが作成されます。このオブジェクトには、パッケージ マニフェストがパッケージ外部のコンテンツを参照できる外部の場所へのパスが含まれています。 次に、このオブジェクトが **AddPackageByUriAsync** メソッドに渡されて、スパース パッケージが登録されます。 また、このメソッドは、署名されたスパース パッケージの場所を URI として受け取ります。 詳細な例については、関連する[サンプル](#sample)の `StartUp.cs` コードファイルを参照してください。
 

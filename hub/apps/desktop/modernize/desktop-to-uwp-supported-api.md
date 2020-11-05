@@ -1,5 +1,5 @@
 ---
-Description: パッケージ化されたデスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまな Windows ランタイム API を使うことができます。 この記事では、パッケージ アプリが使うことができるクラスについて説明します。
+description: パッケージ化されたデスクトップ アプリは、UWP アプリに完全に移行されていない場合でも、さまざまな Windows ランタイム API を使うことができます。 この記事では、パッケージ アプリが使うことができるクラスについて説明します。
 title: パッケージ化されたデスクトップ アプリで利用可能な Windows ランタイム API (デスクトップ ブリッジ)
 ms.date: 04/19/2019
 ms.topic: article
@@ -9,12 +9,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 419ffb348aa57183020c324fae3835074ac556ad
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 252ce5d39f09e957abed4f2629abc4d79580fab2
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031145"
 ---
 # <a name="windows-runtime-apis-available-to-desktop-apps"></a>デスクトップ アプリで使用できる Windows ランタイム API
 

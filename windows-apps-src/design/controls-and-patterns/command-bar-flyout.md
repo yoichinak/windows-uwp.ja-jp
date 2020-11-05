@@ -1,5 +1,5 @@
 ---
-Description: コマンド バーのポップアップを使用すると、ユーザーはアプリの最も一般的なタスクにインラインでアクセスできます。
+description: コマンド バーのポップアップを使用すると、ユーザーはアプリの最も一般的なタスクにインラインでアクセスできます。
 title: コマンド バーのポップアップ
 label: Command bar flyout
 template: detail.hbs
@@ -12,12 +12,12 @@ dev-contact: llongley
 doc-status: Draft
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: a2f6e61373ae343d8d683d6e5f9169cc399f1594
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 3ca79795264fd0629c19877f22bdc3eb332fa69f
+ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750548"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93031495"
 ---
 # <a name="command-bar-flyout"></a>コマンド バーのポップアップ
 
@@ -27,7 +27,7 @@ ms.locfileid: "91750548"
 
 [CommandBar](app-bars.md) と同様に、CommandBarFlyout には、コマンドを追加するために使用できる **PrimaryCommands** プロパティと **SecondaryCommands** プロパティがあります。 コマンドは、どちらかまたは両方のコレクションに配置できます。 プライマリとセカンダリのコマンドが、どのような場合にどのような方法で表示されるかは、表示モードによって異なります。
 
-コマンド バーのポップアップには、"*折りたたみ*" と "*展開*" の 2 つの表示モードがあります。
+コマンド バーのポップアップには、" *折りたたみ* " と " *展開* " の 2 つの表示モードがあります。
 
 - 折りたたみモードでは、プライマリ コマンドのみが表示されます。 コマンド バーのポップアップにプライマリとセカンダリの両方のコマンドが含まれる場合は、省略記号 \[***\] によって表される "see more" (詳細表示) ボタンが表示されます。 これにより、ユーザーは展開モードに切り替えることでセカンダリ コマンドにアクセスできます。
 - 展開モードでは、プライマリとセカンダリの両方のコマンドが表示されます (コントロールにセカンダリ項目のみが含まれる場合、それらの項目は MenuFlyout コントロールと同様の方法で表示されます)。
@@ -46,9 +46,9 @@ ms.locfileid: "91750548"
    :::column-end:::
 :::row-end:::
 
->**Windows UI ライブラリ API**: [CommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.textcommandbarflyout)
+>**Windows UI ライブラリ API** : [CommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.commandbarflyout)、 [TextCommandBarFlyout クラス](/uwp/api/microsoft.ui.xaml.controls.textcommandbarflyout)
 >
->**プラットフォーム API**: [CommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.commandbarflyout)、[TextCommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.textcommandbarflyout)、[AppBarButton クラス](/uwp/api/windows.ui.xaml.controls.appbarbutton)、[AppBarToggleButton クラス](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、[AppBarSeparator クラス](/uwp/api/windows.ui.xaml.controls.appbarseparator)
+>**プラットフォーム API** : [CommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.commandbarflyout)、 [TextCommandBarFlyout クラス](/uwp/api/windows.ui.xaml.controls.textcommandbarflyout)、 [AppBarButton クラス](/uwp/api/windows.ui.xaml.controls.appbarbutton)、 [AppBarToggleButton クラス](/uwp/api/windows.ui.xaml.controls.appbartogglebutton)、 [AppBarSeparator クラス](/uwp/api/windows.ui.xaml.controls.appbarseparator)
 >
 > CommandBarFlyout には、Windows 10 Version 1809 ([SDK 17763](https://developer.microsoft.com/windows/downloads/windows-10-sdk)) 以降、または [Windows UI ライブラリ](/uwp/toolkits/winui/)が必要です。
 
@@ -84,7 +84,7 @@ TextCommandBarFlyout では、TextBox、TextBlock、RichEditBox、RichTextBlock�
 
 ## <a name="proactive-vs-reactive-invocation"></a>事前と事後の呼び出し
 
-UI キャンバス上の要素に関連付けられたポップアップまたはメニューを呼び出すには、通常、2 つの方法があります。_事前呼び出し_と_事後呼び出し_です。
+UI キャンバス上の要素に関連付けられたポップアップまたはメニューを呼び出すには、通常、2 つの方法があります。 _事前呼び出し_ と _事後呼び出し_ です。
 
 事前呼び出しでは、コマンドは、コマンドが関連付けられた項目をユーザーが操作するときに自動的に表示されます。 たとえば、テキストの書式設定コマンドは、ユーザーがテキスト ボックス内のテキストを選択したときにポップアップ表示することができます。 この場合、コマンド バーのポップアップにフォーカスは移りません。 そうではなく、ユーザーが操作している項目の近くに関連するコマンドが表示されます。 ユーザーがコマンドを操作しない場合、コマンドは閉じられます。
 
@@ -415,7 +415,7 @@ CommandBarFlyout を DropDownButton と共に使用して、標準メニュー�
 
 TextCommandBarFlyout はカスタマイズできず、各テキスト コントロールによって自動的に管理されます。 ただし、既定の TextCommandBarFlyout をカスタム コマンドで置き換えることができます。
 
-- テキスト選択時に表示される既定の TextCommandBarFlyout を置き換えるために、カスタム CommandBarFlyout (またはその他の種類のポップアップ) を作成して、**SelectionFlyout** プロパティに割り当てることができます。 SelectionFlyout を **null** に設定した場合、選択時にコマンドは表示されません。
+- テキスト選択時に表示される既定の TextCommandBarFlyout を置き換えるために、カスタム CommandBarFlyout (またはその他の種類のポップアップ) を作成して、 **SelectionFlyout** プロパティに割り当てることができます。 SelectionFlyout を **null** に設定した場合、選択時にコマンドは表示されません。
 - コンテキスト メニューとして表示される既定の TextCommandBarFlyout を置き換えるには、カスタムの CommandBarFlyout (またはその他の種類のポップアップ) をテキスト コントロールの **ContextFlyout** プロパティに割り当てます。 ContextFlyout を **null** に設定すると、以前のバージョンのテキスト コントロールに表示されるメニュー ポップアップが、TextCommandBarFlyout の代わりに表示されます。
 
 ## <a name="get-the-sample-code"></a>サンプル コードの入手
