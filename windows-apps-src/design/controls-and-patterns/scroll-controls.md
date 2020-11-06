@@ -1,5 +1,5 @@
 ---
-Description: パンとスクロールを行うと、画面の境界外のコンテンツを拡張表示することができます。
+description: パンとスクロールを行うと、画面の境界外のコンテンツを拡張表示することができます。
 title: スクロール ビューアー コントロール
 ms.assetid: 1BFF0E81-BF9C-43F7-95F6-EFC6BDD5EC31
 label: Scrollbars
@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: regisb
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f4fb37250817087bf7b8a41144bf9e4841a9048
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 60a8e8f204591e455e2ccf52b09684a878b67452
+ms.sourcegitcommit: da44cb95946440cd06ff36254d42ecefcdd87ce2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174466"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063034"
 ---
 # <a name="scroll-viewer-controls"></a>スクロール ビューアー コントロール
 
@@ -25,7 +25,7 @@ ms.locfileid: "89174466"
 
 1 つの領域には収まらない UI コンテンツがある場合は、スクロール ビューアー コントロールを使用します。
 
-> **重要な API**: [ScrollViewer クラス](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[ScrollBar クラス](/uwp/api/windows.ui.xaml.controls.primitives.scrollbar)
+> **重要な API** : [ScrollViewer クラス](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、 [ScrollBar クラス](/uwp/api/windows.ui.xaml.controls.primitives.scrollbar)
 
 スクロール ビューアーにより、ビューポート (表示可能な領域) の境界外のコンテンツを拡張表示できるようになります。 ユーザーはこのコンテンツを表示するために、タッチ、マウス ホイール、キーボード、ゲームパッドでスクロール ビューアーのサーフェスを操作します。またはマウスやペン カーソルでスクロール ビューアーのスクロールバーを操作します。 以下の画像に、スクロール ビューアー コントロールの例をいくつか示します。
 
@@ -144,10 +144,13 @@ ScrollViewer が XAML で明示的である場合、コード例に示すよう�
 - ユーザーが長いテキスト パスをスクロールする場合、垂直方向にのみスクロールするようにスクロール ビューアーを構成します。
 - 1 つのオブジェクトのみを含める場合にスクロール ビューアーを使います。 1 つのオブジェクトをレイアウト パネルとし、その任意の数のオブジェクトを含めることができる点に注意してください。
 - ピボットのスクロール ロジックが競合するのを避けるため、スクロール ビューアー内には[ピボット](pivot.md) コントロールを配置しないでください。
+- スクロール可能なビュー (ScrollViewer や ListView など) で [UIElement](/uwp/api/Windows.UI.Xaml.UIElement) のポインター イベントを処理する必要がある場合は、[UIElement.CancelDirectmanipulation()](/uwp/api/windows.ui.xaml.uielement.canceldirectmanipulations) を呼び出すことにより、ビュー内のこの要素に対する操作イベントのサポートを明示的に無効にする必要があります。 ビューで操作イベントを再び有効にするには、[UIElement.TryStartDirectManipulation()](/uwp/api/windows.ui.xaml.uielement.trystartdirectmanipulation) を呼び出します。
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
+
+## <a name="get-the-sample-code"></a>サンプル コードの入手
+
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 

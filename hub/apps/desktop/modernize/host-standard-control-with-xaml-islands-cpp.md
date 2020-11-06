@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 5acf1a017a55ddf75520eccf22b1a3b00ee8084b
-ms.sourcegitcommit: c2e4bbe46c7b37be1390cdf3fa0f56670f9d34e9
+ms.openlocfilehash: fcad3bfeb5c31a6b3af85e5fd9a0ea72f11d65da
+ms.sourcegitcommit: caf4dba6bdfc3c6d9685d10aa9924b170b00bed8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93049513"
 ---
 # <a name="host-a-standard-winrt-xaml-control-in-a-c-win32-app"></a>C++ Win32 アプリで標準 WinRT XAML コントロールをホストする
 
@@ -24,14 +24,14 @@ ms.locfileid: "92253602"
 
 ## <a name="create-a-desktop-application-project"></a>デスクトップ アプリケーション プロジェクトを作成する
 
-1. Windows 10 バージョン 1903 SDK (バージョン 10.0.18362) またはそれ以降のリリースがインストールされている Visual Studio 2019 で、新しい **Windows デスクトップ アプリケーション** プロジェクトを作成し、**MyDesktopWin32App** という名前を付けます。 このプロジェクトの種類は、**C++** 、**Windows**、および**デスクトップ**のプロジェクト フィルターで使用できます。
+1. Windows 10 バージョン 1903 SDK (バージョン 10.0.18362) またはそれ以降のリリースがインストールされている Visual Studio 2019 で、新しい **Windows デスクトップ アプリケーション** プロジェクトを作成し、 **MyDesktopWin32App** という名前を付けます。 このプロジェクトの種類は、 **C++** 、 **Windows** 、および **デスクトップ** のプロジェクト フィルターで使用できます。
 
-2. **ソリューション エクスプローラー**でソリューション ノードを右クリックして、 **[ソリューションの再ターゲット]** をクリックし、**10.0.18362.0** 以降の SDK リリースを選択してから、 **[OK]** をクリックします。
+2. **ソリューション エクスプローラー** でソリューション ノードを右クリックして、 **[ソリューションの再ターゲット]** をクリックし、 **10.0.18362.0** 以降の SDK リリースを選択してから、 **[OK]** をクリックします。
 
 3. [Microsoft.Windows.CppWinRT](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) NuGet パッケージをインストールして、プロジェクトでの [C++/WinRT](/windows/uwp/cpp-and-winrt-apis) のサポートを有効にします。
 
-    1. **ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
-    2. **[参照]** タブを選択し、[Microsoft.Windows.CppWinRT](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) パッケージを探して、このパッケージの最新バージョンをインストールします。
+    1. **ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+    2. **[参照]** タブを選択し、 [Microsoft.Windows.CppWinRT](https://www.nuget.org/packages/Microsoft.Windows.CppWinRT/) パッケージを探して、このパッケージの最新バージョンをインストールします。
 
     > [!NOTE]
     > 新しいプロジェクトの場合は、[C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) をインストールし、その拡張機能に含まれているいずれかの C++/WinRT プロジェクト テンプレートを使用できます。 詳細については、[こちらの記事](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を参照してください。
@@ -40,8 +40,8 @@ ms.locfileid: "92253602"
 
 5. [アプリケーション マニフェスト](/windows/desktop/SbsCs/application-manifests)内に `maxVersionTested` 値を設定して、アプリケーションが Windows 10 バージョン 1903 以降と互換性があることを指定します。
 
-    1. プロジェクトにアプリケーション マニフェストがまだない場合は、新しい XML ファイルをプロジェクトに追加し、**app.manifest** という名前を付けます。
-    2. 次の例に示すように、**compatibility** 要素と子要素をアプリケーション マニフェストに含めます。 **maxVersionTested** 要素の **Id** 属性を、ターゲットとしている Windows 10 のバージョン番号に置き換えます (これは 10.0.18362 以降のリリースである必要があります)。
+    1. プロジェクトにアプリケーション マニフェストがまだない場合は、新しい XML ファイルをプロジェクトに追加し、 **app.manifest** という名前を付けます。
+    2. 次の例に示すように、 **compatibility** 要素と子要素をアプリケーション マニフェストに含めます。 **maxVersionTested** 要素の **Id** 属性を、ターゲットとしている Windows 10 のバージョン番号に置き換えます (これは 10.0.18362 以降のリリースである必要があります)。
 
         ```xml
         <?xml version="1.0" encoding="UTF-8"?>
@@ -56,15 +56,21 @@ ms.locfileid: "92253602"
         </assembly>
         ```
 
+6. Windows ランタイム メタデータへの参照を追加します。
+   1. **ソリューション エクスプローラー** で、プロジェクトの **[参照設定]** ノードを右クリックし、 **[参照の追加]** を選択します。
+   2. ページの下部にある **[参照]** ボタンをクリックし、SDK インストール パスの UnionMetadata フォルダーに移動します。 既定では、SDK は `C:\Program Files (x86)\Windows Kits\10\UnionMetadata` にインストールされます。 
+   3. 次に、ターゲットとする Windows バージョン (例: 10.0.18362.0) が名前に含まれるフォルダーを選択して、そのフォルダー内で `Windows.winmd` ファイルを選びます。
+   4. **[OK]** をクリックし、 **[参照の追加]** ダイアログを閉じます。
+
 ## <a name="use-the-xaml-hosting-api-to-host-a-winrt-xaml-control"></a>XAML ホスティング API を使用して WinRT XAML コントロールをホストする
 
 XAML ホスティング API を使用して WinRT XAML コントロールをホストする基本的なプロセスでは、次の一般的な手順に従います。
 
 1. アプリで、現在のスレッド用に UWP XAML フレームワークを初期化してから、それによってホストされる [Windows.UI.Xaml.UIElement](/uwp/api/windows.ui.xaml.uielement) オブジェクトを作成します。 これを行うには、コントロールをホストする [DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトをいつ作成する予定かによって、複数の方法があります。
 
-    * アプリケーションで **DesktopWindowXamlSource** オブジェクトを作成し、その後に、そのオブジェクトによってホストされるいずれかの **Windows.UI.Xaml.UIElement** オブジェクトを作成する場合は、**DesktopWindowXamlSource** オブジェクトをインスタンス化するときに、このフレームワークが初期化されます。 このシナリオでは、フレームワークを初期化するためにご自身のコードを追加する必要はありません。
+    * アプリケーションで **DesktopWindowXamlSource** オブジェクトを作成し、その後に、そのオブジェクトによってホストされるいずれかの **Windows.UI.Xaml.UIElement** オブジェクトを作成する場合は、 **DesktopWindowXamlSource** オブジェクトをインスタンス化するときに、このフレームワークが初期化されます。 このシナリオでは、フレームワークを初期化するためにご自身のコードを追加する必要はありません。
 
-    * ただし、アプリケーションで **Windows.UI.Xaml.UIElement** オブジェクトを先に作成し、それらのオブジェクトをホストする **DesktopWindowXamlSource** オブジェクトをその後に作成する場合は、アプリケーションで静的な [WindowsXamlManager.InitializeForCurrentThread](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread) メソッドを呼び出して、**Windows.UI.Xaml.UIElement** オブジェクトがインスタンス化される前に UWP XAML フレームワークを明示的に初期化する必要があります。 アプリケーションでは一般的に、**DesktopWindowXamlSource** をホストする親 UI 要素がインスタンス化されるときに、このメソッドを呼び出す必要があります。
+    * ただし、アプリケーションで **Windows.UI.Xaml.UIElement** オブジェクトを先に作成し、それらのオブジェクトをホストする **DesktopWindowXamlSource** オブジェクトをその後に作成する場合は、アプリケーションで静的な [WindowsXamlManager.InitializeForCurrentThread](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread) メソッドを呼び出して、 **Windows.UI.Xaml.UIElement** オブジェクトがインスタンス化される前に UWP XAML フレームワークを明示的に初期化する必要があります。 アプリケーションでは一般的に、 **DesktopWindowXamlSource** をホストする親 UI 要素がインスタンス化されるときに、このメソッドを呼び出す必要があります。
 
     > [!NOTE]
     > このメソッドからは、UWP XAML フレームワークへの参照を含む [WindowsXamlManager](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager) オブジェクトが返されます。 任意の 1 つのスレッドで **WindowsXamlManager** オブジェクトを必要な数だけ作成できます。 ただし、各オブジェクトが UWP XAML フレームワークへの参照を保持しているため、オブジェクトを破棄して、最終的に XAML リソースが確実に解放されるようにする必要があります。
@@ -79,7 +85,7 @@ XAML ホスティング API を使用して WinRT XAML コントロールをホ�
 
     2. **IDesktopWindowXamlSourceNative** または **IDesktopWindowXamlSourceNative2** インターフェイスの **AttachToWindow** メソッドを呼び出し、アプリケーション内の親 UI 要素のウィンドウ ハンドルを渡します。
 
-    3. **DesktopWindowXamlSource** に含まれる内部の子ウィンドウの初期サイズを設定します。 既定では、この内部の子ウィンドウは、幅と高さが 0 に設定されています。 ウィンドウのサイズを設定しない場合、**DesktopWindowXamlSource** に追加した WinRT XAML コントロールは表示されません。 **DesktopWindowXamlSource** の内部の子ウィンドウにアクセスするには、**IDesktopWindowXamlSourceNative** または **IDesktopWindowXamlSourceNative2** インターフェイスの **WindowHandle** プロパティを使用します。
+    3. **DesktopWindowXamlSource** に含まれる内部の子ウィンドウの初期サイズを設定します。 既定では、この内部の子ウィンドウは、幅と高さが 0 に設定されています。 ウィンドウのサイズを設定しない場合、 **DesktopWindowXamlSource** に追加した WinRT XAML コントロールは表示されません。 **DesktopWindowXamlSource** の内部の子ウィンドウにアクセスするには、 **IDesktopWindowXamlSourceNative** または **IDesktopWindowXamlSourceNative2** インターフェイスの **WindowHandle** プロパティを使用します。
 
 3. 最後に、ホストする対象の **Windows.UI.Xaml.UIElement** を **DesktopWindowXamlSource** オブジェクトの [Content](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content) プロパティに割り当てます。
 
@@ -284,7 +290,7 @@ XAML ホスティング API を使用して標準の WinRT XAML コントロー�
 > [!NOTE]
 > 展開用にアプリケーションを [MSIX パッケージ](/windows/msix)にパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
-1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
+1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、 **Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
 
 2. パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 プロジェクトの一覧でソリューション内の C++/Win32 デスクトップ アプリケーション プロジェクトを選択し、 **[OK]** をクリックします。
 
