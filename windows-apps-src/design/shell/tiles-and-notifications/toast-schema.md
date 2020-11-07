@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7116f1aa6f06eda1351183963ea8169625a8df70
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 3bc7fab8bff98fc2711747122d62031fb4d3a65d
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93033025"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339780"
 ---
 # <a name="toast-content-schema"></a>トーストのコンテンツのスキーマ
 
@@ -21,7 +21,7 @@ ms.locfileid: "93033025"
 
 ここでは、トーストのコンテンツ内のすべてのプロパティと要素を説明します。
 
-[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ](https://docs.microsoft.com/uwp/schemas/tiles/toastschema/schema-root)」をご覧ください。
+[Notifications ライブラリ](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/)ではなく生の XML を使う場合は、「[XML スキーマ](/uwp/schemas/tiles/toastschema/schema-root)」をご覧ください。
 
 [ToastContent](#toastcontent)
 * [ToastVisual](#toastvisual)
@@ -54,10 +54,10 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="toastscenario"></a>ToastScenario
 トーストが表すシナリオを指定します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 通常のトーストの動作です。 |
-| **Reminder** | リマインダー通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 |
+| **促す** | リマインダー通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 |
 | **アラーム** | アラーム通知です。 既に展開された状態で表示され、無視されるまでユーザーの画面に表示されます。 オーディオは既定でループするようになっていて、アラームのオーディオを使用します。 |
 | **IncomingCall** | 着信通知です。 既に展開された状態で、特殊な呼び出しの形式で表示され、無視されるまでユーザーの画面に表示されます。 オーディオは既定でループするようになっていて、着信音のオーディオを使用します。 |
 
@@ -123,7 +123,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptivetextstyle"></a>AdaptiveTextStyle
 テキスト スタイルは、フォント サイズ、太さ、および不透明度を制御します。 "Subtle" の不透明度は 60% の不透明度になります。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 既定値です。 スタイルがレンダラーによって決定されます。 |
 | **Caption** | 段落のフォント サイズより小さいサイズです。 |
@@ -148,7 +148,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptivetextalign"></a>AdaptiveTextAlign
 テキストの水平方向の配置を制御します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 既定値です。 配置がレンダラーによって自動的に決定されます。 |
 | **Auto** | 配置が現在の言語とカルチャによって決定されます。 |
@@ -173,7 +173,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptiveimagecrop"></a>AdaptiveImageCrop
 必要な画像トリミングを指定します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 既定値です。 トリミングの動作がレンダラーによって決定されます。 |
 | **なし** | 画像がトリミングされません。 |
@@ -183,7 +183,7 @@ ToastContent は、視覚効果、アクション、オーディオなどの通�
 ### <a name="adaptiveimagealign"></a>AdaptiveImageAlign
 画像の水平方向の配置を指定します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 既定値です。 配置の動作がレンダラーによって決定されます。 |
 | **Stretch** | 利用可能な幅いっぱいに画像が拡大されます (また同時に、画像が配置される位置に応じて、利用可能な高さいっぱいに拡大されることもあります)。 |
@@ -222,7 +222,7 @@ Anniversary Update の新機能: サブグループは垂直方向の列で、�
 ### <a name="adaptivesubgrouptextstacking"></a>AdaptiveSubgroupTextStacking
 TextStacking は、コンテンツの垂直方向の配置を指定します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 既定値です。 レンダラーが既定の垂直方向の配置を自動的に選択します。 |
 | **上位** | 上に合わせて垂直に配置されます。 |
@@ -272,7 +272,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 ### <a name="toastgenericapplogocrop"></a>ToastGenericAppLogoCrop
 アプリ ロゴの画像のトリミングを制御します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | トリミングがレンダラーの既定の動作を使用します。 |
 | **なし** | 画像がトリミングされず、正方形で表示されます。 |
@@ -389,7 +389,7 @@ Creators Update の新機能: 進行状況バーです。 デスクトップ版�
 ### <a name="toastactivationtype"></a>ToastActivationType
 ユーザーが特定の操作を行った際に使用されるアクティブ化の種類を決定します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **フォアグラウンド** | 既定値です。 フォアグラウンド アプリが起動します。 |
 | **バックグラウンド** | (すべての設定が完了したと想定して) 対応するバックグラウンド タスクがトリガーされ、ユーザーの作業を中断することなくバックグラウンドでコードを実行できます (ユーザーのクイック返信メッセージの送信など)。 |
@@ -408,7 +408,7 @@ Creators Update の新機能: アクティブ化に関する追加オプショ�
 ### <a name="toastafteractivationbehavior"></a>ToastAfterActivationBehavior
 ユーザーがトーストに対して操作を行ったときに、トーストが使用する動作を指定します。
 
-| 値 | 意味 |
+| [値] | 説明 |
 |---|---|
 | **[Default]** | 既定の動作。 ユーザーがトーストに対して操作を行うと、トーストが無視されます。 |
 | **PendingUpdate** | ユーザーがトースト上のボタンをクリックすると、通知が "更新の保留中" の表示状態で表示されたままになります。 この "更新の保留中" の表示状態が長時間続くことを避けるため、バックグラウンド タスクから即座にトーストを更新する必要があります。 |

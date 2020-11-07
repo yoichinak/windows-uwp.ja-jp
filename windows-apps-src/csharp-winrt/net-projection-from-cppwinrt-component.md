@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: article
 keywords: windows 10、c#、winrt、cswinrt、投影
 ms.localizationpriority: medium
-ms.openlocfilehash: 3116e176c8f156939f075e0a23d1be2352a8ecde
-ms.sourcegitcommit: 861c381a31e4a5fd75f94ca19952b2baaa2b72df
+ms.openlocfilehash: 817c4ec364040cbe64f8ab466a5bdf059d8c2dda
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171141"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339650"
 ---
 # <a name="walkthrough-generate-a-net-5-projection-from-a-cwinrt-component-and-distribute-the-nuget"></a>チュートリアル: C++/WinRT コンポーネントから .NET 5 プロジェクションを生成し、NuGet を配布する
 
@@ -25,13 +25,13 @@ ms.locfileid: "92171141"
 
 このチュートリアルと対応するサンプルには、次のツールとコンポーネントが必要です。
 
-- ユニバーサル Windows プラットフォーム開発ワークロードがインストールされた[Visual Studio 16.8 Preview 3](https://visualstudio.microsoft.com/vs/preview/) (またはそれ以降)。 [**インストールの詳細**  >  **ユニバーサル Windows プラットフォーム開発**] で、[ **C++ (v14x) ユニバーサル Windows プラットフォームツール**] オプションをオンにします。
+- ユニバーサル Windows プラットフォーム開発ワークロードがインストールされた[Visual Studio 16.8 Preview 3](https://visualstudio.microsoft.com/vs/preview/) (またはそれ以降)。 [ **インストールの詳細**  >  **ユニバーサル Windows プラットフォーム開発** ] で、[ **C++ (v14x) ユニバーサル Windows プラットフォームツール** ] オプションをオンにします。
 - [.Net 5.0 RC2 SDK](https://github.com/dotnet/installer)。
 - C++/winrt [VSIX extension](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) for c++/winrt プロジェクトテンプレート。
 
 ## <a name="create-a-simple-cwinrt-runtime-component"></a>単純な C++/WinRT ランタイムコンポーネントを作成する
 
-このチュートリアルを実行するには、最初に .NET 5 プロジェクションを作成する C++/WinRT コンポーネントが必要です。 このチュートリアルでは、GitHub の関連サンプルで **Simplemのコンポーネント** プロジェクトを [使用します](https://github.com/microsoft/CsWinRT/tree/master/Samples/Net5ProjectionSample/SimpleMathComponent)。 これは、 [c++/WINRT VSIX 拡張機能](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を使用して作成された**Windows ランタイムコンポーネント (c++/winrt)** プロジェクトです。 開発用コンピューターにプロジェクトをコピーした後、Visual Studio 2019 Preview でソリューションを開きます。
+このチュートリアルを実行するには、最初に .NET 5 プロジェクションを作成する C++/WinRT コンポーネントが必要です。 このチュートリアルでは、GitHub の関連サンプルで **Simplemのコンポーネント** プロジェクトを [使用します](https://github.com/microsoft/CsWinRT/tree/master/Samples/Net5ProjectionSample/SimpleMathComponent)。 これは、 [c++/WINRT VSIX 拡張機能](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)を使用して作成された **Windows ランタイムコンポーネント (c++/winrt)** プロジェクトです。 開発用コンピューターにプロジェクトをコピーした後、Visual Studio 2019 Preview でソリューションを開きます。
 
 このプロジェクトのコードは、次のヘッダーファイルに示されている基本的な算術演算の機能を提供します。 
 
@@ -51,10 +51,10 @@ namespace winrt::SimpleMathComponent::implementation
 }
 ```
 
-C++/winrt コンポーネントを作成し、winmd ファイルを生成する方法の詳細については、「 [c++/winrt を使用したコンポーネントの Windows ランタイム](https://docs.microsoft.com/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」を参照してください。
+C++/winrt コンポーネントを作成し、winmd ファイルを生成する方法の詳細については、「 [c++/winrt を使用したコンポーネントの Windows ランタイム](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」を参照してください。
 
 > [!NOTE]
-> コンポーネントで [IInspectable:: GetRuntimeClassName](https://docs.microsoft.com/windows/win32/api/inspectable/nf-inspectable-iinspectable-getruntimeclassname) を実装する場合は、有効な WinRT クラス名を返す **必要があり** ます。 C#/WinRT は相互運用にクラス名文字列を使用するため、不適切なランタイムクラス名は **InvalidCastException**を発生させます。
+> コンポーネントで [IInspectable:: GetRuntimeClassName](/windows/win32/api/inspectable/nf-inspectable-iinspectable-getruntimeclassname) を実装する場合は、有効な WinRT クラス名を返す **必要があり** ます。 C#/WinRT は相互運用にクラス名文字列を使用するため、不適切なランタイムクラス名は **InvalidCastException** を発生させます。
 
 ## <a name="add-a-projection-project-to-the-component-solution"></a>コンポーネントソリューションにプロジェクションプロジェクトを追加する
 
@@ -62,23 +62,23 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
 1. ソリューションに新しい **クラスライブラリ (.Net Core)** プロジェクトを追加します。
 
-    1. **ソリューションエクスプローラー**で、ソリューションノードを右クリックし、 **Add**[  ->  **新しいプロジェクト**の追加] をクリックします。
-    2. [ **新しいプロジェクトの追加] ダイアログボックス**で、[ **クラスライブラリ (.net Core)** ] プロジェクトテンプレートを検索します。 テンプレートを選択し、[ **次へ**] をクリックします。
-    3. 新しいプロジェクトに「 **Simplem」プロジェクション** という名前を指定し、[ **作成**] をクリックします。
+    1. **ソリューションエクスプローラー** で、ソリューションノードを右クリックし、 **Add** [  ->  **新しいプロジェクト** の追加] をクリックします。
+    2. [ **新しいプロジェクトの追加] ダイアログボックス** で、[ **クラスライブラリ (.net Core)** ] プロジェクトテンプレートを検索します。 テンプレートを選択し、[ **次へ** ] をクリックします。
+    3. 新しいプロジェクトに「 **Simplem」プロジェクション** という名前を指定し、[ **作成** ] をクリックします。
 
 2. 空の **Class1.cs** ファイルをプロジェクトから削除します。
 
 3. [C#/WinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT)をインストールします。
 
-    1. **ソリューションエクスプローラー**で、 **Simplemのプロジェクション**プロジェクトを右クリックし、[ **NuGet パッケージの管理**] を選択します。 
+    1. **ソリューションエクスプローラー** で、 **Simplemのプロジェクション** プロジェクトを右クリックし、[ **NuGet パッケージの管理** ] を選択します。 
     2. **Microsoft. Windows. CsWinRT** NuGet パッケージを検索し、最新バージョンをインストールします。
 
-4. **Simplemのコンポーネント**プロジェクトにプロジェクト参照を追加します。 **ソリューションエクスプローラー**で、 **Simplemのプロジェクション**プロジェクトの下にある [**依存関係**] ノードを右クリックし、[**プロジェクト参照の追加**] を選択して、 **simplemのコンポーネント**プロジェクトを選択します。
+4. **Simplemのコンポーネント** プロジェクトにプロジェクト参照を追加します。 **ソリューションエクスプローラー** で、 **Simplemのプロジェクション** プロジェクトの下にある [ **依存関係** ] ノードを右クリックし、[ **プロジェクト参照の追加** ] を選択して、 **simplemのコンポーネント** プロジェクトを選択します。
 
     > [!NOTE]
     > Visual Studio 16.8 Preview 4 以降を使用している場合は、手順 4. を完了した後でこのセクションを実行します。 Visual Studio 16.8 Preview 3 を使用している場合は、手順 5. も完了する必要があります。
 
-5. Visual Studio 16.8 Preview 3 を使用している場合: **ソリューションエクスプローラー**で、[ **simplemのプロジェクション** ] ノードをダブルクリックしてエディターでプロジェクトファイルを開き、ファイルに次の要素を追加して、ファイルを保存して閉じます。
+5. Visual Studio 16.8 Preview 3 を使用している場合: **ソリューションエクスプローラー** で、[ **simplemのプロジェクション** ] ノードをダブルクリックしてエディターでプロジェクトファイルを開き、ファイルに次の要素を追加して、ファイルを保存して閉じます。
 
     ```xml
     <ItemGroup>
@@ -101,9 +101,9 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
 ## <a name="edit-the-project-file-to-execute-cwinrt"></a>プロジェクトファイルを編集して C#/WinRT を実行する
 
-**cswinrt.exe**を呼び出して射影アセンブリを生成する前に、射影プロジェクトのプロジェクトファイルを編集する必要があります。
+**cswinrt.exe** を呼び出して射影アセンブリを生成する前に、射影プロジェクトのプロジェクトファイルを編集する必要があります。
 
-1. **ソリューションエクスプローラー**で、[ **simplemのプロジェクション**] ノードをダブルクリックして、エディターでプロジェクトファイルを開きます。
+1. **ソリューションエクスプローラー** で、[ **simplemのプロジェクション** ] ノードをダブルクリックして、エディターでプロジェクトファイルを開きます。
 
 2. `TargetFramework`Windows SDK を参照するように要素を更新します。 これにより、相互運用とプロジェクションのサポートに必要なアセンブリ depedencies が追加されます。 このサンプルでは、このチュートリアルの **net 5.0-windows 10.0.19041.0** (SDK バージョン2004とも呼ばれます) の最新の Windows 10 リリースを対象としています。
 
@@ -114,7 +114,7 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
     </PropertyGroup>
     ```
 
-3. `PropertyGroup`複数の**cswinrt**プロパティを設定する新しい要素を追加します。
+3. `PropertyGroup`複数の **cswinrt** プロパティを設定する新しい要素を追加します。
 
     ```xml
     <PropertyGroup>
@@ -137,11 +137,11 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
       <CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
       ```
 
-5. **Simplemの射影 .csproj**ファイルを保存して閉じます。
+5. **Simplemの射影 .csproj** ファイルを保存して閉じます。
 
 ## <a name="build-projects-out-of-source"></a>ソースからプロジェクトをビルドする
 
-[関連するサンプル](https://github.com/microsoft/CsWinRT/tree/master/Samples/Net5ProjectionSample)では、ビルドは**ディレクトリ.** .. props ファイルで構成されます。 **Simplemのコンポーネント**と**Simplemのプロジェクション**プロジェクトの両方を構築するために生成されたファイルは、ソリューションレベルの *_build*フォルダーに表示されます。 ソースからビルドするようにプロジェクトを構成するには、ソリューションファイルが格納されているディレクトリに以下の **ディレクトリ** をコピーします。
+[関連するサンプル](https://github.com/microsoft/CsWinRT/tree/master/Samples/Net5ProjectionSample)では、ビルドは **ディレクトリ.** .. props ファイルで構成されます。 **Simplemのコンポーネント** と **Simplemのプロジェクション** プロジェクトの両方を構築するために生成されたファイルは、ソリューションレベルの *_build* フォルダーに表示されます。 ソースからビルドするようにプロジェクトを構成するには、ソリューションファイルが格納されているディレクトリに以下の **ディレクトリ** をコピーします。
 
 ```xml
 <Project>
@@ -161,10 +161,10 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
 1. Nuspec プロジェクトに NuGet 仕様 (...) ファイルを **追加します** 。
 
-    1. **ソリューションエクスプローラー**で、[ **simplemのプロジェクション**] ノードを右クリックし、[新しいフォルダーの**追加**] を選択  ->  **New Folder**して、フォルダーに「 **nuget**」という名前を指定します。 
-    2. **Nuget**フォルダーを右クリックし、[新しい項目の**追加**] を選択し、  ->  **New Item**XML ファイルを選択して、 **nuspec**という名前を指定します。 
+    1. **ソリューションエクスプローラー** で、[ **simplemのプロジェクション** ] ノードを右クリックし、[新しいフォルダーの **追加** ] を選択  ->  **New Folder** して、フォルダーに「 **nuget** 」という名前を指定します。 
+    2. **Nuget** フォルダーを右クリックし、[新しい項目の **追加** ] を選択し、  ->  **New Item** XML ファイルを選択して、 **nuspec** という名前を指定します。 
 
-2. 次のを追加して、パッケージを自動的に生成するようにし**ます。** これらのプロパティは、 `NuspecFile` NuGet パッケージを生成するディレクトリとディレクトリを指定します。
+2. 次のを追加して、パッケージを自動的に生成するようにし **ます。** これらのプロパティは、 `NuspecFile` NuGet パッケージを生成するディレクトリとディレクトリを指定します。
 
     ```xml
     <PropertyGroup>
@@ -206,21 +206,21 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
 ## <a name="build-the-solution-to-generate-the-projection-and-nuget-package"></a>ソリューションをビルドしてプロジェクションと NuGet パッケージを生成する
 
-この時点で、ソリューションをビルドできるようになりました。ソリューションノードを右クリックし、[ **ソリューションのビルド**] を選択します。 これにより、最初にコンポーネントプロジェクトがビルドされ、次に射影プロジェクトが作成されます。 コンポーネントプロジェクトのメタデータファイルに加えて、interop **.cs** ファイルとアセンブリが出力ディレクトリに生成されます。 また、 **nuget**フォルダーで、生成された Nuget パッケージ**Simplem0.1.0 component**を確認することもできます。
+この時点で、ソリューションをビルドできるようになりました。ソリューションノードを右クリックし、[ **ソリューションのビルド** ] を選択します。 これにより、最初にコンポーネントプロジェクトがビルドされ、次に射影プロジェクトが作成されます。 コンポーネントプロジェクトのメタデータファイルに加えて、interop **.cs** ファイルとアセンブリが出力ディレクトリに生成されます。 また、 **nuget** フォルダーで、生成された Nuget パッケージ **Simplem0.1.0 component** を確認することもできます。
 
 ![投影の生成を示すソリューションエクスプローラー](images/projection-generated-files.png)
 
-## <a name="referencethenugetpackage-inacnet50consoleapplication"></a>C# .NET 5.0 コンソールアプリケーションで NuGet パッケージを参照する
+## <a name="reference-the-nuget-package-in-a-c-net-50-console-application"></a>C# .NET 5.0 コンソールアプリケーションで NuGet パッケージを参照する
 
-投影された **Simplemのコンポーネント**を使用するには、アプリケーションに新しく作成された NuGet パッケージへの参照を追加するだけです。 次の手順では、別のソリューションで簡単なコンソールアプリを作成することによって、これを行う方法を示します。
+投影された **Simplemのコンポーネント** を使用するには、アプリケーションに新しく作成された NuGet パッケージへの参照を追加するだけです。 次の手順では、別のソリューションで簡単なコンソールアプリを作成することによって、これを行う方法を示します。
 
 1. **コンソールアプリ (.Net Core)** プロジェクトを使用して、新しいソリューションを作成します。
 
     1. Visual Studio で、 **[ファイル]**  ->  **[新規]**  ->  **[プロジェクト]** の順に選択します。
-    2. [ **新しいプロジェクトの追加] ダイアログボックス**で、[ **コンソールアプリ (.net Core)** ] プロジェクトテンプレートを検索します。 テンプレートを選択し、[ **次へ**] をクリックします。
-    3. 新しいプロジェクトに **SampleConsoleApp** という名前を指定し、[ **作成**] をクリックします。 新しいソリューションでこのプロジェクトを作成すると、 **Simplemのコンポーネント** NuGet パッケージを個別に復元することができます。
+    2. [ **新しいプロジェクトの追加] ダイアログボックス** で、[ **コンソールアプリ (.net Core)** ] プロジェクトテンプレートを検索します。 テンプレートを選択し、[ **次へ** ] をクリックします。
+    3. 新しいプロジェクトに **SampleConsoleApp** という名前を指定し、[ **作成** ] をクリックします。 新しいソリューションでこのプロジェクトを作成すると、 **Simplemのコンポーネント** NuGet パッケージを個別に復元することができます。
 
-2. **ソリューションエクスプローラー**で、[ **SampleConsoleApp** ] ノードをダブルクリックして**SampleConsoleApp**プロジェクトファイルを開き、次の例に示すように、ターゲットフレームワークモニカーとプラットフォーム構成を更新します。
+2. **ソリューションエクスプローラー** で、[ **SampleConsoleApp** ] ノードをダブルクリックして **SampleConsoleApp** プロジェクトファイルを開き、次の例に示すように、ターゲットフレームワークモニカーとプラットフォーム構成を更新します。
 
     ```xml
     <PropertyGroup>
@@ -229,7 +229,7 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
     </PropertyGroup>
     ```
 
-3. **SampleConsoleApp**プロジェクトに**Simplem コンポーネント**NuGet パッケージを追加します。 また、 [VCRTForwarders](https://www.nuget.org/packages/Microsoft.VCRTForwarders.140/) NuGet パッケージも必要です。これは、msix パッケージにパッケージ化されていないアプリで必要になります。 プロジェクトをビルドするときに **Simplemのコンポーネント** nuget を復元するには、 `RestoreSources` プロパティをコンポーネントソリューションの **nuget** フォルダーへのパスと共に使用します。
+3. **SampleConsoleApp** プロジェクトに **Simplem コンポーネント** NuGet パッケージを追加します。 また、 [VCRTForwarders](https://www.nuget.org/packages/Microsoft.VCRTForwarders.140/) NuGet パッケージも必要です。これは、msix パッケージにパッケージ化されていないアプリで必要になります。 プロジェクトをビルドするときに **Simplemのコンポーネント** nuget を復元するには、 `RestoreSources` プロパティをコンポーネントソリューションの **nuget** フォルダーへのパスと共に使用します。
 
     ```xml
     <PropertyGroup>
@@ -247,10 +247,10 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
     このチュートリアルでは、 **Simplemare コンポーネント** の NuGet 復元パスでは、両方のソリューションファイルが同じディレクトリにあることを前提としています。 または、 [ローカルの NuGet パッケージフィード](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources) をソリューションに追加することもできます。
 
-4. **Program.cs**ファイルを編集して、 **Simplem コンポーネント**によって提供される機能を使用します。
+4. **Program.cs** ファイルを編集して、 **Simplem コンポーネント** によって提供される機能を使用します。
 
     ```csharp
-    static void Main(string[] args)
+    static void Main(string[] args)
     {
         var x = new SimpleMathComponent.SimpleMath();
         Console.WriteLine("Adding 5.5 + 6.5 ...");

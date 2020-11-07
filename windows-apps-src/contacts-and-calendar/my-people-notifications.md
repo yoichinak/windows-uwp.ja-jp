@@ -5,12 +5,12 @@ ms.date: 10/25/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e00e3de9445a8b7c63ebaead70173c29b637b54
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9fa73c6fdd0a0cac69cb485d3426ddfc327591bd
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166326"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339670"
 ---
 # <a name="my-people-notifications"></a>マイ連絡先の通知
 
@@ -20,7 +20,7 @@ ms.locfileid: "89166326"
 
 ## <a name="requirements"></a>必要条件
 
-+ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](../get-started/get-set-up.md)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](/windows/apps/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](../get-started/create-a-hello-world-app-xaml-universal.md)」をご覧ください。
 
 ## <a name="how-it-works"></a>しくみ
@@ -65,7 +65,7 @@ experienceType="shoulderTap"
 > [!NOTE]
 > アニメーションの通知を行うときでも、"src" パラメーターで静的な画像を指定する必要があります。 これは、アニメーションの表示に失敗した場合のフォールバックとして使用されます。
 
-さらに、トップ レベルのトースト ノードには、**hint-people** パラメーターを含めて、送信連絡先を指定する必要があります。 このパラメーターは次の値を取ることができます。
+さらに、トップ レベルのトースト ノードには、 **hint-people** パラメーターを含めて、送信連絡先を指定する必要があります。 このパラメーターは次の値を取ることができます。
 
 + **電子メール アドレス** 
     + 例: ` mailto:johndoe@mydomain.com `

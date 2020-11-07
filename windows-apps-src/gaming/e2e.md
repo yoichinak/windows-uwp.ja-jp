@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム、ゲーム開発
 ms.localizationpriority: medium
-ms.openlocfilehash: c6cae9e2416eb992815f098649d6b02ee472da14
-ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
+ms.openlocfilehash: be63c7ec1e682924e2364a2c6ea8e4d2d81dee3f
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92192972"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339510"
 ---
 # <a name="windows-10-game-development-guide"></a>Windows 10 ゲーム開発ガイド
 
@@ -217,15 +217,15 @@ Windows 10 ゲームとアプリのサンプルが数多く用意されており
     </tr>
     <tr>
         <td>JavaScript 2D ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-js2d.md">JavaScript で UWP ゲームを作成する</a></td>
+        <td><a href="/windows/uwp/get-started/">JavaScript で UWP ゲームを作成する</a></td>
     </tr>
     <tr>
         <td>JavaScript 3D ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-js3d.md">three.js を使用して 3D JavaScript ゲームを作成する</a></td>
+        <td><a href="/windows/uwp/get-started/">three.js を使用して 3D JavaScript ゲームを作成する</a></td>
     </tr>
     <tr>
         <td>MonoGame 2D UWP ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-mg2d.md">MonoGame 2D で UWP ゲームを作成する</a></td>
+        <td><a href="/windows/uwp/get-started/">MonoGame 2D で UWP ゲームを作成する</a></td>
     </tr>
 </table>
 
@@ -752,7 +752,7 @@ MonoGame は、オープン ソース、クロスプラット フォームのゲ
     </tr>
     <tr>
         <td>MonoGame 2D UWP ゲームのサンプル</td>
-        <td><a href="../get-started/get-started-tutorial-game-mg2d.md">MonoGame 2D で UWP ゲームを作成する</a></td>
+        <td><a href="/windows/uwp/get-started/">MonoGame 2D で UWP ゲームを作成する</a></td>
     </tr>
 </table>
 
@@ -970,7 +970,7 @@ UWP プログラミングについて "文字どおりの初心者" である場
     </tr>
 </table>
 
-### <a name="windows-desktop-apisto-uwp"></a>Windows デスクトップ API から UWP へ
+### <a name="windows-desktop-apis-to-uwp"></a>Windows デスクトップ API から UWP へ
 
 Windows デスクトップ ゲームを UWP に移行する際に役立つリンクの一部を以下に示します。
 

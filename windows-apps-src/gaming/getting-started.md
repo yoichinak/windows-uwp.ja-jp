@@ -6,14 +6,14 @@ ms.date: 01/25/2018
 ms.topic: article
 keywords: windows 10、uwp、ゲーム、はじめに
 localizationpriority: medium
-ms.openlocfilehash: 7d3e50f5d32cd8c6a497ff3de67005972d3a0f7f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3368186fdf860df48d7ae49e08d47e1abf667aa3
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175316"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339450"
 ---
-# <a name="getting-started"></a>はじめに
+# <a name="getting-started"></a>作業の開始
 
 この記事は、Windows または Xbox でゲームを開発するための入門ガイドです。 
 
@@ -37,7 +37,7 @@ Visual Studio のような適切な IDE をインストールします。 Visual
 
 ### <a name="step-2-prepare-your-hardware-for-development"></a>手順 2: 開発用にハードウェアを準備する
 
-初めて開発を行っている場合は、デバイスで開発者モードを有効にする必要があります。 詳細については、「[デバイスを開発用に有効にする](../get-started/enable-your-device-for-development.md)」を参照してください。
+初めて開発を行っている場合は、デバイスで開発者モードを有効にする必要があります。 詳細については、「[デバイスを開発用に有効にする](/windows/apps/get-started/enable-your-device-for-development)」を参照してください。
 
 リテール Xbox コンソールを使用して Xbox ゲームの開発を計画しているユーザーについては、開発者モードをアクティブ化して有効にする必要もあります。 詳細については、「 [Xbox One Developer Mode activation](../xbox-apps/devkit-activation.md) 」と「 [XBOX での UWP アプリ開発の](../xbox-apps/getting-started.md)概要」を参照してください。 
 

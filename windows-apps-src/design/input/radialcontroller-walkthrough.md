@@ -1,24 +1,24 @@
 ---
 ms.assetid: ''
-title: Windows アプリでの Surface Dial (およびその他のホイール デバイス) のサポート
+title: 'Windows アプリでの Surface Dial (およびその他のホイール デバイス) のサポート '
 description: Surface Dial (およびその他のホイールデバイス) のサポートを Windows アプリに追加するためのステップバイステップのチュートリアルです。
 keywords: ダイヤル, ラジアル, チュートリアル
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: cc1618432d35687fe1bfa619396bc2b798dd40bf
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: d6da91818abcf140c7d381f9d481fc92ba2feb56
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216925"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339700"
 ---
 # <a name="tutorial-support-the-surface-dial-and-other-wheel-devices-in-your-windows-app"></a>チュートリアル: Windows アプリで Surface Dial (およびその他のホイールデバイス) をサポートする
 
 ![Surface Dial と Surface Studio の画像](images/radialcontroller/dial-pen-studio-600px.png)  
-*Surface Dial と Surface Studio、Surface ペン* ([Microsoft ストア](https://www.microsoft.com/store/d/Surface-Dial/925R551SKTGN?icid=Surface_Accessories_ModB_Surface_Dial_103116)で購入できます)。
+*Surface Dial と Surface Studio、Surface ペン* ( [Microsoft ストア](https://www.microsoft.com/store/d/Surface-Dial/925R551SKTGN?icid=Surface_Accessories_ModB_Surface_Dial_103116)で購入できます)。
 
-このチュートリアルでは、Surface Dial などのホイール デバイスでサポートされている、ユーザー操作エクスペリエンスをカスタマイズする手順を示します。 使用するサンプル アプリは GitHub ([サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する [**RadialController**](/uwp/api/windows.ui.input.radialcontroller) API の使い方を示します。
+このチュートリアルでは、Surface Dial などのホイール デバイスでサポートされている、ユーザー操作エクスペリエンスをカスタマイズする手順を示します。 使用するサンプル アプリは GitHub ( [サンプル コード](#sample-code)) からダウンロードできます。このサンプル アプリのスニペットは、各手順でのさまざまな機能と関連する [**RadialController**](/uwp/api/windows.ui.input.radialcontroller) API の使い方を示します。
 
 次の点を中心に説明します。
 * [**RadialController**](/uwp/api/windows.ui.input.radialcontroller) メニューに表示される組み込みのツールを指定する
@@ -29,7 +29,7 @@ ms.locfileid: "91216925"
 
 これらの機能およびその他の機能の実装の詳細については、「 [Windows アプリでの Surface Dial の対話](windows-wheel-interactions.md)」を参照してください。
 
-## <a name="introduction"></a>概要
+## <a name="introduction"></a>はじめに
 
 Surface Dial は、ペン、タッチ、マウスなどの主要な入力デバイスと共に使ってユーザーの生産性を向上させるための、セカンダリ入力デバイスです。 Dial は、セカンダリ入力デバイスとして、通常は利き手以外の手で使用し、システム コマンドおよびその他のコンテキスト依存のツールや機能へのアクセスを提供します。 
 
@@ -45,25 +45,25 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 * [Windows 10 SDK (10.0.15063.0)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * ホイール デバイス (現時点では [Surface Dial](https://www.microsoft.com/store/d/Surface-Dial/925R551SKTGN?icid=Surface_Accessories_ModB_Surface_Dial_103116) のみ)
 * Visual Studio を使用した Windows アプリの開発に慣れていない場合は、このチュートリアルを開始する前に、次のトピックを参照してください。  
-    * [準備](../../get-started/get-set-up.md)
+    * [準備](/windows/apps/get-started/get-set-up)
     * ["Hello, world" アプリを作成する (XAML)](../../get-started/create-a-hello-world-app-xaml-universal.md)
 
 ## <a name="set-up-your-devices"></a>デバイスの設定
 
 1. Windows デバイスがオンになっていることを確認します。
-2. [**スタート**] に移動し、[**設定**] > [**デバイス]** > [**Bluetooth とその他のデバイス**] の順に選択して、[**Bluetooth**] をオンにします。
+2. [ **スタート** ] に移動し、[ **設定** ] > [ **デバイス]** > [ **Bluetooth とその他のデバイス** ] の順に選択して、[ **Bluetooth** ] をオンにします。
 3. Surface Dial の下部のバッテリ収納部を開き、単 4 電池が 2 本入っていることを確認します。
 4. Dial の底面にバッテリのタブが残っている場合には、それを取り外します。
 5. バッテリの横にある小さな押しボタンを、Bluetooth のライトが点滅するまで長押しします。
-6. Windows デバイスに戻り、[**Bluetooth またはその他のデバイスを追加する**] を選びます。
-7. [**デバイスの追加**] ダイアログ ボックスで、[**Bluetooth**] > [**Surface Dial**] の順に選びます。 Surface Dial が接続されて、[**Bluetooth とその他のデバイス**] 設定ページの [**マウス、キーボード、ペン**] の下のデバイスの一覧に追加されます。
+6. Windows デバイスに戻り、[ **Bluetooth またはその他のデバイスを追加する** ] を選びます。
+7. [ **デバイスの追加** ] ダイアログ ボックスで、[ **Bluetooth** ] > [ **Surface Dial** ] の順に選びます。 Surface Dial が接続されて、[ **Bluetooth とその他のデバイス** ] 設定ページの [ **マウス、キーボード、ペン** ] の下のデバイスの一覧に追加されます。
 8. Dial を数秒ほど長押しして、組み込みのメニューが表示されるかどうかテストします。
 9. 画面にメニューが表示されない場合は (ダイヤルもバイブレーションする必要があります)、Bluetooth の設定に戻り、デバイスを削除してから、デバイスをもう一度接続してみてください。
 
 > [!NOTE]
-> ホイール デバイスは [**ホイール**] 設定から構成できます。
-> 1. [**スタート**] メニューで [**設定**] を選びます。
-> 2. [**デバイス**ホイール] を選択し  >  **Wheel**ます。    
+> ホイール デバイスは [ **ホイール** ] 設定から構成できます。
+> 1. [ **スタート** ] メニューで [ **設定** ] を選びます。
+> 2. [ **デバイス** ホイール] を選択し  >  **Wheel** ます。    
 > ![ホイール設定画面](images/radialcontroller/wheel-settings.png)
 
 これでチュートリアルを開始する準備ができました。 
@@ -73,10 +73,10 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 
 この Visual Studio サンプルとソース コードは [GitHub](https://github.com/) の [windows-appsample-get-started-radialcontroller sample](https://github.com/Microsoft/Windows-tutorials-inputs-and-devices/tree/master/GettingStarted-RadialController) からダウンロードできます。
 
-1. 緑の [**Clone or download**] (複製またはダウンロード) ボタンを選択します。  
+1. 緑の [ **Clone or download** ] (複製またはダウンロード) ボタンを選択します。  
 ![リポジトリを複製する](images/radialcontroller/wheel-clone.png)
-2. GitHub アカウントを持っている場合は、[ **Visual Studio で開く**] をクリックして、ローカルコンピューターにリポジトリを複製できます。 
-3. GitHub アカウントを使っていない場合、またはプロジェクトのローカル コピーのみが必要な場合には、[**Download ZIP**] (ZIP をダウンロードする) を選択します (最新の更新をダウンロードするには、定期的に確認する必要があります)。
+2. GitHub アカウントを持っている場合は、[ **Visual Studio で開く** ] をクリックして、ローカルコンピューターにリポジトリを複製できます。 
+3. GitHub アカウントを使っていない場合、またはプロジェクトのローカル コピーのみが必要な場合には、[ **Download ZIP** ] (ZIP をダウンロードする) を選択します (最新の更新をダウンロードするには、定期的に確認する必要があります)。
 
 > [!IMPORTANT]
 > サンプル コードのほとんどの部分はコメント アウトされています。このトピックの各手順を進めていく際に、コードの各セクションのコメントを解除します。 Visual Studio では、コードの行を強調表示して Ctrl + K キーを押して Ctrl + U キーを押します。
@@ -94,17 +94,17 @@ Dial は、次の 3 つの基本的なジェスチャをサポートしていま
 
 RadialController サンプル アプリをダウンロードしたら、実行できることを確認します。
 1. Visual Studio でサンプル プロジェクトを開きます。
-2. [**ソリューション プラットフォーム**] のドロップダウンを ARM 以外の選択肢に設定します。
+2. [ **ソリューション プラットフォーム** ] のドロップダウンを ARM 以外の選択肢に設定します。
 3. F5 キーを押して、コンパイル、展開、および実行します。 
 
 > [!NOTE]
-> または、 **[デバッグ**  >  ] [デバッグの**開始**] メニュー項目を選択するか、次に示す [**ローカルコンピューター**の実行] ボタンを選択します。 ![ Visual Studio の [プロジェクトのビルド] ボタン](images/radialcontroller/wheel-vsrun.png)
+> または、 **[デバッグ**  >  ] [デバッグの **開始** ] メニュー項目を選択するか、次に示す [ **ローカルコンピューター** の実行] ボタンを選択します。 ![ Visual Studio の [プロジェクトのビルド] ボタン](images/radialcontroller/wheel-vsrun.png)
 
 アプリ ウィンドウが開き、スプラッシュ画面が数秒表示されて、次のような初期画面が表示されます。
 
 ![空のアプリ](images/radialcontroller/wheel-app-step1-empty.png)
 
-これで、このチュートリアルの残りの部分で使用する基本的な Windows アプリが完成しました。 これ以降の手順では、**RadialController** の機能を追加します。
+これで、このチュートリアルの残りの部分で使用する基本的な Windows アプリが完成しました。 これ以降の手順では、 **RadialController** の機能を追加します。
 
 ## <a name="step-2-basic-radialcontroller-functionality"></a>手順 2: 基本的な RadialController 機能
 
@@ -155,7 +155,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
                     Margin="0,0,0,20"
                     HorizontalAlignment="center"/>
     ```
-この時点では、[**Initialize sample**] (サンプルの初期化) ボタン、スライダー、トグル スイッチのみを有効にします。 他のボタンは後の手順で使用して、スライダーとトグル スイッチへのアクセスを提供する **RadialController** のメニュー項目の追加と削除を行います。
+この時点では、[ **Initialize sample** ] (サンプルの初期化) ボタン、スライダー、トグル スイッチのみを有効にします。 他のボタンは後の手順で使用して、スライダーとトグル スイッチへのアクセスを提供する **RadialController** のメニュー項目の追加と削除を行います。
 
 ![基本的なサンプル アプリの UI](images/radialcontroller/wheel-app-step3-basicui.png)
 
@@ -206,7 +206,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
         }
         ```
 
-    - ここでは、カスタムの RadialController メニュー項目を初期化します。 [CreateForCurrentView](/uwp/api/windows.ui.input.radialcontroller.CreateForCurrentView) を使って [RadialController](/uwp/api/windows.ui.input.radialcontroller) オブジェクトへの参照を取得します。[RotationResolutionInDegrees](/uwp/api/windows.ui.input.radialcontroller.RotationResolutionInDegrees) プロパティを使って、回転の感度を "1" に設定します。次に [CreateFromFontGlyph](/uwp/api/windows.ui.input.radialcontrollermenuitem.CreateFromFontGlyph) を使って [RadialControllerMenuItem](/uwp/api/windows.ui.input.radialcontrollermenuitem) を作成します。**RadialController** メニュー項目コレクションにメニュー項目を追加します。最後に、[SetDefaultMenuItems](/uwp/api/windows.ui.input.radialcontrollerconfiguration.setdefaultmenuitems) を使って既定のメニュー項目をクリアして、カスタム ツールのみを残します。 
+    - ここでは、カスタムの RadialController メニュー項目を初期化します。 [CreateForCurrentView](/uwp/api/windows.ui.input.radialcontroller.CreateForCurrentView) を使って [RadialController](/uwp/api/windows.ui.input.radialcontroller) オブジェクトへの参照を取得します。 [RotationResolutionInDegrees](/uwp/api/windows.ui.input.radialcontroller.RotationResolutionInDegrees) プロパティを使って、回転の感度を "1" に設定します。次に [CreateFromFontGlyph](/uwp/api/windows.ui.input.radialcontrollermenuitem.CreateFromFontGlyph) を使って [RadialControllerMenuItem](/uwp/api/windows.ui.input.radialcontrollermenuitem) を作成します。 **RadialController** メニュー項目コレクションにメニュー項目を追加します。最後に、 [SetDefaultMenuItems](/uwp/api/windows.ui.input.radialcontrollerconfiguration.setdefaultmenuitems) を使って既定のメニュー項目をクリアして、カスタム ツールのみを残します。 
 
         ```csharp
         // Configure RadialController menu and custom tool.
@@ -269,8 +269,8 @@ RadialController サンプル アプリをダウンロードしたら、実行�
         }
         ```
 4. では、アプリを再度実行します。
-5. [**Initialize radial controller**] (リング コントローラーの初期化) ボタンを選択します。  
-6. アプリをフォア グラウンドにして、Surface Dial を長押しすると、メニューが表示されます。 (**RadialControllerConfiguration.SetDefaultMenuItems** メソッドにより) すべての既定のツールが削除されていること、カスタム ツールのみが残っていることを確認します。 作成したカスタム ツールを含むメニューは次のようになります。 
+5. [ **Initialize radial controller** ] (リング コントローラーの初期化) ボタンを選択します。  
+6. アプリをフォア グラウンドにして、Surface Dial を長押しすると、メニューが表示されます。 ( **RadialControllerConfiguration.SetDefaultMenuItems** メソッドにより) すべての既定のツールが削除されていること、カスタム ツールのみが残っていることを確認します。 作成したカスタム ツールを含むメニューは次のようになります。 
 
 | RadialController メニュー (カスタム)  | 
 |---|
@@ -284,7 +284,7 @@ RadialController サンプル アプリをダウンロードしたら、実行�
 
 ## <a name="step-5-configure-menu-at-runtime"></a>手順 5: 実行時にメニューを構成する
 
-この手順では、[**Add/Remove item**] (項目の追加と削除) ボタンと [**Reset RadialController menu**] (RadialController メニューのリセット) ボタンを接続して、メニューを動的にカスタマイズする方法を説明します。
+この手順では、[ **Add/Remove item** ] (項目の追加と削除) ボタンと [ **Reset RadialController menu** ] (RadialController メニューのリセット) ボタンを接続して、メニューを動的にカスタマイズする方法を説明します。
 
 1. MainPage_Basic.xaml.cs ファイルを開きます。
 2. この手順のタイトル ("// Step 5: Configure menu at runtime") が付いているコードを見つけます。
@@ -328,15 +328,15 @@ RadialController サンプル アプリをダウンロードしたら、実行�
             new RadialControllerSystemMenuItemKind[] { });
     }
     ```
-4. [**Remove item**] (項目を削除する) ボタンを選択し、次に Dial を長押しして、再度メニューを表示させます。
+4. [ **Remove item** ] (項目を削除する) ボタンを選択し、次に Dial を長押しして、再度メニューを表示させます。
 
     メニューにツールの既定のコレクションが含まれていることを確認します。 手順 3 でカスタム メニューをセットアップしたときに、すべての既定のツールを削除して、カスタム ツールだけを追加したことを思い出してください。 さらに、メニューを空のコレクションに設定すると、現在のコンテキストに既定の項目が再配置されたことにも注意します。 (既定のツールを削除する前にカスタム ツールを追加しました。)
 
-5. [**Add item**] (項目の追加) ボタンを選択して、次に Dial を長押しします。
+5. [ **Add item** ] (項目の追加) ボタンを選択して、次に Dial を長押しします。
 
     メニューに、既定のツールのコレクションと、カスタム ツールの両方が含まれていることを確認します。
 
-6. [**Reset RadialController menu**] (RadialController メニューのリセット) ボタンを選択し、次に Dial を長押しします。
+6. [ **Reset RadialController menu** ] (RadialController メニューのリセット) ボタンを選択し、次に Dial を長押しします。
 
     メニューが元の状態に戻ったことを確認します。
 
@@ -346,7 +346,7 @@ Surface Dial およびその他のホイール デバイスは、現在の操作
 この手順では、触覚フィードバックをカスタマイズする方法を説明します。ここでは、スライダーとトグル スイッチ コントロールを関連付け、それらを使って動的に触覚フィードバック動作を指定します。 この例では、フィードバックを有効にするには、トグル スイッチをオンにする必要があります。スライダーの値により、クリックのフィードバックの反復頻度を指定します。 
 
 > [!NOTE]
-> Haptic のフィードバックは、[**設定**  >   ] [**デバイス**  >  ] [**ホイール**] ページでユーザーが無効にすることができます。
+> Haptic のフィードバックは、[ **設定**  >   ] [ **デバイス**  >  ] [ **ホイール** ] ページでユーザーが無効にすることができます。
 
 1. App.xaml.cs ファイルを開きます。
 2. この手順のタイトル ("Step 6: Customize the device haptics") が付いているコードを見つけます。
@@ -440,7 +440,7 @@ Surface Dial およびその他のホイール デバイスは、現在の操作
         using Windows.Devices.Haptics;
         ```
 
-    - ここでは、[ControlAcquired](/uwp/api/windows.ui.input.radialcontroller.ControlAcquired) イベントのハンドラーを指定します。これはカスタムの **RadialController** メニュー項目が選択されたときにトリガーされます。
+    - ここでは、 [ControlAcquired](/uwp/api/windows.ui.input.radialcontroller.ControlAcquired) イベントのハンドラーを指定します。これはカスタムの **RadialController** メニュー項目が選択されたときにトリガーされます。
 
         ```csharp
         radialController.ControlAcquired += (rc_sender, args) =>
@@ -559,7 +559,7 @@ Surface Dial およびその他のホイール デバイスは、現在の操作
             }
         }
         ```
-    - 最後に、触覚フィードバックに要求した**[波形](/uwp/api/windows.devices.haptics.simplehapticscontrollerfeedback.Waveform)** (サポートされている場合) を取得します。 
+    - 最後に、触覚フィードバックに要求した **[波形](/uwp/api/windows.devices.haptics.simplehapticscontrollerfeedback.Waveform)** (サポートされている場合) を取得します。 
 
         ```csharp
         // Get the requested waveform.
@@ -611,7 +611,7 @@ Surface Dial の接触位置と境界の両方を検出することにより、�
 
 ## <a name="summary"></a>まとめ
 
-これで、入門チュートリアルが完了しました *。 Windows アプリで Surface Dial (およびその他のホイールデバイス) をサポート*しています。 Windows アプリでホイールデバイスをサポートするために必要な基本的なコードと、 **放射 Alcontroller** api でサポートされている充実したユーザーエクスペリエンスを提供する方法について説明しました。
+これで、入門チュートリアルが完了しました *。 Windows アプリで Surface Dial (およびその他のホイールデバイス) をサポート* しています。 Windows アプリでホイールデバイスをサポートするために必要な基本的なコードと、 **放射 Alcontroller** api でサポートされている充実したユーザーエクスペリエンスを提供する方法について説明しました。
 
 ## <a name="related-articles"></a>関連記事
 

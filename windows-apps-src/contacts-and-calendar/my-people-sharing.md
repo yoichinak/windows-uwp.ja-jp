@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 76d52fe3ed7e7fb74ae5338e589ab34751bedebe
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8cbf82592e91b82e2d9d34d116d00aecf2ddd021
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173666"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339410"
 ---
 # <a name="my-people-sharing"></a>マイ連絡先の共有
 
@@ -20,7 +20,7 @@ ms.locfileid: "89173666"
 
 ## <a name="requirements"></a>必要条件
 
-+ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](../get-started/get-set-up.md)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](/windows/apps/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](../get-started/create-a-hello-world-app-xaml-universal.md)」をご覧ください。
 
 ## <a name="overview"></a>概要
@@ -37,7 +37,7 @@ ms.locfileid: "89173666"
 
 ## <a name="declaring-support-for-the-share-contract"></a>共有コントラクトのサポートを宣言する
 
-アプリケーションでの共有ターゲットのサポートを宣言するには、まず Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、[**プログラムから開く**] を選択します。 メニューから [ **XML (テキスト) エディター** ] を選択し、[ **OK**] をクリックします。 マニフェストを次のように変更します。
+アプリケーションでの共有ターゲットのサポートを宣言するには、まず Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、[ **プログラムから開く** ] を選択します。 メニューから [ **XML (テキスト) エディター** ] を選択し、[ **OK** ] をクリックします。 マニフェストを次のように変更します。
 
 
 **変更前**
@@ -81,7 +81,7 @@ ms.locfileid: "89173666"
 
 マイ連絡先の共有ウィンドウでアプリケーションを連絡先の共有ターゲットとして表示するには、それを Windows 連絡先ストアに書き込む必要があります。 連絡先を書き込む方法については、「[連絡先カードの統合のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/ContactCardIntegration)」をご覧ください。 
 
-連絡先を共有する場合にアプリケーションがマイ連絡先の共有ターゲットとして表示されるためには、連絡先に注釈を書き込む必要があります。 注釈は、連絡先に関連付けられた、アプリケーションからのデータの一部です。 注釈は、必要なビューに対応する、アクティブ化可能なクラスを、**ProviderProperties** メンバーに含む必要があります。また **Share** 操作のサポートを宣言する必要があります。
+連絡先を共有する場合にアプリケーションがマイ連絡先の共有ターゲットとして表示されるためには、連絡先に注釈を書き込む必要があります。 注釈は、連絡先に関連付けられた、アプリケーションからのデータの一部です。 注釈は、必要なビューに対応する、アクティブ化可能なクラスを、 **ProviderProperties** メンバーに含む必要があります。また **Share** 操作のサポートを宣言する必要があります。
 
 アプリが実行されている任意の時点で連絡先に注釈を付けることができますが、一般には、連絡先がWindows 連絡先ストアに追加されたらすぐに連絡先に注釈を付けるようにします。
 

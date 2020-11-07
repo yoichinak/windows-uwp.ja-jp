@@ -5,12 +5,12 @@ ms.date: 06/28/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2eea2d228ddf5ad6dfaef227bfaeb0bafb071490
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 8c0e174613357ad9e4e45d2776f3fbc618535b30
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170496"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339460"
 ---
 # <a name="adding-my-people-support-to-an-application"></a>アプリケーションにマイ連絡先のサポートを追加する
 
@@ -23,7 +23,7 @@ ms.locfileid: "89170496"
 
 ## <a name="requirements"></a>必要条件
 
-+ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](../get-started/get-set-up.md)」をご覧ください。
++ Windows 10 と Microsoft Visual Studio 2019。 インストールについて詳しくは、「[Visual Studio のセットアップ](/windows/apps/get-started/get-set-up)」をご覧ください。
 + C# またはこれに類似するオブジェクト指向プログラミング言語に関する基本的な知識。 C# で作業を始めるには、「["Hello, world" アプリを作成する](../get-started/create-a-hello-world-app-xaml-universal.md)」をご覧ください。
 
 ## <a name="overview"></a>概要
@@ -38,7 +38,7 @@ ms.locfileid: "89170496"
 
 ## <a name="declaring-support-for-the-contract"></a>コントラクトのサポートを宣言する
 
-マイ連絡先のコントラクトのサポートを宣言するには、Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、[**プログラムから開く**] を選択します。 メニューをから [**XML (テキスト) エディター**] を選び、**[OK]** をクリックします。 マニフェストを次のように変更します。
+マイ連絡先のコントラクトのサポートを宣言するには、Visual Studio でアプリケーションを開きます。 **ソリューション エクスプローラー** で **Package.appxmanifest** を右クリックして、[ **プログラムから開く** ] を選択します。 メニューをから [ **XML (テキスト) エディター** ] を選び、 **[OK]** をクリックします。 マニフェストを次のように変更します。
 
 **変更前**
 
@@ -82,7 +82,7 @@ ms.locfileid: "89170496"
 
 アプリケーションの連絡先がタスク バーからマイ連絡先ウィンドウに表示されるようにするには、連絡先を Windows 連絡先ストアに書き込む必要があります。  連絡先を書き込む方法については、「[連絡先カードのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/ContactCardIntegration)」をご覧ください。
 
-さらにアプリケーションは、各連絡先に注釈を書き込む必要があります。 注釈は、連絡先に関連付けられた、アプリケーションからのデータの一部です。 注釈は、必要なビューに対応する、アクティブ化可能なクラスを、**ProviderProperties** メンバーに含む必要があります。また **ContactProfile** 操作のサポートを宣言する必要があります。
+さらにアプリケーションは、各連絡先に注釈を書き込む必要があります。 注釈は、連絡先に関連付けられた、アプリケーションからのデータの一部です。 注釈は、必要なビューに対応する、アクティブ化可能なクラスを、 **ProviderProperties** メンバーに含む必要があります。また **ContactProfile** 操作のサポートを宣言する必要があります。
 
 アプリが実行されている任意の時点で連絡先に注釈を付けることができますが、一般には、連絡先がWindows 連絡先ストアに追加されたらすぐに連絡先に注釈を付けるようにします。
 
@@ -176,13 +176,13 @@ override protected void OnActivated(IActivatedEventArgs e)
 
 ContactPanel オブジェクトには 2 つのイベントがあります。アプリケーションはこのイベントをリッスンする必要があります。
 + **LaunchFullAppRequested** イベントは、フル アプリケーションが独自のウィンドウで起動するように要求する UI 要素をユーザーが呼び出したときに送信されます。  アプリケーションは、それ自体を起動して、すべての必要なコンテキストを渡す必要があります。  これは好みの方法を使って行うことができます (たとえば、プロトコル起動など)。
-+ **Closing イベント**は、アプリケーションが閉じられようとするときに送信されます。これにより、コンテキストを保存することができます。
++ **Closing イベント** は、アプリケーションが閉じられようとするときに送信されます。これにより、コンテキストを保存することができます。
 
 ContactPanel オブジェクトを使うと、連絡先パネル ヘッダーの背景色を設定することもできます (設定されない場合、既定はシステムのテーマです)。またプログラムを使って連絡先パネルを閉じることもできます。
 
 ## <a name="supporting-notification-badging"></a>通知バッジをサポートする
 
-ユーザーに関連する新しい通知がアプリから届いたときに、タスク バーにピン留めされた連絡先にバッジを表示する場合は、[トースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)と表現力豊かな[マイ連絡先の通知](./my-people-notifications.md)に **hint-people** パラメーターを含める必要があります。
+ユーザーに関連する新しい通知がアプリから届いたときに、タスク バーにピン留めされた連絡先にバッジを表示する場合は、 [トースト通知](../design/shell/tiles-and-notifications/adaptive-interactive-toasts.md)と表現力豊かな [マイ連絡先の通知](./my-people-notifications.md)に **hint-people** パラメーターを含める必要があります。
 
 ![連絡先の通知でのバッジの表示](images/my-people-badging.png)
 
