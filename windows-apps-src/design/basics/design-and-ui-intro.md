@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 78ccbe1f18167c318ffa38f3614cfab61782d147
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 1f6474170967986bfee555eb07d7ea41601e9e48
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93032445"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339760"
 ---
 # <a name="introduction-to-windows-app-design"></a>Windows アプリ デザインの概要
 
@@ -162,7 +162,7 @@ UWP アプリではスマート操作が使用されます。 クリックの発
 
 - [設計ツールキットのページ](../downloads/index.md)をご覧ください。XD、Illustrator、Photoshop、Framer、Sketch の各ツールキット、および追加の設計ツールやフォントのダウンロードが提供されています。
 
-- コンピューターを設定して UWP アプリのコードを記述できるようにするには、[「はじめに」 &gt; 「準備」](../../get-started/get-set-up.md)の記事をご覧ください。
+- コンピューターを設定して UWP アプリのコードを記述できるようにするには、[「はじめに」 &gt; 「準備」](/windows/apps/get-started/get-set-up)の記事をご覧ください。
 
 - UWP の UI を実装する方法については、エンド ツー エンドの「[サンプル UWP アプリ](https://developer.microsoft.com/windows/samples)」をご覧ください。
 

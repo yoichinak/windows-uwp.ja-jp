@@ -6,12 +6,12 @@ ms.date: 06/11/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: edaa15aa2e88252c328a368df1b7698a9b74f5e0
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: b1420fc5b5e74cba46b486b57be1098ac17ad1f5
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750448"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339830"
 ---
 # <a name="create-a-hello-world-app-in-ccx"></a>"Hello, World!" アプリを C++/CX で作成する
 
@@ -75,7 +75,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 1.  Visual Studio のメニュー バーから **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト...]** の順に選択します。
 
-2.  **[新しいプロジェクトの作成]** ダイアログ ボックスで、 **[空のアプリ (ユニバーサル Windows - C++/CX)]** を選択します。  このオプションが見つからない場合は、ユニバーサル Windows アプリ開発ツールがインストールされていることを確認します。 詳しくは、「[準備](get-set-up.md)」をご覧ください。
+2.  **[新しいプロジェクトの作成]** ダイアログ ボックスで、 **[空のアプリ (ユニバーサル Windows - C++/CX)]** を選択します。  このオプションが見つからない場合は、ユニバーサル Windows アプリ開発ツールがインストールされていることを確認します。 詳しくは、「[準備](/windows/apps/get-started/get-set-up)」をご覧ください。
 
 ![[新しいプロジェクトの作成] ダイアログ ボックスの C++/CX プロジェクト テンプレート ](images/vs2019-uwp-01.png)
 
@@ -84,7 +84,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 4.  **[作成]** を選択します。
 
 > [!NOTE]
-> Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、**開発者モード**を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](enable-your-device-for-development.md)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** をクリックしてダイアログ ボックスを閉じます。
+> Visual Studio を初めて使う場合は、[設定] ダイアログ ボックスが表示され、 **開発者モード** を有効にするよう求められることがあります。 開発者モードは、アプリをストアからだけではなく、直接実行するためのアクセス許可など、特定の機能を有効にする特別な設定です。 詳しくは、「[デバイスを開発用に有効にする](/windows/apps/get-started/enable-your-device-for-development)」をご覧ください。 先に進むには、 **[開発者モード]** を選択し、 **[はい]** をクリックしてダイアログ ボックスを閉じます。
 
    プロジェクト ファイルが作られます。
 
@@ -98,10 +98,10 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 まずプロジェクト ファイルを見てみましょう。
 
--   **App.xaml、App.xaml.h、App.xaml.cpp:** アプリのエントリ ポイントとなる Application オブジェクトを表します。 App.xaml に、ページ固有の UI マークアップは含まれませんが、UI のスタイルなどの要素を追加して任意のページからアクセスすることができます。 分離コード ファイルには、**OnLaunched** イベントと **OnSuspending** イベントのハンドラーが含まれます。 通常、ここには、起動時にアプリを初期化したり、中断または終了時にクリーンアップ処理を実行したりするためのカスタム コードを追加します。
+-   **App.xaml、App.xaml.h、App.xaml.cpp:** アプリのエントリ ポイントとなる Application オブジェクトを表します。 App.xaml に、ページ固有の UI マークアップは含まれませんが、UI のスタイルなどの要素を追加して任意のページからアクセスすることができます。 分離コード ファイルには、 **OnLaunched** イベントと **OnSuspending** イベントのハンドラーが含まれます。 通常、ここには、起動時にアプリを初期化したり、中断または終了時にクリーンアップ処理を実行したりするためのカスタム コードを追加します。
 -   **MainPage.xaml、MainPage.xaml.h、MainPage.xaml.cpp:** アプリの既定の "スタート" ページに関する XAML マークアップと分離コードが含まれます。 ナビゲーション サポートやビルトイン コントロールはありません。
 -   **pch.h、pch.cpp:** プリコンパイル済みヘッダー ファイルと、それをプロジェクトにインクルードするファイルです。 pch.h には、変更頻度が低く、ソリューション内の他のファイルにインクルードされるヘッダーを含めることができます。
--   **Package.appxmanifest:** アプリが必要とするデバイスの機能、そしてアプリのバージョン情報やその他のメタデータを表す XML ファイルです。 このファイルをダブルクリックすると、**マニフェスト デザイナー**で開くことができます。
+-   **Package.appxmanifest:** アプリが必要とするデバイスの機能、そしてアプリのバージョン情報やその他のメタデータを表す XML ファイルです。 このファイルをダブルクリックすると、 **マニフェスト デザイナー** で開くことができます。
 -   **HelloWorld\_TemporaryKey.pfx:** Visual Studio からこのコンピューターにアプリを展開できるようにするキーです。
 
 ## <a name="a-first-look-at-the-code"></a>初めてのコード
@@ -110,7 +110,7 @@ C++ を使った Windows デスクトップのプログラミングに関する�
 
 **Ref クラス**
 
-Windows ランタイムのほぼすべてのクラスは、Windows API のすべての型 (XAML コントロール、アプリ内のページ、App クラス自体、すべてのデバイス オブジェクトとネットワーク オブジェクト、すべてのコンテナー型) を含んでおり、**ref クラス** として宣言されます (**value class** または **value struct** の Windows 型もわずかに存在します)。 ref クラスはすべての言語から利用できます。 C++/CX では、これらの型の有効期間が (ガベージ コレクションではなく) 自動参照カウントによって制御されるため、それらのオブジェクトを明示的に削除することはできません。 ref クラスは独自に作成することもできます。
+Windows ランタイムのほぼすべてのクラスは、Windows API のすべての型 (XAML コントロール、アプリ内のページ、App クラス自体、すべてのデバイス オブジェクトとネットワーク オブジェクト、すべてのコンテナー型) を含んでおり、 **ref クラス** として宣言されます ( **value class** または **value struct** の Windows 型もわずかに存在します)。 ref クラスはすべての言語から利用できます。 C++/CX では、これらの型の有効期間が (ガベージ コレクションではなく) 自動参照カウントによって制御されるため、それらのオブジェクトを明示的に削除することはできません。 ref クラスは独自に作成することもできます。
 
 ```cpp
 namespace HelloWorld
@@ -204,8 +204,8 @@ MainPage::MainPage()
 
 **手順 1: スタート ページの変更**
 
-1.  **ソリューション エクスプローラー**で、MainPage.xaml を開きます。
-2.  ルート [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) の終了タグの直前に次の XAML を追加して、UI に使うコントロールを作成します。 この XAML には、ユーザーの名前をたずねる [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、ユーザーの名前を受け取る [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) 要素、[**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button)、別の **TextBlock** 要素を持つ [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) が含まれます。
+1.  **ソリューション エクスプローラー** で、MainPage.xaml を開きます。
+2.  ルート [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) の終了タグの直前に次の XAML を追加して、UI に使うコントロールを作成します。 この XAML には、ユーザーの名前をたずねる [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock)、ユーザーの名前を受け取る [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) 要素、 [**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button)、別の **TextBlock** 要素を持つ [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) が含まれます。
 
     ```xaml
     <StackPanel x:Name="contentPanel" Margin="120,30,0,0">
@@ -238,14 +238,14 @@ MainPage::MainPage()
 ## <a name="step-2-create-an-event-handler"></a>手順 2:イベント ハンドラーの作成
 
 1.  MainPage.xaml (XAML ビューまたはデザイン ビュー) で、先に追加した [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) の "Say Hello" [**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button) を選びます。
-2.  F4 キーを押して**プロパティ ウィンドウ**を開き、[イベント] ボタン (![[イベント] ボタン](images/eventsbutton.png)) を選択します。
-3.  [  **Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントを探します。 このテキスト ボックスに、**Click** イベントを処理する関数の名前を入力します。 この例では、「Button\_Click」と入力します。
+2.  F4 キーを押して **プロパティ ウィンドウ** を開き、[イベント] ボタン (![[イベント] ボタン](images/eventsbutton.png)) を選択します。
+3.  [  **Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントを探します。 このテキスト ボックスに、 **Click** イベントを処理する関数の名前を入力します。 この例では、「Button\_Click」と入力します。
 
     ![プロパティ ウィンドウのイベント ビュー](images/xaml-hw-event.png)
 
 4.  Enter キーを押します。 MainPage.xaml.cpp にイベント ハンドラー メソッドが作成され、イベントの発生時に実行されるコードを追加できるように開きます。
 
-   同時に、MainPage.xaml で、[**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button) の XAML が更新されて、次のように [**Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーが宣言されます。
+   同時に、MainPage.xaml で、 [**Button**](/uwp/api/Windows.UI.Xaml.Controls.Button) の XAML が更新されて、次のように [**Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーが宣言されます。
 
 ```xaml
 <Button Content="Say &quot;Hello&quot;" Click="Button_Click"/>
@@ -277,7 +277,7 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 **濃色テーマに切り替えるには**
 
 1.  App.xaml を開きます。
-2.  開始 [**Application**](/uwp/api/Windows.UI.Xaml.Application) タグで、[**RequestedTheme**](/uwp/api/windows.ui.xaml.application.requestedtheme) プロパティを編集し、その値を **Dark** に設定します。
+2.  開始 [**Application**](/uwp/api/Windows.UI.Xaml.Application) タグで、 [**RequestedTheme**](/uwp/api/windows.ui.xaml.application.requestedtheme) プロパティを編集し、その値を **Dark** に設定します。
 
     ```xaml
     RequestedTheme="Dark"
@@ -300,7 +300,7 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 
 どちらを使えばいいでしょうか。 どちらでも好きなほうを使用できます。 お勧めするとすれば、主に画像やビデオを表示するアプリには濃色テーマ、テキストが大量に含まれるアプリには淡色テーマです。 カスタム配色を使う場合は、アプリの外観に最もよく合ったテーマを使ってください。 このチュートリアルの残りの部分では、スクリーンショットで淡色テーマを使います。
 
-**注:**    テーマは、アプリの起動時に適用されます。アプリの実行中に変更することはできません。
+**注:** テーマは、アプリの起動時に適用されます。アプリの実行中にテーマを変更することはできません。
 
 ### <a name="using-system-styles"></a>システム スタイルの使用
 
@@ -309,25 +309,25 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 **要素のスタイルを変更するには**
 
 1.  Windows プロジェクトで、MainPage.xaml を開きます。
-2.  XAML ビューまたはデザイン ビューで、前に追加した "What's your name?"[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を選びます。
-3.  **[プロパティ]** ウィンドウ (**F4**) の右上にある [プロパティ] ボタン (![Properties button](images/propertiesbutton.png)) をクリックします。
+2.  XAML ビューまたはデザイン ビューで、前に追加した "What's your name?" [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) を選びます。
+3.  **[プロパティ]** ウィンドウ ( **F4** ) の右上にある [プロパティ] ボタン (![Properties button](images/propertiesbutton.png)) をクリックします。
 4.  **[Text]** グループを展開し、フォント サイズを 18px に設定します。
-5.  **[その他]** グループを展開し、**Style** プロパティを探します。
-6.  プロパティ マーカー (**Style** プロパティの右にある緑色のボックス) をクリックし、その後、メニューから **[システム リソース]**  >  **[BaseTextBlockStyle]** の順に選択します。
+5.  **[その他]** グループを展開し、 **Style** プロパティを探します。
+6.  プロパティ マーカー ( **Style** プロパティの右にある緑色のボックス) をクリックし、その後、メニューから **[システム リソース]**  >  **[BaseTextBlockStyle]** の順に選択します。
 
      **BaseTextBlockStyle** は、<root>\\Program Files\\Windows Kits\\10\\Include\\winrt\\xaml\\design\\generic.xaml の [**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) で定義されているリソースです。
 
     ![プロパティ ウィンドウのプロパティ ビュー](images/xaml-hw-style-cpp.png)
 
-     XAML デザイン サーフェイスで、テキストの外観が変化します。 XAML エディターで、[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の XAML が更新されます。
+     XAML デザイン サーフェイスで、テキストの外観が変化します。 XAML エディターで、 [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) の XAML が更新されます。
 
 ```xaml
 <TextBlock Text="What's your name?" Style="{ThemeResource BaseTextBlockStyle}"/>
 ```
 
-7.  このプロセスを繰り返してフォント サイズを設定し、**BaseTextBlockStyle** を `greetingOutput`[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素に割り当てます。
+7.  このプロセスを繰り返してフォント サイズを設定し、 **BaseTextBlockStyle** を `greetingOutput`[**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) 要素に割り当てます。
 
-    **ヒント:**    この [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) にはテキストはありませんが、マウス ポインターを XAML デザイン サーフェイスの上に移動すると、対応する位置に青色の輪郭が表示されて、選択できます。  
+    **ヒント:** この [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) にはテキストはありませんが、マウス ポインターを XAML デザイン サーフェイスの上に移動すると、対応する位置に青色の輪郭が表示されて、選択できます。  
 
     XAML は次のようになります。
 
@@ -348,7 +348,7 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 
 ### <a name="step-4-adapt-the-ui-to-different-window-sizes"></a>手順 4:異なるウィンドウ サイズに合わせて UI を調整する
 
-次に、モバイル デバイスで適切に表示されるように、さまざまな画面サイズに合わせて UI を調整します。 これを行うには、[**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) を追加して、さまざまな表示状態に適用されるプロパティを設定します。
+次に、モバイル デバイスで適切に表示されるように、さまざまな画面サイズに合わせて UI を調整します。 これを行うには、 [**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) を追加して、さまざまな表示状態に適用されるプロパティを設定します。
 
 **UI レイアウトを調整するには**
 
@@ -383,9 +383,9 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 
 以前のバージョンの XAML で [**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) を使ったことがある場合は、この XAML では簡素化された構文が使用されていることに気付くかもしれません。
 
-`wideState` という名前の [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) で、[**AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 641 に設定されています。 これは、ウィンドウの幅が 641 DIP という最小値以上である場合に限って、状態が適用されることを意味します。 この状態には [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを定義していないため、XAML でページのコンテンツに対して定義したレイアウト プロパティが使用されます。
+`wideState` という名前の [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) で、 [**AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 641 に設定されています。 これは、ウィンドウの幅が 641 DIP という最小値以上である場合に限って、状態が適用されることを意味します。 この状態には [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを定義していないため、XAML でページのコンテンツに対して定義したレイアウト プロパティが使用されます。
 
-2 つ目の [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) である `narrowState` で、[**AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 0 に設定されています。 この状態は、ウィンドウの幅が 0 より大きく 641 DIP より小さい場合に適用されます (641 DIP では、`wideState` が適用されます)。この状態では、いくつかの [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを設定して、UI のコントロールのレイアウト プロパティを変更します。
+2 つ目の [**VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) である `narrowState` で、 [**AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) の [**MinWindowWidth**](/uwp/api/windows.ui.xaml.adaptivetrigger.minwindowwidth) プロパティが 0 に設定されています。 この状態は、ウィンドウの幅が 0 より大きく 641 DIP より小さい場合に適用されます (641 DIP では、`wideState` が適用されます)。この状態では、いくつかの [**Setter**](/uwp/api/Windows.UI.Xaml.Setter) オブジェクトを設定して、UI のコントロールのレイアウト プロパティを変更します。
 
 -   `contentPanel` の左側の余白を 120 から 20 に減らします。
 -   `inputPanel` 要素の [**Orientation**](/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) を **Horizontal** から **Vertical** に変更します。
@@ -397,6 +397,6 @@ void HelloWorld::MainPage::Button_Click(Platform::Object^ sender, Windows::UI::X
 
 ## <a name="next-steps"></a>次の手順
 
-Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、[**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](../porting/w8x-to-uwp-porting-to-a-uwp-project.md)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](/cpp/porting/porting-to-the-universal-windows-platform-cpp)」をご覧ください。
+Windows 8.1 や Windows Phone 8.1 を対象とする Windows ユニバーサル アプリ プロジェクトがある場合は、そのプロジェクトを Windows 10 に移植できます。 この移植を自動的に行うプロセスはありませんが、手動で実行することができます。 新しい Windows ユニバーサル プロジェクトを使って開発を始めることで、最新のプロジェクト システム構造を入手し、お使いのコード ファイルをプロジェクトのディレクトリ構造にコピーしたり、項目をプロジェクトに追加したりすることができます。また、このトピックのガイダンスに従い、 [**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) を使って XAML を書き換えることもできます。 詳しくは、「[Windows ランタイム 8 プロジェクトのユニバーサル Windows プラットフォーム (UWP) プロジェクトへの移植](../porting/w8x-to-uwp-porting-to-a-uwp-project.md)」と「[ユニバーサル Windows プラットフォームへの移植 (C++)](/cpp/porting/porting-to-the-universal-windows-platform-cpp)」をご覧ください。
 
 UWP アプリと統合する既存の C++ コードがある場合、たとえば、既存のアプリケーションに新しい UWP UI を作成する場合は、[ユニバーサル Windows プロジェクトでの既存の C++ コードの使用](/cpp/porting/how-to-use-existing-cpp-code-in-a-universal-windows-platform-app)に関するページをご覧ください。

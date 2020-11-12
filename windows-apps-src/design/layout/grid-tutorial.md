@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 9794a04d-e67f-472c-8ba8-8ebe442f6ef2
 ms.localizationpriority: medium
-ms.openlocfilehash: 03b3a4342e4f464cb61cddc495ee5693570cd28b
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: a75023629054b680ec1444f6b24328c18ffcd0b5
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034825"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339730"
 ---
 # <a name="tutorial-use-grid-and-stackpanel-to-create-a-simple-weather-app"></a>チュートリアル: Grid と StackPanel を使った単純な天気予報アプリの作成
 
@@ -21,7 +21,7 @@ ms.locfileid: "93034825"
 > **重要な API** : [Grid クラス](/uwp/api/windows.ui.xaml.controls.grid)、 [StackPanel クラス](/uwp/api/windows.ui.xaml.controls.stackpanel)
 
 ## <a name="prerequisites"></a>前提条件
-- Windows 10 と Microsoft Visual Studio 2015 以降。 (最新の開発およびセキュリティ更新プログラムに推奨されている最新の Visual Studio) [Visual Studio を備えた環境をセットアップする方法については、こちらをクリックしてください](../../get-started/get-set-up.md)。
+- Windows 10 と Microsoft Visual Studio 2015 以降。 (最新の開発およびセキュリティ更新プログラムに推奨されている最新の Visual Studio) [Visual Studio を備えた環境をセットアップする方法については、こちらをクリックしてください](/windows/apps/get-started/get-set-up)。
 - XAML と C# を使って基本的な "Hello World" アプリを作成する方法に関する知識。 必要に応じて[ここをクリックし、"Hello World" アプリの作成方法を学習してください](../../get-started/create-a-hello-world-app-xaml-universal.md)。
 
 ## <a name="step-1-create-a-blank-app"></a>手順 1:空のアプリの作成

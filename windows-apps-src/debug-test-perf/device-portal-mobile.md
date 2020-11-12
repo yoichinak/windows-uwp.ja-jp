@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f0a91dd0370b8eda8763b63034d7c3ffaa1acd5
-ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
+ms.openlocfilehash: 29a6f85dfb13e47617138e401c8444cb5b5f6809
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762993"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339580"
 ---
 # <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
 
 Windows 10 Version 1511 以降では、モバイル デバイス ファミリで追加の開発者向け機能が利用できるようになりました。 これらの機能は、デバイスで開発者モードが有効になっている場合にのみ利用可能です。
 
-開発者モードを有効にする方法については、「[デバイスを開発用に有効にする](../get-started/enable-your-device-for-development.md)」をご覧ください。
+開発者モードを有効にする方法については、「[デバイスを開発用に有効にする](/windows/apps/get-started/enable-your-device-for-development)」をご覧ください。
 
 ![デバイスの検出と Device Portal の設定のスクリーンショット。](images/device-portal/mob-dev-mode-options.png)
 

@@ -5,12 +5,12 @@ ms.date: 06/01/2018
 ms.topic: article
 keywords: windows 10、uwp、デバイス ポータル、アプリ マネージャー、デプロイ、sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0fd5bf6be691974d956de0c71f4a1d11aa1a229f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 7006d32777e7b3ece5c5b6ed066bd23265b0bbb7
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166096"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339620"
 ---
 # <a name="deploy-an-app-through-loose-file-registration"></a>ルーズ ファイルの登録によるアプリの展開 
 
@@ -25,16 +25,16 @@ ms.locfileid: "89166096"
 
 ## <a name="advantages-of-loose-file-registration"></a>ルーズ ファイルの登録の利点
 
-- **検証の迅速化**: アプリ ファイルはまだパッケージ化されていないため、ユーザーは迅速にファイル レイアウトを登録してアプリを起動できます。 通常のアプリと同様に、ユーザーはアプリを設計どおりに使用できます。 
-- **ネットワーク内での容易な配布**: ルーズ ファイルがローカル ドライブではなくネットワーク共有にある場合、開発者がネットワーク共有の場所をネットワークにアクセスできる他のユーザーに送信して、それらのユーザーがルーズ ファイル レイアウトを登録してアプリを実行できるようにすることができます。 これにより、複数のユーザーが同時にアプリを検証できます。 
-- **コラボレーション**: ルーズ ファイルの登録では、開発者とデザイナーは、アプリの登録中にビジュアル資産で作業し続けることができます。 ユーザーはこれらの変更を、アプリの起動後に確認できます。 静的な資産は、この方法でのみ変更できることにご注意ください。 コードまたは動的に作成されたコンテンツを変更する必要がある場合は、アプリを再コンパイルする必要があります。
+- **検証の迅速化** : アプリ ファイルはまだパッケージ化されていないため、ユーザーは迅速にファイル レイアウトを登録してアプリを起動できます。 通常のアプリと同様に、ユーザーはアプリを設計どおりに使用できます。 
+- **ネットワーク内での容易な配布** : ルーズ ファイルがローカル ドライブではなくネットワーク共有にある場合、開発者がネットワーク共有の場所をネットワークにアクセスできる他のユーザーに送信して、それらのユーザーがルーズ ファイル レイアウトを登録してアプリを実行できるようにすることができます。 これにより、複数のユーザーが同時にアプリを検証できます。 
+- **コラボレーション** : ルーズ ファイルの登録では、開発者とデザイナーは、アプリの登録中にビジュアル資産で作業し続けることができます。 ユーザーはこれらの変更を、アプリの起動後に確認できます。 静的な資産は、この方法でのみ変更できることにご注意ください。 コードまたは動的に作成されたコンテンツを変更する必要がある場合は、アプリを再コンパイルする必要があります。
 
 ## <a name="how-to-register-a-loose-file-layout"></a>ルーズ ファイル レイアウトを登録する方法
 
 Windows には、ルーズ ファイル レイアウトをローカル デバイスやリモート デバイスに登録する開発者向けツールが複数用意されています。 選択肢には、`WinDeployAppCmd` (Windows SDK ツール)、Windows デバイス ポータル、PowerShell および [Visual Studio](./deploying-and-debugging-uwp-apps.md#register-layout-from-network) があります。 以下では、これらのツールを使用して、ルーズ ファイルを登録する方法について説明します。 しかし、まず次の設定を確実に完了させてください。
 
 - お使いのデバイスは、Windows 10 Creators Update (ビルド 14965) 以降を使用している必要があります。
-- すべてのデバイスで、[開発者モード](../get-started/enable-your-device-for-development.md)と[デバイスの検出](../get-started/enable-your-device-for-development.md#device-discovery)が有効になっている必要があります。
+- すべてのデバイスで、[開発者モード](/windows/apps/get-started/enable-your-device-for-development)と[デバイスの検出](/windows/apps/get-started/enable-your-device-for-development#device-discovery)が有効になっている必要があります。
 
 > [!IMPORTANT]
 > ルーズ ファイルの登録は、ネットワーク共有 (SMB) プロトコルをサポートする次のデバイスでのみ使用できます。デスクトップと Xbox。 
@@ -47,11 +47,11 @@ Windows 10 Creators Update (ビルド 14965) 以降に対応する SDK ツール
 WinAppDeployCmd.exe registerfiles -remotedeploydir <Network Path> -ip <IP Address> -pin <target machine PIN>
 ```
 
-**Network Path**: アプリのルーズ ファイルへのパス。
+**Network Path** : アプリのルーズ ファイルへのパス。
 
-**IP Address**: ターゲット マシンの IP アドレス。
+**IP Address** : ターゲット マシンの IP アドレス。
 
-**target machine PIN**: ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 認証が必要な場合には、`-pin` オプションを指定し、再試行が求められます。 PIN を取得する方法については、「[デバイスの検出](../get-started/enable-your-device-for-development.md#device-discovery)」を参照してください。
+**target machine PIN** : ターゲット デバイスとの接続を確立するために求められた場合に指定する PIN。 認証が必要な場合には、`-pin` オプションを指定し、再試行が求められます。 PIN を取得する方法については、「[デバイスの検出](/windows/apps/get-started/enable-your-device-for-development#device-discovery)」を参照してください。
 
 ### <a name="windows-device-portal"></a>Windows デバイス ポータル
 
@@ -59,7 +59,7 @@ Windows デバイス ポータルは、すべての Windows 10 デバイスか�
 
 デバイス ポータルでルーズ ファイル レイアウトを登録するには、次の手順に従います。
 
-1. 「[Windows デバイス ポータルの概要](device-portal.md)」の「**セットアップ**」セクションの手順に従って、デバイス ポータルに接続します。
+1. 「 [Windows デバイス ポータルの概要](device-portal.md)」の「 **セットアップ** 」セクションの手順に従って、デバイス ポータルに接続します。
 1. [Apps Manager]\(アプリ マネージャー\) タブで、 **[Register from Network Share]** \(ネットワーク共有から登録する\) を選択します。
 1. ルーズ ファイル レイアウトにネットワーク共有のパスを入力します。 
 1. ホスト デバイスにネットワーク共有に対するアクセス権がない場合は、必要な資格情報の入力を求めるプロンプトが表示されます。

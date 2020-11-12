@@ -7,12 +7,12 @@ ms.topic: article
 ms.custom: contperfq1
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: f435631b575a06daae9cb4d34c5419e93ba8063f
-ms.sourcegitcommit: 56e9cab45d1c6e54841d61fdf23044fa01f50c43
+ms.openlocfilehash: 3c6fd1f2ebee2e4e3a7d3ceb028f5def19e932c6
+ms.sourcegitcommit: 733d422fa1e3433cde842e2f200d3ef202767cc1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92011351"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94333287"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -48,17 +48,17 @@ UWP アプリでは、マイク、位置情報、Web カメラ、USB デバイ�
 
 ### <a name="a-common-api-surface-across-all-devices"></a>すべてのデバイスに共通の API セット
 
-Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が導入され、Windows 10 を実行する各デバイスで共通のアプリ プラットフォームが提供されます。 UWP のコア API は、すべての Windows デバイスで同じです。 アプリがコア API のみを使う場合は、対象がデスクトップ PC、Xbox、Mixed Reality ヘッドセットなどのどれであるかに関係なく、そのアプリはどの Windows 10 デバイスでも動作します。
+Windows 10 ではユニバーサル Windows プラットフォーム (UWP) が導入され、Windows 10 を実行する各デバイスで共通のアプリ プラットフォームが提供されます。 UWP のコア API は、すべての Windows デバイスで同じです。 アプリがコア API のみを使う場合は、対象となるのがデスクトップ PC、Xbox、Mixed Reality ヘッドセットなどのいずれかに関係なく、そのアプリはどの Windows 10 デバイスでも動作します。
 
-C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部である Win32 API にアクセスします。 これらの Win32 API は、すべての Windows 10 デバイスで実装されます。
+C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部である Win32 API にアクセスします。 これらの Win32 API は、すべての Windows 10 デバイスによって実装されます。
 
 ### <a name="extension-sdks-expose-the-unique-capabilities-of-specific-device-types"></a>拡張 SDK が特定のデバイスの種類に固有の機能を公開する
 
 ユニバーサル API を対象としている場合、アプリは Windows 10 が動作しているすべてのデバイスで実行できます。 ただし、UWP アプリでデバイス固有の API を利用したい場合は、そうすることもできます。
 
-拡張 SDK では、さまざまなデバイスに特化した API を呼び出すことができます。 たとえば、UWP アプリで IoT デバイスをターゲットにしている場合、IoT デバイスに固有の機能をターゲットにしたプロジェクトに IoT 拡張 SDK を追加できます。 拡張 SDK の追加に関する詳細については、「[拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overvieww#extension-sdks)」の**拡張 SDK** のセクションを参照してください。
+拡張 SDK では、さまざまなデバイスに特化した API を呼び出すことができます。 たとえば、UWP アプリで IoT デバイスをターゲットにしている場合、IoT デバイスに固有の機能をターゲットにしたプロジェクトに IoT 拡張 SDK を追加できます。 拡張 SDK の追加に関する詳細については、「 [拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overvieww#extension-sdks)」の **拡張 SDK** のセクションを参照してください。
 
-特定の種類のデバイスでのみ実行されることを想定し、Microsoft Store からの配布をその種類のデバイスのみに制限するようにアプリを記述することができます。 または、実行時に API の存在を条件付きでテストし、結果に応じてアプリの動作を調整できます。 詳細については、「[拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overview#writing-code)」の**コードの記述**のセクションを参照してください。<br>
+特定の種類のデバイスでのみ実行されることを想定し、Microsoft Store からの配布をその種類のデバイスのみに制限するようにアプリを記述することができます。 または、実行時に API の存在を条件付きでテストし、結果に応じてアプリの動作を調整できます。 詳細については、「 [拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overview#writing-code)」の **コードの記述** のセクションを参照してください。<br>
 
 次のビデオでは、デバイス ファミリとアダプティブ コードの作成に関する簡単な概要を示します。
 <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-UWP-and-Device-Families/player" width="640" height="360" allowFullScreen frameBorder="0"></iframe>
@@ -79,7 +79,7 @@ Windows では、UI を次の機能を備えた複数のデバイスを対象と
 
 ### <a name="theres-one-store-for-all-devices"></a>1 つのストアですべてのデバイスに対応する
 
-統一されたアプリ ストアによって、PC、タブレット、Xbox、HoloLens、Surface Hub、IoT (モノのインターネット) などの Windows 10 デバイスでアプリを入手できます。 開発者は、アプリをストアに提出し、すべての種類のデバイスまたは選択した種類のデバイス向けに販売できます。 Windows デバイス向けのすべてのアプリを 1 か所で提出、管理できます。 UWP の機能を使って最新化し、Microsoft Store での販売を希望する C++ デスクトップ アプリがある場合も 問題ありません。
+統一されたアプリ ストアによって、PC、タブレット、Xbox、HoloLens、Surface Hub、IoT (モノのインターネット) デバイス などの Windows 10 デバイスでアプリを入手できます。 開発者は、アプリをストアに提出し、すべての種類のデバイスまたは選択した種類のデバイス向けに販売できます。 Windows デバイス向けのすべてのアプリを 1 か所で提出、管理できます。 UWP の機能を使って最新化し、Microsoft Store での販売を希望する C++ デスクトップ アプリがある場合も 問題ありません。
 
 UWP アプリは、詳細なテレメトリや分析のために [Application Insights](https://azure.microsoft.com/services/application-insights/) に統合されています。これは、ユーザーを理解し、アプリの品質を向上させるために欠かせないツールです。
 
@@ -115,7 +115,6 @@ UWP アプリでは、オペレーティング システムによって提供さ
 - DirectX UI と C++
 - JavaScript と HTML
 - WinUI
--
 
 ## <a name="links-to-help-you-get-going"></a>役に立つリンク
 
@@ -160,7 +159,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 - [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用して、既存のデスクトップ アプリに Windows 10 ユーザー向けの最新のエクスペリエンスを追加し、そのアプリを Microsoft Store で配布する方法を確認してください。
 
 ## <a name="how-the-universal-windows-platform-relates-to-windows-runtime-apis"></a>ユニバーサル Windows プラットフォームと Windows ランタイム API の関連性
-ユニバーサル Windows プラットフォーム (UWP) アプリをビルドする場合は、"ユニバーサル Windows プラットフォーム (UWP)" と "Windows ランタイム (WinRT)" をほぼ同義と考えると便利です。 ただし、テクノロジの実体を明らかにして、この 2 つの概念の違いを確認しておくことも可能*です*。 この最後のセクションは、この点に興味があるユーザーを対象としています。
+ユニバーサル Windows プラットフォーム (UWP) アプリをビルドする場合は、"ユニバーサル Windows プラットフォーム (UWP)" と "Windows ランタイム (WinRT)" をほぼ同義と考えると便利です。 ただし、テクノロジの実体を明らかにして、この 2 つの概念の違いを確認しておくことも可能 *です* 。 この最後のセクションは、この点に興味があるユーザーを対象としています。
 
 Windows ランタイム (WinRT) API は、Windows API が進化したものです。 元々 Windows は、フラットな C スタイルの Win32 API でプログラミングされました。 そこに追加されたのが COM API です (主な例は [DirectX](/windows/desktop/directx))。 Windows フォーム、WPF、.NET、およびマネージ言語は、Windows アプリの記述方法や API テクノロジの特徴がそれぞれに異なっていました。 COM の次の段階というのが Windows ランタイムの実体です。 実際のアプリケーション バイナリ インターフェイス (ABI) レイヤーで、COM におけるそのルーツが可視化されます。 ただし、Windows ランタイムはさまざまなプログラミング言語から呼び出すことができるように設計されています。 また、それぞれの言語にとってきわめて自然な方法で呼び出すことができます。 このために、Windows ランタイムは言語プロジェクションと呼ばれる仕組みを介してアクセスできるようになっています。 Windows ランタイムの言語プロジェクションは、C#、Visual Basic、標準 C++、JavaScript などに対応しています。 さらに、適切にパッケージ化すれば (「[デスクトップ ブリッジ](/windows/msix/desktop/source-code-overview)」を参照)、次のような広範囲の言語モデルのいずれかでビルドされたアプリから WinRT API を呼び出すことができます:Win32、.NET、WinForms、WPF。
 

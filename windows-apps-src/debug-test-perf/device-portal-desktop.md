@@ -7,12 +7,12 @@ ms.topic: article
 ms.custom: contperfq1
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: f06a3c933060a7309604ae8dec49455ac3bd02ab
-ms.sourcegitcommit: 41dbee78d827107c224a9136c26f90be4dfe12ad
+ms.openlocfilehash: 1618b2de1f0db96989a7aedf5b53805fd70f535e
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90845571"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339570"
 ---
 # <a name="device-portal-for-windows-desktop"></a>Windows デスクトップ用 Device Portal
 
@@ -32,10 +32,10 @@ Device Portal を使用すると、次の操作を実行できます。
 
 ### <a name="turn-on-developer-mode"></a>開発者モードをオンにする
 
-Windows 10 バージョン 1607 以降では、デスクトップ用の新しい機能の一部は開発者モードが有効なときだけ利用できます。 開発者モードを有効にする方法については、「[デバイスを開発用に有効にする](../get-started/enable-your-device-for-development.md)」をご覧ください。
+Windows 10 バージョン 1607 以降では、デスクトップ用の新しい機能の一部は開発者モードが有効なときだけ利用できます。 開発者モードを有効にする方法については、「[デバイスを開発用に有効にする](/windows/apps/get-started/enable-your-device-for-development)」をご覧ください。
 
 > [!IMPORTANT]
-> ネットワークや互換性の問題により、お使いのデバイスに開発者モードが正しくインストールされないことがあります。 これらの問題のトラブルシューティングについては、「[デバイスを開発用に有効にする](../get-started/enable-your-device-for-development.md#failure-to-install-developer-mode-package)」の関連セクションをご覧ください。
+> ネットワークや互換性の問題により、お使いのデバイスに開発者モードが正しくインストールされないことがあります。 これらの問題のトラブルシューティングについては、「[デバイスを開発用に有効にする](/windows/apps/get-started/enable-your-device-for-development#failure-to-install-developer-mode-package)」の関連セクションをご覧ください。
 
 ### <a name="turn-on-device-portal"></a>Device Portal をオンにする
 
@@ -138,7 +138,7 @@ Windows 10 のプレリリース ビルドで開発者パッケージをイン�
  
 3. **[新しいビルドを取得する頻度はどの程度を希望されますか?]** の下で、 **[Windows Insider Fast]\(Windows Insider - 高速\)** が選択されていることを確認します。
  
-4. これで FoD をインストールできるようになります。 "Windows Insider - 高速" を使用していて、FoD を引き続きインストールできないことを確認した場合は、フィードバックを提供し、**C:\Windows\Logs\CBS** の下のログ ファイルを添付してください。
+4. これで FoD をインストールできるようになります。 "Windows Insider - 高速" を使用していて、FoD を引き続きインストールできないことを確認した場合は、フィードバックを提供し、 **C:\Windows\Logs\CBS** の下のログ ファイルを添付してください。
 
 ### <a name="sc-startservice-openservice-failed-1060-the-specified-service-does-not-exist-as-an-installed-service"></a>[SC] StartService: OpenService に失敗しました 1060: 指定されたサービスは、インストール済みのサービスとして存在しません
 

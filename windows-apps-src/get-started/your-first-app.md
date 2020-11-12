@@ -6,12 +6,12 @@ ms.date: 10/13/2020
 ms.topic: article
 keywords: windows 10, uwp, 初めてのアプリ, c#, c++, JavaScript
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a5491ef0e57399c9465697f933aa8fff92664cd
-ms.sourcegitcommit: 56e9cab45d1c6e54841d61fdf23044fa01f50c43
+ms.openlocfilehash: fe802fca1b17b49c11bf74b54f74d3b3107e6a9c
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92011375"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339770"
 ---
 # <a name="create-your-first-app"></a>最初のアプリケーションを作成
 
@@ -41,7 +41,7 @@ C++/WinRT の詳細については以下を参照してください。
 
 * [C++/WinRT](../cpp-and-winrt-apis/index.md)
 
-## <a name="visualc-component-extensions-ccx-and-xaml"></a>Visual C++ コンポーネント拡張機能 (C++/CX) と XAML
+## <a name="visual-c-component-extensions-ccx-and-xaml"></a>Visual C++ コンポーネント拡張機能 (C++/CX) と XAML
 
 C++ のプログラミングに関する専門知識を利用し、Visual C++ コンポーネント拡張機能 (C++/CX) と Extensible Application Markup Language (XAML) を使用してアプリを構築します。
 
@@ -57,7 +57,7 @@ C++ の詳細については以下を参照してください。
 "Hello, World!" より少し高度な内容にトライする準備ができたら、次のチュートリアルを試してください。
 
 * [チュートリアル: ユーザー インターフェイスの作成](../design/basics/xaml-basics-ui.md)
-* [Microsoft Learn の Windows アプリ](https://docs.microsoft.com/learn/browse/?products=windows)
+* [Microsoft Learn の Windows アプリ](/learn/browse/?products=windows)
 
 ## <a name="see-also"></a>参照
 
