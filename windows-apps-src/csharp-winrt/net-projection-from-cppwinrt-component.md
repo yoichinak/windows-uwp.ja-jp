@@ -1,16 +1,16 @@
 ---
 description: このチュートリアルでは、C#/Winrt を使用して C++/winrt コンポーネントの .NET 5 プロジェクションを生成する方法について説明します。
 title: C++/WinRT コンポーネントから .NET 5 プロジェクションを生成し、NuGet を配布するチュートリアル
-ms.date: 10/12/2020
+ms.date: 11/12/2020
 ms.topic: article
 keywords: windows 10、c#、winrt、cswinrt、投影
 ms.localizationpriority: medium
-ms.openlocfilehash: 817c4ec364040cbe64f8ab466a5bdf059d8c2dda
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: 552eee6ab3f6f4f875202392c9aa3e3c848dbdb6
+ms.sourcegitcommit: 23bd1ef67dcb637b9ac7833e1b6a0c0dd56bd445
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339650"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94572810"
 ---
 # <a name="walkthrough-generate-a-net-5-projection-from-a-cwinrt-component-and-distribute-the-nuget"></a>チュートリアル: C++/WinRT コンポーネントから .NET 5 プロジェクションを生成し、NuGet を配布する
 
@@ -18,15 +18,12 @@ ms.locfileid: "94339650"
 
 このチュートリアルの完全なサンプルは、GitHub から [こちら](https://github.com/microsoft/CsWinRT/tree/master/Samples/Net5ProjectionSample)からダウンロードできます。
 
-> [!NOTE]
-> このチュートリアルは、C#/WinRT (RC2) の最新プレビュー用に書かれています。 今後の1.0 リリースでは、開発者エクスペリエンスの更新と改善が行われる予定です。
-
 ## <a name="prerequisites"></a>前提条件
 
 このチュートリアルと対応するサンプルには、次のツールとコンポーネントが必要です。
 
-- ユニバーサル Windows プラットフォーム開発ワークロードがインストールされた[Visual Studio 16.8 Preview 3](https://visualstudio.microsoft.com/vs/preview/) (またはそれ以降)。 [ **インストールの詳細**  >  **ユニバーサル Windows プラットフォーム開発** ] で、[ **C++ (v14x) ユニバーサル Windows プラットフォームツール** ] オプションをオンにします。
-- [.Net 5.0 RC2 SDK](https://github.com/dotnet/installer)。
+- ユニバーサル Windows プラットフォーム開発ワークロードがインストールされた[Visual Studio 16.8](https://visualstudio.microsoft.com/downloads/) (またはそれ以降)。 [ **インストールの詳細**  >  **ユニバーサル Windows プラットフォーム開発** ] で、[ **C++ (v14x) ユニバーサル Windows プラットフォームツール** ] オプションをオンにします。
+- [.Net 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)。
 - C++/winrt [VSIX extension](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) for c++/winrt プロジェクトテンプレート。
 
 ## <a name="create-a-simple-cwinrt-runtime-component"></a>単純な C++/WinRT ランタイムコンポーネントを作成する
@@ -75,26 +72,6 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
 4. **Simplemのコンポーネント** プロジェクトにプロジェクト参照を追加します。 **ソリューションエクスプローラー** で、 **Simplemのプロジェクション** プロジェクトの下にある [ **依存関係** ] ノードを右クリックし、[ **プロジェクト参照の追加** ] を選択して、 **simplemのコンポーネント** プロジェクトを選択します。
 
-    > [!NOTE]
-    > Visual Studio 16.8 Preview 4 以降を使用している場合は、手順 4. を完了した後でこのセクションを実行します。 Visual Studio 16.8 Preview 3 を使用している場合は、手順 5. も完了する必要があります。
-
-5. Visual Studio 16.8 Preview 3 を使用している場合: **ソリューションエクスプローラー** で、[ **simplemのプロジェクション** ] ノードをダブルクリックしてエディターでプロジェクトファイルを開き、ファイルに次の要素を追加して、ファイルを保存して閉じます。
-
-    ```xml
-    <ItemGroup>
-      <PackageReference Include="Microsoft.Net.Compilers.Toolset" Version="3.8.0-4.20472.6" />
-    </ItemGroup>
-
-    <PropertyGroup>
-      <RestoreSources>
-        https://api.nuget.org/v3/index.json;
-        https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json
-      </RestoreSources>
-    </PropertyGroup>
-    ```
-
-    これらの要素は、最新の C# コンパイラを含む、必要なバージョンの **Microsoft.Net** NuGet パッケージをインストールします。 このチュートリアルでは、これらのプロジェクトファイル参照を使用して、この NuGet パッケージをインストールします。これは、このパッケージの必要なバージョンが既定のパブリック NuGet フィードで利用できない可能性があるためです。
-
 これらの手順を実行すると、 **ソリューションエクスプローラー** は次のようになります。
 
 ![プロジェクションプロジェクトの依存関係を示すソリューションエクスプローラー](images/projection-dependencies.png)
@@ -128,10 +105,17 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
     - プロパティは、 `CsWinRTIncludes` プロジェクトに使用する名前空間を指定します。
     - プロパティは、 `CsWinRTGeneratedFilesDir` プロジェクションからのファイルが生成される出力ディレクトリを設定します。これは、ソースからの構築に関する次のセクションで設定します。
 
-4. このチュートリアルの最新の C#/WinRT バージョンでは、Windows メタデータの指定が必要になる場合があります。 これは、C#/Winrtの今後のリリースで修正される予定です。 これは、次のいずれかの方法で指定できます。
+4. このチュートリアルの最新の C#/WinRT バージョンでは、Windows メタデータの指定が必要になる場合があります。 これは、次のいずれかの方法で指定できます。
 
-    - パッケージ参照 (たとえば、 [Microsoft. Windows. SDK. contract.]( https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts/)
-    - 明示的な値は、プロパティを使用してを設定し `CsWinRTWindowsMetadata` ます。
+    - NuGet パッケージの参照 (たとえば [、次の]( https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts/)ような場合)。
+
+      ```xml
+      <ItemGroup>
+        <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" />
+      </ItemGroup>
+      ```
+
+    - 別の方法として、手順 3. のに次のプロパティを追加することもでき `CsWinRTWindowsMetadata` `PropertyGroup` ます。
 
       ```xml
       <CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
@@ -189,7 +173,7 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
           <group targetFramework="UAP10.0" />
           <group targetFramework=".NETFramework4.6" />
           <group targetFramework="net5.0">
-            <dependency id="Microsoft.Windows.CsWinRT" version="0.8.0" exclude="Build,Analyzers" />
+            <dependency id="Microsoft.Windows.CsWinRT" version="1.0.1" exclude="Build,Analyzers" />
           </group>
         </dependencies>
       </metadata>
@@ -234,14 +218,14 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
     ```xml
     <PropertyGroup>
       <RestoreSources>
-          https://api.nuget.org/v3/index.json;
-          ../../CppWinRTProjectionSample/SimpleMathProjection/nuget
+        https://api.nuget.org/v3/index.json;
+        ../../CppWinRTProjectionSample/SimpleMathProjection/nuget
       </RestoreSources>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.6" />
-        <PackageReference Include="SimpleMathComponent" Version="0.1.0-prerelease" />
+      <PackageReference Include="Microsoft.VCRTForwarders.140" Version="1.0.6" />
+      <PackageReference Include="SimpleMathComponent" Version="0.1.0-prerelease" />
     </ItemGroup>
     ```
 
