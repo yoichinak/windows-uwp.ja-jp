@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ce223d4d70f883545114507ec49fcd9d7084d2a5
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 166a498ba7323869fe60f7d3392b93ac501dd331
+ms.sourcegitcommit: 75e1f49be211e8b4b3e825978d67625776f992f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89363905"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94691550"
 ---
 # <a name="play-audio-and-video-with-mediaplayer"></a>MediaPlayer を使ったオーディオとビデオの再生
 
@@ -88,7 +88,7 @@ Windows 10 バージョン 1803 以降では、**MediaPlayer** でビデオが�
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetRegisterBufferingHandlers":::
 
-**BufferingStarted**イベント ハンドラーで、このイベントに渡されたイベント引数を **[MediaPlaybackSessionBufferingStartedEventArgs](/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs)** オブジェクトにキャストし、**[IsPlaybackInterruption](/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs.IsPlaybackInterruption)** プロパティを確認します。 この値が true の場合、イベントをトリガーしたバッファー処理は予期しないものであり、再生が中断されます。 そうでない場合は、予想された初期バッファー処理です。 
+**BufferingStarted** イベント ハンドラーで、このイベントに渡されたイベント引数を **[MediaPlaybackSessionBufferingStartedEventArgs](/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs)** オブジェクトにキャストし、**[IsPlaybackInterruption](/uwp/api/windows.media.playback.mediaplaybacksessionbufferingstartedeventargs.IsPlaybackInterruption)** プロパティを確認します。 この値が true の場合、イベントをトリガーしたバッファー処理は予期しないものであり、再生が中断されます。 そうでない場合は、予想された初期バッファー処理です。 
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetBufferingHandlers":::
 
@@ -122,7 +122,7 @@ Windows 10 バージョン 1803 以降では、**MediaPlayer** でビデオが�
 
 状況によっては、システムが、パフォーマンスの問題ではなく、ポリシーに基づいて、メディア項目の再生品質を低下させることがあります。これは解像度の低下 (圧縮) などの形で行われます。 たとえば、符号なしのビデオ ドライバーを使用して再生されている場合、システムによってビデオが低下する可能性があります。 この場合、[**MediaPlaybackSession.GetOutputDegradationPolicyState**](/uwp/api/windows.media.playback.mediaplaybacksession.getoutputdegradationpolicystate#Windows_Media_Playback_MediaPlaybackSession_GetOutputDegradationPolicyState) を呼び出して、このポリシーベースの低下が発生しているかどうか、また発生理由を判定した上で、ユーザーに通知し、またはテレメトリ目的で理由を記録することができます。
 
-次の例では、プレイヤーが新しいメディア項目を開いたときに発生する **MediaPlayer.MediaOpened** イベントのハンドラーの実装を示します。 ハンドラーに渡された **MediaPlayer** に対して **GetOutputDegradationPolicyState**が呼び出されます。 [**VideoConstrictionReason**](/uwp/api/windows.media.playback.mediaplaybacksessionoutputdegradationpolicystate.videoconstrictionreason#Windows_Media_Playback_MediaPlaybackSessionOutputDegradationPolicyState_VideoConstrictionReason) の値は、ビデオが圧縮されているポリシー上の理由を示します。 以下の例では、値が **None** 以外の場合、テレメトリの目的で低下理由をログに記録します。 この例ではまた、ビデオが圧縮されていて、いずれにしても高品位で表示されないときに、データ使用量を節減するために、現在再生中の **AdaptiveMediaSource** のビットレートを最低帯域幅に設定する方法が示されています。 **AdaptiveMediaSource** の使用方法について詳しくは、「[アダプティブ ストリーミング](adaptive-streaming.md)」をご覧ください。
+次の例では、プレイヤーが新しいメディア項目を開いたときに発生する **MediaPlayer.MediaOpened** イベントのハンドラーの実装を示します。 ハンドラーに渡された **MediaPlayer** に対して **GetOutputDegradationPolicyState** が呼び出されます。 [**VideoConstrictionReason**](/uwp/api/windows.media.playback.mediaplaybacksessionoutputdegradationpolicystate.videoconstrictionreason#Windows_Media_Playback_MediaPlaybackSessionOutputDegradationPolicyState_VideoConstrictionReason) の値は、ビデオが圧縮されているポリシー上の理由を示します。 以下の例では、値が **None** 以外の場合、テレメトリの目的で低下理由をログに記録します。 この例ではまた、ビデオが圧縮されていて、いずれにしても高品位で表示されないときに、データ使用量を節減するために、現在再生中の **AdaptiveMediaSource** のビットレートを最低帯域幅に設定する方法が示されています。 **AdaptiveMediaSource** の使用方法について詳しくは、「[アダプティブ ストリーミング](adaptive-streaming.md)」をご覧ください。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetPolicyDegradation":::
         
@@ -209,7 +209,7 @@ Windows 10 Version 1703 以降、**MediaPlayer** は、球面ビデオ再生の�
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetSphericalList":::
 
-**VideoTracksChanged**イベント ハンドラーで、[**VideoTrack.GetEncodingProperties**](/uwp/api/windows.media.core.videotrack.GetEncodingProperties) を呼び出すことによって、追加されたビデオ トラックのエンコード プロパティを取得します。 エンコード プロパティの [**SphericalVideoFrameFormat**](/uwp/api/windows.media.mediaproperties.videoencodingproperties.SphericalVideoFrameFormat) プロパティが、[**SphericaVideoFrameFormat.None**](/uwp/api/windows.media.mediaproperties.sphericalvideoframeformat) 以外の値である場合、ビデオ トラックには球面ビデオが含まれており、選択した場合は適切に UI を更新できます。
+**VideoTracksChanged** イベント ハンドラーで、[**VideoTrack.GetEncodingProperties**](/uwp/api/windows.media.core.videotrack.GetEncodingProperties) を呼び出すことによって、追加されたビデオ トラックのエンコード プロパティを取得します。 エンコード プロパティの [**SphericalVideoFrameFormat**](/uwp/api/windows.media.mediaproperties.videoencodingproperties.SphericalVideoFrameFormat) プロパティが、[**SphericaVideoFrameFormat.None**](/uwp/api/windows.media.mediaproperties.sphericalvideoframeformat) 以外の値である場合、ビデオ トラックには球面ビデオが含まれており、選択した場合は適切に UI を更新できます。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetSphericalTracksChanged":::
 
@@ -224,7 +224,7 @@ Windows 10 Version 1703 以降では、フレーム サーバー モードで **
 
 **VideoFrameAvailable** ハンドラーが呼び出されるたびに、[**CopyFrameToVideoSurface**](/uwp/api/windows.media.playback.mediaplayer.copyframetovideosurface) メソッドを使用して、フレームの内容が [**IDirect3DSurface**](/uwp/api/windows.graphics.directx.direct3d11.idirect3dsurface) にコピーされます。 [**CopyFrameToStereoscopicVideoSurfaces**](/uwp/api/windows.media.playback.mediaplayer.copyframetostereoscopicvideosurfaces) を使用して 3D コンテンツを 2 つのサーフェスにコピーし、左目用と右目用のコンテンツを個別に処理することもできます。 **IDirect3DSurface** を実装するオブジェクトを取得するため、この例では、[**SoftwareBitmap**](/uwp/api/windows.graphics.imaging.softwarebitmap) を作成し、そのオブジェクトを使って、必要なインターフェイスを実装する Win2D **CanvasBitmap** を作成します。 **CanvasImageSource** は **Image** コントロールのソースとして使用できる Win2D オブジェクトであるため、新しいオブジェクトを作成し、コンテンツを表示する **Image** のソースとして設定しています。 次に、**CanvasDrawingSession** が作成されます。 これは、Win2D でぼかし効果のレンダリングに使用されます。
 
-必要なオブジェクトがすべてインスタンス化されると、**CopyFrameToVideoSurface** が呼び出され、**MediaPlayer** から **CanvasBitmap** に現在のフレームがコピーされます。 次に、Win2D **GaussianBlurEffect**が作成され、操作のソースとして **CanvasBitmap** が設定されます。 最後に、**CanvasDrawingSession.DrawImage** が呼び出され、ぼかし効果が適用されたソース画像が、**Image** コントロールに関連付けられた **CanvasImageSource** に描画され、それが UI に描画されます。
+必要なオブジェクトがすべてインスタンス化されると、**CopyFrameToVideoSurface** が呼び出され、**MediaPlayer** から **CanvasBitmap** に現在のフレームがコピーされます。 次に、Win2D **GaussianBlurEffect** が作成され、操作のソースとして **CanvasBitmap** が設定されます。 最後に、**CanvasDrawingSession.DrawImage** が呼び出され、ぼかし効果が適用されたソース画像が、**Image** コントロールに関連付けられた **CanvasImageSource** に描画され、それが UI に描画されます。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetVideoFrameAvailable":::
 
@@ -232,7 +232,7 @@ Win2D について詳しくは、[Win2D の GitHub リポジトリ](https://gith
 
 **効果のプロジェクトへの Win2D NuGet パッケージの追加するには**
 
-1.  **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+1.  **ソリューション エクスプローラー** で、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 2.  ウィンドウの上部で **[参照]** タブをクリックします。
 3.  検索ボックスに **「Win2D」** と入力します。
 4.  **[Win2D.uwp]** を選択し、右のウィンドウで **[インストール]** を選択します。
@@ -240,11 +240,11 @@ Win2D について詳しくは、[Win2D の GitHub リポジトリ](https://gith
 6.  パッケージのライセンスに同意します。
 
 ## <a name="detect-and-respond-to-audio-level-changes-by-the-system"></a>システムによるオーディオ レベルの変更を検出して対応する
-Windows 10、バージョン 1803 以降では、現在 **MediaPlayer** で再生されているオーディオ レベルが、システムによって低下した場合やミュートされた場合に、アプリがそれを検出できます。 たとえば、アラームが鳴っているときに、システムがオーディオ再生レベルを下げることがあります ("ダッキング" と呼ばれます)。 アプリ マニフェストで *backgroundMediaPlayback* 機能が宣言されていない場合、アプリがバックグラウンドに移動すると、システムによってアプリがミュートされます。 [**AudioStateMonitor**](./uwp/api/windows.media.audio.audiostatemonitor) クラスを使用すると、オーディオ ストリームの音量がシステムによって変更されたときに、イベントを受け取るように登録できます。 その **MediaPlayer** のオーディオ レベルがシステムによって変更されたときに通知を受け取るには、**MediaPlayer** の **AudioStateMonitor** プロパティにアクセスし、[**SoundLevelChanged**](/uwp/api/windows.media.audio.audiostatemonitor.soundlevelchanged) イベントのハンドラーを登録します。
+Windows 10、バージョン 1803 以降では、現在 **MediaPlayer** で再生されているオーディオ レベルが、システムによって低下した場合やミュートされた場合に、アプリがそれを検出できます。 たとえば、アラームが鳴っているときに、システムがオーディオ再生レベルを下げることがあります ("ダッキング" と呼ばれます)。 アプリ マニフェストで *backgroundMediaPlayback* 機能が宣言されていない場合、アプリがバックグラウンドに移動すると、システムによってアプリがミュートされます。 [**AudioStateMonitor**](/uwp/api/windows.media.audio.audiostatemonitor) クラスを使用すると、オーディオ ストリームの音量がシステムによって変更されたときに、イベントを受け取るように登録できます。 その **MediaPlayer** のオーディオ レベルがシステムによって変更されたときに通知を受け取るには、**MediaPlayer** の **AudioStateMonitor** プロパティにアクセスし、[**SoundLevelChanged**](/uwp/api/windows.media.audio.audiostatemonitor.soundlevelchanged) イベントのハンドラーを登録します。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/MediaPlayer_RS1/cs/MainPage.xaml.cs" id="SnippetRegisterAudioStateMonitor":::
 
-**SoundLevelChanged**イベントを処理するときは、再生中のコンテンツの種類に応じてさまざまな方法を取ることができます。 たとえば現在音楽を再生中の場合は、ボリュームがダッキングされている間も、そのまま音楽を再生し続けることが考えられます。 しかしポッドキャストを再生中の場合は、ユーザーがコンテンツを聞き逃さないように、ダッキングされている間、再生を一時停止するのが普通です。
+**SoundLevelChanged** イベントを処理するときは、再生中のコンテンツの種類に応じてさまざまな方法を取ることができます。 たとえば現在音楽を再生中の場合は、ボリュームがダッキングされている間も、そのまま音楽を再生し続けることが考えられます。 しかしポッドキャストを再生中の場合は、ユーザーがコンテンツを聞き逃さないように、ダッキングされている間、再生を一時停止するのが普通です。
 
 以下の例では、現在再生されているコンテンツがポッドキャストかどうかを追跡する変数を宣言しています。この変数は、**MediaPlayer** のコンテンツを選択するときに、アプリによって適切な値に設定されるものと想定します。 またオーディオ レベルが変更されたためにプログラムによって再生が一時停止された場合に、それを追跡するクラス変数も作成しています。
 
@@ -260,15 +260,15 @@ Windows 10、バージョン 1803 以降では、現在 **MediaPlayer** で再�
 
 ## <a name="related-topics"></a>関連トピック
 * [メディア再生](media-playback.md)
-* [メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)
+* [メディア項目、再生リスト、およびトラック](media-playback-with-mediasource.md)
 * [システム メディア トランスポート コントロールとの統合](integrate-with-systemmediatransportcontrols.md)
 * [メディアの中断の作成、スケジュール、管理](create-schedule-and-manage-media-breaks.md)
-* [バックグラウンドでのメディアの再生](background-audio.md)
+* [バックグラウンドでメディアを再生する](background-audio.md)
 
 
 
 
 
- 
+ 
 
- 
+ 
