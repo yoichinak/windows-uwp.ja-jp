@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 2b0d6bb305490e05c2670f0e0a326601c51a8373
-ms.sourcegitcommit: 609441402c17d92e7bfac83a6056909bb235223c
+ms.openlocfilehash: bf460b8c05f1dbb274aa9015e6b892339df9f634
+ms.sourcegitcommit: 21a76fc02ae261f609a2dbb7a56c5de25844c068
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90837817"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93381392"
 ---
 # <a name="call-windows-runtime-apis-in-desktop-apps"></a>デスクトップ アプリで Windows ランタイム API を呼び出す
 
@@ -33,9 +33,9 @@ ms.locfileid: "90837817"
 
 ### <a name="net-5-preview-8-and-later-use-the-target-framework-moniker-option"></a>.NET 5 Preview 8 以降:ターゲット フレームワーク モニカー オプションを使用する 
 
-このオプションは、.NET 5 Preview 8 以前のリリースを使用し、Windows 10 Version 1809 以降の OS リリースをターゲットとするプロジェクトでのみサポートされています。 このシナリオに関するさらに詳しい背景情報については、[このブログ記事](https://blogs.windows.com/windowsdeveloper/2020/09/03/calling-windows-apis-in-net5/)を参照してください。
+このオプションは、.NET 5 Preview 8 (または以降のリリース) を使用し、Windows 10 バージョン 1809 以降の OS リリースをターゲットとするプロジェクトでのみサポートされています。 このシナリオに関するさらに詳しい背景情報については、[このブログ記事](https://blogs.windows.com/windowsdeveloper/2020/09/03/calling-windows-apis-in-net5/)を参照してください。
 
-1. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[プロジェクト ファイルの編集]** を選択します。 プロジェクト ファイルの内容は次のようになります。
+1. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[プロジェクト ファイルの編集]** を選択します。 プロジェクト ファイルの内容は次のようになります。
 
     ```csharp
     <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
@@ -70,11 +70,11 @@ ms.locfileid: "90837817"
     1. Visual Studio で、 **[ツール] -> [NuGet パッケージ マネージャー] -> [パッケージ マネージャー設定]** の順にクリックします。
     2. **[既定のパッケージ管理形式]** に **[PackageReference]** が選択されていることを確認します。
 
-2. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+2. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
 3. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[参照]** タブを選択して、`Microsoft.Windows.SDK.Contracts` を検索します。
 
-4. `Microsoft.Windows.SDK.Contracts` パッケージが見つかったら、 **[NuGet パッケージ マネージャー]** ウィンドウの右側のペインで、ターゲットにする Windows 10 のバージョンに基づいて、インストールするパッケージの**バージョン**を選択します。
+4. `Microsoft.Windows.SDK.Contracts` パッケージが見つかったら、 **[NuGet パッケージ マネージャー]** ウィンドウの右側のペインで、ターゲットにする Windows 10 のバージョンに基づいて、インストールするパッケージの **バージョン** を選択します。
 
     * **10.0.19041.xxxx**:Windows 10 Version 2004 の場合は、これを選択します。
     * **10.0.18362.xxxx**:Windows 10 バージョン 1903 の場合は、これを選択します。
@@ -85,9 +85,9 @@ ms.locfileid: "90837817"
 
 ### <a name="configure-projects-that-multi-target-different-versions-of-net"></a>複数の異なるバージョンの .NET をターゲットとするプロジェクトを構成する
 
-プロジェクトが、NET 5 Preview 8 以降とそれより前のバージョン (.NET Core 3.x や .NET Framework を含む) の両方をターゲットとする場合は、ターゲット フレームワーク モニカーを使用することにより、.NET 5 Preview 8 以降では WinRT API 参照を自動的に取り込み、それより前のバージョンには `Microsoft.Windows.SDK.Contracts` NuGet パッケージを自動的に使用するようにプロジェクト ファイルを構成できます。
+プロジェクトが、NET 5 Preview 8 以降とそれより前のバージョン (.NET Core 3.x と .NET Framework を含む) の両方をターゲットとする場合は、ターゲット フレームワーク モニカーを使用することにより、.NET 5 には WinRT API 参照を自動的に取り込み、それより前のバージョンには `Microsoft.Windows.SDK.Contracts` NuGet パッケージを自動的に使用するようにプロジェクト ファイルを構成できます。
 
-1. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[プロジェクト ファイルの編集]** を選択します。 次に、.NET Core 3.1 を使用するアプリ用のプロジェクト ファイルの例を示します。
+1. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[プロジェクト ファイルの編集]** を選択します。 次に、.NET Core 3.1 を使用するアプリ用のプロジェクト ファイルの例を示します。
 
     ```csharp
     <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
@@ -114,7 +114,7 @@ ms.locfileid: "90837817"
     <TargetFrameworks>netcoreapp3.1;net5.0-windows10.0.19041.0</TargetFrameworks>
     ```
 
-3. **PropertyGroup** 要素の後に **PackageReference** 要素を追加します。ここには、アプリがターゲットとする任意のバージョンの .NET Core 3.x または .NET Framework 用の `Microsoft.Windows.SDK.Contracts` NuGet パッケージをインストールする条件付きステートメントを含めます。 **PackageReference** 要素は、**ItemGroup** 要素の子である必要があります。 次に、.NET Core 3.1 でこれを行う方法の例を示します。
+3. **PropertyGroup** 要素の後ろに **PackageReference** 要素を追加します。ここには、アプリがターゲットとする任意のバージョンの .NET Core 3.x または .NET Framework 用の `Microsoft.Windows.SDK.Contracts` NuGet パッケージをインストールする条件付きステートメントを含めます。 **PackageReference** 要素は、**ItemGroup** 要素の子である必要があります。 次に、.NET Core 3.1 でこれを行う方法の例を示します。
 
     ```csharp
     <ItemGroup>
@@ -309,11 +309,11 @@ Windows 10 ユーザー向けに個別のバイナリをビルドする場合は
 
 そのビルド構成に対して、Windows ランタイム API を呼び出すコードを識別する定数を作成します。  
 
-.NET ベースのプロジェクトの場合、この定数は**条件付きコンパイル定数**と呼ばれます。
+.NET ベースのプロジェクトの場合、この定数は **条件付きコンパイル定数** と呼ばれます。
 
 ![条件付きコンパイル定数](images/desktop-to-uwp/compilation-constants.png)
 
-C++ ベースのプロジェクトの場合、この定数は**プリプロセッサ定義**と呼ばれます。
+C++ ベースのプロジェクトの場合、この定数は **プリプロセッサ定義** と呼ばれます。
 
 ![プリプロセッサ定義定数](images/desktop-to-uwp/pre-processor.png)
 
@@ -342,7 +342,7 @@ void UWP::ShowToast()
 
 ユーザーが実行する Windows のバージョンに関係なく、1 組のバイナリをすべての Windows ユーザー向けにコンパイルできます。 アプリケーションでは、ユーザーが Windows 10 上でアプリケーションをパッケージ化されたアプリケーションとして実行している場合にのみ、Windows ランタイム API を呼び出します。
 
-コードにランタイム チェックを追加する最も簡単な方法は、Nuget パッケージである [Desktop Bridge Helpers](https://www.nuget.org/packages/DesktopBridge.Helpers/) をインストールしてから、``IsRunningAsUWP()`` メソッドを使用して、Windows ランタイム API を呼び出すすべてのコードを利用することです。 詳細については、こちらのブログ投稿「[デスクトップ ブリッジ - アプリケーションのコンテキストの識別](/archive/blogs/appconsult/desktop-bridge-identify-the-applications-context)」を参照してください。
+コードにランタイム チェックを追加する最も簡単な方法は、Nuget パッケージである [Desktop Bridge Helpers](https://www.nuget.org/packages/DesktopBridge.Helpers/) をインストールしてから、``IsRunningAsUWP()`` メソッドを使用して、Windows ランタイム API を呼び出すすべてのコードを利用することです。 詳細については、こちらのブログ投稿を参照してください。「[デスクトップ ブリッジ - アプリケーションのコンテキストの識別](/archive/blogs/appconsult/desktop-bridge-identify-the-applications-context)」を参照してください。
 
 ## <a name="related-samples"></a>関連するサンプル
 

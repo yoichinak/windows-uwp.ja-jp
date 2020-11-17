@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: 06ac1525a91426f6d39e20c9a9416154ad3d6f3e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: be02f9b049a1beb1866d21c97f11fe3efeb815f3
+ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174026"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94339350"
 ---
 # <a name="windows-app-certification-kit"></a>Windows アプリ認定キット
 
@@ -23,7 +23,7 @@ ms.locfileid: "89174026"
 
 - Windows 10 をインストールして実行する必要があります。
 - Windows 10 用 Windows ソフトウェア開発キット (Windows SDK) に含まれる [Windows アプリ認定キット](https://developer.microsoft.com/windows/downloads/app-certification-kit/)をインストールする必要があります。
-- [開発用にデバイスを有効にする](../get-started/enable-your-device-for-development.md)必要があります。
+- [開発用にデバイスを有効にする](/windows/apps/get-started/enable-your-device-for-development)必要があります。
 - テストする Windows アプリをコンピューターに展開する必要があります。
 
 > [!NOTE]
@@ -59,7 +59,7 @@ ms.locfileid: "89174026"
 
 1. コマンド ウィンドウで、Windows アプリ認定キットを含むディレクトリに移動します。
 
-    **注**   既定のパスは C:\\Program Files\\Windows Kits\\10\\App Certification Kit\\ です。
+    **注**   既定のパスは C:\\Program Files\\Windows Kits\\10\\App Certification Kit\\ です。
 
 2. 次のコマンドをこの順序で入力し、テスト コンピューターにすでにインストールされているアプリをテストします。
 
@@ -75,9 +75,9 @@ ms.locfileid: "89174026"
 
 3. テストが完了したら、`[report file name]` という名前のレポート ファイルを開いて、テスト結果を確認します。
 
-**注**   Windows アプリ認定キットはサービスから実行できますが、サービスはアクティブなユーザー セッションでキットのプロセスを開始する必要があり、Session0 では実行できません。
+**注:** Windows アプリ認定キットはサービスから実行できますが、サービスはアクティブなユーザー セッションでキットのプロセスを開始する必要があり、Session0 では実行できません。
 
-**注**   Windows アプリ認定キットのコマンド ラインについて詳しく知るには、次のコマンドを入力します。`appcert.exe /?`
+**注**   Windows アプリ認定キットのコマンド ラインについて詳しく知るには、コマンド「`appcert.exe /?`」を入力します。
 
 ## <a name="testing-with-a-low-power-computer"></a>低電力コンピューターでのテスト
 
