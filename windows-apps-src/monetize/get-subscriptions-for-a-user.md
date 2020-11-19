@@ -6,12 +6,12 @@ ms.date: 07/10/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 購入 API, サブスクリプション
 ms.localizationpriority: medium
-ms.openlocfilehash: f6ff6ea5a5daac1a6412c26c76dad899ca1f5881
-ms.sourcegitcommit: 74c674c70b86bafeac7c8c749b1662fae838c428
+ms.openlocfilehash: c77218cc7157e3d9a5508146395b284b57397d0f
+ms.sourcegitcommit: 2a23972e9a0807256954d6da5cf21d0bbe7afb0a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252327"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94941798"
 ---
 # <a name="get-subscriptions-for-a-user"></a>ユーザーのサブスクリプションの取得
 
@@ -29,33 +29,33 @@ ms.locfileid: "72252327"
 
 詳しくは、「[サービスによる製品の権利の管理](view-and-grant-products-from-a-service.md)」をご覧ください。
 
-## <a name="request"></a>要求
+## <a name="request"></a>Request
 
 
 ### <a name="request-syntax"></a>要求の構文
 
-| メソッド | 要求 URI                                            |
+| 認証方法 | 要求 URI                                            |
 |--------|--------------------------------------------------------|
 | POST   | ```https://purchase.mp.microsoft.com/v8.0/b2b/recurrences/query``` |
 
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header         | 種類   | 説明      |
+| Header         | Type   | 説明      |
 |----------------|--------|-------------------|
-| Authorization  | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。                           |
-| ホスト           | string | 値 **purchase.mp.microsoft.com** に設定する必要があります。                                            |
-| Content-Length | number | 要求の本文の長さ。                                                                       |
+| 承認  | string | 必須。 ベアラートークン形式の Azure AD アクセストークン **Bearer** &lt; *token* &gt; 。                           |
+| Host           | string | 値 **purchase.mp.microsoft.com** に設定する必要があります。                                            |
+| Content-Length | number | 要求本文の長さです。                                                                       |
 | Content-Type   | string | 要求と応答の種類を指定します。 現時点では、サポートされている唯一の値は **application/json** です。 |
 
 
 ### <a name="request-body"></a>要求本文
 
-| パラメーター      | 種類   | 説明     | 必須 |
+| パラメーター      | Type   | 説明     | 必須 |
 |----------------|--------|-----------------|----------|
 | b2bKey         | string | 取得対象のサブスクリプションを所有するユーザーの ID を表す [Microsoft Store ID キー](view-and-grant-products-from-a-service.md#step-4)。  | はい      |
 | continuationToken |  string     |  ユーザーが複数のサブスクリプションの権利を持っている場合、ページ制限に達すると応答本文は継続トークンを返します。 残りの製品を取得する後続の呼び出しで、この継続トークンを指定します。    | いいえ      |
-| pageSize       | string | 1 つの応答で返すサブスクリプションの最大数。 既定値は 25 です。     |  いいえ      |
+| PageSize       | string | 1 つの応答で返すサブスクリプションの最大数。 既定値は 25 です。     |  いいえ      |
 
 
 ### <a name="request-example"></a>要求の例
@@ -66,7 +66,7 @@ ms.locfileid: "72252327"
 POST https://purchase.mp.microsoft.com/v8.0/b2b/recurrences/query HTTP/1.1
 Authorization: Bearer <your access token>
 Content-Type: application/json
-Host: https://purchase.mp.microsoft.com
+Host: purchase.mp.microsoft.com
 
 {
   "b2bKey":  "eyJ0eXAiOiJ..."
@@ -74,7 +74,7 @@ Host: https://purchase.mp.microsoft.com
 ```
 
 
-## <a name="response"></a>応答
+## <a name="response"></a>Response
 
 このメソッドは、ユーザーが使う権利を持っているサブスクリプション アドオンについて説明する、データ オブジェクトのコレクションを含む JSON 応答本文を返します。 次の例は、1 つのサブスクリプションの権利を持っているユーザーの応答本文を示しています。
 
@@ -102,34 +102,34 @@ Host: https://purchase.mp.microsoft.com
 
 応答本文には、次のデータが含まれています。
 
-| 値        | 種類   | 説明            |
+| 値        | Type   | 説明            |
 |---------------|--------|---------------------|
 | items | array | 指定したユーザーが使う権利を持っている各サブスクリプション アドオンに関するデータが含まれるオブジェクトの配列。 各オブジェクトのデータの詳細については、以下の表を参照してください。  |
 
 
 *items* 配列内の各オブジェクトには、次の値が保持されています。
 
-| 値        | 種類   | 説明                                                                 |
+| 値        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------|
-| autoRenew | ブール値 |  現在のサブスクリプション期間の終了時にサブスクリプションが自動的に更新されるように構成されているかどうかを示します。   |
+| autoRenew | ブール型 |  現在のサブスクリプション期間の終了時にサブスクリプションが自動的に更新されるように構成されているかどうかを示します。   |
 | beneficiary | string |  このサブスクリプションに関連付けられている権利の受益者 ID。   |
 | expirationTime | string | サブスクリプションの有効期限が切れる日時 (ISO 8601形式)。 このフィールドは、サブスクリプションが特定の状態のときのみ利用可能です。 有効期限は通常、現在の状態の有効期限がいつ切れるかを示します。 たとえば、アクティブなサブスクリプションの場合、有効期限日は次の自動更新がいつ行われるかを示します。    |
 | expirationTimeWithGrace | string | 猶予期間 (ISO 8601 形式) を含むサブスクリプションの有効期限が切れる日付と時刻。 この値は、サブスクリプションが自動的に更新されなかった後に、ユーザーがサブスクリプションにアクセスできなくなったことを示します。    |
 | id | string |  サブスクリプションの ID です。 [ユーザーのサブスクリプションの請求状態を変更する](change-the-billing-state-of-a-subscription-for-a-user.md)メソッドを呼び出すときに変更するサブスクリプションを指定するには、この値を使います。    |
-| isTrial | ブール値 |  サブスクリプションが試用版であるかどうかを示します。     |
+| isTrial | ブール型 |  サブスクリプションが試用版であるかどうかを示します。     |
 | lastModified | string |  サブスクリプションが前回変更された日時 (ISO 8601形式)。      |
 | market | string | ユーザーがサブスクリプションを取得した国コード (2 文字の ISO 3166-1 alpha-2 形式)。      |
 | productId | string |  Microsoft Store カタログ内のサブスクリプション アドオンを表す[製品](in-app-purchases-and-trials.md#products-skus-and-availabilities)の [Store ID](in-app-purchases-and-trials.md#store-ids)。 製品のストア ID の例は、9NBLGGH42CFD です。     |
 | skuId | string |  Microsoft Store カタログ内のサブスクリプション アドオンを表す [SKU](in-app-purchases-and-trials.md#products-skus-and-availabilities) の [Store ID](in-app-purchases-and-trials.md#store-ids)。 SKU の Store ID の例は、0010 です。    |
 | startTime | string |  サブスクリプションの開始日時 (ISO 8601 形式)。     |
-| recurrenceState | string  |  次のいずれかの値です。<ul><li>**None**:&nbsp;&nbsp;永続サブスクリプションを示す。</li><li>**Active**:&nbsp;&nbsp;サブスクリプションがアクティブであり、ユーザーがサービスを使う権利を持っている。</li><li>**Inactive**:&nbsp;&nbsp;サブスクリプションの有効期限が過去の日付であり、ユーザーがサブスクリプションの自動更新オプションをオフにした。</li><li>**Canceled**:&nbsp;&nbsp;サブスクリプションが、有効期限前に意図的に終了された (払い戻しあり、またはなし)。</li><li>**InDunning**:&nbsp;&nbsp;サブスクリプションが*催促中*である (つまり、サブスクリプションの有効期限が近づいているため、Microsoft がサブスクリプションを自動更新する資金を得ようとしている)。</li><li>**Failed**:&nbsp;&nbsp;催促期間が終了し、何回か試行された後サブスクリプションの更新に失敗した。</li></ul><p>**注:**</p><ul><li>**Inactive**/**Canceled**/**Failed** は終了状態です。 サブスクリプションがこれらのいずれかの状態になると、ユーザーはサブスクリプションを再購入してもう一度アクティブ化する必要があります。 ユーザーは、これらの状態でサービスを使うことはできません。</li><li>サブスクリプションが **Canceled** になると、キャンセルの日時によって expirationTime が更新されます。</li><li>サブスクリプションの ID は、有効期限が終了するまで同じままです。 自動更新オプションがオンでもオフでも変更されません。 終了状態に達した後ユーザーがサブスクリプションを再購入した場合、新しいサブスクリプション ID が作成されます。</li><li>サブスクリプションの ID は、個々のサブスクリプションで任意の操作を実行するために使ってください。</li><li>ユーザーがサブスクリプションをキャンセルまたは中止した後に再購入した場合、ユーザーの結果を照会すると、終了状態の古いサブスクリプション ID を含むエントリとアクティブ状態の新しいサブスクリプション ID を含むエントリの 2 つが返されます。</li><li>必ず、recurrenceState と expirationTime の両方を確認することをお勧めします。recurrenceState の更新は数分 (場合によって数時間) 遅れることがあるためです。       |
+| recurrenceState | string  |  次のいずれかの値です。<ul><li>**None**: &nbsp; &nbsp; 永続的なサブスクリプションを示します。</li><li>[**アクティブ**]: &nbsp; &nbsp; サブスクリプションがアクティブで、ユーザーはそのサービスを使用する権利を持っています。</li><li>[**非アクティブ**]: &nbsp; &nbsp; サブスクリプションが有効期限を過ぎており、ユーザーがサブスクリプションの自動更新オプションを無効にしています。</li><li>[**キャンセル**]: サブスクリプションは、 &nbsp; &nbsp; 有効期限の前に意図的に終了されました。返金はありません。</li><li>**InDunning**: &nbsp; &nbsp; サブスクリプションは *催促* にあります (つまり、サブスクリプションの有効期限が近づいていて、Microsoft はサブスクリプションを自動的に更新するために資金を取得しようとしています)。</li><li>**失敗**: &nbsp; &nbsp; 催促期間が超過し、いくつかの試行後にサブスクリプションを更新できませんでした。</li></ul><p>**注:**</p><ul><li>**非アクティブ** /**キャンセル** / 済み **失敗** はターミナルの状態です。 サブスクリプションがこれらのいずれかの状態になると、ユーザーはサブスクリプションを再購入してもう一度アクティブ化する必要があります。 ユーザーは、これらの状態でサービスを使うことはできません。</li><li>サブスクリプションが **Canceled** になると、キャンセルの日時によって expirationTime が更新されます。</li><li>サブスクリプションの ID は、有効期限が終了するまで同じままです。 自動更新オプションがオンでもオフでも変更されません。 終了状態に達した後ユーザーがサブスクリプションを再購入した場合、新しいサブスクリプション ID が作成されます。</li><li>サブスクリプションの ID は、個々のサブスクリプションで任意の操作を実行するために使ってください。</li><li>ユーザーがサブスクリプションをキャンセルまたは中止した後に再購入した場合、ユーザーの結果を照会すると、終了状態の古いサブスクリプション ID を含むエントリとアクティブ状態の新しいサブスクリプション ID を含むエントリの 2 つが返されます。</li><li>必ず、recurrenceState と expirationTime の両方を確認することをお勧めします。recurrenceState の更新は数分 (場合によって数時間) 遅れることがあるためです。       |
 | cancellationDate | string   |  ユーザーのサブスクリプションがキャンセルされた日時 (ISO 8601 形式)。     |
 
 
 ## <a name="related-topics"></a>関連トピック
 
-* [サービスから製品権利を管理する](view-and-grant-products-from-a-service.md)
-* [ユーザーのサブスクリプションの課金状態を変更する](change-the-billing-state-of-a-subscription-for-a-user.md)
-* [製品のクエリ](query-for-products.md)
-* [利用できる製品を履行済みとして報告する](report-consumable-products-as-fulfilled.md)
+* [サービスによる製品の権利の管理](view-and-grant-products-from-a-service.md)
+* [ユーザーのサブスクリプションに関する請求の状態を変更する](change-the-billing-state-of-a-subscription-for-a-user.md)
+* [製品の照会](query-for-products.md)
+* [コンシューマブルな製品をフルフィルメント完了として報告する](report-consumable-products-as-fulfilled.md)
 * [Microsoft Store ID キーの更新](renew-a-windows-store-id-key.md)
