@@ -1,18 +1,18 @@
 ---
 description: この記事では、Windows アプリのための Visual Studio のプロジェクト テンプレートと項目テンプレートの概要について説明します。
 title: Windows アプリ用の Visual Studio プロジェクトおよび項目テンプレート
-ms.date: 07/02/2020
+ms.date: 11/17/2020
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
-ms.openlocfilehash: 7e8500aab3c6eeaa1552dc61a95ea7404bf4d5d5
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f84bd251bbae9c3f1a1326ab3ac3c7cf0fce3938
+ms.sourcegitcommit: 75e1f49be211e8b4b3e825978d67625776f992f5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174206"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94691600"
 ---
 # <a name="visual-studio-project-and-item-templates-for-windows-apps"></a>Windows アプリ用の Visual Studio プロジェクトおよび項目テンプレート
 
@@ -25,14 +25,14 @@ Visual Studio 2019 によって提供される多数のプロジェクト テン
 
 [Windows UI ライブラリ (WinUI)](../winui/index.md) は、デスクトップ (.NET およびネイティブ Win32) と UWP アプリ プラットフォームにおける、Windows アプリ用の最新のネイティブ ユーザー インターフェイス (UI) プラットフォームです。 [WinUI 3](../winui/winui3/index.md) (現在開発者用プレビューとして提供中) は、WinUI の最新メジャー バージョンであり、WinUI をデスクトップ Windows アプリ用の完全な UX フレームワークに変換します。
 
-WinUI 3 には Visual Studio 2019 用の VSIX パッケージが含まれており、これによって WinUI ベースのインターフェイスを備えたアプリのビルドを開始するために役立つプロジェクト テンプレートと項目テンプレートが提供されます。 WinUI 3 VSIX パッケージと、それによって提供されるプロジェクト テンプレートの詳細については、[このセクション](../winui/winui3/index.md#install-winui-3-preview-2)を参照してください。
+WinUI 3 には Visual Studio 2019 用の VSIX パッケージが含まれており、これによって WinUI ベースのインターフェイスを備えたアプリのビルドを開始するために役立つプロジェクト テンプレートと項目テンプレートが提供されます。 WinUI 3 VSIX パッケージと、それによって提供されるプロジェクト テンプレートの詳細については、[このセクション](../winui/winui3/index.md#install-winui-3-preview-3)を参照してください。
 
 > [!IMPORTANT]
 > WinUI 3 は、関連する Visual Studio テンプレートを含めて、現在開発者プレビューとして提供されています。これは、初期評価を目的としたものであり、開発者コミュニティからフィードバックを収集します。 この時点では実稼働アプリには使用できません。
 
 ## <a name="uwp-templates"></a>UWP テンプレート
 
-Visual Studio には、C# または C++ を使用して UWP アプリをビルドするためのさまざまなプロジェクト テンプレートが用意されています。 これらのプロジェクト テンプレートを使用するには、Visual Studio をインストールするときに、**ユニバーサル Windows プラットフォーム開発**ワークロードを含める必要があります。 C++ プロジェクト テンプレートの場合は、**ユニバーサル Windows プラットフォーム開発**ワークロードの **C++ (v142) ユニバーサル Windows プラットフォーム ツール** オプション コンポーネントも含める必要があります。
+Visual Studio には、C# または C++ を使用して UWP アプリをビルドするためのさまざまなプロジェクト テンプレートが用意されています。 これらのプロジェクト テンプレートを使用するには、Visual Studio をインストールするときに、**ユニバーサル Windows プラットフォーム開発** ワークロードを含める必要があります。 C++ プロジェクト テンプレートの場合は、**ユニバーサル Windows プラットフォーム開発** ワークロードの **C++ (v142) ユニバーサル Windows プラットフォーム ツール** オプション コンポーネントも含める必要があります。
 
 ### <a name="project-templates-for-c-and-uwp"></a>C# および UWP のプロジェクト テンプレート
 
@@ -65,7 +65,7 @@ C++ UWP アプリのビルドに使用できるテクノロジは 2 種類あり
 Visual Studio で新しいプロジェクトを作成するときに UWP C++ プロジェクト テンプレートを利用するには、言語を **[C++]** 、プラットフォームを **[Windows]** 、プロジェクトの種類を **[UWP]** としてフィルター処理します。 
 
 > [!NOTE]
-> 既定では、Visual Studio の**ユニバーサル Windows プラットフォーム開発**ワークロードで利用できるのは C++/CX プロジェクト テンプレートのみです。 C++/WinRT プロジェクト テンプレートを利用するには、[C++/WinRT VSIX](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package) パッケージをインストールする必要があります。
+> 既定では、Visual Studio の **ユニバーサル Windows プラットフォーム開発** ワークロードで利用できるのは C++/CX プロジェクト テンプレートのみです。 C++/WinRT プロジェクト テンプレートを利用するには、[C++/WinRT VSIX](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package) パッケージをインストールする必要があります。
 
 ![UWP C++ プロジェクト テンプレート](images/uwp-projects-cpp.png)
 
@@ -92,7 +92,7 @@ Visual Studio で新しいプロジェクトを作成するときに UWP C++ プ
 
 ## <a name="cwin32-templates"></a>C++/Win32 テンプレート
 
-Visual Studio では、ネイティブの C++ で Win32 API に直接アクセスできるデスクトップ Windows アプリをビルドするためのさまざまなプロジェクト テンプレートが提供されます。 これらのプロジェクト テンプレートを使用するには、Visual Studio をインストールするときに、**C++ によるデスクトップ開発**ワークロードを含める必要があります。 このワークロードには、デスクトップ アプリ、コンソール アプリ、およびライブラリをビルドするためのプロジェクト テンプレートが含まれています。
+Visual Studio では、ネイティブの C++ で Win32 API に直接アクセスできるデスクトップ Windows アプリをビルドするためのさまざまなプロジェクト テンプレートが提供されます。 これらのプロジェクト テンプレートを使用するには、Visual Studio をインストールするときに、**C++ によるデスクトップ開発** ワークロードを含める必要があります。 このワークロードには、デスクトップ アプリ、コンソール アプリ、およびライブラリをビルドするためのプロジェクト テンプレートが含まれています。
 
 ### <a name="project-templates-for-desktop-apps"></a>デスクトップ アプリのプロジェクト テンプレート
 
@@ -135,7 +135,7 @@ C++ プロジェクト テンプレートには、プロジェクトへの新し
 
 ## <a name="net-templates"></a>.NET テンプレート
 
-Visual Studio では、.NET と C# を使用するデスクトップ Windows アプリをビルドするためのさまざまなプロジェクト テンプレートが提供されます。 これらのプロジェクト テンプレートを使用するには、Visual Studio をインストールするときに、 **.NET デスクトップ開発**ワークロードを含める必要があります。
+Visual Studio では、.NET と C# を使用するデスクトップ Windows アプリをビルドするためのさまざまなプロジェクト テンプレートが提供されます。 これらのプロジェクト テンプレートを使用するには、Visual Studio をインストールするときに、 **.NET デスクトップ開発** ワークロードを含める必要があります。
 
 Visual Studio で新しいプロジェクトを作成するときにデスクトップ C# プロジェクト テンプレートを利用するには、言語を **[C#]** 、プラットフォームを **[Windows]** 、プロジェクトの種類を **[デスクトップ]** としてフィルター処理します。
 
