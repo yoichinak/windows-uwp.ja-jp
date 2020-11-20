@@ -90,7 +90,7 @@
       items:
         - name: 概要
           href: winui/index.md
-        - name: Windows UI ライブラリ 3.0 Preview 2
+        - name: Windows UI ライブラリ 3 Preview 3
           items:
             - name: 概要およびリリース ノート
               href: winui/winui3/index.md
