@@ -4,12 +4,12 @@ description: Windows アプリ開発用の WinUI ライブラリ。
 ms.topic: article
 ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk, winui, Windows UI ライブラリ
-ms.openlocfilehash: 932b3c898737426db6d62d6699b11c8f8c1b484b
-ms.sourcegitcommit: 75e1f49be211e8b4b3e825978d67625776f992f5
+ms.openlocfilehash: 3b2b18ab35f46b132ec3017bb0f3c6564b7be9ee
+ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94691510"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94933127"
 ---
 # <a name="windows-ui-library-winui"></a>Windows UI ライブラリ (WinUI)
 
@@ -42,7 +42,7 @@ WinUI 2.x ライブラリは [Windows 10 SDK](https://developer.microsoft.com/wi
 ### <a name="related-links-for-winui-2x"></a>WinUI 2.x の関連リンク
 
 - [WinUI 2.x ライブラリの概要](winui2/index.md)
-- [API ドキュメント](/uwp/api/overview/winui/)
+- [API ドキュメント](/windows/winui/api/)
 - [ソース コード](https://aka.ms/winui)
 - [XAML Controls Gallery アプリ](https://www.microsoft.com/p/xaml-controls-gallery/9msvh128x2zt)
 

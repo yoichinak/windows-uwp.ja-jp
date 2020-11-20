@@ -127,7 +127,7 @@
                 - name: WinUI 2.0
                   href: winui/winui2/release-notes/winui-2.0.md
         - name: WinUI API リファレンス
-          href: /uwp/api/overview/winui/
+          href: /windows/winui/api/
     - name: Windows 10X 用の開発
       items:
         - name: Windows 10X 開発の FAQ

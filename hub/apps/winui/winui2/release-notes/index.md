@@ -3,12 +3,12 @@ title: WinUI のリリース ノート
 description: WinUI リリース ノートのインデックス。
 ms.date: 07/15/2020
 ms.topic: reference
-ms.openlocfilehash: 2055ba69566a901ea1491a36d742455fc13b5cb3
-ms.sourcegitcommit: 75e1f49be211e8b4b3e825978d67625776f992f5
+ms.openlocfilehash: 4c89209868c1478f34de79f8b243fbe0e3dc80a3
+ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94691540"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94933107"
 ---
 # <a name="windows-ui-library-2x-release-notes"></a>Windows UI ライブラリ 2.x のリリース ノート
 
@@ -38,7 +38,7 @@ https://github.com/Microsoft/Xaml-Controls-Gallery)でもあります
 
 Windows UI ライブラリ コントロールの操作方法に関する記事は、[ユニバーサル Windows プラットフォーム コントロール ドキュメント](/windows/uwp/design/controls-and-patterns/)に含まれています。
 
-API リファレンスのドキュメントがある場所は、[Windows UI ライブラリ API](/uwp/api/overview/winui/) です。
+API リファレンスのドキュメントがある場所は、[Windows UI ライブラリ API](/windows/winui/api/) です。
 
 ## <a name="version-history"></a>バージョン履歴
 
