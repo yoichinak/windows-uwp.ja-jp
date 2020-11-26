@@ -7,11 +7,11 @@ keywords: windows 10, uwp, winui
 ms.localizationpriority: high
 ms.custom: 19H1
 ms.openlocfilehash: 5da4944b38fc764eb11bdc2f6daed0cab54ea445
-ms.sourcegitcommit: 75e1f49be211e8b4b3e825978d67625776f992f5
+ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94691620"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025138"
 ---
 # <a name="get-started-with-winui-3-for-uwp-apps"></a>UWP アプリ用の WinUI 3 の概要
 

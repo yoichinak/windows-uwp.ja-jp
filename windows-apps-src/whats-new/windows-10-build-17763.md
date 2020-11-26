@@ -6,12 +6,12 @@ ms.date: 10/03/2018
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: b54e0b4417dd4ba9b835622a4c064b803de7fca9
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 416e3947678de0ba70687d9070c245fdfb4376df
+ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219706"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94933187"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-17763"></a>Windows 10 ビルド 17763 の開発者向け新着情報
 
@@ -34,7 +34,7 @@ Fluent Design でのモーション | Fluent Design System でのモーション
 テキストの拡大縮小 | 新しい[テキストの拡大縮小ガイダンス](../design/input/text-scaling.md)では、新しいテキストの拡大縮小の動作に対応するようアプリケーションを更新する方法について説明します。これにより、ユーザーは OS と個々のアプリケーションの両方で相対的なフォント サイズを変更できます。 拡大鏡アプリ (これは通常、画面の領域内のすべてを拡大するだけであり、独自のユーザビリティの問題が発生する) を使用したり、ディスプレイの解像度を変更したり、DPI スケール (これは、ディスプレイと標準的な表示距離に基づいてすべてのサイズを変更する) に依存したりする代わりに、ユーザーはテキストだけを 100% (既定のサイズ) から最大 225% までの範囲でサイズ変更するための設定にすばやくアクセスできます。
 ツールキット | [Adobe XD および Adobe Illustrator ツールキット](../design/downloads/index.md)が更新されて新機能が追加されました。 これらの設計ツールキットは、UWP アプリを設計するためのコントロールとレイアウトのテンプレートを提供します。
 UI コマンド処理 | [UWP コマンド処理インフラストラクチャ](../design/basics/commanding-basics.md)の更新には、コマンド オブジェクト (動作、ラベル、アイコン、キーボード アクセラレータ、アクセス キー、および説明) のカプセル化の改善と、切り取り、コピー、貼り付け、終了などの一般的なコマンドの標準セットが含まれており、これらのプロパティを手動で設定する必要がなくなりました。 </br> 新しい [XamlUICommand](/uwp/api/windows.ui.xaml.input.xamluicommand) クラスは、呼び出されたときにアクションを実行する対話型の UI 要素のコマンドの動作を定義するための基本クラスを提供します。 これは、定義済みのプロパティを持つ標準プラットフォームのコマンドのセットを公開する [StandardUICommand](/uwp/api/windows.ui.xaml.input.standarduicommand) の親クラスです。 
-Windows UI ライブラリ | [Windows UI ライブラリ](/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。 </br> Windows UI ライブラリの内容の詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](/uwp/api/overview/winui/)を参照してください。
+Windows UI ライブラリ | [Windows UI ライブラリ](/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。 </br> Windows UI ライブラリの内容の詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](/windows/winui/api/)を参照してください。
 
 ## <a name="develop-windows-apps"></a>Windows アプリの開発
 
@@ -72,7 +72,7 @@ Windows.System.Update | 新しい [Windows.System.Update 名前空間](/uwp/api/
 機能 | 説明
  :------ | :------
 EdgeHTML 18 | Windows 10 October 2018 Update には、Microsoft Edge ブラウザーと UWP アプリ用 JavaScript エンジンの最新の更新である [EdgeHTML 18](/microsoft-edge/dev-guide) が付属しています。 EdgeHTML 18 では、Web Authentication API や新しい WebView コントロール機能などのサポートが最新化および拡張されています。 ツール側では、EdgeHTML 18 は WebDriver の新しい機能と自動更新、および Edge DevTools と Edge DevTools Protocol の拡張機能を提供します。 詳しくは、[EdgeHTML 18 の新機能](/microsoft-edge/dev-guide)および[最新の Windows 10 の更新 (EdgeHTML 18) の DevTools](/microsoft-edge/devtools-guide/whats-new) に関するページを確認してください。
-プログレッシブ Web アプリ | Windows 10 の JavaScript アプリ (*WWAHost.exe* プロセスで実行されている Web アプリ) では、任意のビューがアクティブ化される前に開始されて処理中に実行される、オプションの[アプリケーション別のバックグラウンド スクリプト](/microsoft-edge/dev-guide#progressive-web-apps)がサポートされるようになりました。 これにより、ナビゲーションの監視および変更、ナビゲーション全体での状態の追跡、ナビゲーション エラーの監視、およびコードの実行を、ビューがアクティブ化される前に行うことができます。 [アプリ マニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)内で [`StartPage`](/uwp/schemas/appxpackage/appxmanifestschema2010-v2/element-application) として指定する場合、アプリの各ビュー (ウィンドウ) は新しい [`WebUIView`](/uwp/api/windows.ui.webui.webuiview) クラスのインスタンスとしてスクリプトに公開され、一般的な (Win32) [WebView](/uwp/api/windows.web.ui.iwebviewcontrol) と同じイベント、プロパティ、およびメソッドを提供します。
+プログレッシブ Web アプリ | Windows 10 の JavaScript アプリ (*WWAHost.exe* プロセスで実行されている Web アプリ) では、任意のビューがアクティブ化される前に開始されて処理中に実行される、オプションの [アプリケーション別のバックグラウンド スクリプト](/microsoft-edge/dev-guide#progressive-web-apps)がサポートされるようになりました。 これにより、ナビゲーションの監視および変更、ナビゲーション全体での状態の追跡、ナビゲーション エラーの監視、およびコードの実行を、ビューがアクティブ化される前に行うことができます。 [アプリ マニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)内で [`StartPage`](/uwp/schemas/appxpackage/appxmanifestschema2010-v2/element-application) として指定する場合、アプリの各ビュー (ウィンドウ) は新しい [`WebUIView`](/uwp/api/windows.ui.webui.webuiview) クラスのインスタンスとしてスクリプトに公開され、一般的な (Win32) [WebView](/uwp/api/windows.web.ui.iwebviewcontrol) と同じイベント、プロパティ、およびメソッドを提供します。
 Web API の拡張機能 | クロスブラウザー Web 開発用の Mozilla Developer Network ドキュメントに、[従来の Microsoft API 拡張機能](https://developer.mozilla.org/docs/Web/API/Microsoft_API_extensions)の一覧が追加されました。 これらの API 拡張機能は Internet Explorer または Microsoft Edge に固有のもので、MDN の Web ドキュメントの互換性とブラウザーのサポートに関する既存の情報を補足します。従来の Microsoft [CSS 拡張機能](https://developer.mozilla.org/docs/Web/CSS/Microsoft_Extensions)と [JavaScript 拡張機能](https://developer.mozilla.org/docs/Web/JavaScript/Microsoft_JavaScript_extensions)も利用でき、リッチな Web API 情報を、[Visual Studio Code](https://code.visualstudio.com/updates/v1_25#_new-css-pseudo-selectors-and-pseudo-elements-from-mdn) で直接表示される MDN から見つけることができます。
 WebVR | 「[WebVR Developer's Guide](/microsoft-edge/webvr/)」を大幅に更新し、ホームページの完全な再設計や目次の再編成などを行いました。 また、以下に示すいくつかの新しいトピックを作成しました。 </br> * [WebVR とは](/microsoft-edge/webvr/what-is-webvr) WebVR とは何か、それを使用する理由、およびそれに対する開発を開始する方法について説明します。 </br> * [プログレッシブ Web アプリでの WebVR](/microsoft-edge/webvr/webvr-in-pwas):プログレッシブ Web アプリ (PWA) に WebVR を追加する方法について説明します。 </br> * [WebView の WebVR](/microsoft-edge/webvr/webvr-in-webview):Windows 10 のアプリケーションで WebView コントロールに WebVR を追加する方法について説明します。 </br> * [WebVR のデモ](/microsoft-edge/webvr/demos):Microsoft Edge と Windows Mixed Reality イマーシブ ヘッドセットを使用して、WebVR のいくつかのデモをご覧ください。
 
@@ -135,7 +135,7 @@ One Dev Question ビデオ シリーズでは、ベテランの Microsoft 開発
 
 ### <a name="photo-editor-cwinrt"></a>フォト エディター C++/WinRT
 
-[フォト エディター サンプル アプリ](https://github.com/Microsoft/Windows-appsample-photo-editor)は、[C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介します。 このアプリを使用すると、**画像**ライブラリから写真を取得し、選択した画像を関連する写真効果で編集できます。
+[フォト エディター サンプル アプリ](https://github.com/Microsoft/Windows-appsample-photo-editor)は、[C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介します。 このアプリを使用すると、**画像** ライブラリから写真を取得し、選択した画像を関連する写真効果で編集できます。
 
 ### <a name="windows-machine-learning"></a>Windows Machine Learning
 

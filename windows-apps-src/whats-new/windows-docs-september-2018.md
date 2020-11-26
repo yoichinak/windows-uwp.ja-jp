@@ -5,12 +5,12 @@ keywords: 最新情報, 更新, 機能, 開発者向けガイダンス, Windows 
 ms.date: 09/10/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: d15cd0289b3de0c086a3ddc974e1b121447188c5
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 064ffbcc8c254b50704b2e63579e424a78933b3c
+ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155226"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94933167"
 ---
 # <a name="whats-new-in-the-windows-developer-docs-in-september-2018"></a>Windows 開発者向けドキュメントの最新情報、2018 年 9 月
 
@@ -34,7 +34,7 @@ Windows 10 の[ツールと SDK をインストール](https://developer.microso
 
 [Windows UI ライブラリ](/uwp/toolkits/winui/)は、UWP アプリ用のコントロールとその他のユーザー インターフェイス要素を提供する NuGet パッケージのセットです。 これらのパッケージは Windows 10 の以前のバージョンにも対応しているため、ユーザーが最新の OS を持っていない場合でも、アプリは動作します。
 
-Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](/uwp/api/overview/winui/)を参照してください。
+Windows UI ライブラリの詳細については、[NuGet パッケージに含まれる API 名前空間を示すこちらの一覧](/windows/winui/api/)を参照してください。
 
 ## <a name="developer-guidance"></a>開発者ガイド
 

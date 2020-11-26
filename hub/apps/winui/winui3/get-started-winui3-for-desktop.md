@@ -9,11 +9,11 @@ author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
 ms.openlocfilehash: 067e6a6798fbfc2633c3e356be64ecae0403cc6d
-ms.sourcegitcommit: b69edc6d73370923f31df61c7e42b53de6c928ee
+ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94870924"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96025158"
 ---
 # <a name="get-started-with-winui-3-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3 の概要
 

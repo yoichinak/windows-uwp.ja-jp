@@ -8,10 +8,10 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.openlocfilehash: 62ecc21d3ed9835ae7360d0c0dfdfa0b09cbdced
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "93034865"
 ---
 # <a name="attached-layouts"></a>接続されているレイアウト
@@ -24,7 +24,7 @@ ms.locfileid: "93034865"
 | - |
 | このコントロールは、Windows アプリのための新しいコントロールと UI 機能を含む NuGet パッケージである Windows UI ライブラリの一部として含まれています。 インストール手順などの詳細については、[Windows UI ライブラリの概要](/uwp/toolkits/winui/)に関するページを参照してください。 |
 
-> **重要な API** :
+> **重要な API**:
 
 > * [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)
 > * [ItemsRepeater](../controls-and-patterns/items-repeater.md)
@@ -40,9 +40,9 @@ ms.locfileid: "93034865"
 
 レイアウトの実行には、すべての要素に対して 2 つの質問に答える必要があります。
 
-1. この要素の "* **サイズ** _" はどのくらいにしますか?
+1. この要素の "***サイズ** _" はどのくらいにしますか?
 
-2. この要素の " _*_位置_*_ " はどうしますか?
+2. この要素の "_*_位置_*_" はどうしますか?
 
 これらの質問に答える XAML のレイアウト システムについては、[カスタム パネル](./custom-panels-overview.md)の説明の一部として簡単に取り上げています。
 
@@ -58,7 +58,7 @@ ms.locfileid: "93034865"
 [ItemsRepeater](../controls-and-patterns/items-repeater.md) もパネルのように動作しますが、パネルと異なり、プログラムによって UIElement の子を追加または削除できる Children プロパティを公開していません。  代わりに、その子の有効期間は、フレームワークによって、データ項目のコレクションに対応するように自動的に管理されます。  それはパネルから派生していませんが、パネルのように動作し、フレームワークから処理されます。
 
 > [!NOTE]
-> [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) は、パネルから派生したコンテナーであり、接続されている [Layout](/uwp/api/microsoft.ui.xaml.controls.layoutpanel.layout) オブジェクトにそのロジックをデリゲートします。  LayoutPanel は "プレビュー" 段階にあり、現在、WinUI パッケージの " *プレリリース* " でのみ使用できます。
+> [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) は、パネルから派生したコンテナーであり、接続されている [Layout](/uwp/api/microsoft.ui.xaml.controls.layoutpanel.layout) オブジェクトにそのロジックをデリゲートします。  LayoutPanel は "プレビュー" 段階にあり、現在、WinUI パッケージの "*プレリリース*" でのみ使用できます。
 
 #### <a name="containers"></a>コンテナー
 
@@ -94,7 +94,7 @@ ms.locfileid: "93034865"
 <!-- ... --->
 ```
 
-この状況の場合、 *ExampleLayout* では、レイアウトの計算で使用する状態と、その状態が格納される場所を慎重に検討して、1 つのパネルの要素のレイアウトが他のパネルに影響を及ぼさないようにする必要があります。  MeasureOverride ロジックと ArrangeOverride ロジックがその *静的* プロパティの値に依存するカスタム パネルに似ています。
+この状況の場合、*ExampleLayout* では、レイアウトの計算で使用する状態と、その状態が格納される場所を慎重に検討して、1 つのパネルの要素のレイアウトが他のパネルに影響を及ぼさないようにする必要があります。  MeasureOverride ロジックと ArrangeOverride ロジックがその *静的* プロパティの値に依存するカスタム パネルに似ています。
 
 #### <a name="layoutcontext"></a>LayoutContext
 
@@ -102,7 +102,7 @@ ms.locfileid: "93034865"
 
 シンプルな非仮想化レイアウトでは、多くの場合に状態を維持する必要はなく、問題になりません。 ただし、グリッドなどのより複雑なレイアウトでは、値の再計算を避けるために、測定と整列の呼び出しの間で状態を維持するように選択することがあります。
 
-レイアウトを仮想化することは、 *多くの場合に* 、測定と整列の両方の間に加えて、反復的レイアウト パス間で状態を維持する必要があります。
+レイアウトを仮想化することは、*多くの場合に*、測定と整列の両方の間に加えて、反復的レイアウト パス間で状態を維持する必要があります。
 
 #### <a name="initializing-and-uninitializing-per-container-state"></a>コンテナーごとの状態の初期化と初期化解除
 
@@ -114,9 +114,9 @@ ms.locfileid: "93034865"
 
 ### <a name="ui-virtualization"></a>UI の仮想化
 
-UI の仮想化とは、 _必要になるタイミング_ まで、UI オブジェクトの作成を遅らせることを意味します。  これはパフォーマンス最適化です。  非スクロール シナリオでは、 _必要になるタイミング_ の決定は、アプリ固有の任意の数のものに基づくことがあります。  このような場合、アプリでは [x:Load](../../xaml-platform/x-load-attribute.md) の使用を検討する必要があります。 これにより、レイアウトに特別な処理は必要ありません。
+UI の仮想化とは、_必要になるタイミング_ まで、UI オブジェクトの作成を遅らせることを意味します。  これはパフォーマンス最適化です。  非スクロール シナリオでは、_必要になるタイミング_ の決定は、アプリ固有の任意の数のものに基づくことがあります。  このような場合、アプリでは [x:Load](../../xaml-platform/x-load-attribute.md) の使用を検討する必要があります。 これにより、レイアウトに特別な処理は必要ありません。
 
-リストなどのスクロールベースのシナリオでは、 _必要になるタイミング_ の判断は、多くの場合に "ユーザーに表示されるか" に基づきます。これは、レイアウト プロセス時にそれが配置された場所に大きく依存し、特別な考慮が必要です。  このドキュメントでは、このシナリオを中心に説明します。
+リストなどのスクロールベースのシナリオでは、_必要になるタイミング_ の判断は、多くの場合に "ユーザーに表示されるか" に基づきます。これは、レイアウト プロセス時にそれが配置された場所に大きく依存し、特別な考慮が必要です。  このドキュメントでは、このシナリオを中心に説明します。
 
 > [!NOTE]
 > このドキュメントでは取り上げませんが、スクロール シナリオで UI 仮想化を有効にする同じ機能を、非スクロール シナリオでも適用できます。  たとえば、それに表示されるコマンドの有効期間を管理し、表示される領域とオーバーフロー メニューの間で要素をリサイクルまたは移動することによって、使用可能な領域の変更に対応するデータドリブンのツールバー コントロールがあります。
@@ -149,10 +149,10 @@ UI の仮想化とは、 _必要になるタイミング_ まで、UI オブジ�
 
 1. 基本型 [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout) (パネルではなく) から派生します。
 2. *(省略可能)* 変更されるとレイアウトを無効にする依存関係プロパティを定義します。
-3. _( **新規** /省略可能)_ レイアウトに必要な状態オブジェクトを [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore) の一部として初期化します。 コンテキストによって提供される [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) を使用して、ホスト コンテナーでそれを一時退避します。
+3. _(**新規**/省略可能)_ レイアウトに必要な状態オブジェクトを [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore) の一部として初期化します。 コンテキストによって提供される [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) を使用して、ホスト コンテナーでそれを一時退避します。
 4. すべての子で [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.measureoverride) をオーバーライドし、[Measure](/uwp/api/windows.ui.xaml.uielement.measure) メソッドを呼び出します。
 5. すべての子で [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.arrangeoverride) をオーバーライドし、[Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) メソッドを呼び出します。
-6. *( **新規** /省略可能)* 保存された状態を [UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore) の一部としてクリーンアップします。
+6. *(**新規**/省略可能)* 保存された状態を [UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore) の一部としてクリーンアップします。
 
 ### <a name="example-a-simple-stack-layout-varying-sized-items"></a>例:シンプルなスタック レイアウト (さまざまなサイズの項目)
 
@@ -284,7 +284,7 @@ VirtualizingLayoutContext には、コンテンツ依存レイアウトを作成
 3. [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride) の一部として、事前に計算された位置で、実現される各 UIElement を[Arrange (配置)](/uwp/api/windows.ui.xaml.uielement.arrange) します。
 
 > [!NOTE]
-> データ レイアウト アプローチは、多くの場合に、 _データ仮想化_ と互換性がありません。  特に、メモリに読み込まれるデータだけが、ユーザーに表示されるものを満たすために必要なデータである場合です。  データ仮想化は、そのデータが存在したままになっている場所をユーザーが下にスクロールしたときのデータの遅延または増分読み込みを指しているのではありません。  代わりに、スクロールして表示されなくなったときに、項目がメモリから解放されるタイミングを示します。  データ レイアウトの一部としてすべてのデータ項目を検査するデータ レイアウトを使用すると、データ仮想化が想定どおりに動作しなくなることがあります。  例外は、すべてのもののサイズが同じであると仮定する UniformGridLayout のようなレイアウトです。
+> データ レイアウト アプローチは、多くの場合に、_データ仮想化_ と互換性がありません。  特に、メモリに読み込まれるデータだけが、ユーザーに表示されるものを満たすために必要なデータである場合です。  データ仮想化は、そのデータが存在したままになっている場所をユーザーが下にスクロールしたときのデータの遅延または増分読み込みを指しているのではありません。  代わりに、スクロールして表示されなくなったときに、項目がメモリから解放されるタイミングを示します。  データ レイアウトの一部としてすべてのデータ項目を検査するデータ レイアウトを使用すると、データ仮想化が想定どおりに動作しなくなることがあります。  例外は、すべてのもののサイズが同じであると仮定する UniformGridLayout のようなレイアウトです。
 
 > [!TIP]
 > 多様な状況で他のユーザーによって使用されるコントロール ライブラリのカスタム コントロールを作成する場合、データ レイアウトは選択肢とならない可能性があります。
@@ -295,7 +295,7 @@ Xbox アクティビティ フィードの UI では繰り返しパターンが�
 
 ![Xbox アクティビティ フィード](images/xaml-attached-layout-activityfeedscreenshot.png)
 
-次のコードでは、アクティビティ フィードのカスタム仮想化 UI とはどのようなものかを説明し、 **データ レイアウト** に採用できる一般的なアプローチを示します。
+次のコードでは、アクティビティ フィードのカスタム仮想化 UI とはどのようなものかを説明し、**データ レイアウト** に採用できる一般的なアプローチを示します。
 
 <table>
 <td>
