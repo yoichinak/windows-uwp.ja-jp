@@ -6,13 +6,13 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#, サンプル, クリップボード, ケース, スタディ
 ms.localizationpriority: medium
 ms.openlocfilehash: 5a7ec46b28a8ddf0b4accadb37b40e786ac8c47a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "89170416"
 ---
-# <a name="porting-the-clipboard-sample-tocwinrtfromcmdasha-case-study"></a>C# から C++/WinRT への Clipboard サンプルの移植 &mdash; ケース スタディ
+# <a name="porting-the-clipboard-sample-to-cwinrt-from-cmdasha-case-study"></a>C# から C++/WinRT への Clipboard サンプルの移植 &mdash; ケース スタディ
 
 このトピックでは、[ユニバーサル Windows プラットフォーム (UWP) アプリのサンプル](https://github.com/microsoft/Windows-universal-samples)のいずれかを [C#](/visualstudio/get-started/csharp) から [C++/WinRT](./intro-to-using-cpp-with-winrt.md) へ移植するケース スタディについて説明します。 チュートリアルの手順を実行し、サンプルを自分で移植することにより、移植を練習し経験を得ることができます。
 
@@ -123,7 +123,7 @@ C# ユニバーサル Windows プラットフォーム (UWP) アプリケーシ�
 
 `MainPage.idl` で宣言する候補となるのは、それらの `public` メンバーです。 それぞれを調べて、**MainPage** ランタイム クラスに含める必要があるか、または単に実装の一部にする必要があるかを確認します。
 
-- 既定のコンストラクター `MainPage()`。 XAML の**ページ**の場合、IDL 内で既定のコンストラクターを宣言するのが普通です。 それにより、XAML UI フレームワークで型をアクティブ化できます。
+- 既定のコンストラクター `MainPage()`。 XAML の **ページ** の場合、IDL 内で既定のコンストラクターを宣言するのが普通です。 それにより、XAML UI フレームワークで型をアクティブ化できます。
 - 静的フィールド **Current** は、アプリケーションの **MainPage** のインスタンスにアクセスするため、シナリオの個々の XAML ページ内から使用されます。 **Current** は XAML フレームワークとの相互運用には使用されないため (コンパイル単位間でも使用されません)、単に実装型のメンバーにすることができます。 実際のプロジェクトでも、このような場合は、同じようにできます。 ただし、このフィールドは投影型のインスタンスなので、IDL で宣言することが論理的であると考えられます。 そのため、ここではそのようにします (これにより、コードが若干簡潔になります)。
 - 静的な **FEATURE_NAME** フィールドの場合も似ており、**Mainpage.xaml** 型内でアクセスされます。 やはり、IDL 内で宣言するようにすると、コードが多少簡潔になります。
 - プロパティ **IsClipboardContentChangedEnabled** は、**OtherScenarios** クラスでのみ使用されます。 そのため、移植では少し単純化し、**OtherScenarios** ランタイム クラスのプライベート フィールドにします。 したがって、それは IDL に入れません。
@@ -166,7 +166,7 @@ ScenarioControl.ItemsSource = itemCollection;
 そのため、C++/WinRT プロジェクトで `MainPage.idl` を開き、次のリストのように編集します。 編集の 1 つで、名前空間の名前を **Clipboard** から **SDKTemplate** に変更していることに注意してください。 必要に応じて、`MainPage.idl` の内容全体を次のコードで置き換えることもできます。 もう 1 つの注意点は、**Scenario::ClassType** の名前を **Scenario::ClassName** に変更していることです。
 
 ```idl
-// MainPage.idl
+// MainPage.idl
 namespace SDKTemplate
 {
     struct Scenario
@@ -203,7 +203,7 @@ namespace SDKTemplate
 
 ただし、このチュートリアルで移植を進めていく間に、ソース コードに出現するすべての **Clipboard** という名前空間名を、**SDKTemplate** に変更します。 また、C++/WinRT プロジェクトのプロパティにも **Clipboard** という名前空間名が使用されている場所があるので、この機会にそれを変更します。
 
-Visual Studio の C++/WinRT プロジェクトで、プロジェクトのプロパティ **[共通プロパティ]**  \> **[C++/WinRT]**  \> **[ルート名前空間]** の値を *SDKTemplate* に設定します。
+Visual Studio の C++/WinRT プロジェクトで、プロジェクトのプロパティ **[共通プロパティ]** \> **[C++/WinRT]** \> **[ルート名前空間]** の値を *SDKTemplate* に設定します。
 
 ### <a name="save-the-idl-and-re-generate-stub-files"></a>IDL を保存してスタブ ファイルを再生成する
 
@@ -219,7 +219,7 @@ IDL の内容を追加、削除、または変更し、ビルドを行うたび�
 
 実際、現在のバージョンの **MainPage** のメンバーで残しておく必要があるものは、コンストラクターだけです。
 
-スタブ ファイルから新しいメンバーをコピーし、不要なメンバーを削除して、名前空間を更新すると、プロジェクトの `MainPage.h` ファイルと `MainPage.cpp` ファイルは以下のコード リストのようになります。 2 種類の **MainPage** があります。 1 つは**implementation** 名前空間、2 つ目は **factory_implementation** 名前空間にあります。 **factory_implementation** に対する唯一の変更点は、**SDKTemplate** をその名前空間に追加することだけです。
+スタブ ファイルから新しいメンバーをコピーし、不要なメンバーを削除して、名前空間を更新すると、プロジェクトの `MainPage.h` ファイルと `MainPage.cpp` ファイルは以下のコード リストのようになります。 2 種類の **MainPage** があります。 1 つは **implementation** 名前空間、2 つ目は **factory_implementation** 名前空間にあります。 **factory_implementation** に対する唯一の変更点は、**SDKTemplate** をその名前空間に追加することだけです。
 
 ```cppwinrt
 // MainPage.h
@@ -510,7 +510,7 @@ IVector<Scenario> implementation::MainPage::scenariosInner = winrt::single_threa
 
 #### <a name="add-five-new-blank-xaml-pages"></a>5 つの新しい空の XAML ページを追加する
 
-**[XAML]**  >  **[空白のページ (C++/WinRT)]**  で新しい項目をプロジェクトに追加します ( **[空白のページ (C++/WinRT)]** 項目テンプレートであり、 **[空白のページ]** ではないことに注意してください)。 名前を `CopyText` に設定します。 新しい XAML ページは、**SDKTemplate** 名前空間内で定義されています。それが適切です。
+**[XAML]**  >  **[空白のページ (C++/WinRT)]** で新しい項目をプロジェクトに追加します ( **[空白のページ (C++/WinRT)]** 項目テンプレートであり、 **[空白のページ]** ではないことに注意してください)。 これに `CopyText` という名前を付けます。 新しい XAML ページは、**SDKTemplate** 名前空間内で定義されています。それが適切です。
 
 上記のプロセスを 4 回繰り返し、XAML ページに `CopyImage`、`CopyFiles`、`HistoryAndRoaming`、`OtherScenarios` という名前を付けます。
 
@@ -708,7 +708,7 @@ C++/WinRT で **Clipboard** 型と **DataPackageView** 型を使用するには�
 
 C# では、**DataPackageView.AvailableFormats** プロパティは **IReadOnlyList** であるため、その **Count** プロパティにアクセスできます。 C++/WinRT では、**DataPackageView::AvailableFormats** アクセサー関数から返される **IVectorView** に、呼び出すことができる **Size** アクセサー関数が含まれます。
 
-C# の **System.Text.StringBuilder** 型の使用を移植するには、C++ の標準型 [**std::wostringstream**](/cpp/standard-library/sstream-typedefs#wostringstream) を使用します。 その型は、ワイド文字列の出力ストリームです (それを使用するには、`sstream` ヘッダー ファイルをインクルードする必要があります)。 **StringBuilder** で行うように **Append** メソッドを使用するのではなく、**wostringstream** などの出力ストリームでは[挿入演算子](/cpp/standard-library/using-insertion-operators-and-controlling-format) (`<<`) を使用します。 詳細については、「[iostream プログラミング](/cpp/standard-library/iostream-programming)」および [C++/WinRT の文字列の書式設定](./strings.md#formatting-strings)に関する記事を参照してください。
+C# の **System.Text.StringBuilder** 型の使用を移植するには、C++ の標準型 [**std::wostringstream**](/cpp/standard-library/sstream-typedefs#wostringstream) を使用します。 その型は、ワイド文字列の出力ストリームです (それを使用するには、`sstream` ヘッダー ファイルをインクルードする必要があります)。 **StringBuilder** で行うように **Append** メソッドを使用するのではなく、**wostringstream** などの出力ストリームでは [挿入演算子](/cpp/standard-library/using-insertion-operators-and-controlling-format) (`<<`) を使用します。 詳細については、「[iostream プログラミング](/cpp/standard-library/iostream-programming)」および [C++/WinRT の文字列の書式設定](./strings.md#formatting-strings)に関する記事を参照してください。
 
 C# のコードでは、`new` キーワードを使用して **StringBuilder** を構築します。 C# では、オブジェクトは既定では参照型であり、`new` を使用してヒープで宣言されます。 最新の標準 C++ では、オブジェクトは既定では値型であり、(`new` を使用せずに) スタックで宣言されています。 そのため、`StringBuilder output = new StringBuilder();` は、単純な `std::wostringstream output;` として C++/WinRT に移植します。
 
@@ -819,9 +819,9 @@ C++/WinRT では、それを **SampleState** のパブリック静的メソッ�
 
 C# では、`+=` と `-=` の演算子構文を使用して、イベント処理デリゲートの登録と取り消しを行います。 C++/WinRT では、「[C++/WinRT でのデリゲートを使用したイベントの処理](./handle-events.md)」で説明されているように、デリゲートの登録と取り消しを行うための構文オプションがいくつかあります。 ただし、一般的な形式では、イベントの名前が付いた関数のペアを呼び出すことによって、登録と取り消しを行います。 登録するには、デリゲートを登録関数に渡し、返される取り消しトークンを取得します ([**winrt::event_token**](/uwp/cpp-ref-for-winrt/event-token))。 取り消すには、そのトークンを取り消し関数に渡します。 この場合、ハンドラーは静的であり (次のコード リストを参照)、関数の呼び出し構文は簡単です。
 
-同様のトークンは、実際には C# の内側で*使用されています*。 しかし、言語によってその詳細が暗黙になります。 C++/WinRT では、暗黙になります。
+同様のトークンは、実際には C# の内側で *使用されています*。 しかし、言語によってその詳細が暗黙になります。 C++/WinRT では、暗黙になります。
 
-C# のイベント ハンドラーのシグネチャには、**object** 型が含まれます。 C# 言語では、**object** は、.NET の [**System.Object**](/dotnet/api/system.object) 型に対する[エイリアス](/dotnet/csharp/language-reference/builtin-types/reference-types)です。 C++/WinRT でそれに相当するのは、[**winrt::Windows::Foundation::IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) です。 そのため、C++/WinRT のイベント ハンドラーには **IInspectable** が含まれます。
+C# のイベント ハンドラーのシグネチャには、**object** 型が含まれます。 C# 言語では、**object** は、.NET の [**System.Object**](/dotnet/api/system.object) 型に対する [エイリアス](/dotnet/csharp/language-reference/builtin-types/reference-types)です。 C++/WinRT でそれに相当するのは、[**winrt::Windows::Foundation::IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) です。 そのため、C++/WinRT のイベント ハンドラーには **IInspectable** が含まれます。
 
 以下のリストと一致するように、`SampleConfiguration.h` および `SampleConfiguration.cpp` を編集します。
 
@@ -955,7 +955,7 @@ void MainPage::OnNavigatedTo(NavigationEventArgs const& /* e */)
 
 やはり [winrt::single_threaded_observable_vector](/uwp/cpp-ref-for-winrt/single-threaded-observable-vector) 関数を呼び出しますが、ここでは [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) のコレクションを作成します。 それは、ジャストインタイムで **Scenario** オブジェクトのボックス化を実行するために行った決定の一部でした。
 
-また、ここでは C# の[文字列補間](/dotnet/csharp/language-reference/tokens/interpolated)を使用する代わりに、[**to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) 関数と、**winrt::hstring** の[連結演算子](/uwp/cpp-ref-for-winrt/hstring#operator-concatenation-operator)の組み合わせを使用します。
+また、ここでは C# の [文字列補間](/dotnet/csharp/language-reference/tokens/interpolated)を使用する代わりに、[**to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) 関数と、**winrt::hstring** の [連結演算子](/uwp/cpp-ref-for-winrt/hstring#operator-concatenation-operator)の組み合わせを使用します。
 
 #### <a name="isapplicationwindowactive"></a>**isApplicationWindowActive**
 
