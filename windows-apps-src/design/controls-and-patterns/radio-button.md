@@ -51,33 +51,35 @@ RadioButtons グループのこの独特の動作は、複数選択や選択の�
 
 ユーザーが 2 つ以上の相互排他的なオプションから選択できるようにするには、ラジオ ボタンを使用します。
 
-:::image type="content" source="images/radiobutton_basic.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobutton_basic.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループ":::
 
 選択する前にユーザーがすべてのオプションを見る必要がある場合は、ラジオ ボタンを使用します。 ラジオ ボタンでは、すべてのオプションが同じように強調されます。これは、一部のオプションが必要以上に、または望ましいレベルを超えて、注目される可能性があることを意味します。
 
 どのオプションも均等に注意を引く場合を除き、他のコントロールを使うことを検討してください。 たとえば、ほとんどのユーザーおよびほとんどの状況に対して 1 つの最適なオプションを推奨するには、[コンボ ボックス](combo-box.md)を使用して、その最適なオプションを既定のオプションとして表示します。
 
-:::image type="content" source="images/combo_box_collapsed.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例" という 1 つのチェック ボックスを使用します。
+:::image type="content" source="images/combo_box_collapsed.png" alt-text="既定のオプションが表示されているコンボ ボックス":::
+
+考えられるオプションは 2 つのみで、それらを 1 つの二者択一ではっきり示すことのできる場合 ("オン/オフ" や "はい/いいえ" など) は、それらを 1 つの[チェック ボックス](checkbox.md)または[トグル スイッチ](toggles.md) コントロールにまとめます。 たとえば、"同意する" と "同意しない" という 2 つのラジオ ボタンではなく、"同意する" という 1 つのチェック ボックスを使用します。
 
 以下のように 1 つの二者択一で 2 つのラジオ ボタンを使用することはしないでください。
 
-:::image type="content" source="images/radiobutton-vs-checkbox-rb.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobutton-vs-checkbox-rb.png" alt-text="1 つの二者択一を表す 2 つのラジオ ボタン":::
 
 代わりに、以下のようにチェック ボックスを使用します。
 
-:::image type="content" source="images/radiobutton-vs-checkbox-cb.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobutton-vs-checkbox-cb.png" alt-text="チェック ボックスは二者択一を表すのに適した代替手段である":::
 
 ユーザーが複数のオプションを選択できる場合は、[チェック ボックス](checkbox.md)を使用します。
 
-:::image type="content" source="images/checkbox2.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/checkbox2.png" alt-text="チェック ボックスでは複数選択がサポートされる":::
 
 ユーザーのオプションがある値の範囲に限定される場合は (例: *10、20、30、... 100*)、[スライダー](slider.md) コントロールを使用します。
 
-:::image type="content" source="images/controls/slider.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/controls/slider.png" alt-text="ある値の範囲内の 1 つの値が表示されているスライダー コントロール":::
 
 オプションが 8 個より多い場合は、[コンボ ボックス](combo-box.md)を使用します。
 
-:::image type="content" source="images/combo_box_scroll.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/combo_box_scroll.png" alt-text="複数のオプションが表示されているリスト ボックス":::
 
 使用できるオプションが、アプリの現在のコンテキストに基づく場合、またはそれ以外の理由で非常に動的な場合は、リスト コントロールを使用します。
 
@@ -292,7 +294,9 @@ Xbox のゲームパッドやリモート コントロールを使用してラ�
 
 結果は次のようになります。
 
-:::image type="content" source="images/radiobuttons-default-group.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例" という名前が付けられた [Border](/uwp/api/windows.ui.xaml.controls.border) 要素 (`<Border x:Name="ExampleBorder" Width="100" Height="100"/>`) の背景色を変更します。
+:::image type="content" source="images/radiobuttons-default-group.png" alt-text="3 つのラジオ ボタンからなるグループ":::
+
+ユーザーがオプションを選択したときにアクションを実行するには、[SelectionChanged](/uwp/api/microsoft.ui.xaml.controls.radiobuttons.selectionchanged) イベントを処理します。 ここでは、"ExampleBorder" という名前が付けられた [Border](/uwp/api/windows.ui.xaml.controls.border) 要素 (`<Border x:Name="ExampleBorder" Width="100" Height="100"/>`) の背景色を変更します。
 
 ```csharp
 private void BackgroundColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -340,7 +344,7 @@ private void BackgroundColor_SelectionChanged(object sender, SelectionChangedEve
 </muxc:RadioButtons>
 ```
 
-:::image type="content" source="images/radiobuttons-symbolicon.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobuttons-symbolicon.png" alt-text="シンボル アイコンが指定されたグループ ラジオ ボタン":::
 
 個々の [RadioButton](/uwp/api/Windows.UI.Xaml.Controls.RadioButton) コントロールを使用して、`RadioButtons` の項目を事前設定することもできます。 このような特殊なケースについては後で説明します。 [RadioButtons グループ内の RadioButton コントロール]()に関するセクションを参照してください。
 
@@ -439,7 +443,7 @@ public sealed partial class MainPage : Page
 </muxc:RadioButtons>
 ```
 
-:::image type="content" source="images/radiobuttons-multi-column.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobuttons-multi-column.png" alt-text="3 列のグループのラジオ ボタン":::
 
 > [!TIP]
 > 項目を水平方向に 1 行に配置するには、`MaxColumns` がグループ内の項目数と同じになるように設定します。
@@ -548,7 +552,7 @@ private void BorderRadioButton_Checked(object sender, RoutedEventArgs e)
 
 `RadioButton` コントロールのこれらの 2 つのグループは、以下のように表示されます。
 
-:::image type="content" source="images/radio-button-groups.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radio-button-groups.png" alt-text="ラジオ ボタンの 2 つのグループ":::
 
 ### <a name="radio-button-states"></a>ラジオ ボタンの状態
 
@@ -574,9 +578,9 @@ private void BorderRadioButton_Checked(object sender, RoutedEventArgs e)
 
 以下の図に、グループ内のラジオ ボタンの推奨される間隔を示します。
 
-:::image type="content" source="images/radiobutton-layout.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobutton-layout.png" alt-text="垂直方向に整列されたラジオ ボタンのセットを示す画像":::
 
-:::image type="content" source="images/radiobutton-redline.png" alt-text="1 つのラジオ ボタンが選択されている RadioButtons グループの例":::
+:::image type="content" source="images/radiobutton-redline.png" alt-text="ラジオ ボタンの間隔のガイドラインを示す画像":::
 
 > [!NOTE]
 > WinUI RadioButtons コントロールを使用している場合、スペース、余白、向きは既に最適化されています。
