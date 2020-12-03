@@ -7,18 +7,18 @@ ms.topic: article
 ms.custom: contperfq1
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c6fd1f2ebee2e4e3a7d3ceb028f5def19e932c6
-ms.sourcegitcommit: 733d422fa1e3433cde842e2f200d3ef202767cc1
+ms.openlocfilehash: 630ac23c6af6e0fb184edf0a0d477b020810abc6
+ms.sourcegitcommit: 25063560ff0a37fb404bc50e3b6e66759ee1051d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94333287"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420391"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
 UWP は、Windows 用クライアント アプリケーションを作成するさまざまな方法の 1 つです。 UWP アプリは、WinRT API を使用して、インターネットに接続されたデバイスに適した、強力な UI と高度な非同期機能を提供します。
 
-UWP アプリの作成を始めるために必要なツールをダウンロードするには、「[準備](/windows/apps/get-set-up.md)」を確認し、[初めてのアプリを作成](your-first-app.md)してください。
+UWP アプリの作成を始めるために必要なツールをダウンロードするには、「[準備](/windows/apps/get-set-up)」を確認し、[初めてのアプリを作成](your-first-app.md)してください。
 
 
 ## <a name="where-does-uwp-fit-in-the-microsoft-development-story"></a>UWP が Microsoft 開発ストーリーの中で占める位置
@@ -56,9 +56,9 @@ C++/WinRT または C++/CX で記述された UWP アプリは UWP の一部で�
 
 ユニバーサル API を対象としている場合、アプリは Windows 10 が動作しているすべてのデバイスで実行できます。 ただし、UWP アプリでデバイス固有の API を利用したい場合は、そうすることもできます。
 
-拡張 SDK では、さまざまなデバイスに特化した API を呼び出すことができます。 たとえば、UWP アプリで IoT デバイスをターゲットにしている場合、IoT デバイスに固有の機能をターゲットにしたプロジェクトに IoT 拡張 SDK を追加できます。 拡張 SDK の追加に関する詳細については、「 [拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overvieww#extension-sdks)」の **拡張 SDK** のセクションを参照してください。
+拡張 SDK では、さまざまなデバイスに特化した API を呼び出すことができます。 たとえば、UWP アプリで IoT デバイスをターゲットにしている場合、IoT デバイスに固有の機能をターゲットにしたプロジェクトに IoT 拡張 SDK を追加できます。 拡張 SDK の追加に関する詳細については、「[拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overvieww#extension-sdks)」の **拡張 SDK** のセクションを参照してください。
 
-特定の種類のデバイスでのみ実行されることを想定し、Microsoft Store からの配布をその種類のデバイスのみに制限するようにアプリを記述することができます。 または、実行時に API の存在を条件付きでテストし、結果に応じてアプリの動作を調整できます。 詳細については、「 [拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overview#writing-code)」の **コードの記述** のセクションを参照してください。<br>
+特定の種類のデバイスでのみ実行されることを想定し、Microsoft Store からの配布をその種類のデバイスのみに制限するようにアプリを記述することができます。 または、実行時に API の存在を条件付きでテストし、結果に応じてアプリの動作を調整できます。 詳細については、「[拡張 SDK を使用するプログラミング](/uwp/extension-sdks/device-families-overview#writing-code)」の **コードの記述** のセクションを参照してください。<br>
 
 次のビデオでは、デバイス ファミリとアダプティブ コードの作成に関する簡単な概要を示します。
 <iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Introduction-to-UWP-and-Device-Families/player" width="640" height="360" allowFullScreen frameBorder="0"></iframe>
@@ -120,7 +120,7 @@ UWP アプリでは、オペレーティング システムによって提供さ
 
 ### <a name="get-set-up"></a>準備
 
-「[準備](/windows/apps/get-started/get-set-up.md)」を確認し、アプリの作成を始めるために必要なツールをダウンロードしてから、[初めてのアプリを作成](your-first-app.md)してください。
+「[準備](/windows/apps/get-started/get-set-up)」を確認し、アプリの作成を始めるために必要なツールをダウンロードしてから、[初めてのアプリを作成](your-first-app.md)してください。
 
 ### <a name="design-your-app"></a>アプリをデザインする
 
@@ -159,7 +159,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 - [デスクトップ ブリッジ](https://developer.microsoft.com/windows/bridges/desktop)を使用して、既存のデスクトップ アプリに Windows 10 ユーザー向けの最新のエクスペリエンスを追加し、そのアプリを Microsoft Store で配布する方法を確認してください。
 
 ## <a name="how-the-universal-windows-platform-relates-to-windows-runtime-apis"></a>ユニバーサル Windows プラットフォームと Windows ランタイム API の関連性
-ユニバーサル Windows プラットフォーム (UWP) アプリをビルドする場合は、"ユニバーサル Windows プラットフォーム (UWP)" と "Windows ランタイム (WinRT)" をほぼ同義と考えると便利です。 ただし、テクノロジの実体を明らかにして、この 2 つの概念の違いを確認しておくことも可能 *です* 。 この最後のセクションは、この点に興味があるユーザーを対象としています。
+ユニバーサル Windows プラットフォーム (UWP) アプリをビルドする場合は、"ユニバーサル Windows プラットフォーム (UWP)" と "Windows ランタイム (WinRT)" をほぼ同義と考えると便利です。 ただし、テクノロジの実体を明らかにして、この 2 つの概念の違いを確認しておくことも可能 *です*。 この最後のセクションは、この点に興味があるユーザーを対象としています。
 
 Windows ランタイム (WinRT) API は、Windows API が進化したものです。 元々 Windows は、フラットな C スタイルの Win32 API でプログラミングされました。 そこに追加されたのが COM API です (主な例は [DirectX](/windows/desktop/directx))。 Windows フォーム、WPF、.NET、およびマネージ言語は、Windows アプリの記述方法や API テクノロジの特徴がそれぞれに異なっていました。 COM の次の段階というのが Windows ランタイムの実体です。 実際のアプリケーション バイナリ インターフェイス (ABI) レイヤーで、COM におけるそのルーツが可視化されます。 ただし、Windows ランタイムはさまざまなプログラミング言語から呼び出すことができるように設計されています。 また、それぞれの言語にとってきわめて自然な方法で呼び出すことができます。 このために、Windows ランタイムは言語プロジェクションと呼ばれる仕組みを介してアクセスできるようになっています。 Windows ランタイムの言語プロジェクションは、C#、Visual Basic、標準 C++、JavaScript などに対応しています。 さらに、適切にパッケージ化すれば (「[デスクトップ ブリッジ](/windows/msix/desktop/source-code-overview)」を参照)、次のような広範囲の言語モデルのいずれかでビルドされたアプリから WinRT API を呼び出すことができます:Win32、.NET、WinForms、WPF。
 

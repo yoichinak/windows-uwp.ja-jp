@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、データ、型
 ms.localizationpriority: medium
-ms.openlocfilehash: d61de7acdfa2fc3b563aa77630a9eb8043bce3d7
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9e4c759cef4869f3270a59bb66f2b999cb35f19e
+ms.sourcegitcommit: bbf5451c3240e260fb8f9baadbdadf772ffe96ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154336"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96537306"
 ---
 # <a name="standard-c-data-types-and-cwinrt"></a>標準的な C++ のデータ型と C++/WinRT
 
@@ -50,7 +50,7 @@ void WriteBytes(winrt::array_view<uint8_t const> value) const
 template <typename T> winrt::array_view(std::initializer_list<T> value) noexcept
 ```
 
-多くの場合、プログラミングで **winrt::array_view** を認識するかどうかを選択できます。 認識*しない*ことを選択する場合は、対応する型が C++ 標準ライブラリに現れる場合に変更すべきコードはありません。
+多くの場合、プログラミングで **winrt::array_view** を認識するかどうかを選択できます。 認識 *しない* ことを選択する場合は、対応する型が C++ 標準ライブラリに現れる場合に変更すべきコードはありません。
 
 コレクション パラメーターを予期している Windows ランタイム API に初期化子リストを渡すことができます。 たとえば **StorageItemContentProperties::RetrievePropertiesAsync** です。
 
@@ -61,7 +61,7 @@ IAsyncOperation<IMap<winrt::hstring, IInspectable>> StorageItemContentProperties
 次のような初期化子リストを使用してその API を呼び出すことができます。
 
 ```cppwinrt
-IAsyncAction retrieve_properties_async(StorageFile const& storageFile)
+IAsyncAction retrieve_properties_async(StorageFile const storageFile)
 {
     auto properties{ co_await storageFile.Properties().RetrievePropertiesAsync({ L"System.ItemUrl" }) };
 }
@@ -103,7 +103,7 @@ IAsyncAction retrieve_properties_async(StorageFile const storageFile, std::vecto
 ただし、Windows ランタイムのコレクションが予期されているところに **std::vector&lt;std::wstring&gt;** を渡すことはできません。 これは、Windows ランタイムの適切な **std::wstring** のコレクションに変換されたため、C++ 言語がそのコレクションの型パラメーターを強制的に変換しないことが原因です。 結果として、次のコード例はコンパイルされません (解決策は、上記のように、**std::vector&lt;winrt::hstring&gt;** を代わりに渡すことです)。
 
 ```cppwinrt
-IAsyncAction retrieve_properties_async(StorageFile const& storageFile, std::vector<std::wstring> const& vecW)
+IAsyncAction retrieve_properties_async(StorageFile const storageFile, std::vector<std::wstring> vecW)
 {
     auto properties{ co_await storageFile.Properties().RetrievePropertiesAsync(std::move(vecW)) }; // error! Can't convert from vector of wstring to async_iterable of hstring.
 }
@@ -131,7 +131,7 @@ dataWriter.WriteBytes(fromRange); // the winrt::array_view is passed to WriteByt
 その他の例や詳細については、[**winrt::array_view**](/uwp/cpp-ref-for-winrt/array-view) API リファレンス トピックをご覧ください。
 
 ## <a name="ivectorlttgt-and-standard-iteration-constructs"></a>**IVector&lt;T&gt;** と標準的な反復コンストラクト
-[**SyndicationFeed.Items**](/uwp/api/windows.web.syndication.syndicationfeed.items) は、[**IVector&lt;T&gt;** ](/uwp/api/windows.foundation.collections.ivector_t_) 型のコレクション (**winrt::Windows::Foundation::Collections::IVector&lt;T&gt;** として C++/WinRT に投影される) を返す Windows ランタイム API の例です。 この型は、範囲ベースの `for` など、標準的な反復コンストラクトで使用できます。
+[**SyndicationFeed.Items**](/uwp/api/windows.web.syndication.syndicationfeed.items) は、[**IVector&lt;T&gt;**](/uwp/api/windows.foundation.collections.ivector_t_) 型のコレクション (**winrt::Windows::Foundation::Collections::IVector&lt;T&gt;** として C++/WinRT に投影される) を返す Windows ランタイム API の例です。 この型は、範囲ベースの `for` など、標準的な反復コンストラクトで使用できます。
 
 ```cppwinrt
 // main.cpp
