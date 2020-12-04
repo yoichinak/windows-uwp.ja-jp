@@ -5,37 +5,34 @@ ms.date: 05/19/2020
 ms.topic: article
 keywords: Windows 10, UWP, Standard, C#, winrt, cswinrt, プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 844d8441777e7c95e2b562cf7dff748600a072e9
-ms.sourcegitcommit: 861c381a31e4a5fd75f94ca19952b2baaa2b72df
+ms.openlocfilehash: 9c0bc2445ce6369599749e1741ab7a703b0367b6
+ms.sourcegitcommit: ca661dd72852b109f4b8b1d7d7e2149180fcb3ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171134"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96517119"
 ---
 # <a name="cwinrt"></a>C#/WinRT
 
-> [!IMPORTANT]
-> C#/WinRT はパブリック プレビュー段階であり、最終リリースの前に大幅に変更される可能性があります。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
-
 C#/WinRT は、C# 言語に対する Windows ランタイム (WinRT) プロジェクション サポートを提供する NuGet パッケージのツールキットです。 "*プロジェクション*" は、ターゲット言語に対して自然で使い慣れた方法での WinRT API のプログラミングを可能にする、相互運用機能アセンブリなどの変換レイヤーです。 たとえば、C#/WinRT プロジェクションは、C# と WinRT インターフェイス間の相互運用の詳細を隠し、多くの WinRT 型と、文字列、URI、共通値型、およびジェネリック コレクションなど、適切な .NET の同等物との間のマッピングを提供します。
 
-C#/WinRT は現在、WinRT 型を使用するためのサポートを提供しており、現在のプレビューを使用すると WinRT 相互運用機能アセンブリを[作成](#create-an-interop-assembly)および[参照](#reference-an-interop-assembly)できます。 C#/WinRT の今後のリリースでは、WinRT 型を C# で作成するためのサポートが追加される予定です。
+C#/WinRT では現在、WinRT 型を使用するためのサポートを提供しており、最新バージョンを使用すると WinRT 相互運用機能アセンブリを[作成](#create-an-interop-assembly)および[参照](#reference-an-interop-assembly)できます。 C#/WinRT の今後のリリースでは、WinRT 型を C# で作成するためのサポートが追加される予定です。
 
 C#/WinRT の詳細については、[C#/WinRT GitHub リポジトリ](https://aka.ms/cswinrt/repo)に関するページを参照してください。
 
 ## <a name="motivation-for-cwinrt"></a>C#/WinRT の動機
 
-[.NET Core](/dotnet/core/) は、.NET プラットフォームの焦点であり、.NET 5 は次のメジャー リリースです。 これは、デバイス、クラウド、IoT のアプリケーションを構築するために使用できる、オープンソースのクロスプラットフォーム ランタイムです。
+[.NET Core](/dotnet/core/) は、.NET プラットフォームの焦点であり、.NET 5 は最新のメジャー リリースです。 これは、デバイス、クラウド、IoT のアプリケーションを構築するために使用できる、オープンソースのクロスプラットフォーム ランタイムです。
 
 以前のバージョンの .NET Framework と .NET Core には、Windows 固有のテクノロジである WinRT に関する知識が組み込まれていました。 .NET 5 の移植性と効率性の目標をサポートするために、WinRT プロジェクション サポートを .NET コンパイラとランタイムから取り出して、C# /WinRT ツールキットに移動しました。 C#/WinRT の目標は、以前のバージョンの C# コンパイラおよび .NET ランタイムで提供されている組み込みの WinRT サポートと同等の機能を提供することです。 詳細については、「[Windows ランタイム型の .NET マッピング](../winrt-components/net-framework-mappings-of-windows-runtime-types.md)」を参照してください。
 
 C#/WinRT では、WinUI 3.0 もサポートされています。 このリリースの WinUI は、ネイティブの Microsoft UI コントロールと機能をオペレーティング システムから取り出します。 これにより、アプリ開発者は、Windows 10 バージョン1803 以降のリリースで最新のコントロールとビジュアルを使用できます。
 
-最後に、C#/WinRT は一般的なツールキットであり、 C# コンパイラまたは .NET ランタイムで WinRT の組み込みサポートが使用できない、他のシナリオをサポートすることを目的としています。 C#/WinRT は、Mono 5.4 など、.NET Standard 2.0 まで互換性がある .NET ランタイムのバージョンをサポートしています。
+最後に、C#/WinRT は一般的なツールキットであり、 C# コンパイラまたは .NET ランタイムで WinRT の組み込みサポートが使用できない、他のシナリオをサポートすることを目的としています。
 
 ## <a name="create-an-interop-assembly"></a>相互運用機能アセンブリを作成する
 
-WinRT API は、Windows メタデータ (*.winmd) ファイルに定義されています。 C#/WinRT NuGet パッケージ ([Microsoft.Windows.CsWinRT](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT/)) には C#/WinRT コンパイラ、**cswinrt** が含まれています。これを使用して、Windows メタデータ ファイルを処理し、.NET 5.0 C# コードを生成することができます。 これらのソース ファイルを相互運用機能アセンブリにコンパイルできます。これは、[C++/WinRT](../cpp-and-winrt-apis/index.md) が C++ 言語プロジェクションのヘッダーを生成する方法と同様です。 次に、アプリケーションで参照される C#/WinRT 相互運用機能アセンブリを、C#/WinRT ランタイム アセンブリと共に配布することができます。
+WinRT API は、Windows メタデータ (*.winmd) ファイルに定義されています。 C#/WinRT NuGet パッケージ ([Microsoft.Windows.CsWinRT](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT/)) には C#/WinRT コンパイラ、**cswinrt.exe** が含まれています。これを使用して、Windows メタデータ ファイルを処理し、.NET 5.0 C# コードを生成することができます。 これらのソース ファイルを相互運用機能アセンブリにコンパイルできます。これは、[C++/WinRT](../cpp-and-winrt-apis/index.md) が C++ 言語プロジェクションのヘッダーを生成する方法と同様です。 次に、アプリケーションで参照される C#/WinRT 相互運用機能アセンブリを、C#/WinRT ランタイム アセンブリと共に配布することができます。
 
 NuGet パッケージとして相互運用機能アセンブリを作成および配布する方法を示すチュートリアルについては、[C++/WinRT コンポーネントからの .NET 5 プロジェクションの生成と NuGet の更新に関するチュートリアル](net-projection-from-cppwinrt-component.md)をご覧ください。
 
@@ -53,7 +50,7 @@ NuGet パッケージとして相互運用機能アセンブリを作成およ�
 
 ### <a name="distribute-the-interop-assembly"></a>相互運用機能アセンブリを配布する
 
-相互運用機能アセンブリは通常、必要な C#/WinRT ランタイム アセンブリ **winrt.runtime.dll** のための C#/WinRT NutGet パッケージへの依存関係と共に、NuGet パッケージとして配布されます。
+相互運用機能アセンブリは通常、必須の C#/WinRT ランタイム アセンブリ **WinRT.Runtime.dll** のための C#/WinRT NutGet パッケージへの依存関係と共に、NuGet パッケージとして配布されます。
 
 正しいバージョンの C#/WinRT ランタイムが .NET 5.0 アプリケーションに確実に配置されるようにするため、.nuspec ファイルに、C#/WinRT NuGet パッケージへの依存関係を指定した `targetFramework` 条件を含めてください。
 
@@ -63,7 +60,7 @@ NuGet パッケージとして相互運用機能アセンブリを作成およ�
   <metadata>
     <dependencies>
       <group targetFramework="net5.0">
-        <dependency id="Microsoft.Windows.CsWinRT" version="0.9.0" />
+        <dependency id="Microsoft.Windows.CsWinRT" version="1.0.1" />
       </group>
     </dependencies>
   </metadata>
@@ -71,7 +68,7 @@ NuGet パッケージとして相互運用機能アセンブリを作成およ�
 ```
 
 > [!NOTE]
-> .NET 5.0 のターゲット フレームワーク モニカーは、".NETCoreApp5.0" から "net5.0" に移行します。 
+> .NET 5.0 のターゲット フレームワーク モニカーは、".NETCoreApp5.0" から "net5.0" に移行します。
 
 ## <a name="reference-an-interop-assembly"></a>相互運用機能アセンブリを参照する
 
@@ -95,7 +92,7 @@ C#/WinRT は、[LoadLibrary 代替検索順序](/windows/win32/dlls/dynamic-link
 
 ## <a name="known-issues"></a>既知の問題
 
-C#/WinRT の現在のプレビューには、相互運用に関連するパフォーマンス上の既知の問題がいくつかあります。 これらは、2020 年後半の最終リリース前に対処されます。 その他の既知の問題と破壊的変更については、[C#/WinRT GitHub リポジトリ](https://aka.ms/cswinrt/repo)に記載されます。
+既知の問題と破壊的変更については、[C#/WinRT の GitHub リポジトリ](https://aka.ms/cswinrt/repo)を参照してください。
 
 C#/WinRT NuGet パッケージ、cswinrt.exe コンパイラ、または生成されたプロジェクション ソースで機能上の問題が発生した場合は、[C#/WinRT の問題のページ](https://github.com/microsoft/CsWinRT/issues)から問題を送信してください。
 
