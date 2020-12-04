@@ -6,27 +6,34 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: ade80769-17ae-46e9-9c2f-bf08ae5a51ee
 ms.localizationpriority: medium
-ms.openlocfilehash: 29bcb1b248b6b2392845962bb49eb11efed035f2
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d93fef1b06fa52616b7e5eddf7b3ac0530856dc2
+ms.sourcegitcommit: a15bc17aa0640722d761d0d33f878cb2a822e8ed
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174756"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96577104"
 ---
 # <a name="xbox-one-developer-mode-activation"></a>Xbox One 開発者モードのアクティブ化
 
 ## <a name="how-developer-mode-works"></a>開発者モードの動作
-Xbox One には、 *リテール* モード (**1**) と *開発者* モード (**2**) という2つのモードがあります。 リテール モードは、Xbox One 本体のユーザーが本体を使うときのモードです。ユーザーとしてゲームをプレイしたり、アプリを実行したりできます。 開発者モードでは、本体用のソフトウェアを開発することができますが、製品版のゲームをプレイしたり、製品版のアプリを実行したりすることはできません。
+この記事は、Xbox One と Xbox シリーズ X | にのみ適用されます。小売チャネルを通じて取得した S コンソール。 マネージ開発プログラムによって取得された開発キット HW の場合は、記事の最後にあるメモを参照してください。
 
-開発者モードは、製品版のすべての Xbox One 本体で有効にできます。 開発者モードを有効にした後は、製品版 (**2a**) と開発者モード (**2b**) を切り替えることができます。
+Xbox リテールコンソールには、リテールモード (1) と開発者モード (2) という2つのモードがあります。 リテールモードでは、コンソールは通常の状態になります。ゲームをプレイし、Xbox ストアで取得したアプリを実行できます。 開発者モードでは、コンソール用にソフトウェアを開発してテストすることができますが、製品版のゲームや製品版アプリを実行することはできません。
+
+開発者モードは、Xbox ストアにある "Retail to Dev Kit conversion" アプリを使用して、すべてのリテール Xbox コンソールで有効にすることができます。 リテールコンソールで開発者モードを有効にした後、製品版 (2a) と開発者モード (2b) を切り替えることができます。
+
+> [!NOTE]
+> この変換アプリは、Xbox マネージプログラムを通じて取得した Xbox 開発ハードウェア (たとえば、) では実行しないでください ID@Xbox 。または、ゲームの開発中にエラーや遅延が発生する可能性があります。 マネージドパートナーの場合は、開発ハードウェアのアクティブ化に関する詳細情報を確認できます。 https://developer.microsoft.com/en-us/games/xbox/docs/gdk/provisioning-role にアクセスします。
+
+<br></br>
 
 ![Xbox One のモード](images/dev-mode-flow.png)
 
-## <a name="activate-developer-mode-on-your-retail-xbox-one-console"></a>製品版の Xbox One 本体で開発者モードをアクティブにする
+## <a name="activate-developer-mode-on-your-retail-xbox-console"></a>リテール Xbox コンソールで開発者モードをアクティブ化する
 
-1.  Xbox One 本体を起動します。
+1.  Xbox コンソールを起動します。
 
-2.  Xbox One Store から、**開発者モードのアクティブ化**用アプリを検索してインストールします。
+2.  Xbox One Store から、**開発者モードのアクティブ化** 用アプリを検索してインストールします。
 
     ![開発者モードのアクティブ化用アプリのインストール](images/devkit-activation-1.png)
 
@@ -40,7 +47,7 @@ Xbox One には、 *リテール* モード (**1**) と *開発者* モード (*
     
 5.  [パートナーセンターにアプリ開発者アカウントを登録](https://developer.microsoft.com/store/register)します。  これは、ゲームの発行に向けた最初の手順でもあります。
 
-6.  有効な現在のパートナーセンターアプリ開発者アカウントを使用して、 [パートナーセンター](https://partner.microsoft.com/dashboard) にサインインします。  左側のナビゲーションウィンドウに複数のオプションが表示されない場合、または [**概要**] セクションの [**新しいアプリを作成する**] オプションが表示されない場合は、次の手順とライセンス認証のリンクは_機能しません_。前の手順でアプリ開発者アカウントが完全に登録されていることを確認します。
+6.  有効な現在のパートナーセンターアプリ開発者アカウントを使用して、 [パートナーセンター](https://partner.microsoft.com/dashboard) にサインインします。  左側のナビゲーションウィンドウに複数のオプションが表示されない場合、または [**概要**] セクションの [**新しいアプリを作成する**] オプションが表示されない場合は、次の手順とライセンス認証のリンクは _機能しません_。前の手順でアプリ開発者アカウントが完全に登録されていることを確認します。
 
 7.  [Partner.microsoft.com/xboxconfig/devices](https://partner.microsoft.com/xboxconfig/devices)にアクセスします。
 
