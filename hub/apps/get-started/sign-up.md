@@ -6,12 +6,12 @@ ms.date: 04/04/2018
 ms.topic: article
 keywords: Windows 10, UWP, サインアップ, 開発者アカウント
 ms.localizationpriority: medium
-ms.openlocfilehash: 58976bb31d1ec89f8dd842869992856e4a06f193
-ms.sourcegitcommit: 56e9cab45d1c6e54841d61fdf23044fa01f50c43
+ms.openlocfilehash: 65b7d254bc4b40c1e230f6474ededb9c6aa83454
+ms.sourcegitcommit: 3153ef4838c35084a64173c7ed88719c8864f8cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92011890"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96755259"
 ---
 # <a name="create-a-developer-account"></a>開発者アカウントを作る
 
@@ -21,8 +21,8 @@ ms.locfileid: "92011890"
 
 ## <a name="opening-your-developer-account"></a>開発者アカウントの開設
 
-Microsoft では、[世界各地で個人のアカウントと会社のアカウント](/windows/uwp/publish/account-types-locations-and-fees.md)を提供しています。 そのしくみについては、[サインアップ プロセスの概要](/windows/uwp/publish/opening-a-developer-account.md)をご確認ください。
+Microsoft では、[世界各地で個人のアカウントと会社のアカウント](/windows-apps-src/publish/account-types-locations-and-fees.md)を提供しています。 そのしくみについては、[サインアップ プロセスの概要](/windows-apps-src/publish/opening-a-developer-account.md)をご確認ください。
 
 ## <a name="have-a-name-for-your-app"></a>アプリの名前は用意している場合
 
-開発者アカウントを開設したら、[名前を予約してアプリを作る](/windows/uwp/publish/create-your-app-by-reserving-a-name.md)ことができます。
+開発者アカウントを開設したら、[名前を予約してアプリを作る](/windows-apps-src/publish/create-your-app-by-reserving-a-name.md)ことができます。
