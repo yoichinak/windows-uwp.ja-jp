@@ -5,12 +5,12 @@ ms.date: 05/19/2020
 ms.topic: article
 keywords: Windows 10, UWP, Standard, C#, winrt, cswinrt, プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c0bc2445ce6369599749e1741ab7a703b0367b6
-ms.sourcegitcommit: ca661dd72852b109f4b8b1d7d7e2149180fcb3ee
+ms.openlocfilehash: 107c85b7e2562edb9995a6bfd76e47904750536b
+ms.sourcegitcommit: a15bc17aa0640722d761d0d33f878cb2a822e8ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96517119"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96577094"
 ---
 # <a name="cwinrt"></a>C#/WinRT
 
@@ -89,6 +89,18 @@ Windows が前述の型のアクティブ化に失敗した場合、C#/WinRT に
 3. Contoso.dll
 
 C#/WinRT は、[LoadLibrary 代替検索順序](/windows/win32/dlls/dynamic-link-library-search-order#alternate-search-order-for-desktop-applications)を使用して実装 DLL を見つけます。 このフォールバック動作に依存するアプリは、アプリ モジュールと共に実装 DLL をパッケージする必要があります。
+
+## <a name="common-errors-with-net-5"></a>.NET 5+ での一般的なエラー
+
+そのすべての依存関係より以前のバージョンの .NET SDK を使用してビルドされたプロジェクトで、次のエラーまたは警告が発生する可能性があります。
+
+| エラーまたは警告のメッセージ | 理由 |
+|--------------------------|--------|
+| System.IO.FileLoadException | このランタイム エラーは、Windows SDK 型が公開されないライブラリで API を呼び出すと発生します。 |
+| 警告 MSB3277: Found conflicts between different versions of Microsoft.Windows.SDK.NET that could not be resolved. (解決できなかった異なるバージョンの Microsoft.Windows.SDK.NET 間に競合が見つかりました。) | このビルド エラーは、その API サーフェスに Windows SDK 型が公開されるライブラリを参照するときに発生します。 |
+| [CS1705](/dotnet/csharp/language-reference/compiler-messages/cs1705):Assembly 'AssemblyName1' uses 'TypeName' which has a higher version than referenced assembly 'AssemblyName2' (アセンブリ 'AssemblyName1' は、参照されるアセンブリ 'AssemblyName2' よりも新しいバージョンを持つ 'TypeName' を使用します) | このビルド コンパイラ エラーは、ライブラリ内の公開された Windows SDK 型を参照および使用するときに発生します。 |
+
+これらのエラーを修正するには、.NET SDK を最新バージョンに更新します。 これにより、お使いのアプリケーションで使用されるランタイムおよび Windows SDK アセンブリのバージョンとすべての依存関係との互換性が確実に保たれます。 これらのエラーは、.NET 5 SDK への早期サービスまたは機能更新プログラムの適用で発生する可能性があります。これは、ランタイムの修正に、アセンブリのバージョンに対する更新プログラムが必要になる場合があるためです。
 
 ## <a name="known-issues"></a>既知の問題
 
