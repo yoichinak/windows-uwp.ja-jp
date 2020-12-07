@@ -3,12 +3,12 @@ title: WinUI のリリース ノート
 description: WinUI リリース ノートのインデックス。
 ms.date: 07/15/2020
 ms.topic: reference
-ms.openlocfilehash: 4c89209868c1478f34de79f8b243fbe0e3dc80a3
-ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
+ms.openlocfilehash: 7038a61e0bf7047c49295b8c4482e92f113f647d
+ms.sourcegitcommit: 03308873eafd0f768e1c518f4d1cc4e4fe0b70b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94933107"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606017"
 ---
 # <a name="windows-ui-library-2x-release-notes"></a>Windows UI ライブラリ 2.x のリリース ノート
 
@@ -46,6 +46,7 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 
 | Microsoft.UI.Xaml NuGet のバージョン | 種類 | リリース日 | リリース ノート | ハイライト |
 | --- | --- | --- | --- | --- |
+| [2.5](winui-2.5.md) | 安定 | 2020 年 12 月 | [リリース ノート](winui-2.5.md) | [情報バー](winui-2.5.md#infobar)、[確定的な ProgressRing](winui-2.5.md#determinate-progressring)、[NavigationView FooterMenuItems](winui-2.5.md#navigationview-footermenuitems) |
 | [2.4](winui-2.4.md) | 安定 | 2020 年 5 月 | [リリース ノート](winui-2.4.md) | [RadialGradientBrush](winui-2.4.md#radialgradientbrush)、[ProgressRing](winui-2.4.md#progressring)、[TabView の更新](winui-2.4.md#tabview-updates)、[TextBox コントロール ファミリのダーク テーマの更新](winui-2.4.md#dark-theme-updates-to-textbox-family-of-controls)、[階層型のナビゲーション](winui-2.4.md#hierarchical-navigation)  |
 | [2.3](winui-2.3.md) | 安定 | 2019 年 11 月 | [リリース ノート](winui-2.3.md) | [進捗状況バーのビジュアルの更新](winui-2.3.md#progress-bar-visual-refresh)、[NumberBox](winui-2.3.md#numberbox)、[RadioButtons](winui-2.3.md#radiobuttons) |
 | [2.2](winui-2.2.md) | 安定 | 2019 年 8 月 | [リリース ノート](winui-2.2.md) | [TabView](winui-2.2.md#tabview)、[NavigationView の更新](winui-2.2.md#navigationview-updates)、[視覚スタイルの更新](winui-2.2.md#visual-style-updates)  |

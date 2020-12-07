@@ -4,12 +4,12 @@ description: Windows アプリ開発用の WinUI ライブラリ。
 ms.topic: article
 ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk, winui, Windows UI ライブラリ
-ms.openlocfilehash: 3b2b18ab35f46b132ec3017bb0f3c6564b7be9ee
-ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
+ms.openlocfilehash: cd96367579c61223dcaf2be2f336026244a6ed9b
+ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94933127"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96603689"
 ---
 # <a name="windows-ui-library-winui"></a>Windows UI ライブラリ (WinUI)
 
@@ -29,7 +29,7 @@ WinUI では、すべてのエクスペリエンス、コントロール、お�
 WinUI 2.x は UWP アプリケーションで使用でき、[XAML Islands](../desktop/modernize/xaml-islands.md) を使用して、新規または既存のデスクトップ アプリケーションに組み込むことができます。
 
 > [!NOTE]
-> WinUI 2.x の最新のリリースは WinUI 2.4 です。 次のリリースで計画されている作業の一覧については、[WinUI 2.5 のマイルストーン](https://github.com/microsoft/microsoft-ui-xaml/milestone/10)を参照してください。
+> WinUI 2.x の最新のリリースは WinUI 2.5 です。 次のリリースで計画されている作業の一覧については、[WinUI 2.6 のマイルストーン](https://github.com/microsoft/microsoft-ui-xaml/milestone/11)を参照してください。
 
 WinUI 2.x ライブラリは [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk/) と密接に結び付けられており、UWP アプリ用の公式のネイティブ Windows UI コントロールとその他の UI 要素を提供します。
 
