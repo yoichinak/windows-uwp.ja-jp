@@ -1,17 +1,17 @@
 ---
 ms.assetid: 4b0c86d3-f05b-450b-bf9c-6ab4d3f07d31
-description: このロードマップでは、Windows 10 およびユニバーサル Windows プラットフォーム (UWP) アプリの主要なエンタープライズ機能の概要について説明します。
+description: このロードマップでは、Windows 10 およびユニバーサル Windows プラットフォーム (UWP) の主要なエンタープライズ機能の概要について説明します。
 title: Enterprise
 ms.date: 01/16/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ff96cd25c32418f518f6b1807e08eb72c3e14c6a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4bd6c92729766b99630958d4b33514ef4791d4bf
+ms.sourcegitcommit: 3153ef4838c35084a64173c7ed88719c8864f8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89168436"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96755289"
 ---
 # <a name="enterprise"></a>Enterprise
 
@@ -19,8 +19,7 @@ ms.locfileid: "89168436"
 
 ## <a name="feature-highlights"></a>機能概要
 
-<a id="template-studio" />
-
+<a id="template-studio"></a>
 ### <a name="windows-template-studio"></a>Windows Template Studio
 
 Windows Template Studio は Visual Studio 2019 の拡張機能であり、ウィザード ベースのエクスペリエンスを使用して、新しいユニバーサル Windows プラットフォーム (UWP) アプリをより迅速に作成できます。 結果の UWP プロジェクトは整形式の読み取り可能なコードであり、実績のあるパターンとベスト プラクティスを実装しながら最新の Windows 10 機能を組み込みます。
@@ -29,8 +28,7 @@ Windows Template Studio は Visual Studio 2019 の拡張機能であり、ウィ
 
 「[Windows Template Studio](https://marketplace.visualstudio.com/items?itemName=WASTeamAccount.WindowsTemplateStudio)」を参照してください
 
-<a id="desktop-style-UI" />
-
+<a id="desktop-style-UI"></a>
 ### <a name="controls-to-create-desktop-style-uis"></a>デスクトップ スタイルの UI を作成するコントロール
 
 従来のデスクトップ アプリケーション UI と UWP UI とのギャップを埋める、新しい UWP XAML コントロールがリリースされました。
@@ -39,8 +37,7 @@ Windows Template Studio は Visual Studio 2019 の拡張機能であり、ウィ
 
 ![MenuBar](images/menu-bar.png)
 
-<a id="enterprise" />
-
+<a id="enterprise"></a>
 ### <a name="controls-to-support-enterprise-scenarios"></a>エンタープライズ シナリオをサポートするコントロール
 
 [DataGridView](/windows/communitytoolkit/controls/datagrid) では、行と列に柔軟にデータ コレクションを表示できます。
@@ -58,16 +55,14 @@ Windows UI ライブラリは、UWP アプリ用のコントロールとその�
 
 [Windows UI ライブラリ (プレビュー バージョン)](/uwp/toolkits/winui/) に関するページを参照してください。
 
-<a id="xaml-islands" />
-
+<a id="xaml-islands"></a>
 ### <a name="uwp-controls-in-desktop-applications-xaml-islands"></a>デスクトップ アプリケーションの UWP コントロール (XAML Islands)
 
-Windows 10 では、*XAML Islands*と呼ばれる機能を使って、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
+Windows 10 では、*XAML Islands* と呼ばれる機能を使って、WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールを使用できるようになりました。 つまり、Windows Ink や Fluent Design System をサポートするコントロールなど、UWP コントロールでのみ利用可能な最新の Windows 10 UI 機能で、既存のデスクトップ アプリケーションの外観、操作性、機能を拡張することができます。 この機能を XAML Islands といいます。
 
 「[デスクトップ アプリケーションの UWP コントロール](/windows/apps/desktop/modernize/xaml-islands)」を参照してください。
 
-<a id="standard" />
-
+<a id="standard"></a>
 ### <a name="net-standard-20"></a>.NET Standard 2.0
 
 この .NET Standard には、.NET Standard 1.x の API のほかに、さらに 20,000 個を超える API が含まれています。 これにより、はるかに簡単に既存の .NET Framework ライブラリを移行でき、UWP アプリケーションを含む、さまざまな .NET アプリケーション間で使用できるようになります。
@@ -76,16 +71,14 @@ Windows 10 では、*XAML Islands*と呼ばれる機能を使って、WPF、Wind
 
 「[Share code between a desktop app and a UWP app](../porting/desktop-to-uwp-migrate.md)」 (デスクトップ アプリと UWP アプリでコードを共有する) を参照してください。
 
-<a id="sql-server" />
-
+<a id="sql-server"></a>
 ### <a name="sql-server-connectivity"></a>SQL Server 接続
 
 アプリで [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) 名前空間のクラスを使用して、SQL Server データベースに直接接続し、データを保存および取得することができます。
 
 「[UWP アプリでの SQL Server データベースの使用](../data-access/sql-server-databases.md)」をご覧ください。
 
-<a id="MSIX" />
-
+<a id="MSIX"></a>
 ### <a name="msix-deployment"></a>MSIX の展開
 
 MSIX は、MSI、.appx、App-V、ClickOnce の優れた機能を組み合わせた Windows アプリのパッケージ形式であり、最新で信頼性の高いパッケージ化エクスペリエンスをすべての Windows アプリに提供します。 MSIX パッケージ形式では、Win32、WPF、および Windows フォームに対して、最新のパッケージ化および展開機能が有効になるだけでなく、既存のアプリ パッケージとインストール ファイルの機能が維持されます。 
@@ -94,11 +87,10 @@ MSIX は、MSI、.appx、App-V、ClickOnce の優れた機能を組み合わせ�
 
 「[MSIX documentation](/windows/msix/)」 (MSIX ドキュメント) を参照してください。
 
-<a id="distribution" />
-
+<a id="distribution"></a>
 ## <a name="security"></a>セキュリティ
 
-Windows 10 には、一連のセキュリティ機能が用意されています。これらの機能を利用することで、アプリ開発者は、ユーザーの個人情報、企業ネットワークのセキュリティ、デバイスに保存されているビジネス データを保護することができます。 Windows 10 の新機能として、Microsoft Passport があります。これにより、従来のパスワードに代わる 2 要素のパスワードを簡単に展開することができます。2 要素のパスワードは、PIN や Windows Hello を使って利用することができ、エンタープライズ レベルのセキュリティを実現し、指紋認識、顔認識、虹彩認識をサポートしています。
+Windows 10 には、一連のセキュリティ機能が用意されています。これらのセキュリティ機能を利用することで、アプリ開発者は、ユーザーの個人情報、企業ネットワークのセキュリティ、デバイスに保存されているビジネス データを保護することができます。 Windows 10 の新機能として、Microsoft Passport があります。これにより、従来のパスワードに代わる 2 要素のパスワードを簡単に展開することができます。2 要素のパスワードは、PIN や Windows Hello を使って利用することができ、エンタープライズ レベルのセキュリティを実現し、指紋認識、顔認識、虹彩認識をサポートしています。
 
 | トピック | 説明 |
 |-------|-------------|
@@ -169,10 +161,10 @@ MSIX パッケージを使用して、組織のユーザーにアプリを配布
 
 ## <a name="patterns-and-practices"></a>パターンとプラクティス
 
-大規模なエンタープライズ レベルのアプリ向けのコード ベースは、扱うのが難しくなる場合があります。 Prism は、保守やテストが可能である疎結合な XAML アプリケーションを WPF、Windows 10 UWP、および Xamarin の各フォームで構築するためのフレームワークです。 Prism には、適切に構造化され、保守が可能な XAML アプリケーションの作成に役立つ設計パターンのコレクションの実装が用意されています (MVVM、依存関係挿入、コマンド、EventAggregator など)。
+大規模なエンタープライズ レベルのアプリ向けのコード ベースは、扱うのが難しくなる場合があります。 Prism は、保守やテストが可能である疎結合な XAML アプリケーションを WPF、Windows 10 UWP、Xamarin の各フォームで構築するためのフレームワークです。 Prism には、適切に構造化され、保守が可能な XAML アプリケーションの作成に役立つ設計パターンのコレクションの実装が用意されています (MVVM、依存関係挿入、コマンド、EventAggregator など)。
 
 Prism について詳しくは、[GitHub リポジトリ](https://github.com/PrismLibrary/Prism)をご覧ください。
 
- 
+ 
 
- 
+ 

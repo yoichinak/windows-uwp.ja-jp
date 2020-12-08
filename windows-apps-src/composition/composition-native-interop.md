@@ -1,17 +1,17 @@
 ---
-ms.assetid: 16ad97eb-23f1-0264-23a9-a1791b4a5b95
 title: コンポジションのネイティブ相互運用
 description: Windows.UI.Composition API には、コンテンツをコンポジターに直接移行できるようにするネイティブの相互運用インターフェイスが用意されています。
-ms.date: 06/22/2018
+ms.date: 12/07/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b89e4107ea92dce241977b048d28d6a85e2fd34
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.assetid: 16ad97eb-23f1-0264-23a9-a1791b4a5b95
+ms.openlocfilehash: 4ae214f99cad9d8d2db644b184c12172a56a443b
+ms.sourcegitcommit: 7d01748e3ef084fcf04cc0e2830c8ec66e8d1252
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166436"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96849476"
 ---
 # <a name="composition-native-interoperation-with-directx-and-direct2d"></a>コンポジションでの DirectX と Direct2D のネイティブ相互運用
 
@@ -37,13 +37,31 @@ Windows.UI.Composition API には、コンテンツをコンポジターに直�
 
 パフォーマンス上の理由から、アプリケーションが [**BeginDraw**](/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-begindraw) を呼び出すとき、返されるテクスチャの内容がサーフェスの前の内容であるとは限りません。 アプリケーションでは、内容がランダムであることを想定して、確実にすべてのピクセルがタッチされるようにする必要があります。そのためには、レンダリング前にサーフェスをクリアするか、更新された四角形全体を十分に埋められる不透明なコンテンツを描画します。 また、テクスチャ ポインターが **BeginDraw** と [**EndDraw**](/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-enddraw) の呼び出し間でのみ有効であることも相まって、アプリケーションはサーフェスから前の内容をコピーできません。 この理由から、[**Scroll**](/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-scroll) メソッドが用意されています。このメソッドを使うと、アプリケーションは同じサーフェスでピクセルをコピーできるようになります。
 
-## <a name="usage-example"></a>使用例
+## <a name="cwinrt-usage-example"></a>C++/WinRT の使用例
 
 次のコード例は、相互運用のシナリオを示しています。 この例では、Windows コンポジションの Windows ランタイムベースの領域からの型と、相互運用機能ヘッダーの型、および COM ベースの DirectWrite Api と Direct2D Api を使用してテキストをレンダリングするコードを結合しています。 この例では、 [**begindraw**](/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-begindraw) と [**enddraw**](/windows/desktop/api/windows.ui.composition.interop/nf-windows-ui-composition-interop-icompositiondrawingsurfaceinterop-enddraw) を使用して、これらのテクノロジ間でシームレスに相互運用できるようにします。 この例では、DirectWrite を使用してテキストをレイアウトし、Direct2D を使用してそれをレンダリングします。 コンポジション グラフィックス デバイスは初期化時に直接 Direct2D デバイスを受け取ります。 これにより、 **Begindraw** は **ID2D1DeviceContext** インターフェイスポインターを返すことができます。これは、各描画操作で返された ID3D11Texture2D インターフェイスをラップする Direct2D コンテキストをアプリケーションが作成するよりもはるかに効率的です。
 
-次の2つのコード例があります。 最初に、 [c++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) の例 (完成) と、c++/cx コード例 (例の DirectWrite と Direct2D の部分を省略します)。
+以下の C++/winrt コード例を試すには、まず Visual Studio で新しい **コアアプリ (c++/winrt)** プロジェクトを作成します (要件については、「 [visual Studio support for C++/winrt](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」を参照してください)。 `pch.h`と `App.cpp` ソースコードファイルの内容を以下のコードリストに置き換え、ビルドして実行します。 アプリケーションでは、"Hello, World!" という文字列が表示されます。 透明な背景の黒のテキスト。
 
-次の C++/winrt コード例を使用するには、まず Visual Studio で新しい **コアアプリ (c++/winrt)** プロジェクトを作成します (要件については、「 [visual Studio support for C++/winrt](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)」を参照してください)。 プロジェクトの作成中に、ターゲットバージョンとして **Windows 10、バージョン 1803 (10.0; を選択します。ビルド 17134)**。 これは、このコードがビルドおよびテストされたバージョンです。 `App.cpp`ソースコードファイルの内容を以下のコードリストに置き換え、ビルドして実行します。 アプリケーションでは、"Hello, World!" という文字列が表示されます。 透明な背景の黒のテキスト。
+```cppwinrt
+// pch.h
+#pragma once
+#include <windows.h>
+#include <D2d1_1.h>
+#include <D3d11_4.h>
+#include <Dwrite.h>
+#include <Windows.Graphics.DirectX.Direct3D11.interop.h>
+#include <Windows.ui.composition.interop.h>
+#include <unknwn.h>
+
+#include <winrt/Windows.ApplicationModel.Core.h>
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Graphics.DirectX.h>
+#include <winrt/Windows.Graphics.DirectX.Direct3D11.h>
+#include <winrt/Windows.UI.Composition.h>
+#include <winrt/Windows.UI.Core.h>
+#include <winrt/Windows.UI.Input.h>
+```
 
 ```cppwinrt
 // App.cpp
@@ -62,16 +80,6 @@ Windows.UI.Composition API には、コンテンツをコンポジターに直�
 //*********************************************************
 
 #include "pch.h"
-
-#include <D2d1_1.h>
-#include <D3d11_4.h>
-#include <Dwrite.h>
-#include <Windows.Graphics.DirectX.Direct3D11.interop.h>
-#include <Windows.ui.composition.interop.h>
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Graphics.DirectX.h>
-#include <winrt/Windows.Graphics.DirectX.Direct3D11.h>
-#include <winrt/Windows.UI.Composition.h>
 
 using namespace winrt;
 using namespace winrt::Windows::ApplicationModel::Core;
@@ -117,11 +125,11 @@ struct SampleText
         // own redrawing our pixels.
         m_deviceReplacedEventToken = m_compositionGraphicsDevice.RenderingDeviceReplaced(
             [this](CompositionGraphicsDevice const&, RenderingDeviceReplacedEventArgs const&)
-        {
-            // Draw the text again.
-            DrawText();
-            return S_OK;
-        });
+            {
+                // Draw the text again.
+                DrawText();
+                return S_OK;
+            });
     }
 
     ~SampleText()
@@ -312,7 +320,7 @@ struct SampleApp : implements<SampleApp, IFrameworkViewSource, IFrameworkView>
         return *this;
     }
 
-    void Initialize(CoreApplicationView const &)
+    void Initialize(CoreApplicationView const&)
     {
     }
 
@@ -527,7 +535,14 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 }
 ```
 
-```cpp
+## <a name="ccx-usage-example"></a>C++/CX の使用例
+
+> [!NOTE]
+> このコード例は、C++/CX アプリケーションの保守を支援するために用意されています。 ただし、新しいアプリケーションには [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用することをお勧めします。 C++/WinRT は Windows ランタイム (WinRT) API の標準的な最新の C++17 言語プロジェクションで、ヘッダー ファイル ベースのライブラリとして実装され、最新の Windows API への最上位アクセス権を提供するように設計されています。
+
+次の C++/CX コード例では、例の DirectWrite と Direct2D の部分を省略しています。
+
+```cppcx
 //------------------------------------------------------------------------------
 //
 // Copyright (C) Microsoft. All rights reserved.
