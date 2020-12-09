@@ -3,12 +3,12 @@ title: WinUI 3 Preview 3 (2020 年 11 月)
 description: WinUI 3 Preview 3 リリースの概要。
 ms.date: 11/17/2020
 ms.topic: article
-ms.openlocfilehash: ac641036af8505b1e51fb81385f5206a9aa44f40
-ms.sourcegitcommit: 29c8999fb7a941fc6e26b49cf10f4cc1fcb69641
+ms.openlocfilehash: 69855aea647b608d9253e4f71b6d7d38917def61
+ms.sourcegitcommit: a4ca8ba143862411cd1104515cfeb98f1bcdb780
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95002917"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96857423"
 ---
 # <a name="windows-ui-library-3-preview-3-november-2020"></a>Windows UI ライブラリ 3 Preview 3 (2020 年 11 月)
 
@@ -43,7 +43,7 @@ WinUI 3 Preview 3 には、WinUI ベースのユーザー インターフェイ�
     C++ アプリを構築するには、次のワークロードも含める必要があります。
     - C++ によるデスクトップ開発
     - ユニバーサル Windows プラットフォーム ワークロード用の *C++ (v142) ユニバーサル Windows プラットフォーム ツール* のオプション コンポーネント (右ペインにある [ユニバーサル Windows プラットフォーム開発] セクションの [インストールの詳細] を参照してください)
-3. **nuget.org** に対して NuGet パッケージ ソースがシステムで有効になっていることを確認します。詳細については、「[一般的な NuGet 構成](/nuget/consume-packages/configuring-nuget-behavior)」と「[Windows コミュニティ ツールキット](#windows-community-toolkit)」を参照してください。
+3. **nuget.org** に対して NuGet パッケージ ソースがシステムで有効になっていることを確認します。詳細については、「[一般的な NuGet 構成](/nuget/consume-packages/configuring-nuget-behavior)」を参照してください。
 
 4. [WinUI 3 Preview 3 VSIX パッケージ](https://aka.ms/winui3/preview3-download)をダウンロードしてインストールします。 これにより、WinUI 3 プロジェクト テンプレートと、WinUI 3 ライブラリを含む NuGet パッケージの両方が Visual Studio 2019 に追加されます。
 
