@@ -5,12 +5,12 @@ ms.date: 03/06/2019
 ms.topic: article
 keywords: Windows 10、UWP、広告ネットワーク、アプリのメタデータ
 ms.localizationpriority: medium
-ms.openlocfilehash: f7db2659bc08ab6da426de94c7dcaf1fb8a7d802
-ms.sourcegitcommit: c1226b6b9ec5ed008a75a3d92abb0e50471bb988
+ms.openlocfilehash: 371f855e644a990191cd8f8b9365553bc2df9693
+ms.sourcegitcommit: 368753aea2792984857f6a57a22daed1035f1a33
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86493227"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97349698"
 ---
 # <a name="get-acquisitions-data-for-your-games-and-apps"></a>ゲームとアプリの入手データを取得する 
 このメソッドを Microsoft Store analytics API で使用して、UWP アプリと Xbox One ゲームの JSON 形式で集計データを取得します。これは、Xbox Developer ポータル (XDP) によって取り込まれたされ、XDP Analytics ダッシュボードで利用できます。 
@@ -33,26 +33,24 @@ ms.locfileid: "86493227"
 
 ### <a name="request-header"></a>要求ヘッダー
 
-| Header | 種類 | 説明 |
+| Header | Type | 説明 |
 | --- | --- | --- |
 | 承認 | string | 必須。 **Bearer** `<token>` という形式の Azure AD アクセス トークン。 |
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-| パラメーター | 種類 | 説明 | 必須 |
+| パラメーター | Type | 説明 | 必須 |
 | --- | --- | --- | --- |
 | applicationId | string | 入手データを取得する Xbox One ゲームの製品 ID です。 ゲームの製品 ID を取得するには、XDP Analytics プログラムでゲームに移動し、URL から製品 ID を取得します。 また、パートナーセンター分析レポートから購入データをダウンロードする場合は、製品 ID が .tsv ファイルに含まれています。  | はい |
-| startDate | date | 取得する入手データの日付範囲の開始日です。 既定値は現在の日付です。  | いいえ |
+| startDate | 日付 | 取得する入手データの日付範囲の開始日です。 既定値は現在の日付です。  | いいえ |
 | endDate | 日付 | 取得する入手データの日付範囲終了日です。 既定値は現在の日付です。  | いいえ |
-| top | 整数 (integer) | 返すデータの行数です。 最大値および指定しない場合の既定値は 10000 です。 クエリにこれを上回る行がある場合は、応答本文に次リンクが含まれ、そのリンクを使ってデータの次のページを要求できます。  | いいえ |
-| skip | 整数 (integer) | クエリでスキップする行数です。 大きなデータ セットを操作するには、このパラメーターを使用します。 たとえば、 *top = 10000 および skip = 0*はデータの最初の1万行を取得し、 *top = 10000、skip = 10000*は次の1万行のデータを取得します。  | いいえ |
 | filter | string | 応答内の行をフィルター処理する 1 つまたは複数のステートメントです。 各ステートメントには、応答本文からのフィールド名、および **eq** 演算子または **ne** 演算子と関連付けられる値が含まれており、**and** や **or** を使用してステートメントを組み合わせることができます。 filter パラメーターでは、文字列値を単一引用符で囲む必要があります。 たとえば、「*filter=market eq 'US' and gender eq 'm'*」のように指定します。  <br/> 応答本文から次のフィールドを指定することができます。 <ul><li>**acquisitionType**</li><li>**変更**</li><li>**storeClient**</li><li>**gender**</li><li>**マーケティング**</li><li>**osVersion**</li><li>**deviceType**</li><li>**sandboxId**</li></ul> | いいえ |
 | aggregationLevel | string | 集計データを取得する時間範囲を指定します。 次のいずれかの文字列を指定できます。**day**、**week**、または **month**。 指定しない場合、既定値は **day** です。  | いいえ |
-| orderby | string | それぞれの入手数について結果データ値の順序を指定するステートメントです。 構文は、 *orderby = field [order]、field [order],...**Field*パラメーターには、次のいずれかの文字列を指定できます。 <ul><li>**date**</li><li>**acquisitionType**</li><li>**変更**</li><li>**storeClient**</li><li>**gender**</li><li>**マーケティング**</li><li>**osVersion**</li><li>**deviceType**</li><li>**paymentInstrumentType**</li><li>**sandboxId**</li><li>**xboxTitleIdHex**</li></ul> *order* パラメーターは省略可能であり、**asc** または **desc** を指定して、各フィールドを昇順または降順にすることができます。 既定値は**asc**です。 *orderby* 文字列の例: *orderby=date,market*  | いいえ |
+| orderby | string | それぞれの入手数について結果データ値の順序を指定するステートメントです。 構文は、 *orderby = field [order]、field [order],...**Field* パラメーターには、次のいずれかの文字列を指定できます。 <ul><li>**date**</li><li>**acquisitionType**</li><li>**変更**</li><li>**storeClient**</li><li>**gender**</li><li>**マーケティング**</li><li>**osVersion**</li><li>**deviceType**</li><li>**paymentInstrumentType**</li><li>**sandboxId**</li><li>**xboxTitleIdHex**</li></ul> *order* パラメーターは省略可能であり、**asc** または **desc** を指定して、各フィールドを昇順または降順にすることができます。 既定値は **asc** です。 *orderby* 文字列の例: *orderby=date,market*  | いいえ |
 | groupby | string | 指定したフィールドのみにデータ集計を適用するステートメントです。 次のフィールドを指定できます。 <ul><li>**date**</li><li>**applicationName**</li><li>**acquisitionType**</li><li>**ageGroup**</li><li>**storeClient**</li><li>**gender**</li><li>**マーケティング**</li><li>**osVersion**</li><li>**deviceType**</li><li>**paymentInstrumentType**</li><li>**sandboxId**</li><li>**xboxTitleIdHex**</li></ul> 返されるデータ行には、*groupby* パラメーターに指定したフィールドと次の値が含まれます。 <ul><li>**date**</li><li>**applicationId**</li><li>**acquisitionQuantity**</li></ul> *groupby* パラメーターは、aggregationLevel パラメーターと同時に使用できます。 例: *&groupby = ageGroup、market&aggregationLevel = week*  | いいえ |
 
 ### <a name="request-example"></a>要求の例
-Xbox One ゲームの入手データを取得するための要求の例を、いくつか次に示します。 *ApplicationId*の値をゲームの製品 ID に置き換えます。  
+Xbox One ゲームの入手データを取得するための要求の例を、いくつか次に示します。 *ApplicationId* の値をゲームの製品 ID に置き換えます。  
 
 ```syntax
 GET https://manage.devcenter.microsoft.com/v1.0/my/analytics/acquisitions?applicationId=9WZDNCRFHXHT&startDate=1/1/2017&endDate=2/1/2019&top=10&skip=0 HTTP/1.1 
@@ -65,28 +63,27 @@ Authorization: Bearer <your access token>
 ## <a name="response"></a>[応答]
 
 ### <a name="response-body"></a>応答本文
-| 値 | 種類 | 説明 |
+| 値 | Type | 説明 |
 | --- | --- | --- |
 | 値 | array | ゲームに関する集計入手データを含むオブジェクトの配列です。 各オブジェクト内のデータについて詳しくは、後の「[入手値](#acquisition-values)」セクションをご覧ください。 |
-| @nextLink | string | データの追加ページがある場合、この文字列には、データの次のページを要求するために使用できる URI が含まれます。 たとえば、要求の **top** パラメーターが 10000 に設定されたが、クエリの入手データに 10,000 を超える行が含まれている場合に、この値が返されます。 |
 | TotalCount | 整数 (integer) | クエリの結果データ内の行の総数です。 |
 
 ### <a name="acquisition-values"></a>入手値 
 *Value* 配列の要素には、次の値が含まれます。 
 
-| 値 | 種類 | 説明 |
+| 値 | Type | 説明 |
 | --- | --- | --- |
 | date | string | 入手データの日付範囲の最初の日付です。 要求に日付を指定した場合、この値はその日付になります。 要求に週、月、またはその他の日付範囲を指定した場合、この値はその日付範囲の最初の日付になります。 |
 | applicationId | string | 入手データを取得する Xbox One ゲームの製品 ID です。 |
 | applicationName | string | ゲームの表示名です。 |
-| acquisitionType | string | 入手の種類を示す、以下のいずれかの文字列です。  <ul><li>**Free**</li><li>**試用版**</li><li>**支払い済み**</li><li>**プロモーションコード**</li><li>**Iap**</li><li>**サブスクリプション Iap**</li><li>**プライベート対象ユーザー**</li><li>**前の順序**</li><li>**Xbox Game Pass** (または、2018 年 3 月 23 日より前のデータを照会した場合は **Game Pass**)</li><li>**Disk**</li><li>**Prepaid Code**</li><li>**課金される前の注文**</li><li>**キャンセル前の順序**</li><li>**失敗した事前順序**</li></ul> |
+| acquisitionType | string | 入手の種類を示す、以下のいずれかの文字列です。  <ul><li>**Free**</li><li>**試用版**</li><li>**有料**</li><li>**プロモーションコード**</li><li>**Iap**</li><li>**サブスクリプション Iap**</li><li>**プライベート対象ユーザー**</li><li>**前の順序**</li><li>**Xbox Game Pass** (または、2018 年 3 月 23 日より前のデータを照会した場合は **Game Pass**)</li><li>**ディスク**</li><li>**Prepaid Code**</li><li>**課金される前の注文**</li><li>**キャンセル前の順序**</li><li>**失敗した事前順序**</li></ul> |
 | age | string | 入手したユーザーの年齢グループを示す、以下のいずれかの文字列です。 <ul><li>**13未満**</li><li>**13-17**</li><li>**18-24**</li><li>**25-34**</li><li>**35-44**</li><li>**44-55**</li><li>**55より大きい**</li><li>**Unknown**</li></ul> |
-| deviceType | string | 入手が完了したデバイスの種類を指定する、以下のいずれかの文字列です。 <ul><li>**PC**</li><li>**ダイヤル**</li><li>**コンソール-Xbox One**</li><li>**コンソール-Xbox シリーズ X**</li><li>**IoT**</li><li>**サーバー**</li><li>**タブレット**</li><li>**Holographic**</li><li>**Unknown**</li></ul> |
+| deviceType | string | 入手が完了したデバイスの種類を指定する、以下のいずれかの文字列です。 <ul><li>**PC**</li><li>**Phone**</li><li>**コンソール-Xbox One**</li><li>**コンソール-Xbox シリーズ X**</li><li>**IoT**</li><li>**サーバー**</li><li>**タブレット**</li><li>**Holographic**</li><li>**Unknown**</li></ul> |
 | gender | string | 入手したユーザーの性別を指定する、以下のいずれかの文字列です。 <ul><li>**m**</li><li>**f**</li><li>**Unknown**</li></ul> |
 | market | string | 入手が発生した市場の ISO 3166 国コードです。 |
 | osVersion | string | 入手が発生した OS のバージョンです。 このメソッドでは、この値は常に **Windows 10** になります。 |
-| paymentInstrumentType | string | 入手に使われた支払い方法を示す、以下のいずれかの文字列です。 <ul><li>**クレジットカード**</li><li>**Direct Debit Card**</li><li>**Inferred Purchase**</li><li>**MS Balance**</li><li>**携帯電話会社**</li><li>**Online Bank Transfer**</li><li>**PayPal**</li><li>**Split Transaction**</li><li>**Token Redemption**</li><li>**Zero Amount Paid**</li><li>**eWallet**</li><li>**Unknown**</li></ul> |
-| sandboxId | string | ゲーム用に作成されたサンドボックス ID です。 この値には、**小売**の値またはプライベートサンドボックス ID を指定できます。 |
+| paymentInstrumentType | string | 入手に使われた支払い方法を示す、以下のいずれかの文字列です。 <ul><li>**クレジット カード**</li><li>**Direct Debit Card**</li><li>**Inferred Purchase**</li><li>**MS Balance**</li><li>**携帯電話会社**</li><li>**Online Bank Transfer**</li><li>**PayPal**</li><li>**Split Transaction**</li><li>**Token Redemption**</li><li>**Zero Amount Paid**</li><li>**eWallet**</li><li>**Unknown**</li></ul> |
+| sandboxId | string | ゲーム用に作成されたサンドボックス ID です。 この値には、 **小売** の値またはプライベートサンドボックス ID を指定できます。 |
 | storeClient | string | 入手が発生した Store のバージョンを示す、以下のいずれかの文字列です。 <ul><li>**Windows Phone ストア (クライアント)**</li><li>**Microsoft Store (client)** (または、2018 年 3 月 23 日より前のデータを照会した場合は **Windows Store (client)**) </li><li>**Microsoft Store (web)** (または、2018 年 3 月 23 日より前のデータを照会した場合は **Windows Store (web)**) </li><li>**Volume purchase by organizations**</li><li>**その他**</li></ul> |
 | xboxTitleId | string | Xbox デベロッパー ポータル (XDP) によって Xbox Live 対応ゲームに割り当てられた Xbox Live タイトル ID (16 進数表記) です。 |
 | acquisitionQuantity | number | 指定された集計レベルで発生した入手の数です。 |
@@ -141,10 +138,10 @@ Authorization: Bearer <your access token>
         } 
     ], 
 
-    "@nextLink": "acquisitions?applicationId=9WZDNCRFHXHT&aggregationLevel=day&startDate=2017-01-01T08:00:00.0000000Z&endDate=2019-01-16T08:44:15.6045249Z&top=1&skip=1", 
+    "@nextLink": null,
     
     "TotalCount": 12221 
 } 
 ```
 
- 
+ 
