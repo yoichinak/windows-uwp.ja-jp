@@ -3,16 +3,16 @@ title: WinUI 2.4 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.4 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: reference
-ms.openlocfilehash: 5e2ff23b3b0ea63002ad54a367e82e81ee1cd542
-ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
+ms.openlocfilehash: d6c6f029b63ea8ad32f1b0109ed983b74f2b4c4d
+ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762920"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96603699"
 ---
 # <a name="windows-ui-library-24"></a>Windows UI ライブラリ 2.4
 
-WinUI 2.4 は、Windows UI ライブラリ (WinUI) の最新の公式リリースです。
+WinUI 2.4 は、Windows UI ライブラリ (WinUI) の 2020 年 5 月のリリースです。
 
 WinUI は、GitHub の [Windows UI ライブラリ リポジトリ](https://aka.ms/winui)にホストされているオープン ソース プロジェクトです。 すべてのバグ レポート、機能要求、およびコミュニティ コードの投稿をこのリポジトリに登録してください。
 
@@ -83,13 +83,13 @@ TextBox コントロール ファミリに含まれるコントロールの一�
 
 ### <a name="hierarchical-navigation"></a>階層型ナビゲーション
 
-[NavigationView](/uwp/api/microsoft.ui.xaml.controls.navigationview?view=winui-2.4) コントロールは、階層型ナビゲーションをサポートするようになりました。Left、Top、LeftCompact の表示モードが含まれています。 階層構造の NavigationView は、ページのカテゴリの表示、関連する子ページを含むページの識別、またはハブ スタイルのページが他の多くのページにリンクしているアプリ内での使用に役立ちます。
+[NavigationView](/uwp/api/microsoft.ui.xaml.controls.navigationview?view=winui-2.4&preserve-view=true) コントロールは、階層型ナビゲーションをサポートするようになりました。Left、Top、LeftCompact の表示モードが含まれています。 階層構造の NavigationView は、ページのカテゴリの表示、関連する子ページを含むページの識別、またはハブ スタイルのページが他の多くのページにリンクしているアプリ内での使用に役立ちます。
 
 ![階層構造の NavigationView コントロール](..\images\HierarchicalNavView.gif)<br>*階層構造の NavigationView コントロール*
 
 [使用に関するガイドライン](/windows/uwp/design/controls-and-patterns/navigationview#hierarchical-navigation)
 
-[API リファレンス](/uwp/api/microsoft.ui.xaml.controls.navigationview)
+[API リファレンス](/uwp/api/microsoft.ui.xaml.controls.navigationview?view=winui-2.4&preserve-view=true)
 
 ## <a name="samples"></a>サンプル
 

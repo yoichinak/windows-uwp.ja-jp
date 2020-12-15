@@ -6,16 +6,21 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 強, 弱, 参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 2176fe1ee5893b7150b27edf4ea753ae368b41ee
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9ca3ae231a70b69f9f41bb1077b875dca798eb05
+ms.sourcegitcommit: e6a7749f9ddc0fe165b68506b0be465d4ca51ab6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154271"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935984"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>C++/WinRT の強参照と弱参照
 
 Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照 (および、暗黙的 *this* ポインターのように、いずれでもない参照) の重要性とこれらの違いを認識することが重要です。 このトピックで説明しますが、このような参照を正しく扱う方法を知ることは、円滑に動作する安定したシステムと突然クラッシュするシステムの違いを意味することがあります。 [C++/WinRT](./intro-to-using-cpp-with-winrt.md) により言語プロジェクションを広範囲で支えるヘルパー関数が提供され、複雑なシステムを簡単かつ正しく構築する作業が半分まで片付きます。
+
+> [!NOTE]
+> いくつかの例外を除き、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/) で使用または作成する Windows ランタイム型では、弱参照のサポートが既定でオンになっています。 **Windows.UI.Composition** と **Windows.Devices.Input.PenDevice** は、例外の例です。つまり、これらの名前空間の型については、弱参照のサポートはオンになって "*いません*"。 「[自動取り消しのデリゲートの登録が失敗する場合](/windows/uwp/cpp-and-winrt-apis/handle-events#if-your-auto-revoke-delegate-fails-to-register)」も参照してください。
+> 
+> 型を作成している場合は、このトピックの「[C++/WinRT の弱参照](#weak-references-in-cwinrt)」セクションを参照してください。
 
 ## <a name="safely-accessing-the-this-pointer-in-a-class-member-coroutine"></a>class-member コルーチンで *this* ポインターに安全にアクセスする
 
@@ -81,7 +86,7 @@ int main()
 
     auto myclass_instance{ winrt::make_self<MyClass>() };
     auto async{ myclass_instance->RetrieveValueAsync() };
-    myclass_instance = nullptr; // Simulate the class instance going out of scope.
+    myclass_instance = nullptr; // Simulate the class instance going out of scope.
 
     winrt::hstring result{ async.get() }; // Behavior is now undefined; crashing is likely.
     std::wcout << result.c_str() << std::endl;
@@ -203,7 +208,7 @@ int main()
 
 ただし、*this* がハンドラー内の自身の用途に表示されない場合などもあります (非同期アクションと非同期操作によって発生する完了イベントと進行状況イベントのハンドラーなど)。それに対処する方法を知ることは重要です。
 
-- イベント ソースでそのイベントが*同期的*に生成される場合は、ハンドラーを取り消して、それ以上イベントを受け取ることはないという確信を持つことができます。 ただし、非同期イベントの場合は、取り消し後 (特にデストラクター内で取り消す場合) でも、破棄が開始された後に実行中のイベントがオブジェクトに到着する可能性があります。 破棄の前に登録を解除する場所を見つけることで問題を軽減できますが、引き続き堅牢なソリューションについて判断してください。
+- イベント ソースでそのイベントが *同期的* に生成される場合は、ハンドラーを取り消して、それ以上イベントを受け取ることはないという確信を持つことができます。 ただし、非同期イベントの場合は、取り消し後 (特にデストラクター内で取り消す場合) でも、破棄が開始された後に実行中のイベントがオブジェクトに到着する可能性があります。 破棄の前に登録を解除する場所を見つけることで問題を軽減できますが、引き続き堅牢なソリューションについて判断してください。
 - 非同期メソッドを実装するためにコルーチンを作成する場合は可能です。
 - 特定の XAML UI フレームワーク オブジェクト ([**SwapChainPanel**](/uwp/api/windows.ui.xaml.controls.swapchainpanel) など) を使用するまれなケースで、イベント ソースから登録解除しなくても、受信側が最終処理される場合は可能です。
 
@@ -253,7 +258,7 @@ event_source.Event([this](auto&& ...)
 
 ### <a name="the-solution"></a>解決策
 
-解決策は、強参照 (または、ここで説明するように、より適切な場合は弱参照) をキャプチャすることです。 強参照は参照カウントをインクリメント*します*。また、現在のオブジェクトの有効な状態を維持*します*。 キャプチャ変数 (この例では `strong_this`) を宣言し、[**implements::get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことでそれを初期化します。結果、*this* ポインターの強参照が取得されます。
+解決策は、強参照 (または、ここで説明するように、より適切な場合は弱参照) をキャプチャすることです。 強参照は参照カウントをインクリメント *します*。また、現在のオブジェクトの有効な状態を維持 *します*。 キャプチャ変数 (この例では `strong_this`) を宣言し、[**implements::get_strong**](/uwp/cpp-ref-for-winrt/implements#implementsget_strong-function) を呼び出すことでそれを初期化します。結果、*this* ポインターの強参照が取得されます。
 
 > [!IMPORTANT]
 > **get_strong** は **winrt::implements** 構造体テンプレートのメンバー関数であるため、C++/WinRT クラスなど、**winrt::implements** から直接的または間接的に派生するクラスからのみ呼び出すことができます。 **winrt::implements** から派生されるものに関する詳細と例については、「[C++/WinRT での API の作成](./author-apis.md)」を参照してください。
@@ -274,7 +279,7 @@ event_source.Event([strong_this { get_strong()}](auto&& ...)
 });
 ```
 
-強参照が適切でない場合、代わりに [**implements::get_weak**](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function) を呼び出し、*this* の弱参照を取得できます。 弱参照では、現在のオブジェクトは存続*しません*。 そのため、メンバーにアクセスする前に、引き続き弱参照から強参照を取得できることを確認してください。
+強参照が適切でない場合、代わりに [**implements::get_weak**](/uwp/cpp-ref-for-winrt/implements#implementsget_weak-function) を呼び出し、*this* の弱参照を取得できます。 弱参照では、現在のオブジェクトは存続 *しません*。 そのため、メンバーにアクセスする前に、引き続き弱参照から強参照を取得できることを確認してください。
 
 ```cppwinrt
 event_source.Event([weak_this{ get_weak() }](auto&& ...)
@@ -325,7 +330,7 @@ event_source.Event({ get_strong(), &EventRecipient::OnEvent });
 event_source.Event({ get_weak(), &EventRecipient::OnEvent });
 ```
 
-デリゲートがメンバー関数を*呼び出す*場合、C++/WinRT ではそのハンドラーが返されるまでオブジェクトが存続します。 ただし、ハンドラーが非同期の場合は中断ポイントで返されるため、最初の中断ポイントの前に、コルーチンにクラス インスタンスへの強参照を与える必要があります。 この場合も、詳細については、このセクションで前述した「[class-member コルーチンで *this* ポインターに安全にアクセスする](#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください。
+デリゲートがメンバー関数を *呼び出す* 場合、C++/WinRT ではそのハンドラーが返されるまでオブジェクトが存続します。 ただし、ハンドラーが非同期の場合は中断ポイントで返されるため、最初の中断ポイントの前に、コルーチンにクラス インスタンスへの強参照を与える必要があります。 この場合も、詳細については、このセクションで前述した「[class-member コルーチンで *this* ポインターに安全にアクセスする](#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください。
 
 ### <a name="a-weak-reference-example-using-swapchainpanelcompositionscalechanged"></a>**SwapChainPanel::CompositionScaleChanged** を使用する弱参照の例
 
@@ -355,7 +360,7 @@ void OnCompositionScaleChanged(Windows::UI::Xaml::Controls::SwapChainPanel const
 }
 ```
 
-ラムダのキャプチャ句で、一時変数を作成し、*このオブジェクト*の弱参照を表示します。 ラムダ式の本文で、*このオブジェクト*の強参照を取得する場合は、**OnCompositionScaleChanged** 関数が呼び出されます。 これにより、**OnCompositionScaleChanged** 内で*このオブジェクト*を安全に使用することができます。
+ラムダのキャプチャ句で、一時変数を作成し、*このオブジェクト* の弱参照を表示します。 ラムダ式の本文で、*このオブジェクト* の強参照を取得する場合は、**OnCompositionScaleChanged** 関数が呼び出されます。 これにより、**OnCompositionScaleChanged** 内で *このオブジェクト* を安全に使用することができます。
 
 ## <a name="weak-references-in-cwinrt"></a>C++/WinRT の弱参照
 

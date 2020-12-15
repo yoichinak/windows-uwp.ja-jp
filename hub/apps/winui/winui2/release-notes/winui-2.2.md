@@ -3,16 +3,16 @@ title: WinUI 2.2 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.2 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: b14b96ffc03d5e3e934b72d71ae9e2a8a3f0eb1d
-ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
+ms.openlocfilehash: 128732f57fff892cc16e4b4b4ac6f691fe72e4a2
+ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94933147"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96603869"
 ---
 # <a name="windows-ui-library-22"></a>Windows UI ライブラリ 2.2
 
-WinUI 2.2 は、Windows UI ライブラリの最新の公式リリースです。
+WinUI 2.2 は、Windows UI ライブラリの 2019 年 8 月のリリースです。
 
 NuGet パッケージ マネージャーを使用して WinUI パッケージをアプリに追加できます。詳細については、「[Windows UI ライブラリの使用を開始する](../getting-started.md)」を参照してください。
 

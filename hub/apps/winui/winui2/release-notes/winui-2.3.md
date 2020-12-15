@@ -3,16 +3,16 @@ title: WinUI 2.3 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.3 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: ad589b15b5481b5b7ff402fc2043afd71c139479
-ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
+ms.openlocfilehash: e3f6aca344fb86725e6addc7758110aca9eaf01b
+ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94933067"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96603849"
 ---
 # <a name="windows-ui-library-23"></a>Windows UI ライブラリ 2.3
 
-WinUI 2.3 は、Windows UI ライブラリ (WinUI) の最新の公式リリースです。
+WinUI 2.3 は、Windows UI ライブラリ (WinUI) の 2020 年 1 月のリリースです。
 
 WinUI は、GitHub の [Windows UI ライブラリ リポジトリ](https://aka.ms/winui)にホストされているオープン ソース プロジェクトです。 すべてのバグ レポート、機能要求、およびコミュニティ コードの投稿をこのリポジトリに登録してください。
 

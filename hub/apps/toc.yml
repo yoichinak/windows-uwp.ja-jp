@@ -130,6 +130,14 @@
                   href: winui/winui2/release-notes/winui-2.0.md
         - name: WinUI API リファレンス
           href: /windows/winui/api/
+    - name: Project Reunion による Windows アプリのビルド (プレリリース)
+      items:
+        - name: 概要
+          href: project-reunion/index.md
+        - name: MRT Core
+          href: project-reunion/mrtcore/mrtcore-overview.md
+        - name: DWriteCore
+          href: project-reunion/dwritecore.md
     - name: Windows 10X 用の開発
       items:
         - name: Windows 10X 開発の FAQ

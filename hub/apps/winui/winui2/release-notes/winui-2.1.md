@@ -3,16 +3,16 @@ title: WinUI 2.1 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.1 のリリース ノート。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: d743b5653a824753706cebbfe1f1a60c419debfe
-ms.sourcegitcommit: 67c4d4ecda4ffe5f1a233de5e8555ca2228e8489
+ms.openlocfilehash: eb9d01c49dffd8017b2a70557f9408ceb758ae1e
+ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94933137"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96603859"
 ---
 # <a name="windows-ui-library-21"></a>Windows UI ライブラリ 2.1
 
-Windows UI ライブラリの最新の公式バージョンである WinUI 2.1 は、2019 年 4 月 8 日にリリースされました 
+Windows UI ライブラリの最初のオープンソース バージョン – WinUI 2.1 (2019 年 4 月リリース)。
 
 WinUI では、最新の Fluent コントロールやスタイルなど、最新の Windows UX プラットフォーム機能の多くがすぐに使用できる方法で提供され、Windows 10 Anniversary Update (14393) と互換性があります。 [XAML コントロール ギャラリー](/windows/uwp/design/controls-and-patterns/#xaml-controls-gallery)には、ライブラリに追加されたすべてのクールな新機能を調べるためのサンプルが用意されています。
 
