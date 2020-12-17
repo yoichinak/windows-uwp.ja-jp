@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 5f06d5e804d41b1751c72af4d07224fa346323b2
-ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
+ms.openlocfilehash: 3660417f6e88268dd2ad814ce4dba62354029828
+ms.sourcegitcommit: 05f9bb0c563e12daaacf7732d46f1c7f578dbe6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91860108"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97529289"
 ---
 # <a name="typography-in-windows-apps"></a>Windows アプリの文字体裁
 
@@ -123,7 +123,7 @@ Windows 書体見本は、ユーザーがコンテンツを読みやすいよう
 
 :::row:::
     :::column:::
-![[緑色のチェック マークが付いており、"Do" と書かれている緑色のバーの 4 番目のスクリーンショット。](images/do.svg)
+![緑色のチェック マークが付いており、"Do" と書かれている緑色のバーの 4 番目のスクリーンショット。](images/do.svg)
 読みやすさを確保するため、1 行当たり 50 から 60 文字にします。
     :::column-end:::
     :::column:::
@@ -143,7 +143,7 @@ Windows 書体見本は、ユーザーがコンテンツを読みやすいよう
 
 :::row:::
     :::column:::
-![[緑色のチェック マークが付いており、"Do" と書かれている緑色のバーの 5 番目のスクリーンショット。](images/do.svg)
+![緑色のチェック マークが付いており、"Do" と書かれている緑色のバーの 5 番目のスクリーンショット。](images/do.svg)
 テキストをクリップし、複数行を使用できる場合は、行を折り返します。
     :::column-end:::
     :::column:::
