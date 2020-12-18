@@ -1,5 +1,5 @@
 ---
-description: ダイアログとポップアップは、ユーザーが要求したとき、または通知や許可を必要とする状況が発生したときに表示される一時的な UI 要素です。
+description: ポップアップには、ユーザーが要求したとき、または通知や許可を必要とする状況が発生したときに現れる一時的な UI 要素が表示されます。
 title: ポップアップ コントロール
 template: detail.hbs
 ms.date: 09/24/2020
@@ -11,12 +11,12 @@ design-contact: kimsea
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: fd725407e8b8a8972bb9d1acee2c6b699f51ce20
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: cfc4dbc0bb52e6ba3f932d791c1b751d15626bef
+ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034565"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598773"
 ---
 # <a name="flyouts"></a>ポップアップ
 

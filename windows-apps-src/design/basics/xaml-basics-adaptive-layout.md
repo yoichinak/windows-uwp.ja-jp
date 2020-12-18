@@ -5,22 +5,22 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f71eb48264570df384fce672b1ca895d98e1109
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: 6919a2dc15aac7c5e589f2c0355f9c1cc13bfc7a
+ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636592"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598813"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
 このチュートリアルでは、XAML のアダプティブ レイアウト機能の基本について説明します。これを使うと、どのようなサイズでも正しく表示されるアプリを作成できます。 ウィンドウ ブレークポイントの追加方法、新しい DataTemplate の作成方法、VisualStateManager クラスを使用してアプリのレイアウトをカスタマイズする方法について説明します。 これらのツールを使用して、小さめのウィンドウ サイズ用に画像編集プログラムを最適化します。
 
-画像編集プログラムには 2 つのページがあります。 _メイン ページ_には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
+画像編集プログラムには 2 つのページがあります。 _メイン ページ_ には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
 ![写真ラボのメイン ページのスクリーンショット。](../basics/images/xaml-basics/mainpage.png)
 
-*詳細ページ*には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
+*詳細ページ* には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 
 ![写真ラボの詳細ページのスクリーンショット。](../basics/images/xaml-basics/detailpage.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "91636592"
 
     **GitHub に慣れている場合:**
 
-    a。 リポジトリのマスター ブランチをローカルに複製します。
+    a。 リポジトリのメイン ブランチをローカルに複製します。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\adaptive-layout` ディレクトリを参照します。
 
@@ -197,7 +197,7 @@ ms.locfileid: "91636592"
 
             <!-- Large window trigger -->
             <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
+                <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowBreakpoint}"/>
             </VisualState.StateTriggers>
 
         </VisualState>
@@ -207,7 +207,7 @@ ms.locfileid: "91636592"
 
             <!-- Medium window trigger -->
             <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
+                <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowBreakpoint}"/>
             </VisualState.StateTriggers>
 
         </VisualState>
@@ -217,7 +217,7 @@ ms.locfileid: "91636592"
 
             <!-- Small window trigger -->
             <VisualState.StateTriggers >
-                <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}"/>
+                <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowBreakpoint}"/>
             </VisualState.StateTriggers>
 
         </VisualState>

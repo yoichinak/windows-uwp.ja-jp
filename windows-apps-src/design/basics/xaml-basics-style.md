@@ -5,22 +5,22 @@ keywords: XAML, UWP, 概要
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 04357cc43ed227b109d4aab20c509077261360ee
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: 051d7a31afac09a6372f527355efcd6b925cb71f
+ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636602"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598863"
 ---
 # <a name="tutorial-create-custom-styles"></a>チュートリアル: カスタム スタイルを作成する
 
 このチュートリアルでは、XAML アプリの UI をカスタマイズする方法を示します。 警告: このチュートリアルにユニコーンが登場するかどうかは保証できません。 (後で登場します!)
 
-PhotoLab サンプル アプリには 2 つのページがあります。 _メイン ページ_には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
+PhotoLab サンプル アプリには 2 つのページがあります。 _メイン ページ_ には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
 ![写真ラボのメイン ページのスクリーンショット。](../basics/images/xaml-basics/mainpage.png)
 
-*詳細ページ*には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
+*詳細ページ* には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 
 ![写真ラボの詳細ページのスクリーンショット。](../basics/images/xaml-basics/detailpage.png)
 
@@ -48,7 +48,7 @@ PhotoLab サンプル アプリには 2 つのページがあります。 _メ�
 
     **GitHub に慣れている場合:**
 
-    a。 リポジトリのマスター ブランチをローカルに複製します。
+    a。 リポジトリのメイン ブランチをローカルに複製します。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\style` ディレクトリを参照します。
 

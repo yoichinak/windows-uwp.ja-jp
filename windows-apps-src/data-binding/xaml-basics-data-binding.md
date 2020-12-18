@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 3435718794cb22745e1438ef634db29076ed33c1
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: f84ba4e77369730ef9883ab7f14b52751182b773
+ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636662"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598833"
 ---
 # <a name="tutorial-create-data-bindings"></a>チュートリアル: データ バインディングを作成する
 
@@ -20,11 +20,11 @@ ms.locfileid: "91636662"
 
 まず、PhotoLab サンプルの簡易バージョンから開始します。 このスターター バージョンには、完全なデータ レイヤーと基本的な XAML ページ レイアウトが含まれています。ただしこのバージョンでは、コードを見やすくするために多くの機能が除外されています。 このチュートリアルで完全なアプリは作成されません。必ず最終バージョンでカスタム アニメーションやアダプティブ レイアウトなどの機能を確認してください。 最終バージョンは、[Windows-appsample-photo-lab](https://github.com/Microsoft/Windows-appsample-photo-lab) リポジトリのルート フォルダーにあります。
 
-PhotoLab サンプル アプリには 2 つのページがあります。 _メイン ページ_には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
+PhotoLab サンプル アプリには 2 つのページがあります。 _メイン ページ_ には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
 ![写真ラボのメイン ページのスクリーンショット。](../design/basics/images/xaml-basics/mainpage.png)
 
-*詳細ページ*には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
+*詳細ページ* には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 
 ![写真ラボの詳細ページのスクリーンショット。](../design/basics/images/xaml-basics/detailpage.png)
 
@@ -52,7 +52,7 @@ PhotoLab サンプル アプリには 2 つのページがあります。 _メ�
 
     **GitHub に慣れている場合:**
 
-    a。 リポジトリのマスター ブランチをローカルに複製します。
+    a。 リポジトリのメイン ブランチをローカルに複製します。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\data-binding` ディレクトリを参照します。
 
@@ -68,7 +68,7 @@ PhotoLab サンプル アプリには 2 つのページがあります。 _メ�
 
 1. `xaml-basics-starting-points\data-binding` フォルダーを開き、Visual Studio で `PhotoLab.sln` ファイルを起動します。
 
-2. **ソリューション プラットフォーム**が x86 または x64 (ARM は不可) に設定されていることを確認してから、アプリを実行します。 これにより、バインドを追加する前の、UI プレースホルダーがある状態のアプリが表示されます。
+2. **ソリューション プラットフォーム** が x86 または x64 (ARM は不可) に設定されていることを確認してから、アプリを実行します。 これにより、バインドを追加する前の、UI プレースホルダーがある状態のアプリが表示されます。
 
     ![実行中のアプリにプレースホルダー イメージとテキストが表示された状態](../design/basics/images/xaml-basics/gallery-with-placeholder-templates.png)
 
@@ -269,9 +269,9 @@ private ObservableCollection<ImageFileInfo> Images { get; }
 `Binding` 式では `x:DataType` 値が認識されませんが、`Binding` 式には、同様の役割を果たす `ElementName` 値があります。 これらの値は、**Binding Value** はページ上にある指定された要素 (つまり、`x:Name` 値を持つ要素) の `Value` プロパティに対するバインディングであることをバインディング エンジンに伝えます。 分離コード内のプロパティにバインドする場合は、```{Binding MyCodeBehindProperty, ElementName=page}``` のようになります (`page` は、XAML の `Page` 要素で設定されている `x:Name` 値)。
 
 > [!NOTE]
-> 既定では、`Binding` 式は*一方向*です。つまり、バインドされたプロパティ値が変化すると、UI が自動的に更新されます。
+> 既定では、`Binding` 式は *一方向* です。つまり、バインドされたプロパティ値が変化すると、UI が自動的に更新されます。
 >
-> これに対し、`x:Bind` は既定で *1 回限り*です。つまり、バインドされたプロパティへの変更は無視されます。 これは最もパフォーマンスの高いオプションであり、ほとんどのバインディング先は静的な読み取り専用データであるため、既定の動作として設定されています。
+> これに対し、`x:Bind` は既定で *1 回限り* です。つまり、バインドされたプロパティへの変更は無視されます。 これは最もパフォーマンスの高いオプションであり、ほとんどのバインディング先は静的な読み取り専用データであるため、既定の動作として設定されています。
 >
 > 値が変化するプロパティと共に `x:Bind` を使用する場合は、必ず `Mode=OneWay` または `Mode=TwoWay` を追加してください。 この例は、次のセクションで確認できます。
 
@@ -286,7 +286,7 @@ private ObservableCollection<ImageFileInfo> Images { get; }
 
 このパートでは、カスタムの `ItemSize` プロパティを分離コードに追加し、イメージ テンプレートから新しいプロパティへの一方向のバインディングを作成します。 `ItemSize` 値は、快適なエクスペリエンスのために、ズーム スライダーのほか、 **[Fit to screen]** スイッチやウィンドウ サイズなどの要因によって更新されます。
 
-組み込みコントロールのプロパティとは異なり、カスタム プロパティでは、一方向または双方向のバインディングが設定されていても UI が自動更新されません。 カスタム プロパティには *1 回限り*のバインディングを設定できますが、プロパティを変更して実際の UI に反映させるには、多少の作業が必要になります。
+組み込みコントロールのプロパティとは異なり、カスタム プロパティでは、一方向または双方向のバインディングが設定されていても UI が自動更新されません。 カスタム プロパティには *1 回限り* のバインディングを設定できますが、プロパティを変更して実際の UI に反映させるには、多少の作業が必要になります。
 
 ### <a name="create-the-itemsize-property-so-that-it-updates-the-ui"></a>UI を更新できるように ItemSize プロパティを作成する
 

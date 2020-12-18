@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: cdd21279e987f329024c53434e47777e427b95ab
-ms.sourcegitcommit: b69edc6d73370923f31df61c7e42b53de6c928ee
+ms.openlocfilehash: 7ed2d4100bc827dbc0db93897f534b77e1292b7e
+ms.sourcegitcommit: cddc595969c658ce30fbc94ded92db4a8ad1bf66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94870908"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97214353"
 ---
 # <a name="choose-your-windows-app-platform"></a>Windows アプリ プラットフォームの選択
 
@@ -68,7 +68,7 @@ Windows フォームの詳細については、次の記事を参照してくだ
 * [Windows フォームについて](/dotnet/framework/winforms/getting-started-with-windows-forms)
 * [プロジェクト テンプレート](visual-studio-templates.md#net-templates)
 * [初めての Windows フォーム アプリの作成](/dotnet/framework/winforms/creating-a-new-windows-form)
-* [チュートリアル: ピクチャ ビューアーの作成](/visualstudio/ide/tutorial-1-create-a-picture-viewer?view=vs-2019)
+* [チュートリアル: ピクチャ ビューアーの作成](/visualstudio/ide/tutorial-1-create-a-picture-viewer)
 * [API リファレンス (.NET)](/dotnet/api/index)
 * [Windows フォーム アプリの拡張](/dotnet/framework/winforms/advanced/)
 
@@ -103,6 +103,14 @@ Windows 10 では、メインのデスクトップ プラットフォームそ�
 * WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新して、これらのアプリで [XAML Islands](modernize/xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
 * [WinUi 3.0](../winui/winui3/index.md) 以降では、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
 
+## <a name="project-reunion-preview"></a>Project Reunion (プレビュー)
+
+Project Reunion は、Windows アプリ開発プラットフォームの次世代の広範な新しい開発者向けコンポーネントおよびツール セットのコード ネームです。 Project Reunion により、さまざまな一連の対象の Windows 10 OS バージョン上のあらゆるアプリによって一貫した方法で使用できる、統合された API とツールのセットが提供されます。 Project Reunion は、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットによって、既存の Windows アプリのプラットフォームとフレームワーク (UWP、ネイティブ Win32、.NET など) を補完します。
+
+Project Reunion は、現在、早期利用開発者向けのプレビュー版です。 このリリースをご自身の開発環境で試すことをお勧めします。 ただし、Project Reunion は、最終リリースに向けて、今後さまざまな面で変更されることに注意してください。 Project Reunion は、実稼働環境で使用されるアプリには対応しません。
+
+詳細については、「[Project Reunion](../project-reunion/index.md)」と [GitHub リポジトリ](https://github.com/microsoft/ProjectReunion/)を参照してください。
+
 ## <a name="platform-comparison-uwp-wpf-and-windows-forms"></a>プラットフォームの比較:UWP、WPF、Windows フォーム
 
 次の表は、Windows フォーム、WPF、UWP のさまざまな特性を詳細に比較したものです。
@@ -133,4 +141,4 @@ Xamarin は、Windows 10 用でありながら iOS および Android でも実�
 
 ### <a name="uno-platform"></a>Uno Platform
 
-Uno Platform は、Windows UWP ベースのコード (C# および XAML) を iOS、Android、macOS、Linux、WebAssembly で実行できるようにします。 [Windows 10 2004 (19041)](/windows/uwp/whats-new/windows-10-build-19041) での UWP に対する完全な API 定義と、[Windows.UI.Xaml](/uwp/api/windows.ui.xaml.documents?view=winrt-19041) などの UWP API のパーツの実装を提供し、UWP アプリケーションをこれらのプラットフォームで実行できるようにします。 詳しくは、[Uno Platform に関するドキュメント](https://platform.uno/docs/articles/intro.html)をご覧ください。
+Uno Platform は、Windows UWP ベースのコード (C# および XAML) を iOS、Android、macOS、Linux、WebAssembly で実行できるようにします。 [Windows 10 2004 (19041)](/windows/uwp/whats-new/windows-10-build-19041) での UWP に対する完全な API 定義と、[Windows.UI.Xaml](/uwp/api/windows.ui.xaml.documents) などの UWP API のパーツの実装を提供し、UWP アプリケーションをこれらのプラットフォームで実行できるようにします。 詳しくは、[Uno Platform に関するドキュメント](https://platform.uno/docs/articles/intro.html)をご覧ください。

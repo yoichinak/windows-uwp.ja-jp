@@ -1,17 +1,17 @@
 ---
 title: Microsoft Store ポリシー
 description: Microsoft Store の製品は、Microsoft の認定基準を満たし、本当に便利で魅力的なエクスペリエンスをユーザーに提供するアプリであり、Microsoft Store に適合している必要があります。
-ms.date: 10/01/2019
+ms.date: 12/16/2020
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
-ms.openlocfilehash: 4d7c30b49ea0e6276e1d7959a17086f7ff829915
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fc7a9ebd3ebe9ce86f4c44e7e13ea25d5a01240e
+ms.sourcegitcommit: 5dac88ad541b71ebe85b78951e6b357a3db176cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170912"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97611460"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー
 
@@ -22,6 +22,9 @@ ms.locfileid: "89170912"
 
 > [!NOTE]
 > この契約に最近加えられた変更の概要については、「[変更履歴](store-policies-change-history.md)」を参照してください。
+
+> [!NOTE]
+> **2020 年 12 月 16 日 ポリシーの更新通知**:[Xbox Live Creators プログラム](https://www.xbox.com/developers/creators-program/)を通じて開発されたコンソールを対象とするゲーム製品の場合、XBL サービスと統合するための要件は適用されなくなりました。 特定のポリシー ([ポリシー 10.13.1](https://docs.microsoft.com/windows/uwp/publish/store-policies#1013-gaming-and-xbox)) は、次にストア ポリシー ドキュメントが更新されたときにこの変更を反映するように更新されますが、この通知の時点から有効であり、ポリシーは XBL Creators プログラムに対して適用されなくなります。 
 
 Microsoft Store<sup>1</sup> 向け製品の開発に関心をお持ちいただき、ありがとうございます。 「製品」は、提出されたあらゆるフォームのコンテンツを意味します。これには、製品内で販売または提供されるアプリ、ゲーム、タイトル、およびあらゆる追加コンテンツを含みますが、これに限定されません。 Microsoft は、世界中のユーザーに向けた多様な製品の掲載に取り組んでいます。 Microsoft Store の製品は、Microsoft の認定基準を満たし、本当に便利で魅力的なエクスペリエンスをユーザーに提供するアプリであり、Microsoft Store に適合している必要があります。
 
@@ -137,7 +140,7 @@ Microsoft Store から入手できるすべての製品および製品内サー�
 
 **10.3.1**
 
-製品でログイン資格情報が必要になる場合は、 **"認定を求めるにあたってのコメント"** フィールドを使用して Microsoft に動作するデモ アカウントを提供します。
+製品でログイン資格情報が必要になる場合は、**"認定を求めるにあたってのコメント"** フィールドを使用して Microsoft に動作するデモ アカウントを提供します。
 
 **10.3.2**
 
@@ -200,7 +203,7 @@ Microsoft Store から入手できるすべての製品および製品内サー�
 
 **10.5.7**
 
-デバイスの位置情報を取得する製品は、製品の位置情報サービス API へのアクセス、および位置情報サービス API からの位置情報の使用について、ユーザーが有効または無効にできる設定を提供する必要があります。 Windows Phone 8 と Windows Phone 8.1 製品の場合、これらの設定は製品内で提供する必要があります。 Windows Mobile 10 製品の場合、これらの設定は Windows の設定アプリ ( **[設定]、[プライバシー]、[位置情報]** ページの順に移動) によって自動的に提供されます。 このような設定を尊重する必要がありますが、別の方法デバイスの位置情報データを収集することにした場合、そのようなデータは個人情報であるため、収集には第 10.5 項の他の要件が適用されます。 データの取り扱い方法に関する法的に十分な同意を得る必要があり、このような取り扱い方法は全体として該当する法律と規制に準拠している必要があります。
+デバイスの位置情報を取得する製品は、製品の位置情報サービス API へのアクセス、および位置情報サービス API からの位置情報の使用について、ユーザーが有効または無効にできる設定を提供する必要があります。 Windows Phone 8 と Windows Phone 8.1 製品の場合、これらの設定は製品内で提供する必要があります。 Windows Mobile 10 製品の場合、これらの設定は Windows の設定アプリ (**[設定]、[プライバシー]、[位置情報]** ページの順に移動) によって自動的に提供されます。 このような設定を尊重する必要がありますが、別の方法デバイスの位置情報データを収集することにした場合、そのようなデータは個人情報であるため、収集には第 10.5 項の他の要件が適用されます。 データの取り扱い方法に関する法的に十分な同意を得る必要があり、このような取り扱い方法は全体として該当する法律と規制に準拠している必要があります。
 
 
 ### <a name="106-capabilities"></a>10.6 機能

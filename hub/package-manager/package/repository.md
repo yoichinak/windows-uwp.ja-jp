@@ -4,12 +4,12 @@ description: アプリケーションを記述するパッケージ マニフェ
 ms.date: 04/29/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ef94a77d5012adcedf31ae1ecfddc036bcc3a059
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fef6cc96604639f84ee2c81e2de4fb28442e3f8d
+ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166506"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598803"
 ---
 # <a name="submit-your-manifest-to-the-repository"></a>リポジトリにマニフェストを送信する
 
@@ -70,7 +70,7 @@ winget validate \<manifest-file>
 * **manifests** フォルダーは、リポジトリ内のすべてのマニフェストのルート フォルダーです。
 * **publisher** フォルダーは、ソフトウェアを発行する会社の名前です。 たとえば、**Microsoft** です。
 * **application** フォルダーは、アプリケーションまたはツールの名前です。 たとえば、**VSCode** です。
-* **version.yaml** はマニフェストのファイル名です。 ファイル名は、アプリケーションの現在のバージョンに設定する必要があります。 たとえば **1.0.0.yaml**です。
+* **version.yaml** はマニフェストのファイル名です。 ファイル名は、アプリケーションの現在のバージョンに設定する必要があります。 たとえば **1.0.0.yaml** です。
 
 >[!IMPORTANT]
 > マニフェスト内の `Id` 値は、マニフェスト フォルダー パス内の発行元とアプリケーションの名前と一致する必要があります。マニフェストの `version` 値は、ファイル名のバージョンと一致している必要があります。 詳しくは、「[パッケージ マニフェストを作成する](manifest.md#tips-and-best-practices)」をご覧ください。
@@ -96,7 +96,7 @@ winget validate \<manifest-file>
 
 ### <a name="step-5-create-a-pull-request"></a>手順 5:プル要求の作成
 
-変更をプッシュした後、[https://github.com/microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) に戻り、フォークまたはブランチを **master** ブランチにマージするプル要求を作成します。
+変更をプッシュした後、[https://github.com/microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) に戻り、フォークまたはブランチをメイン ブランチにマージする pull request を作成します。
 
 ![[プル要求] タブの画像](images\pull-request.png)
 

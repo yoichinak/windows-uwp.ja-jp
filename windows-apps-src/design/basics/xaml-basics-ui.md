@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 942b2ff4af0fa093a0b343c37074185970f8209d
-ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
+ms.openlocfilehash: c1754edd6901b5de778b40294078b16c03dc0dda
+ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91829546"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598823"
 ---
 # <a name="tutorial-create-a-user-interface"></a>チュートリアル: ユーザー インターフェイスの作成
 
@@ -19,11 +19,11 @@ ms.locfileid: "91829546"
 + Visual Studio の XAML ツール (XAML デザイナー、ツールボックス、XAML エディター、 [プロパティ] パネル、ドキュメント アウトラインなど) を使用してコントロールやコンテンツを UI に追加する。
 + 最も一般的な XAML レイアウト パネル (`RelativePanel`、`Grid`、`StackPanel` など) を利用する。
 
-画像編集プログラムには 2 つのページがあります。 _メイン ページ_には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
+画像編集プログラムには 2 つのページがあります。 _メイン ページ_ には、フォト ギャラリー ビューが各画像ファイルに関する情報と共に表示されます。
 
 ![メイン ページ](images/xaml-basics/mainpage.png)
 
-*詳細ページ*には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
+*詳細ページ* には、選択された 1 枚の写真が表示されます。 ポップアップの編集メニューにより、写真の編集、名前変更、保存を行うことができます。
 
 ![詳細ページ](images/xaml-basics/detailpage.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "91829546"
 
     **GitHub に慣れている場合:**
 
-    a。 リポジトリのマスター ブランチをローカルに複製します。
+    a。 リポジトリのメイン ブランチをローカルに複製します。
 
     b. `Windows-appsample-photo-lab\xaml-basics-starting-points\user-interface` ディレクトリを参照します。
 
@@ -142,7 +142,7 @@ XAML デザイナーを使用してコントロールを追加するには:
                Style="{StaticResource TitleTextBlockStyle}"/>
     ```
 
-9. **[プロパティ]** パネルの検索ボックスに「**textwrapping**」と入力して、`TextWrapping` プロパティを見つけます。 `TextWrapping` プロパティの_プロパティ マーカー_を選択して、メニューを開きます (プロパティ マーカーは、各プロパティ値の右側に表示される小さな四角形のシンボルです。 プロパティ マーカーは、プロパティが既定値以外に設定されていることを示す黒色になっています)。 **[プロパティ]** メニューの **[リセット]** を選択して `TextWrapping` プロパティをリセットします。
+9. **[プロパティ]** パネルの検索ボックスに「**textwrapping**」と入力して、`TextWrapping` プロパティを見つけます。 `TextWrapping` プロパティの _プロパティ マーカー_ を選択して、メニューを開きます (プロパティ マーカーは、各プロパティ値の右側に表示される小さな四角形のシンボルです。 プロパティ マーカーは、プロパティが既定値以外に設定されていることを示す黒色になっています)。 **[プロパティ]** メニューの **[リセット]** を選択して `TextWrapping` プロパティをリセットします。
 
     Visual Studio によってこのプロパティが追加されますが、適用したスタイルに既に設定されているため、ここでは必要ありません。
 
