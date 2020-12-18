@@ -6,12 +6,12 @@ ms.date: 06/26/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: ad25d4ba5d8dfe638d3de3e210f69ea204c48a14
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 2f550fc90a8035d2c7e355d70b7ddd2b9a9e17fc
+ms.sourcegitcommit: f83f2f582f8c7c3447ec62df40a8f0724f7f3bbc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220015"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97675793"
 ---
 # <a name="launch-the-default-app-for-a-uri"></a>URI に応じた既定のアプリの起動
 
@@ -42,6 +42,7 @@ URI スキームでは、ハイパーリンクをクリックしてアプリを�
 |[ms-tonepicker:](#tone-picker-uri-scheme) | トーンの選択コントロール |
 |[ms-yellowpage:](#nearby-numbers-app-uri-scheme) | 近隣の施設検索アプリ |
 |[msnweather:](#weather-app-uri-scheme) | 天気予報アプリ |
+|[microsoft edge:](#microsoft-edge-uri-scheme) | Microsoft Edge ブラウザー |
 
 <br>
 たとえば、次の URI は既定のブラウザーを開き、Bing の Web サイトを表示します。
@@ -119,7 +120,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 
 [**LaunchUriAsync**](/uwp/api/windows.system.launcher.launchuriasync) を呼び出すソース アプリは、URI の起動後も画面上に留まることを要求できます。 既定では、利用可能なスペース全体がソース アプリと URI を処理するターゲット アプリとで均等に共有されます。 ソース アプリでは、[**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) プロパティを使って、利用可能なスペースをソース アプリのウィンドウがどの程度占めるかをオペレーティング システムに指示できます。 この **DesiredRemainingView** では、URI の起動後にソース アプリが画面上に留まる必要がなく、ターゲット アプリに完全に置き換わっても良いことも示せます。 このプロパティは呼び出し元アプリの優先ウィンドウのサイズだけを指定します。 画面に同時に表示されている可能性のある他のアプリの動作は指定しません。
 
-**メモ**   ソースアプリの最終的なウィンドウサイズ (ソースアプリの優先度、画面上のアプリの数、画面の向きなど) を決定するときに、Windows では複数の異なる要因が考慮されます。 [**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
+**注**  ソース アプリの最終的なウィンドウ サイズは、複数の異なる要素が考慮されて決定されます。たとえば、ソース アプリの設定、画面上のアプリの数、画面の向きなどです。 [**DesiredRemainingView**](/uwp/api/windows.system.launcheroptions.desiredremainingview) を設定しても、ソース アプリの特定のウィンドウ動作が保証されるわけではありません。
 
 ```cs
 // Set the desired remaining view.
@@ -217,7 +218,7 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 |------------|--------|
 | ms-photos:viewer?fileName={filename} | フォト アプリを起動して指定したイメージを表示します。ここで、{filename} は完全修飾パス名です。 例: `c:\users\userName\Pictures\ImageToView.jpg` |
 | ms-photos:videoedit?InputToken={input token} | ファイルのトークンで表されるファイルのビデオ編集モードでフォト アプリを起動します。 **InputToken** は必須です。 [SharedStorageAccessManager](/uwp/api/Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager) を使用してファイルのトークンを取得します。 |
-| ms-photos:videoedit?Action={action} | で Photos アプリを開くためのビデオ編集モードを示すパラメーター。ここで、{action} は: **SlowMotion**、 **フレーム抽出**、 **トリミング**、 **ビュー**、 **インク**のいずれかです。 **操作** が必要です。 |
+| ms-photos:videoedit?Action={action} | で Photos アプリを開くためのビデオ編集モードを示すパラメーター。ここで、{action} は: **SlowMotion**、 **フレーム抽出**、 **トリミング**、 **ビュー**、 **インク** のいずれかです。 **操作** が必要です。 |
 | ms-photos:videoedit?StartTime={timespan} | ビデオの再生を開始する場所を指定するオプションのパラメーターです。 `{timespan}` の形式である必要があり `"hh:mm:ss.ffff"` ます。 指定しない場合、既定値は `00:00:00.0000` |
 
 ### <a name="settings-app-uri-scheme"></a>設定アプリの URI スキーム
@@ -245,3 +246,11 @@ var success = await Windows.System.Launcher.LaunchUriAsync(uriContoso, options);
 | URI スキーム | 結果 |
 |------------|---------|
 | msnweather:/予測? la = \[ 緯度 \]&lo = \[ 経度\] | 場所の地理的な座標に基づいて、予測ページで気象アプリを起動します。<br>`latitude` 場所の緯度を参照します。<br> `longitude` 場所の経度を参照します。<br> |
+
+### <a name="microsoft-edge-uri-scheme"></a>Microsoft Edge URI スキーム
+
+**Microsoft edge:** URI スキームを使用して、指定された URL で microsoft edge ブラウザーを起動します。
+
+| URI スキーム | 結果 |
+|------------|---------|
+| microsoft edge: https://example.com/ ] | Microsoft Edge ブラウザーを開き、に移動します。 https://example.com/<br> |

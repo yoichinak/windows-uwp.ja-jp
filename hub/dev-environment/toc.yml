@@ -106,7 +106,33 @@
                 - name: リポジトリにマニフェストを送信する
                   href: ../package-manager/package/repository.md
         - name: PowerToys
-          href: 'https://github.com/microsoft/PowerToys'
+          items:
+            - name: 概要
+              items:
+                - name: PowerToys のバージョン情報
+                  href: ../powertoys/index.md
+                - name: PowerToys をインストールする
+                  href: ../powertoys/install.md
+                - name: 管理者モードで実行する
+                  href: ../powertoys/administrator.md
+            - name: カラー ピッカー
+              href: ../powertoys/color-picker.md
+            - name: FancyZones
+              href: ../powertoys/fancyzones.md
+            - name: エクスプローラー
+              href: ../powertoys/file-explorer.md
+            - name: Image Resizer
+              href: ../powertoys/image-resizer.md
+            - name: Keyboard Manager
+              href: ../powertoys/keyboard-manager.md
+            - name: PowerRename
+              href: ../powertoys/powerrename.md
+            - name: PowerToys Run
+              href: ../powertoys/run.md
+            - name: Shortcut Guide
+              href: ../powertoys/shortcut-guide.md
+            - name: Video Conference Mute
+              href: ../powertoys/video-conference-mute.md
         - name: VS Code
           href: 'https://code.visualstudio.com/docs'
         - name: "Visual\_Studio"
