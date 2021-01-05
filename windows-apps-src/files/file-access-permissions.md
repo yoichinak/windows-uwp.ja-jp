@@ -11,13 +11,13 @@ dev_langs:
 - cppwinrt
 - cpp
 - javascript
-ms.custom: contperfq1
-ms.openlocfilehash: 6bb0e44fa5ea31d73feebdfb9ced9951cc2bc937
-ms.sourcegitcommit: 2050175043c8c175be3312f17769b4af241b3275
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: fa37bc45ae85456aff177417a3875d724b0ebd54
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90027651"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860257"
 ---
 # <a name="file-access-permissions"></a>ファイル アクセス許可
 

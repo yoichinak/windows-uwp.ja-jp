@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 新機能
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 0d7c42b1346805c9c03714eb9bbb3944fe940ccf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f5cfe5dc66df98e3dd4d4290023cac1874ae797a
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154466"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860288"
 ---
 # <a name="whats-new-in-cwinrt"></a>C++/WinRT の新機能
 
@@ -34,7 +34,7 @@ C++/WinRT と C++ コンパイラ チームは、ビルド時間短縮のため�
 
 ### <a name="improved-msbuild-support"></a>MSBuild サポートの向上
 
-さまざまなシナリオを対象とした [MSBuild](/visualstudio/msbuild/msbuild?view=vs-2019) サポートを向上させるために、多くの取り組みを行ってきました。
+さまざまなシナリオを対象とした [MSBuild](/visualstudio/msbuild/msbuild) サポートを向上させるために、多くの取り組みを行ってきました。
 
 ### <a name="even-faster-factory-caching"></a>ファクトリ キャッシュのさらなる高速化
 
@@ -107,9 +107,9 @@ C++/WinRT コルーチンは既に良好なパフォーマンスを発揮して�
 #### <a name="fewer-dependencies"></a>依存関係の数の削減
 
 xlang メタデータ リーダーにより、`cppwinrt.exe` ツール自体の依存関係の数が少なくなります。 これにより、柔軟性が増し、より多くのシナリオ (特に、制限の厳しいビルド環境) で使用できるようになります。 特に、`RoMetadata.dll` に依存しなくなります。
- 
+ 
 `cppwinrt.exe` 2.0 での依存関係は次のとおりです。
- 
+ 
 - ADVAPI32.dll
 - KERNEL32.dll
 - SHLWAPI.dll
@@ -142,7 +142,7 @@ Windows 10 だけでなく、Windows 7 までの旧バージョンや Windows Vi
 - api-ms-win-core-threadpool-l1-2-0.dll
 - api-ms-win-core-com-l1-1-0.dll
 - api-ms-win-core-com-l1-1-1.dll
-- api-ms-win-core-synch-l1-2-0.dll 
+- api-ms-win-core-synch-l1-2-0.dll 
 
 #### <a name="the-windows-runtime-noexcept-attribute"></a>Windows ランタイムの `noexcept` 属性
 
@@ -171,14 +171,14 @@ printf("%ls\n", projected.ToString().c_str());
 ```cpp
 int32_t Function() noexcept
 {
-    try
-    {
-        // code here constitutes unique value.
-    }
-    catch (...)
-    {
-        // code here is always duplicated.
-    }
+    try
+    {
+        // code here constitutes unique value.
+    }
+    catch (...)
+    {
+        // code here is always duplicated.
+    }
 }
 ```
 
@@ -228,14 +228,14 @@ using namespace Windows::System;
 ...
 fire_and_forget Async(DispatcherQueueController controller)
 {
-    bool queued = co_await resume_foreground(controller.DispatcherQueue());
-    assert(queued);
+    bool queued = co_await resume_foreground(controller.DispatcherQueue());
+    assert(queued);
 
-    // This is just to simulate queue failure...
-    co_await controller.ShutdownQueueAsync();
+    // This is just to simulate queue failure...
+    co_await controller.ShutdownQueueAsync();
 
-    queued = co_await resume_foreground(controller.DispatcherQueue());
-    assert(!queued);
+    queued = co_await resume_foreground(controller.DispatcherQueue());
+    assert(!queued);
 }
 ```
 
@@ -266,51 +266,51 @@ fire_and_forget Async(DispatcherQueueController controller)
 ```cppwinrt
 struct Sample : implements<Sample, IStringable>
 {
-    hstring ToString()
-    {
-        return L"Sample";
-    }
+    hstring ToString()
+    {
+        return L"Sample";
+    }
 
-    ~Sample()
-    {
-        // Called when the unique_ptr below is reset.
-    }
+    ~Sample()
+    {
+        // Called when the unique_ptr below is reset.
+    }
 
-    static void final_release(std::unique_ptr<Sample> self) noexcept
-    {
-        // Move 'self' as needed to delay destruction.
-    }
+    static void final_release(std::unique_ptr<Sample> self) noexcept
+    {
+        // Move 'self' as needed to delay destruction.
+    }
 };
 ```
 
-次の例では、**MainPage** が解放されると (最終回で)、**final_release** が呼び出されます。 その関数は (スレッド プールで) 5 秒間待機してから、ページの**ディスパッチャー**を使って再開します (動作するには QI/AddRef/Release が必要です)。 その後、その UI スレッドでリソースをクリーンアップします。 最後に、**unique_ptr** がクリアされることで、**MainPage** のデストラクターが実際に呼び出されます。 そのデストラクター内でも、**DataContext** が呼び出され、**IFrameworkElement** に対する QI が必要です。
+次の例では、**MainPage** が解放されると (最終回で)、**final_release** が呼び出されます。 その関数は (スレッド プールで) 5 秒間待機してから、ページの **ディスパッチャー** を使って再開します (動作するには QI/AddRef/Release が必要です)。 その後、その UI スレッドでリソースをクリーンアップします。 最後に、**unique_ptr** がクリアされることで、**MainPage** のデストラクターが実際に呼び出されます。 そのデストラクター内でも、**DataContext** が呼び出され、**IFrameworkElement** に対する QI が必要です。
 
 コルーチンとしてとして独自の **final_release** を実装する必要はありません。 しかし、それは動作し、非常に簡単に破棄を別のスレッドに移動できます。この例では、それが行われています。
 
 ```cppwinrt
 struct MainPage : PageT<MainPage>
 {
-    MainPage()
-    {
-    }
+    MainPage()
+    {
+    }
 
-    ~MainPage()
-    {
-        DataContext(nullptr);
-    }
+    ~MainPage()
+    {
+        DataContext(nullptr);
+    }
 
-    static IAsyncAction final_release(std::unique_ptr<MainPage> self)
-    {
-        co_await 5s;
+    static IAsyncAction final_release(std::unique_ptr<MainPage> self)
+    {
+        co_await 5s;
 
-        co_await resume_foreground(self->Dispatcher());
-        co_await self->resource.CloseAsync();
+        co_await resume_foreground(self->Dispatcher());
+        co_await self->resource.CloseAsync();
 
-        // The object is destructed normally at the end of final_release,
+        // The object is destructed normally at the end of final_release,
         // when the std::unique_ptr<MyClass> destructs. If you want to destruct
-        // the object earlier than that, then you can set *self* to `nullptr`.
-        self = nullptr;
-    }
+        // the object earlier than that, then you can set *self* to `nullptr`.
+        self = nullptr;
+    }
 };
 ```
 
@@ -348,8 +348,8 @@ Windows ランタイム プログラミングだけでなく、C++/WinRT は COM
 
 その他の変更点。
 
-- **破壊的変更**。 [**winrt::get_abi(winrt::hstring const&)** ](/uwp/cpp-ref-for-winrt/get-abi) で、`HSTRING` ではなく `void*` が返されるようになります。 `static_cast<HSTRING>(get_abi(my_hstring));` を使って HSTRING を取得できます。 「[ABI の HSTRING との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-hstring)」をご覧ください。
-- **破壊的変更**。 [**winrt::put_abi(winrt::hstring&)** ](/uwp/cpp-ref-for-winrt/put-abi) で、`HSTRING*` ではなく `void**` が返されるようになります。 `reinterpret_cast<HSTRING*>(put_abi(my_hstring));` を使って HSTRING* を取得できます。 「[ABI の HSTRING との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-hstring)」をご覧ください。
+- **破壊的変更**。 [**winrt::get_abi(winrt::hstring const&)**](/uwp/cpp-ref-for-winrt/get-abi) で、`HSTRING` ではなく `void*` が返されるようになります。 `static_cast<HSTRING>(get_abi(my_hstring));` を使って HSTRING を取得できます。 「[ABI の HSTRING との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-hstring)」をご覧ください。
+- **破壊的変更**。 [**winrt::put_abi(winrt::hstring&)**](/uwp/cpp-ref-for-winrt/put-abi) で、`HSTRING*` ではなく `void**` が返されるようになります。 `reinterpret_cast<HSTRING*>(put_abi(my_hstring));` を使って HSTRING* を取得できます。 「[ABI の HSTRING との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-hstring)」をご覧ください。
 - **破壊的変更**。 HRESULT が **winrt::hresult** として投影されるようになります。 HRESULT が必要な場合 (型チェックの実行または型の特徴のサポートのため)、**winrt::hresult** を `static_cast` できます。 それ以外の場合、C++/WinRT ヘッダーをインクルードする前に `unknwn.h` がインクルードされていると、**winrt::hresult** は HRESULT に変換されます。
 - **破壊的変更**。 GUID が **winrt::guid** として投影されるようになります。 実装する API の場合、GUID パラメーターに対して **winrt::guid** を使用する必要があります。 それ以外の場合、C++/WinRT ヘッダーをインクルードする前に `unknwn.h` がインクルードされていると、**winrt::guid** は GUID に変換されます。 「[ABI の GUID 構造体との相互運用](interop-winrt-abi.md#interoperating-with-the-abis-guid-struct)」をご覧ください。
 - **破壊的変更**。 [**winrt::handle_type コンストラクター**](/uwp/cpp-ref-for-winrt/handle-type#handle_typehandle_type-constructor) は、明示的にすることで強化されています (それで不適切なコードを記述することが難しくなっています)。 生のハンドル値を割り当てる必要がある場合は、代わりに [**handle_type::attach 関数**](/uwp/cpp-ref-for-winrt/handle-type#handle_typeattach-function) を呼び出します。
@@ -384,7 +384,7 @@ C++/WinRT は、コンパイルで Windows SDK からのヘッダー ファイ�
 ただし、Visual Studio でプロジェクトのターゲットを変更するには、他に 2 つの方法があります。
 
 - プロジェクトのプロパティ **[全般]** \> **[Windows SDK バージョン]** に移動し、 **[すべての構成]** と **[すべてのプラットフォーム]** を選択します。 **[Windows SDK バージョン]** を、ターゲットにするバージョンに設定します。
-- **ソリューション エクスプローラー**で、プロジェクト ノードを右クリックし、 **[プロジェクトの再ターゲット]** をクリックして、ターゲットにするバージョンを選択してから、 **[OK]** をクリックします。
+- **ソリューション エクスプローラー** で、プロジェクト ノードを右クリックし、 **[プロジェクトの再ターゲット]** をクリックして、ターゲットにするバージョンを選択してから、 **[OK]** をクリックします。
 
 これら 2 つの方法のいずれかを使用した後で、コンパイラ エラーまたはリンカー エラーが発生する場合は、もう一度ビルドを試みる前に、ソリューションをクリーニングしてみることができます ( **[ビルド]**  >  **[ソリューションのクリーン]** を選択するか、すべての一時フォルダーとファイルを手動で削除します)。
 

@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: 56b45b14f9eb73a0257993d31b05cc084f10dfef
-ms.sourcegitcommit: a30808f38583f7c88fb5f54cd7b7e0b604db9ba6
+ms.openlocfilehash: ba2bcf104bd1fee9657e83f7a20334522fa0450c
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91763038"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860205"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザーのデバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
@@ -39,7 +39,7 @@ Entity Framework (EF) は、ドメイン固有のオブジェクトを使って�
 
 ### <a name="sqlite-library"></a>SQLite ライブラリ
 
-[Microsoft.Data.Sqlite](/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) ライブラリでは、[System.Data.Common](/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装しています。 Microsoft では、これらの実装をアクティブに保守しています。これらの実装によって、低レベルのネイティブ SQLite API に関する直感的なラッパーを提供します。
+[Microsoft.Data.Sqlite](/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0&preserve-view=true) ライブラリでは、[System.Data.Common](/dotnet/api/system.data.common) 名前空間内にインターフェイスを実装しています。 Microsoft では、これらの実装をアクティブに保守しています。これらの実装によって、低レベルのネイティブ SQLite API に関する直感的なラッパーを提供します。
 
 このガイドの残りの部分では、このライブラリの使用について説明します。
 
@@ -100,7 +100,7 @@ UWP プロジェクトの最小バージョンを Fall Creators Update に上げ
 ![[ソリューション エクスプローラー] パネルで、プロジェクトが右クリックされ、[NuGet パッケージの管理] オプションが強調表示されているスクリーンショット。](images/manage-nuget-2.png)
 
 > [!NOTE]
-> .NET Standard クラス ライブラリが UWP アプリのアプリ フォルダーやイメージ資産にアクセスできるようにするには、その**プロパティ**で、**EmbeddedResource** および **CopyAlways** としてマークする必要があります。
+> .NET Standard クラス ライブラリが UWP アプリのアプリ フォルダーやイメージ資産にアクセスできるようにするには、その **プロパティ** で、**EmbeddedResource** および **CopyAlways** としてマークする必要があります。
 
 この時点で 2 つの選択肢があります。 Windows に含まれている SQLite のバージョンを使用することができます。または、何らかの理由で特定バージョンの SQLite を使用する場合は、パッケージに SQLite ライブラリを含めることができます。
 
@@ -199,7 +199,7 @@ public async static void InitializeDatabase()
 
 このコードは、SQLite データベースを作成し、アプリケーションのローカル データ ストアに保存します。
 
-この例では、データベースに ``sqlliteSample.db`` という名前を付けますが、インスタンス化するすべての [SqliteConnection](/dotnet/api/microsoft.data.sqlite.sqliteconnection?view=msdata-sqlite-2.0.0) オブジェクトでその名前を使用する限り、任意の名前を使用することができます。
+この例では、データベースに ``sqlliteSample.db`` という名前を付けますが、インスタンス化するすべての [SqliteConnection](/dotnet/api/microsoft.data.sqlite.sqliteconnection?view=msdata-sqlite-2.0.0&preserve-view=true) オブジェクトでその名前を使用する限り、任意の名前を使用することができます。
 
 UWP プロジェクトの **App.xaml.cs** ファイルのコンストラクターで、**DataAccess** クラスの ``InitializeDatabase`` メソッドを呼び出します。
 
@@ -276,9 +276,9 @@ public static List<String> GetData()
 }
 ```
 
-[Read](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.read?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_Read) メソッドは、返されるデータの行を次に進めます。 このメソッドでは、残りの行がある場合は **true** を返し、ない場合は **false** を返します。
+[Read](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.read?view=msdata-sqlite-2.0.0&preserve-view=true#Microsoft_Data_Sqlite_SqliteDataReader_Read) メソッドは、返されるデータの行を次に進めます。 このメソッドでは、残りの行がある場合は **true** を返し、ない場合は **false** を返します。
 
-[GetString](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getstring?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetString_System_Int32_) メソッドは、指定された列の値を文字列として返します。 このメソッドでは、必要なデータの 0 から始まる列の序数を表す整数値を受け取ります。 [GetDataTime](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getdatetime?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetDateTime_System_Int32_) や [GetBoolean](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getboolean?view=msdata-sqlite-2.0.0#Microsoft_Data_Sqlite_SqliteDataReader_GetBoolean_System_Int32_) などの同様のメソッドを使用できます。 列に格納するデータの型に基づいてメソッドを選択します。
+[GetString](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getstring?view=msdata-sqlite-2.0.0&preserve-view=true#Microsoft_Data_Sqlite_SqliteDataReader_GetString_System_Int32_) メソッドは、指定された列の値を文字列として返します。 このメソッドでは、必要なデータの 0 から始まる列の序数を表す整数値を受け取ります。 [GetDataTime](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getdatetime?view=msdata-sqlite-2.0.0&preserve-view=true#Microsoft_Data_Sqlite_SqliteDataReader_GetDateTime_System_Int32_) や [GetBoolean](/dotnet/api/microsoft.data.sqlite.sqlitedatareader.getboolean?view=msdata-sqlite-2.0.0&preserve-view=true#Microsoft_Data_Sqlite_SqliteDataReader_GetBoolean_System_Int32_) などの同様のメソッドを使用できます。 列に格納するデータの型に基づいてメソッドを選択します。
 
 この例では 1 つの列のすべてのエントリを選択しているため、序数パラメーターがそれほど重要ではありません。 ただし、クエリに複数の列が含まれる場合は、序数値を使用してデータを取り出す列を取得します。
 
@@ -315,7 +315,7 @@ private void AddData(object sender, RoutedEventArgs e)
 }
 ```
 
-これで完了です。 [Microsoft.Data.Sqlite](/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0) を参照して、他に SQLite データベースと連携できるものを確認してください。 UWP アプリでデータを使用するその他の方法については、次のリンクを参照してください。
+これで完了です。 [Microsoft.Data.Sqlite](/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-2.0.0&preserve-view=true) を参照して、他に SQLite データベースと連携できるものを確認してください。 UWP アプリでデータを使用するその他の方法については、次のリンクを参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

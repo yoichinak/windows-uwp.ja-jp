@@ -6,16 +6,16 @@ ms.date: 11/18/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 309568b80d51cc8bd6cd2394317ef3bb8266a212
-ms.sourcegitcommit: 2a23972e9a0807256954d6da5cf21d0bbe7afb0a
+ms.openlocfilehash: 78d843ff9bdd0625b7172af0bc973581d8bd988a
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94941818"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860416"
 ---
 # <a name="launch-the-windows-settings-app"></a>Windows 設定アプリの起動
 
@@ -71,18 +71,18 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 次のセクションでは、設定アプリのさまざまなページを開くために使用する ms 設定 Uri のさまざまなカテゴリについて説明します。
 
-* [アカウント](#accounts)
-* [Apps (アプリ)](#apps)
+* [Accounts](#accounts)
+* [アプリ](#apps)
 * [Cortana](#cortana)
 * [デバイス](#devices)
 * [簡単なアクセス](#ease-of-access)
 * [追加](#extras)
-* [ゲーム](#gaming)
+* [Gaming](#gaming)
 * [ホーム ページ](#home-page)
 * [複合現実](#mixed-reality)
 * [ネットワークとインターネット](#network-and-internet)
 * [個人用設定](#personalization)
-* [ダイヤル](#phone)
+* [Phone](#phone)
 * [プライバシー](#privacy)
 * [Surface Hub](#surface-hub)
 * [システム](#system)
@@ -105,7 +105,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 * ms-settings:storagecleanup
 * ms-settings:update-security -->
 
-### <a name="accounts"></a>[アカウント]
+### <a name="accounts"></a>アカウント
 
 |[設定] ページ| URI |
 |-------------|-----|
@@ -118,7 +118,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | Windows Hello セットアップ | ms-settings:signinoptions-launchfaceenrollment<br>ms-settings:signinoptions-launchfingerprintenrollment |
 | ユーザーの情報 | ms-settings:yourinfo |
 
-### <a name="apps"></a>アプリケーション
+### <a name="apps"></a>アプリ
 
 |[設定] ページ| URI |
 |-------------|-----|
@@ -186,7 +186,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 |-------------|-----|
 | 追加 | ms 設定: エクストラ (たとえば、サードパーティによって "設定アプリ" がインストールされている場合のみ使用可能) |
 
-### <a name="gaming"></a>ゲーム
+### <a name="gaming"></a>Gaming
 
 |[設定] ページ| URI |
 |-------------|-----|
@@ -230,12 +230,12 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | モバイルホットスポット | ms-settings:network-mobilehotspot |
 | NFC | ms-settings:nfctransactions |
 | プロキシ | ms-settings:network-proxy |
-| 状態 | ms-settings:network-status<br/>ms-設定: ネットワーク |
+| Status | ms-settings:network-status<br/>ms-設定: ネットワーク |
 | VPN | ms-settings:network-vpn |
 | Wi-Fi | ms-settings:network-wifi (デバイスに wifi アダプターがある場合にのみ利用可能) |
 | Wi-Fi 通話 | ms-settings:network-wificalling (Wi-Fi 通話が有効な場合のみ利用可能) |
 
-### <a name="personalization"></a>パーソナル化
+### <a name="personalization"></a>個人設定
 
 |[設定] ページ| URI |
 |-------------|-----|
@@ -246,11 +246,11 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | ロック画面 | ms-settings:lockscreen |
 | ナビゲーション バー | ms 設定: 個人用設定-ナビゲーションバー (**Windows 10 バージョン1809以降では非推奨**) |
 | 個人用設定 (カテゴリ) | ms-settings:personalization |
-| [開始] | ms-settings:personalization-start |
+| 開始 | ms-settings:personalization-start |
 | タスク バー | ms-settings:taskbar |
 | テーマ | ms-settings:themes |
 
-### <a name="phone"></a>電話
+### <a name="phone"></a>Phone
 
 |[設定] ページ| URI |
 |-------------|-----|
@@ -272,7 +272,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | カメラ | ms-settings:privacy-webcam |
 | 連絡先 | ms-settings:privacy-contacts |
 | ドキュメント | ms-settings:privacy-documents |
-| Email | ms-settings:privacy-email |
+| 電子メール | ms-settings:privacy-email |
 | アイ トラッカー | ms-settings:privacy-eyetracker (eyetracker ハードウェアが必要) |
 | フィードバックと診断 | ms-settings:privacy-feedback |
 | ファイル システム | ms-settings:privacy-broadfilesystemaccess |
@@ -296,7 +296,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 |[設定] ページ| URI |
 |-------------|-----|
-| [アカウント] | ms-settings:surfacehub-accounts |
+| アカウント | ms-settings:surfacehub-accounts |
 | セッションのクリーンアップ | ms-settings:surfacehub-sessioncleanup |
 | チーム会議 | ms-settings:surfacehub-calling |
 | チーム デバイス管理 | ms-settings:surfacehub-devicemanagenent |
@@ -306,7 +306,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 |[設定] ページ| URI |
 |-------------|-----|
-| バージョン情報 | ms-settings:about |
+| 詳細 | ms-settings:about |
 | ディスプレイの詳細設定 | ms-settings:display-advanced (詳細オプションをサポートするデバイスでのみ利用可能) |
 | アプリのボリュームとデバイスの基本設定 | ms 設定: アプリ-ボリューム (**Windows 10 バージョン1903で追加**)|
 | バッテリー節約機能 | ms-settings:batterysaver (タブレットなど、バッテリーを搭載したデバイスでのみ利用可能) |
@@ -324,14 +324,14 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 | メッセージング | ms-settings:messaging |
 | マルチタスキング | ms-settings:multitasking |
 | 夜間モード設定 | ms-settings:nightlight |
-| 電話 | ms-settings:phone-defaultapps |
+| Phone | ms-settings:phone-defaultapps |
 | この PC へのプロジェクション | ms-settings:project |
 | 共有エクスペリエンス | ms-settings:crossdevice |
 | タブレット モード | ms-settings:tabletmode |
 | タスク バー | ms-settings:taskbar |
 | 通知とアクション | ms-settings:notifications |
 | リモート デスクトップ | ms-settings:remotedesktop |
-| 電話 | ms 設定: phone (**Windows 10 バージョン1809以降では非推奨**) |
+| Phone | ms 設定: phone (**Windows 10 バージョン1809以降では非推奨**) |
 | 電源とスリープ | ms-settings:powersleep |
 | サウンド | ms 設定: サウンド |
 | ストレージ | ms-settings:storagesense |
@@ -343,7 +343,7 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 |-------------|-----|
 | 日時 | ms-settings:dateandtime |
 | 日本 IME の設定 | ms-settings:regionlanguage-jpnime (Microsoft 日本語入力方式エディターがインストールされている場合に利用可能) |
-| リージョン | ms 設定: regionformatting 設定 |
+| Region | ms 設定: regionformatting 設定 |
 | Language | ms-設定: キーボード<br/>ms-settings:regionlanguage<br/>ms-設定: regionlanguage-bpmfime<br/>ms-設定: regionlanguage-cangjieime<br/>ms 設定: regionlanguage-chsime-domainlexicon<br/>ms 設定: regionlanguage-chsime-keyconfig<br/>ms 設定: regionlanguage-chsime-udp<br/>ms-設定: regionlanguage-chsime-wubi-udp<br/>ms 設定: regionlanguage-quickime |
 | Pinyin IME の設定 | ms-settings:regionlanguage-chsime-pinyin (Microsoft Pinyin 入力方式エディターがインストールされている場合に利用可能) |
 | 音声 | ms-settings:speech |
@@ -353,12 +353,12 @@ URI の起動について詳しくは、「[URI に応じた既定のアプリ�
 
 |[設定] ページ| URI |
 |-------------|-----|
-| アクティベーション | ms-settings:activation |
+| アクティブ化 | ms-settings:activation |
 | バックアップ | ms-settings:backup |
 | 配信の最適化 | ms-settings:delivery-optimization |
 | デバイスの検索 | ms-settings:findmydevice |
 | 開発者向け | ms-settings:developers |
-| 復元 | ms-settings:recovery |
+| Recovery | ms-settings:recovery |
 | トラブルシューティング | ms-settings:troubleshoot |
 | Windows セキュリティ | ms-settings:windowsdefender |
 | Windows Insider Program | ms-settings:windowsinsider(ユーザーが WIP に登録されている場合にのみ存在)<br/>ms 設定: windowsinsider-optin |

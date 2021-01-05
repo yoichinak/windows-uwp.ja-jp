@@ -5,12 +5,12 @@ keywords: 新着情報, 新機能, Windows, Windows 10, 更新, 更新プログ�
 ms.date: 05/12/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 63a6138841a19629523b452eab2f3e7b5d125c37
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 04fba2a6fd1f7a13dae3e3509ccb3a0470396dad
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174426"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860146"
 ---
 # <a name="whats-new-for-developers-in-windows-10-build-19041"></a>Windows 10 ビルド 19041 の開発者向け新着情報
 
@@ -31,7 +31,7 @@ Direct3D | 「[ハイ ダイナミック レンジ ディスプレイと高度�
 Direct3D 12 | [Direct3D 12 Core 1.0 機能レベル](/windows/win32/direct3d12/core-feature-levels)が追加され、"*コンピューティング専用*" デバイスで使用できるようになりました。 </br> [ID3D12Debug3 インターフェイス](/windows/win32/api/d3d12sdklayers/nn-d3d12sdklayers-id3d12debug3)に関する新しいトピックが追加されました。
 Direct ML | WinML の構築基盤となる低レベルのハードウェア アクセラレータ対応 API である DirectML に、18 個の演算子が追加されました。 [DML_ACTIVATION_SHRINK_OPERATOR_DESC 構造](/windows/win32/api/directml/ns-directml-dml_activation_shrink_operator_desc)はその一例です。
 エラー報告 | RoFailFastWithErrorContextInternal2 関数が Win32 に追加されました。これにより、発生した例外に追加のエラー コンテキストが含まれる場合があります。
-Machine Learning | Windows Machine Learning で、[ONNX バージョン 1.4 および opset 9 がサポート](/windows/ai/windows-ml/release-notes)されるようになりました。 </br>  [CloseModelOnSessionCreation](/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions.closemodelonsessioncreation?view=winrt-19041) API を使用すると、不要になった学習モデルを自動的に閉じることにより、メモリを節約できます。
+Machine Learning | Windows Machine Learning で、[ONNX バージョン 1.4 および opset 9 がサポート](/windows/ai/windows-ml/release-notes)されるようになりました。 </br>  [CloseModelOnSessionCreation](/uwp/api/windows.ai.machinelearning.learningmodelsessionoptions.closemodelonsessioncreation) API を使用すると、不要になった学習モデルを自動的に閉じることにより、メモリを節約できます。
 Wi-Fi | [WlanDeviceServiceCommand function](/windows/win32/api/wlanapi/nf-wlanapi-wlandeviceservicecommand) など、新しいネイティブ WiFi 関数と構造がいくつか追加されました。
 Wi-Fi ホットスポット 2 | 「[Web サイトを使用した Wi-Fi プロファイルのプロビジョニング](/windows/win32/nativewifi/prov-wifi-profile-via-website)」では、Wi-Fi ホットスポット 2 の新機能について説明しています。
 Windows Holographic 相互運用 | 17 個の Win32 API に加えて、[`windows.graphics.holographic.interop.h`](/windows/win32/api/windows.graphics.holographic.interop) ヘッダーが追加されました。 この API は、Win32 と Windows ランタイムの間で相互運用を行うためのものです。 API は Windows 10 ビルド 18362 で追加されていましたが、ヘッダーはビルド 19041 で新たに追加されました。

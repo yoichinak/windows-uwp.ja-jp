@@ -12,18 +12,18 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 3fd6cfb7fb0ffd7102f32d7159aba2b4c1042b76
-ms.sourcegitcommit: da44cb95946440cd06ff36254d42ecefcdd87ce2
+ms.openlocfilehash: 7b1304032243c7675c4aba6cbda7e7899e8deddb
+ms.sourcegitcommit: e252ccb4a76c4883c7073083d73007957202b84d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93063024"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657679"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
 コレクションとリストは、どちらも、まとめて表示される複数の関連データ項目の表現を指します。 コレクションは、さまざまなコレクション コントロール (コレクション ビューと呼ばれる場合もあります) によって、複数の方法で表現できます。 コレクション コントロールを使用して、連絡先リスト、日付リスト、画像コレクションなど、コレクションベースのコンテンツを表示して操作できるようにします。
 
-> **重要な API** : [ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)、 [GridView クラス](/uwp/api/Windows.UI.Xaml.Controls.GridView)、 [FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、 [TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)、 [ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
+> **重要な API**:[ListView クラス](/uwp/api/Windows.UI.Xaml.Controls.ListView)、[GridView クラス](/uwp/api/Windows.UI.Xaml.Controls.GridView)、[FlipView クラス](/uwp/api/windows.ui.xaml.controls.flipview)、[TreeView クラス](/uwp/api/windows.ui.xaml.controls.treeview)、[ItemsRepeater クラス](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
 
 この記事で説明するコントロールには、以下が含まれます。
 
@@ -333,7 +333,7 @@ ItemsRepeater は、次に該当する場合に使用します。
 - [マスター/詳細](master-details.md)
 - [ナビゲーション ウィンドウ](navigationview.md)
 - [セマンティック ズーム](semantic-zoom.md)
-- [ドラッグ アンド ドロップ](https://docs.microsoft.com/windows/uwp/app-to-app/drag-and-drop)
+- [ドラッグ アンド ドロップ](../input/drag-and-drop.md)
 - [サムネイル画像](../../files/thumbnails.md)
 
 **API リファレンス**

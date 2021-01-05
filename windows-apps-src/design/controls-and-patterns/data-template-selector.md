@@ -7,18 +7,18 @@ ms.date: 10/18/2019
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: anawish
-ms.openlocfilehash: 5b10afc03a1936c033977a53bd12effdae1c2ead
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 0d9a35c3e66a4d4189016ca87d3da51da5bf5be4
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93032335"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860391"
 ---
 # <a name="data-template-selection-styling-items-based-on-their-properties"></a>データ テンプレートの選択:プロパティに基づいて項目のスタイルを設定する
 
 コレクションのコントロールのカスタマイズしたデザインは、[DataTemplate](/uwp/api/windows.ui.xaml.datatemplate) によって管理されます。 データ テンプレートによって、各項目のレイアウトおよびスタイルが定義され、そのマークアップがコレクション内のすべての項目に適用されます。 この記事では、[DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector) を使用して、選択した特定の項目のプロパティまたは値に基づきコレクションに異なるデータ テンプレートを適用し、使用するデータ テンプレートを選択する方法について説明します。
 
-> **重要な API** : [DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector)、 [DataTemplate](/uwp/api/windows.ui.xaml.datatemplate)
+> **重要な API**:[DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector)、[DataTemplate](/uwp/api/windows.ui.xaml.datatemplate)
 
 [DataTemplateSelector](/uwp/api/windows.ui.xaml.controls.datatemplateselector) は、カスタム テンプレート選択ロジックを有効にするクラスです。 コレクション内の特定の項目に対して使用するデータ テンプレートを指定するルールを定義できます。 このロジックを実装するには、コード ビハインドで DataTemplateSelector のサブクラスを作成し、どの項目のカテゴリにどのデータ テンプレートを使用するかを決定するロジックを定義します (たとえば、特定の種類の項目や特定のプロパティ値を持つ項目など)。 このクラスのインスタンスは、使用するデータ テンプレートの定義と共に、XAML ファイルの Resources セクションで宣言します。 これらのリソースは、XAML で参照できるように `x:Key` 値で識別します。
 
@@ -124,7 +124,7 @@ public class MyDataTemplateSelector : DataTemplateSelector
 コードをコンパイルすると、各コレクション項目は `MyDataTemplateSelector` のオーバーライドされた `SelectTemplateCore` メソッドを通じて実行され、適切な DataTemplate を使用してレンダリングされます。
 
 > [!IMPORTANT]
-> [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2) で `DataTemplateSelector` を使用する場合は、`DataTemplateSelector` を `ItemTemplate` プロパティにバインドします。 `ItemsRepeater` には `ItemTemplateSelector` のプロパティがありません。
+> [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater?view=winui-2.2&preserve-view=true) で `DataTemplateSelector` を使用する場合は、`DataTemplateSelector` を `ItemTemplate` プロパティにバインドします。 `ItemsRepeater` には `ItemTemplateSelector` のプロパティがありません。
 
 ## <a name="datatemplateselector-performance-considerations"></a>DataTemplateSelector のパフォーマンスに関する考慮事項
 

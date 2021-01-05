@@ -6,12 +6,12 @@ ms.date: 10/13/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b0991e4d1173bc665e0cf14786e1901e26e4823c
-ms.sourcegitcommit: 56e9cab45d1c6e54841d61fdf23044fa01f50c43
+ms.openlocfilehash: 6c80bb9a3b9fe59550dff0603bdbe1b87e5b2982
+ms.sourcegitcommit: 3eb43ba2a6c52ad83523d63d825ac5d4d9050cd3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92011899"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97811963"
 ---
 # <a name="get-set-up"></a>準備
 
@@ -57,8 +57,8 @@ UWP アプリのテストは実際の PC と電話で行うことが重要です
 
 ツールをインストールして、デバイスを開発用に有効にしたら、Windows 10 アプリの作成を開始する方法に関するガイダンスを確認してください。
 
--   [プラットフォームを選択する](/windows/desktop/apps/choose-your-platform.md)
--   [UWP アプリのコーディングを開始する](/windows/uwp/get-started/create-uwp-apps.md)
+-   [プラットフォームを選択する](../desktop/choose-your-platform.md)
+-   [UWP アプリのコーディングを開始する](/windows-apps-src/get-started/create-uwp-apps.md)
 
 ## <a name="windows-development-setup-scripts"></a>Windows 開発セットアップ スクリプト
 
@@ -73,5 +73,5 @@ UWP アプリのテストは実際の PC と電話で行うことが重要です
 ## <a name="see-also"></a>参照
 
 * [UWP 開発者向けコード サンプル](https://developer.microsoft.com/windows/samples)
-* [UWP アプリとは](/windows/uwp/get-started/universal-application-platform-guide.md)
+* [UWP アプリとは](/windows-apps-src/get-started/universal-application-platform-guide.md)
 * [Windows アカウントのサインアップ](sign-up.md)

@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 1338b45dd5ccc7558725dd1ad1d210f3c5e7232b
-ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
+ms.openlocfilehash: b88f65ba45a2b8a79d822eba525733550f965372
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132995"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860180"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP にデスクトップ アプリを統合する
 
@@ -53,7 +53,7 @@ ms.locfileid: "92132995"
     <DesktopAppMigration>
         <DesktopApp AumId="[your_app_aumid]" />
         <DesktopApp ShortcutPath="[path]" />
-    </DesktopAppMigration>
+    </DesktopAppMigration>
 </Extension>
 ```
 
@@ -80,7 +80,7 @@ ms.locfileid: "92132995"
             <rescap3:DesktopApp ShortcutPath="%USERPROFILE%\Desktop\[my_app].lnk" />
             <rescap3:DesktopApp ShortcutPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\[my_app].lnk" />
             <rescap3:DesktopApp ShortcutPath="%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\[my_app_folder]\[my_app].lnk"/>
-         </rescap3:DesktopAppMigration>
+         </rescap3:DesktopAppMigration>
         </rescap3:Extension>
       </Extensions>
     </Application>
@@ -109,11 +109,11 @@ ms.locfileid: "92132995"
 
 ```XML
 <Extension Category="windows.fileTypeAssociation">
-    <FileTypeAssociation Name="[Name]">
-         <MigrationProgIds>
-            <MigrationProgId>"[ProgID]"</MigrationProgId>
-        </MigrationProgIds>
-    </FileTypeAssociation>
+    <FileTypeAssociation Name="[Name]">
+         <MigrationProgIds>
+            <MigrationProgId>"[ProgID]"</MigrationProgId>
+        </MigrationProgIds>
+    </FileTypeAssociation>
 </Extension>
 ```
 
@@ -137,11 +137,11 @@ ms.locfileid: "92132995"
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap3:FileTypeAssociation Name="myfiletypes">
-            <rescap3:MigrationProgIds>
-              <rescap3:MigrationProgId>Foo.Bar.1</rescap3:MigrationProgId>
+            <rescap3:MigrationProgIds>
+              <rescap3:MigrationProgId>Foo.Bar.1</rescap3:MigrationProgId>
               <rescap3:MigrationProgId>Foo.Bar.2</rescap3:MigrationProgId>
-            </rescap3:MigrationProgIds>
-          </uap3:FileTypeAssociation>
+            </rescap3:MigrationProgIds>
+          </uap3:FileTypeAssociation>
         </uap:Extension>
       </Extensions>
     </Application>
@@ -688,13 +688,13 @@ DLL 検索順序に含まれるパッケージには、既定で、その "*有�
 ```XML
 <Extension Category="windows.fileTypeAssociation">
     <FileTypeAssociation Name="[Name]">
-        <SupportedFileTypes>
-            <FileType>"[FileExtension]"</FileType>
-        </SupportedFileTypes>
-        <KindMap>
-            <Kind value="[KindValue]">
-        </KindMap>
-    </FileTypeAssociation>
+        <SupportedFileTypes>
+            <FileType>"[FileExtension]"</FileType>
+        </SupportedFileTypes>
+        <KindMap>
+            <Kind value="[KindValue]">
+        </KindMap>
+    </FileTypeAssociation>
 </Extension>
 ```
 
@@ -719,16 +719,16 @@ DLL 検索順序に含まれるパッケージには、既定で、その "*有�
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
            <uap:FileTypeAssociation Name="mediafiles">
-             <uap:SupportedFileTypes>
-               <uap:FileType>.m4a</uap:FileType>
-               <uap:FileType>.mta</uap:FileType>
-             </uap:SupportedFileTypes>
-             <rescap:KindMap>
-               <rescap:Kind value="Item">
+             <uap:SupportedFileTypes>
+               <uap:FileType>.m4a</uap:FileType>
+               <uap:FileType>.mta</uap:FileType>
+             </uap:SupportedFileTypes>
+             <rescap:KindMap>
+               <rescap:Kind value="Item">
                <rescap:Kind value="Communications">
                <rescap:Kind value="Task">
-             </rescap:KindMap>
-          </uap:FileTypeAssociation>
+             </rescap:KindMap>
+          </uap:FileTypeAssociation>
       </uap:Extension>
       </Extensions>
     </Application>
@@ -874,7 +874,7 @@ DLL 検索順序に含まれるパッケージには、既定で、その "*有�
         <com:Extension Category="windows.comServer">
           <com:ComServer>
             <com:SurrogateServer AppId="d0c8bceb-28eb-49ae-bc68-454ae84d6264" DisplayName="ContosoHandler"">
-              <com:Class Id="Id="d0c8bceb-28eb-49ae-bc68-454ae84d6264" Path="ExplorerCommandVerb.dll" ThreadingModel="STA"/>
+              <com:Class Id="d0c8bceb-28eb-49ae-bc68-454ae84d6264" Path="ExplorerCommandVerb.dll" ThreadingModel="STA"/>
             </com:SurrogateServer>
           </com:ComServer>
         </com:Extension>

@@ -5,15 +5,15 @@ ms.assetid: 2125B09F-DB90-4515-9AA6-516C7E9ACCCD
 template: detail.hbs
 ms.date: 09/28/2020
 ms.topic: article
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: b63e88f6d83e84bbe07fc4c5cbe7befba6dc3c8a
-ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
+ms.openlocfilehash: 6003db167d2a36205ac02f98750295d32a03ca62
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91878505"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860265"
 ---
 # <a name="windows-push-notification-services-wns-overview"></a>Windows プッシュ通知サービス (WNS) の概要 
 
@@ -65,7 +65,7 @@ WNS の認証方式は、[OAuth 2.0](https://tools.ietf.org/html/draft-ietf-oaut
 WNS に対する認証では、クラウド サービスからの HTTP 要求の送信に Secure Sockets Layer (SSL) を使います。 パラメーターの形式は "application/x-www-for-urlencoded" です。 次の例に示すように、[クライアント id] フィールドにパッケージ SID を指定し、 \_ [クライアントシークレット] フィールドに秘密キーを入力し \_ ます。 構文について詳しくは、[アクセス トークン要求](/previous-versions/windows/apps/hh465435(v=win.10))のリファレンスをご覧ください。
 
 > [!NOTE]
-> これはほんの一例です。独自のコードで正常に使用できる切り取りと貼り付けのコードではありません。 
+> これはほんの一例です。独自のコードで正常に使用できる切り取りと貼り付けのコードではありません。 
 
 ``` http
  POST /accesstoken.srf HTTP/1.1
@@ -157,12 +157,12 @@ WNS はクラウド サービスを認証し、成功した場合、"200 OK" と
 
 これら 2 つの設定の状態を確認する方法はありませんが、バッテリ セーバーの状態を確認することはできます。 Windows 10 では、[**EnergySaverStatus**](/uwp/api/Windows.System.Power.PowerManager.EnergySaverStatus) プロパティを使って、バッテリ セーバーの状態を確認します。 アプリでは、[**EnergySaverStatusChanged**](/uwp/api/Windows.System.Power.PowerManager.EnergySaverStatusChanged) イベントを使って、バッテリ セーバーの変更をリッスンすることもできます。
 
-アプリがプッシュ通知を多用している場合は、バッテリ セーバーがオンの時は通知を受け取らないことをユーザーに通知し、**バッテリ セーバーの設定**を簡単に調整できるようにすることをお勧めします。 Windows 10 でバッテリ セーバー設定の URI スキーム `ms-settings:batterysaver-settings` を使って、設定アプリへの便利なリンクを提供することができます。
+アプリがプッシュ通知を多用している場合は、バッテリ セーバーがオンの時は通知を受け取らないことをユーザーに通知し、**バッテリ セーバーの設定** を簡単に調整できるようにすることをお勧めします。 Windows 10 でバッテリ セーバー設定の URI スキーム `ms-settings:batterysaver-settings` を使って、設定アプリへの便利なリンクを提供することができます。
 
 > [!TIP]
 > バッテリの節約設定についてユーザーに通知する場合は、今後メッセージを表示しないようにする方法を用意することをお勧めします。 たとえば、次の例の [`dontAskMeAgainBox`] チェックボックスは、[**LocalSettings**](/uwp/api/Windows.Storage.ApplicationData.LocalSettings) でユーザーの設定を保持します。
 
-Windows 10 でバッテリ省が有効になっているかどうかを確認する方法の例を次に示します。 この例では、ユーザーに通知し、[設定] アプリを**バッテリ セーバー設定**で起動します。 `dontAskAgainSetting` により、ユーザーは再度通知を表示しないようにする場合に、メッセージを非表示にすることができます。
+Windows 10 でバッテリ省が有効になっているかどうかを確認する方法の例を次に示します。 この例では、ユーザーに通知し、[設定] アプリを **バッテリ セーバー設定** で起動します。 `dontAskAgainSetting` により、ユーザーは再度通知を表示しないようにする場合に、メッセージを非表示にすることができます。
 
 ```csharp
 using System;

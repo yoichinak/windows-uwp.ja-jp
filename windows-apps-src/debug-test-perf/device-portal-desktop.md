@@ -4,15 +4,15 @@ title: Windows デスクトップ用 Device Portal
 description: Windows デスクトップで Windows Device Portal の診断と自動化を利用する方法について説明します。
 ms.date: 08/20/2020
 ms.topic: article
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 1618b2de1f0db96989a7aedf5b53805fd70f535e
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: 42f6f35fe2cea38d4c1f194fbc740b7a8290ea8c
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339570"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860340"
 ---
 # <a name="device-portal-for-windows-desktop"></a>Windows デスクトップ用 Device Portal
 
@@ -138,7 +138,7 @@ Windows 10 のプレリリース ビルドで開発者パッケージをイン�
  
 3. **[新しいビルドを取得する頻度はどの程度を希望されますか?]** の下で、 **[Windows Insider Fast]\(Windows Insider - 高速\)** が選択されていることを確認します。
  
-4. これで FoD をインストールできるようになります。 "Windows Insider - 高速" を使用していて、FoD を引き続きインストールできないことを確認した場合は、フィードバックを提供し、 **C:\Windows\Logs\CBS** の下のログ ファイルを添付してください。
+4. これで FoD をインストールできるようになります。 "Windows Insider - 高速" を使用していて、FoD を引き続きインストールできないことを確認した場合は、フィードバックを提供し、**C:\Windows\Logs\CBS** の下のログ ファイルを添付してください。
 
 ### <a name="sc-startservice-openservice-failed-1060-the-specified-service-does-not-exist-as-an-installed-service"></a>[SC] StartService: OpenService に失敗しました 1060: 指定されたサービスは、インストール済みのサービスとして存在しません
 

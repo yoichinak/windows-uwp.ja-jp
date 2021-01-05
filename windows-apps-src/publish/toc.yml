@@ -169,23 +169,6 @@
       href: ../publish/advertising-performance-report.md
     - name: 分析レポートのダウンロード
       href: ../publish/download-analytic-reports.md
-- name: 支払いを受ける
-  href: ../publish/getting-paid-apps.md
-  items:
-    - name: 支払いアカウントと税フォームを設定する
-      href: ../publish/setting-up-your-payout-account-and-tax-forms.md
-    - name: 受け取りしきい値、方法、期間
-      href: ../publish/payment-thresholds-methods-and-timeframes.md
-    - name: 支払いレポート
-      href: ../publish/payout-summary.md
-    - name: 税の詳細
-      href: ../publish/tax-details-for-paid-apps.md
-    - name: IRS の税関連の書類について
-      href: ../publish/understand-irs-tax-forms.md
-    - name: 携帯電話会社による課金
-      href: ../publish/mobile-operator-billing.md
-    - name: 付加価値税情報
-      href: ../publish/vat-info.md
 - name: Microsoft Store のポリシーと倫理規定
   href: ../publish/store-policies-and-code-of-conduct.md
   items:

@@ -6,12 +6,12 @@ ms.date: 02/21/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、.NET、Unity
 ms.localizationpriority: medium
-ms.openlocfilehash: dcacb227205c0049cfc3467c9906784b0b55728f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b687f3ec09a99ae6ccb81e5c205eb454e0af0e04
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165236"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860113"
 ---
 # <a name="missing-net-apis-in-unity-and-uwp"></a>Unity や UWP で不足している .NET API
 
@@ -27,7 +27,7 @@ ms.locfileid: "89165236"
 
 UWP SDK の各バージョンは、.NET Standard のさまざまなレベルに準拠しています。 たとえば、16299 SDK (Fall Creators Update) では、.NET Standard 2.0 をサポートしています。
 
-ターゲットにしている UWP バージョンで特定の .NET API がサポートされるかどうかを確認する場合は、[.NET Standard API リファレンス](/dotnet/api/index?view=netstandard-2.0)を参照して、そのバージョンの UWP でサポートされている .NET Standard のバージョンを選択します。
+ターゲットにしている UWP バージョンで特定の .NET API がサポートされるかどうかを確認する場合は、[.NET Standard API リファレンス](/dotnet/api/index?view=netstandard-2.0&preserve-view=true)を参照して、そのバージョンの UWP でサポートされている .NET Standard のバージョンを選択します。
 
 ## <a name="scripting-backend-configuration"></a>スクリプト バックエンドの構成
 
@@ -96,7 +96,7 @@ private void Save()
 
 重要な注意事項は、[Close](/dotnet/api/system.io.stream.close) メソッドは、.NET Standard 2.0 以降でのみ利用できることです (ただし、Unity は拡張メソッドを提供しています)。 代わりに、[Dispose](/dotnet/api/system.io.stream.dispose) を使用します。
 
-### <a name="threading"></a>スレッド処理
+### <a name="threading"></a>スレッド
 
 [System.Threading](/dotnet/api/system.threading) 名前空間の一部の型 ([ThreadPool](/dotnet/api/system.threading.threadpool) など) は、以前のバージョンの .NET Standard では使用できません。 このような場合は、代わりに [Windows.System.Threading](/uwp/api/windows.system.threading) 名前空間を使用できます。
 
@@ -113,9 +113,9 @@ private void UsingThreads()
 }
 ```
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
-**System.Security.*** 名前空間の一部 ([System.Security.Cryptography.X509Certificates](/dotnet/api/system.security.cryptography.x509certificates?view=netstandard-2.0) など) は、UWP 用に Unity ゲームを構築する場合は利用できません。 このような場合は、同じ機能の多くをカバーしている **Windows.Security.*** API を使用します。
+一部の **システムセキュリティ。**[system.security.cryptography.x509certificates.x509certificate2](/dotnet/api/system.security.cryptography.x509certificates?view=netstandard-2.0&preserve-view=true)などの _ 名前空間は、UWP 用の Unity ゲームをビルドするときには使用できません。 このような場合は、 _*Windows のセキュリティ* *_ を使用します。Api。同じ機能の大部分に対応しています。
 
 次の例では、指定した名前の証明書ストアからの証明書だけを取得します。
 
@@ -138,9 +138,9 @@ WinRT セキュリティ API の使用方法の詳細については、「[セ�
 
 ### <a name="networking"></a>ネットワーク
 
-**System&period;Net.*** 名前空間の一部 ([System.Net.Mail](/dotnet/api/system.net.mail?view=netstandard-2.0) など) も、UWP 用に Unity ゲームを構築する場合は利用できません。 これらの API のほとんどについては、対応する **Windows.Networking.*** と **Windows.Web.*** WinRT API を使用して同様の機能を実現できます。 詳細については、「[ネットワークと Web サービス](../networking/index.md)」を参照してください。
+_システムの * 一部 (たとえば、system .net. Mail など)*は、UWP &period;*_ 用の Unity ゲームを構築するときにも使用できません。 [](/dotnet/api/system.net.mail?view=netstandard-2.0&preserve-view=true) これらの api のほとんどでは、対応する _*windows. ネットワーキング.* *_ および _*windows. Web* *_ を使用します。同様の機能を取得するための WinRT Api。 詳細については、「[ネットワークと Web サービス](../networking/index.md)」を参照してください。
 
-**System.Net.Mail** の場合は、[Windows.ApplicationModel.Email](/uwp/api/windows.applicationmodel.email) 名前空間を使用します。 詳細については、「[メールの送信](../contacts-and-calendar/sending-email.md)」を参照してください。
+_ * System .Net Mail * * の場合は、 [Windows の ApplicationModel. Email](/uwp/api/windows.applicationmodel.email) 名前空間を使用します。 詳細については、「[メールの送信](../contacts-and-calendar/sending-email.md)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 

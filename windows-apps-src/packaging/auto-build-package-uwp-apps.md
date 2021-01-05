@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: f9b0d6bd-af12-4237-bc66-0c218859d2fd
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f0e1d460ca52c659401bbb291deafa5746b7bb6
-ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
+ms.openlocfilehash: eec20ffc02263383cdbe670771143a6403177e7b
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91933113"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860432"
 ---
 # <a name="set-up-automated-builds-for-your-uwp-app"></a>UWP アプリの自動ビルドを設定する
 
@@ -47,7 +47,7 @@ variables:
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
 steps:
-- task: NuGetToolInstaller@0
+- task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
@@ -98,7 +98,7 @@ steps:
 | UapAppxPackageBuildMode | CI | .msixupload/.appxupload ファイルのみが生成されます。 |
 | UapAppxPackageBuildMode | SideloadOnly | サイドローディング用の **_Test** フォルダーのみが生成されます。 |
 | AppxPackageSigningEnabled | true | パッケージの署名を有効にします。 |
-| PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列である**必要があります**。 |
+| PackageCertificateThumbprint | 証明書の拇印 | この値は、署名証明書の拇印と一致しているか、空の文字列である **必要があります**。 |
 | PackageCertificateKeyFile | パス | 使用する証明書へのパス。 これは、セキュア ファイルのメタデータから取得されます。 |
 | PackageCertificatePassword | Password | 証明書の秘密キーのパスワード。 パスワードを [Azure Key Vault](/azure/key-vault/about-keys-secrets-and-certificates) に保存し、パスワードを[変数グループ](/azure/devops/pipelines/library/variable-groups)にリンクすることをお勧めします。 この引数に変数を渡すことができます。 |
 

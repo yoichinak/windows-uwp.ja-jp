@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: 7ed2d4100bc827dbc0db93897f534b77e1292b7e
-ms.sourcegitcommit: cddc595969c658ce30fbc94ded92db4a8ad1bf66
+ms.openlocfilehash: 51d799a4779f6d3ecee2119277b6c41485e0d377
+ms.sourcegitcommit: e1c182ea23da9b0bd9e89425f7f1a00baec81136
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97214353"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826273"
 ---
 # <a name="choose-your-windows-app-platform"></a>Windows アプリ プラットフォームの選択
 
@@ -133,7 +133,7 @@ Project Reunion は、現在、早期利用開発者向けのプレビュー版�
 
 ### <a name="progressive-web-apps-pwas"></a>プログレッシブ Web アプリ (PWA)
 
-PWA により、開発者は Web サイト コードをパッケージ化し、Windows 10 の PC 上のアプリケーションのようにインストールして実行できるようになります。 詳細については、[プログレッシブ Web アプリ](/microsoft-edge/progressive-web-apps/get-started)に関する記事を参照してください。
+PWA により、開発者は Web サイト コードをパッケージ化し、Windows 10 の PC 上のアプリケーションのようにインストールして実行できるようになります。 詳細については、[プログレッシブ Web アプリ](/microsoft-edge/progressive-web-apps-chromium/get-started)に関する記事を参照してください。
 
 ### <a name="xamarin"></a>Xamarin
 

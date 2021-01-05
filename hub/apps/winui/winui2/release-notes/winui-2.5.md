@@ -3,12 +3,12 @@ title: WinUI 2.5 リリース ノート
 description: 新機能とバグ修正を含む WinUI 2.5 のリリース ノート。
 ms.date: 12/01/2020
 ms.topic: reference
-ms.openlocfilehash: d1b7873e874ff38037fbf766ef16b1e924edec16
-ms.sourcegitcommit: 03308873eafd0f768e1c518f4d1cc4e4fe0b70b7
+ms.openlocfilehash: 1fe64ea547b3e8966ea0ec085e77225a3a1895df
+ms.sourcegitcommit: e252ccb4a76c4883c7073083d73007957202b84d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96606033"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657669"
 ---
 # <a name="windows-ui-library-25"></a>Windows UI ライブラリ 2.5
 
@@ -26,7 +26,7 @@ NuGet パッケージのダウンロード:[Microsoft.UI.Xaml](https://www.nuget
 
 ### <a name="infobar"></a>InfoBar
 
-[InfoBar](/uwp/design/controls-and-patterns/infobar) コントロールは、アプリ全体の状態メッセージを、ユーザーにとって非常に見やすく、それでいて邪魔にならないように表示するために使用されます。 このコントロールには、表示されるメッセージの種類を示す Severity プロパティと、アクションまたはハイパーリンク ボタンの独自の呼び出しを指定するためのオプションがあります。 InfoBar は他の UI コンテンツとインラインで表示されるため、コントロールを常に表示するかどうか、またはユーザーがそれを閉じることができるかどうかを指定することもできます。
+[InfoBar](/windows/uwp/design/controls-and-patterns/infobar) コントロールは、アプリ全体の状態メッセージを、ユーザーにとって非常に見やすく、それでいて邪魔にならないように表示するために使用されます。 このコントロールには、表示されるメッセージの種類を示す Severity プロパティと、アクションまたはハイパーリンク ボタンの独自の呼び出しを指定するためのオプションがあります。 InfoBar は他の UI コンテンツとインラインで表示されるため、コントロールを常に表示するかどうか、またはユーザーがそれを閉じることができるかどうかを指定することもできます。
 
 この例では、閉じるボタンとメッセージが表示された既定の状態の InfoBar を示します。
 
@@ -42,7 +42,7 @@ NuGet パッケージのダウンロード:[Microsoft.UI.Xaml](https://www.nuget
 
 ### <a name="determinate-progressring"></a>確定的な ProgressRing
 
-[ProgressRing](/uwp/design/controls-and-patterns/progress-controls) の確定状態は、タスクが完了しているパーセンテージを示します。 これは、期間がわかっていて、操作の進行によりユーザーとアプリのやり取りをブロックしてはならない操作の間に使用する必要があります。
+[ProgressRing](/windows/uwp/design/controls-and-patterns/progress-controls) の確定状態は、タスクが完了しているパーセンテージを示します。 これは、期間がわかっていて、操作の進行によりユーザーとアプリのやり取りをブロックしてはならない操作の間に使用する必要があります。
 
 次のアニメーション化された画像では、確定的な ProgressRing コントロールを示します。
 

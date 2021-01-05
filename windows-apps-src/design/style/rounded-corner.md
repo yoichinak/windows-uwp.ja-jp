@@ -4,12 +4,12 @@ description: 角の丸めの原則、デザイン方法、カスタマイズ オ
 ms.date: 10/08/2019
 ms.topic: article
 keywords: windows 10, uwp, 角の半径, 丸め
-ms.openlocfilehash: 044ae628ffe397005113f658191398e06fd245f5
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: 33432ac0083c0d6660d0669ea43805e0ae73f37e
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636532"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860196"
 ---
 # <a name="corner-radius"></a>角の半径
 
@@ -22,7 +22,7 @@ ms.locfileid: "91636532"
 WinUI 2.2 以降の NuGet パッケージをインストールすると、WinUI コントロールとプラットフォーム コントロールの両方で、新しい既定のスタイルがインストールされます。 アプリで WinUI 2.2 を使用すると、これらのスタイルが自動的に使用されます。新しいスタイルを使用するために、特に何かをする必要はありません。 ただし、この記事の後半では、必要に応じて角の丸めをカスタマイズする方法について説明します。
 
 > [!IMPORTANT]
-> **TreeView** や **ColorPicker** などの一部のコントロールは、プラットフォーム ([Windows.UI.Xaml.Controls](/uwp/api/windows.ui.xaml.controls)) と WinUI ([Microsoft.UI.Xaml.Controls](/uwp/api/microsoft.ui.xaml.controls?view=winui-2.2)) の両方で使用できます。 アプリで WinUI を使用するときは、コントロールの WinUI バージョンを使用することをお勧めします。 WinUI と共に使用すると、プラットフォーム バージョンでは角の丸めが一貫して適用されない場合があります。
+> **TreeView** や **ColorPicker** などの一部のコントロールは、プラットフォーム ([Windows.UI.Xaml.Controls](/uwp/api/windows.ui.xaml.controls)) と WinUI ([Microsoft.UI.Xaml.Controls](/uwp/api/microsoft.ui.xaml.controls?view=winui-2.2&preserve-view=true)) の両方で使用できます。 アプリで WinUI を使用するときは、コントロールの WinUI バージョンを使用することをお勧めします。 WinUI と共に使用すると、プラットフォーム バージョンでは角の丸めが一貫して適用されない場合があります。
 
 > **重要な API**:[Control.CornerRadius プロパティ](/uwp/api/windows.ui.xaml.controls.control.cornerradius)
 

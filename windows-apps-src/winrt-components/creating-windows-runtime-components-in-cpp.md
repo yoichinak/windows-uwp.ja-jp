@@ -6,12 +6,12 @@ ms.date: 05/14/2018
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 288795b2dc189dae7b350a30446410b40044d08f
-ms.sourcegitcommit: e39b569626804d2ce4246353ac2c03a916dc9737
+ms.openlocfilehash: 9cda36c6027ae74df9beb5d1de68f69f273dc5f0
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92192952"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860107"
 ---
 # <a name="windows-runtime-components-with-ccx"></a>C++/CX を使用した Windows ランタイム コンポーネント
 
@@ -543,7 +543,7 @@ C# と Visual Basic のどちらの言語でも列挙型がサポートされま
 ## <a name="asynchronous-methods"></a>非同期メソッド
 他の Windows ランタイム オブジェクトによって公開される非同期メソッドを利用するには、[task クラス (同時実行ランタイム)](/cpp/parallel/concrt/reference/task-class) を使います。 詳しくは、「[タスクの並列処理 (同時実行ランタイム)](/cpp/parallel/concrt/task-parallelism-concurrency-runtime)」をご覧ください。
 
-C++/CX で非同期メソッドを実装するには、ppltasks.h で定義されている [create \_ async](/cpp/parallel/concrt/reference/concurrency-namespace-functions?view=vs-2017) 関数を使用します。 詳細については、「 [C++/cx での UWP アプリ用の非同期操作の作成](/cpp/parallel/concrt/creating-asynchronous-operations-in-cpp-for-windows-store-apps)」を参照してください。 例については、「 [C++/cx Windows ランタイムコンポーネントの作成」および「JavaScript または C# からの呼び出し](walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md)」を参照してください。 .NET 言語では、.NET で定義されている非同期メソッドと同様に、C++/CX 非同期メソッドが使用されます。
+C++/CX で非同期メソッドを実装するには、ppltasks.h で定義されている [create \_ async](/cpp/parallel/concrt/reference/concurrency-namespace-functions?view=vs-2017&preserve-view=true) 関数を使用します。 詳細については、「 [C++/cx での UWP アプリ用の非同期操作の作成](/cpp/parallel/concrt/creating-asynchronous-operations-in-cpp-for-windows-store-apps)」を参照してください。 例については、「 [C++/cx Windows ランタイムコンポーネントの作成」および「JavaScript または C# からの呼び出し](walkthrough-creating-a-basic-windows-runtime-component-in-cpp-and-calling-it-from-javascript-or-csharp.md)」を参照してください。 .NET 言語では、.NET で定義されている非同期メソッドと同様に、C++/CX 非同期メソッドが使用されます。
 
 ## <a name="exceptions"></a>例外
 Windows ランタイムによって定義された任意の例外の型をスローできます。 Windows ランタイムのどの例外の型からもカスタム型は取得できません。 ただし、COMException をスローし、例外をキャッチするコードがアクセスできるカスタム HRESULT を提供できます。 COMException でカスタム メッセージを指定する方法はありません。

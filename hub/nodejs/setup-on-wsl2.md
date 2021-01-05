@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 07/28/2020
-ms.openlocfilehash: 4fa1a53e3d0e5ba22cd3a261b3e2672012330bca
-ms.sourcegitcommit: 00349b7b7cad3d161485ec06fee4e4109452c36a
+ms.openlocfilehash: 4e0477c91470d69f9ec5fd726079a1164e2cf276
+ms.sourcegitcommit: 3fafc6b6d548a03e6191fa95ebf9384c42396a30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814653"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880535"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 
@@ -63,7 +63,7 @@ cURL を使用してより新しいバージョンの NVM をインストール�
     ![Node のバージョンが表示されていない NVM リスト](../images/nvm-no-node.png)
 
 6. Node.js の現在のリリースをインストールします (最新の機能強化をテストするためですが、問題が発生する可能性が高くなります): `nvm install node`
-7. Node.js の最新の安定した LTS リリースをインストールします (推奨): `nvm install node --lts`
+7. Node.js の最新の安定した LTS リリースをインストールします (推奨): `nvm install --lts`
 8. インストールされている Node のバージョンを一覧表示します: `nvm ls`。先ほどインストールした 2 つのバージョンが表示されるはずです。
 
     ![LTS と現在の Node バージョンを表示した NVM リスト](../images/nvm-node-installed.png)

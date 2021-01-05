@@ -4,12 +4,12 @@ description: ユーザーがキーボードのキーを再定義できるよう�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c2f8f146e02cf9006e4ac74ce3426ccba0d6000c
-ms.sourcegitcommit: 46a7e9db64e17a645ee6e888f62a9b04632c56af
+ms.openlocfilehash: eb17cd5a7ad76728e6b063f76369c8d194a5e12c
+ms.sourcegitcommit: 1a997d7e0100e58886150f9fba33d7b205f41df1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618551"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97865467"
 ---
 # <a name="keyboard-manager-utility"></a>キーボードマネージャーユーティリティ
 
@@ -26,7 +26,10 @@ Powertoy キーボードマネージャーを使用すると、キーボード�
 ![Powertoy キーボードマネージャー再マップのショートカットスクリーンショット](../images/powertoys-keyboard-shortcuts.png)
 
 > [!NOTE]
-> 置き換えられ [ないキー/OS 予約ショートカット](https://github.com/microsoft/PowerToys/wiki/Keyboard-Manager-Overview#14-keys-that-cannot-be-remapped)がいくつかあります。
+> オペレーティングシステム用に予約されているショートカットキーがいくつかあり、置き換えることはできません。 再マップできないキーには次のものがあります。
+> - `⊞ Win`+`L`およびは、 `Ctrl`  +  `Alt`  +  `Del` Windows OS によって予約されているため、再マップすることはできません。
+> - `Fn`(関数) キーを再マップすることはできません (ほとんどの場合)。 `F1` - `F12` (および `F13` - `F24` ) キーをマップできます。
+> - `Pause` は sngle keydown イベントのみを送信します。 たとえば、backspace キーに対してこれをマップし、押しながら保持すると、1つの文字だけが削除されます。
 
 ## <a name="settings"></a>設定
 
@@ -106,7 +109,7 @@ Powertoy キーボードマネージャーを使用すると、キーボード�
 
 キーボードマネージャーは、アプリケーション名ではなく、プロセス名を使用してアプリを対象とします。 たとえば、Microsoft Edge は、"Microsoft Edge" (アプリケーション名) ではなく "msedge" (プロセス名) として設定されます。 アプリケーションのプロセス名を検索するには、PowerShell を開き、コマンドを入力するか、コマンドプロンプトを開いてコマンドを `get-process` 入力し `tasklist` ます。 これにより、現在開いているすべてのアプリケーションのプロセス名の一覧が表示されます。 いくつかの一般的なアプリケーションプロセス名の一覧を次に示します。
 
-  | _ *アプリケーション**   | **プロセス名**|
+  | _ *アプリケーション**   | **[処理名]**|
   | ------------------| --------------|
   | Microsoft Edge    |  msedge.exe   |
   | OneNote           |  onenote.exe  |
@@ -122,7 +125,7 @@ Powertoy キーボードマネージャーを使用すると、キーボード�
 
 ### <a name="keys-that-cannot-be-remapped"></a>再マップできないキー
 
-再マップに許可されていないショートカットキーがいくつかあります。 次に例を示します。
+再マップに許可されていないショートカットキーがいくつかあります。 これには以下が含まれます。
 
 - <kbd>Ctrl</kbd> +<kbd>Alt</kbd> + <kbd>Del</kbd> (interupt コマンド)
 - <kbd>⊞ Win</kbd> +<kbd>L</kbd> (コンピューターをロックする)

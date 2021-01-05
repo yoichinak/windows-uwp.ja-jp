@@ -6,12 +6,12 @@ ms.date: 04/19/2019
 ms.topic: article
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: bdd003445bed4ad59b21e0b744281651c30bf04f
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 5c5b4867d8a58779aa716245130a468374054288
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166886"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860126"
 ---
 # <a name="whats-new-in-windows-10-for-developers-build-18362"></a>Windows 10 ビルド 18362 の開発者向け新着情報
 
@@ -53,11 +53,11 @@ Xbox 用のプログレッシブ Web アプリ | [Xbox One 用のプログレッ
 Project Rome | Project Rome SDK が Android および iOS で利用できるようになりました。 Graph 通知を次の各プラットフォームに統合する方法について説明します: [Android](/windows/project-rome/notifications/how-to-guide-for-android) および [iOS](/windows/project-rome/notifications/how-to-guide-for-ios)。
 リモート カメラ | DeviceWatcher クラスを使用すれば、[リモート カメラに接続](../audio-video-camera/connect-to-remote-cameras.md)し、そのカメラからのフレームをご利用の Windows アプリに読み込むことができます。
 デスクトップ アプリケーションの UWP コントロール (XAML Islands) | WPF、Windows フォーム、および C++ Win32 デスクトップ アプリケーションで UWP コントロールをホストするための Windows SDK の API は、開発者向けプレビューに表示されなくなりました。 詳細については、[デスクトップ アプリケーションでの UWP コントロール](/windows/apps/desktop/modernize/xaml-islands)に関するページを参照してください。
-Visual Studio 2019 | すべての開発者、アプリ、またはプラットフォーム用の最新のツールとサービスを備えた Visual Studio 2019 がリリースされています。 最新情報および使い始める方法については、「[Visual Studio 2019 の新機能](/visualstudio/ide/whats-new-visual-studio-2019?view=vs-2019)」をご覧ください。
+Visual Studio 2019 | すべての開発者、アプリ、またはプラットフォーム用の最新のツールとサービスを備えた Visual Studio 2019 がリリースされています。 最新情報および使い始める方法については、「[Visual Studio 2019 の新機能](/visualstudio/ide/whats-new-visual-studio-2019)」をご覧ください。
 Win32 WebView | [よく寄せられる質問](/windows/communitytoolkit/controls/wpf-winforms/webview#frequently-asked-questions-faqs)では、デスクトップ アプリケーションで Microsoft Edge WebView を使用する際の一般的な質問に対する回答、サンプルおよびその他のリソースへのリンクが提供されています。
 Windows コマンド ライン | [コンソールの新機能](https://devblogs.microsoft.com/commandline/new-experimental-console-features/)には、スクロール、カーソルの形状、およびカーソルの色に関する設定がある実験用の [ターミナル] タブが含まれています。 詳細については、[開発者向けの Windows コマンド ライン ツール](https://devblogs.microsoft.com/commandline/)に関するブログ記事を参照してください。
 Windows コミュニティ ツールキット | Windows コミュニティ ツールキット v5.1 では、アニメーション、リモート デバイス、画像のトリミング、およびアクセシビリティに対して魅力的な更新プログラムが提供されています。 </br> • 新しい [Lottie-Windows ライブラリ](/windows/communitytoolkit/animations/lottie)では、Windows.UI.Composition API を利用することによって Windows 10 (1809) 上での高品質のアニメーションがサポートされ、さらに [Bodymovin](https://aescripts.com/bodymovin/) JSON ファイルの使用、またはご利用の Windows アプリで再生するための最適化されたコード生成クラスの使用が考慮されています。 アニメーションのテストを行い、ご利用の Windows アプリ用に最適化されたコードを生成するために、Microsoft Store からの新しい [Lottie Viewer アプリ](https://www.microsoft.com/p/lottie-viewer/9p7x9k692tmw)を試してみてください。 </br> • 新しい[リモート デバイス ピッカー](/windows/communitytoolkit/controls/remotedevicepicker)を使用すると、ユーザーはデバイス (近距離またはクラウドからアクセス可能) を選択したり、そのデバイス上でアプリを起動したり、リモート デバイス上のアプリ サービスと通信したりできます。 </br> • 新しい[ImageCropper コントロール](/windows/communitytoolkit/controls/imagecropper)では、プロフィール画像を選択するため、または写真編集ツールを使用するのトリミング機能が統合されています。 </br> • さらに、コントロールに対するアクセシビリティーの向上や WPF および WinForms 用の [Microsoft.Toolkit.Win32](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32) 6.0 プレビュー パッケージ更新プログラムの他にも、[リリース ノート](https://github.com/windows-toolkit/WindowsCommunityToolkit/releases/tag/v5.1.0)で確認できる機能があります。
-Windows Machine Learning | Windows AI ドキュメントをデザインし直して次の 3 つの領域に分けました: Windows Machine Learning (WinML)、Windows Vision Skills、および Direct Machine Learning (DirectML)。 新しい[ランディング ページ](/windows/ai/)を確認してください </br> • [*MLGen* エクスペリエンス](/windows/ai/mlgen)は、Visual Studio で変更中です。 バージョン 1903 以降の Windows 10 では、*mlgen*が Windows 10 SDK に含まれなくなりました。 VS 2017 を使用している場合は、代わりに Visual Studio の拡張機能 [Windows Machine Learning Code Generator VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) をダウンロードしてインストールする必要があります。 Visual Studio 2019 を使用している場合は、拡張機能 [Windows Machine Learning Code Generator](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2) をインストールする必要があります。 </br> • また、新たにウェイト パッキング用のサポートを発表できることを誇りに思います。 開発者は、[WinMLTools コンバーター](/windows/ai/convert-model-winmltools)を介して利用可能になるウェイト パッキングと呼ばれる手法を使用して、ML モデルのディスク占有領域を削減できるようになりました。
+Windows Machine Learning | Windows AI ドキュメントをデザインし直して次の 3 つの領域に分けました: Windows Machine Learning (WinML)、Windows Vision Skills、および Direct Machine Learning (DirectML)。 新しい[ランディング ページ](/windows/ai/)を確認してください </br> • [*MLGen* エクスペリエンス](/windows/ai/mlgen)は、Visual Studio で変更中です。 バージョン 1903 以降の Windows 10 では、*mlgen* が Windows 10 SDK に含まれなくなりました。 VS 2017 を使用している場合は、代わりに Visual Studio の拡張機能 [Windows Machine Learning Code Generator VS 2017](https://marketplace.visualstudio.com/items?itemName=WinML.mlgen) をダウンロードしてインストールする必要があります。 Visual Studio 2019 を使用している場合は、拡張機能 [Windows Machine Learning Code Generator](https://marketplace.visualstudio.com/items?itemName=WinML.mlgenv2) をインストールする必要があります。 </br> • また、新たにウェイト パッキング用のサポートを発表できることを誇りに思います。 開発者は、[WinMLTools コンバーター](/windows/ai/convert-model-winmltools)を介して利用可能になるウェイト パッキングと呼ばれる手法を使用して、ML モデルのディスク占有領域を削減できるようになりました。
 WinRT 統合リファレンス | WinRT API の構造体の定義に関して特定の詳細なノートを提供するために、[WinRT 型システム](/uwp/winrt-cref/winrt-type-system)および [WinMD ファイル](/uwp/winrt-cref/winmd-files)の詳細な説明を追加しました。
 Windows Subsystem for Linux (WSL) | [WSL に対する最近の更新プログラム](https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/)には、エクスプローラーを使用して Windows から Linux ファイルにアクセスする機能と、wsl.exe および wslconfig.exe 用のいくつかの新しいコマンドが含まれています。
 Windows Vision Skills | [Windows Vision Skills](/windows/ai/windows-vision-skills) は API セットです。これを使用することで、顔認識などの "スキル" を作成してから、他のアプリで使用できる NuGet パッケージとしてそれらをパッケージ化することができ、そのために機械学習モデルを追加する必要はありません。

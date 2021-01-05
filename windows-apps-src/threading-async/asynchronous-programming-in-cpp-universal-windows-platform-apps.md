@@ -6,12 +6,12 @@ ms.date: 05/14/2018
 ms.topic: article
 keywords: Windows 10、UWP、スレッド、非同期、C++
 ms.localizationpriority: medium
-ms.openlocfilehash: e08a73c7617a5b24af49d5b3665303124e28d257
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 8e7deb785f7945f89cb1eb7266a43685691846fe
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750158"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860402"
 ---
 # <a name="asynchronous-programming-in-ccx"></a>C++/CX での非同期プログラミング
 > [!NOTE]
@@ -32,7 +32,7 @@ C++ で非同期 Windows ランタイム Api を直接使用することもで�
 
 -   各タスクを適切なスレッド コンテキストまたはスレッド アパートメントで実行する
 
-ここでは、**task** クラスを UWP の非同期 API で使う方法に関する基本的なガイダンスを示しています。 **タスク**とそれに関連するメソッド (タスクの作成など) に関する詳細なドキュメントについては、「[タスクの並列化 (同時実行ランタイム)][taskParallelism]」を参照してください。 [** \_ **][createTask] 
+ここでは、**task** クラスを UWP の非同期 API で使う方法に関する基本的なガイダンスを示しています。 **タスク** とそれに関連するメソッド (タスクの作成など) に関する詳細なドキュメントについては、「[タスクの並列化 (同時実行ランタイム)][taskParallelism]」を参照してください。 [**\_**][createTask] 
 
 ## <a name="consuming-an-async-operation-by-using-a-task"></a>タスクを使った非同期操作の使用
 次の例は、task クラスを使って、[**IAsyncOperation**][IAsyncOperation] インターフェイスを返す **async** メソッドを使う方法を示しています。この操作では値が生成されます。 基本的な手順は次のとおりです。
@@ -73,7 +73,7 @@ void App::TestAsync()
 }
 ```
 
-[**task::then**][taskThen] 関数で作成されて返されるタスクのことを*後続タスク*と呼びます。 ユーザーが指定するラムダの入力引数は (この例の場合)、タスク操作の完了時に生成される結果です。 この値は、**IAsyncOperation** インターフェイスを直接使う場合に [**IAsyncOperation::GetResults**](/uwp/api/Windows.Foundation.IAsyncOperation_TResult_#Windows_Foundation_IAsyncOperation_1_GetResults) を呼び出して取得する値と同じになります。
+[**task::then**][taskThen] 関数で作成されて返されるタスクのことを *後続タスク* と呼びます。 ユーザーが指定するラムダの入力引数は (この例の場合)、タスク操作の完了時に生成される結果です。 この値は、**IAsyncOperation** インターフェイスを直接使う場合に [**IAsyncOperation::GetResults**](/uwp/api/Windows.Foundation.IAsyncOperation_TResult_#Windows_Foundation_IAsyncOperation_1_GetResults) を呼び出して取得する値と同じになります。
 
 [**task::then**][taskThen] メソッドからは直ちに制御が返され、そのデリゲートは非同期作業が正常に完了するまで実行されません。 この例では、非同期操作で例外がスローされるか、取り消し要求によって非同期操作が取り消された状態で終わると、継続は実行されません。 前のタスクが取り消されるか失敗しても実行される継続を記述する方法については後で説明します。
 
@@ -112,10 +112,10 @@ void App::DeleteWithTasks(String^ fileName)
 
 -   2 つ目の後続タスクは値ベースであるため、[**DeleteAsync**][deleteAsync] を呼び出して開始された操作から例外がスローされると、2 つ目の後続タスクは実行されません。
 
-**メモ**   タスクチェーンの作成は、**タスク**クラスを使用して非同期操作を作成する方法の1つにすぎません。 Join 演算子と choice 演算子およびを使用して、操作を作成することもでき **&&** **||** ます。 詳しくは、「[タスクの並列処理 (同時実行ランタイム)][taskParallelism]」をご覧ください。
+**注:** タスク チェーンの作成は、**task** クラスを使って非同期操作を構成する方法の 1 つにすぎません。 Join 演算子と choice 演算子およびを使用して、操作を作成することもでき **&&** **||** ます。 詳しくは、「[タスクの並列処理 (同時実行ランタイム)][taskParallelism]」をご覧ください。
 
 ## <a name="lambda-function-return-types-and-task-return-types"></a>ラムダ関数の戻り値の型とタスクの戻り値の型
-継続タスクでは、ラムダ関数の戻り値の型が **task** オブジェクトでラップされます。 ラムダが **double** を返す場合、継続タスクの型は **task<double>** になります。 ただし、タスク オブジェクトは、戻り値の型を必要以上に入れ子にしないように設計されています。 ラムダが **IAsyncOperation<SyndicationFeed^>^** を返す場合、継続は、**task<task<SyndicationFeed^>>** や **task<IAsyncOperation<SyndicationFeed^>^>^** ではなく、**task<SyndicationFeed^>** を返します。 *非同期ラップ解除*と呼ばれるこの処理により、さらに、継続内の非同期操作が完了しないと次の継続が呼び出されないようになります。
+継続タスクでは、ラムダ関数の戻り値の型が **task** オブジェクトでラップされます。 ラムダが **double** を返す場合、継続タスクの型は **task<double>** になります。 ただし、タスク オブジェクトは、戻り値の型を必要以上に入れ子にしないように設計されています。 ラムダが **IAsyncOperation<SyndicationFeed^>^** を返す場合、継続は、**task<task<SyndicationFeed^>>** や **task<IAsyncOperation<SyndicationFeed^>^>^** ではなく、**task<SyndicationFeed^>** を返します。 *非同期ラップ解除* と呼ばれるこの処理により、さらに、継続内の非同期操作が完了しないと次の継続が呼び出されないようになります。
 
 前の例では、ラムダが [**IAsyncInfo**][IAsyncInfo] オブジェクトを返しているのに、タスクは **task<void>** を返しています。 ラムダ関数とその外側のタスクの間で行われるこれらの型変換を次の表に示します。
 
@@ -130,7 +130,7 @@ void App::DeleteWithTasks(String^ fileName)
 
 
 ## <a name="canceling-tasks"></a>タスクの取り消し
-通常、非同期操作をユーザーが取り消せるようにすることをお勧めします。 また、場合によっては、プログラムを使ってタスク チェーンの外側から操作を取り消さなければならないこともあります。 各 \* **非同期**の戻り値の型には、 [**iasyncinfo**][IAsyncInfo]から継承する[**Cancel**][IAsyncInfoCancel]メソッドがありますが、外部のメソッドに公開するのは厄介です。 タスクチェーンでの取り消しをサポートするには、キャンセル [** \_ トークン \_ ソース**](/cpp/parallel/concrt/reference/cancellation-token-source-class) を使用して [**キャンセル \_ トークン**](/cpp/parallel/concrt/reference/cancellation-token-class)を作成し、そのトークンを初期タスクのコンストラクターに渡すことをお勧めします。 キャンセルトークンを使用して非同期タスクが作成され、キャンセル[** \_ トークン \_ ソース:: cancel**](/cpp/parallel/concrt/reference/cancellation-token-source-class?view=vs-2017)が呼び出された場合、タスクは自動的に**Iasync \* **操作に対して**cancel**を呼び出し、キャンセル要求をその継続チェーンに渡します。 この基本的な方法を示す疑似コードを次に示します。
+通常、非同期操作をユーザーが取り消せるようにすることをお勧めします。 また、場合によっては、プログラムを使ってタスク チェーンの外側から操作を取り消さなければならないこともあります。 各 \* *_非同期_* の戻り値の型には、 [**iasyncinfo**][IAsyncInfo]から継承する [**Cancel**][IAsyncInfoCancel]メソッドがありますが、外部のメソッドに公開するのは厄介です。 タスクチェーンでの取り消しをサポートするには、キャンセル [**\_ トークン \_ ソース**](/cpp/parallel/concrt/reference/cancellation-token-source-class) を使用して [**キャンセル \_ トークン**](/cpp/parallel/concrt/reference/cancellation-token-class)を作成し、そのトークンを初期タスクのコンストラクターに渡すことをお勧めします。 キャンセルトークンを使用して非同期タスクが作成され、キャンセル [**\_ トークン \_ ソース:: cancel**](/cpp/parallel/concrt/reference/cancellation-token-source-class?view=vs-2017&preserve-view=true)が呼び出された場合、タスクは自動的に **iasync \** _ 操作に対して **cancel** を呼び出し、取り消し要求をその継続チェーンに渡します。 この基本的な方法を示す疑似コードを次に示します。
 
 ``` cpp
 //Class member:
@@ -145,16 +145,16 @@ auto getFileTask2 = create_task(documentsFolder->GetFileAsync(fileName),
 //getFileTask2.then ...
 ```
 
-タスクが取り消されると、タスク [**が \_ 取り消さ**][taskCanceled] れた例外がタスクチェーンの下位に伝達されます。 値ベースの後続タスクは実行されないだけですが、タスクベースの後続タスクでは、[**task::get**][taskGet] が呼び出されると例外がスローされます。 エラー処理の継続がある場合は、 **タスクの \_ キャンセル** された例外が明示的にキャッチされていることを確認してください。 (これは [**Platform::Exception**](/cpp/cppcx/platform-exception-class) から派生した例外ではありません)。
+タスクが取り消されると、 [_ *task \_ canceled* *][taskCanceled]例外がタスクチェーンの下位に伝達されます。 値ベースの後続タスクは実行されないだけですが、タスクベースの後続タスクでは、[**task::get**][taskGet] が呼び出されると例外がスローされます。 エラー処理の継続がある場合は、 **タスクの \_ キャンセル** された例外が明示的にキャッチされていることを確認してください。 (これは [**Platform::Exception**](/cpp/cppcx/platform-exception-class) から派生した例外ではありません)。
 
-取り消しは連携して行います。 継続で、UWP メソッドを呼び出すだけでなく、時間のかかる作業を行うときは、キャンセル トークンの状態を定期的に確認し、取り消された場合は実行を中止する必要があります。 継続で割り当てられたすべてのリソースをクリーンアップした後、 [**[ \_ 現在の \_ タスクのキャンセル]**](/cpp/parallel/concrt/reference/concurrency-namespace-functions?view=vs-2017) を呼び出してそのタスクを取り消し、その後に続く値ベースの継続に取り消しを反映させます。 また、別の例として、[**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) 操作の結果を表すタスク チェーンを作成するとします。 ユーザーが **[キャンセル]** ボタンをクリックした場合、[**IAsyncInfo::Cancel**][IAsyncInfoCancel] メソッドは呼び出されません。 代わりに、操作は完了しますが **nullptr** が返されます。 継続は入力パラメーターをテストし、入力が**nullptr**の場合は **[ \_ 現在の \_ タスクのキャンセル]** を呼び出すことができます。
+取り消しは連携して行います。 継続で、UWP メソッドを呼び出すだけでなく、時間のかかる作業を行うときは、キャンセル トークンの状態を定期的に確認し、取り消された場合は実行を中止する必要があります。 継続で割り当てられたすべてのリソースをクリーンアップした後、 [**[ \_ 現在の \_ タスクのキャンセル]**](/cpp/parallel/concrt/reference/concurrency-namespace-functions?view=vs-2017&preserve-view=true) を呼び出してそのタスクを取り消し、その後に続く値ベースの継続に取り消しを反映させます。 また、別の例として、[**FileSavePicker**](/uwp/api/Windows.Storage.Pickers.FileSavePicker) 操作の結果を表すタスク チェーンを作成するとします。 ユーザーが **[キャンセル]** ボタンをクリックした場合、[**IAsyncInfo::Cancel**][IAsyncInfoCancel] メソッドは呼び出されません。 代わりに、操作は完了しますが **nullptr** が返されます。 継続は入力パラメーターをテストし、入力が **nullptr** の場合は **[ \_ 現在の \_ タスクのキャンセル]** を呼び出すことができます。
 
 詳しくは、「[PPL での取り消し](/cpp/parallel/concrt/cancellation-in-the-ppl)」をご覧ください。
 
 ## <a name="handling-errors-in-a-task-chain"></a>タスク チェーンでのエラーの処理
 先行タスクの取り消しや例外のスローが行われても継続を実行する場合は、継続のラムダ関数への入力を **task<TResult>** または **task<void>** (先行タスクのラムダが [**IAsyncAction^**][IAsyncAction] を返す場合) として指定して、継続をタスクベースにします。
 
-タスク チェーンでエラーや取り消しを処理するために、すべての継続をタスクベースにしたり、スローする可能性があるすべての操作を `try…catch` ブロック内に含めたりする必要はありません。 代わりに、タスクベースの継続をチェーンの最後に追加し、その継続ですべてのエラーを処理します。 すべての例外には、タスクの [** \_ 取り消し**][taskCanceled] 例外が含まれます。はタスクチェーンを下位に伝達し、値ベースの継続をバイパスして、エラー処理タスクベースの継続で処理できるようにします。 エラー処理を行うタスクベースの継続を使うように前の例を書き換えると次のようになります。
+タスク チェーンでエラーや取り消しを処理するために、すべての継続をタスクベースにしたり、スローする可能性があるすべての操作を `try…catch` ブロック内に含めたりする必要はありません。 代わりに、タスクベースの継続をチェーンの最後に追加し、その継続ですべてのエラーを処理します。 すべての例外には、タスクの [**\_ 取り消し**][taskCanceled] 例外が含まれます。はタスクチェーンを下位に伝達し、値ベースの継続をバイパスして、エラー処理タスクベースの継続で処理できるようにします。 エラー処理を行うタスクベースの継続を使うように前の例を書き換えると次のようになります。
 
 ``` cpp
 #include <ppltasks.h>
@@ -190,9 +190,9 @@ void App::DeleteWithTasksHandleErrors(String^ fileName)
 }
 ```
 
-タスクベースの後続タスクで、メンバー関数 [**task::get**][taskGet] を呼び出してタスクの結果を取得しています。 **task::get** は、結果を生成しない [**IAsyncAction**][IAsyncAction] 操作の場合でも呼び出す必要があります。これは、**task::get** ではタスクに送られた例外も取得するためです。 入力タスクに例外が格納されている場合、**task::get** の呼び出しでその例外がスローされます。 タスク **:: get**を呼び出さない場合、またはチェーンの最後でタスクベースの継続を使用しない場合、またはスローされた例外の種類をキャッチしない場合は、タスクへのすべての参照が削除されたときに **監視され \_ task \_ 例外** がスローされます。
+タスクベースの後続タスクで、メンバー関数 [**task::get**][taskGet] を呼び出してタスクの結果を取得しています。 **task::get** は、結果を生成しない [**IAsyncAction**][IAsyncAction] 操作の場合でも呼び出す必要があります。これは、**task::get** ではタスクに送られた例外も取得するためです。 入力タスクに例外が格納されている場合、**task::get** の呼び出しでその例外がスローされます。 タスク **:: get** を呼び出さない場合、またはチェーンの最後でタスクベースの継続を使用しない場合、またはスローされた例外の種類をキャッチしない場合は、タスクへのすべての参照が削除されたときに **監視され \_ task \_ 例外** がスローされます。
 
-キャッチする例外は処理できるものだけにしてください。 回復できないエラーがアプリで発生した場合は、不明な状態のままアプリの実行を続けるのではなく、アプリをクラッシュさせることをお勧めします。 また、一般に、 **監視され \_ タスクの \_ 例外** 自体をキャッチしません。 この例外は、主に診断を目的としたものです。 **監視され \_ task \_ 例外**がスローされた場合は、通常、コード内のバグを示します。 原因のほとんどは、処理が必要な例外があること、またはコード内の他のエラーが原因で回復できない例外があることのどちらかです。
+キャッチする例外は処理できるものだけにしてください。 回復できないエラーがアプリで発生した場合は、不明な状態のままアプリの実行を続けるのではなく、アプリをクラッシュさせることをお勧めします。 また、一般に、 **監視され \_ タスクの \_ 例外** 自体をキャッチしません。 この例外は、主に診断を目的としたものです。 **監視され \_ task \_ 例外** がスローされた場合は、通常、コード内のバグを示します。 原因のほとんどは、処理が必要な例外があること、またはコード内の他のエラーが原因で回復できない例外があることのどちらかです。
 
 ## <a name="managing-the-thread-context"></a>スレッド コンテキストの管理
 UWP アプリの UI は、シングルスレッド アパートメント (STA) で実行されます。 ラムダが [**IAsyncAction**][IAsyncAction] または [**IAsyncOperation**][IAsyncOperation] を返すタスクは、アパートメントを認識します。 タスクが STA で作成されている場合、特に指定しない限り、その継続もすべて STA で実行されます。 つまり、タスク チェーン全体が親タスクからアパートメントの認識を継承します。 この動作により、STA からしかアクセスできない UI コントロールの操作が簡単になります。
@@ -218,9 +218,9 @@ void App::SetFeedText()
 
 [**IAsyncAction**][IAsyncAction] または [**IAsyncOperation**][IAsyncOperation] を返さないタスクは、アパートメントを認識しません。これらのタスクの後続タスクは、既定では、利用可能な最初のバックグラウンド スレッドで実行されます。
 
-Task [**::**][taskThen] のオーバーロードを使用して、タスクの既定のスレッドコンテキストをオーバーライドできます。これは、タスクの [** \_ 継続 \_ コンテキスト**](/cpp/parallel/concrt/reference/task-continuation-context-class)を取得します。 たとえば、状況によっては、アパートメントを認識するタスクの継続をバックグラウンド スレッドでスケジュールする方が適している場合もあります。 このような場合は、タスクの [** \_ 継続 \_ コンテキスト:: \_ 任意を使用**][useArbitrary] して、マルチスレッドアパートメントで次に使用可能なスレッドでタスクの作業をスケジュールすることができます。 これにより、継続の作業を UI スレッドで発生する他の作業と同期する必要がないため、継続のパフォーマンスが向上します。
+Task [**::**][taskThen] のオーバーロードを使用して、タスクの既定のスレッドコンテキストをオーバーライドできます。これは、タスクの [**\_ 継続 \_ コンテキスト**](/cpp/parallel/concrt/reference/task-continuation-context-class)を取得します。 たとえば、状況によっては、アパートメントを認識するタスクの継続をバックグラウンド スレッドでスケジュールする方が適している場合もあります。 このような場合は、タスクの [**\_ 継続 \_ コンテキスト:: \_ 任意を使用**][useArbitrary] して、マルチスレッドアパートメントで次に使用可能なスレッドでタスクの作業をスケジュールすることができます。 これにより、継続の作業を UI スレッドで発生する他の作業と同期する必要がないため、継続のパフォーマンスが向上します。
 
-次の例では、 [**タスク \_ 継続 \_ コンテキスト:: \_ 任意**][useArbitrary] のオプションを指定すると便利です。また、既定の継続コンテキストがスレッドセーフでないコレクションでの同時操作の同期にどのように役立つかも示しています。 このコードでは、RSS フィードの URL の一覧をループ処理し、各 URL について、非同期操作を開始してフィード データを取得しています。 フィードを取得する順序は制御できませんが、ここでは問題ありません。 [**RetrieveFeedAsync**](/uwp/api/windows.web.syndication.isyndicationclient.retrievefeedasync) 操作が完了するたびに、1 つ目の継続が [**SyndicationFeed^**](/uwp/api/Windows.Web.Syndication.SyndicationFeed) オブジェクトを受け取り、それを使ってアプリで定義されている `FeedData^` オブジェクトを初期化します。 これらの各操作は互いに独立しているため、 **タスク \_ 継続 \_ コンテキスト:: \_ 任意** の継続コンテキストを指定することで、処理速度を上げることができます。 ただし、それぞれの `FeedData` オブジェクトを初期化した後に、そのオブジェクトを [**Vector**](/cpp/cppcx/platform-collections-vector-class) に追加する必要があり、スレッド セーフなコレクションではありません。 したがって、継続を作成し、 [**タスクの \_ 継続 \_ コンテキスト:: use \_ current**](/cpp/parallel/concrt/reference/task-continuation-context-class?view=vs-2017) を指定して、 [**追加**](/uwp/api/windows.foundation.collections.ivector_t_.append) するすべての呼び出しが同じアプリケーションのシングルスレッドアパートメント (ASTA) コンテキストで発生するようにします。 [**タスクの \_ 継続 \_ コンテキスト:: use \_ default**](/cpp/parallel/concrt/reference/task-continuation-context-class?view=vs-2017)は既定のコンテキストであるため、明示的に指定する必要はありませんが、わかりやすくするためにここで行います。
+次の例では、 [**タスク \_ 継続 \_ コンテキスト:: \_ 任意**][useArbitrary] のオプションを指定すると便利です。また、既定の継続コンテキストがスレッドセーフでないコレクションでの同時操作の同期にどのように役立つかも示しています。 このコードでは、RSS フィードの URL の一覧をループ処理し、各 URL について、非同期操作を開始してフィード データを取得しています。 フィードを取得する順序は制御できませんが、ここでは問題ありません。 [**RetrieveFeedAsync**](/uwp/api/windows.web.syndication.isyndicationclient.retrievefeedasync) 操作が完了するたびに、1 つ目の継続が [**SyndicationFeed^**](/uwp/api/Windows.Web.Syndication.SyndicationFeed) オブジェクトを受け取り、それを使ってアプリで定義されている `FeedData^` オブジェクトを初期化します。 これらの各操作は互いに独立しているため、 **タスク \_ 継続 \_ コンテキスト:: \_ 任意** の継続コンテキストを指定することで、処理速度を上げることができます。 ただし、それぞれの `FeedData` オブジェクトを初期化した後に、そのオブジェクトを [**Vector**](/cpp/cppcx/platform-collections-vector-class) に追加する必要があり、スレッド セーフなコレクションではありません。 したがって、継続を作成し、 [**タスクの \_ 継続 \_ コンテキスト:: use \_ current**](/cpp/parallel/concrt/reference/task-continuation-context-class?view=vs-2017&preserve-view=true) を指定して、 [**Append**](/uwp/api/windows.foundation.collections.ivector_t_.append) のすべての呼び出しが同じ Application Single-Threaded アパートメント (ASTA) コンテキストで発生するようにします。 [**タスクの \_ 継続 \_ コンテキスト:: use \_ default**](/cpp/parallel/concrt/reference/task-continuation-context-class?view=vs-2017&preserve-view=true)は既定のコンテキストであるため、明示的に指定する必要はありませんが、わかりやすくするためにここで行います。
 
 ``` cpp
 #include <ppltasks.h>
