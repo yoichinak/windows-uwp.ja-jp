@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、DirectX、アプリ オブジェクト
 ms.localizationpriority: medium
-ms.openlocfilehash: 29eaba70a7114624474275b8f98ec77f8038b2b0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 08d2039bd7b3b8aa248acca31615d34635929aa1
+ms.sourcegitcommit: 48702934676ae366fd46b7d952396c5e2fb2cbbe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163166"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97927776"
 ---
 # <a name="the-app-object-and-directx"></a>アプリ オブジェクトと DirectX
 
@@ -34,7 +34,7 @@ DirectX を使ったユニバーサル Windows プラットフォーム (UWP) �
 
 ## <a name="the-windows-runtime-app-object"></a>Windows ランタイム アプリ オブジェクト
 
-UWP アプリでは、ウィンドウとビュー プロバイダーを取得します。これらはビューの取得元となり、スワップ チェーン (表示バッファー) の接続先となります。 このビューは、実行中のアプリでウィンドウ固有のイベントにフックすることもできます。 [**Corewindow**](/uwp/api/Windows.UI.Core.CoreWindow)型によって定義されたアプリオブジェクトの親ウィンドウを取得するには、 [**Iframeworkviewsource**](/uwp/api/Windows.ApplicationModel.Core.IFrameworkViewSource)を実装する型を作成します。 **Iframeworkviewsource**を実装する方法を示す[C++/WinRT](../cpp-and-winrt-apis/index.md)コード例については、「[コンポジションと DirectX および Direct2D とのネイティブ相互運用](../composition/composition-native-interop.md)」を参照してください。
+UWP アプリでは、ウィンドウとビュー プロバイダーを取得します。これらはビューの取得元となり、スワップ チェーン (表示バッファー) の接続先となります。 このビューは、実行中のアプリでウィンドウ固有のイベントにフックすることもできます。 [**Corewindow**](/uwp/api/Windows.UI.Core.CoreWindow)型によって定義されたアプリオブジェクトの親ウィンドウを取得するには、 [**Iframeworkviewsource**](/uwp/api/Windows.ApplicationModel.Core.IFrameworkViewSource)を実装する型を作成します。 **Iframeworkviewsource** を実装する方法を示す [C++/WinRT](../cpp-and-winrt-apis/index.md)コード例については、「[コンポジションと DirectX および Direct2D とのネイティブ相互運用](../composition/composition-native-interop.md)」を参照してください。
 
 コアユーザーインターフェイスフレームワークを使用してウィンドウを取得するための基本的な手順を次に示します。
 
@@ -88,25 +88,26 @@ Windows ランタイムには、他にも次のような便利なコア ユー�
 
 [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) では、入力および基本のウィンドウ動作専用のイベントを多数提供しています。 これらのイベントを処理するには、イベントに自分専用のデリゲートを登録します。
 
-また、 [**CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher)のインスタンスを提供する[**corewindow. dispatcher**](/uwp/api/windows.ui.core.corewindow.dispatcher)プロパティにアクセスして、ウィンドウのウィンドウイベントディスパッチャーを取得することもできます。
+また、 [**CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher)のインスタンスを提供する [**corewindow. dispatcher**](/uwp/api/windows.ui.core.corewindow.dispatcher)プロパティにアクセスして、ウィンドウのウィンドウイベントディスパッチャーを取得することもできます。
 
 ## <a name="coredispatcher-behaviors-and-properties"></a>CoreDispatcher の動作とプロパティ
 
 [**CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher) 型のウィンドウに使うイベント ディスパッチのスレッド動作を決定できます。 この型には、ウィンドウ イベント処理を開始する特に重要なメソッド [**CoreDispatcher.ProcessEvents**](/uwp/api/windows.ui.core.coredispatcher.processevents) があります。 アプリで間違ったオプションを指定してこのメソッドを呼び出すと、さまざまな予期しないイベント処理動作が発生する可能性があります。
 
-| CoreProcessEventsOption のオプション                                                           | 説明                                                                                                                                                                                                                                  |
-|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**CoreProcessEventsOption.ProcessOneAndAllPending**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) | 現在キューに入っているすべてのイベントをディスパッチします。 保留中のイベントがない場合は、次の新しいイベントを待ちます。                                                                                                                                 |
-| [**CoreProcessEventsOption.ProcessOneIfPresent**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption)     | キュー内で保留中のイベントを 1 つだけディスパッチします。 保留中のイベントがない場合は、新しいイベントの発生を待たずに直ちに制御を返します。                                                                                          |
-| [**CoreProcessEventsOption.ProcessUntilQuit**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption)        | 新しいイベントを待ち、発生したイベントをすべてディスパッチします。 この動作を、ウィンドウが閉じられるか、アプリが [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) インスタンスで [**Close**](/uwp/api/windows.ui.core.corewindow.close) メソッドを呼び出すまで継続します。 |
-| [**CoreProcessEventsOption.ProcessAllIfPresent**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption)     | 現在キューに入っているすべてのイベントをディスパッチします。 保留中のイベントがない場合は、直ちに制御を返します。                                                                                                                                          |
+| CoreProcessEventsOption のオプション | 説明 |
+|--------------------------------|-------------|
+| [**CoreProcessEventsOption.ProcessOneAndAllPending**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) | 現在キューに入っているすべてのイベントをディスパッチします。 保留中のイベントがない場合は、次の新しいイベントを待ちます。 |
+| [**CoreProcessEventsOption.ProcessOneIfPresent**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) | キュー内で保留中のイベントを 1 つだけディスパッチします。 保留中のイベントがない場合は、新しいイベントの発生を待たずに直ちに制御を返します。 |
+| [**CoreProcessEventsOption.ProcessUntilQuit**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) | 新しいイベントを待ち、発生したイベントをすべてディスパッチします。 この動作を、ウィンドウが閉じられるか、アプリが [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) インスタンスで [**Close**](/uwp/api/windows.ui.core.corewindow.close) メソッドを呼び出すまで継続します。 |
+| [**CoreProcessEventsOption.ProcessAllIfPresent**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) | 現在キューに入っているすべてのイベントをディスパッチします。 保留中のイベントがない場合は、直ちに制御を返します。 |
+
 DirectX を使った UWP アプリでは、[**CoreProcessEventsOption.ProcessAllIfPresent**](/uwp/api/Windows.UI.Core.CoreProcessEventsOption) オプションを使って、グラフィックスの更新を中断する可能性があるブロック動作を防ぐ必要があります。
 
 ## <a name="asta-considerations-for-directx-devs"></a>DirectX 開発者向けの ASTA の考慮事項
 
 DirectX を使った UWP アプリの実行時の形式を定義するアプリ オブジェクトは、アプリケーション シングルスレッド アパートメント (ASTA) というスレッド モデルを使ってアプリの UI ビューをホストします。 DirectX を使った UWP アプリを開発している場合、そのアプリからディスパッチするすべてのスレッドは [**Windows::System::Threading**](/uwp/api/Windows.System.Threading) API または [**CoreWindow::CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher) を使う必要があるので、ASTA のプロパティについては十分に理解していると考えられます  (アプリから [**CoreWindow::GetForCurrentThread**](/uwp/api/windows.ui.core.corewindow.getforcurrentthread) を呼び出すことで ASTA の [**CoreWindow**](/uwp/api/Windows.UI.Core.CoreWindow) オブジェクトを取得できます)。
 
-UWP DirectX アプリの開発者として知っておくべき最も重要な点は、 **main ()** に**Platform:: MTAThread**を設定することにより、アプリスレッドで MTA スレッドをディスパッチできるようにする必要があることです。
+UWP DirectX アプリの開発者として知っておくべき最も重要な点は、 **main ()** に **Platform:: MTAThread** を設定することにより、アプリスレッドで MTA スレッドをディスパッチできるようにする必要があることです。
 
 ```cpp
 [Platform::MTAThread]

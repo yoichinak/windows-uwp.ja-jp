@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオン, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 7f02e222cf495f56352a645ac3a366da39dc5e3a
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9ec2213f5a46318f3aaddbbe5d55b58f6816fcce
+ms.sourcegitcommit: 48702934676ae366fd46b7d952396c5e2fb2cbbe
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89158416"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97927784"
 ---
 # <a name="manage-add-ons"></a>アドオンの管理
 
@@ -128,10 +128,10 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 
 このリソースには、次の値があります。
 
-| 値           | Type    | 説明        |
-|-----------------|---------|-----------|
-| value            | object  |  次の値を格納するオブジェクトです。 <br/><br/> <ul><li>*id*. アプリの Store ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](../publish/view-app-identity-details.md)」をご覧ください。</li><li>*Resourcelocation*。 アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</li></ul>   |
-| totalCount   | INT  | 応答本文の *applications* 配列のアプリ オブジェクトの数。                                                                                                                                                 |
+| 値 | Type | 説明 |
+|-------|------|-------------|
+| value | object | 次の値を格納するオブジェクトです。 <ul><li>*id*. アプリの Store ID です。 ストア ID について詳しくは、「[アプリ ID の詳細の表示](../publish/view-app-identity-details.md)」をご覧ください。</li><li>*Resourcelocation*。 アプリの完全なデータを取得するために基本 `https://manage.devcenter.microsoft.com/v1.0/my/` 要求 URI に付加できる相対パス。</li></ul> |
+| totalCount | INT | 応答本文の *applications* 配列のアプリ オブジェクトの数。 |
 
 <span id="submission-object" />
 
@@ -153,8 +153,8 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 | 値           | Type    | 説明     |
 |-----------------|---------|------------------|
 | id            | string  | 申請 ID。    |
-| resourceLocation   | string  | 申請の完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。     |
- 
+| resourceLocation   | string  | 申請の完全なデータを取得するために基本 `https://manage.devcenter.microsoft.com/v1.0/my/` 要求 URI に付加できる相対パス。     |
+
 <span/>
 
 ## <a name="related-topics"></a>関連トピック
