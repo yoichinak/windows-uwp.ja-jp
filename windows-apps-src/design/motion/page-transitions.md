@@ -8,18 +8,18 @@ keywords: windows 10, uwp
 pm-contact: stmoy
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: d3e2385b1e15334b26663f6f17b3ef47ab015eec
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: b676cf274121ae991066f908b18f1be705d1c580
+ms.sourcegitcommit: 77903451ae8ab1ba854494488f79184e674707df
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91216637"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97911012"
 ---
 # <a name="page-transitions"></a>ページ切り替え効果
 
 ページ切り替え効果により、ユーザーがアプリ内のページ間を移動するため、ページ間の関係がフィードバックされます。 ページ切り替え効果により、ナビゲーション階層の最上位にいるのか、兄弟ページ間を移動しているのか、またはページ階層をより深く移動しているのかを、ユーザーが理解しやすくなります。
 
-アプリ内のページ間のナビゲーションについて 2 つの異なるアニメーション (*ページの更新*および*ドリル*) が提供されており、[**NavigationTransitionInfo**](/uwp/api/windows.ui.xaml.media.animation.navigationtransitioninfo) のサブクラスとして表されています。
+アプリ内のページ間のナビゲーションについて 2 つの異なるアニメーション (*ページの更新* および *ドリル*) が提供されており、[**NavigationTransitionInfo**](/uwp/api/windows.ui.xaml.media.animation.navigationtransitioninfo) のサブクラスとして表されています。
 
 ## <a name="examples"></a>例
 
@@ -104,4 +104,4 @@ myFrame.Navigate(typeof(Page2), null, new SuppressNavigationTransitionInfo());
 ## <a name="related-topics"></a>関連トピック
 
 - [2 つのページ間の移動](../basics/navigate-between-two-pages.md)
-- [UWindowsWP アプリでの動き](index.md)
+- [UWP アプリのモーション](index.md)
