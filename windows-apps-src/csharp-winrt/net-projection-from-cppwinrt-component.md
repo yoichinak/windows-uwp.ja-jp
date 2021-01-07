@@ -5,12 +5,12 @@ ms.date: 11/12/2020
 ms.topic: article
 keywords: windows 10、c#、winrt、cswinrt、投影
 ms.localizationpriority: medium
-ms.openlocfilehash: 45fa8a7858077438d9707835b548bdacd34e5d11
-ms.sourcegitcommit: cddc595969c658ce30fbc94ded92db4a8ad1bf66
+ms.openlocfilehash: 57bc5c49d47dacee910cd3d80964f797633ef587
+ms.sourcegitcommit: 6da85cc75c02a5a7417966abddc8824ac87fb619
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97214194"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964735"
 ---
 # <a name="walkthrough-generate-a-net-5-projection-from-a-cwinrt-component-and-distribute-the-nuget"></a>チュートリアル: C++/WinRT コンポーネントから .NET 5 プロジェクションを生成し、NuGet を配布する
 
@@ -141,7 +141,7 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
 
 ## <a name="create-a-nuget-package-from-the-projection"></a>プロジェクションから NuGet パッケージを作成する
 
-相互運用機能アセンブリを配布して使用するには、追加のプロジェクトプロパティを追加して、ソリューションをビルドするときに NuGet パッケージを自動的に作成します。 このパッケージには、必要な c#/Winrt ランタイムアセンブリの相互運用機能アセンブリと、c#/Winrt NuGet パッケージに対する依存関係が含まれます。 このランタイムアセンブリには、.NET 5.0 ターゲットの **winrt.runtime.dll** という名前が付けられています。
+相互運用機能アセンブリを配布して使用するには、追加のプロジェクトプロパティを追加して、ソリューションをビルドするときに NuGet パッケージを自動的に作成します。 .NET 5.0 ターゲットの場合、パッケージには、必要な c#/Winrt ランタイムアセンブリの **WinRT.Runtime.dll** の相互運用機能アセンブリ、実装アセンブリ、および C#/winrt NuGet パッケージに対する依存関係が含まれている必要があります。
 
 1. Nuspec プロジェクトに NuGet 仕様 (...) ファイルを **追加します** 。
 
@@ -158,7 +158,7 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
-3. Open the **SimpleMathProjection.nuspec** file to edit the package creation properties. Below is an example of a C++/WinRT component NuGet spec. Notice the `dependency` on CsWinRT for the `net5.0` target framework moniker, as well as the target for `lib\net5.0\SimpleMathProjection.dll`, which points to the projection assembly **SimpleMathComponent.dll** instead of **SimpleMathComponent.winmd**. This behavior is new in .NET 5.0 and enabled by C#/WinRT.
+3. Open the **SimpleMathProjection.nuspec** file to edit the package creation properties. Below is an example NuGet spec for distributing the interop assembly from the C++/WinRT component. Note that for .NET 5.0 targets, under the `dependencies` node there is a dependency on CsWinRT, and under the `files` node **SimpleMathProjection.dll** is specified instead of **SimpleMathComponent.winmd** for the target `lib\net5.0\SimpleMathProjection.dll`. This behavior is new in .NET 5.0 and enabled by C#/WinRT. The implementation assembly, **SimpleMathComponent.dll**, must also be deployed for .NET 5.0 targets. 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -178,7 +178,7 @@ C++/winrt コンポーネントを作成し、winmd ファイルを生成する�
         </dependencies>
       </metadata>
       <files>
-        <!--Support net46+, netcore3, net5, uap, c++ -->
+        <!--Support netcore3, uap, net46+, net5, c++ -->
         <file src="..\..\_build\x64\Debug\SimpleMathComponent\bin\SimpleMathComponent\SimpleMathComponent.winmd" target="lib\netcoreapp3.0\SimpleMathComponent.winmd" />
         <file src="..\..\_build\x64\Debug\SimpleMathComponent\bin\SimpleMathComponent\SimpleMathComponent.winmd" target="lib\uap10.0\SimpleMathComponent.winmd" />
         <file src="..\..\_build\x64\Debug\SimpleMathComponent\bin\SimpleMathComponent\SimpleMathComponent.winmd" target="lib\net46\SimpleMathComponent.winmd" />
