@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Windows の設定, 開発環境, 開発ツール, 開発パス, Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL, ターミナル, nodejs, Python
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: 0b3df6b081504b98933ae5b261c6e7aaf5464953
-ms.sourcegitcommit: b8d0e2c6186ab28fe07eddeec372fb2814bd4a55
+ms.openlocfilehash: 578bc10b26dfe04384ca8e8174e36497c20896cb
+ms.sourcegitcommit: 48702934676ae366fd46b7d952396c5e2fb2cbbe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671661"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97927815"
 ---
 # <a name="set-up-your-development-environment-on-windows-10"></a>Windows 10 で開発環境を設定する
 
@@ -92,9 +92,9 @@ ms.locfileid: "91671661"
     :::column-end:::
     :::column:::
        [![PowerToys アイコン](../images/powertoys.png)](https://github.com/microsoft/PowerToys)<br>
-        **[Windows PowerToys](https://github.com/microsoft/PowerToys)**<br>
+        **[Windows PowerToys](../PowerToys/index.md)**<br>
         この一連のパワー ユーザー ユーティリティを使用して、生産性が向上するように Windows のエクスペリエンスを調整して合理化します。<br>
-        [PowerToys のインストール (パブリック プレビュー)](https://github.com/microsoft/PowerToys#installing-and-running-microsoft-powertoys)
+        [PowerToys をインストールする](https://github.com/microsoft/PowerToys#installing-and-running-microsoft-powertoys)
     :::column-end:::
 :::row-end:::
 :::row:::
