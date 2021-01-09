@@ -1,28 +1,28 @@
 ---
 ms.assetid: 7D5EED8A-0742-4E12-A806-40FBAEFE6ABF
 title: 準備
-description: 準備は、思っているよりも簡単です。 次の手順に従って、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリの作成を開始してください。
-ms.date: 10/13/2020
+description: 次の手順に従って、WinRT Api (ユニバーサル Windows プラットフォームまたは UWP とも呼ばれます) を使用して Windows 10 用のアプリの作成を開始します。
+ms.date: 1/8/2021
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c80bb9a3b9fe59550dff0603bdbe1b87e5b2982
-ms.sourcegitcommit: 3eb43ba2a6c52ad83523d63d825ac5d4d9050cd3
+ms.openlocfilehash: 928b8fa82e4a06f82f0e85ca34ab838562b08435
+ms.sourcegitcommit: 30d1a27fd78d198cec5c50af5621f9e65c7b965e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97811963"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043071"
 ---
 # <a name="get-set-up"></a>準備
 
 ![Visual Studio を使用する準備を行う](images/VisualStudio2017Hero_ImageXL-LG.png)
 
-準備は、思っているよりも簡単です。 次の手順に従って、Windows 10 用のユニバーサル Windows プラットフォーム (UWP) アプリの作成を開始してください。
+Windows 10 開発へようこそ! 次の手順に従って、WinRT Api (ユニバーサル Windows プラットフォームまたは UWP とも呼ばれます) を使用して Windows 10 用のアプリの作成を開始します。
 
 ## <a name="1-download-or-update-visual-studio"></a>1. Visual Studio のダウンロードまたは更新
 
 > [!NOTE]
-> 新しいバージョンの Visual Studio は、次の手順で示すスクリーン ショットとは表示が異なる場合があります。 ご心配は不要です。 次の手順に従うことで設定できます。
+> 新しいバージョンの Visual Studio は、次の手順で示すスクリーン ショットとは表示が異なる場合があります。 心配はありません。 次の手順に従うことで設定できます。
 
 Microsoft Visual Studio 2019 は、アプリの設計、コード化、テスト、デバッグに役立ちます。
 
@@ -36,7 +36,7 @@ Visual Studio をインストールする場合は、次のように [ユニバ�
 
 Visual Studio に関するヘルプが必要な場合は、 [Visual Studio の概要に関するページ](https://visualstudio.microsoft.com/vs/getting-started/)をご覧ください。
 
-既に Visual Studio の使用を開始していて、一部のコンポーネントがないことがわかった場合は、 *[新しいプロジェクト]* ダイアログ ボックスでインストーラーをもう一度起動できます。
+既に Visual Studio の使用を開始していて、一部のコンポーネントがないことがわかった場合は、*[新しいプロジェクト]* ダイアログ ボックスでインストーラーをもう一度起動できます。
 
 ![インストール プロセスを繰り返す方法](images/win10-cs-install.png)
 
@@ -53,12 +53,12 @@ UWP アプリのテストは実際の PC と電話で行うことが重要です
 
 -   開発者アカウントを取得するには、[サインアップ](sign-up.md) ページに移動します。
 
-## <a name="whats-next"></a>次の手順
+## <a name="whats-next"></a>次の操作
 
 ツールをインストールして、デバイスを開発用に有効にしたら、Windows 10 アプリの作成を開始する方法に関するガイダンスを確認してください。
 
 -   [プラットフォームを選択する](../desktop/choose-your-platform.md)
--   [UWP アプリのコーディングを開始する](/windows-apps-src/get-started/create-uwp-apps.md)
+-   [コーディングの開始](https://docs.microsoft.com/windows/uwp/get-started/create-uwp-apps)
 
 ## <a name="windows-development-setup-scripts"></a>Windows 開発セットアップ スクリプト
 
