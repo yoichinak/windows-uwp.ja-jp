@@ -310,17 +310,15 @@
         - name: Windows デバイス ポータル
           href: ../debug-test-perf/device-portal.md
           items:
-            - name: デスクトップ用 Device Portal
+            - name: デスクトップ用 Windows デバイス ポータル
               href: ../debug-test-perf/device-portal-desktop.md
-            - name: モバイル用 Device Portal
+            - name: モバイル用 Windows デバイス ポータル
               href: ../debug-test-perf/device-portal-mobile.md
-            - name: HoloLens 用 Device Portal
-              href: ../debug-test-perf/device-portal-hololens.md
-            - name: デバイス ポータル コア API
+            - name: Windows デバイス ポータル コア REST API
               href: ../debug-test-perf/device-portal-api-core.md
-            - name: Device Portal 用のカスタム プラグインの作成
+            - name: Windows デバイス ポータルのカスタム プラグインの作成
               href: ../debug-test-perf/device-portal-plugin.md
-            - name: カスタムの SSL 証明書で Device Portal のプロビジョニングを行う
+            - name: カスタム SSL 証明書を使用して Windows デバイス ポータルをプロビジョニングする
               href: ../debug-test-perf/device-portal-ssl.md
         - name: Windows アプリ認定キット
           href: ../debug-test-perf/windows-app-certification-kit.md
