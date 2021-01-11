@@ -2,17 +2,17 @@
 description: Project Reunion と、これによって開発者が受ける利点、開発者に用意されているもの、およびフィードバックの提供方法について説明します。
 title: Project Reunion
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d5969afacc0f811e3a5c40488f45bb5b421c4b3
-ms.sourcegitcommit: cddc595969c658ce30fbc94ded92db4a8ad1bf66
+ms.openlocfilehash: de1115281859ba322a03e3bab7a8d0e4ef71440d
+ms.sourcegitcommit: 044c75ea0c6fb3463a0150acdae1ff867dc05f29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97349359"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97972126"
 ---
 # <a name="build-windows-apps-with-project-reunion-prerelease"></a>Project Reunion による Windows アプリのビルド (プレリリース)
 
@@ -61,11 +61,12 @@ Project Reunion 0.1 プレリリースを試してみる場合、提供されて
 
 1. 開発用コンピューターに Windows 10 Version 1809 (ビルド 17763) 以降の OS バージョンがインストールされていることを確認します。
 
-2. [Visual Studio 2019 バージョン 16.9 Preview 2](https://visualstudio.microsoft.com/vs/preview/) 以降をインストールします。 Visual Studio をインストールする際、次のワークロードを含める必要があります。
-    - .NET デスクトップ開発
-    - ユニバーサル Windows プラットフォームの開発
-    - C++ によるデスクトップ開発
-    - ユニバーサル Windows プラットフォーム ワークロード用の **C++ (v142) ユニバーサル Windows プラットフォーム ツール** のオプション コンポーネント (インストーラーの右ペインにある **[ユニバーサル Windows プラットフォーム開発]** セクションの **[インストールの詳細]** を参照してください)
+2. [Visual Studio 2019 バージョン 16.9 Preview 2](https://visualstudio.microsoft.com/vs/preview/) 以降をインストールします。 Visual Studio インストーラーで次の項目が選択されていることを確認します。
+    - **[ワークロード]** タブで、次のワークロードが選択されていることを確認します。
+        - **.NET デスクトップ開発**
+        - **C++ によるデスクトップ開発**
+        - **ユニバーサル Windows プラットフォーム開発** ( **[インストールの詳細]** ウィンドウで、このワークロードに対して **[C++ (v142) ユニバーサル Windows プラットフォーム ツール]** オプション コンポーネントが選択されていることも確認します)
+    - **[個別のコンポーネント]** タブで、**SDK、ライブラリ、およびフレームワーク** セクションで **Windows 10 SDK (10.0.19041.0)** が選択されていることを確認します。
 
 3. Visual Studio Marketplace から最新バージョンの [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) をインストールします。
 
