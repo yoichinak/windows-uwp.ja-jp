@@ -4,12 +4,12 @@ description: Microsoft PowerToys は、Windows 10 をカスタマイズするた
 ms.date: 12/02/2020
 ms.topic: overview
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f441c7ef9fc4268b35c041f1100cb7f116318a5
-ms.sourcegitcommit: 5dac88ad541b71ebe85b78951e6b357a3db176cc
+ms.openlocfilehash: 5e7e88e8ff179ebbb63aa7369c22149b645c9838
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97611886"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104583"
 ---
 # <a name="microsoft-powertoys-utilities-to-customize-windows-10"></a>Microsoft PowerToys:Windows 10 をカスタマイズするためのユーティリティ
 
@@ -149,7 +149,7 @@ PowerToys に関する投稿をお寄せください。 PowerToys 開発チー�
 
 - [技術仕様](https://codeburst.io/on-writing-tech-specs-6404c9791159)を書く
 - [設計の概念または推奨事項](https://www.microsoft.com/design/inclusive/)を送信する
-- [ドキュメントへの投稿](https://docs.microsoft.com/contribute/)
+- [ドキュメントへの投稿](/contribute/)
 - [ソース コード](https://github.com/microsoft/PowerToys/tree/master/src)内のバグを特定して修正する
 - [新機能と PowerToy ユーティリティのコードを記述する](https://github.com/microsoft/PowerToys/tree/master/doc/devdocs)
 

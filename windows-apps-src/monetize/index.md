@@ -6,18 +6,18 @@ ms.date: 11/29/2017
 ms.topic: article
 keywords: Windows 10, UWP, 収益化, エンゲージメント, プロモーション, ストア サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: f2516a1708948f0322d197bf4fdd524ede6ba0b0
-ms.sourcegitcommit: 5d84d8fe60e83647fa363b710916cf8b92c6e331
+ms.openlocfilehash: 29dcc02375358c7f16f38748ca92dbaeaf3ebdb7
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91878545"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104703"
 ---
 # <a name="monetization-engagement-and-store-services"></a>収益化、エンゲージメント、Microsoft Store サービス
 
 Windows SDK、Microsoft Advertising SDK、Microsoft Store Services SDK、Microsoft Store は、アプリによる収益の向上と顧客エンゲージメントによるユーザー獲得のための機能を提供します。 このセクションのトピックでは、これらの機能をアプリに組み込む方法について説明します。
 
-Microsoft Store の手数料に関する説明とアプリの収益を受け取る方法について詳しくは、「[支払いの受け取り](../publish/getting-paid-apps.md)」をご覧ください。
+Microsoft Store の手数料に関する説明とアプリの収益を受け取る方法について詳しくは、「[支払いの受け取り](/partner-center/marketplace-get-paid)」をご覧ください。
 
 ## <a name="choose-a-pricing-model"></a>価格モデルを選ぶ
 
@@ -126,7 +126,7 @@ Microsoft Store の手数料に関する説明とアプリの収益を受け取�
 
 これらのレポート使って、Microsoft Store でのアプリのパフォーマンスを監視します。
 
-- [支払いの概要](../publish/payout-summary.md)
+- [支払いの概要](/partner-center/payout-statement)
 - [[取得] レポート](../publish/acquisitions-report.md)
 - [アドオン取得レポート](../publish/add-on-acquisitions-report.md)
 - [広告パフォーマンス レポート](../publish/advertising-performance-report.md)
