@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 83a316a729fc1c2042dde5541e2b187bf8903188
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b7a8920b13b7e28947138a000fd46165abcb58b7
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171186"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104683"
 ---
 # <a name="selecting-an-approach-to-ios-and-uwp-app-development"></a>iOS と UWP のアプリ開発方法の選択
 
@@ -48,7 +48,7 @@ Windows と iOS はまったく違うものに見えるかもしれませんが�
 
 -   [iOS 用 Windows ブリッジ](https://github.com/Microsoft/WinObjC)
 
-    Project Islandwood とも呼ばれます。これはまだ開発中のツールで、Xcode プロジェクトを Visual Studio に直接インポートできます。 Objective-C コードは Visual Studio からビルドおよびデバッグできます。 プロジェクトでグラフィックス用に Cocos などのライブラリを使用している場合、これはアプリを迅速に移植するための便利な方法です。
+    これは、Xcode プロジェクトを Visual Studio に直接インポートできる、開発中のツールです。 Objective-C コードは Visual Studio からビルドおよびデバッグできます。 プロジェクトでグラフィックス用に Cocos などのライブラリを使用している場合、これはアプリを迅速に移植するための便利な方法です。
 
 -   C++ コードの目的変更
 

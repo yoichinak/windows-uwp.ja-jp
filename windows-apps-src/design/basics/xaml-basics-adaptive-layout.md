@@ -5,12 +5,12 @@ keywords: XAML, UWP, 概要
 ms.date: 08/20/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 6919a2dc15aac7c5e589f2c0355f9c1cc13bfc7a
-ms.sourcegitcommit: 40b890c7b862f333879887cc22faff560c49eae6
+ms.openlocfilehash: e9db25c822d524ec36c6e512e132e49a69a2bd7d
+ms.sourcegitcommit: 7aa0e1108fd1a19ebc5632acbc9f66ea9af2b321
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598813"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691527"
 ---
 # <a name="tutorial-create-adaptive-layouts"></a>チュートリアル: アダプティブ レイアウトを作成する
 
@@ -266,10 +266,7 @@ ms.locfileid: "97598813"
 
 これで、この演習は終わりです。自身でさらに試すために必要な、アダプティブ レイアウトに関する知識を身につけることができました。 さらに大きな課題としては、Surface Hub などの大きな画面サイズ用にレイアウトを最適化してみることができます。 Surface Hub のレイアウトをテストする場合は、「[Visual Studio を使った Surface Hub アプリのテスト](../../debug-test-perf/test-surface-hub-apps-using-visual-studio.md)」を参照してください。
 
-行き詰まった場合は、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md)」の以下のセクションで、詳しいガイダンスを参照できます。
-
-+ [表示状態と状態トリガー](../layout/layouts-with-xaml.md#adaptive-layouts-with-visual-states-and-state-triggers)
-+ [カスタマイズされたレイアウト](../layout/layouts-with-xaml.md#tailored-layouts)
+行き詰まった場合は、「[XAML でのレスポンシブ レイアウト](../layout/layouts-with-xaml.md)」で、詳しいガイダンスを参照できます。
 
 当初の写真編集アプリの作成方法を学習するには、XAML の[ユーザー インターフェイス](../basics/xaml-basics-ui.md)と[データ バインディング](../../data-binding/xaml-basics-data-binding.md)に関するチュートリアルをご覧ください。
 

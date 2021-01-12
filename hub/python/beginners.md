@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, python の学習, windows での python (初心者向け), microsoft store から python をインストール, python と vs code, windows での pygame
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 076c62658431ba75bdbd7f385ced86f27fb2f7d0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: f225932685e71cb2374249ad96efeac11184d000
+ms.sourcegitcommit: 3fafc6b6d548a03e6191fa95ebf9384c42396a30
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174146"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880545"
 ---
 # <a name="get-started-using-python-on-windows-for-beginners"></a>Windows で Python を使ってみる (初心者向け)
 
@@ -23,7 +23,7 @@ ms.locfileid: "89174146"
 
 Python を初めて使用する初心者の方には、[Microsoft Store から Python をインストールする](https://www.microsoft.com/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)ことをお勧めします。 Microsoft Store を介してインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新が提供されるだけでなく、現在のユーザーの PATH 設定 (管理者アクセス権は不要) も行われます。 これは、教育現場や、コンピューターへのアクセス許可または管理アクセスに制限を設けている組織で特に役立ちます。
 
-Windows で **Web 開発**に Python を使用している場合は、開発環境用に別のセットアップを用意することをお勧めします。 Windows に直接インストールするのではなく、Linux 用 Windows サブシステム経由で Python をインストールして使用することをお勧めします。 ヘルプについては、次を参照してください:「[Windows での Web 開発用の Python の使用を開始する](./web-frameworks.md)」をご覧ください。 お使いのオペレーティング システムでの一般的なタスクの自動化に関心がある場合は、次のガイドを参照してください:[Windows で Python を使用してスクリプト作成と自動化を開始する](./scripting.md)。 一部の高度なシナリオ (Python のインストール ファイルへのアクセスや修正が必要な場合、バイナリのコピーを作成する場合、Python DLL を直接使用する場合など) では、[python.org](https://www.python.org/downloads/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
+Windows で **Web 開発** に Python を使用している場合は、開発環境用に別のセットアップを用意することをお勧めします。 Windows に直接インストールするのではなく、Linux 用 Windows サブシステム経由で Python をインストールして使用することをお勧めします。 ヘルプについては、次を参照してください:「[Windows での Web 開発用の Python の使用を開始する](./web-frameworks.md)」をご覧ください。 お使いのオペレーティング システムでの一般的なタスクの自動化に関心がある場合は、次のガイドを参照してください:[Windows で Python を使用してスクリプト作成と自動化を開始する](./scripting.md)。 一部の高度なシナリオ (Python のインストール ファイルへのアクセスや修正が必要な場合、バイナリのコピーを作成する場合、Python DLL を直接使用する場合など) では、[python.org](https://www.python.org/downloads/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
 
 ## <a name="install-python"></a>Python のインストール
 
@@ -31,7 +31,7 @@ Microsoft Store を使用して Python をインストールするには:
 
 1. **スタート** メニュー (左下の Windows アイコン) に移動し、「Microsoft Store」と入力してリンクを選択し、ストアを開きます。
 
-2. ストアが開いたら、右上のメニューから **[検索]** を選択し、「Python」と入力します。 [アプリ] の下の結果から "Python 3.7" を開きます。 **[取得]** を選択します。
+2. ストアが開いたら、右上のメニューから **[検索]** を選択し、「Python」と入力します。 [アプリ] の下の結果から "Python 3.9" を開きます。 **[取得]** を選択します。
 
 3. Python がダウンロードとインストールのプロセスを完了したら、**スタート** メニュー (左下の Windows アイコン) を使用して Windows PowerShell を開きます。 PowerShell が開いたら、`Python --version` を入力して、マシンに Python3 がインストールされていることを確認します。
 
@@ -47,7 +47,7 @@ Microsoft Store を使用して Python をインストールするには:
 
 2. VS Code がインストールされたら、Python 拡張機能もインストールする必要があります。 Python 拡張機能をインストールするには、[VS Code マーケットプレースへのリンク](https://marketplace.visualstudio.com/items?itemName=ms-python.python)を選択するか、VS Code を開いて拡張機能メニュー (Ctrl + Shift + X) で「**Python**」を検索します。
 
-3. Python はインタープリター言語であり、Python コードを実行するには、使用するインタープリターを VS Code に指示する必要があります。 別のものを選択する特別な理由がない限り、Python 3.7 を使用することをお勧めします。 Python 拡張機能をインストールしたら、Python 3 インタープリターを選択します。**コマンド パレット**を開き (Ctrl + Shift + P)、検索するコマンド「**Python: Select Interpreter**」の入力を開始して、コマンドを選択します。 利用可能な場合、最下部のステータス バーにある **[Select Python Environment]\(Python 環境の選択\)** オプションを使用することもできます (選択したインタープリターが既に表示されている場合があります)。 コマンドを実行すると、仮想環境を含め、VS Code が自動的に検出できる使用可能なインタープリターの一覧が表示されます。 目的のインタープリターが表示されない場合は、[Python 環境の構成](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
+3. Python はインタープリター言語であり、Python コードを実行するには、使用するインタープリターを VS Code に指示する必要があります。 別のものを選択する特別な理由がない限り、Python 3.7 を使用することをお勧めします。 Python 拡張機能をインストールしたら、Python 3 インタープリターを選択します。**コマンド パレット** を開き (Ctrl + Shift + P)、検索するコマンド「**Python: Select Interpreter**」の入力を開始して、コマンドを選択します。 利用可能な場合、最下部のステータス バーにある **[Select Python Environment]\(Python 環境の選択\)** オプションを使用することもできます (選択したインタープリターが既に表示されている場合があります)。 コマンドを実行すると、仮想環境を含め、VS Code が自動的に検出できる使用可能なインタープリターの一覧が表示されます。 目的のインタープリターが表示されない場合は、[Python 環境の構成](https://code.visualstudio.com/docs/python/environments)に関するページを参照してください。
 
     ![VS Code で Python インタープリターを選択する](../images/interpreterselection.gif)
 
@@ -99,7 +99,7 @@ Python の組み込みの文字列変更メソッドを使用してみました�
 
 ## <a name="hello-world-tutorial-for-using-python-with-vs-code"></a>VS Code で Python を使用するための Hello World チュートリアル
 
-VS Code チームが作成した[はじめての Python](https://code.visualstudio.com/docs/python/python-tutorial#_start-vs-code-in-a-project-workspace-folder) チュートリアルでは、Hello World プログラムを Python で作成し、プログラム ファイルを実行し、デバッガーを構成して実行し、*matplotlib* や *numpy* などのパッケージをインストールして仮想環境内でグラフィカル プロットを作成する方法を説明しています。
+VS Code チームが作成した [はじめての Python](https://code.visualstudio.com/docs/python/python-tutorial#_start-vs-code-in-a-project-workspace-folder) チュートリアルでは、Hello World プログラムを Python で作成し、プログラム ファイルを実行し、デバッガーを構成して実行し、*matplotlib* や *numpy* などのパッケージをインストールして仮想環境内でグラフィカル プロットを作成する方法を説明しています。
 
 1. PowerShell を開き、"hello" という名前の空のフォルダーを作成し、このフォルダーに移動し、VS Code でこのフォルダーを開きます。
 

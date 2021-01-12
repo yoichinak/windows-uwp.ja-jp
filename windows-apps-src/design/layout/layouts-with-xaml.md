@@ -5,45 +5,46 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
+ms.custom: contperf-fy21q2
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: fd2f755153b29c9be766d39fb685a3f923868946
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 4c2ff55b0f89e913cd2093add37f008c38e9312f
+ms.sourcegitcommit: 7aa0e1108fd1a19ebc5632acbc9f66ea9af2b321
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750419"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691533"
 ---
 # <a name="responsive-layouts-with-xaml"></a>XAML でのレスポンシブ レイアウト
 
-XAML レイアウト システムでは、応答性の高い UI を作成するために、自動サイズ変更、レイアウト パネル、表示状態、独立した UI 定義が提供されます。 レスポンシブ レイアウトを使用すると、サイズ、解像度、ピクセル密度、向きがさまざまに異なるアプリのウィンドウを画面で適切に表示できます。 「[レスポンシブ デザイン テクニック](responsive-design.md)」で説明されているように、位置変更、サイズ変更、リフロー、表示/非表示、再配置、またはアプリの UI の再構築にも XAML を使用できます。 ここでは、XAML を使ったレスポンシブ レイアウトを実装する方法について説明します。
+XAML レイアウト システムでは、応答性の高い UI を作成するために、要素の自動サイズ変更、レイアウト パネル、表示状態が提供されます。 レスポンシブ レイアウトを使用すると、サイズ、解像度、ピクセル密度、向きがさまざまに異なるアプリのウィンドウを画面で適切に表示できます。 「[レスポンシブ デザイン テクニック](responsive-design.md)」で説明されているように、位置変更、サイズ変更、リフロー、表示/非表示、再配置、またはアプリの UI の再構築にも XAML を使用できます。 ここでは、XAML を使ったレスポンシブ レイアウトを実装する方法について説明します。
 
 ## <a name="fluid-layouts-with-properties-and-panels"></a>プロパティとパネルを使用した柔軟なレイアウト
 
-レスポンシブ レイアウトの基盤は、XAML レイアウト プロパティとパネルを適切に使用することにより、柔軟な方法でコンテンツの位置変更、サイズ変更、再配置を行うことです。 
+レスポンシブ レイアウトの基盤は、XAML レイアウト プロパティとパネルを適切に使用することにより、柔軟な方法でコンテンツの位置変更、サイズ変更、再配置を行うことです。
 
-XAML レイアウト システムでは、静的レイアウトと柔軟なレイアウトの両方がサポートされます。 静的レイアウトでは、コントロールのピクセル サイズと位置を明示的に指定します。 ユーザーがデバイスの解像度や向きを変えても、UI は変更されません。 静的レイアウトは、フォーム ファクターやディスプレイ サイズが変わると、不適切にはみ出すことがあります。 一方、柔軟なレイアウトは、デバイス上で使用できる表示領域に合わせて縮小、拡大、再配置されます。 
+XAML レイアウト システムでは、静的レイアウトと柔軟なレイアウトの両方がサポートされます。 静的レイアウトでは、コントロールのピクセル サイズと位置を明示的に指定します。 ユーザーがデバイスの解像度や向きを変えても、UI は変更されません。 静的レイアウトは、フォーム ファクターやディスプレイ サイズが変わると、不適切にはみ出すことがあります。 一方、柔軟なレイアウトは、デバイス上で使用できる表示領域に合わせて縮小、拡大、再配置されます。
 
 実際には、静的要素と柔軟な要素の組み合わせを使って UI を作成します。 場所によっては静的な要素と値を使うこともありますが、UI 全体のさまざまな解像度、画面サイズ、ビューへの応答性を高くする必要があります。
 
 ここでは、XAML プロパティとレイアウト パネルを使って、柔軟なレイアウトを作成する方法を説明します。
 
 ### <a name="layout-properties"></a>レイアウト プロパティ
-レイアウト プロパティは、要素のサイズと位置を制御します。 柔軟なレイアウトを作成するには、要素の自動または比例サイズ設定を使用し、必要に応じて、レイアウト パネルで子を配置できるようにします。 
+レイアウト プロパティは、要素のサイズと位置を制御します。 柔軟なレイアウトを作成するには、要素の自動または比例サイズ設定を使用し、必要に応じて、レイアウト パネルで子を配置できるようにします。
 
 いくつかの一般的なレイアウト プロパティと、それらを使用して柔軟なレイアウトを作成する方法を示します。
 
 **Height および Width**
 
-[  **Height**](/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティと [**Width**](/uwp/api/windows.ui.xaml.frameworkelement.width) プロパティは要素のサイズを指定します。 有効ピクセル単位で測定された固定値を使うことも、自動サイズ変更または比例サイズ変更を行うこともできます。 
+[  **Height**](/uwp/api/windows.ui.xaml.frameworkelement.height) プロパティと [**Width**](/uwp/api/windows.ui.xaml.frameworkelement.width) プロパティは要素のサイズを指定します。 有効ピクセル単位で測定された固定値を使うことも、自動サイズ変更または比例サイズ変更を行うこともできます。
 
 自動サイズ変更は、UI 要素をコンテンツや親コンテナーに合わせてサイズ変更します。 グリッドの行と列を使って、自動サイズ変更を行うこともできます。 自動サイズ変更を使うには、UI 要素の Height や Width を **Auto** に設定します。
 
 > [!NOTE]
 > コンテンツやコンテナーに合わせて要素のサイズが変更されるかどうかは、親コンテナーで子のサイズ変更を処理する方法によって決まります。 詳しくは、この記事の「[レイアウト パネル](#layout-panels)」をご覧ください。
 
-比例サイズ変更 (*スター サイズ指定*とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML では、スター値は \* (重み付きのスター サイズ指定の場合は *n*\*) として表されます。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) 要素の [**Width**](/uwp/api/windows.ui.xaml.controls.columndefinition.width) プロパティで "5\*" と "\*" を使います。
+比例サイズ変更 (*スター サイズ指定* とも呼ばれる) を使うと、使用可能なスペースが加重比率によりグリッドの行と列の間で分散されます。 XAML では、スター値は \* (重み付きのスター サイズ指定の場合は *n*\*) として表されます。 たとえば、2 段組レイアウトで 1 つの列と、幅が 5 倍の列とを指定するには、[**ColumnDefinition**](/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) 要素の [**Width**](/uwp/api/windows.ui.xaml.controls.columndefinition.width) プロパティで "5\*" と "\*" を使います。
 
 次の例では、4 つの列を含む [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) で、固定、自動、比例サイズ指定を組み合わせています。
 
@@ -98,7 +99,7 @@ UI で自動サイズ変更を使用する場合でも、要素のサイズに�
 コードまたは表示状態で、要素の Visibility プロパティを変更できます。 要素の Visibility が変更されると、そのすべての子要素も変更されます。 1 つのパネルを表示して別のパネルを折りたたむことによって、UI のセクションを置き換えることができます。
 
 > [!Tip]
-> UI に既定で **Collapsed** である要素がある場合、要素が表示されていなくても、オブジェクトは起動時に作成されます。 これらの要素の読み込みを表示されたときまで遅延するには、**x:DeferLoadStrategy 属性**を "Lazy" に設定します。 これにより起動時のパフォーマンスが向上することがあります。 詳しくは、「[x:DeferLoadStrategy 属性](../../xaml-platform/x-deferloadstrategy-attribute.md)」をご覧ください。
+> UI に既定で **Collapsed** である要素がある場合、要素が表示されていなくても、オブジェクトは起動時に作成されます。 これらの要素の読み込みを表示されたときまで遅延するには、**x:DeferLoadStrategy 属性** を "Lazy" に設定します。 これにより起動時のパフォーマンスが向上することがあります。 詳しくは、「[x:DeferLoadStrategy 属性](../../xaml-platform/x-deferloadstrategy-attribute.md)」をご覧ください。
 
 ### <a name="style-resources"></a>Style リソース
 
@@ -127,9 +128,9 @@ XAML フレームワークで提供されるパネル コントロールの主�
 ## <a name="adaptive-layouts-with-visual-states-and-state-triggers"></a>表示状態と状態トリガーを使ったアダプティブ レイアウト
 ウィンドウのサイズまたはその他の変更に基づいて、UI に大幅な変更を行うには、表示状態を使用します。
 
-アプリ ウィンドウを一定量を超えて拡大/縮小するときに、レイアウト プロパティを変更して、UI のセクションの位置変更、サイズ変更、再配置、表示、置換を行うことが必要になる可能性があります。 UI のさまざまな表示状態を定義し、ウィンドウの幅や高さが指定したしきい値を超えたときに適用できます。 
+アプリ ウィンドウを一定量を超えて拡大/縮小するときに、レイアウト プロパティを変更して、UI のセクションの位置変更、サイズ変更、再配置、表示、置換を行うことが必要になる可能性があります。 UI のさまざまな表示状態を定義し、ウィンドウの幅や高さが指定したしきい値を超えたときに適用できます。
 
-[  **AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使うと、状態を適用するしきい値 ("ブレークポイント" とも呼ばれます) を簡単に設定できます。 [  **VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) は、要素が特定の状態にあるときに、要素に適用されるプロパティ値を定義します。 指定された条件が満たされたときに適切な VisualState を適用する [**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) で表示状態をグループ化します。
+[  **VisualState**](/uwp/api/Windows.UI.Xaml.VisualState) は、要素が特定の状態にあるときに、要素に適用されるプロパティ値を定義します。 指定された条件が満たされたときに適切な VisualState を適用する [**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) で表示状態をグループ化します。 [**AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) を使うと、XAML に状態を適用するしきい値 ("ブレークポイント" とも呼ばれます) を簡単に設定できます。 または、コードで [**VisualStateManager.GoToState**](/uwp/api/windows.ui.xaml.visualstatemanager.gotostate) メソッドを呼び出して表示状態を適用することもできます。 次のセクションで、両方の方法の例を示します。
 
 ### <a name="set-visual-states-in-code"></a>コードでの表示状態の設定
 
@@ -139,7 +140,6 @@ XAML フレームワークで提供されるパネル コントロールの主�
 
 > [!NOTE]
 > 先に進む前に知っておくべきですが、アプリが実行されている特定のデバイスをアプリが検出する手段は、Windows では提供されていません。 アプリが実行されているデバイス ファミリー (モバイル、デスクトップなど)、効果的な解像度、およびアプリが利用できる画面領域の量 (アプリのウィンドウのサイズ) は伝えることができます。 [画面のサイズとブレークポイント](screen-sizes-and-breakpoints-for-responsive-design.md)の表示状態を定義することをお勧めします。
-
 
 ```xaml
 <Page ...
@@ -345,82 +345,8 @@ VisualState では、通常、コントロールのプロパティの値、つ�
 </Page>
 ```
 
-## <a name="tailored-layouts"></a>カスタマイズされたレイアウト
-
-さまざまなデバイスで UI のレイアウトに大幅な変更を加えるときは、1 つの UI を適合させるのではなく、デバイスに合わせてカスタマイズされたレイアウトを含む個別の UI ファイルを定義すると便利な場合があります。 複数のデバイス間で機能が同じである場合は、同じコード ファイルを共有する個別の XAML ビューを定義できます。 ビューと機能の両方がデバイス間で大幅に異なる場合は、個別の Page を定義し、アプリの読み込み時に移動する Page を選ぶことができます。
-
-### <a name="separate-xaml-views-per-device-family"></a>デバイス ファミリごとの個別の XAML ビュー
-
-同じ分離コードを共有する複数の UI 定義を作成するには、XAML ビューを使用します。 デバイス ファミリごとに固有の UI 定義を提供できます。 次の手順に従って、アプリに XAML ビューを追加します。
-
-**アプリに XAML ビューを追加するには**
-1. [プロジェクト] の [新しい項目の追加] をクリックします。 [新しい項目の追加] ダイアログ ボックスが開きます。
-    > **ヒント**&nbsp;&nbsp;ソリューション エクスプローラーで、ソリューションではなく、フォルダーまたはプロジェクトが選択されていることを確認します。
-2. 左側のウィンドウの [Visual C#] または [Visual Basic] の下で、テンプレートの種類として [XAML] を選びます。
-3. 中央のウィンドウで、[XAML ビュー] を選びます。
-4. ビューの名前を入力します。 ビューには、正しく名前を付ける必要があります。 命名方法について詳しくは、このセクションの後半をご覧ください。
-5. [追加] をクリックします。 ファイルがプロジェクトに追加されます。
-
-前の手順では、XAML ファイルのみを作成し、関連付けられた分離コード ファイルは作成していません。 代わりに、ファイル名やフォルダー名の一部である "DeviceName" 修飾子を使って、XAML ビューが既存の分離コード ファイルに関連付けられています。 この修飾子名は、アプリが現在実行されているデバイスのデバイス ファミリを表す文字列値 ("Desktop"、"Tablet"、およびその他のデバイス ファミリの名前) にマップすることができます (「[**ResourceContext.QualifierValues**](/uwp/api/windows.applicationmodel.resources.core.resourcecontext.qualifiervalues)」をご覧ください)。
-
-ファイル名に修飾子を追加することや、修飾子名を持つフォルダーにファイルを追加することができます。
-
-**ファイル名の使用**
-
-ファイルに修飾子名を使用するには、 *[pageName]* .DeviceFamily- *[qualifierString]* .xaml という形式を使用します。
-
-MainPage.xaml という名前のファイルの例を見てみましょう。 タブレット デバイス用のビューを作成するには、XAML ビューに MainPage.DeviceFamily-Tablet.xaml という名前を付けます。 PC デバイス用のビューを作成するには、ビューに MainPage.DeviceFamily-Desktop.xaml という名前を付けます。 Microsoft Visual Studio で、ソリューションがどのように表示されるかを以下に示します。
-
-![修飾ファイル名を持つ XAML ビュー](images/xaml-layout-view-ex-1.png)
-
-**フォルダー名の使用**
-
-フォルダーを使用して Visual Studio プロジェクト内のビューを整理するには、フォルダーで修飾子名を使うことができます。 そのためには、フォルダーに次のような名前を付けます:DeviceFamily- *[qualifierString]* 。 この場合は、各 XAML ファイルの名前は同じになります。 ファイル名に修飾子を含めないでください。
-
-MainPage.xaml という名前のファイルの例を以下に示します。 タブレット デバイス用のビューを作成するには、"DeviceFamily-Tablet" という名前のフォルダーを作成し、このフォルダーに MainPage.xaml という名前の XAML ビューを配置します。 PC デバイス用のビューを作成するには、"DeviceFamily-Desktop" という名前のフォルダーを作成し、このフォルダーに MainPage.xaml という名前の別の XAML ビューを配置します。 Visual Studio で、ソリューションがどのように表示されるかを以下に示します。
-
-![フォルダー内の XAML ビュー](images/xaml-layout-view-ex-2.png)
-
-どちらの場合も、タブレット デバイスと PC デバイス用に固有のビューが使用されます。 既定の MainPage.xaml ファイルは、実行されているデバイスがデバイス ファミリ固有のビューのいずれにも一致しない場合に使用されます。
-
-### <a name="separate-xaml-pages-per-device-family"></a>デバイス ファミリごとの個別の XAML ページ
-
-固有のビューと機能を提供するために、個別の Page ファイル (XAML とコード) を作成し、ページが必要になったときに適切なページに移動することができます。
-
-**アプリに XAML ページを追加するには**
-1. [プロジェクト] の [新しい項目の追加] をクリックします。 [新しい項目の追加] ダイアログ ボックスが開きます。
-    > **ヒント**&nbsp;&nbsp;ソリューション エクスプローラーで、ソリューションではなく、プロジェクトが選択されていることを確認します。
-2. 左側のウィンドウの [Visual C#] または [Visual Basic] の下で、テンプレートの種類として [XAML] を選びます。
-3. 中央のウィンドウで、[空白のページ] を選びます。
-4. ページの名前を入力します。 たとえば、"MainPage_Tablet" と入力します。 MainPage_Tablet.xaml と MainPage_Tablet.xaml.cs/vb/cpp コード ファイルの両方が作成されます。
-5. [追加] をクリックします。 ファイルがプロジェクトに追加されます。
-
-実行時に、アプリが実行されているデバイス ファミリを確認し、次のように適切なページに移動します。
-
-```csharp
-if (Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Tablet")
-{
-    rootFrame.Navigate(typeof(MainPage_Tablet), e.Arguments);
-}
-else
-{
-    rootFrame.Navigate(typeof(MainPage), e.Arguments);
-}
-```
-```cppwinrt
-if (Windows::System::Profile::AnalyticsInfo::VersionInfo().DeviceFamily() == L"Windows.Tablet")
-{
-    rootFrame.Navigate(xaml_typename<WinRT_UWP::MainPage_Tablet>(), box_value(e.Arguments()));
-}
-else
-{
-    rootFrame.Navigate(xaml_typename<WinRT_UWP::MainPage>(), box_value(e.Arguments()));
-}
-```
-
-さまざまな条件に従って移動先のページを決定することもできます。 他の例については、[カスタマイズされた複数のビューのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlTailoredMultipleViews)に関するページをご覧ください。このサンプルでは、[**GetIntegratedDisplaySize**](/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getintegrateddisplaysize) 関数を使って、統合ディスプレイの物理サイズを確認しています。
-
 ## <a name="related-topics"></a>関連トピック
+
 - [チュートリアル: アダプティブ レイアウトを作成する](../basics/xaml-basics-adaptive-layout.md)
 - [レスポンシブ手法のサンプル (GitHub)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlResponsiveTechniques)
 - [状態トリガーのサンプル (GitHub)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlStateTriggers)

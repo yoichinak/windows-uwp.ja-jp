@@ -6,12 +6,12 @@ ms.date: 08/01/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store コレクション API, Microsoft Store 購入 API, 製品の表示, 製品の付与
 ms.localizationpriority: medium
-ms.openlocfilehash: 700749c45c563be0bb78de557cac3550767846bd
-ms.sourcegitcommit: fc7fb82121a00e552eaebafba42e5f8e1623c58a
+ms.openlocfilehash: 1447a8f7a689b3405ac1ebb8807c1c68b81294db
+ms.sourcegitcommit: ad33b2b191c7e62dc68a46bd349a87ff8ca7cef8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978577"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108925"
 ---
 # <a name="manage-product-entitlements-from-a-service"></a>サービスによる製品の権利の管理
 
@@ -33,7 +33,6 @@ ms.locfileid: "97978577"
 2.  [Azure AD アプリケーション ID をパートナーセンターのアプリに関連付け](#step-2)ます。
 3.  サービスで、発行元 ID を表す [Azure AD アクセス トークンを作成します](#step-3)。
 4.  クライアントの Windows アプリで、現在のユーザーの id を表す [MICROSOFT STORE ID キーを作成](#step-4) し、このキーをサービスに戻します。
-5.  必要な Azure AD のアクセス トークンと Microsoft Store ID キーを取得した後、[サービスから Microsoft Store コレクション API または Microsoft Store 購入 API を呼び出します](#step-5)。
 
 このエンドツーエンドのプロセスには、さまざまなタスクを実行する2つのソフトウェアコンポーネントが含まれます。
 
@@ -182,29 +181,6 @@ Microsoft Store コレクション API または Microsoft Store 購入 API の�
 次の図は、Microsoft Store ID キーを作成するプロセスを示しています。
 
   ![Windows ストア ID キーを作成する](images/b2b-1.png)
-
-<span id="step-5"/>
-
-## <a name="step-5-call-the-microsoft-store-collection-api-or-purchase-api-from-your-service"></a>手順 5: サービスから Microsoft Store コレクション API または購入 API を呼び出す
-
-特定のユーザーの製品所有権情報にアクセスするための Microsoft Store ID キーをサービスで取得したら、次の手順に従って、サービスから Microsoft Store コレクション API または購入 API を呼び出すことができます。
-
-* [製品の照会](query-for-products.md)
-* [コンシューマブルな製品をフルフィルメント完了として報告する](report-consumable-products-as-fulfilled.md)
-* [無料の製品の付与](grant-free-products.md)
-* [ユーザーのサブスクリプションの取得](get-subscriptions-for-a-user.md)
-* [ユーザーのサブスクリプションに関する請求の状態を変更する](change-the-billing-state-of-a-subscription-for-a-user.md)
-
-各シナリオについて、次の情報を API に渡します。
-
--   要求ヘッダーで、対象ユーザー URI 値 `https://onestore.microsoft.com` を持つ Azure AD アクセス トークンを渡します。 これは、[前述の手順 3](#step-3) で作成したトークンのいずれかです。 このトークンは発行元 ID を表します。
--   要求本文で、[前述の手順 4](#step-4) でアプリのクライアント側コードから取得した Microsoft Store ID キーを渡します。 このキーは、ユーザーの製品所有権情報にアクセスする場合にそのユーザーの ID を表します。
-
-### <a name="diagram"></a>ダイアグラム
-
-次の図は、サービスからの Microsoft Store collection API または purchase API でメソッドを呼び出すプロセスを示しています。
-
-  ![呼び出しコレクションまたは購入 API](images/b2b-2.png)
 
 ## <a name="claims-in-a-microsoft-store-id-key"></a>Microsoft Store ID キー内の要求
 

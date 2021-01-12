@@ -6,12 +6,12 @@ ms.date: 10/31/2018
 ms.topic: article
 keywords: Windows 10, uwp, ユーザー ロール, ユーザーのアクセス許可, カスタム ロール, ユーザー アクセス, アクセス許可のカスタマイズ, 標準ロール
 ms.localizationpriority: medium
-ms.openlocfilehash: e18c7bcffe7249f6c191fc456422e0dd0c7300ef
-ms.sourcegitcommit: 48702934676ae366fd46b7d952396c5e2fb2cbbe
+ms.openlocfilehash: bdf46b681c7ae2bce18bab464ac75984f784fc7b
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97927805"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104643"
 ---
 # <a name="set-roles-or-custom-permissions-for-account-users"></a>アカウント ユーザーの役割またはカスタムのアクセス許可の設定
 
@@ -41,12 +41,12 @@ ms.locfileid: "97927805"
 > アカウントの **オーナー** は、最初に Microsoft アカウントでそのアカウントを作成したユーザーです (Azure AD によって追加されたユーザーではありません)。 このアカウント所有者のみが、アカウントに完全にアクセスして、アプリを削除したり、すべてのアカウント ユーザーを作成および編集したり、すべての財務およびアカウント設定を変更したりできます。 
 
 
-| Role                 | 説明              |
+| ロール                 | 説明              |
 |----------------------|--------------------------|
 | Manager              | アカウントに完全にアクセスできます (税金と支払いの設定の変更を除く)。 これには、パートナーセンターでのユーザーの管理が含まれますが、Azure AD テナントでユーザーを作成および削除する機能は、Azure AD でのアカウントのアクセス許可によって異なります。 つまり、ユーザーにマネージャーロールが割り当てられていても、組織の Azure AD のグローバル管理者のアクセス許可を持っていない場合は、新しいユーザーを作成したり、ディレクトリからユーザーを削除したりすることはできません (ただし、ユーザーのパートナーセンターの役割を変更することはできます)。 <p> パートナーセンターアカウントが複数の Azure AD テナントに関連付けられている場合、管理者は、そのテナントのグローバル管理者のアクセス許可を持つアカウントを使用してユーザーと同じテナントにサインインしていない限り、ユーザーの完全な詳細 (姓、名、パスワード回復用電子メール、Azure AD グローバル管理者) を表示できません。 ただし、パートナーセンターアカウントに関連付けられているテナントにユーザーを追加したり、削除したりすることはできます。 |
 | 開発者            | パッケージをアップロードし、アプリおよびアドオンを申請できます。また、[使用状況レポート](usage-report.md)で統計情報の詳細を確認できます。 [デバイス間のエクスペリエンス](https://developer.microsoft.com/windows/project-rome)機能にアクセスできます。 財務情報やアカウントの設定を表示することはできません。   |
 | 経営担当者 | [[正常性]](health-report.md) レポートと [[使用状況]](usage-report.md) レポートを表示できます。 製品の作成や申請、アカウント設定の変更、財務情報の表示はできません。   |
-| 財務担当者  | [支払いレポート](payout-summary.md)、財務情報、取得レポートを表示できます。 アプリ、アドオン、またはアカウント設定を変更することはできません。    |
+| 財務担当者  | [支払いレポート](/partner-center/payout-statement)、財務情報、取得レポートを表示できます。 アプリ、アドオン、またはアカウント設定を変更することはできません。    |
 | マーケター             | [顧客のレビューに返信](respond-to-customer-reviews.md)したり、非財務[分析レポート](analytics.md)を表示したりできます。 アプリ、アドオン、またはアカウント設定を変更することはできません。      |
 
 以下の表は、これらの各ロール (およびアカウント所有者) が使用できる特定の機能の一部を示しています。
@@ -120,12 +120,12 @@ ms.locfileid: "97927805"
 <tr><td align="left">    <b>新しいアプリ</b>                            </td><td align="left">  新しいアプリの作成ページを表示できますが、実際にはアカウントに新しいアプリを作成することはできません。    </td><td align="left">  新しいアプリの名前を予約することで、アカウントで<a href="create-your-app-by-reserving-a-name.md">新しいアプリを作成</a>できます。また、申請を作成してアプリをストアに提出できます。     </td></tr>
 <tr><td align="left">    <b>新しいバンドル</b>&nbsp;*                       </td><td align="left">  新しいバンドルの作成ページを表示できますが、実際にはアカウントに新しいバンドルを作成することはできません。     </td><td align="left">  製品の新しいバンドルを作成できます。          </td></tr>
 <tr><td align="left">    <b>パートナーサービス</b>&nbsp;*                  </td><td align="left">  XToken を取得するサービスをインストールするための証明書を表示できます。     </td><td align="left">  XToken を取得するサービスをインストールするための証明書の管理と表示ができます。       </td></tr>
-<tr><td align="left">    <b>支払い勘定科目</b>                      </td><td align="left">  <b>[アカウント設定]</b> に<a href="setting-up-your-payout-account-and-tax-forms.md#payout-account">支払いアカウントの情報</a>を表示できます。     </td><td align="left">  <b>[アカウント設定]</b> で <a href="setting-up-your-payout-account-and-tax-forms.md#payout-account">支払いアカウントの情報</a> の編集と表示ができます。       </td></tr>
-<tr><td align="left">    <b>支払いの概要</b>                      </td><td align="left">  <a href="payout-summary.md">支払いの概要</a>を表示して、支払いレポート情報にアクセスしてダウンロードできます。       </td><td align="left">  <a href="payout-summary.md">支払いの概要</a>を表示して、支払いレポート情報にアクセスしてダウンロードできます。   </td></tr>
+<tr><td align="left">    <b>支払い勘定科目</b>                      </td><td align="left">  <b>[アカウント設定]</b> に<a href="/partner-center/set-up-your-payout-account#payout-account">支払いアカウントの情報</a>を表示できます。     </td><td align="left">  <b>[アカウント設定]</b> で <a href="/partner-center/set-up-your-payout-account#payout-account">支払いアカウントの情報</a> の編集と表示ができます。       </td></tr>
+<tr><td align="left">    <b>支払いの概要</b>                      </td><td align="left">  <a href="/partner-center/payout-statement">支払いの概要</a>を表示して、支払いレポート情報にアクセスしてダウンロードできます。       </td><td align="left">  <a href="/partner-center/payout-statement">支払いの概要</a>を表示して、支払いレポート情報にアクセスしてダウンロードできます。   </td></tr>
 <tr><td align="left">    <b>証明書利用者</b>&nbsp;*                   </td><td align="left">  XToken を取得する証明書利用者を表示できます。    </td><td align="left">  XToken を取得する証明書利用者の管理と表示ができます。     </td></tr>
 <tr><td align="left">    <b>サンド</b>&nbsp;*                         </td><td align="left">  <b>サンドボックス</b> ページにアクセスして、アカウント内のサンドボックスとそれらのサンドボックスに適用可能なすべての構成を表示できます。 適切な製品レベルのアクセス許可が付与されている場合を除き、サンドボックスごとに製品と申請を表示することはできません。 </td><td align="left">  <b>サンドボックス</b> ページにアクセスして、サンドボックスの作成と削除、およびサンドボックスの構成の管理など、アカウントでサンドボックスを表示して管理できます。 適切な製品レベルのアクセス許可が付与されている場合を除き、サンドボックスごとに製品と申請を表示することはできません。    </td></tr>
 <tr><td align="left">    <b>店舗売上イベント</b>&nbsp;*                            </td><td align="left">  該当なし    </td><td align="left">  Microsoft Store セール イベントに製品を自動的に含めるオプションを構成できます。     </td></tr>
-<tr><td align="left">    <b>税プロファイル</b>                         </td><td align="left">  <b>[アカウント設定]</b> に<a href="setting-up-your-payout-account-and-tax-forms.md#tax-forms">税プロファイルの情報とフォーム</a>を表示できます。     </td><td align="left">  <b>[アカウント設定]</b> で税フォームに入力して、<a href="setting-up-your-payout-account-and-tax-forms.md#tax-forms">税プロファイル情報</a>を更新できます。     </td></tr>
+<tr><td align="left">    <b>税プロファイル</b>                         </td><td align="left">  <b>[アカウント設定]</b> に<a href="/partner-center/set-up-your-payout-account#tax-forms">税プロファイルの情報とフォーム</a>を表示できます。     </td><td align="left">  <b>[アカウント設定]</b> で税フォームに入力して、<a href="/partner-center/set-up-your-payout-account#tax-forms">税プロファイル情報</a>を更新できます。     </td></tr>
 <tr><td align="left">    <b>テストアカウント</b>&nbsp;*                     </td><td align="left">  Xbox Live の構成をテストするためのアカウントを表示できます。      </td><td align="left">  Xbox Live の構成をテストするためのアカウントを作成、管理、および表示できます。      </td></tr>
 <tr><td align="left">    <b>Xbox デバイス</b>                        </td><td align="left">  <b>[アカウント設定]</b> セクションでアカウントに対して有効にされている Xbox 開発コンソールを表示できます。       </td><td align="left">  <b>[アカウント設定]</b> セクションでアカウントに対して有効にされている Xbox 開発コンソールを追加、削除、および表示できます。     </td></tr>
     </tbody>

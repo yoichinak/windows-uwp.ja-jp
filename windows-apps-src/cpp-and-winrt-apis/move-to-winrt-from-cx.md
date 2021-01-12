@@ -5,12 +5,12 @@ ms.date: 01/17/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C++/CX
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e25f9cdb091f96b648ddc00d5f5cc96bf18d1d1
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: 035003be1c9b8ef84d0563af6be9f5b3a01978c7
+ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750598"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860140"
 ---
 # <a name="move-to-cwinrt-from-ccx"></a>C++/CX から C++/WinRT への移行
 
@@ -26,7 +26,7 @@ C++/CX から C++/WinRT への移植は一般的に簡単ですが、[並列パ�
 
 ### <a name="porting-in-one-pass"></a>1 回の動作での移植
 
-プロジェクト全体を 1 回の動作で移植できる場合、必要な情報はこのトピックだけになります (この後に続く*相互運用*に関するトピックは不要です)。 まず、いずれかの C++/WinRT プロジェクト テンプレートを使用して、Visual Studio で新しいプロジェクトを作成することをお勧めします ([C++/WinRT の Visual Studio のサポート](./intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください)。 その後、ソース コード ファイルを新しいプロジェクトに移動し、その際にすべての C++/CX ソース コードを C++/WinRT に移植します。
+プロジェクト全体を 1 回の動作で移植できる場合、必要な情報はこのトピックだけになります (この後に続く *相互運用* に関するトピックは不要です)。 まず、いずれかの C++/WinRT プロジェクト テンプレートを使用して、Visual Studio で新しいプロジェクトを作成することをお勧めします ([C++/WinRT の Visual Studio のサポート](./intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください)。 その後、ソース コード ファイルを新しいプロジェクトに移動し、その際にすべての C++/CX ソース コードを C++/WinRT に移植します。
 
 または、既存の C++/CX プロジェクト内で移植作業を行う場合は、それに C++/WinRT サポートを追加する必要があります。 これを実行する手順については、「[C++/CX プロジェクトを取得して C++/WinRT サポートを追加する](./interop-winrt-cx.md#taking-a-ccx-project-and-adding-cwinrt-support)」を参照してください。 移植が完了するまでには、純粋な C++/CX プロジェクトが純粋なプロジェクト C++/WinRT に変更されます。
 
@@ -263,7 +263,7 @@ private:
 };
 ```
 
-C++/WinRT オブジェクトは値であるため、スタックに割り当てるか、オブジェクトのフィールドとして割り当てることができます。 C++/WinRT オブジェクトを割り当てるために、`ref new` (または `new`) は使用*しません*。 バックグラウンドで **RoActivateInstance** は引き続き呼び出されています。
+C++/WinRT オブジェクトは値であるため、スタックに割り当てるか、オブジェクトのフィールドとして割り当てることができます。 C++/WinRT オブジェクトを割り当てるために、`ref new` (または `new`) は使用 *しません*。 バックグラウンドで **RoActivateInstance** は引き続き呼び出されています。
 
 ```cppwinrt
 using namespace winrt::Windows::Storage::Streams;
@@ -328,7 +328,7 @@ C++ コレクション型では既定のコンストラクターが使用され�
 
 ### <a name="more-about-collections-of-empty-references"></a>空の参照のコレクションの詳細
 
-C++/CX (実際には隣接したコンテナー) 内に **Platform::Array\^** ([Port **Platform::Array\^** ](#port-platformarray) を参照) がある場合はいつでも、それを配列のままにしておくのではなく、C++/WinRT の **std::vector** に移植するかどうかを選択できます。 **std::vector** を選択することには利点があります。
+C++/CX (実際には隣接したコンテナー) 内に **Platform::Array\^** ([Port **Platform::Array\^**](#port-platformarray) を参照) がある場合はいつでも、それを配列のままにしておくのではなく、C++/WinRT の **std::vector** に移植するかどうかを選択できます。 **std::vector** を選択することには利点があります。
 
 たとえば、空の参照の固定サイズ ベクトルを作成するための簡単な方法はありますが (上記の表を参照)、空の参照の "*配列*" を作成するための簡単な方法はありません。 配列内の要素ごとに、`nullptr` を繰り返す必要があります。 値が少なすぎる場合は、追加分が既定で構築されます。
 
@@ -344,7 +344,7 @@ boxes.resize(10, nullptr); // 10 empty references.
 **std::map** の `[]` 添字演算子は、次のように動作します。
 
 - キーがマップ内にある場合は、既存の値への参照を返します (これは上書きできます)。
-- キーがマップ内にない場合は、キー (移動できる場合は移動済み) と*既定で構築された値*で構成される新しいエントリをマップ内に作成し、値への参照を返します (これは後で上書きできます)。
+- キーがマップ内にない場合は、キー (移動できる場合は移動済み) と *既定で構築された値* で構成される新しいエントリをマップ内に作成し、値への参照を返します (これは後で上書きできます)。
 
 つまり、`[]` 演算子は常にマップ内にエントリを作成します。 これは C#、Java、および JavaScript とは異なります。
 
@@ -388,7 +388,7 @@ void BgLabelControl::OnLabelChanged(Windows::UI::Xaml::DependencyObject const& d
 
 ## <a name="derived-classes"></a>派生クラス
 
-ランタイム クラスから派生するためには、基底クラスが*構成可能*である必要があります。 C++/CX ではクラスを構成可能にするために特別な手順を実行する必要はありませんが、C++/WinRT では必要です。 クラスを基底クラスとして使用できるようにすることを示すには、[シールされていないキーワード](/uwp/midl-3/intro#base-classes)を使用します。
+ランタイム クラスから派生するためには、基底クラスが *構成可能* である必要があります。 C++/CX ではクラスを構成可能にするために特別な手順を実行する必要はありませんが、C++/WinRT では必要です。 クラスを基底クラスとして使用できるようにすることを示すには、[シールされていないキーワード](/uwp/midl-3/intro#base-classes)を使用します。
 
 ```idl
 unsealed runtimeclass BasePage : Windows.UI.Xaml.Controls.Page
@@ -490,7 +490,7 @@ C++/CX と C# では、Null ポインターを値型にボックス化解除し�
 
 文字列は、ある点では値型であり、別の点では参照型です。 C++/CX と C++/WinRT では文字列の扱いが異なります。
 
-ABI 型 [**HSTRING**](/windows/win32/winrt/hstring) は、参照カウント文字列へのポインターです。 しかし、[**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) から派生したものではないため、厳密に言えば*オブジェクト*ではありません。 さらに、null の **HSTRING** は空の文字列を表します。 **IInspectable** から派生したもの以外のボックス化は、[**IReference \<T\>** ](/uwp/api/windows.foundation.ireference_t_) 内にラップすることによって行われ、Windows ランタイムでは標準の実装が [**PropertyValue**](/uwp/api/windows.foundation.propertyvalue) オブジェクトの形式で行われます (カスタム型は [**PropertyType::Othertype**](/uwp/api/windows.foundation.propertytype) として報告されます)。
+ABI 型 [**HSTRING**](/windows/win32/winrt/hstring) は、参照カウント文字列へのポインターです。 しかし、[**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) から派生したものではないため、厳密に言えば *オブジェクト* ではありません。 さらに、null の **HSTRING** は空の文字列を表します。 **IInspectable** から派生したもの以外のボックス化は、[**IReference \<T\>**](/uwp/api/windows.foundation.ireference_t_) 内にラップすることによって行われ、Windows ランタイムでは標準の実装が [**PropertyValue**](/uwp/api/windows.foundation.propertyvalue) オブジェクトの形式で行われます (カスタム型は [**PropertyType::Othertype**](/uwp/api/windows.foundation.propertytype) として報告されます)。
 
 C++/CX は Windows ランタイム文字列を参照型として表しますが、C++/WinRT は文字列を値型として投影します。 つまり、ボックス化された null 文字列は、どのように表されるかによって異なる表現を持つことができます。
 
@@ -625,7 +625,7 @@ winrt::Windows::Foundation::IInspectable var{ nullptr };
 
 **Platform::String\^\^** は Windows ランタイム HSTRING ABI 型と同等です。 C++/WinRT では、同等の型は [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) です。 ただし、C++/WinRT では、**std::wstring** などの C++ 標準ライブラリのワイド文字列型、およびワイド文字列リテラルを使用して Windows ランタイム API を呼び出すことができます。 詳細とコード例については、「[C++/WinRT での文字列の処理](strings.md)」を参照してください。
 
-C++/CX では、[**Platform::String::Data**](/cpp/cppcx/platform-string-class?view=vs-2019#data) プロパティにアクセスして、C スタイルの **const wchar_t\*** 配列 (たとえば、それを **std::wcout** に渡すために) として文字列を取得できます。
+C++/CX では、[**Platform::String::Data**](/cpp/cppcx/platform-string-class#data) プロパティにアクセスして、C スタイルの **const wchar_t\* *_ 配列として文字列を取得できます (たとえば、それを _* std::wcout** に渡すために)。
 
 ```cppcx
 auto var{ titleRecord->TitleName->Data() };
