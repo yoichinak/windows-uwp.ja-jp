@@ -7,12 +7,12 @@ ms.topic: article
 ms.custom: contperf-fy21q1
 keywords: Windows 10, UWP, ユニバーサル
 ms.localizationpriority: medium
-ms.openlocfilehash: 6871512e26b4c1f960034a5e97d88ade0b211094
-ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
+ms.openlocfilehash: e0d6991f261a9ee207a7e36f3dc5ad6a145f3b12
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97860425"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104673"
 ---
 # <a name="whats-a-universal-windows-platform-uwp-app"></a>ユニバーサル Windows プラットフォーム (UWP) アプリとは
 
@@ -144,7 +144,7 @@ Microsoft デザイン システムは Fluent と呼ばれます。 Fluent Desig
 
 [パートナー センター](https://partner.microsoft.com/dashboard)を使うと、Windows デバイス向けのすべてのアプリの管理と申請を 1 か所で行うことができます。 Microsoft Store にアプリの公開を申請する方法については、「[Windows アプリとゲームを公開する](../publish/index.md)」をご覧ください。
 
-新しい機能が追加されたことで、より高度な管理が可能になった一方、プロセスは簡単になりました。 また、詳しい[分析レポート](../publish/analytics.md)に加えて、[支払いの詳細](../publish/payout-summary.md)も得られるようになりました。いずれも[アプリの宣伝と顧客エンゲージメントの獲得](../publish/attract-customers-and-promote-your-apps.md)に役立ちます。
+新しい機能が追加されたことで、より高度な管理が可能になった一方、プロセスは簡単になりました。 また、詳しい[分析レポート](../publish/analytics.md)に加えて、[支払いの詳細](/partner-center/payout-statement)も得られるようになりました。いずれも[アプリの宣伝と顧客エンゲージメントの獲得](../publish/attract-customers-and-promote-your-apps.md)に役立ちます。
 
 別の入門資料については、「[Windows 10 デバイス向け Windows アプリのビルドの概要](/archive/msdn-magazine/2015/may/windows-10-an-introduction-to-building-windows-apps-for-windows-10-devices)」をご覧ください。
 

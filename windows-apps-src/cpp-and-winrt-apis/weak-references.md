@@ -6,19 +6,19 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 強, 弱, 参照
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 9ca3ae231a70b69f9f41bb1077b875dca798eb05
-ms.sourcegitcommit: e6a7749f9ddc0fe165b68506b0be465d4ca51ab6
+ms.openlocfilehash: 46b62c202d090a7760445b3e07bca073d2636c66
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935984"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104483"
 ---
 # <a name="strong-and-weak-references-in-cwinrt"></a>C++/WinRT の強参照と弱参照
 
 Windows ランタイムは参照カウント システムです。このようなシステムでは、強参照と弱参照 (および、暗黙的 *this* ポインターのように、いずれでもない参照) の重要性とこれらの違いを認識することが重要です。 このトピックで説明しますが、このような参照を正しく扱う方法を知ることは、円滑に動作する安定したシステムと突然クラッシュするシステムの違いを意味することがあります。 [C++/WinRT](./intro-to-using-cpp-with-winrt.md) により言語プロジェクションを広範囲で支えるヘルパー関数が提供され、複雑なシステムを簡単かつ正しく構築する作業が半分まで片付きます。
 
 > [!NOTE]
-> いくつかの例外を除き、[C++/WinRT](/windows/uwp/cpp-and-winrt-apis/) で使用または作成する Windows ランタイム型では、弱参照のサポートが既定でオンになっています。 **Windows.UI.Composition** と **Windows.Devices.Input.PenDevice** は、例外の例です。つまり、これらの名前空間の型については、弱参照のサポートはオンになって "*いません*"。 「[自動取り消しのデリゲートの登録が失敗する場合](/windows/uwp/cpp-and-winrt-apis/handle-events#if-your-auto-revoke-delegate-fails-to-register)」も参照してください。
+> いくつかの例外を除き、[C++/WinRT](./index.md) で使用または作成する Windows ランタイム型では、弱参照のサポートが既定でオンになっています。 **Windows.UI.Composition** と **Windows.Devices.Input.PenDevice** は、例外の例です。つまり、これらの名前空間の型については、弱参照のサポートはオンになって "*いません*"。 「[自動取り消しのデリゲートの登録が失敗する場合](./handle-events.md#if-your-auto-revoke-delegate-fails-to-register)」も参照してください。
 > 
 > 型を作成している場合は、このトピックの「[C++/WinRT の弱参照](#weak-references-in-cwinrt)」セクションを参照してください。
 
