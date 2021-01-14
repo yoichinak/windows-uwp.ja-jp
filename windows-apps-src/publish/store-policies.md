@@ -6,12 +6,12 @@ ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
-ms.openlocfilehash: fc7a9ebd3ebe9ce86f4c44e7e13ea25d5a01240e
-ms.sourcegitcommit: 5dac88ad541b71ebe85b78951e6b357a3db176cc
+ms.openlocfilehash: 7d9679b591b64f804ae9c84badc5849cac28de99
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97611460"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104663"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー
 
@@ -24,7 +24,7 @@ ms.locfileid: "97611460"
 > この契約に最近加えられた変更の概要については、「[変更履歴](store-policies-change-history.md)」を参照してください。
 
 > [!NOTE]
-> **2020 年 12 月 16 日 ポリシーの更新通知**:[Xbox Live Creators プログラム](https://www.xbox.com/developers/creators-program/)を通じて開発されたコンソールを対象とするゲーム製品の場合、XBL サービスと統合するための要件は適用されなくなりました。 特定のポリシー ([ポリシー 10.13.1](https://docs.microsoft.com/windows/uwp/publish/store-policies#1013-gaming-and-xbox)) は、次にストア ポリシー ドキュメントが更新されたときにこの変更を反映するように更新されますが、この通知の時点から有効であり、ポリシーは XBL Creators プログラムに対して適用されなくなります。 
+> **2020 年 12 月 16 日 ポリシーの更新通知**:[Xbox Live Creators プログラム](https://www.xbox.com/developers/creators-program/)を通じて開発されたコンソールを対象とするゲーム製品の場合、XBL サービスと統合するための要件は適用されなくなりました。 特定のポリシー ([ポリシー 10.13.1](#1013-gaming-and-xbox)) は、次にストア ポリシー ドキュメントが更新されたときにこの変更を反映するように更新されますが、この通知の時点から有効であり、ポリシーは XBL Creators プログラムに対して適用されなくなります。 
 
 Microsoft Store<sup>1</sup> 向け製品の開発に関心をお持ちいただき、ありがとうございます。 「製品」は、提出されたあらゆるフォームのコンテンツを意味します。これには、製品内で販売または提供されるアプリ、ゲーム、タイトル、およびあらゆる追加コンテンツを含みますが、これに限定されません。 Microsoft は、世界中のユーザーに向けた多様な製品の掲載に取り組んでいます。 Microsoft Store の製品は、Microsoft の認定基準を満たし、本当に便利で魅力的なエクスペリエンスをユーザーに提供するアプリであり、Microsoft Store に適合している必要があります。
 
