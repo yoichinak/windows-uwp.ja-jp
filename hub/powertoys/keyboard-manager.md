@@ -4,12 +4,12 @@ description: ユーザーがキーボードのキーを再定義できるよう�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: eb17cd5a7ad76728e6b063f76369c8d194a5e12c
-ms.sourcegitcommit: 1a997d7e0100e58886150f9fba33d7b205f41df1
+ms.openlocfilehash: a8ffd782a1b23d1e439be0462300ebdf20593913
+ms.sourcegitcommit: 375cf20e0583335805ec246d65819dc1674a2e32
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97865467"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241002"
 ---
 # <a name="keyboard-manager-utility"></a>キーボードマネージャーユーティリティ
 
@@ -33,7 +33,7 @@ Powertoy キーボードマネージャーを使用すると、キーボード�
 
 ## <a name="settings"></a>設定
 
-キーボードマネージャーを使用してマッピングを作成するには、次のオプションがあります。
+キーボードマネージャーを使用してマッピングを作成するには、Powertoy の設定を開く必要があります (Windows の [スタート] メニューで [Powertoy] アプリを検索し、これを選択すると [Powertoy の設定] ウィンドウが開きます)。 Powertoy の設定の [キーボードマネージャー] タブには、次のオプションが表示されます。
 
 - <kbd>キーの再マップ</kbd>を選択して [キーボード設定の再マップ] ウィンドウを起動する
 - <kbd>ショートカット</kbd>の再マップを選択して、[ショートカットの設定の再マップ] ウィンドウを起動します。
@@ -109,7 +109,7 @@ Powertoy キーボードマネージャーを使用すると、キーボード�
 
 キーボードマネージャーは、アプリケーション名ではなく、プロセス名を使用してアプリを対象とします。 たとえば、Microsoft Edge は、"Microsoft Edge" (アプリケーション名) ではなく "msedge" (プロセス名) として設定されます。 アプリケーションのプロセス名を検索するには、PowerShell を開き、コマンドを入力するか、コマンドプロンプトを開いてコマンドを `get-process` 入力し `tasklist` ます。 これにより、現在開いているすべてのアプリケーションのプロセス名の一覧が表示されます。 いくつかの一般的なアプリケーションプロセス名の一覧を次に示します。
 
-  | _ *アプリケーション**   | **[処理名]**|
+  | _ *アプリケーション**   | **プロセス名**|
   | ------------------| --------------|
   | Microsoft Edge    |  msedge.exe   |
   | OneNote           |  onenote.exe  |
@@ -125,7 +125,7 @@ Powertoy キーボードマネージャーを使用すると、キーボード�
 
 ### <a name="keys-that-cannot-be-remapped"></a>再マップできないキー
 
-再マップに許可されていないショートカットキーがいくつかあります。 これには以下が含まれます。
+再マップに許可されていないショートカットキーがいくつかあります。 次に例を示します。
 
 - <kbd>Ctrl</kbd> +<kbd>Alt</kbd> + <kbd>Del</kbd> (interupt コマンド)
 - <kbd>⊞ Win</kbd> +<kbd>L</kbd> (コンピューターをロックする)
