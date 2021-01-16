@@ -5,12 +5,12 @@ ms.date: 06/05/2018
 ms.topic: article
 keywords: Windows 10, UWP, Store サービス, Microsoft Store 分析 API, スタック トレース, エラー, デスクトップ アプリケーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a960a455260c208b5a38139e24d00076c4fc45d
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 319323ffbd8ed9aecda29cb012a47476f74c7811
+ms.sourcegitcommit: b0a82c2a132212eb5fb72b67f0789cac1014642f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89155586"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254177"
 ---
 # <a name="get-the-stack-trace-for-an-error-in-your-desktop-application"></a>デスクトップ アプリケーションのエラーに関するスタック トレースの取得
 
@@ -20,7 +20,6 @@ ms.locfileid: "89155586"
 
 ## <a name="prerequisites"></a>前提条件
 
-
 このメソッドを使うには、最初に次の作業を行う必要があります。
 
 * Microsoft Store 分析 API に関するすべての[前提条件](access-analytics-data-using-windows-store-services.md#prerequisites)を満たします (前提条件がまだ満たされていない場合)。
@@ -29,29 +28,25 @@ ms.locfileid: "89155586"
 
 ## <a name="request"></a>Request
 
-
 ### <a name="request-syntax"></a>要求の構文
 
-| 認証方法 | 要求 URI                                                          |
-|--------|----------------------------------------------------------------------|
-| GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/analytics/desktop/stacktrace``` |
-
+| 認証方法 | 要求 URI                                                                   |
+|--------|-------------------------------------------------------------------------------|
+| GET    | `https://manage.devcenter.microsoft.com/v1.0/my/analytics/desktop/stacktrace` |
 
 ### <a name="request-header"></a>要求ヘッダー
 
 | Header        | Type   | 説明                                                                 |
 |---------------|--------|-----------------------------------------------------------------------------|
 | 承認 | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
- 
 
 ### <a name="request-parameters"></a>要求パラメーター
 
 | パラメーター        | Type   |  説明      |  必須  |
 |---------------|--------|---------------|------|
-| applicationId | string | スタック トレースを取得するデスクトップ アプリケーションの製品 ID です。 デスクトップアプリケーションの製品 ID を取得するには、パートナーセンター (**正常性レポート**など) の[デスクトップアプリケーションの分析レポート](/windows/desktop/appxpkg/windows-desktop-application-program)を開き、URL から製品 id を取得します。 |  はい  |
+| applicationId | string | スタック トレースを取得するデスクトップ アプリケーションの製品 ID です。 デスクトップアプリケーションの製品 ID を取得するには、パートナーセンター (**正常性レポート** など) の [デスクトップアプリケーションの分析レポート](/windows/desktop/appxpkg/windows-desktop-application-program)を開き、URL から製品 id を取得します。 |  はい  |
 | cabIdHash | string | スタック トレースを取得するエラーに関連付けられた CAB ファイルの一意の ID ハッシュです。 この値を取得するには、「[デスクトップ アプリケーションのエラーに関する詳細情報の取得](get-details-for-an-error-in-your-desktop-application.md)」のメソッドを使ってアプリケーションの特定のエラーに関する詳細情報を取得し、そのメソッドの応答本文に含まれる **cabIdHash** 値を使用します。 |  はい  |
 
- 
 ### <a name="request-example"></a>要求の例
 
 次の例は、このメソッドを使ってスタック トレースを取得する方法を示しています。 *applicationId* パラメーターと *cabIdHash* パラメーターは、デスクトップ アプリケーションに合わせて適切な値に置き換えてください。
@@ -63,7 +58,6 @@ Authorization: Bearer <your access token>
 
 ## <a name="response"></a>[応答]
 
-
 ### <a name="response-body"></a>応答本文
 
 | 値      | Type    | 説明                  |
@@ -71,7 +65,6 @@ Authorization: Bearer <your access token>
 | 値      | array   | 各オブジェクトにスタック トレース データの 1 つのフレームが格納されたオブジェクトの配列です。 各オブジェクトのデータについて詳しくは、次の「[スタック トレースの値](#stack-trace-values)」セクションをご覧ください。 |
 | @nextLink  | string  | データの追加ページがある場合、この文字列には、データの次のページを要求するために使用できる URI が含まれます。 たとえば、要求の **top** パラメーターを 10 に設定した場合、クエリに適合するエラーが 10 行を超えると、この値が返されます。 |
 | TotalCount | 整数 (integer) | クエリの結果データ内の行の総数です。          |
-
 
 ### <a name="stack-trace-values"></a>スタック トレースの値
 
@@ -83,7 +76,6 @@ Authorization: Bearer <your access token>
 | image   | string  |   このスタック フレームで呼び出される関数が含まれている実行可能ファイルまたはライブラリ イメージの名前です。           |
 | 関数 (function) | string  |  このスタック フレームで呼び出される関数の名前。 これは、アプリが実行可能ファイルまたはライブラリのシンボルを含んでいる場合のみ使用可能です。              |
 | offset     | string  |  関数の先頭を基準とした現在の命令のバイト オフセットです。      |
-
 
 ### <a name="response-example"></a>応答の例
 

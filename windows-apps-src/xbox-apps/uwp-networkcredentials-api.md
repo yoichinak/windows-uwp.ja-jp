@@ -4,26 +4,27 @@ description: ネットワーク資格情報をプログラムにより追加、�
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: ac30d8db830c51ee40653feb49b443ed44502617
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7ba9e25031590da02881276ff9a10a9f952c78ec
+ms.sourcegitcommit: b0a82c2a132212eb5fb72b67f0789cac1014642f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57659217"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254217"
 ---
 # <a name="network-credentials-api-reference"></a>ネットワーク資格情報 API リファレンス
+
 この REST API を使って、開発キットで保存されているネットワーク資格情報を追加、削除、更新することができます。
 
 ## <a name="get-existing-credentials"></a>既存の資格情報を取得する
 
-**要求**
+**Request**
 
 そのネットワーク共有の資格情報を持っているユーザーのユーザー名と共に、保存されている共有フォルダーの一覧を取得することができます。
 
-メソッド      | 要求 URI
-:------     | :-----
-GET | /ext/networkcredential
-<br />
+| Method | 要求 URI |
+|--------|-------------|
+| GET | /ext/networkcredential |
+
 **URI パラメーター**
 
 - なし
@@ -36,9 +37,10 @@ GET | /ext/networkcredential
 
 - なし
 
-**応答**   
+**Response**   
 
-- 次の形式の JSON 配列。
+次の形式の JSON 配列。
+
 * 資格情報
   * ネットワーク パス - ネットワーク共有へのパス。
   * ユーザー名 - 資格情報を保存しているユーザー名。
@@ -47,28 +49,27 @@ GET | /ext/networkcredential
 
 この API では次の状態コードが返される可能性があります。
 
-HTTP 状態コード      | 説明
-:------     | :-----
-200 | 成功
-4XX | エラー コード
-5XX | エラー コード
+| HTTP 状態コード | 説明 |
+|------------------|-------------|
+| 200 | Success |
+| 4XX | エラー コード |
+| 5XX | エラー コード |
 
 ## <a name="add-or-update-stored-credentials-for-a-user"></a>保存されたユーザーの資格情報を追加または更新する
 
-**要求**
+**Request**
 
-メソッド      | 要求 URI
-:------     | :-----
-POST | /ext/networkcredential
-<br />
+| Method | 要求 URI |
+|--------|-------------|
+| POST | /ext/networkcredential |
+
 **URI パラメーター**
 
 次の追加パラメーターを要求 URI に指定できます。
 
-| URI パラメーター      | 説明     | 
+| URI パラメーター      | 説明     |
 | ------------------ |-----------------|
 | ネットワーク パス        | アクセスするために資格情報を追加する共有へのネットワーク パス。 |
-<br>
 
 **要求ヘッダー**
 
@@ -76,12 +77,12 @@ POST | /ext/networkcredential
 
 **要求本文**
 
-- 次の JSON 要素
+次の JSON 要素
 * ネットワーク パス - ネットワーク共有へのパス。
 * ユーザー名 - 資格情報を保存するユーザー名。
 * パスワード - このユーザーの新規または更新されたパスワード。
 
-**応答**   
+**Response**   
 
 - なし  
 
@@ -89,54 +90,50 @@ POST | /ext/networkcredential
 
 この API では次の状態コードが返される可能性があります。
 
-HTTP 状態コード      | 説明
-:------     | :-----
-204 | 成功
-4XX | エラー コード
-5XX | エラー コード
+| HTTP 状態コード | 説明 |
+|------------------|-------------|
+| 204 | Success |
+| 4XX | エラー コード |
+| 5XX | エラー コード |
 
 ## <a name="remove-stored-credentials-for-a-share"></a>共有の保存された資格情報を削除します。
 
-**要求**
+**Request**
 
-メソッド      | 要求 URI
-:------     | :-----
-Del | /ext/networkcredential
-<br />
+| Method | 要求 URI |
+|--------|-------------|
+| DELETE | /ext/networkcredential |
+
 **URI パラメーター**
 
 次の追加パラメーターを要求 URI に指定できます。
 
-| URI パラメーター      | 説明     | 
+| URI パラメーター      | 説明     |
 | ------------------ |-----------------|
 | ネットワーク パス        | 保存された資格情報の削除元の共有へのネットワーク パス。 |
-<br>
 
 **要求ヘッダー**
 
 - なし
 
-**要求本文**   
+**要求本文**
 
 - なし
 
-**応答**   
+**Response**
 
-- なし 
+- なし
 
 **状態コード**
 
 この API では次の状態コードが返される可能性があります。
 
-HTTP 状態コード      | 説明
-:------     | :-----
-204 | 資格情報への要求が成功しました。
-4XX | エラー コード
-5XX | エラー コード
+| HTTP 状態コード | 説明 |
+|------------------|-------------|
+| 204 | 資格情報への要求が成功しました。 |
+| 4XX | エラー コード |
+| 5XX | エラー コード |
 
-<br />
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Xbox
-
-

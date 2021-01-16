@@ -4,21 +4,21 @@ description: Xbox デバイスポータル REST API deployinfo を使用して�
 ms.localizationpriority: medium
 ms.topic: article
 ms.date: 02/08/2017
-ms.openlocfilehash: 5260125625ced6c258a683bcfb9b552e57d07f06
-ms.sourcegitcommit: 8e0e4cac79554e86dc7f035c4b32cb1f229142b0
+ms.openlocfilehash: 2819b21e12d25aca941808e1feeb8a7539750a91
+ms.sourcegitcommit: b0a82c2a132212eb5fb72b67f0789cac1014642f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943002"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254227"
 ---
 # <a name="requests-deployment-information-for-one-or-more-installed-packages"></a>1 つ以上のインストール パッケージの展開情報を要求します。
 
 **Request**
 
-Method      | 要求 URI
-:------     | :------
-POST | /ext/app/deployinfo
-<br />
+| Method | 要求 URI |
+|--------|-------------|
+| POST | /ext/app/deployinfo |
+
 **URI パラメーター**
 
  - なし
@@ -35,7 +35,7 @@ POST | /ext/app/deployinfo
   * PackageFullName - 情報を要求するパッケージの名前。
   * OverlayFolder - この機能を使用する場合の、オーバーレイ フォルダーのパスへのオプションのパス。
 
-###<a name="response"></a>応答
+### <a name="response"></a>Response
 
 **応答本文**
 
@@ -49,16 +49,15 @@ POST | /ext/app/deployinfo
   * DeploySizeInBytes - 該当する展開の種類のパッケージのサイズ (バイト単位) です。
   * OverlayFolder - この機能をサポートする展開のオーバーレイ フォルダーです。
 
-**status code**
+**状態コード**
 
 この API では次の状態コードが返される可能性があります。
 
-HTTP 状態コード      | 説明
-:------     | :-----
-200 | Success
-4XX | エラー コード
-5XX | エラー コード
-<br />
+| HTTP 状態コード | 説明 |
+|------------------|-------------|
+| 200 | Success |
+| 4XX | エラー コード |
+| 5XX | エラー コード |
 
 **利用可能なデバイス ファミリ**
 

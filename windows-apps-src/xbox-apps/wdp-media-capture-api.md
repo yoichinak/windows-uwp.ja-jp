@@ -6,32 +6,30 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 3f92c8fd-4096-4972-97da-01ae5db6423c
 ms.localizationpriority: medium
-ms.openlocfilehash: ee1ccba3fe2a3f83a95c3538cb267730f7770c4c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 5d5cd87b95f923fc0303d5cd4ed7ecbff70b8209
+ms.sourcegitcommit: b0a82c2a132212eb5fb72b67f0789cac1014642f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89172736"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254197"
 ---
-# <a name="media-capture-api-reference"></a>メディア キャプチャ API のリファレンス #
+# <a name="media-capture-api-reference"></a>メディア キャプチャ API のリファレンス
 
 ## <a name="request"></a>Request
 
 次の要求形式を使用して、現在の画面の PNG 画像を取得できます。
 
-| Method        | 要求 URI     | 
+| Method        | 要求 URI     |
 | ------------- |-----------------|
 | GET           | /ext/screenshot |
-
 
 **URI パラメーター**
 
 次の追加パラメーターを要求 URI に指定できます。
 
-
-| URI パラメーター      | 説明     | 
-| ------------------ |-----------------|
-| download (省略可能)| ホスト ブラウザーでスクリーンショットをブラウザーにレンダリングするのではなく添付ファイルとしてダウンロードする必要があることを、HTTP 応答ヘッダーで設定する必要があるかどうかを示すブール値。  |
+| URI パラメーター       | 説明     |
+| ------------------- |-----------------|
+| download (省略可能) | ホスト ブラウザーでスクリーンショットをブラウザーにレンダリングするのではなく添付ファイルとしてダウンロードする必要があることを、HTTP 応答ヘッダーで設定する必要があるかどうかを示すブール値。 |
 
 **要求ヘッダー**
 
@@ -41,19 +39,17 @@ ms.locfileid: "89172736"
 
 * なし
 
-## <a name="response"></a>応答
+## <a name="response"></a>Response
 
-**status code**
+**状態コード**
 
 この API では次の状態コードが返される可能性があります。
 
-| HTTP 状態コード   | 説明     | 
+| HTTP 状態コード   | 説明     |
 | ------------------ |-----------------|
 | 200                | スクリーンショットの要求が成功し、キャプチャが返される |
 | 5XX                | 予期しないエラーのエラー コード |
-<br>
 
 **利用可能なデバイス ファミリ**
 
 * Windows Xbox
-

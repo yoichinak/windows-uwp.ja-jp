@@ -5,26 +5,27 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b5061f9193d78d4ff23f5fa707b0bea67a10f98
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 535846d7dbeb2d29328b5c5d01b06d4449a53790
+ms.sourcegitcommit: b0a82c2a132212eb5fb72b67f0789cac1014642f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57657007"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254187"
 ---
-# <a name="controller-api-reference"></a>コントローラー API のリファレンス   
+# <a name="controller-api-reference"></a>コントローラー API のリファレンス
+
 接続された物理コントローラーの数を取得し、REST API を使用してオフにすることができます。
 
 ## <a name="determine-the-number-of-attached-physical-controllers"></a>接続された物理コントローラーの数の決定
 
-**要求**
+**Request**
 
 次の要求を使用して、デバイス上に接続された物理コントローラーの数を確認することができます。
 
-メソッド      | 要求 URI
-:------     | :-----
-GET | /ext/remoteinput/controllers
-<br />
+Method | 要求 URI |
+-------|-------------|
+| GET | /ext/remoteinput/controllers |
+
 **URI パラメーター**
 
 - なし
@@ -37,7 +38,7 @@ GET | /ext/remoteinput/controllers
 
 - なし
 
-**応答**   
+**Response**   
 
 - 接続された物理コントローラーの数を指定する JSON 数値プロパティ ConnectedControllerCount です。
 
@@ -45,22 +46,22 @@ GET | /ext/remoteinput/controllers
 
 この API では次の状態コードが返される可能性があります。
 
-HTTP 状態コード      | 説明
-:------     | :-----
-200 | 成功
-4XX | エラー コード
-5XX | エラー コード
+| HTTP 状態コード | 説明 |
+|------------------|-------------|
+| 200 | Success |
+| 4XX | エラー コード |
+| 5XX | エラー コード |
 
 ## <a name="disconnect-all-physical-controllers-on-the-devkit"></a>開発キット上のすべての物理コントローラーの切断
 
-**要求**
+**Request**
 
 次の要求を使って、デバイス上のすべての物理コントローラーを切断することができます。
 
-メソッド      | 要求 URI
-:------     | :-----
-Del | /ext/remoteinput/controllers
-<br />
+| Method | 要求 URI |
+|--------|-------------|
+| DELETE | /ext/remoteinput/controllers |
+
 **URI パラメーター**
 
 - なし
@@ -73,7 +74,7 @@ Del | /ext/remoteinput/controllers
 
 - なし
 
-**応答**   
+**Response**   
 
 - なし 
 
@@ -81,13 +82,12 @@ Del | /ext/remoteinput/controllers
 
 この API では次の状態コードが返される可能性があります。
 
-HTTP 状態コード      | 説明
-:------     | :-----
-204 | コントローラーを接続する要求が成功しました。
-4XX | エラー コード
-5XX | エラー コード
+| HTTP 状態コード | 説明 |
+|------------------|-------------|
+| 204 | コントローラーを接続する要求が成功しました。 |
+| 4XX | エラー コード |
+| 5XX | エラー コード |
 
-<br />
-**使用可能なデバイス ファミリ**
+**利用可能なデバイス ファミリ**
 
 * Windows Xbox
