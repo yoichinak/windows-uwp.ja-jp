@@ -5,12 +5,12 @@ ms.date: 05/19/2020
 ms.topic: article
 keywords: Windows 10, UWP, Standard, C#, winrt, cswinrt, プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: ef6fad694dd45e80d462f6a0c5c73ac5539fe16a
-ms.sourcegitcommit: c063d0d130944558afa20181dd294ffe7a187a3f
+ms.openlocfilehash: 0704a7e9c731c6f60c59615b964b51e0ded242c2
+ms.sourcegitcommit: 1022e8819e75484ca0cd94f8baf4f4d11900e0e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97090686"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98206091"
 ---
 # <a name="cwinrt"></a>C#/WinRT
 
@@ -38,7 +38,7 @@ NuGet パッケージとして相互運用機能アセンブリを作成およ�
 
 ### <a name="invoke-cswinrtexe"></a>cswinrt.exe を呼び出す
 
-プロジェクトから cswinrt.exe を呼び出すには、最新の [C#/WinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT/)をインストールします。 次いで、**C# ライブラリ** プロジェクトに C#/WinRT 固有のプロジェクト プロパティを設定して、相互運用機能アセンブリを生成できます。 次のプロジェクト フラグメントは、Contoso 名前空間で型のプロジェクション ソースを生成するための **cswinrt** の簡単な呼び出し示しています。 これらのソースは、プロジェクトのビルドに含まれます。
+プロジェクトから cswinrt.exe を呼び出すには、最新の [C#/WinRT NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT/)をインストールします。 次いで、**C# クラス ライブラリ (.NET Core)** プロジェクトに C#/WinRT 固有のプロジェクト プロパティを設定して、相互運用機能アセンブリを生成できます。 次のプロジェクト フラグメントは、Contoso 名前空間で型のプロジェクション ソースを生成するための **cswinrt** の簡単な呼び出し示しています。 これらのソースは、プロジェクトのビルドに含まれます。
 
 ```xml
 <PropertyGroup>
@@ -90,7 +90,25 @@ Windows が前述の型のアクティブ化に失敗した場合、C#/WinRT に
 
 C#/WinRT は、[LoadLibrary 代替検索順序](/windows/win32/dlls/dynamic-link-library-search-order#alternate-search-order-for-desktop-applications)を使用して実装 DLL を見つけます。 このフォールバック動作に依存するアプリは、アプリ モジュールと共に実装 DLL をパッケージする必要があります。
 
-## <a name="common-errors-with-net-5"></a>.NET 5+ での一般的なエラー
+## <a name="common-errors-and-troubleshooting"></a>一般的なエラーとトラブルシューティング
+
+- エラー:"Windows メタデータが指定されていないか、検出されません。"
+
+  Windows メタデータを指定するには、`<CsWinRTWindowsMetadata>` プロジェクト プロパティを使用します。次に例を示します。
+  ```xml
+  <CsWinRTWindowsMetadata>10.0.19041.0</CsWinRTWindowsMetadata>
+  ```
+  
+- エラー CS0246:'Windows' という名前の型または名前空間が見つかりませんでした (using ディレクティブまたはアセンブリ参照が不足しています)
+
+  このエラーに対処するには、特定の Windows バージョンを対象とするように `<TargetFramework>` プロパティを編集します。次に例を示します。
+  ```xml
+  <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
+  ```
+  `<TargetFramework>` プロパティの指定の詳細については、[Windows ランタイム API の呼び出し](/windows/apps/desktop/modernize/desktop-to-uwp-enhance)に関するドキュメントを参照してください。
+
+
+### <a name="net-sdk-versioning-errors"></a>.NET SDK のバージョン管理エラー
 
 そのすべての依存関係より以前のバージョンの .NET SDK を使用してビルドされたプロジェクトで、次のエラーまたは警告が発生する可能性があります。
 
