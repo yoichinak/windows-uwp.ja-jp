@@ -5,14 +5,17 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 353ca9922bc633efa5f53b2c3a3f4d7a4cad5986
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: f107de951c527b9ca4405d1f22870389a219f441
+ms.sourcegitcommit: 2e691ec4998467c8c5525031a00f0213dcce3b6b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750618"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193204"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
+
+> [!TIP]
+> 前にこのトピックを読んだことがあり、特定のタスクを念頭に置いて読み返している場合は、このトピックの「[実行しているタスクに基づいてコンテンツを検索する](#find-content-based-on-the-task-youre-performing)」に進んでください。
 
 このトピックでは、[C#](/visualstudio/get-started/csharp) プロジェクト内のソース コードを [C++/WinRT](./intro-to-using-cpp-with-winrt.md) の同等のコードに移植することに関する技術的な詳細を総合的に分類します。
 
@@ -24,12 +27,28 @@ ms.locfileid: "91750618"
 
 行うべき移植に関する変更の種類については、4 つのカテゴリに分類できます。
 
-- [**言語プロジェクションでの移植**](#changes-that-involve-the-language-projection)。 Windows ランタイム (WinRT) では様々なプログラミング言語への "*プロジェクション*" が行われます。 これらの言語プロジェクションのそれぞれは、対応するプログラミング言語にとって自然なものになるように設計されています。 C# の場合、一部の Windows ランタイムの型は .NET の型としてプロジェクションが行われます。 そのため、たとえば [**System.Collections.Generic.IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1) は [**Windows.Foundation.Collections.IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1) に変換することになります。 また C# では、一部の Windows ランタイムの操作は便利な C# の言語機能としてプロジェクションが行われます。 一例として、C# では、`+=` の演算子構文を使用して、イベント処理デリゲートの登録を行います。 それで、そのような言語の機能は、実行されている基本的な操作 (この例ではイベント登録) に変換することになります。
+- [**言語プロジェクションでの移植**](#changes-that-involve-the-language-projection)。 Windows ランタイム (WinRT) では様々なプログラミング言語への "*プロジェクション*" が行われます。 これらの言語プロジェクションのそれぞれは、対応するプログラミング言語にとって自然なものになるように設計されています。 C# の場合、一部の Windows ランタイムの型は .NET の型としてプロジェクションが行われます。 そのため、たとえば [**System.Collections.Generic.IReadOnlyList\<T\>**](/dotnet/api/system.collections.generic.ireadonlylist-1) は [**Windows.Foundation.Collections.IVectorView\<T\>**](/uwp/api/windows.foundation.collections.ivectorview-1) に変換することになります。 また C# では、一部の Windows ランタイムの操作は便利な C# の言語機能としてプロジェクションが行われます。 一例として、C# では、`+=` の演算子構文を使用して、イベント処理デリゲートの登録を行います。 それで、そのような言語の機能は、実行されている基本的な操作 (この例ではイベント登録) に変換することになります。
 - [**言語構文の移植**](#changes-that-involve-the-language-syntax)。 これらの変更の多くは単純な機械的な変換で、あるシンボルを他のシンボルに置き換えます。 たとえば、ドット (`.`) を 2 重コロン (`::`) に変更します。
 - [**言語プロシージャの移植**](#changes-that-involve-procedures-within-the-language)。 これらのうちの一部は単純で、変更の繰り返しです (`myObject.MyProperty` から `myObject.MyProperty()` など)。 大きな変更が必要なものもあります (**System.Text.StringBuilder** を使用するプロシージャを、**std::wostringstream** を使用するものに移植する、など)。
 - [**C++/WinRT に特有の移植関連のタスク**](#porting-related-tasks-that-are-specific-to-cwinrt) Windows ランタイムの特定の詳細は、背後で C# によって暗黙的に処理されます。 これらの詳細は、C++/WinRT で明示的に処理されます。 一例として、`.idl` ファイルを使用してランタイム クラスを定義することがあります。
 
-このトピックの残りの部分は、この分類に従って構成されています。
+次に示すタスクに基づく索引の後、このトピックの残りのセクションは、上記の分類に従って構成されています。
+
+## <a name="find-content-based-on-the-task-youre-performing"></a>実行しているタスクに基づいてコンテンツを検索する
+
+| タスク | Content |
+| - | - |
+|Windows ランタイム コンポーネント (WRC) を作成する|一部の機能は、C++ を使用することによって (または、特定の API 呼び出しによって) のみ実現できます。 その機能を C++/WinRT WRC に組み込み、(たとえば) C# アプリから WRC を使用することができます。 「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」および「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」を参照してください。|
+|非同期メソッドを移植する|C++/WinRT ランタイム クラスの非同期メソッドの最初の行を `auto lifetime = get_strong();` にするのがよい方法です (「[class-member コルーチンで *this* ポインターに安全にアクセスする](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください)。<br><br>`Task` からの移植については、「<a href="#id_async_action">非同期アクション</a>」を参照してください。<br>`Task<T>` からの移植については、「<a href="#id_async_operation">非同期操作</a>」を参照してください。<br>`async void` からの移植については、「<a href="#id_fire_and_forget">fire-and-forget メソッド</a>」を参照してください。|
+|クラスを移植する|まず、クラスをランタイム クラスにする必要があるか、または通常のクラスでかまわないかを判断します。 それを判断するときの参考として、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」の冒頭を参照してください。 その後で、その下の 3 つの行を参照してください。|
+|ランタイム クラスを移植する|C++ アプリの外部の機能を共有するクラス、または XAML データ バインディングで使用されるクラス。 「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」または「[XAML UI で参照されるランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)」を参照してください。<br><br>それらのリンクではこれについて詳しく説明されていますが、ランタイム クラスは IDL で宣言する必要があります。 プロジェクトに IDL ファイル (`Project.idl` など) が既に含まれている場合は、そのファイルで新しいランタイム クラスを宣言することをお勧めします。 IDL において、アプリの外部または XAML で使用されるメソッドとデータ メンバーを宣言します。 IDL ファイルを更新した後、リビルドを行い、プロジェクトの `Generated Files` フォルダーで生成されたスタブ ファイル (`.h` と `.cpp`) を確認します (**ソリューション エクスプローラー** でプロジェクトのノードを選択し、 **[すべてのファイルを表示]** をオンにします)。 スタブ ファイルをプロジェクト内の既存のファイルと比較し、必要に応じて、ファイルを追加するか、関数のシグネチャを追加または更新します。 スタブ ファイルの構文は常に正しいので、ビルド エラーを最小限に抑えるためにそれを使用することをお勧めします。 プロジェクト内のスタブがスタブ ファイル内のそれと一致したら、C# コードを移植して実装できます。 |
+|通常のクラスを移植する|「[ランタイム クラスを作成して "*いない*" 場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-not-authoring-a-runtime-class)」を参照してください。|
+|IDL を作成する|[Microsoft インターフェイス定義言語 3.0 の概要](/uwp/midl-3/intro)<br>[XAML UI で参照されるランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)<br>[XAML マークアップからのオブジェクトの使用](/windows/uwp/cpp-and-winrt-apis/binding-property#consuming-objects-from-xaml-markup)<br>[IDL でランタイム クラスを定義する](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#define-your-runtime-classes-in-idl)|
+|コレクションを移植する|[C++/WinRT でのコレクション](/windows/uwp/cpp-and-winrt-apis/collections)<br>[データ ソースを XAML マークアップで使用できるようにする](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#making-a-data-source-available-to-xaml-markup)<br><a href="#id_associative_container">連想コンテナー</a><br><a href="#id_vector_member_access">ベクター メンバーのアクセス</a>|
+|イベントを移植する|<a href="#id_event_handler_delegate_as_class_member">クラス メンバーとしてのイベント ハンドラー デリゲート</a><br><a href="#id_revoke_event_handler_delegate">イベント ハンドラー デリゲートの取り消し</a>|
+|メソッドを移植する|C# から: `private async void SampleButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e) { ... }`<br>C++/WinRT の `.h` ファイルへ: `fire_and_forget SampleButton_Tapped(IInspectable const&, RoutedEventArgs const&);`<br>C++/WinRT の `.cpp` ファイルへ: `fire_and_forget OcrFileImage::SampleButton_Tapped(IInspectable const&, RoutedEventArgs const&) {...}`<br>|
+|文字列を移植する|[C++/WinRT での文字列の処理](/windows/uwp/cpp-and-winrt-apis/strings)<br>[ToString](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#tostring)<br>[文字列の作成](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#string-building)<br>[文字列のボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#boxing-and-unboxing-a-string)|
+|型変換 (型キャスト)|C#: `o.ToString()`<br>C++/WinRT: `to_hstring(static_cast<int>(o))`<br>「[ToString](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#tostring)」も参照してください。<br><br>C#: `(Value)o`<br>C++/WinRT: `unbox_value<Value>(o)`<br>ボックス化解除が失敗した場合にスローします。 [ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページも参照してください。<br><br>C#: `o as Value? ?? fallback`<br>C++/WinRT: `unbox_value_or<Value>(o, fallback)`<br>ボックス化解除が失敗した場合は、フォールバックを返します。 [ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページも参照してください。<br><br>C#: `(Class)o`<br>C++/WinRT: `o.as<Class>()`<br>変換が失敗した場合にスローします。<br><br>C#: `o as Class`<br>C++/WinRT: `o.try_as<Class>()`<br>変換が失敗した場合は、null を返します。|
 
 ## <a name="changes-that-involve-the-language-projection"></a>言語プロジェクションに関連する変更
 
@@ -39,12 +58,12 @@ ms.locfileid: "91750618"
 |プロジェクション名前空間|`using System;`|`using namespace Windows::Foundation;`||
 ||`using System.Collections.Generic;`|`using namespace Windows::Foundation::Collections;`||
 |コレクションのサイズ|`collection.Count`|`collection.Size()`|[**BuildClipboardFormatsOutputString** メソッドの移植](./clipboard-to-winrt-from-csharp.md#buildclipboardformatsoutputstring)|
-|一般的なコレクション型|[**IList\<T\>** ](/dotnet/api/system.collections.generic.ilist-1)、および **Add** で要素を追加。|[**IVector\<T\>** ](/uwp/api/windows.foundation.collections.ivector-1)、および **Append** で要素を追加。 いずれかの場所で **std::vector** を使用する場合は、**push_back** で要素を追加。||
-|読み取り専用のコレクション型|[**IReadOnlyList\<T\>** ](/dotnet/api/system.collections.generic.ireadonlylist-1)|[**IVectorView\<T\>** ](/uwp/api/windows.foundation.collections.ivectorview-1)|[**BuildClipboardFormatsOutputString** メソッドの移植](./clipboard-to-winrt-from-csharp.md#buildclipboardformatsoutputstring)|
-|クラス メンバーとしてのイベント ハンドラー デリゲート|`myObject.EventName += Handler;`|`token = myObject.EventName({ get_weak(), &Class::Handler });`|[**EnableClipboardContentChangedNotifications** メソッドの移植](./clipboard-to-winrt-from-csharp.md#enableclipboardcontentchangednotifications)|
-|イベント ハンドラー デリゲートの取り消し|`myObject.EventName -= Handler;`|`myObject.EventName(token);`|[**EnableClipboardContentChangedNotifications** メソッドの移植](./clipboard-to-winrt-from-csharp.md#enableclipboardcontentchangednotifications)|
-|連想コンテナー|[**IDictionary\<K, V\>** ](/dotnet/api/system.collections.generic.idictionary-2)|[**IMap\<K, V\>** ](/uwp/api/windows.foundation.collections.imap-2)||
-|ベクター メンバーのアクセス|`x = v[i];`<br>`v[i] = x;`|`x = v.GetAt(i);`<br>`v.SetAt(i, x);`||
+|一般的なコレクション型|[**IList\<T\>**](/dotnet/api/system.collections.generic.ilist-1)、および **Add** で要素を追加。|[**IVector\<T\>**](/uwp/api/windows.foundation.collections.ivector-1)、および **Append** で要素を追加。 いずれかの場所で **std::vector** を使用する場合は、**push_back** で要素を追加。||
+|読み取り専用のコレクション型|[**IReadOnlyList\<T\>**](/dotnet/api/system.collections.generic.ireadonlylist-1)|[**IVectorView\<T\>**](/uwp/api/windows.foundation.collections.ivectorview-1)|[**BuildClipboardFormatsOutputString** メソッドの移植](./clipboard-to-winrt-from-csharp.md#buildclipboardformatsoutputstring)|
+|<a name="id_event_handler_delegate_as_class_member"></a>クラス メンバーとしてのイベント ハンドラー デリゲート|`myObject.EventName += Handler;`|`token = myObject.EventName({ get_weak(), &Class::Handler });`|[**EnableClipboardContentChangedNotifications** メソッドの移植](./clipboard-to-winrt-from-csharp.md#enableclipboardcontentchangednotifications)|
+|<a name="id_revoke_event_handler_delegate"></a>イベント ハンドラー デリゲートの取り消し|`myObject.EventName -= Handler;`|`myObject.EventName(token);`|[**EnableClipboardContentChangedNotifications** メソッドの移植](./clipboard-to-winrt-from-csharp.md#enableclipboardcontentchangednotifications)|
+|<a name="id_associative_container"></a>連想コンテナー|[**IDictionary\<K, V\>**](/dotnet/api/system.collections.generic.idictionary-2)|[**IMap\<K, V\>**](/uwp/api/windows.foundation.collections.imap-2)||
+|<a name="id_vector_member_access"></a>ベクター メンバーのアクセス|`x = v[i];`<br>`v[i] = x;`|`x = v.GetAt(i);`<br>`v.SetAt(i, x);`||
 
 ### <a name="registerrevoke-an-event-handler"></a>イベント ハンドラーの登録または取り消し
 
@@ -60,7 +79,7 @@ C++/WinRT では、「[C++/WinRT でのデリゲートを使用したイベン�
 
 C# では、**OpenButton_Click** メソッドはプライベートにすることができ、XAML は引き続きこれを、*OpenButton* によって発生した [**ButtonBase.Click**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベントに接続できます。
 
-C++/WinRT では、"*XAML マークアップで登録したい場合*"、**OpenButton_Click** メソッドは[実装型](./author-apis.md)でパブリックである必要があります。 命令型コードでのみイベント ハンドラーを登録したい場合、イベント ハンドラーはパブリックである必要はありません。
+C++/WinRT では、"*XAML マークアップで登録したい場合*"、**OpenButton_Click** メソッドは [実装型](./author-apis.md)でパブリックである必要があります。 命令型コードでのみイベント ハンドラーを登録したい場合、イベント ハンドラーはパブリックである必要はありません。
 
 ```cppwinrt
 namespace winrt::MyProject::implementation
@@ -90,7 +109,7 @@ namespace winrt::MyProject::implementation
 };
 ```
 
-最後のシナリオでは、移植する C# プロジェクトをマークアップからのイベント ハンドラーに*バインド*します (そのシナリオの背景の詳細については、「[x:Bind の 関数](../data-binding/function-bindings.md)」を参照してください)。
+最後のシナリオでは、移植する C# プロジェクトをマークアップからのイベント ハンドラーに *バインド* します (そのシナリオの背景の詳細については、「[x:Bind の 関数](../data-binding/function-bindings.md)」を参照してください)。
 
 ```xaml
 <Button x:Name="OpenButton" Click="{x:Bind OpenButton_Click}" />
@@ -103,7 +122,7 @@ void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
 ```
 
 > [!NOTE]
-> 関数を[ファイア アンド フォーゲット](./concurrency-2.md#fire-and-forget)として "*実装*" する場合でも、これを `void` として宣言します。
+> 関数を [ファイア アンド フォーゲット](./concurrency-2.md#fire-and-forget)として "*実装*" する場合でも、これを `void` として宣言します。
 
 ## <a name="changes-that-involve-the-language-syntax"></a>言語構文に関連する変更
 
@@ -111,9 +130,9 @@ void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
 | -------- | -- | --------- | -------- |
 |アクセス修飾子|`public \<member\>`|`public:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`\<member\>`|[**Button_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#button_click)|
 |データ メンバーへのアクセス|`this.variable`|`this->variable`||
-|非同期アクション|`async Task ...`|`IAsyncAction ...`||
-|非同期操作|`async Task<T> ...`|`IAsyncOperation<T> ...`||
-|fire-and-forget メソッド (つまり、非同期)|`async void ...`|`winrt::fire_and_forget ...`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)|
+|<a name="id_async_action"></a>非同期アクション|`async Task ...`|`IAsyncAction ...`| [**IAsyncAction** インターフェイス](/uwp/api/windows.foundation.iasyncaction)、[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency) |
+|<a name="id_async_operation"></a>非同期操作|`async Task<T> ...`|`IAsyncOperation<T> ...`| [**IAsyncOperation** インターフェイス](/uwp/api/windows.foundation.iasyncoperation)、[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency) |
+|<a name="id_fire_and_forget"></a>fire-and-forget メソッド (つまり、非同期)|`async void ...`|`winrt::fire_and_forget ...`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)、[ファイア アンド フォーゲット](/windows/uwp/cpp-and-winrt-apis/concurrency-2#fire-and-forget)|
 |列挙型定数へのアクセス|`E.Value`|`E::Value`|[**DisplayChangedFormats** メソッドの移植](./clipboard-to-winrt-from-csharp.md#displaychangedformats)|
 |協調的な待機|`await ...`|`co_await ...`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)|
 |プライベート フィールドとしての投影型のコレクション|`private List<MyRuntimeClass> myRuntimeClasses = new List<MyRuntimeClass>();`|`std::vector`<br>`<MyNamespace::MyRuntimeClass>`<br>`m_myRuntimeClasses;`||
@@ -170,7 +189,7 @@ C# の静的フィールドは、C++/WinRT の静的アクセサーおよびミ�
 |ToString()|`myObject.ToString()`|`winrt::to_hstring(myObject)`|[ToString()](#tostring)|
 |言語文字列を Windows ランタイム文字列に|なし|`winrt::hstring{ s }`||
 |文字列の作成|`StringBuilder builder;`<br>`builder.Append(...);`|`std::wostringstream builder;`<br>`builder << ...;`|[文字列の作成](#string-building)|
-|文字列補間|`$"{i++}) {s.Title}"`|[**winrt::to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) および [**winrt::hstring::operator+** ](/uwp/cpp-ref-for-winrt/hstring#operator-concatenation-operator)|[**OnNavigatedTo** メソッドの移植](./clipboard-to-winrt-from-csharp.md#onnavigatedto)|
+|文字列補間|`$"{i++}) {s.Title}"`|[**winrt::to_hstring**](/uwp/cpp-ref-for-winrt/to-hstring) および [**winrt::hstring::operator+**](/uwp/cpp-ref-for-winrt/hstring#operator-concatenation-operator)|[**OnNavigatedTo** メソッドの移植](./clipboard-to-winrt-from-csharp.md#onnavigatedto)|
 |比較のための空の文字列|**System.String.Empty**|[**winrt::hstring::empty**](/uwp/cpp-ref-for-winrt/hstring#hstringempty-function)|[**UpdateStatus** メソッドの移植](./clipboard-to-winrt-from-csharp.md#updatestatus)|
 |空の文字列の作成|`var myEmptyString = String.Empty;`|`winrt::hstring myEmptyString{ L"" };`||
 |ディクショナリ操作|`map[k] = v; // replaces any existing`<br>`v = map[k]; // throws if not present`<br>`map.ContainsKey(k)`|`map.Insert(k, v); // replaces any existing`<br>`v = map.Lookup(k); // throws if not present`<br>`map.HasKey(k)`||
@@ -346,7 +365,7 @@ C++/CX と C# では、Null ポインターを値型にボックス化解除し�
 
 文字列は、ある点では値型であり、別の点では参照型です。 C# と C++/WinRT では文字列の扱いが異なります。
 
-ABI 型 [**HSTRING**](/windows/win32/winrt/hstring) は、参照カウント文字列へのポインターです。 しかし、[**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) から派生したものではないため、厳密に言えば*オブジェクト*ではありません。 さらに、null の **HSTRING** は空の文字列を表します。 **IInspectable** から派生したもの以外のボックス化は、[**IReference \<T\>** ](/uwp/api/windows.foundation.ireference_t_) 内にラップすることによって行われ、Windows ランタイムでは標準の実装が [**PropertyValue**](/uwp/api/windows.foundation.propertyvalue) オブジェクトの形式で行われます (カスタム型は [**PropertyType::Othertype**](/uwp/api/windows.foundation.propertytype) として報告されます)。
+ABI 型 [**HSTRING**](/windows/win32/winrt/hstring) は、参照カウント文字列へのポインターです。 しかし、[**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) から派生したものではないため、厳密に言えば *オブジェクト* ではありません。 さらに、null の **HSTRING** は空の文字列を表します。 **IInspectable** から派生したもの以外のボックス化は、[**IReference \<T\>**](/uwp/api/windows.foundation.ireference_t_) 内にラップすることによって行われ、Windows ランタイムでは標準の実装が [**PropertyValue**](/uwp/api/windows.foundation.propertyvalue) オブジェクトの形式で行われます (カスタム型は [**PropertyType::Othertype**](/uwp/api/windows.foundation.propertytype) として報告されます)。
 
 C# は Windows ランタイム文字列を参照型として表しますが、C++/WinRT は文字列を値型として投影します。 つまり、ボックス化された null 文字列は、どのように表されるかによって異なる表現を持つことができます。
 
@@ -497,7 +516,7 @@ Widget MyPage::BookstoreViewModel(winrt::hstring title)
 
 ### <a name="derived-classes"></a>派生クラス
 
-ランタイム クラスから派生するためには、基底クラスが*構成可能*である必要があります。 C# ではクラスを構成可能にするために特別な手順を実行する必要はありませんが、C++/WinRT では必要です。 クラスを基底クラスとして使用できるようにすることを示すには、[シールされていないキーワード](/uwp/midl-3/intro#base-classes)を使用します。
+ランタイム クラスから派生するためには、基底クラスが *構成可能* である必要があります。 C# ではクラスを構成可能にするために特別な手順を実行する必要はありませんが、C++/WinRT では必要です。 クラスを基底クラスとして使用できるようにすることを示すには、[シールされていないキーワード](/uwp/midl-3/intro#base-classes)を使用します。
 
 ```idl
 unsealed runtimeclass BasePage : Windows.UI.Xaml.Controls.Page

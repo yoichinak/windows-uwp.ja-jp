@@ -1,22 +1,22 @@
 ---
 ms.assetid: bfabd3d5-dd56-4917-9572-f3ba0de4f8c0
-title: デバイス ポータル コア API リファレンス
+title: Windows デバイス ポータル コア REST API リファレンス
 description: Windows Device Portal コア REST API について説明します。これによって、データにアクセスし、プログラムを使ってデバイスを制御することが可能になります。
 ms.custom: 19H1
-ms.date: 04/19/2019
+ms.date: 01/08/2021
 ms.topic: article
-keywords: windows 10, uwp, デバイス ポータル
+keywords: windows 10, uwp, デバイス ポータル, REST
 ms.localizationpriority: medium
-ms.openlocfilehash: c8615620e09d6f00881c1bb229d98f876a95978c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 33e914d124520b8f4eacd120c191ed63715a3168
+ms.sourcegitcommit: 02d220ef0ec0ecd7ed733086ba164ee9653d9602
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173616"
+ms.lasthandoff: 01/09/2021
+ms.locfileid: "98056055"
 ---
-# <a name="device-portal-core-api-reference"></a>デバイス ポータル コア API リファレンス
+# <a name="windows-device-portal-core-rest-api-reference"></a>Windows デバイス ポータル コア REST API リファレンス
 
-デバイス ポータルのすべての機能は、REST API の上に構築されています。開発者は REST API を直接呼び出して、プログラムからリソースにアクセスし、デバイスを制御することができます。
+Windows デバイス ポータル (WDP) のすべての機能は、REST API を基にして構築されています。開発者は REST API を直接呼び出して、プログラムからリソースにアクセスし、デバイスを制御することができます。
 
 ## <a name="app-deployment"></a>アプリの展開
 
@@ -1375,7 +1375,7 @@ ms.locfileid: "89173616"
 | autoreboot   | (**オプション**) true または false。 これは、エラーやロックの発生後に、システムが自動的に再起動するかどうかを示します。 |
 | dumptype   | (**オプション**) dump タイプ。 サポートされる値については、「[CrashDumpType 列挙体](/previous-versions/azure/reference/dn802457(v=azure.100))」をご覧ください。|
 | maxdumpcount   | (**オプション**) 保存するダンプの最大数。 |
-| overwrite   | (**オプション**) true または false。 これは、*maxdumpcount*で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
+| overwrite   | (**オプション**) true または false。 これは、*maxdumpcount* で指定されているダンプ カウンターの制限に達した場合に古いダンプを上書きするかどうかを示します。 |
 
 **要求ヘッダー**
 
@@ -3028,10 +3028,10 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 | :---          | :--- |
 | AdapterName | (**必須**) ネットワーク インターフェイスの GUID。 |
 | IPAddress | 設定する静的 IP アドレス。 |
-| SubnetMask | (*IPAddress* が null でない場合は**必須**) 静的サブネット マスク。 |
-| DefaultGateway | (*IPAddress* が null でない場合は**必須**) 既定の静的ゲートウェイ。 |
-| PrimaryDNS | (*IPAddress* が null でない場合は**必須**) 設定する静的プライマリ DNS。 |
-| SecondayDNS | (*PrimaryDNS* が null でない場合は**必須**) 設定する静的セカンダリ DNS。 |
+| SubnetMask | (*IPAddress* が null でない場合は **必須**) 静的サブネット マスク。 |
+| DefaultGateway | (*IPAddress* が null でない場合は **必須**) 既定の静的ゲートウェイ。 |
+| PrimaryDNS | (*IPAddress* が null でない場合は **必須**) 設定する静的プライマリ DNS。 |
+| SecondayDNS | (*PrimaryDNS* が null でない場合は **必須**) 設定する静的セカンダリ DNS。 |
 
 わかりやすくするために、インターフェイスを DHCP に設定するには、ネットワーク上の `AdapterName` のみをシリアル化します。
 
@@ -3163,7 +3163,7 @@ DeviceType は、"Windows.Xbox"、"Windows.Desktop" などのようになりま�
 
 **応答**
 
-指定された*インターフェイス*で見つかったワイヤレス ネットワークの一覧。 これには、ネットワークの詳細が次の形式で含まれます。
+指定された *インターフェイス* で見つかったワイヤレス ネットワークの一覧。 これには、ネットワークの詳細が次の形式で含まれます。
 
 ```json
 {"AvailableNetworks": [

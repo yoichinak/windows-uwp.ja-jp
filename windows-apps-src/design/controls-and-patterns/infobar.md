@@ -10,12 +10,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 ms.custom: 20H2
 ms.localizationpriority: medium
-ms.openlocfilehash: 422d2cb0874abe2fbe767a75d718cd1f0637ccee
-ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
+ms.openlocfilehash: f790e4ed1d16ac42c95f9a835a3b9cc7f3598190
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96604961"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104543"
 ---
 # <a name="infobar"></a>InfoBar
 InfoBar コントロールは、アプリ全体の状態メッセージを、非常に見やすくても邪魔にならないようにユーザーに表示するためのものです。 表示されるメッセージの種類を簡単に示すことができる組み込みの重大度レベルと、アクション ボタンやハイパーリンク ボタンに独自の呼び出しを含めるためのオプションがあります。 InfoBar は他の UI コンテンツとインラインで表示されるため、コントロールにはユーザーがそれを常に表示したり破棄したりできるようにするためのオプションがあります。 
@@ -182,7 +182,7 @@ InfoBar は、ユーザーが閉じるボタンを使用することで、また
 
 ### <a name="add-an-action-button"></a>アクション ボタンを追加する
 
-[ButtonBase](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase) を継承する独自のボタンを定義し、ActionButton プロパティでそれを設定することにより、アクション ボタンを追加できます。 一貫性とアクセシビリティのため、[Button](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.Button) および [HyperlinkButton](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 型のアクション ボタンには、カスタム スタイル設定が適用されます。 ActionButton プロパティとは別に、カスタム コンテンツを使用してアクション ボタンを追加することができ、それはメッセージの下に表示されます。
+[ButtonBase](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ButtonBase) を継承する独自のボタンを定義し、ActionButton プロパティでそれを設定することにより、アクション ボタンを追加できます。 一貫性とアクセシビリティのため、[Button](/uwp/api/Windows.UI.Xaml.Controls.Button) および [HyperlinkButton](/uwp/api/Windows.UI.Xaml.Controls.HyperlinkButton) 型のアクション ボタンには、カスタム スタイル設定が適用されます。 ActionButton プロパティとは別に、カスタム コンテンツを使用してアクション ボタンを追加することができ、それはメッセージの下に表示されます。
 
 
 ```xaml
@@ -240,7 +240,7 @@ Content プロパティを使用して、XAML コンテンツを InfoBar に追�
     Message="Your documents are being saved to the cloud"
     IsClosable="False">
     <muxc:InfoBar.Content>
-        <ProgressBar IsIndeterminate="True" Margin="0,0,0,6"/>
+        <muxc:ProgressBar IsIndeterminate="True" Margin="0,0,0,6" MaxWidth="200"/>
     </muxc:InfoBar.Content>
 </muxc:InfoBar>
 ```
@@ -249,13 +249,14 @@ Content プロパティを使用して、XAML コンテンツを InfoBar に追�
 
 ### <a name="lightweight-styling"></a>軽量なスタイル設定
 
-既定の Style と ControlTemplate を変更して、コントロールに固有の外観を与えることができます。 詳細については、[スタイル設定コントロール](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-styles)に関する記事の「[軽量なスタイル設定](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/xaml-styles#lightweight-styling)」セクションを参照してください。
+既定の Style と ControlTemplate を変更して、コントロールに固有の外観を与えることができます。 利用可能なテーマ リソースの一覧については、InfoBar API ドキュメントの「[コントロール スタイルとテンプレート](/windows/winui/api/microsoft.ui.xaml.controls.infobar#control-style-and-template)」を参照してください。
+詳細については、[スタイル設定コントロール](./xaml-styles.md)に関する記事の「[軽量なスタイル設定](./xaml-styles.md#lightweight-styling)」セクションを参照してください。 
 
-たとえば、次のようにすると、Page の InfoBar のタイトル バーのフォント サイズは 22pt になります。
+たとえば、次のようにすると、ページ上のすべての情報 InfoBar の背景色が青になります。
 
 ```xaml
 <Page.Resources>
-    <x:Double x:Key="InfoBarTitleFontSize">22</x:Double>
+    <x:SolidColorBrush x:Key="InfoBarInformationalSeverityBackgroundBrush" Color="LightBlue"></x:SolidColorBrush>
 </Page.Resources>
 ```
 ### <a name="canceling-close"></a>クローズの取り消し

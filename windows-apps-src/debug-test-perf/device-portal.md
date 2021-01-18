@@ -2,30 +2,35 @@
 ms.assetid: 60fc48dd-91a9-4dd6-a116-9292a7c1f3be
 title: Windows Device Portal の概要
 description: Windows Device Portal で、ネットワーク経由でリモートから、または USB 接続によって、デバイスの構成と管理を行うための方法を説明します。
-ms.date: 04/09/2019
+ms.date: 01/08/2021
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: a4fc5cc5b8bc99e830d3c31604e581f8e57c1007
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b860b081ba7693964b419def670da2f30d1c54c2
+ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173636"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98104533"
 ---
 # <a name="windows-device-portal-overview"></a>Windows Device Portal の概要
 
-Windows Device Portal では、ネットワーク経由でリモートから、または USB 接続によって、デバイスの構成と管理を行えます。 また、Windows デバイスのトラブルシューティングを行ったり、リアルタイムのパフォーマンスを表示するための高度な診断ツールも用意されています。
+Windows デバイスに含まれる Web サーバーである Windows デバイス ポータル (WDP) を使用すると、ネットワークまたは USB 接続を介して、デバイスの設定を構成および管理できます (Web ブラウザーを使用したデバイスでのローカル接続もサポートされています)。
 
-Windows デバイス ポータルは、PC 上の Web ブラウザーから接続することができるデバイス上の Web サーバーです。 デバイスに Web ブラウザーがある場合、そのデバイス上のブラウザーにローカル接続することもできます。
+また、WDP には、Windows デバイスのトラブルシューティングを行ったり、リアルタイムのパフォーマンスを表示するための高度な診断ツールも用意されています。
 
-各デバイス ファミリで Windows デバイス ポータルを利用できますが、機能とセットアップは各デバイスの要件によって異なります。 ここでは、Device Portal の一般的な説明と、各デバイス ファミリに関するさらに詳細な情報が掲載されている記事へのリンクを示します。
+WDP の機能は、[REST API](device-portal-api-core.md) のコレクションを通してプログラムに公開されています。
 
-Windows デバイス ポータルの機能は、[REST API](device-portal-api-core.md) を使用して実装されています。REST API は、プログラムを使用してデータに直接アクセスしてデバイスを制御するために使用できます。
+この記事では、Windows デバイス ポータルの概要を説明し、各 Windows デバイス ファミリに関するさらに詳細な情報が掲載されている記事へのリンクを示します。
+
+> [!NOTE]
+> デバイス ファミリに基づいて、デバイスのクラス全体で想定できる API、システム特性、動作を特定します。
 
 ## <a name="setup"></a>セットアップ
 
-Device Portal への接続の具体的な手順はデバイスによって異なりますが、どのデバイスでも次の一般的な手順が必要です。
+各デバイスファミリには WDP の 1 つのバージョンが用意されていますが、機能とセットアップはデバイスの要件によって異なります。
+
+以下で示すのは、すべてのデバイスに当てはまる基本的な手順です。
 
 1. デバイスで開発者モードとデバイス ポータルを有効にします (設定アプリで構成)。
 
@@ -33,23 +38,17 @@ Device Portal への接続の具体的な手順はデバイスによって異な
 
 3. ブラウザーでデバイス ポータルのページに移動します。 次の表は、各デバイス ファミリで使用されるポートとプロトコルを示しています。
 
-デバイス ファミリ | 既定でオンになっているか | HTTP | HTTPS | USB
---------------|----------------|------|-------|----
-HoloLens | 開発者モードでオン | 80 (既定) | 443 (既定) | http://127.0.0.1:10080
-IoT | 開発者モードでオン | 8080 | レジストリ キーで有効化する | なし
-Xbox | 開発者モードで有効化する | 無効 | 11443 | なし
-デスクトップ| 開発者モードで有効化する | 50080\* | 50043\* | なし
-電話 | 開発者モードで有効化する | 80| 443 | http://127.0.0.1:10080
+次の表では、WDP に関するデバイス固有の詳細を示します。
 
-\* デスクトップ上のデバイス ポータルが、デバイス上の既存のポート要求との競合を避ける目的でエフェメラル範囲 (>50,000) にあるポートを要求するため、この表が当てはまらない場合があります。 詳しくは、デスクトップに関する「[ポート番号を設定する](device-portal-desktop.md#registry-based-configuration-for-device-portal)」のセクションをご覧ください。  
+デバイス ファミリ | 既定でオンになっているか | HTTP | HTTPS | USB | 手順 |
+--------------|----------------|------|-------|-----|--------------|
+デスクトップ| 開発者モードで有効化する | 50080\* | 50043\* | 該当なし | [デスクトップ デバイスで Windows デバイス ポータルをセットアップする](device-portal-desktop.md#set-up-windows-device-portal-on-a-desktop-device) |
+Xbox | 開発者モードで有効化する | 無効 | 11443 | 該当なし | [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md) |
+HoloLens | 開発者モードでオン | 80 (既定値) | 443 (既定) | http://127.0.0.1:10080 | [HoloLens 用 Device Portal](/windows/mixed-reality/develop/platform-capabilities-and-apis/using-the-windows-device-portal) |
+IoT | 開発者モードでオン | 8080 | レジストリ キーで有効化する | 該当なし | [IoT 用 Device Portal](/windows/iot-core/manage-your-device/DevicePortal) |
+電話 | 開発者モードで有効化する | 80| 443 | http://127.0.0.1:10080 | [モバイル用 Device Portal](device-portal-mobile.md) |
 
-デバイス固有のセットアップ手順については、以下をご覧ください。
-
-- [HoloLens 用 Device Portal](./device-portal-hololens.md)
-- [IoT 用 Device Portal](/windows/iot-core/manage-your-device/DevicePortal)
-- [モバイル用 Device Portal](device-portal-mobile.md)
-- [Xbox 向けのデバイス ポータル](../xbox-apps/device-portal-xbox.md)
-- [デスクトップ用 Device Portal](device-portal-desktop.md#set-up-device-portal-on-windows-desktop)
+\* デスクトップ上のデバイス ポータルが、デバイス上の既存のポート要求との競合を避ける目的でエフェメラル範囲 (>50,000) にあるポートを要求するため、この表が当てはまらない場合があります。 詳細については、「[デスクトップ用 Windows デバイス ポータル](device-portal-desktop.md)」の「[レジストリ ベースの構成](device-portal-desktop.md#registry-based-configuration)」セクションを参照してください。  
 
 ## <a name="features"></a>機能
 
@@ -223,3 +222,7 @@ DNS-SD レコードでアドバタイズされる HTTP ポートですべての�
 #### <a name="cross-site-websocket-hijacking-cswsh-protection"></a>クロスサイト WebSocket ハイジャック (CSWSH) に対する保護
 
 [CSWSH 攻撃](https://www.christian-schneider.net/CrossSiteWebSocketHijacking.html)を防御するために、Device Portal に対して WebSocket 接続を開くすべてのクライアントは、Host ヘッダーと一致する Origin ヘッダーも提供する必要があります。 これにより、Device Portal に対して、要求が Device Portal の UI または有効なクライアント アプリケーションからの要求であることを証明します。 Origin ヘッダーがない場合、要求は拒否されます。
+
+## <a name="see-also"></a>関連項目
+
+[デバイス ポータル コア API リファレンス](device-portal-api-core.md)

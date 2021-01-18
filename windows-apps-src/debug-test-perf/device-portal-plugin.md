@@ -1,21 +1,21 @@
 ---
 ms.assetid: 82ab5fc9-3a7f-4d9e-9882-077ccfdd0ec9
-title: Device Portal 用のカスタム プラグインの作成
+title: Windows デバイス ポータルのカスタム プラグインの作成
 description: Windows Device Portal を使用して Web ページをホストし、診断情報を提供する UWP アプリを作成する方法について説明します。
-ms.date: 07/06/2020
+ms.date: 01/08/2021
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: f66650291e2966d6a3a6ac2b5d794006382d2fbf
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c01cc48f78abba95b99dc05e1372640241d9af49
+ms.sourcegitcommit: 02d220ef0ec0ecd7ed733086ba164ee9653d9602
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170026"
+ms.lasthandoff: 01/09/2021
+ms.locfileid: "98056005"
 ---
-# <a name="write-a-custom-plugin-for-device-portal"></a>Device Portal 用のカスタム プラグインの作成
+# <a name="write-a-custom-plugin-for-windows-device-portal"></a>Windows デバイス ポータルのカスタム プラグインの作成
 
-Windows Device Portal を使用して Web ページをホストし、診断情報を提供する UWP アプリを作成する方法について説明します。
+Web ページをホストして診断情報を提供する UWP アプリを、Windows Device Portal (WDP) を使用して作成する方法について説明します。
 
 Windows 10 Creators Update (バージョン 1703、ビルド 15063) 以降では、Device Portal を使用してアプリの診断インターフェイスをホストすることができます。 この記事では、アプリ用の DevicePortalProvider の作成に必要な 3 つの要素である、[アプリケーション パッケージ マニフェスト](/uwp/schemas/appxpackage/appx-package-manifest)の変更、[デバイス ポータル サービス](./device-portal.md)へのアプリの接続の設定、着信要求の処理について説明します。
 
@@ -136,7 +136,7 @@ private void DevicePortalConnection_RequestReceived(DevicePortalConnection sende
 }
 ```
 
-このサンプル要求ハンドラーでは、まず *args*パラメーターから要求と応答のオブジェクトを取り出し、要求 URL やその他の HTML 書式設定を含む文字列を作成します。 これが、[**HttpStringContent**](/uwp/api/windows.web.http.httpstringcontent) インスタンスとして応答オブジェクトに追加されます。 その他の [**IHttpContent**](/uwp/api/windows.web.http.ihttpcontent) クラス ("String" や "Buffer" などのクラス) も使用できます。
+このサンプル要求ハンドラーでは、まず *args* パラメーターから要求と応答のオブジェクトを取り出し、要求 URL やその他の HTML 書式設定を含む文字列を作成します。 これが、[**HttpStringContent**](/uwp/api/windows.web.http.httpstringcontent) インスタンスとして応答オブジェクトに追加されます。 その他の [**IHttpContent**](/uwp/api/windows.web.http.ihttpcontent) クラス ("String" や "Buffer" などのクラス) も使用できます。
 
 応答は、HTTP 応答として設定され、200 (OK) 状態コードが指定されます。 元の呼び出しを行ったブラウザーでは、期待どおりにレンダリングされます。 **RequestReceived** イベント ハンドラーが制御を戻すときに、応答メッセージはユーザー エージェントに自動的に返されます。追加の "send" メソッドは必要ありません。
 

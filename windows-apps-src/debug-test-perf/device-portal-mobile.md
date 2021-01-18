@@ -1,19 +1,19 @@
 ---
 ms.assetid: 5c34c78e-9ff7-477b-87f6-a31367cd3f8b
-title: モバイル用 Device Portal
+title: モバイル用 Windows デバイス ポータル
 description: Windows Device Portal で、モバイル デバイスの構成と管理をリモートから行う方法について説明します。
-ms.date: 02/08/2017
+ms.date: 01/08/2021
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル
 ms.localizationpriority: medium
-ms.openlocfilehash: 29a6f85dfb13e47617138e401c8444cb5b5f6809
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: b661c1b8249f4244049a19ecb3ccab865218aab2
+ms.sourcegitcommit: 02d220ef0ec0ecd7ed733086ba164ee9653d9602
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339580"
+ms.lasthandoff: 01/09/2021
+ms.locfileid: "98055995"
 ---
-# <a name="device-portal-for-mobile"></a>モバイル用 Device Portal
+# <a name="windows-device-portal-for-mobile"></a>モバイル用 Windows デバイス ポータル
 
 Windows 10 Version 1511 以降では、モバイル デバイス ファミリで追加の開発者向け機能が利用できるようになりました。 これらの機能は、デバイスで開発者モードが有効になっている場合にのみ利用可能です。
 
@@ -21,11 +21,11 @@ Windows 10 Version 1511 以降では、モバイル デバイス ファミリで
 
 ![デバイスの検出と Device Portal の設定のスクリーンショット。](images/device-portal/mob-dev-mode-options.png)
 
-## <a name="set-up-device-portal-on-windows-phone"></a>Windows Phone で Device Portal をセットアップする
+## <a name="set-up-windows-device-portal-on-windows-phone"></a>Windows Phone で Windows Device Portal をセットアップする
 
 ### <a name="turn-on-device-discovery-and-pairing"></a>デバイスの検出とペアリングを有効にする
 
-Device Portal に接続するには、電話の設定でデバイスの検出と Device Portal を有効にする必要があります。 これにより、使用している電話と、PC または他の Windows 10 デバイスをペアリングできます。 デバイスは両方ともワイヤード (有線) またはワイヤレスでネットワークの同じサブネットに接続されているか、または 2 台のデバイスが USB で接続されている必要があります。
+Windows Device Portal (WDP) に接続するには、電話の設定でデバイスの検出と Device Portal を有効にする必要があります。 これにより、使用している電話と、PC または他の Windows 10 デバイスをペアリングできます。 デバイスは両方ともワイヤード (有線) またはワイヤレスでネットワークの同じサブネットに接続されているか、または 2 台のデバイスが USB で接続されている必要があります。
 
 初めて Device Portal に接続すると、大文字と小文字が区別される 6 文字のセキュリティ コードを入力するように求められます。 これにより電話に確実にアクセスでき、攻撃を受ける心配もなくなります。 電話の [ペアリング] ボタンを押してコードを生成および表示し、その 6 文字をブラウザー内のテキスト ボックスに入力します。
 
