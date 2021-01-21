@@ -1,15 +1,15 @@
 ---
 title: Windows UI ライブラリの概要
 description: Windows UI ライブラリをインストールして使用する方法。
-ms.topic: reference
+ms.topic: article
 ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk
-ms.openlocfilehash: 670254b8ca9ba8641e9adf1410aef918be73f705
-ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
+ms.openlocfilehash: 939da99d7fce59a9f242fe0ce8ed203a3f52eab6
+ms.sourcegitcommit: 617344ae1a1f5b580c938b61e910d99120b73626
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603839"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98620853"
 ---
 # <a name="getting-started-with-the-windows-ui-2x-library"></a>Windows UI 2.x ライブラリの概要
 
