@@ -2,16 +2,16 @@
 ms.assetid: B071F6BC-49D3-4E74-98EA-0461A1A55EFB
 description: アプリとアドオンのカタログがある場合は、Microsoft Store コレクション API および Microsoft Store 購入 API を使って、サービスからこれらの製品の所有権情報にアクセスできます。
 title: サービスによる製品の権利の管理
-ms.date: 08/01/2018
+ms.date: 01/21/2021
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store コレクション API, Microsoft Store 購入 API, 製品の表示, 製品の付与
 ms.localizationpriority: medium
-ms.openlocfilehash: 1447a8f7a689b3405ac1ebb8807c1c68b81294db
-ms.sourcegitcommit: ad33b2b191c7e62dc68a46bd349a87ff8ca7cef8
+ms.openlocfilehash: 7674a9b966510d914850e1fc8b2c8ca531f64a20
+ms.sourcegitcommit: 069f5ab4be85a7d638fc2a426afaed824e5dfeae
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108925"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98668730"
 ---
 # <a name="manage-product-entitlements-from-a-service"></a>サービスによる製品の権利の管理
 
@@ -45,9 +45,6 @@ ms.locfileid: "98108925"
 
 Microsoft Store collection API または purchase API を使用するには、Azure AD Web アプリケーションを作成し、アプリケーションのテナント ID とアプリケーション ID を取得して、キーを生成する必要があります。 Azure AD Web アプリケーションは、Microsoft Store collection API または purchase API の呼び出し元のサービスを表します。 API を呼び出すために必要な Azure AD アクセストークンを生成するには、テナント ID、アプリケーション ID、およびキーが必要です。
 
-> [!NOTE]
-> このセクションの作業は 1 回実行する必要があるだけです。 Azure AD アプリケーションマニフェストを更新し、テナント ID、アプリケーション ID、およびクライアントシークレットがある場合は、新しい Azure AD アクセストークンを作成する必要があるときはいつでもこれらの値を再利用できます。
-
 1.  まだ行っていない場合は、「アプリケーションを [Azure Active Directory と統合](/azure/active-directory/develop/active-directory-integrating-applications) して、 **WEB アプリ/API** アプリケーションを Azure AD に登録する」の手順に従ってください。
     > [!NOTE]
     > アプリケーションを登録するときに、アプリケーションの種類として [ **Web アプリ/API** ] を選択して、アプリケーションのキー ( *クライアントシークレット* とも呼ばれます) を取得できるようにする必要があります。 Microsoft Store コレクション API または購入 API を呼び出すには、後の手順で Azure AD からアクセス トークンを要求するときにクライアント シークレットを指定する必要があります。
@@ -55,19 +52,6 @@ Microsoft Store collection API または purchase API を使用するには、Az
 2.  [Azure 管理ポータル](https://portal.azure.com/)で、 **Azure Active Directory** に移動します。 ディレクトリを選択し、左側のナビゲーションウィンドウで [ **アプリの登録** ] をクリックして、アプリケーションを選択します。
 3.  アプリケーションのメイン登録ページが表示されます。 このページで、[ **アプリケーション ID** ] の値をコピーして後で使用します。
 4.  後で必要になるキーを作成します (これは、 *クライアントシークレット* と呼ばれます)。 左側のウィンドウで、[ **設定** ]、[ **キー**] の順にクリックします。 このページで、 [キーを作成](/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)する手順を完了します。 後で使用するためにこのキーをコピーします。
-5.  [アプリケーションマニフェスト](/azure/active-directory/develop/active-directory-application-manifest)に必要な対象ユーザーの uri をいくつか追加します。 左側のウィンドウで **[マニフェスト]** をクリックします。 [ **編集**] をクリックし、 `"identifierUris"` セクションを次のテキストに置き換えて、[ **保存**] をクリックします。
-
-    ```json
-    "accessTokenAcceptedVersion": 1,
-    "identifierUris": [
-        "https://onestore.microsoft.com",
-        "https://onestore.microsoft.com/b2b/keys/create/collections",
-        "https://onestore.microsoft.com/b2b/keys/create/purchase"
-        ],
-    "signInAudience": "AzureADMyOrg",
-    ```
-
-    これらの文字列は、アプリケーションでサポートされる対象ユーザーを表します。 後の手順で、各対象ユーザー値に関連付けられた Azure AD アクセス トークンを作成します。
 
 <span id="step-2"/>
 
@@ -76,7 +60,7 @@ Microsoft Store collection API または purchase API を使用するには、Az
 Microsoft Store collection API または purchase API を使用してアプリまたはアドオンの所有権と購入を構成する前に、パートナーセンターで Azure AD アプリケーション ID をアプリ (またはアドオンを含むアプリ) に関連付ける必要があります。
 
 > [!NOTE]
-> この作業を行うのは一度だけです。
+> この作業を行うのは一度だけです。 テナント ID、アプリケーション ID、およびクライアントシークレットを取得した後、新しい Azure AD アクセストークンを作成する必要がある場合は、いつでもこれらの値を再利用できます。
 
 1.  [パートナーセンター](https://partner.microsoft.com/dashboard)にサインインし、アプリを選択します。
 2.  **サービス** &gt; **製品コレクションと購入** ページにアクセスし、[使用可能な **クライアント id** ] フィールドのいずれかに Azure AD アプリケーション id を入力します。
@@ -94,7 +78,7 @@ Microsoft Store ID キーを取得したり、Microsoft Store コレクション
 
 ### <a name="understanding-the-different-tokens-and-audience-uris"></a>さまざまなトークンとオーディエンス URI を理解する
 
-Microsoft Store コレクション API または購入 API で呼び出そうとしているメソッドに応じて、2 つまたは 3 つの異なるトークンを作成する必要があります。 各アクセス トークンは、別々のオーディエンス URI に関連付けられます (これらは、以前に Azure AD アプリケーション マニフェストの `"identifierUris"` セクションに追加した URI と同じです)。
+Microsoft Store コレクション API または購入 API で呼び出そうとしているメソッドに応じて、2 つまたは 3 つの異なるトークンを作成する必要があります。 各アクセストークンは、異なる対象ユーザーの URI に関連付けられています。
 
   * いずれの場合も、`https://onestore.microsoft.com` オーディエンス URI のトークンを 1 つ作成する必要があります。 このトークンは、後の手順で Microsoft Store コレクション API または購入 API のメソッドの **Authorization** ヘッダーに渡します。
       > [!IMPORTANT]
