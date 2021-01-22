@@ -31,7 +31,7 @@
           items:
             - name: 概要
               href: ../nodejs/index.yml
-            - name: WSL2 を使用したセットアップ
+            - name: WSL 2 を使用したセットアップ
               href: ../nodejs/setup-on-wsl2.md
             - name: Windows を使用したセットアップ (初心者)
               href: ../nodejs/setup-on-windows.md
