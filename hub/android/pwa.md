@@ -7,12 +7,12 @@ manager: jken
 ms.topic: article
 keywords: windows での android、pwa、android、cordova、ionic、phonegap、ハイブリッド web アプリ
 ms.date: 04/28/2020
-ms.openlocfilehash: 482fd02ed7b5d978d81ec52309006034f70b7e47
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4559e795b4a9737bf68129790029f6f9136b4f81
+ms.sourcegitcommit: 99f5544d9642c87a16e3bd21f76c2fcbc97c20d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89163986"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743595"
 ---
 # <a name="get-started-developing-a-pwa-or-hybrid-web-app-for-android"></a>Android 用の PWA またはハイブリッド web アプリの開発を開始する
 
@@ -49,13 +49,13 @@ PWAs には、いくつかの固有の機能もあります。
 
 Cordova には、次の2つの一般的なディストリビューションがあります。
 
-- [PhoneGap](https://phonegap.com/)
+- [PhoneGap](https://blog.phonegap.com/update-for-customers-using-phonegap-and-phonegap-build-cc701c77502c): サポートは Adobe によって中止されました。
 
 - [Ionic](https://ionicframework.com/)
 
 ## <a name="adobe-phonegap"></a>Adobe PhoneGap
 
-[PhoneGap](https://phonegap.com/): ローカルコンピューターにネイティブ sdk をインストールしなくても、ネイティブアプリをビルドする adobe サーバーにコードをアップロードできるようにする、adobe でサポートされている、 [コマンドライン](http://docs.phonegap.com/getting-started/1-install-phonegap/cli/)、 [デスクトップアプリ](https://phonegap.com/products#desktop-app-section)、 [PhoneGap ビルド](https://build.phonegap.com/)などの追加ツールを使用して、Cordova をサポートするフレームワーク。 これにより、Windows コンピューターを使用して iOS アプリを構築するなどの操作を行うことができます。
+最近、サポートが中止されました。 詳細については、 [Adobe のブログ投稿](https://blog.phonegap.com/update-for-customers-using-phonegap-and-phonegap-build-cc701c77502c)を参照してください。
 
 ### <a name="install-phonegap"></a>PhoneGap のインストール
 
@@ -120,7 +120,7 @@ ionic serve
 
 ## <a name="create-a-new-project-with-ionic-capacitor-and-angular"></a>Ionic コンデンサーと角度を使用して新しいプロジェクトを作成する
 
-コマンドラインに次のコマンドを入力して、Ionic と Cordova をインストールします。
+コマンドラインで次のように入力して、Ionic と Cordova-Res をインストールします。
 
 ```bash
 npm install -g @ionic/cli native-run cordova-res
