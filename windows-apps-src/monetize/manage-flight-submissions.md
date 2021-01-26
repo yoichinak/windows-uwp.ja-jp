@@ -6,12 +6,12 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, フライトの申請
 ms.localizationpriority: medium
-ms.openlocfilehash: 46af08512970798be52187013e40335b6ee1561b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a5c8a8c83420830c5ec20c9586c46d54a02a5238
+ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164526"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98811271"
 ---
 # <a name="manage-package-flight-submissions"></a>パッケージ フライトの申請の管理
 
@@ -89,10 +89,10 @@ Microsoft Store 申請 API には、段階的なパッケージのロールア�
     POST https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/flights/{flightId}/submissions
     ```
 
-    応答本文には、新しい申請の ID、申請用のパッケージを Azure Blob Storage にアップロードするための共有アクセス署名 (SAS) URI、および新しい申請のデータ (すべての登録情報と価格情報が含まれます) を含む[フライトの申請](#flight-submission-object)リソースが含まれます。
+    応答本文には、新しい送信の ID、送信するパッケージを Azure Blob Storage にアップロードするための shared access signature (SAS) URI、および新しい送信のデータ (すべての一覧と価格情報を含む) が含まれる、 [フライト送信](#flight-submission-object) リソースが含まれます。
 
     > [!NOTE]
-    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、「[Shared Access Signatures (SAS) の使用](/azure/storage/common/storage-sas-overview)」と「[Shared Access Signature、第 2 部: BLOB ストレージでの SAS の作成と使用](/azure/storage/common/storage-sas-overview)」をご覧ください。
+    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS Uri と Azure Blob Storage の使用に関する背景情報については、「 [Shared Access signature、第1部: sas モデル](/azure/storage/common/storage-sas-overview) と Shared access signature について」 [、「パート 2: Blob ストレージでの sas の作成と使用](/azure/storage/common/storage-sas-overview)」を参照してください。
 
 4. 申請用に新しいパッケージを追加する場合は、[パッケージを準備](../publish/app-package-requirements.md)して、ZIP アーカイブに追加します。
 
@@ -104,13 +104,13 @@ Microsoft Store 申請 API には、段階的なパッケージのロールア�
       > [!NOTE]
       > 申請用に新しいパッケージを追加する場合、ZIP アーカイブ内のアイコンのファイルの名前と相対パスを参照するように、申請データを更新してください。
 
-4. 申請用に新しいパッケージを追加する場合は、上記で呼び出した POST メソッドの応答本文に含まれていた SAS URI を使用して、ZIP アーカイブを [Azure Blob Storage](/azure/storage/storage-introduction#blob-storage) にアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
+4. 送信用の新しいパッケージを追加する場合は、前に呼び出した POST メソッドの応答本文に指定された SAS URI を使用して、 [Azure Blob Storage](/azure/storage/storage-introduction#blob-storage) に ZIP アーカイブをアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
 
     * [.NET 用 Azure Storage クライアントライブラリ](/azure/storage/storage-dotnet-how-to-use-blobs)
     * [Azure Storage SDK for Java](/azure/storage/storage-java-how-to-use-blob-storage)
     * [Azure Storage SDK for Python](/azure/storage/storage-python-how-to-use-blob-storage)
 
-    次の C# コード例は、.NET 用 Azure Storage クライアント ライブラリの [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob) クラスを使用して ZIP アーカイブを Azure Blob Storage にアップロードする方法を示しています。 この例では、ZIP アーカイブが既にストリーム オブジェクトに書き込まれていることを前提としています。
+    次の C# コード例は、.NET 用 Azure Storage クライアントライブラリの [Cloudblockblob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob) クラスを使用して AZURE BLOB STORAGE に ZIP アーカイブをアップロードする方法を示しています。 この例では、ZIP アーカイブが既にストリーム オブジェクトに書き込まれていることを前提としています。
 
     ```csharp
     string sasUrl = "https://productingestionbin1.blob.core.windows.net/ingestion/26920f66-b592-4439-9a9d-fb0f014902ec?sv=2014-02-14&sr=b&sig=usAN0kNFNnYE2tGQBI%2BARQWejX1Guiz7hdFtRhyK%2Bog%3D&se=2016-06-17T20:45:51Z&sp=rwl";
@@ -259,7 +259,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |------------|--------|------------------------------|
 | id            | string  | 申請の ID です。  |
 | flightId           | string  |  申請が関連付けられているパッケージ フライトの ID です。  |  
-| status           | string  | 申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>   |
+| status           | string  | 申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>Release</li><li>ReleaseFailed</li></ul>   |
 | statusDetails           | object  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。  |
 | flightPackages           | array  | 申請の各パッケージに関する詳細を提供する[フライト パッケージ リソース](#flight-package-object)が含まれています。   |
 | packageDeliveryOptions    | object  | 申請の段階的なパッケージのロールアウトと必須の更新の設定が含まれた[パッケージ配布オプション リソース](#package-delivery-options-object)です。   |
@@ -389,7 +389,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | fallbackSubmissionId    |  string   |  段階的なロールアウトのパッケージを入手しないユーザーが受信する申請のID。   |          
 
 > [!NOTE]
-> *PackageRolloutStatus*と*fallbackの Id*値はパートナーセンターによって割り当てられ、開発者が設定するものではありません。 これらの値を要求本文に含めると、これらの値は無視されます。
+> *PackageRolloutStatus* と *fallbackの Id* 値はパートナーセンターによって割り当てられ、開発者が設定するものではありません。 これらの値を要求本文に含めると、これらの値は無視されます。
 
 <span/>
 

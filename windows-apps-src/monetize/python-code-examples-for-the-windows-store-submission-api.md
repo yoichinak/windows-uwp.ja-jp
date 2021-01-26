@@ -6,18 +6,18 @@ ms.date: 07/10/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, コード例, Python
 ms.localizationpriority: medium
-ms.openlocfilehash: f551a7de85e493f4fbc1a027fb3ab9c3ca2dd598
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 3fd29164dd91199b1557496985577ea956893250
+ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89363865"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98811260"
 ---
 # <a name="python-sample-submissions-for-apps-add-ons-and-flights"></a>Python のコード例: アプリ、アドオン、およびフライトの申請
 
 この記事では、次のタスクで [Microsoft Store 申請 API](create-and-manage-submissions-using-windows-store-services.md) を使用する方法を示す Python コード例を提供します。
 
-* [Azure AD アクセス トークンの取得](#token)
+* [Azure AD アクセストークンを取得する](#token)
 * [アドオンの作成](#create-add-on)
 * [パッケージ フライトの作成](#create-package-flight)
 * [アプリの申請の作成](#create-app-submission)
@@ -57,7 +57,7 @@ ms.locfileid: "89363865"
 1. まず、例では[指定されたアプリのデータを取得](get-an-app.md)します。
 2. 次に、[アプリの保留中の申請を削除](delete-an-app-submission.md)します (存在する場合)。
 3. その後、[アプリの新しい申請を作成](create-an-app-submission.md)します (新しい申請は、最後に公開された申請のコピーです)。
-4. 新しい申請の詳細を変更し、申請の新しいパッケージを Azure Blob Storage にアップロードします。
+4. 新しい送信の一部の詳細を変更し、Azure Blob Storage に送信するための新しいパッケージをアップロードします。
 5. 次に、パートナーセンターに新しい送信を [更新](update-an-app-submission.md) して [コミット](commit-an-app-submission.md) します。
 6. 最後に、申請が正常にコミットされるまで、定期的に[新しい申請の状態をチェック](get-status-for-an-app-submission.md)します。
 
@@ -72,7 +72,7 @@ ms.locfileid: "89363865"
 1. まず、例では[指定されたアドオンのデータを取得](get-an-add-on.md)します。
 2. 次に、[アドオンの保留中の申請を削除](delete-an-add-on-submission.md)します (存在する場合)。
 3. その後、[アドオンの新しい申請を作成](create-an-add-on-submission.md)します (新しい申請は、最後に公開された申請のコピーです)。
-4. 申請のアイコンが含まれた ZIP アーカイブを Azure Blob Storage にアップロードします。 詳しくは、「[アドオンの申請の作成](manage-add-on-submissions.md#create-an-add-on-submission)」の Azure Blob Storage に ZIP アーカイブをアップロードする方法について関連する手順をご覧ください。
+4. Azure Blob Storage に送信するためのアイコンを含む ZIP アーカイブをアップロードします。 詳細については、「 [アドオンの作成](manage-add-on-submissions.md#create-an-add-on-submission)」の AZURE BLOB STORAGE に ZIP アーカイブをアップロードする方法に関する関連手順を参照してください。
 5. 次に、パートナーセンターに新しい送信を [更新](update-an-add-on-submission.md) して [コミット](commit-an-add-on-submission.md) します。
 6. 最後に、申請が正常にコミットされるまで、定期的に[新しい申請の状態をチェック](get-status-for-an-add-on-submission.md)します。
 
@@ -87,7 +87,7 @@ ms.locfileid: "89363865"
 1. まず、例では[指定されたパッケージ フライトのデータを取得](get-a-flight.md)します。
 2. 次に、[パッケージ フライトの保留中の申請を削除](delete-a-flight-submission.md)します (存在する場合)。
 3. その後、[パッケージ フライトの新しい申請を作成](create-a-flight-submission.md)します (新しい申請は、最後に公開された申請のコピーです)。
-4. 申請の新しいパッケージを Azure Blob Storage にアップロードします。 詳しくは、「[パッケージ フライトの申請の作成](manage-flight-submissions.md#create-a-package-flight-submission)」の Azure Blob Storage に ZIP アーカイブをアップロードする方法について関連する手順をご覧ください。
+4. Azure Blob Storage に送信するための新しいパッケージをアップロードします。 詳細については、「 [パッケージの作成フライト送信](manage-flight-submissions.md#create-a-package-flight-submission)」の AZURE BLOB STORAGE に ZIP アーカイブをアップロードする方法に関する関連手順を参照してください。
 5. 次に、パートナーセンターに新しい送信を [更新](update-a-flight-submission.md) して [コミット](commit-a-flight-submission.md) します。
 6. 最後に、申請が正常にコミットされるまで、定期的に[新しい申請の状態をチェック](get-status-for-a-flight-submission.md)します。
 

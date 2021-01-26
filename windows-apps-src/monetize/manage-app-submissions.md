@@ -6,12 +6,12 @@ ms.date: 04/30/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリの申請
 ms.localizationpriority: medium
-ms.openlocfilehash: de612607da2192af3358c94874e0896557ca6d08
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 00820f00360575f0a335d37aa0859b94648709e3
+ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89171366"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98811279"
 ---
 # <a name="manage-app-submissions"></a>アプリの申請の管理
 
@@ -95,10 +95,10 @@ Microsoft Store 申請 API には、段階的なパッケージのロールア�
     POST https://manage.devcenter.microsoft.com/v1.0/my/applications/{applicationId}/submissions
     ```
 
-    応答本文には、新しい申請の ID、申請用の関連ファイル (アプリ パッケージ、登録情報の画像、トレーラー ファイルなど) を Azure Blob Storage にアップロードするための共有アクセス署名 (SAS) URI、および新しい申請のすべてのデータ (登録情報や価格情報など) が含まれた[アプリの申請](#app-submission-object)リソースが含まれています。
+    応答本文 [には、](#app-submission-object) 新しい送信の ID、送信用の関連ファイルを Azure Blob Storage にアップロードするための shared access SIGNATURE (SAS) URI (アプリパッケージ、一覧画像、トレーラーファイルなど)、および新しい送信用のすべてのデータ (一覧や価格情報など) が含まれています。
 
     > [!NOTE]
-    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、「[Shared Access Signatures (SAS) の使用](/azure/storage/common/storage-sas-overview)」と「[Shared Access Signature、第 2 部: BLOB ストレージでの SAS の作成と使用](/azure/storage/common/storage-sas-overview)」をご覧ください。
+    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS Uri と Azure Blob Storage の使用に関する背景情報については、「 [Shared Access signature、第1部: sas モデル](/azure/storage/common/storage-sas-overview) と Shared access signature について」 [、「パート 2: Blob ストレージでの sas の作成と使用](/azure/storage/common/storage-sas-overview)」を参照してください。
 
 4. 申請用に新しいパッケージ、登録情報の画像、またはトレーラー ファイルを追加する場合は、[アプリのパッケージを準備](../publish/app-package-requirements.md)し、[アプリのスクリーンショット、画像、およびトレーラーを準備](../publish/app-screenshots-and-images.md)します。 これらのファイルをすべてまとめて ZIP アーカイブに追加します。
 
@@ -110,13 +110,13 @@ Microsoft Store 申請 API には、段階的なパッケージのロールア�
       > [!NOTE]
       > 申請用に新しいファイルを追加する場合、ZIP アーカイブ内の新しいファイルの名前と相対パスを参照するように、申請データを更新してください。
 
-4. 申請用に新しいパッケージ、登録情報の画像、またはトレーラー ファイルを追加する場合は、上記で呼び出した POST メソッドの応答本文に含まれていた SAS URI を使用して、ZIP アーカイブを [Azure Blob Storage](/azure/storage/storage-introduction#blob-storage) にアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
+4. 新しいパッケージを追加する場合、イメージを一覧表示している場合、または送信用にトレーラーファイルを追加する場合は、前に呼び出した POST メソッドの応答本文に指定された SAS URI を使用して、 [Azure Blob Storage](/azure/storage/storage-introduction#blob-storage) に ZIP アーカイブをアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
 
     * [.NET 用 Azure Storage クライアントライブラリ](/azure/storage/storage-dotnet-how-to-use-blobs)
     * [Azure Storage SDK for Java](/azure/storage/storage-java-how-to-use-blob-storage)
     * [Azure Storage SDK for Python](/azure/storage/storage-python-how-to-use-blob-storage)
 
-    次の C# コード例は、.NET 用 Azure Storage クライアント ライブラリの [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob) クラスを使用して ZIP アーカイブを Azure Blob Storage にアップロードする方法を示しています。 この例では、ZIP アーカイブが既にストリーム オブジェクトに書き込まれていることを前提としています。
+    次の C# コード例は、.NET 用 Azure Storage クライアントライブラリの [Cloudblockblob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob) クラスを使用して AZURE BLOB STORAGE に ZIP アーカイブをアップロードする方法を示しています。 この例では、ZIP アーカイブが既にストリーム オブジェクトに書き込まれていることを前提としています。
 
     ```csharp
     string sasUrl = "https://productingestionbin1.blob.core.windows.net/ingestion/26920f66-b592-4439-9a9d-fb0f014902ec?sv=2014-02-14&sr=b&sig=usAN0kNFNnYE2tGQBI%2BARQWejX1Guiz7hdFtRhyK%2Bog%3D&se=2016-06-17T20:45:51Z&sp=rwl";
@@ -352,7 +352,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | hasExternalInAppProducts           |     boolean          |   ユーザーが Microsoft Store コマース システムを使わないで購入することをアプリが許可するかどうかを示します。 詳しくは、「[アプリの宣言](../publish/product-declarations.md)」をご覧ください。     |   
 | meetAccessibilityGuidelines           |    boolean           |  アプリがアクセシビリティ ガイドラインを満たことをテストされているかどうかを示します。 詳しくは、「[アプリの宣言](../publish/product-declarations.md)」をご覧ください。      |   
 | notesForCertification           |  string  |   アプリの[認定の注意書き](../publish/notes-for-certification.md)が含まれます。    |    
-| status           |   string  |  申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>      |    
+| status           |   string  |  申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>Release</li><li>ReleaseFailed</li></ul>      |    
 | statusDetails           |   object  | エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。       |    
 | fileUploadUrl           |   string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージ、登録情報の画像、またはトレーラー ファイルを追加する場合は、パッケージと画像を含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[アプリの申請の作成](#create-an-app-submission)」をご覧ください。       |    
 | applicationPackages           |   array  | 申請の各パッケージに関する詳細を提供する[アプリケーション パッケージ リソース](#application-package-object)の配列です。 |    
@@ -374,9 +374,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |-----------------|---------|------|
 |  trialPeriod               |    string     |  アプリの試用期間を示す文字列です。 次のいずれかの値を指定できます。 <ul><li>NoFreeTrial</li><li>OneDay</li><li>TrialNeverExpires</li><li>SevenDays</li><li>FifteenDays</li><li>ThirtyDays</li></ul>    |
 |  marketSpecificPricings               |    object     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアプリのカスタム価格](../publish/define-market-selection.md)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。      |     
-|  営業               |   array      |  **非推奨**です。 アプリの販売情報が保持される[販売リソース](#sale-object)の配列です。   |     
+|  営業               |   array      |  **非推奨** です。 アプリの販売情報が保持される[販売リソース](#sale-object)の配列です。   |     
 |  priceId               |   string      |  アプリの[基本価格](../publish/define-market-selection.md)を規定する[価格帯](#price-tiers)です。   |     
-|  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/>**Note** &nbsp; メモ &nbsp;このフィールドは読み取り専用です。   |
+|  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/> &nbsp; メモ &nbsp;このフィールドは読み取り専用です。   |
 
 
 <span id="sale-object" />
@@ -388,7 +388,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 > [!IMPORTANT]
 > **セール** リソースはサポートを終了しました。現在、Microsoft Store 申請 API を使ってアプリの申請の販売データを取得または変更することはできません。 将来的には、Microsoft Store 申請 API を更新して、アプリの申請のセール情報にプログラムでアクセスする新しい方法を導入する予定です。
 >    * [アプリの申請を取得する GET メソッド](get-an-app-submission.md)を呼び出すと、*セール* リソースは空になります。 引き続きパートナーセンターを使用して、アプリの送信に関する売上データを取得できます。
->    * [アプリの申請を更新する PUT メソッド](update-an-app-submission.md)を呼び出すとき、*セール*の値に含まれた情報は無視されます。 引き続きパートナーセンターを使用して、アプリの送信用に販売データを変更することができます。
+>    * [アプリの申請を更新する PUT メソッド](update-an-app-submission.md)を呼び出すとき、*セール* の値に含まれた情報は無視されます。 引き続きパートナーセンターを使用して、アプリの送信用に販売データを変更することができます。
 
 このリソースには、次の値があります。
 
@@ -502,7 +502,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  kinectDataForExternal               |   string      |  次の各文字列値は、ゲームで Kinect データを収集し、外部サービスに送信できるかどうかを示します。 <ul><li>NotSet</li><li>Unknown</li><li>Enabled</li><li>無効</li></ul>   |
 
 > [!NOTE]
-> *gamingOptions* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *gamingOptions* リソースが利用できない場合、[アプリの取得](get-an-app.md)メソッドから返される[アプリケーション リソース](get-app-data.md#application_object)の *hasAdvancedListingPermission* フィールドは false になります。
+> *gamingOptions* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *gamingOptions* リソースが利用できない場合、[アプリの取得](get-an-app.md)メソッドから返される [アプリケーション リソース](get-app-data.md#application_object)の *hasAdvancedListingPermission* フィールドは false になります。
 
 <span id="status-details-object" />
 
@@ -637,7 +637,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | fallbackSubmissionId    |  string   |  段階的なロールアウトのパッケージを入手しないユーザーが受信する申請のID。   |          
 
 > [!NOTE]
-> *PackageRolloutStatus*と*fallbackの Id*値はパートナーセンターによって割り当てられ、開発者が設定するものではありません。 これらの値を要求本文に含めると、これらの値は無視されます。
+> *PackageRolloutStatus* と *fallbackの Id* 値はパートナーセンターによって割り当てられ、開発者が設定するものではありません。 これらの値を要求本文に含めると、これらの値は無視されます。
 
 <span id="trailer-object" />
 
@@ -681,7 +681,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  trailerAssets               |   object      |  キーと値のペアのディクショナリです。各キーは言語コードであり、各値はトレーラーの追加のロケール固有アセットを含む[トレーラー アセット リソース](#trailer-assets-object)です。 サポートされている言語コードについて詳しくは、「[サポートされている言語](../publish/supported-languages.md)」をご覧ください。    |     
 
 > [!NOTE]
-> *trailers* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *trailers* リソースが利用できない場合、[アプリの取得](get-an-app.md)メソッドから返される[アプリケーション リソース](get-app-data.md#application_object)の *hasAdvancedListingPermission* フィールドは false になります。
+> *trailers* リソースは、Microsoft Store 申請 API が開発者向けに最初にリリースされた後、2017 年 5 月に追加されました。 このリソースが導入される前に申請 API を通じててアプリの申請を作成し、その申請がまだ審査中の場合、申請を正常にコミットするか削除するまで、アプリの申請に対するこのリソースは null になります。 アプリの申請で *trailers* リソースが利用できない場合、[アプリの取得](get-an-app.md)メソッドから返される [アプリケーション リソース](get-app-data.md#application_object)の *hasAdvancedListingPermission* フィールドは false になります。
 
 <span id="trailer-assets-object" />
 
@@ -724,7 +724,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  ベース               |   価格帯が設定されていない場合、アプリの基本価格が使用されます。      |     
 |  NotAvailable              |   アプリは指定された地域で提供されていません。    |     
 |  Free              |   このアプリは無料です。    |    
-|  Tier*xxx*               |   アプリの価格帯を指定する文字列 (**Tier<em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを確認するには、パートナーセンターで任意のアプリの送信の [**価格と可用性**] ページにアクセスし、[**市場とカスタム価格** **] セクション**の [**テーブルの表示**] リンクをクリックします。    |
+|  Tier *xxx*               |   アプリの価格帯を指定する文字列 (**Tier <em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを確認するには、パートナーセンターで任意のアプリの送信の [**価格と可用性**] ページにアクセスし、[**市場とカスタム価格** **] セクション** の [**テーブルの表示**] リンクをクリックします。    |
 
 
 <span id="enterprise-licensing" />

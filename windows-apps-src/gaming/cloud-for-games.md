@@ -6,12 +6,12 @@ ms.date: 03/27/2018
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、クラウド サービス
 ms.localizationpriority: medium
-ms.openlocfilehash: ca575975b27a71798b7cad1cac0cc83ec870d756
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9252e6c2b47e51f51f7cb3cd28f49de08478019d
+ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173176"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98811246"
 ---
 #  <a name="using-cloud-services-for-uwp-games"></a>UWP ゲーム用のクラウド サービスの使用
 
@@ -21,7 +21,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
 
 ##  <a name="what-is-cloud-computing"></a>クラウド コンピューティングとは
 
-クラウド コンピューティングでは、需要に応じてインターネット経由で IT リソースやアプリケーションを利用することにより、デバイスのデータを保存および処理します。 _クラウド_という用語は、不特定の場所からアクセスできる外部の膨大なリソース (ローカル リソースではない) の可用性を表すメタファーです。
+クラウド コンピューティングでは、需要に応じてインターネット経由で IT リソースやアプリケーションを利用することにより、デバイスのデータを保存および処理します。 _クラウド_ という用語は、不特定の場所からアクセスできる外部の膨大なリソース (ローカル リソースではない) の可用性を表すメタファーです。
 クラウド コンピューティングの原則により、リソースやソフトウェアを利用するための新しい方法が提供されます。 ユーザーは、完全な製品やリソースの料金を事前に支払う必要がなくなり、代わりに、プラットフォーム、ソフトウェア、リソースをサービスとして利用できます。 クラウド プロバイダーは通常、使用量やサービス プランに基づいて顧客に料金を請求します。
 
 ##  <a name="why-use-cloud-services"></a>クラウド サービスを使う理由
@@ -48,7 +48,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
     <col width="30%" />
     </colgroup>
     <tr class="header" align="left">
-        <th>開発者</th>
+        <th>Developer</th>
         <th>説明</th>
         <th>主なゲーム シナリオ</th>
         <th>詳細情報</th>
@@ -112,7 +112,7 @@ Windows 10 のユニバーサル Windows プラットフォーム (UWP) では�
     </tr>
     <tr>
         <td><a href="http://www.crimecoast.com/">Pixel Squad</a></td>
-        <td>Pixel Squad では、Unity ゲーム エンジンと Azure を使って <b>Crime Coast</b> を開発しました。 <b>Crime Coast</b> は、Android、iOS、Windows プラットフォームでプレイできるソーシャル戦略ゲームです。 このゲームでは、Azure BLOB ストレージ、Managed Azure Redis Cache、負荷分散された IIS VM アレイ、Microsoft 通知ハブが使用されています。 同社のスケーリングの管理方法や、同時接続プレイヤー数が 5,000 人にもなるプレイヤーの急増の処理方法を参考にしてください。
+        <td>Pixel Squad では、Unity ゲーム エンジンと Azure を使って <b>Crime Coast</b> を開発しました。 <b>Crime Coast</b> は、Android、iOS、Windows プラットフォームでプレイできるソーシャル戦略ゲームです。 Azure Blob Storage、マネージ Azure Redis Cache は負荷分散された IIS Vm の配列であり、Microsoft Notification hub はゲームで使用されていました。 同社のスケーリングの管理方法や、同時接続プレイヤー数が 5,000 人にもなるプレイヤーの急増の処理方法を参考にしてください。
         </td>
         <td>
             <ul>
@@ -182,7 +182,7 @@ Azure のクラウド サービスをゲームに使用するためのいくつ�
 | ゲーム データの収集と分析| リレーショナル データベースと非リレーショナル データベースからのデータの大規模な並列処理 | [Azure データ ウェアハウス](https://azure.microsoft.com/services/sql-data-warehouse/)| エンタープライズ クラスの機能を備えたサービスとしての柔軟なデータ ウェアハウス   |
 | ユーザー エンゲージメントにより使用と顧客維持を促進| あらゆるバック エンドからあらゆるプラットフォームにターゲット プッシュ通知を送信し、関心を引き出して特定のゲーム操作を促進する | [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/)| 高速ブロードキャストプッシュは、 &mdash; iOS、Android、Windows、Kindle、Baidu のすべての主要なプラットフォーム上の何百万ものモバイルデバイスに配信します。 ゲームは、任意のバックエンド &mdash; クラウドまたはオンプレミスでホストできます。|
 | コンテンツを保護しながら、ローカルおよび世界中の対象ユーザーにメディア コンテンツをストリーミング| すべてのデバイスから視聴可能な高品質のゲーム トレーラーや動画クリップをブロードキャスト| [Azure Media Services](https://azure.microsoft.com/services/media-services/)| 組み込まれている Content Delivery Network 機能によるオンデマンドおよびライブのビデオ ストリーミング。 単一のプレーヤーで、コンテンツの保護と暗号化を含めたすべての再生ニーズに対応。| 
-| モバイル アプリの開発、配布、ベータ テスト | モバイル アプリをテストして配布する。 アプリ パフォーマンスとユーザー エクスペリエンスを管理する。 | [HockeyApp](https://azure.microsoft.com/services/hockeyapp/)| クラッシュ レポートとユーザー メトリックをアプリの配布とユーザー フィードバック プラットフォームに統合。 Android、Cordova、iOS、OS X、Unity、Windows、Xamarin のアプリをサポート。 また、 [Visual Studio Mobile Center](https://visualstudio.microsoft.com/app-center/) &mdash; 豊富な分析、クラッシュレポート、プッシュ通知、アプリの配布などを組み合わせたアプリについては、Visual Studio Mobile Center のミッションコントロールを検討してください。 |
+| モバイル アプリの開発、配布、ベータ テスト | モバイル アプリをテストして配布する。 アプリ パフォーマンスとユーザー エクスペリエンスを管理する。 | [HockeyApp](https://azure.microsoft.com/services/hockeyapp/)| クラッシュ レポートとユーザー メトリックをアプリの配布とユーザー フィードバック プラットフォームに統合。 Android、Cordova、iOS、OS X、Unity、Windows、Xamarin のアプリをサポート。 また、 [](https://visualstudio.microsoft.com/app-center/) &mdash; 豊富な分析、クラッシュレポート、プッシュ通知、アプリの配布などを組み合わせたアプリについては、Visual Studio Mobile Center のミッションコントロールを検討してください。 |
 | 使用と顧客維持を促進するマーケティング キャンペーンの作成  | データ分析に基づいて対象となるプレイヤーにプッシュ通知を送信し、特定のゲーム操作に対する関心を引き出して利用を促進する | [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/) (現在は既存のお客様のみに提供中であり、2018 年 3 月に廃止) |  すべての主要なプラットフォーム (iOS、Android、Windows、Windows Phone) でのゲームプレイ時間とユーザー維持率を向上させる |
 
 
@@ -228,6 +228,6 @@ SDK を使用して、このソリューションを、モバイル、PC、ま�
 * [ID@Xbox](https://www.xbox.com/Developers/id)
 
 
- 
+ 
 
- 
+ 

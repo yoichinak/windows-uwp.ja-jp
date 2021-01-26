@@ -6,12 +6,12 @@ ms.date: 08/03/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, コード例, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: ac16d6932a2f20e701d7446ac8c21c316cfe5d4a
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: c1f5704963dd1d6d6ad786a48c63ecfcd789aff9
+ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364125"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98811296"
 ---
 # <a name="c-sample-submissions-for-apps-add-ons-and-flights"></a>C \# サンプル: アプリ、アドオン、フライトの申請
 
@@ -22,7 +22,7 @@ ms.locfileid: "89364125"
 * [アドオンの申請の更新](#update-add-on-submission)
 * [パッケージ フライトの申請の作成](#create-flight-submission)
 
-各例を確認して、それぞれが対応するタスクについて詳しく知ることができます。また、この記事のすべてのコード例を使って、コンソール アプリケーションをビルドすることもできます。 サンプルをビルドするには、Visual Studio で**DeveloperApiCSharpSample** という名前の C# コンソール アプリケーションを作成し、各サンプルをプロジェクトの別のコード ファイルにコピーして、プロジェクトをビルドします。
+各例を確認して、それぞれが対応するタスクについて詳しく知ることができます。また、この記事のすべてのコード例を使って、コンソール アプリケーションをビルドすることもできます。 サンプルをビルドするには、Visual Studio で **DeveloperApiCSharpSample** という名前の C# コンソール アプリケーションを作成し、各サンプルをプロジェクトの別のコード ファイルにコピーして、プロジェクトをビルドします。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -59,7 +59,7 @@ ms.locfileid: "89364125"
 1. まず、メソッドは[指定されたアプリのデータを取得](get-an-app.md)します。
 2. 次に、[アプリの保留中の申請を削除](delete-an-app-submission.md)します (存在する場合)。
 3. その後、[アプリの新しい申請を作成](create-an-app-submission.md)します (新しい申請は、最後に公開された申請のコピーです)。
-4. 新しい申請の詳細を変更し、申請の新しいパッケージを Azure Blob Storage にアップロードします。
+4. 新しい送信の一部の詳細を変更し、Azure Blob Storage に送信するための新しいパッケージをアップロードします。
 5. 次に、パートナーセンターに新しい送信を [更新](update-an-app-submission.md) して [コミット](commit-an-app-submission.md) します。
 6. 最後に、申請が正常にコミットされるまで、定期的に[新しい申請の状態をチェック](get-status-for-an-app-submission.md)します。
 
@@ -74,7 +74,7 @@ ms.locfileid: "89364125"
 
 1. まず、メソッドは[新しアドオンを作成](create-an-add-on.md)します。
 2. 次に、その[アドオンの新しい申請を作成](create-an-add-on-submission.md)します。
-3. 申請のアイコンが含まれた ZIP アーカイブを Azure Blob Storage にアップロードします。
+3. Azure Blob Storage に送信するためのアイコンを含む ZIP アーカイブをアップロードします。
 4. 次に、 [新しい送信をパートナーセンターにコミット](commit-an-add-on-submission.md)します。
 5. 最後に、申請が正常にコミットされるまで、定期的に[新しい申請の状態をチェック](get-status-for-an-add-on-submission.md)します。
 
@@ -105,7 +105,7 @@ ms.locfileid: "89364125"
 1. まず、メソッドは[指定されたパッケージ フライトのデータを取得](get-a-flight.md)します。
 2. 次に、[パッケージ フライトの保留中の申請を削除](delete-a-flight-submission.md)します (存在する場合)。
 3. その後、[パッケージ フライトの新しい申請を作成](create-a-flight-submission.md)します (新しい申請は、最後に公開された申請のコピーです)。
-4. 申請の新しいパッケージを Azure Blob Storage にアップロードします。
+4. Azure Blob Storage に送信するための新しいパッケージをアップロードします。
 5. 次に、パートナーセンターに新しい送信を [更新](update-a-flight-submission.md) して [コミット](commit-a-flight-submission.md) します。
 6. 最後に、申請が正常にコミットされるまで、定期的に[新しい申請の状態をチェック](get-status-for-a-flight-submission.md)します。
 
@@ -119,7 +119,7 @@ ms.locfileid: "89364125"
 ```IngestionClient``` クラスは、サンプル アプリのその他のメソッドが使用して、次のタスクを実行するヘルパー メソッドを提供します。
 
 * Microsoft Store 申請 API のメソッドの呼び出しに使用できる [Azure AD アクセス トークンを取得](create-and-manage-submissions-using-windows-store-services.md#obtain-an-azure-ad-access-token)します。 トークンを取得した後、Microsoft Store 申請 API の呼び出しでこのトークンを使用できるのは、その有効期限が切れるまでの 60 分間です。 トークンの有効期限が切れた後は、新しいトークンを生成できます。
-* アプリまたはアドオンの申請の新しいアセットが含まれた ZIP アーカイブを Azure Blob Storage にアップロードします。 アプリとアドオンの申請のために Azure Blob Storage に ZIP アーカイブをアップロードする方法について詳しくは、「[アプリの申請の作成](manage-app-submissions.md#create-an-app-submission)」と「[アドオンの申請の作成](manage-add-on-submissions.md#create-an-add-on-submission)」の関連する手順をご覧ください。
+* アプリまたはアドオンを Azure Blob Storage に送信するための新しい資産を含む ZIP アーカイブをアップロードします。 アプリとアドオンの送信の Azure Blob Storage に ZIP アーカイブをアップロードする方法の詳細については、「 [アプリの送信の作成](manage-app-submissions.md#create-an-app-submission) と [アドオンの作成](manage-add-on-submissions.md#create-an-add-on-submission)」の関連する手順を参照してください。
 * Microsoft Store 申請 API の HTTP 要求を処理します。
 
 > [!div class="tabbedCodeSnippets"]

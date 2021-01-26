@@ -6,12 +6,12 @@ ms.date: 04/17/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオンの申請, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b5926fbd55c215eccf3517454c972edc86f3dfd
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 16c9fa0f4fa4b7b6ac3ec8e0fb005b80ab1b7872
+ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164576"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98811314"
 ---
 # <a name="manage-add-on-submissions"></a>アドオンの申請の管理
 
@@ -89,10 +89,10 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
     POST https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{id}/submissions
     ```
 
-    応答本文には、新しい申請の ID、申請用のアドオン アイコンを Azure Blob Storage にアップロードするための共有アクセス署名 (SAS) URI、および新しい申請のためのすべてのデータ (登録情報や料金情報など) を含む[アドオンの申請](#add-on-submission-object) リソースが含まれます。
+    応答本文には、新しい送信の ID を含む [アドオン送信](#add-on-submission-object) リソース、Azure Blob Storage に送信するためのアドオンアイコンをアップロードするための shared access SIGNATURE (SAS) URI、および新しい送信のすべてのデータ (一覧や価格情報など) が含まれます。
 
     > [!NOTE]
-    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS URI の背景情報と Azure Blob Storage での SAS URI の使用については、「[Shared Access Signatures (SAS) の使用](/azure/storage/common/storage-sas-overview)」と「[Shared Access Signature、第 2 部: BLOB ストレージでの SAS の作成と使用](/azure/storage/common/storage-sas-overview)」をご覧ください。
+    > SAS URI では、アカウント キーを必要とせずに、Azure Storage 内のセキュリティで保護されたリソースにアクセスできます。 SAS Uri と Azure Blob Storage の使用に関する背景情報については、「 [Shared Access signature、第1部: sas モデル](/azure/storage/common/storage-sas-overview) と Shared access signature について」 [、「パート 2: Blob ストレージでの sas の作成と使用](/azure/storage/common/storage-sas-overview)」を参照してください。
 
 4. 申請用に新しいアイコンを追加する場合は、[アイコンを準備](../publish/create-add-on-store-listings.md)して、ZIP アーカイブに追加します。
 
@@ -104,13 +104,13 @@ Microsoft Store 申請 API には、アプリのアドオン (アプリ内製品
       > [!NOTE]
       > 申請用に新しいアイコンを追加する場合、ZIP アーカイブ内のアイコンのファイルの名前と相対パスを参照するように、申請データを更新してください。
 
-4. 申請用に新しいアイコンを追加する場合は、上記で呼び出した POST メソッドの応答本文に含まれていた SAS URI を使用して、ZIP アーカイブを [Azure Blob Storage](/azure/storage/storage-introduction#blob-storage) にアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
+4. 送信用の新しいアイコンを追加する場合は、前に呼び出した POST メソッドの応答本文に指定された SAS URI を使用して、 [Azure Blob Storage](/azure/storage/storage-introduction#blob-storage) に ZIP アーカイブをアップロードします。 さまざまなプラットフォームでこれを行うために使用できる、次のようなさまざまな Azure ライブラリがあります。
 
     * [.NET 用 Azure Storage クライアントライブラリ](/azure/storage/storage-dotnet-how-to-use-blobs)
     * [Azure Storage SDK for Java](/azure/storage/storage-java-how-to-use-blob-storage)
     * [Azure Storage SDK for Python](/azure/storage/storage-python-how-to-use-blob-storage)
 
-    次の C# コード例は、.NET 用 Azure Storage クライアント ライブラリの [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob) クラスを使用して ZIP アーカイブを Azure Blob Storage にアップロードする方法を示しています。 この例では、ZIP アーカイブが既にストリーム オブジェクトに書き込まれていることを前提としています。
+    次の C# コード例は、.NET 用 Azure Storage クライアントライブラリの [Cloudblockblob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob) クラスを使用して AZURE BLOB STORAGE に ZIP アーカイブをアップロードする方法を示しています。 この例では、ZIP アーカイブが既にストリーム オブジェクトに書き込まれていることを前提としています。
 
     ```csharp
     string sasUrl = "https://productingestionbin1.blob.core.windows.net/ingestion/26920f66-b592-4439-9a9d-fb0f014902ec?sv=2014-02-14&sr=b&sig=usAN0kNFNnYE2tGQBI%2BARQWejX1Guiz7hdFtRhyK%2Bog%3D&se=2016-06-17T20:45:51Z&sp=rwl";
@@ -238,9 +238,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | 価格           | object  | アドオンの価格設定情報が保持される[価格リソース](#pricing-object)です。   |
 | targetPublishMode           | string  | 申請の公開モードです。 次のいずれかの値を指定できます。 <ul><li>即時</li><li>マニュアル</li><li>SpecificDate</li></ul> |
 | targetPublishDate           | string  | *targetPublishMode* が SpecificDate に設定されている場合、ISO 8601 形式での申請の公開日です。  |
-| tag           | string  |  アドオンの[カスタムの開発者データ](../publish/enter-add-on-properties.md#custom-developer-data)(この情報は従来*タグ*と呼ばれていました)。   |
+| tag           | string  |  アドオンの [カスタムの開発者データ](../publish/enter-add-on-properties.md#custom-developer-data)(この情報は従来 *タグ* と呼ばれていました)。   |
 | 参照可能範囲  | string  |  アドオンの可視性です。 次のいずれかの値を指定できます。 <ul><li>[非表示]</li><li>パブリック</li><li>プライベート</li><li>NotSet</li></ul>  |
-| status  | string  |  申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>リリース</li><li>ReleaseFailed</li></ul>   |
+| status  | string  |  申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>Release</li><li>ReleaseFailed</li></ul>   |
 | statusDetails           | object  |  エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。 |
 | fileUploadUrl           | string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージを追加する場合は、パッケージを含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[アドオンの申請の作成](#create-an-add-on-submission)」をご覧ください。  |
 | friendlyName  | string  |  パートナーセンターに表示される送信のフレンドリ名。 この値は、申請を作成するときに生成されます。  |
@@ -254,7 +254,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | 値           | Type    | 説明       |
 |-----------------|---------|------|
 |  description               |    string     |   アドオンの登録情報についての説明です。   |     
-|  アイコン               |   object      |アドオンの登録情報に使用されるアイコンのデータが保持される[アイコン リソース](#icon-object)です。    |
+|  icon               |   object      |アドオンの登録情報に使用されるアイコンのデータが保持される[アイコン リソース](#icon-object)です。    |
 |  title               |     string    |   アドオンの登録情報のタイトルです。   |  
 
 <span id="icon-object" />
@@ -277,9 +277,9 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | 値           | Type    | 説明    |
 |-----------------|---------|------|
 |  marketSpecificPricings               |    object     |  キーと値のペアのディクショナリです。各キーは 2 文字の ISO 3166-1 alpha-2 の国コードで、各値は[価格帯](#price-tiers)です。 これらの項目は、[特定の市場でのアドオンのカスタム価格](../publish/set-add-on-pricing-and-availability.md)を表します。 このディクショナリに含まれる項目は、指定された市場の *priceId* の値によって指定されている基本価格を上書きします。     |     
-|  営業               |   array      |  **非推奨**です。 アドオンの販売情報が保持される[セール リソース](#sale-object)の配列です。     |     
+|  営業               |   array      |  **非推奨** です。 アドオンの販売情報が保持される[セール リソース](#sale-object)の配列です。     |     
 |  priceId               |   string      |  アドオンの[基本価格](../publish/set-add-on-pricing-and-availability.md)を規定する[価格帯](#price-tiers)です。    |    
-|  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/>**Note** &nbsp; メモ &nbsp;このフィールドは読み取り専用です。   |
+|  isAdvancedPricingModel               |   boolean      |  **true** の場合、開発者アカウントは 0.99 USD ～ 1999.99 USD の拡張された価格セットにアクセスできます。 **false** の場合、開発者アカウントは 0.99 USD ～ 999.99 USD の元の価格帯セットにアクセスできます。 各種価格帯について詳しくは、「[価格帯](#price-tiers)」をご覧ください。<br/><br/> &nbsp; メモ &nbsp;このフィールドは読み取り専用です。   |
 
 
 <span id="sale-object" />
@@ -291,7 +291,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 > [!IMPORTANT]
 > **セール** リソースはサポートを終了しました。現在、Microsoft Store 申請 API を使ってアドオンの申請の販売データを取得または変更することはできません。 将来的には、Microsoft Store 申請 API を更新して、アドオンの申請のセール情報にプログラムでアクセスする新しい方法を導入する予定です。
 >    * [アドオンの申請を取得する GET メソッド](get-an-add-on-submission.md)を呼び出すと、*セール* リソースは空になります。 引き続き、パートナーセンターを使用して、アドオンの送信用の売上データを取得できます。
->    * [アドオンの申請を更新する PUT メソッド](update-an-add-on-submission.md)を呼び出すとき、*セール*の値に含まれた情報は無視されます。 引き続き、パートナーセンターを使用して、アドオンの送信用に販売データを変更することができます。
+>    * [アドオンの申請を更新する PUT メソッド](update-an-add-on-submission.md)を呼び出すとき、*セール* の値に含まれた情報は無視されます。 引き続き、パートナーセンターを使用して、アドオンの送信用に販売データを変更することができます。
 
 このリソースには、次の値があります。
 
@@ -352,7 +352,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 |  ベース               |   価格帯が設定されていない場合、アドオンの基本価格が使用されます。      |     
 |  NotAvailable              |   アドオンは指定された地域で提供されていません。    |     
 |  Free              |   アドオンは無償です。    |    
-|  Tier*xxxx*               |   アドオンの価格帯を指定する文字列 (**Tier<em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを確認するには、パートナーセンターで任意のアプリの送信の [**価格と可用性**] ページにアクセスし、[**市場とカスタム価格** **] セクション**の [**テーブルの表示**] リンクをクリックします。     |
+|  Tier *xxxx*               |   アドオンの価格帯を指定する文字列 (**Tier <em>xxxx</em>** の形式)。 現在のところ、次の範囲の価格帯がサポートされています。<br/><br/><ul><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **true** の場合、アカウントで利用可能な価格帯値は **Tier1012** - **Tier1424** です。</li><li>[価格リソース](#pricing-object)の *isAdvancedPricingModel* 値が **false** の場合、アカウントで利用可能な価格帯値は **Tier2** - **Tier96** です。</li></ul>各レベルに関連付けられている市場固有の価格を含め、開発者アカウントで使用できる価格レベルの完全なテーブルを確認するには、パートナーセンターで任意のアプリの送信の [**価格と可用性**] ページにアクセスし、[**市場とカスタム価格** **] セクション** の [**テーブルの表示**] リンクをクリックします。     |
 
 <span id="submission-status-code" />
 
