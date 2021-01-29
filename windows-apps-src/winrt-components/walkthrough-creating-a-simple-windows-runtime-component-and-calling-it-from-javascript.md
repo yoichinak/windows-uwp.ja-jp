@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 773ff1da19116a088d52a11dfc3180ea271efe82
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: a1d931e98f21160badb7a8c2603a580c2adfd682
+ms.sourcegitcommit: d51c3dd64d58c7fa9513ba20e736905f12df2a9a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339720"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98988744"
 ---
 # <a name="walkthrough-of-creating-a-c-or-visual-basic-windows-runtime-component-and-calling-it-from-javascript"></a>C# または Visual Basic Windows ランタイム コンポーネントの作成と JavaScript からの呼び出しに関するチュートリアル
 
@@ -34,13 +34,16 @@ Visual Studio を使用すると、C# または Visual Basic で記述された 
 - Windows 10
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
+> [!NOTE]
+> JavaScript を使用したユニバーサル Windows プラットフォーム (UWP) プロジェクトは、Visual Studio 2019 ではサポートされていません。 「 [Visual Studio 2019 での JavaScript と TypeScript](/visualstudio/javascript/javascript-in-vs-2019#projects)」を参照してください。 このトピックに従うには、Visual Studio 2017 を使用することをお勧めします。 「 [Visual Studio 2017 での JavaScript」を](/visualstudio/javascript/javascript-in-vs-2017)参照してください。
+
 ## <a name="creating-a-simple-windows-runtime-class"></a>単純な Windows ランタイム クラスの作成
 
 このセクションでは、JavaScript UWP アプリケーションを作成し、Visual Basic または C# Windows ランタイムコンポーネントプロジェクトをソリューションに追加します。 Windows ランタイム型を定義する方法、JavaScript から型のインスタンスを作成する方法、および静的メンバーとインスタンスメンバーを呼び出す方法を示します。 コンポーネントにフォーカスを保持するために、サンプルアプリのビジュアル表示は意図的に低キーです。
 
-1. Visual Studio で新しい JavaScript プロジェクトを作成します。メニュー バーで、 **[ファイル]、[新規作成]、[プロジェクト]** の順にクリックします。 **[新しいプロジェクト]** ダイアログ ボックスの **[インストールされたテンプレート]** セクションで **[JavaScript]** を選択し、 **[Windows]** 、 **[ユニバーサル]** の順に選択します  ([Windows] が利用できない場合は、Windows 8 以降を使っていることを確認してください)。 **[新しいアプリケーション]** テンプレートを選び、プロジェクト名として「SampleApp」と入力します。
-2.  コンポーネント プロジェクトを作成します。ソリューション エクスプローラーで、SampleApp ソリューションのショートカット メニューを開き、 **[追加]** 、 **[新しいプロジェクト]** の順にクリックして、新しい C# プロジェクトまたは Visual Basic プロジェクトをソリューションに追加します。 **[新しいプロジェクトの追加]** ダイアログ ボックスの **[インストールされたテンプレート]** セクションで、 **[Visual Basic]** または **[Visual C#]** を選択し、 **[Windows]** 、 **[ユニバーサル]** の順に選択します。 **[Windows ランタイム コンポーネント]** テンプレートを選択し、プロジェクト名として「 **SampleComponent** 」と入力します。
-3.  クラス名を「 **Example** 」に変更します。 既定では、クラスは **public sealed** (Visual Basic では **Public NotInheritable** ) としてマークされていることに注意してください。 コンポーネントから公開するすべての Windows ランタイム クラスをシールする必要があります。
+1. Visual Studio で新しい JavaScript プロジェクトを作成します。メニュー バーで、**[ファイル]、[新規作成]、[プロジェクト]** の順にクリックします。 **[新しいプロジェクト]** ダイアログ ボックスの **[インストールされたテンプレート]** セクションで **[JavaScript]** を選択し、**[Windows]**、**[ユニバーサル]** の順に選択します  ([Windows] が利用できない場合は、Windows 8 以降を使っていることを確認してください)。**[新しいアプリケーション]** テンプレートを選び、プロジェクト名として「SampleApp」と入力します。
+2.  コンポーネント プロジェクトを作成します。ソリューション エクスプローラーで、SampleApp ソリューションのショートカット メニューを開き、**[追加]**、**[新しいプロジェクト]** の順にクリックして、新しい C# プロジェクトまたは Visual Basic プロジェクトをソリューションに追加します。 **[新しいプロジェクトの追加]** ダイアログ ボックスの **[インストールされたテンプレート]** セクションで、**[Visual Basic]** または **[Visual C#]** を選択し、**[Windows]**、**[ユニバーサル]** の順に選択します。 **[Windows ランタイム コンポーネント]** テンプレートを選択し、プロジェクト名として「**SampleComponent**」と入力します。
+3.  クラス名を「**Example**」に変更します。 既定では、クラスは **public sealed** (Visual Basic では **Public NotInheritable**) としてマークされていることに注意してください。 コンポーネントから公開するすべての Windows ランタイム クラスをシールする必要があります。
 4.  **static** メソッド (Visual Basic では **Shared** メソッド) とインスタンス プロパティの 2 つの単純なメンバーをクラスに追加します。
 
     > [!div class="tabbedCodeSnippets"]
@@ -68,8 +71,8 @@ Visual Studio を使用すると、C# または Visual Basic で記述された 
     > End Class
     > ```
 
-5.  省略可能: 新しく追加したメンバーで IntelliSense を有効にするには、ソリューション エクスプローラーで SampleComponent プロジェクトのショートカット メニューを開き、 **[ビルド]** を選びます。
-6.  ソリューション エクスプローラーの JavaScript プロジェクトで、 **[参照]** のショートカット メニューを開き、 **[参照の追加]** をクリックして **[参照マネージャー]** を開きます。 **[プロジェクト]** をクリックし、 **[ソリューション]** をクリックします。 SampleComponent プロジェクトのチェック ボックスをオンにし、 **[OK]** をクリックして参照を追加します。
+5.  省略可能: 新しく追加したメンバーで IntelliSense を有効にするには、ソリューション エクスプローラーで SampleComponent プロジェクトのショートカット メニューを開き、**[ビルド]** を選びます。
+6.  ソリューション エクスプローラーの JavaScript プロジェクトで、**[参照]** のショートカット メニューを開き、**[参照の追加]** をクリックして **[参照マネージャー]** を開きます。 **[プロジェクト]** をクリックし、**[ソリューション]** をクリックします。 SampleComponent プロジェクトのチェック ボックスをオンにし、**[OK]** をクリックして参照を追加します。
 
 ## <a name="call-the-component-from-javascript"></a>JavaScript からコンポーネントを呼び出す
 
@@ -365,7 +368,7 @@ var runtimeButton2 = document.getElementById("runtimeButton2");
 runtimeButton2.addEventListener("click", runtime2, false);
 ```
 
-アプリを実行するには、F5 キーを押します。 **[Runtime 1]** 、 **[Runtime 2]** の順にクリックします。 JavaScript イベント ハンドラーはコレクションの最初の変更を報告します。 ただし、2 番目の変更には重複するキーがあります。 .NET Framework ディクショナリのユーザーは、Add メソッドが例外をスローすることを想定しており、実際にそのとおりになります。 JavaScript は .NET 例外を処理します。
+アプリを実行するには、F5 キーを押します。 **[Runtime 1]**、**[Runtime 2]** の順にクリックします。 JavaScript イベント ハンドラーはコレクションの最初の変更を報告します。 ただし、2 番目の変更には重複するキーがあります。 .NET Framework ディクショナリのユーザーは、Add メソッドが例外をスローすることを想定しており、実際にそのとおりになります。 JavaScript は .NET 例外を処理します。
 
 > **注**  JavaScript コードから例外のメッセージを表示することはできません。 メッセージ テキストはスタック トレースに置き換えられます。 詳細については、「C# および Visual Basic での Windows ランタイムコンポーネントの作成」の「例外のスロー」を参照してください。
 
@@ -457,7 +460,7 @@ returnsButton2.addEventListener("click", returns2, false);
 
 前の例のように、returns2 関数では、JavaScript が Insert メソッド (JavaScript では insert) を呼び出して項目をディクショナリに追加します。
 
-アプリを実行するには、F5 キーを押します。 ディクショナリの初期内容を作成して表示するには、 **[Returns 1]** ボタンをクリックします。 ディクショナリにさらに 2 つのエントリを追加するには、 **[Returns 2]** ボタンをクリックします。 Dictionary&lt;TKey, TValue&gt; から想定されるように、エントリは挿入順に表示されます。 エントリを並べ替える場合は、GetMapOfNames から SortedDictionary&lt;int, string&gt; を返すことができます  (前の例で使われている PropertySet クラスの内部構成は、Dictionary&lt;TKey, TValue&gt; とは異なります)。
+アプリを実行するには、F5 キーを押します。 ディクショナリの初期内容を作成して表示するには、**[Returns 1]** ボタンをクリックします。 ディクショナリにさらに 2 つのエントリを追加するには、**[Returns 2]** ボタンをクリックします。 Dictionary&lt;TKey, TValue&gt; から想定されるように、エントリは挿入順に表示されます。 エントリを並べ替える場合は、GetMapOfNames から SortedDictionary&lt;int, string&gt; を返すことができます  (前の例で使われている PropertySet クラスの内部構成は、Dictionary&lt;TKey, TValue&gt; とは異なります)。
 
 JavaScript は厳密に型指定された言語ではないため、厳密に型指定されたジェネリック コレクションを使うと、予期しない結果になる場合があります。 **[Returns 2]** ボタンをもう一度クリックします。 JavaScript は "7" を数値 7 に強制的に変換し、ct に格納された数値 7 を文字列に変換します。 さらに、この文字列 "forty" を強制的にゼロに変換します。 しかし、これは始まりにすぎません。 **[Returns 2]** ボタンをさらに数回クリックします。 マネージ コードでは、値が正しい型にキャストされていても、Add メソッドは重複キーの例外を生成します。 これに対して、Insert メソッドは既存のキーに関連付けられている値を更新し、新しいキーがディクショナリに追加されたかどうかを示すブール値を返します。 キー 7 に関連付けられている値が変わり続けるのはこのためです。
 
@@ -724,7 +727,7 @@ btnCancel.addEventListener("click", asyncCancel, false);
 
 asyncCancel 関数は、WinJS.Promise オブジェクトの cancel メソッドを呼び出すだけです。
 
-アプリを実行するには、F5 キーを押します。 非同期操作を開始するには、 **[Async]** ボタンをクリックします。 次に行われる処理は、コンピューターの速度によって異なります。 点滅時間になる前に進行状況バーが完了まで進む場合は、10 個の中の 1 つ以上の要素によって GetPrimesInRangeAsync に渡される開始番号を大きくします。 テストする数値の数の増減によって操作の時間を調整できますが、開始番号の途中にゼロを追加すると影響が大きくなります。 操作を取り消すには、 **[Cancel Async]** ボタンを選びます。
+アプリを実行するには、F5 キーを押します。 非同期操作を開始するには、**[Async]** ボタンをクリックします。 次に行われる処理は、コンピューターの速度によって異なります。 点滅時間になる前に進行状況バーが完了まで進む場合は、10 個の中の 1 つ以上の要素によって GetPrimesInRangeAsync に渡される開始番号を大きくします。 テストする数値の数の増減によって操作の時間を調整できますが、開始番号の途中にゼロを追加すると影響が大きくなります。 操作を取り消すには、**[Cancel Async]** ボタンを選びます。
 
 ## <a name="related-topics"></a>関連トピック
 
