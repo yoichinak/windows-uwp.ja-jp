@@ -11,12 +11,15 @@ dev-contact: ''
 doc-status: Published
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 614cfc03ade485ba7cf2e6a8d819ec2d33d2d947
-ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
+dev_langs:
+- csharp
+- cppwinrt
+ms.openlocfilehash: af52032a0ebdf60e72f8bad0dd853696b717a05a
+ms.sourcegitcommit: 9bd23e0e08ed834accebde4db96fc87f921d983d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603915"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98949145"
 ---
 # <a name="navigation-view"></a>ナビゲーション ビュー
 
@@ -393,7 +396,7 @@ _PaneDisplayMode が LeftMinimal に設定されたナビゲーション ビュ�
 
 **SelectionChanged** は、現在選択されていない項目をユーザーが呼び出すことで発生させることも、選択された項目をプログラムで変更することによって発生させることもできます。 ユーザーが項目を呼び出したために選択の変更が発生した場合は、最初に ItemInvoked イベントが発生します。 選択の変更がプログラムによるものである場合、ItemInvoked は発生しません。
 
-すべてのナビゲーション項目は、[MenuItems](/uwp/api/microsoft.ui.xaml.controls.navigationview.MenuItems) または [FooterMenuItems](/uwp/api/microsoft.ui.xaml.controls.navigationview.FooterMenuItems) の一部であるかどうかにかかわらず、同じ選択モデルの一部です。 選択できるナビゲーション項目は、一度に 1 つだけです。 
+すべてのナビゲーション項目は、[MenuItems](/uwp/api/microsoft.ui.xaml.controls.navigationview.MenuItems) または [FooterMenuItems](/uwp/api/microsoft.ui.xaml.controls.navigationview.FooterMenuItems) の一部であるかどうかにかかわらず、同じ選択モデルの一部です。 選択できるナビゲーション項目は、一度に 1 つだけです。
 
 ### <a name="backwards-navigation"></a>逆方向のナビゲーション
 
@@ -420,7 +423,7 @@ Minimal モードまたは Compact モードでは、ナビゲーション ビ�
 ## <a name="code-example"></a>コードの例
 
 > [!IMPORTANT]
-> Windows UI (WinUI) ライブラリ ツールキットを活用するプロジェクトについては、同じ準備段階のセットアップの手順を実行します。 背景、セットアップ、およびサポート情報の詳細については、「[Windows UI ライブラリの概要](/uwp/toolkits/winui/getting-started)」を参照してください。
+> Windows UI (WinUI) ライブラリ ツールキットを利用するプロジェクトの場合、同じ準備段階のセットアップの手順を実行します。 背景、セットアップ、およびサポート情報の詳細については、「[Windows UI ライブラリの概要](/uwp/toolkits/winui/getting-started)」を参照してください。
 
 この例では、ウィンドウ サイズが大きい場合の上部のナビゲーション ウィンドウとウィンドウ サイズが小さい場合の左側のナビゲーション ウィンドウの両方で **NavigationView** を使用する方法を示します。 これは、**VisualStateManager** で *上部* のナビゲーション設定を削除することにより、左側のみのナビゲーションに適応させることができます。
 
@@ -538,19 +541,14 @@ private void NavView_Loaded(object sender, RoutedEventArgs e)
     // here to load the home page.
     NavView_Navigate("home", new Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo());
 
-    // Add keyboard accelerators for backwards navigation.
-    var goBack = new KeyboardAccelerator { Key = Windows.System.VirtualKey.GoBack };
-    goBack.Invoked += BackInvoked;
-    this.KeyboardAccelerators.Add(goBack);
+    // Listen to the window directly so the app responds
+    // to accelerator keys regardless of which element has focus.
+    Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated +=
+        CoreDispatcher_AcceleratorKeyActivated;
 
-    // ALT routes here
-    var altLeft = new KeyboardAccelerator
-    {
-        Key = Windows.System.VirtualKey.Left,
-        Modifiers = Windows.System.VirtualKeyModifiers.Menu
-    };
-    altLeft.Invoked += BackInvoked;
-    this.KeyboardAccelerators.Add(altLeft);
+    Window.Current.CoreWindow.PointerPressed += CoreWindow_PointerPressed;
+
+    SystemNavigationManager.GetForCurrentView().BackRequested += System_BackRequested;
 }
 
 private void NavView_ItemInvoked(muxc.NavigationView sender,
@@ -612,17 +610,39 @@ private void NavView_Navigate(
 private void NavView_BackRequested(muxc.NavigationView sender,
                                    muxc.NavigationViewBackRequestedEventArgs args)
 {
-    On_BackRequested();
+    TryGoBack();
 }
 
-private void BackInvoked(KeyboardAccelerator sender,
-                         KeyboardAcceleratorInvokedEventArgs args)
+private void CoreDispatcher_AcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs e)
 {
-    On_BackRequested();
-    args.Handled = true;
+    // When Alt+Left are pressed navigate back
+    if (e.EventType == CoreAcceleratorKeyEventType.SystemKeyDown
+        && e.VirtualKey == VirtualKey.Left
+        && e.KeyStatus.IsMenuKeyDown == true
+        && !e.Handled)
+    {
+        e.Handled = TryGoBack();
+    }
 }
 
-private bool On_BackRequested()
+private void System_BackRequested(object sender, BackRequestedEventArgs e)
+{
+    if (!e.Handled)
+    {
+        e.Handled = TryGoBack();
+    }
+}
+
+private void CoreWindow_PointerPressed(CoreWindow sender, PointerEventArgs e)
+{
+    // Handle mouse back button.
+    if (e.CurrentPoint.Properties.IsXButton1Pressed)
+    {
+        e.Handled = TryGoBack();
+    }
+}
+
+private bool TryGoBack();
 {
     if (!ContentFrame.CanGoBack)
         return false;
@@ -678,6 +698,9 @@ runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
 #include "winrt/Windows.UI.Xaml.Media.Animation.h"
 #include "winrt/Microsoft.UI.Xaml.Controls.h"
 #include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
+#include <winrt/Windows.UI.Core.h>
+#include "winrt/Windows.UI.Input.h"
+
 
 // MainPage.h
 #pragma once
@@ -723,13 +746,19 @@ namespace winrt::NavigationViewCppWinRT::implementation
         void NavView_BackRequested(
             muxc::NavigationView const& /* sender */,
             muxc::NavigationViewBackRequestedEventArgs const& /* args */);
-        void BackInvoked(
-            Windows::UI::Xaml::Input::KeyboardAccelerator const& /* sender */,
-            Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs const& args);
-        bool On_BackRequested();
         void On_Navigated(
             Windows::Foundation::IInspectable const& /* sender */,
             Windows::UI::Xaml::Navigation::NavigationEventArgs const& args);
+        void CoreDispatcher_AcceleratorKeyActivated(
+            Windows::UI::Core::CoreDispatcher const& /* sender */,
+            Windows::UI::Core::AcceleratorKeyEventArgs const& args);
+        void CoreWindow_PointerPressed(
+            Windows::UI::Core::CoreWindow const& /* sender */,
+            Windows::UI::Core::PointerEventArgs const& args);
+        void System_BackRequested(
+            Windows::Foundation::IInspectable const& /* sender */,
+            Windows::UI::Core::BackRequestedEventArgs const& args);
+        bool TryGoBack();
 
     private:
         // Vector of std::pair holding the Navigation Tag and the relative Navigation Page.
@@ -806,18 +835,17 @@ namespace winrt::NavigationViewCppWinRT::implementation
         NavView_Navigate(L"home",
             Windows::UI::Xaml::Media::Animation::EntranceNavigationTransitionInfo());
 
-        // Add keyboard accelerators for backwards navigation.
-        Windows::UI::Xaml::Input::KeyboardAccelerator goBack;
-        goBack.Key(Windows::System::VirtualKey::GoBack);
-        goBack.Invoked({ this, &MainPage::BackInvoked });
-        KeyboardAccelerators().Append(goBack);
+        // Listen to the window directly so the app responds
+        // to accelerator keys regardless of which element has focus.
+        winrt::Windows::UI::Xaml::Window::Current().CoreWindow().Dispatcher().
+            AcceleratorKeyActivated({ this, &MainPage::CoreDispatcher_AcceleratorKeyActivated });
+ 
+        winrt::Windows::UI::Xaml::Window::Current().CoreWindow().
+            PointerPressed({ this, &MainPage::CoreWindow_PointerPressed });
+ 
+        Windows::UI::Core::SystemNavigationManager::GetForCurrentView().
+            BackRequested({ this, &MainPage::System_BackRequested });
 
-        // ALT routes here
-        Windows::UI::Xaml::Input::KeyboardAccelerator altLeft;
-        goBack.Key(Windows::System::VirtualKey::Left);
-        goBack.Modifiers(Windows::System::VirtualKeyModifiers::Menu);
-        goBack.Invoked({ this, &MainPage::BackInvoked });
-        KeyboardAccelerators().Append(altLeft);
     }
 
     void MainPage::NavView_ItemInvoked(
@@ -893,31 +921,56 @@ namespace winrt::NavigationViewCppWinRT::implementation
         muxc::NavigationView const& /* sender */,
         muxc::NavigationViewBackRequestedEventArgs const& /* args */)
     {
-        On_BackRequested();
+        TryGoBack();
     }
 
-    void MainPage::BackInvoked(
-        Windows::UI::Xaml::Input::KeyboardAccelerator const& /* sender */,
-        Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs const& args)
+    void MainPage::CoreDispatcher_AcceleratorKeyActivated(
+        Windows::UI::Core::CoreDispatcher const& /* sender */,
+        Windows::UI::Core::AcceleratorKeyEventArgs const& args)
     {
-        On_BackRequested();
-        args.Handled(true);
+        // When Alt+Left are pressed navigate back
+        if (args.EventType() == Windows::UI::Core::CoreAcceleratorKeyEventType::SystemKeyDown
+            && args.VirtualKey() == Windows::System::VirtualKey::Left
+            && args.KeyStatus().IsMenuKeyDown
+            && !args.Handled())
+        {
+            args.Handled(TryGoBack());
+        }
     }
-
-    bool MainPage::On_BackRequested()
+ 
+    void MainPage::CoreWindow_PointerPressed(
+        Windows::UI::Core::CoreWindow const& /* sender */,
+        Windows::UI::Core::PointerEventArgs const& args)
+    {
+        // Handle mouse back button.
+        if (args.CurrentPoint().Properties().IsXButton1Pressed())
+        {
+            args.Handled(TryGoBack());
+        }
+    }
+ 
+    void MainPage::System_BackRequested(
+        Windows::Foundation::IInspectable const& /* sender */,
+        Windows::UI::Core::BackRequestedEventArgs const& args)
+    {
+        if (!args.Handled())
+        {
+            args.Handled(TryGoBack());
+        }
+    }
+ 
+    bool MainPage::TryGoBack()
     {
         if (!ContentFrame().CanGoBack())
             return false;
-
-        // Don't go back if the nav pane is overlaid.
+        // Don't go back if the nav pane is overlayed.
         if (NavView().IsPaneOpen() &&
             (NavView().DisplayMode() == muxc::NavigationViewDisplayMode::Compact ||
                 NavView().DisplayMode() == muxc::NavigationViewDisplayMode::Minimal))
             return false;
-
         ContentFrame().GoBack();
         return true;
-    }
+    }  
 
     void MainPage::On_Navigated(
         Windows::Foundation::IInspectable const& /* sender */,
@@ -966,7 +1019,7 @@ namespace winrt::NavigationViewCppWinRT::implementation
 
 ### <a name="alternative-cwinrt-implementation"></a>別の C++ /WinRT 実装
 
-上記の C# および C++ /WinRT コードは、両方のバージョンで同じ XAML マークアップを使用できるように設計されています。 ただし、このセクションに記載されている C++/WinRT バージョンを実装する別の方法があり、これが適切である場合もあります。
+上で示した C# および C++/WinRT のコードは、両方のバージョンで同じ XAML マークアップを使用できるように設計されています。 ただし、このセクションに記載されている C++/WinRT バージョンを実装する別の方法があり、これが適切である場合もあります。
 
 次に示すのは、**NavView_ItemInvoked** ハンドラーの別のバージョンです。 このバージョンのハンドラーの手法では、移動先のページの完全な型名を ([**NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem) のタグに) 最初に格納する必要があります。 ハンドラーでは、その値のボックス化を解除し、それを [**Windows::UI::Xaml::Interop::TypeName**](/uwp/api/windows.ui.xaml.interop.typename) オブジェクトに変換し、それを使用して目的のページに移動します。 上記の例に示した `_pages` という名前のマッピング変数は必要ありません。また、ご利用のタグ内の値が有効な型であることを確認するための単体テストを作成することができます。 「[C++/WinRT を使用した IInspectable へのスカラー値のボックス化とボックス化解除](../../cpp-and-winrt-apis/boxing.md)」も参照してください。
 

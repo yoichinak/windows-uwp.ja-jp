@@ -8,16 +8,16 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b88f65ba45a2b8a79d822eba525733550f965372
-ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
+ms.openlocfilehash: 91b5e975c40b7c9642cd452b3c67045c7be1127d
+ms.sourcegitcommit: 069f5ab4be85a7d638fc2a426afaed824e5dfeae
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97860180"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98668721"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP にデスクトップ アプリを統合する
 
-デスクトップ アプリに[パッケージ ID](modernize-packaged-apps.md) がある場合は、[パッケージ マニフェスト](/uwp/schemas/appxpackage/uapmanifestschema/schema-root)内で定義済みの拡張機能を使用することによって、拡張機能を使用してアプリを Windows 10 と統合できます。
+デスクトップ アプリに[パッケージ ID](modernize-packaged-apps.md) がある場合は、[パッケージ マニフェスト内で定義済みの拡張機能](/uwp/schemas/appxpackage/uapmanifestschema/extensions)を使用することによって、拡張機能を使用してアプリを Windows 10 と統合できます。
 
 たとえば、ファイアウォール例外を作成する、アプリを特定のファイルの種類の既定アプリケーションにする、アプリをスタート タイルの参照先に指定する、などの操作を拡張機能で行うことができます。 拡張機能は、アプリのパッケージ マニフェスト ファイルに XML を追加するだけで使用できます。 コードは必要ありません。
 

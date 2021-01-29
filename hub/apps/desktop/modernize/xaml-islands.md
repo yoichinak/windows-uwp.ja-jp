@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 752b02f4bbf6faaca1fd04007c85cfe41f6c28f9
-ms.sourcegitcommit: b8d0e2c6186ab28fe07eddeec372fb2814bd4a55
+ms.openlocfilehash: b8cb2670c09c5a93d2edd67e3f338a33eeb488ad
+ms.sourcegitcommit: b4c782b2403da83a6e0b5b7416cc4dc835b068d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671551"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98922762"
 ---
 # <a name="host-winrt-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで WinRT XAML コントロールをホストする (XAML Islands)
 
@@ -40,12 +40,12 @@ XAML Islands には、次のような実行時の要件があります。
 
 ## <a name="wpf-and-windows-forms-applications"></a>WPF と Windows フォーム アプリケーション
 
+> [!NOTE]
+> WPF および Windows フォーム アプリでの XAML Islands を使用した WinRT XAML コントロールのホストは、現在、.NET Core 3.x をターゲットとするアプリでのみサポートされています。 XAML Islands は、.NET 5 をターゲットとするアプリ、または .NET Framework のすべてのバージョンのアプリでは、まだサポートされていません。
+
 WPF および Windows フォーム アプリケーションでは、Windows Community Toolkit で利用できる XAML Island .NET コントロールを使用することをお勧めします。 これらのコントロールには、対応する WinRT XAML コントロールのプロパティ、メソッド、およびイベントを模倣する (またはそれにアクセスできるようになる) オブジェクト モデルが用意されています。 また、キーボード ナビゲーションやレイアウトの変更などの動作も処理されます。
 
 WPF および Windows フォーム アプリケーション用の XAML Island コントロールには、"*ラップされたコントロール*" と"*ホスト コントロール*" という 2 つのセットがあります。 
-
-> [!NOTE]
-> XAML Islands を使用した WinRT XAML コントロールのホストは、.NET Core 3.x をターゲットとする WPF および Windows フォーム アプリでのみサポートされています。 .NET Framework をターゲットとするアプリでは、XAML Islands はサポートされていません。
 
 ### <a name="wrapped-controls"></a>ラップされたコントロール
 

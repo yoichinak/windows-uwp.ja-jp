@@ -8,16 +8,16 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: a8f5b141e5726d19651aeafeb9b6d432e20c2f47
-ms.sourcegitcommit: b8d0e2c6186ab28fe07eddeec372fb2814bd4a55
+ms.openlocfilehash: 4d98877fb0d48d2c3c677af5f2b89d9fd65c05f1
+ms.sourcegitcommit: b4c782b2403da83a6e0b5b7416cc4dc835b068d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671531"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98922745"
 ---
 # <a name="host-a-standard-winrt-xaml-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリで標準 WinRT XAML コントロールをホストする
 
-この記事では、[XAML Islands](xaml-islands.md) を使用して、WPF アプリで標準 WinRT XAML コントロール (つまり、Windows SDK によって提供されるファーストパーティ WinRT XAML コントロール) をホストする 2 つの方法について説明します。
+この記事では、[XAML Islands](xaml-islands.md) を使用して、.NET Core 3.1 をターゲットとする WPF アプリで標準 WinRT XAML コントロール (つまり、Windows SDK によって提供されるファーストパーティ WinRT XAML コントロール) をホストする 2 つの方法を示します。
 
 * Windows Community Toolkit の[ラップされたコントロール](xaml-islands.md#wrapped-controls)を使用して、UWP の [InkCanvas](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと [InkToolbar](/uwp/api/windows.ui.xaml.controls.inktoolbar) コントロールをホストする方法を示します。 これらのコントロールでは、便利な WinRT XAML コントロールの小さいセットのインターフェイスと機能がラップされています。 これらを WPF プロジェクトまたは Windows フォーム プロジェクトのデザイン サーフェイスに直接追加し、他の WPF コントロールや Windows フォーム コントロールと同じようにデザイナーで使用できます。
 
@@ -25,11 +25,14 @@ ms.locfileid: "91671531"
 
 この記事では、WPF アプリで WinRT XAML コントロールをホストする方法について説明しますが、Windows フォーム アプリでもプロセスはほぼ同じです。
 
+> [!NOTE]
+> WPF および Windows フォーム アプリでの XAML Islands を使用した WinRT XAML コントロールのホストは、現在、.NET Core 3.x をターゲットとするアプリでのみサポートされています。 XAML Islands は、.NET 5 をターゲットとするアプリ、または .NET Framework のすべてのバージョンのアプリでは、まだサポートされていません。
+
 ## <a name="required-components"></a>必要なコンポーネント
 
 WPF (または Windows フォーム) アプリで WinRT XAML コントロールをホストするには、ソリューションに次のコンポーネントが必要です。 この記事では、これらの各コンポーネントを作成する手順について説明します。
 
-* **アプリのプロジェクトとソース コード**。 [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用した WinRT XAML コントロールのホストは、.NET Core 3 をターゲットとするアプリでのみサポートされています。
+* **アプリのプロジェクトとソース コード**。 [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールを使用した WinRT XAML コントロールのホストは、現在、.NET Core 3 をターゲットとするアプリでのみサポートされています。
 
 * **XamlApplication から派生するルート Application クラスが定義されている UWP アプリ プロジェクト**。 WPF プロジェクトまたは Windows フォーム プロジェクトでは、カスタムの UWP XAML コントロールを検出て読み込めるように、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスのインスタンスにアクセスできる必要があります。 これを行うには、WPF アプリまたは Windows フォーム アプリのソリューションの一部である別の UWP アプリ プロジェクト内でこのオブジェクトを定義することをお勧めします。 
 
@@ -50,7 +53,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
     1. Visual Studio で、 **[ツール] -> [NuGet パッケージ マネージャー] -> [パッケージ マネージャー設定]** の順にクリックします。
     2. **[既定のパッケージ管理形式]** で **[PackageReference]** が選択されていることを確認します。
 
-3. **ソリューション エクスプローラー**で WPF プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+3. **ソリューション エクスプローラー** で WPF プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
 4. **[参照]** タブを選択し、[Microsoft.Toolkit.Wpf.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.Controls) パッケージを見つけて、最新の安定バージョンをインストールします。 このパッケージでは、ラップされた WinRT XAML コントロールを WPF で使用するために必要なものがすべて提供されています ([InkCanvas](/windows/communitytoolkit/controls/wpf-winforms/inkcanvas)、[InkToolbar](/windows/communitytoolkit/controls/wpf-winforms/inktoolbar)、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールなど)。
     > [!NOTE]
@@ -58,7 +61,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
 
 5. x86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 XAML Islands のほとんどのシナリオは、 **[任意の CPU]** を対象とするプロジェクトではサポートされていません。
 
-    1. **ソリューション エクスプローラー**で、ソリューション ノードを右クリックし、 **[プロパティ]**  ->  **[構成プロパティ]**  ->  **[構成マネージャー]** を選択します。 
+    1. **ソリューション エクスプローラー** で、ソリューション ノードを右クリックし、 **[プロパティ]**  ->  **[構成プロパティ]**  ->  **[構成マネージャー]** を選択します。 
     2. **[アクティブ ソリューション プラットフォーム]** で、 **[新規作成]** を選択します。 
     3. **[新しいソリューション プラットフォーム]** ダイアログで、 **[x64]** または **[x86]** を選択して、 **[OK]** をクリックします。 
     4. 開いているダイアログ ボックスを閉じます。
@@ -70,7 +73,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
 > [!NOTE]
 > ファーストパーティの WinRT XAML コントロールをホストするためにこのステップは必要ありませんが、アプリでは、カスタム WinRT XAML コントロールのホストなど、XAML Island の全範囲のシナリオをサポートするために、`XamlApplication` オブジェクトが必要です。 したがって、XAML Islands を使用するすべてのソリューションでは、常に `XamlApplication` オブジェクトを定義することをお勧めします。
 
-1. **ソリューション エクスプローラー**で、ソリューション ノードを右クリックし、 **[追加]**  ->  **[新しいプロジェクト]** を選択します。
+1. **ソリューション エクスプローラー** で、ソリューション ノードを右クリックし、 **[追加]**  ->  **[新しいプロジェクト]** を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 対象バージョンと最小バージョンの両方が **Windows 10 バージョン 1903 (ビルド 18362)** またはそれ以降のリリースに設定されていることを確認します。
 3. UWP アプリ プロジェクトで、[Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) NuGet パッケージ (最新の安定バージョン) をインストールします。
 4. **App.xaml** ファイルを開き、このファイルの内容を次の XAML に置き換えます。 `MyUWPApp` を、UWP アプリ プロジェクトの名前空間に置き換えます。
@@ -107,7 +110,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
 
 1. WPF プロジェクト ファイルで、互換性のあるフレームワーク バージョンを指定します。 
 
-    1. **ソリューション エクスプローラー**で、WPF プロジェクト ノードをダブルクリックして、エディターでプロジェクト ファイルを開きます。
+    1. **ソリューション エクスプローラー** で、WPF プロジェクト ノードをダブルクリックして、エディターでプロジェクト ファイルを開きます。
     2. 最初の **[PropertyGroup]** 要素に、次の子要素を追加します。 必要に応じて値の `19041` という部分を変更し、UWP プロジェクトのターゲットおよび最小 OS ビルドに一致させます。
 
         ```xml
@@ -126,7 +129,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
         </PropertyGroup>
         ```
 
-2. **ソリューション エクスプローラー**で、WPF プロジェクトの下の **[依存関係]** ノードを右クリックし、UWP アプリ プロジェクトへの参照を追加します。
+2. **ソリューション エクスプローラー** で、WPF プロジェクトの下の **[依存関係]** ノードを右クリックし、UWP アプリ プロジェクトへの参照を追加します。
 
 ## <a name="instantiate-the-xamlapplication-object-in-the-entry-point-of-your-wpf-app"></a>WPF アプリのエントリ ポイントで XamlApplication オブジェクトをインスタンス化する
 
@@ -233,7 +236,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
 > [!NOTE]
 > [WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールは、[Microsoft.Toolkit.Wpf.UI.XamlHost](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.XamlHost) パッケージによって提供されます。 このパッケージは、前にインストールした [Microsoft.Toolkit.Wpf.UI.Controls](https://www.nuget.org/packages/Microsoft.Toolkit.Wpf.UI.Controls) パッケージに含まれています。
 
-1. **ソリューション エクスプローラー**で、**MainWindow.xaml** ファイルを開きます。
+1. **ソリューション エクスプローラー** で、**MainWindow.xaml** ファイルを開きます。
 
 2. XAML ファイルの先頭近くにある **Window** 要素に、次の属性を追加します。 これにより、[WindowsXamlHost](/windows/communitytoolkit/controls/wpf-winforms/windowsxamlhost) コントロールの XAML 名前空間が参照されるようになります。
 
@@ -317,19 +320,22 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
 > [!NOTE]
 > 配置用に [MSIX パッケージ](/windows/msix)にアプリケーションをパッケージ化しない場合は、アプリを実行するコンピューターに [Visual C++ ランタイム](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)がインストールされている必要があります。
 
-1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、 **[ターゲット バージョン]** と **[最小バージョン]** の両方に対して、**Windows 10 バージョン 1903 (10.0、ビルド 18362)** を選択します。
+1. ソリューションに新しい [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)を追加します。 プロジェクトを作成するときに、UWP プロジェクトに選択したのと同じ **ターゲット バージョン** と **最小バージョン** を選択します。
 
 2. パッケージ プロジェクトで、 **[アプリケーション]** ノードを右クリックして **[参照の追加]** を選択します。 プロジェクトの一覧でソリューション内の WPF プロジェクトを選択し、 **[OK]** をクリックします。
 
+    > [!NOTE]
+    > Microsoft Store でアプリを公開したい場合は、パッケージ プロジェクトに UWP プロジェクトへの参照を追加する必要があります。
+
 3. x86 や x64 などの特定のプラットフォームを対象とするようにソリューションを構成します。 Windows アプリケーション パッケージ プロジェクトを使用して MSIX パッケージに WPF アプリをビルドするには、このようにする必要があります。
 
-    1. **ソリューション エクスプローラー**で、ソリューション ノードを右クリックし、 **[プロパティ]**  ->  **[構成プロパティ]**  ->  **[構成マネージャー]** を選択します。
+    1. **ソリューション エクスプローラー** で、ソリューション ノードを右クリックし、 **[プロパティ]**  ->  **[構成プロパティ]**  ->  **[構成マネージャー]** を選択します。
     2. **[アクティブ ソリューション プラットフォーム]** で、 **[x64]** または **[x86]** を選択します。
     3. WPF プロジェクトの行の **[プラットフォーム]** 列で、 **[新規]** を選択します。
     4. **[新しいソリューション プラットフォーム]** ダイアログで、 **[x64]** または **[x86]** ( **[アクティブ ソリューション プラットフォーム]** に対して選択したものと同じプラットフォーム) を選択し、 **[OK]** をクリックします。
     5. 開いているダイアログ ボックスを閉じます。
 
-5. パッケージ プロジェクトをビルドして実行します。 WPF が実行され、UWP カスタム コントロールが想定どおりに表示されることを確認します。
+5. パッケージ プロジェクトをビルドして実行します。 WPF が実行され、UWP コントロールが想定どおりに表示されることを確認します。
 
 ## <a name="related-topics"></a>関連トピック
 

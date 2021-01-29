@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, python システム管理, python ファイル自動化, windows での python スクリプト, windows での python セットアップ, windows での python 開発環境, windows での python 開発環境, powershell を使用した python, ファイル システム タスク用の python スクリプト
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: d465d46a0524345a45dff9b1cc7c425e4cb468a4
-ms.sourcegitcommit: c2e4bbe46c7b37be1390cdf3fa0f56670f9d34e9
+ms.openlocfilehash: a8f13243f3501b2af42d38c13bff580be2e5b42a
+ms.sourcegitcommit: 8040760f5520bd1732c39aedc68144c4496319df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253669"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98691327"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows で Python を使用してスクリプト作成と自動化を開始する
 
@@ -26,7 +26,7 @@ ms.locfileid: "92253669"
 
 Python を使用してファイル システムの操作を実行するスクリプトを記述する場合は、[Microsoft Store から Python をインストールする](https://www.microsoft.com/p/python-37/9nj46sx7x90p?activetab=pivot:overviewtab)ことをお勧めします。 Microsoft Store を介してインストールすると、基本的な Python3 インタープリターが使用されますが、自動更新が提供されるだけでなく、現在のユーザーの PATH 設定 (管理者アクセス権は不要) も行われます。
 
-Windows で Python を使用して **Web 開発**を行う場合は、Windows Subsystem for Linux を使用して別のセットアップを行うことをお勧めします。 ガイドのチュートリアル「[Windows での Web 開発用の Python の使用を開始する](./web-frameworks.md)」をご覧ください。 Python を初めて使用する場合は、[初心者向けの Windows での Python の使用](./beginners.md)に関する記事をご覧ください。 一部の高度なシナリオ (Python のインストール ファイルへのアクセスや修正が必要な場合、バイナリのコピーを作成する場合、Python DLL を直接使用する場合など) では、[python.org](https://www.python.org/downloads/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
+Windows で Python を使用して **Web 開発** を行う場合は、Windows Subsystem for Linux を使用して別のセットアップを行うことをお勧めします。 ガイドのチュートリアル「[Windows での Web 開発用の Python の使用を開始する](./web-frameworks.md)」をご覧ください。 Python を初めて使用する場合は、[初心者向けの Windows での Python の使用](./beginners.md)に関する記事をご覧ください。 一部の高度なシナリオ (Python のインストール ファイルへのアクセスや修正が必要な場合、バイナリのコピーを作成する場合、Python DLL を直接使用する場合など) では、[python.org](https://www.python.org/downloads/) から特定の Python リリースを直接ダウンロードすることを検討するか、Anaconda、Jython、PyPy、WinPython、IronPython などの[代替手段をインストール](https://www.python.org/download/alternatives)することを検討してください。これは、別の実装を選択する具体的な理由がある、より高度な Python プログラマの場合にのみお勧めします。
 
 ## <a name="install-python"></a>Python のインストール
 
@@ -176,6 +176,9 @@ VS Code のサポート機能を利用するには、Microsoft Python 拡張機�
 
 お疲れさまでした。 作成したディレクトリとファイルを読み取り、Python を使用してディレクトリ構造を表示して独自のテキスト ファイルに出力する、自動化されたシステム管理スクリプトを作成しました。
 
+> [!NOTE]
+> Microsoft Store から Python 3 をインストールできない場合は、このサンプル スクリプトのパスを処理する方法の例について、こちらの[イシュー](https://github.com/MicrosoftDocs/windows-uwp/issues/2901)を参照してください。
+
 ## <a name="example-script-to-modify-all-files-in-a-directory"></a>ディレクトリ内のすべてのファイルを変更するスクリプトの例
 
 この例では、先ほど作成したファイルとディレクトリを使用して、ファイルの最終更新日をファイル名の先頭に追加することで、各ファイルの名前を変更します。
@@ -210,7 +213,7 @@ VS Code のサポート機能を利用するには、Microsoft Python 拡張機�
 
 3. `python3 update-filenames.py` で update-filenames.py スクリプトを実行してテストし、次に `python3 list-directory-contents.py` で list-directory-contents.py スクリプトを再実行します。
 
-4. アウトプットは次のようになります。
+4. 出力は次のようになります。
 
     ```powershell
     Renaming: ..\food\fruits\banana.txt to: ..\food\fruits\2019-07-18 12.24.46.385185_banana.txt
@@ -248,7 +251,7 @@ VS Code のサポート機能を利用するには、Microsoft Python 拡張機�
 
 基本的なシステム管理タスクを自動化するための Python スクリプトの使用について、いくつかのおもしろいことを学習できました。 もちろん、知るべきことはさらにたくさんありますが、これは適切な開始点となったはずです。 学習を続けるために、いくつかのリソースを共有します。
 
-## <a name="additional-resources"></a>その他の資料
+## <a name="additional-resources"></a>その他のリソース
 
 - [Python ドキュメント:ファイルとディレクトリへのアクセス](https://docs.python.org/3.7/library/filesys.html):ファイル システムの操作、ファイルのプロパティの読み取り、移植可能な方法でのパスの操作、一時ファイルの作成に関する Python ドキュメントです。
 - [Python について学習する:文字列フォーマット チュートリアル](https://www.learnpython.org/en/String_Formatting):文字列の書式設定に "%" 演算子を使用する方法の詳細については、こちらを参照してください。

@@ -8,30 +8,51 @@ ms.topic: article
 keywords: python, windows 10, microsoft, pip, py.exe, ファイル パス, PYTHONPATH, python 開発, python パッケージ化
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 4504e7550d19d2cc713284abebed43b6305b5dbd
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c1cada0fef5968846100f66bb41b3dd70ea5b59a
+ms.sourcegitcommit: 8040760f5520bd1732c39aedc68144c4496319df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174126"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98691307"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用についてよく寄せられる質問
 
-## <a name="why-cant-i-pip-install-a-certain-package"></a>特定のパッケージを "pip install" できないのはなぜですか?
+## <a name="trouble-installing-a-package-with-pip-install"></a>pip インストールを使用したパッケージのインストールに関する問題
 
-インストールが失敗する理由は多数あります。ほとんどの場合、パッケージ開発者に連絡することが適切な解決策です。
+インストールが失敗する理由は多数あります。多くの場合、パッケージ開発者に連絡することが適切な解決策です。
 
-問題の最もよくある原因は、変更のアクセス許可がない場所にインストールしようとしていることです。 たとえば、既定のインストール場所に管理者特権が要求される場合がありますが、既定では Python にその特権がありません。 最適な解決策は、仮想環境を作成してそこにインストールすることです。
+問題のよくある原因は、変更のアクセス許可がない場所にインストールしようとしていることです。 たとえば、既定のインストール場所に管理者特権が要求される場合がありますが、既定では Python にその特権がありません。 最適な解決策は、[仮想環境](./web-frameworks.md#create-a-virtual-environment)を作成してそこにインストールすることです。
 
 一部のパッケージには、インストールするために C または C++ コンパイラが必要なネイティブ コードが含まれています。 一般的には、パッケージ開発者はプリコンパイル済みのバージョンを公開するべきですが、そのようにしない場合も多々あります。 これらのパッケージの一部については、[Visual Studio 用のビルド ツールをインストール](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)して C++ オプションを選択するとうまくいく場合がありますが、ほとんどの場合はパッケージ開発者に問い合わせる必要があります。
 
-[StackOverflow に関するディスカッションをフォロー](https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows/12476379)してください。
+[StackOverflow に関するディスカッションをフォローしてください](https://stackoverflow.com/questions/4750806/how-do-i-install-pip-on-windows/12476379)
+
+### <a name="trouble-installing-pip-with-wsl"></a>WSL での pip のインストールに関する問題
+
+Linux 用 Windows サブシステム (WSL または WSL2) で pip を使用してパッケージ (Flask など) をインストールする場合 (例: `python3 -m pip install flask`)、次のようなエラーが発生することがあります。
+
+```bash
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None))
+after connection broken by 'NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection
+object at 0x7f655471da30>: Failed to establish a new connection: [Errno -3]
+Temporary failure in name resolution')': /simple/flask/
+```
+
+この問題を調査するときに陥る可能性のある陥穽がいくつかあり、そのどれもが WSL Linux のディストリビューションでは特に非生産的なものです。 (警告: WSL で `resolv.conf` を編集しようとしないでください。このファイルはシンボリック リンクであり、変更すると厄介な問題を引き起こす可能性があります)。 カスタマイズしたファイアウォールを実行しているのでない限り、可能性のある解決策は単に pip を再インストールすることです。
+
+```bash
+sudo apt -y purge python3-pip
+sudo python3 -m pip uninstall pip
+sudo apt -y install python3-pip --fix-missing
+```
+
+* *詳細については、[GitHub の WSL 製品リポジトリ](https://github.com/microsoft/WSL/issues/4020)を参照してください。ドキュメントへの[このイシューに関する寄与](https://github.com/MicrosoftDocs/windows-uwp/issues/2679)について、ユーザー コミュニティに感謝します。*
 
 ## <a name="what-is-pyexe"></a>py.exe とは何ですか?
 
 さまざまな種類の Python プロジェクトを扱っていると、複数のバージョンの Python がコンピューターにインストールされる場合があります。 これらはすべて `python` コマンドを使用するため、どのバージョンの Python を使用しているのかはっきりしない場合があります。 標準として、`python3` コマンド (または、特定のバージョンを選択するには `python3.7`) を使用することをお勧めします。
 
-[py.exe ランチャー](https://docs.python.org/3/using/windows.html#launcher)は、インストールされている中で最も新しいバージョンの Python を自動的に選択します。 `py -3.7` などのコマンドを使用して特定のバージョンを選択したり、使用できるバージョンを `py --list` を使用して確認したりすることもできます。 **ただし**、py.exe ランチャーが正しく動作するのは、[python.org](https://www.python.org/downloads/windows/) からインストールしたバージョンの Python を使用している場合だけです。Microsoft Store から Python をインストールする場合、`py` コマンドは**含まれません**。 Linux、macOS、WSL、および Microsoft Store バージョンの Python の場合、`python3` (または `python3.7`) コマンドを使用する必要があります。
+[py.exe ランチャー](https://docs.python.org/3/using/windows.html#launcher)は、インストールされている中で最も新しいバージョンの Python を自動的に選択します。 `py -3.7` などのコマンドを使用して特定のバージョンを選択したり、使用できるバージョンを `py --list` を使用して確認したりすることもできます。 **ただし**、py.exe ランチャーが正しく動作するのは、[python.org](https://www.python.org/downloads/windows/) からインストールしたバージョンの Python を使用している場合だけです。Microsoft Store から Python をインストールする場合、`py` コマンドは **含まれません**。 Linux、macOS、WSL、および Microsoft Store バージョンの Python の場合、`python3` (または `python3.7`) コマンドを使用する必要があります。
 
 ## <a name="why-does-running-pythonexe-open-the-microsoft-store"></a>python.exe を実行すると Microsoft Store が開くのはなぜですか?
 
@@ -39,7 +60,7 @@ ms.locfileid: "89174126"
 
 コマンドライン引数を指定してショートカットの実行可能ファイルを実行すると、Python がインストールされていないことを示すエラー コードが返されます。 これは、意図していない場合にバッチ ファイルおよびスクリプトによって Store アプリが開かれるのを防ぐためです。
 
-[python.org](https://www.python.org/downloads/windows/) のインストーラーを使用して Python をインストールし、"PATH に追加" オプションを選択した場合、新しい `python` コマンドがショートカットよりも優先されます。 他のインストーラーは、組み込みのショートカットよりも_低い_優先度で `python` を追加する場合があることに注意してください。
+[python.org](https://www.python.org/downloads/windows/) のインストーラーを使用して Python をインストールし、"PATH に追加" オプションを選択した場合、新しい `python` コマンドがショートカットよりも優先されます。 他のインストーラーは、組み込みのショートカットよりも _低い_ 優先度で `python` を追加する場合があることに注意してください。
 
 Python をインストールせずにショートカットを無効にするには、[スタート] から [Manage app execution aliases] (アプリ実行エイリアスの管理) を開き、"App Installer" (アプリ インストーラー) Python エントリを見つけて "オフ" に切り替えます。
 
@@ -59,7 +80,7 @@ PYTHONPATH 環境変数は、モジュールのインポート元にすること
 
 PowerShell からこの変数を設定するには、Python を起動する直前に `$env:PYTHONPATH=’list;of;paths’` を使用します。
 
-この変数は、使用する予定の Python だけでなく、すべてのバージョンの Python によって使用される可能性があるため、**[環境変数]** 設定でこの変数をグローバルに設定することは**非推奨**です。
+この変数は、使用する予定の Python だけでなく、すべてのバージョンの Python によって使用される可能性があるため、**[環境変数]** 設定でこの変数をグローバルに設定することは **非推奨** です。
 
 ## <a name="where-can-i-find-help-with-packaging-and-deployment"></a>パッケージ化と配置のヘルプはどこにありますか?
 
