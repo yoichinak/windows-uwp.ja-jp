@@ -8,12 +8,12 @@ keywords: Cortana, Cortana のキャンバス, Cortana の設計, ユーザー �
 ms.date: 01/27/2021
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: fca4da482585ddd4b7f9d54008c1905e372ca030
-ms.sourcegitcommit: d51c3dd64d58c7fa9513ba20e736905f12df2a9a
+ms.openlocfilehash: ca9f77d10f6e22d4e244b102cb8b85e1f75113fc
+ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98988734"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057563"
 ---
 # <a name="cortana-interactions-in-windows-apps"></a>Windows アプリにおける Cortana のやり取り
 
@@ -22,7 +22,7 @@ ms.locfileid: "98988734"
 
 Windows アプリケーションで1つのアクションを起動して実行する音声コマンドを使用して、 **Cortana** の基本的な機能を拡張します。
 
-ターゲット アプリは、操作の複雑さに応じて、フォアグラウンドで起動したり (アプリがフォーカスを取得し、**Cortana** は消えます)、バックグラウンドでアクティブ化されたりします (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 一般に、追加のコンテキストやユーザー入力を必要とする音声コマンドは、フォアグラウンドアプリで処理することをお勧めします。一方、基本的なコマンドは、バックグラウンドアプリを使用して **Cortana** で処理できます。 
+ターゲット アプリは、操作の複雑さに応じて、フォアグラウンドで起動したり (アプリがフォーカスを取得し、**Cortana** は消えます)、バックグラウンドでアクティブ化されたりします (**Cortana** がフォーカスを維持しますが、アプリからの結果を表示します)。 一般に、追加のコンテキストやユーザー入力を必要とする音声コマンドは、フォアグラウンドアプリで処理することをお勧めします。一方、基本的なコマンドは、バックグラウンドアプリを使用して **Cortana** で処理できます。
 
 アプリの基本的な機能を統合し、ユーザーが直接アプリを開かずにほとんどのタスクを実行できる中心的エントリ ポイントを提供することで、**Cortana** はアプリとユーザーの仲介役となります。 アプリの機能へのこのショートカットを提供し、アプリを切り替える必要性を減らすことで、ユーザーの時間と労力を大幅に節約できます。
 
@@ -45,12 +45,6 @@ Cortana を使用してユーザーが **サービス** と対話できるよう
 
 ## <a name="related-articles"></a>関連記事
 
-* [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
-
-### <a name="designers"></a>デザイナー
-
-* [Cortana のデザインガイドライン](cortana-design-guidelines.md)
-
-### <a name="samples"></a>サンプル
-
-* [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)
+- [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
+- [Cortana のデザインガイドライン](cortana-design-guidelines.md)
+- [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)

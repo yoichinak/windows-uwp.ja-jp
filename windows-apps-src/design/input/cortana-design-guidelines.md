@@ -8,12 +8,12 @@ ms.date: 01/27/2021
 ms.topic: article
 keywords: cortana, デザイン
 ms.localizationpriority: medium
-ms.openlocfilehash: 008a2612b808f1ca9dac5d55fd4472f23d39cef3
-ms.sourcegitcommit: d51c3dd64d58c7fa9513ba20e736905f12df2a9a
+ms.openlocfilehash: 0d1f27c2e70ce8bf9d77f07dd0871cf09a441bdc
+ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99041551"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057573"
 ---
 # <a name="cortana-design-guidelines"></a>Cortana の設計ガイドライン
 
@@ -26,7 +26,7 @@ ms.locfileid: "99041551"
 
 ユーザーは、できる限り軽量で簡単なプロセスになっているのは **Cortana** のおかげだと感じますが、アプリのおかげでタスクを実行できていることが **Cortana** ではっきりわかるようにすることもできます。
 
-ここでは、**Cortana** UI に統合されている **Adventure Works** という旅行の計画および管理アプリを使って、さまざまな概念や機能について説明します。
+ここでは、**Cortana** UI に統合されている **Adventure Works** という旅行の計画および管理アプリを使って、さまざまな概念や機能について説明します。 詳細については、 [Cortana voice コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)を参照してください。
 
 :::image type="content" source="images/cortana/cortana-overview.png" alt-text="Cortana キャンバスのスクリーンショット":::
 
@@ -179,9 +179,9 @@ Cortana のテンプレートについて詳しくは、「[VoiceCommandContentT
 
 ### <a name="handoff"></a>ハンドオフ
 
-:::image type="content" source="images/cortana/cortana-backgroundapp-result.png" alt-text="エンドツーエンド cortana バックグラウンドアプリフローのスクリーンショット (ハンドオフハンドを使用したエンドツーエンド cortana バックグラウンドアプリフロー"::: )
+:::image type="content" source="images/cortana/cortana-backgroundapp-result.png" alt-text="エンドツーエンド cortana バックグラウンドアプリフローのスクリーンショット (ハンドオフを使用したエンドツーエンドの cortana バックグラウンドアプリフロー":::)*[次回の旅行] (ハンドオフ画面なし*)
 
-:::image type="content" source="images/cortana/cortana-backgroundapp-progress-result.png" alt-text="エンドツーエンド cortana のバックグラウンドアプリフローのスクリーンショット [ハンドオフ] adventureworks を使用したエンドツーエンドの cortana バックグラウンドアプリフロー":::
+ハンドオフ画面を :::image type="content" source="images/cortana/cortana-backgroundapp-progress-result.png" alt-text="使用したエンドツーエンド cortana のバックグラウンドアプリフローのスクリーンショット":::*[次回の旅行*] とハンドオフ画面
 
 アプリが応答するまでの時間が 500 ミリ秒未満で、ユーザーからの追加の情報が必要ないタスクは、完了画面の表示を除いて、**Cortana** からのそれ以上の参加を必要とすることなく完了できます。
 
@@ -350,4 +350,6 @@ GUI 文字列と TTS の文字列は同じにすることができますが、�
 
 ## <a name="related-articles"></a>関連記事
 
-[Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
+- [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)
