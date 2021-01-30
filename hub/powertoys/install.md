@@ -4,29 +4,21 @@ description: 実行可能ファイルまたはパッケージマネージャー 
 ms.date: 12/02/2020
 ms.topic: quickstart
 ms.localizationpriority: medium
-ms.openlocfilehash: c695be3784ff2145788e4887b5f9022fcc7a6999
-ms.sourcegitcommit: ea1115b921d18c7bbddc95dba9275568ff57af02
+ms.openlocfilehash: d0018e69e5a107baa595e4d3dd05a924257551a8
+ms.sourcegitcommit: d0eef123b167dc63f482a9f4432a237c1c6212db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794228"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99077220"
 ---
 # <a name="install-powertoys"></a>PowerToys をインストールする
 
-Powertoy をインストールする方法は複数あります。
-
-- **[Windows の実行可能ファイル](#install-with-windows-executable-file)** *(推奨)*
-- [Windows パッケージマネージャー](#install-with-windows-package-manager-preview) *(プレビュー)*
-- [コミュニティ主導のインストールツール](#community-driven-install-tools) *(公式にはサポートされていません)*
-
-## <a name="requirements"></a>必要条件
-
-- Windows 10 1803 (ビルド 17134) 以降。
-- [.Net Core 3.1 デスクトップランタイム](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-3.1.4-windows-x64-installer)。 この要件は、Powertoy インストーラーによって処理されます。
-
-コンピューターがこれらの要件を満たしていることを確認するには、windows 10 のバージョンとビルド番号を確認します。そのためには、 **⊞ Win** *(Windows キー)*  +  **R** を選択し、「 **winver**」と入力して、[ **OK]** を選択します。 (または、Windows コマンド プロンプトで `ver` コマンドを入力します)。 [**設定**] メニューでは、[最新の Windows バージョンに更新](ms-settings:windowsupdate)できます。
+次にリンクされている Windows 実行可能ボタンを使用して Powertoy をインストールすることをお勧めしますが、パッケージマネージャーを使用する場合は、別のインストール方法も示しています。
 
 ## <a name="install-with-windows-executable-file"></a>Windows 実行可能ファイルと共にインストールする
+
+> [!div class="nextstepaction"]
+> [PowerToys をインストールする](https://aka.ms/installpowertoys)
 
 Windows 実行可能ファイルを使用して Powertoy をインストールするには、次のようにします。
 
@@ -36,7 +28,19 @@ Windows 実行可能ファイルを使用して Powertoy をインストール�
 4. ファイルを選択して、 `PowerToysSetup-0.##.#-x64.exe` powertoy 実行可能ファイルのインストーラーをダウンロードします。
 5. ダウンロードが完了したら、実行可能ファイルを開き、インストールのプロンプトに従います。
 
-**現在、このインストール方法をお勧めします。**
+## <a name="requirements"></a>要件
+
+- Windows 10 1803 (ビルド 17134) 以降。
+- [.Net Core 3.1 デスクトップランタイム](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-3.1.4-windows-x64-installer)。 この要件は、Powertoy インストーラーによって処理されます。
+- 現在、x64 アーキテクチャがサポートされています。 ARM および x86 のサポートは、今後ご利用いただけるようになりました。
+
+コンピューターがこれらの要件を満たしていることを確認するには、windows 10 のバージョンとビルド番号を確認します。そのためには、 **⊞ Win** *(Windows キー)*  +  **D** を選択し、「 **winver**」と入力して、[ **OK]** を選択します。 (または、Windows コマンド プロンプトで `ver` コマンドを入力します)。 [**設定**] メニューでは、[最新の Windows バージョンに更新](ms-settings:windowsupdate)できます。
+
+## <a name="alternative-install-methods"></a>別のインストール方法
+
+<!--  - **[Windows executable .exe file](#install-with-windows-executable-file)** *(Recommended)* -->
+- [Windows パッケージマネージャー](#install-with-windows-package-manager-preview) *(プレビュー)*
+- [コミュニティ主導のインストールツール](#community-driven-install-tools) *(公式にはサポートされていません)*
 
 ## <a name="install-with-windows-package-manager-preview"></a>Windows パッケージマネージャー (プレビュー) を使用してインストールする
 

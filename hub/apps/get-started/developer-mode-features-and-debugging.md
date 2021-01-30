@@ -5,12 +5,12 @@ keywords: 開発者用 Visual Studio での作業の開始, 開発者用ライ�
 ms.date: 10/13/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: a8e42b9f35866f07a07122043ced803045bf99d6
-ms.sourcegitcommit: 56e9cab45d1c6e54841d61fdf23044fa01f50c43
+ms.openlocfilehash: 85c64cd4baed7be9edde0dfc008ab90c1d537ca4
+ms.sourcegitcommit: d0eef123b167dc63f482a9f4432a237c1c6212db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92011919"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99077230"
 ---
 # <a name="developer-mode-features-and-debugging"></a>開発者モードの機能とデバッグ
 
@@ -28,12 +28,13 @@ ms.locfileid: "92011919"
 
 Device Portal について詳しくは、「[Windows Device Portal の概要](/windows/uwp/debug-test-perf/device-portal.md)」をご覧ください。
 
+
 デバイス固有のセットアップ手順については、以下をご覧ください。
-- [デスクトップ用 Device Portal](/windows/uwp/debug-test-perf/device-portal-desktop.md)
+- [デスクトップ用 Device Portal](/windows/uwp/debug-test-perf/device-portal-desktop)
 - [HoloLens 用 Device Portal](/windows/mixed-reality/using-the-windows-device-portal)
-- [IoT 用 Device Portal](/windows/iot-core/manage-your-device/DevicePortal)
-- [モバイル用 Device Portal](/windows/uwp/debug-test-perf/device-portal-mobile.md)
-- [Xbox 向けのデバイス ポータル](/windows/xbox-apps/device-portal-xbox.md)
+- [IoT 用 Device Portal](/windows/iot-core/manage-your-device/deviceportal)
+- [モバイル用 Device Portal](/windows/uwp/debug-test-perf/device-portal-mobile)
+- [Xbox 向けのデバイス ポータル](/windows/uwp/xbox-apps/device-portal-xbox)
 
 開発者モードの有効化または Device Portal について問題が発生した場合には、「[既知の問題](https://social.msdn.microsoft.com/Forums/en-US/home?forum=Win10SDKToolsIssues&sort=relevancedesc&brandIgnore=True&searchTerm=%22device+portal%22)」フォーラムで問題の回避策を見つけるか、または「[開発者モード パッケージのインストール エラー](#failure-to-install-developer-mode-package)」で、開発者モード パッケージをブロック解除するための WSUS サポート技術情報の追加の情報をご覧ください。
 
@@ -42,7 +43,7 @@ Device Portal について詳しくは、「[Windows Device Portal の概要](/w
 > [!IMPORTANT]
 > 最新の Windows 10 更新プログラムでは、サイドローディングが既定で有効になっているため、この設定は表示されません。 以前のバージョンの Windows 10 を使用している場合、既定の設定では Microsoft Store からアプリを実行することのみが許可されており、Microsoft 以外のソースからアプリをインストールするにはサイドローディングを有効にする必要があります。
 
-アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ*設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune の基本](/mem/intune/fundamentals/)」をご覧ください。
+アプリのサイドロード設定は、通常、Microsoft Store を使わずにカスタム アプリを管理対象デバイスにインストールする必要がある会社や学校によって、または Microsoft 以外のソースからアプリを実行する必要があるユーザーによって、使用されます。 この場合、設定ページのイメージで以前に示したように、*UWP アプリ* 設定を無効にするポリシーを組織が適用していることはよくあります。 また、組織は、必要な証明書と、アプリをサイドローディングするインストール場所を提供します。 詳しくは、TechNet の記事「[Windows 10 でのアプリのサイド ローディング](/windows/deploy/sideload-apps-in-windows-10)」と「[Microsoft Intune の基本](/mem/intune/fundamentals/)」をご覧ください。
 
 デバイス ファミリ固有の情報
 
@@ -51,7 +52,7 @@ Device Portal について詳しくは、「[Windows Device Portal の概要](/w
 -   モバイル デバイス ファミリの場合:必要な証明書が既にインストールされている場合は、メールまたは SD カードで受け取ったファイルをタップして、.appx をインストールできます。
 
 
-信頼できる証明書がないデバイスにアプリをインストールすることはできないため、**アプリのサイドローディング**は開発者モードよりも安全です。
+信頼できる証明書がないデバイスにアプリをインストールすることはできないため、**アプリのサイドローディング** は開発者モードよりも安全です。
 
 > [!NOTE]
 > アプリをサイドローディングする場合は、信頼できるソースからのみアプリをインストールしてください。 サイドローディングしたアプリ (Microsoft Store の認証を受けていないアプリ) をインストールする場合は、そのアプリをサイドローディングする際に必要なすべての権利をお客様が保持していること、およびそのアプリのインストールや実行の結果生じるすべての問題についてお客様が一切の責任を負うことに同意したものと見なされます。 この[プライバシーに関する声明](https://privacy.microsoft.com/privacystatement)の「Windows」&gt;「Microsoft Store」セクションをご覧ください。
@@ -93,7 +94,7 @@ Windows 10 PC から Windows 10 デバイスへのアプリの展開に使用で
 -   [デバイス ポータル](/windows/uwp/debug-test-perf/device-portal.md)を使用して、ブラウザーから、Windows 10 バージョン 1511 以降を実行しているモバイル デバイスに展開できます。 Device Portal の **[アプリ](/windows/uwp/debug-test-perf/device-portal.md#apps-manager)** ページを使用して、アプリ パッケージ (.appx) をアップロードしてデバイスにインストールします。
 
 ## <a name="failure-to-install-developer-mode-package"></a>開発者モード パッケージのインストール エラー
-ネットワークや管理上の問題により、開発者モードが正しくインストールされないことがあります。 開発者モード パッケージは、この PC への**リモート**展開に必要 (ブラウザーから Device Portal を使うか、またはデバイスの検出を使って SSH を有効化する) ですが、ローカル展開には必要ではありません。  これらの問題が発生した場合でも、Visual Studio を使用してローカルでアプリを展開できます。また、このデバイスから他のデバイスへ展開できます。
+ネットワークや管理上の問題により、開発者モードが正しくインストールされないことがあります。 開発者モード パッケージは、この PC への **リモート** 展開に必要 (ブラウザーから Device Portal を使うか、またはデバイスの検出を使って SSH を有効化する) ですが、ローカル展開には必要ではありません。  これらの問題が発生した場合でも、Visual Studio を使用してローカルでアプリを展開できます。また、このデバイスから他のデバイスへ展開できます。
 
 これらの問題に対する回避策を検索するには、[既知の問題](https://social.msdn.microsoft.com/Forums/en-US/home?forum=Win10SDKToolsIssues&sort=relevancedesc&brandIgnore=True&searchTerm=%22device+portal%22)フォーラムをご覧ください。
 
