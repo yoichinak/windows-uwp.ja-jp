@@ -747,7 +747,7 @@
       items:
         - name: はじめに
           href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
-        - name: 開始
+        - name: 作業開始
           href: ../cpp-and-winrt-apis/get-started.md
         - name: 新機能
           href: ../cpp-and-winrt-apis/news.md
@@ -827,6 +827,8 @@
           href: ../csharp-winrt/net-projection-from-cppwinrt-component.md
         - name: C#/WinRT コンポーネントを作成し、C++/WinRT から使用する
           href: ../csharp-winrt/create-windows-runtime-component-cswinrt.md
+        - name: コンポーネント エラーの診断
+          href: ../csharp-winrt/authoring-diagnostics.md
         - name: アジャイル オブジェクト
           href: ../csharp-winrt/agile-objects.md
     - name: セキュリティ
