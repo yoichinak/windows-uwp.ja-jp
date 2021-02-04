@@ -4,12 +4,12 @@ description: ファイルの一括名前変更を行うための windows シェ�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 39e06685b6948ed3d3935c69a8b4dafeb9ecc2ea
-ms.sourcegitcommit: 8040760f5520bd1732c39aedc68144c4496319df
+ms.openlocfilehash: 3c751624c93fec5996885c766e73b5ab1849fd4c
+ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98691337"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534391"
 ---
 # <a name="powerrename-utility"></a>PowerRename ユーティリティ
 
@@ -44,6 +44,8 @@ Windows エクスプローラーでいくつかのファイルを選択し、右
 ### <a name="options---use-regular-expressions"></a>オプション-正規表現を使用する
 
 オンにした場合、検索値は [正規表現](https://wikipedia.org/wiki/Regular_expression) (regex) として解釈されます。 置換値には、regex 変数を含めることもできます (以下の例を参照してください)。  このチェックボックスをオンにしない場合、検索値は、[置換] フィールドのテキストに置換されるプレーンテキストとして解釈されます。
+
+`Use Boost library`拡張 regex 機能の [設定] メニューのオプションに関する詳細については、「[正規表現」](#regular-expressions)を参照してください。
 
 ### <a name="options---case-sensitive"></a>オプション-大文字と小文字を区別する
 
@@ -139,11 +141,13 @@ Windows エクスプローラーでいくつかのファイルを選択し、右
 
 **注:** 正規表現を使用しているときに、"すべての出現箇所を照合" を確認することが必要になる場合があります。
 
+標準ライブラリではなく [ブーストライブラリ](https://www.boost.org/doc/libs/1_74_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html) を使用するには、[powertoy] 設定のオプションをオンにし `Use Boost library` ます。 これにより、標準ライブラリでサポートされていないなどの拡張機能が有効になり `[lookbehind](https://www.boost.org/doc/libs/1_74_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html#boost_regex.syntax.perl_syntax.lookbehind)` ます。
+
 ### <a name="examples-of-regular-expressions"></a>正規表現の例
 
 #### <a name="simple-matching-examples"></a>単純一致の例
 
-| 検索       | 説明                                           |
+| 検索       | [説明]                                           |
 | ---------------- | ------------- |
 | `^`              | ファイル名の先頭と一致します                   |
 | `$`              | ファイル名の末尾と一致します                         |
@@ -158,12 +162,13 @@ Windows エクスプローラーでいくつかのファイルを選択し、右
 
 *変数を使用する場合は、[すべてのオカレンスに一致] オプションを有効にする必要があります。*
 
-| 検索   | 置換後の文字列    | 説明                                |
+| 検索   | 置換後の文字列    | [説明]                                |
 | ------------ | --------------- |--------------------------------------------|
 | `(.*).png`   | `foo_$1.png`   | \_既存のファイル名に "foo" を付加する |
 | `(.*).png`   | `$1_foo.png`   | \_既存のファイル名に "foo" を追加します。  |
 | `(.*)`       | `$1.txt`        | 既存のファイル名に ".txt" 拡張子を追加します。 |
 | `(^\w+\.$)|(^\w+$)` | `$2.txt` | 拡張子がない場合にのみ、既存のファイル名に ".txt" 拡張子を追加します。 |
+|  `(\d\d)-(\d\d)-(\d\d\d\d)` | `$3-$2-$1` | ファイル名 "29-03-2020" の数値の移動が "2020-03-29" になります。 |
 
 ### <a name="additional-resources-for-learning-regular-expressions"></a>正規表現の学習に関するその他のリソース
 

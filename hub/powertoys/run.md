@@ -4,16 +4,16 @@ description: パフォーマンスを犠牲にすることなく、いくつか�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9be1d54946ec2286d95dbe7d4518a631efd471e9
-ms.sourcegitcommit: 46a7e9db64e17a645ee6e888f62a9b04632c56af
+ms.openlocfilehash: 126c38cd98f0d8ff1102c7f53f14cb95ec7e38c5
+ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618531"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534401"
 ---
 # <a name="powertoys-run-utility"></a>Powertoy 実行ユーティリティ
 
-Powertoy の実行は、パフォーマンスを犠牲にせずにいくつかの追加機能を含むパワーユーザー向けのクイックランチャーです。 これはオープンソースであり、追加のプラグイン用のモジュールです。
+Powertoy の実行は、パフォーマンスを犠牲にせずにいくつかの追加機能を含むパワーユーザー向けのクイックランチャーです。 これはオープン ソースであり、追加のプラグイン用のモジュラーです。
 
 Powertoy の実行を使用するには、[ <kbd>Alt</kbd>Space] を選択し、「 + <kbd></kbd> 」と入力します。
 
@@ -75,6 +75,22 @@ Powertoy の実行機能は次のとおりです。
   | `//` | Url のみ。 `//docs.microsoft.com`既定のブラウザーを使用する例https://docs.microsoft.com |
   | `<` | 実行中のプロセスのみ。 `<outlook`Outlook を含むすべてのプロセスを検索する例 |
   | `>` | Shell コマンドのみ。 `>ping localhost`Ping クエリを実行する例 |
+  | `:` | レジストリキーのみ。 `:hkcu`HKEY_CURRENT_USER レジストリキーを検索する例 |
+  | `!` | Windows サービスのみ。 `!alu`開始または停止するアプリケーションレイヤーゲートウェイサービスを検索する例 |
+
+## <a name="system-commands"></a>システムコマンド
+
+Powertoy v 0.31 および on では、現在実行できるシステムレベルのアクションがあります。
+
+  | **アクションキー**   |   **操作** |
+  | ------------------ | ---------------------------------------------------------------------------------|
+  | `Shutdown` | コンピューターをシャットダウンします。 |
+  | `Restart` | コンピューターを再起動します |
+  | `Sign Out` | 現在のユーザーをサインアウトします |
+  | `Lock` | コンピューターをロックします |
+  | `Sleep` | コンピューターをスリープ状態にする |
+  | `Hibernate` | コンピューターを休止状態にする |
+  | `Empty Recycle Bin` | ごみ箱を空にします |
 
 ## <a name="indexer-settings"></a>インデクサーの設定
 
