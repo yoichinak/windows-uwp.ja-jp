@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 16dc1b59147cb937a09eb085c716ebac0e1cef7b
-ms.sourcegitcommit: b4c782b2403da83a6e0b5b7416cc4dc835b068d9
+ms.openlocfilehash: 714573c91b8352bb52bb895347867862bd0642b3
+ms.sourcegitcommit: 41251e85b2168704e33b9d3ee92606ab84c24769
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98922739"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99478527"
 ---
 # <a name="host-a-custom-winrt-xaml-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリでカスタム WinRT XAML コントロールをホストする
 
@@ -68,7 +68,7 @@ WPF (または Windows フォーム) アプリでカスタム WinRT XAML コン�
 
 ## <a name="define-a-xamlapplication-class-in-a-uwp-app-project"></a>UWP アプリ プロジェクトで XamlApplication クラスを定義する
 
-次に、UWP アプリ プロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスは [IXamlMetadaraProvider](/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスをサポートしています。これにより、アプリは実行時にアプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができます。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 
+次に、UWP アプリ プロジェクトをソリューションに追加し、このプロジェクトの既定の `App` クラスを、Windows Community Toolkit によって提供される [Microsoft.Toolkit.Win32.UI.XamlHost.XamlApplication](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/tree/master/Microsoft.Toolkit.Win32.UI.XamlApplication) クラスから派生するように変更します。 このクラスでは、[IXamlMetadataProvider](/uwp/api/Windows.UI.Xaml.Markup.IXamlMetadataProvider) インターフェイスがサポートされています。これにより、アプリの実行時に、アプリケーションの現在のディレクトリにある、アセンブリ内のカスタム UWP XAML コントロールのメタデータを検出して読み込むことができるようになります。 このクラスでは、現在のスレッドの UWP XAML フレームワークも初期化されます。 
 
 1. **ソリューション エクスプローラー** で、ソリューション ノードを右クリックし、 **[追加]**  ->  **[新しいプロジェクト]** を選択します。
 2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 対象バージョンと最小バージョンの両方が **Windows 10 バージョン 1903 (ビルド 18362)** またはそれ以降のリリースに設定されていることを確認します。
