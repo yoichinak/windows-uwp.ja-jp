@@ -2,17 +2,17 @@
 description: Windows PC 用のデスクトップ アプリの開発を開始する方法を説明します。これには、新しいアプリ用の適切なアプリ プラットフォームを選択する方法、Windows 10 用の既存のアプリを現代化する方法も含まれます。
 title: Windows PC 用のデスクトップ アプリの構築
 ms.topic: article
-ms.date: 9/10/2020
+ms.date: 02/03/2021
 keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 554869625c0db7a2a19dc7c01837e47029bd28e6
-ms.sourcegitcommit: cddc595969c658ce30fbc94ded92db4a8ad1bf66
+ms.openlocfilehash: 2518d838ca41e5ca2faa6dbd5697d64ea9257922
+ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97214269"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534371"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -64,11 +64,11 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 
 ### <a name="future-roadmap"></a>今後のロードマップ
 
-今後、Windows UI (WinUI) ライブラリと Project Reunion により Windows アプリ開発プラットフォームは進化します。
+今後、Windows UI ライブラリ (WinUI) と Project Reunion により Windows アプリ開発プラットフォームは進化します。
 
-* **WinUI** は、Windows 10 アプリ用のネイティブ ユーザー エクスペリエンス (UX) フレームワークです。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の UWP コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI のスコープが拡張されて、WinUI 3 以降では (現在プレビュー段階)、UWP、.NET、Win32 において Windows 10 アプリ向けの最新のネイティブ ユーザー インターフェイス (UI) プラットフォームになりました。 
+* **WinUI** は、Windows 10 アプリ用のネイティブ ユーザー エクスペリエンス (UX) フレームワークです。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の WinRT コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI 3 (まだプレビュー段階) の時点で、WinUI は、UWP、.NET、および Win32 アプリ プラットフォームにわたって Windows 10 アプリのプレミア ネイティブ ユーザー インターフェイス (UI) フレームワークになるように範囲が拡大しています。
 
-    詳細については、「[Windows UI (WinUI) ライブラリ](../winui/index.md)」を参照してください。
+    詳細については、「[Windows UI ライブラリ (WinUI)](../winui/index.md)」を参照してください。
 
 * **Project Reunion** (現在プレビュー段階) は、Windows アプリ開発プラットフォームの次世代の広範な新しい開発者向けコンポーネントおよびツール セットのコードネームです。 Project Reunion により、さまざまな一連の対象の Windows 10 OS バージョン上のあらゆるアプリによって一貫した方法で使用できる、統合された API とツールのセットが提供されます。 Project Reunion は、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットによって、既存の Windows アプリのプラットフォームとフレームワーク (UWP、ネイティブ Win32、.NET など) を補完します。 
 
