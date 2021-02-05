@@ -3,17 +3,17 @@ description: 新しい Windows デスクトップ アプリを作成する場合
 ms.assetid: 82705644-F1F0-40F3-99B1-7A97BFB32831
 title: Windows アプリ プラットフォームの選択
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 02/03/2021
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: 51d799a4779f6d3ecee2119277b6c41485e0d377
-ms.sourcegitcommit: e1c182ea23da9b0bd9e89425f7f1a00baec81136
+ms.openlocfilehash: 62567b36d16e01fc6091f9514137c60dc352942a
+ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826273"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534381"
 ---
 # <a name="choose-your-windows-app-platform"></a>Windows アプリ プラットフォームの選択
 
@@ -23,7 +23,7 @@ Windows PC 用の新しいデスクトップ アプリケーションを作成�
 * [WPF](#wpf) と [Windows フォーム](#windows-forms): これらの .NET ベースのプラットフォームには、マネージド アプリケーションに共通の型システム、API、およびアプリケーション モデルが用意されています。
 * [Win32](#win32): これは、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーション向けの最初のプラットフォームです。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
 
-これらの各プラットフォームには、一連の UI フレームワークおよび UI コントロールが備わっています。それを使用すると、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで [Windows UI (WinUI) ライブラリ](#windows-ui-library)を使用したユーザー インターフェイスの作成がサポートされています。
+これらの各プラットフォームには、一連の UI フレームワークおよび UI コントロールが備わっています。それを使用すると、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで [Windows UI ライブラリ (WinUI)](#use-the-windows-ui-library-with-windows-apps) を使用したユーザー インターフェイスの作成がサポートされています。
 
 これらのプラットフォームの一部はいくつかの特徴を共有し、特定の種類のアプリケーションにより適しています。 たとえば、UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
 
@@ -93,24 +93,6 @@ C++ で Win32 API を使用すると、WinRT や .NET などのマネージド �
 * [API リファレンス](/windows/win32/apiindex/windows-api-list/)
 * [サンプル](https://github.com/Microsoft/Windows-classic-samples)
 
-## <a name="windows-ui-library"></a>Windows UI ライブラリ
-
-Windows 10 では、メインのデスクトップ プラットフォームそれぞれで、[Windows UI (WinUI) ライブラリ](../winui/index.md)を使用したユーザー インターフェイスの作成もサポートされています。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の UWP コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI のスコープが拡張されて、UWP、.NET、Win32 において Windows 10 アプリ向けの最新のネイティブ ユーザー インターフェイス (UI) プラットフォームになりました。
-
-デスクトップ アプリでは、次の方法で WinUI を使用できます。
-
-* UWP アプリでは、Windows SDK によって提供される UWP コントロールの代わりに、WinUI コントロールを使用できます。
-* WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新して、これらのアプリで [XAML Islands](modernize/xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
-* [WinUi 3.0](../winui/winui3/index.md) 以降では、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
-
-## <a name="project-reunion-preview"></a>Project Reunion (プレビュー)
-
-Project Reunion は、Windows アプリ開発プラットフォームの次世代の広範な新しい開発者向けコンポーネントおよびツール セットのコード ネームです。 Project Reunion により、さまざまな一連の対象の Windows 10 OS バージョン上のあらゆるアプリによって一貫した方法で使用できる、統合された API とツールのセットが提供されます。 Project Reunion は、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットによって、既存の Windows アプリのプラットフォームとフレームワーク (UWP、ネイティブ Win32、.NET など) を補完します。
-
-Project Reunion は、現在、早期利用開発者向けのプレビュー版です。 このリリースをご自身の開発環境で試すことをお勧めします。 ただし、Project Reunion は、最終リリースに向けて、今後さまざまな面で変更されることに注意してください。 Project Reunion は、実稼働環境で使用されるアプリには対応しません。
-
-詳細については、「[Project Reunion](../project-reunion/index.md)」と [GitHub リポジトリ](https://github.com/microsoft/ProjectReunion/)を参照してください。
-
 ## <a name="platform-comparison-uwp-wpf-and-windows-forms"></a>プラットフォームの比較:UWP、WPF、Windows フォーム
 
 次の表は、Windows フォーム、WPF、UWP のさまざまな特性を詳細に比較したものです。
@@ -128,6 +110,22 @@ Project Reunion は、現在、早期利用開発者向けのプレビュー版�
 <sup>1</sup> Windows 10 の今後のリリースでこのシナリオに対処する機能が公開されています。
 
 <sup>2</sup> プラットフォームには、このシナリオに対する最上級の API のサポートがありませんが、開発者はこのシナリオを回避策によりサポートできます。
+
+## <a name="use-the-windows-ui-library-with-windows-apps"></a>Windows アプリで Windows UI ライブラリを使用する
+
+Windows のメインのアプリ プラットフォームを補うために、アプリで [Windows UI ライブラリ (WinUI)](../winui/index.md) を使用することもできます。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の WinRT コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI 3 (まだプレビュー段階) の時点で、WinUI は、UWP、.NET、および Win32 アプリ プラットフォームにわたって Windows 10 アプリのプレミア ネイティブ ユーザー インターフェイス (UI) フレームワークになるように範囲が拡大しています。
+
+Windows アプリでは、次の方法で WinUI を使用できます。
+
+* [WinUI 2.x](../winui/winui2/index.md):
+  * UWP アプリでは、Windows SDK によって提供される WinRT コントロールの代わりに、WinUI 2.x コントロールを使用できます。 WinUI のこれらのリリースには、刷新されたコントロールと、Windows SDK からの既存のコントロールの更新されたバージョンの両方が含まれています。
+  * WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新し、[XAML Islands](modernize/xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
+
+* [WinUI 3 (プレビュー段階)](../winui/winui3/index.md):
+  * WinUI 3 以降では、WinUI ベースの UI を全面的に使用する [.NET アプリと C++/Win32 アプリ](../winui/winui3/get-started-winui3-for-desktop.md)および [UWP アプリ](../winui/winui3/get-started-winui3-for-uwp.md)を作成できます。 このリリースには、これらのアプリを作成するために必要なすべてを提供する Visual Studio プロジェクト テンプレートが含まれています。
+
+> [!NOTE]
+> WinUI 3 はまだプレビュー段階であり、運用環境のアプリでは使用しないでください。
 
 ## <a name="other-app-platforms"></a>その他のアプリ プラットフォーム
 

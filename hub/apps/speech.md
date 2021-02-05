@@ -6,12 +6,12 @@ ms.date: 09/12/2019
 keywords: Windows 10、音声、音声、会話、win32 speech アプリ、UWP speech アプリ、WPF speech apps、WinForms speech apps の音声
 ms.author: kbridge
 author: Karl-Bridge-Microsoft
-ms.openlocfilehash: d157d33316925db6112ab892e13b2c849cfcaa5d
-ms.sourcegitcommit: d51c3dd64d58c7fa9513ba20e736905f12df2a9a
+ms.openlocfilehash: 0051ecb0556b72f768c142f04c38f3f34b2dd334
+ms.sourcegitcommit: 99a3f996a57ecc5df7382fb46bc9b8ba75614a53
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98988704"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99579013"
 ---
 # <a name="speech-voice-and-conversation-in-windows-10"></a>Windows 10 の音声、音声、および会話
 
@@ -43,7 +43,8 @@ ms.locfileid: "98988704"
 
       [会話担当者](/uwp/api/windows.applicationmodel.conversationalagent)
 
-      [Cortana 音声コマンド](/cortana/voice-commands/vcd)
+      [Cortana 音声コマンド](/cortana/voice-commands/vcd)<br>
+      (Windows 10 では2020更新プログラム以降ではサポートされていません)
    :::column-end:::
    :::column:::
       ![Win32 プラットフォーム アプリ](images/platform-win32.png)
@@ -96,7 +97,7 @@ ms.locfileid: "98988704"
    :::column:::
       [Cortana Skills Kit](/cortana/skills/)
 
-      Cortana を Microsoft 365 に埋め込むことによって最新の生産性向上エクスペリエンスを変革することの目標の一環として、お客様向けの Cortana スキルキット (developer platform) と、このプラットフォーム上に構築されたすべてのスキルを廃止します。
+      Cortana を [Microsoft 365](/microsoft-365/admin/misc/cortana-integration)に埋め込むことによって最新の生産性向上エクスペリエンスを変革することの目標の一環として、Cortana のスキルキット開発者プラットフォームと、このプラットフォーム上に構築されたすべてのスキルを廃止します。
    :::column-end:::
    :::column:::
 

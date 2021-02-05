@@ -8,12 +8,12 @@ ms.date: 11/14/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f4736c598e18bc4f1225a7fa8e0488c3601420c
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 9f00a056085b6b1f4315a19d223c21c7a4cd6638
+ms.sourcegitcommit: d0eef123b167dc63f482a9f4432a237c1c6212db
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93031465"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99077240"
 ---
 # <a name="store-and-retrieve-settings-and-other-app-data"></a>設定と他のアプリ データを保存して取得する
 
@@ -31,12 +31,12 @@ ms.locfileid: "93031465"
 
 アプリの設定に使用できるデータ型を次に示します。
 
-- **UInt8** 、 **Int16** 、 **UInt16** 、 **Int32** 、 **UInt32** 、 **Int64** 、 **UInt64** 、 **Single** 、 **Double**
+- **UInt8**、**Int16**、**UInt16**、**Int32**、**UInt32**、**Int64**、**UInt64**、**Single**、**Double**
 - **Boolean**
-- **Char16** 、 **String**
-- [**DateTime**](/uwp/api/Windows.Foundation.DateTime)、 [**TimeSpan**](/uwp/api/Windows.Foundation.TimeSpan)
-    - C#/.NET の場合、次を使用します: [**System.DateTimeOffset**](/dotnet/api/system.datetimeoffset?view=dotnet-uwp-10.0)、 [**System.TimeSpan**](/dotnet/api/system.timespan?view=dotnet-uwp-10.0)
-- **GUID** 、 [**Point**](/uwp/api/Windows.Foundation.Point)、 [**Size**](/uwp/api/Windows.Foundation.Size)、 [**Rect**](/uwp/api/Windows.Foundation.Rect)
+- **Char16**、**String**
+- [**DateTime**](/uwp/api/Windows.Foundation.DateTime)、[**TimeSpan**](/uwp/api/Windows.Foundation.TimeSpan)
+    - C#/.NET の場合、次を使用します:[**System.DateTimeOffset**](/dotnet/api/system.datetimeoffset?view=dotnet-uwp-10.0)、[**System.TimeSpan**](/dotnet/api/system.timespan?view=dotnet-uwp-10.0)
+- **GUID**、[**Point**](/uwp/api/Windows.Foundation.Point)、[**Size**](/uwp/api/Windows.Foundation.Size)、[**Rect**](/uwp/api/Windows.Foundation.Rect)
 - [**ApplicationDataCompositeValue**](/uwp/api/Windows.Storage.ApplicationDataCompositeValue):アトミックにシリアル化および逆シリアル化する必要がある、一連の関連したアプリの設定。 コンポジット設定を使うと、相互に依存する設定のアトミックな更新が簡単になります。 同時アクセスとローミング時は、システムによってコンポジット設定の整合性が保たれます。 コンポジット設定は少量のデータに適しており、大きなデータ セットに使うとパフォーマンスが低下する場合があります。
 
 ### <a name="files"></a>ファイル
@@ -57,7 +57,7 @@ ms.locfileid: "93031465"
 
 ### <a name="retrieve-the-local-app-data-store"></a>ローカル アプリ データ ストアを取得する
 
-ローカル アプリ データを読み書きする前に、ローカル アプリ データ ストアを取得する必要があります。 ローカル アプリ データ ストアを取得するには、 [**ApplicationData.LocalSettings**](/uwp/api/windows.storage.applicationdata.localsettings) プロパティを使用して、アプリのローカル設定を [**ApplicationDataContainer**](/uwp/api/Windows.Storage.ApplicationDataContainer) オブジェクトとして取得します。 [  **StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) オブジェクト内のファイルを取得するには、 [**ApplicationData.LocalFolder**](/uwp/api/windows.storage.applicationdata.localfolder) プロパティを使用します。 バックアップや復元に含まれていないファイルを保存できるローカル アプリ データ ストア内のフォルダーを取得するには、 [**ApplicationData.LocalCacheFolder**](/uwp/api/windows.storage.applicationdata.localcachefolder) プロパティを使用します。
+ローカル アプリ データを読み書きする前に、ローカル アプリ データ ストアを取得する必要があります。 ローカル アプリ データ ストアを取得するには、[**ApplicationData.LocalSettings**](/uwp/api/windows.storage.applicationdata.localsettings) プロパティを使用して、アプリのローカル設定を [**ApplicationDataContainer**](/uwp/api/Windows.Storage.ApplicationDataContainer) オブジェクトとして取得します。 [  **StorageFolder**](/uwp/api/Windows.Storage.StorageFolder) オブジェクト内のファイルを取得するには、[**ApplicationData.LocalFolder**](/uwp/api/windows.storage.applicationdata.localfolder) プロパティを使用します。 バックアップや復元に含まれていないファイルを保存できるローカル アプリ データ ストア内のフォルダーを取得するには、[**ApplicationData.LocalCacheFolder**](/uwp/api/windows.storage.applicationdata.localcachefolder) プロパティを使用します。
 
 ```CSharp
 Windows.Storage.ApplicationDataContainer localSettings = 
@@ -68,7 +68,7 @@ Windows.Storage.StorageFolder localFolder =
 
 ### <a name="create-and-retrieve-a-simple-local-setting"></a>簡易ローカル設定を作成して取得する
 
-設定を作成または書き込むには、 [**ApplicationDataContainer.Values**](/uwp/api/windows.storage.applicationdatacontainer.values) プロパティを使用して、前の手順で取得した `localSettings` コンテナー内の設定にアクセスします。 次の例では、`exampleSetting` という名前の設定を作成します。
+設定を作成または書き込むには、[**ApplicationDataContainer.Values**](/uwp/api/windows.storage.applicationdatacontainer.values) プロパティを使用して、前の手順で取得した `localSettings` コンテナー内の設定にアクセスします。 次の例では、`exampleSetting` という名前の設定を作成します。
 
 ```CSharp
 // Simple setting
@@ -85,7 +85,7 @@ Object value = localSettings.Values["exampleSetting"];
 
 ### <a name="create-and-retrieve-a-local-composite-value"></a>ローカル コンポジット値を作成して取得する
 
-コンポジット値を作成または書き込むには、 [**ApplicationDataCompositeValue**](/uwp/api/Windows.Storage.ApplicationDataCompositeValue) オブジェクトを作成します。 次の例では、`exampleCompositeSetting` という名前のコンポジット設定を作成し、`localSettings` コンテナーに追加します。
+コンポジット値を作成または書き込むには、[**ApplicationDataCompositeValue**](/uwp/api/Windows.Storage.ApplicationDataCompositeValue) オブジェクトを作成します。 次の例では、`exampleCompositeSetting` という名前のコンポジット設定を作成し、`localSettings` コンテナーに追加します。
 
 ```CSharp
 // Composite setting
@@ -118,7 +118,7 @@ else
 
 ### <a name="create-and-read-a-local-file"></a>ローカル ファイルを作成して読み取る
 
-ローカル アプリ データ ストアにファイルを作成して更新するには、 [**Windows.Storage.StorageFolder.CreateFileAsync**](/uwp/api/windows.storage.storagefolder.createfileasync) や [**Windows.Storage.FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) などのファイル API を使用します。 次の例では、`localFolder` コンテナーに `dataFile.txt` という名前のファイルを作成し、現在の日付と時刻をファイルに書き込みます。 [  **CreationCollisionOption**](/uwp/api/Windows.Storage.CreationCollisionOption) 列挙体の **ReplaceExisting** 値は、ファイルが既にある場合にファイルを置き換えることを示します。
+ローカル アプリ データ ストアにファイルを作成して更新するには、[**Windows.Storage.StorageFolder.CreateFileAsync**](/uwp/api/windows.storage.storagefolder.createfileasync) や [**Windows.Storage.FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) などのファイル API を使用します。 次の例では、`localFolder` コンテナーに `dataFile.txt` という名前のファイルを作成し、現在の日付と時刻をファイルに書き込みます。 [  **CreationCollisionOption**](/uwp/api/Windows.Storage.CreationCollisionOption) 列挙体の **ReplaceExisting** 値は、ファイルが既にある場合にファイルを置き換えることを示します。
 
 ```csharp
 async void WriteTimestamp()
@@ -132,7 +132,7 @@ async void WriteTimestamp()
 }
 ```
 
-ローカル アプリ データ ストアのファイルを開いて読み取るには、 [**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync)、 [**Windows.Storage.StorageFile.GetFileFromApplicationUriAsync**](/uwp/api/windows.storage.storagefile.getfilefromapplicationuriasync)、 [**Windows.Storage.FileIO.ReadTextAsync**](/uwp/api/windows.storage.fileio.readtextasync) などのファイル API を使用します。 この例では、前の手順で作成した `dataFile.txt` ファイルを開き、ファイルから日付を読み取ります。 さまざまな場所からファイル リソースを読み込む方法について詳しくは、「[ファイル リソースを読み込む方法](/previous-versions/windows/apps/hh965322(v=win.10))」をご覧ください。
+ローカル アプリ データ ストアのファイルを開いて読み取るには、[**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync)、[**Windows.Storage.StorageFile.GetFileFromApplicationUriAsync**](/uwp/api/windows.storage.storagefile.getfilefromapplicationuriasync)、[**Windows.Storage.FileIO.ReadTextAsync**](/uwp/api/windows.storage.fileio.readtextasync) などのファイル API を使用します。 この例では、前の手順で作成した `dataFile.txt` ファイルを開き、ファイルから日付を読み取ります。 さまざまな場所からファイル リソースを読み込む方法について詳しくは、「[ファイル リソースを読み込む方法](/previous-versions/windows/apps/hh965322(v=win.10))」をご覧ください。
 
 ```csharp
 async void ReadTimestamp()
@@ -152,44 +152,60 @@ async void ReadTimestamp()
 
 ## <a name="roaming-data"></a>ローミング データ
 
+> [!WARNING]
+> Windows 10 バージョン 1909 の時点では、今後の更新で Package State Roaming (PSR) が削除されることが[発表](/windows/deployment/planning/windows-10-deprecated-features)されました。 Microsoft 以外の開発者は、PSR を使用してデバイス上のローミング データにアクセスできます。これにより、UWP アプリケーションの開発者は、Windows にデータを書き込んで、そのユーザーの Windows の他のインスタンス化に同期することができます。
+> 
+>PSR の代替として推奨されるのは、[Azure App Service](/azure/app-service/) です。 Azure App Service は、広くサポートされており、ドキュメントが豊富で、信頼性が高く、iOS、Android、Web などのクロスプラットフォームやクロスエコシステムのシナリオに対応しています。
 
 アプリでローミング データを使用すると、複数のデバイス間でアプリ データを簡単に同期することができます。 アプリを複数のデバイス上にインストールすると、OS によってアプリ データの同期が維持されるため、2 つ目のデバイス上でユーザーが行うアプリのセットアップ作業が軽減されます。 またローミングを使うと、異なるデバイス上でも、一覧の作成などの作業を中断したときの状態から再開することができます。 ローミング データが更新されると、OS によってクラウドにレプリケートされ、アプリがインストールされている別のデバイスに同期されます。
 
-各アプリでローミングできるアプリ データのサイズには OS による制限があります。 「 [**ApplicationData.RoamingStorageQuota**](/uwp/api/windows.storage.applicationdata.roamingstoragequota)」をご覧ください。 この制限に達した場合、アプリでローミングされたアプリ データの合計が制限値未満に戻るまで、そのアプリのアプリ データはクラウドにまったくレプリケートされません。 このため、ローミング データは、ユーザー設定、リンク、小さなデータ ファイルのみに使うことをお勧めします。
+各アプリでローミングできるアプリ データのサイズには OS による制限があります。 「[**ApplicationData.RoamingStorageQuota**](/uwp/api/windows.storage.applicationdata.roamingstoragequota)」をご覧ください。 この制限に達した場合、アプリでローミングされたアプリ データの合計が制限値未満に戻るまで、そのアプリのアプリ データはクラウドにまったくレプリケートされません。 このため、ローミング データは、ユーザー設定、リンク、小さなデータ ファイルのみに使うことをお勧めします。
 
 アプリのローミング データは、一定の時間間隔内にユーザーがいずれかのデバイスからアクセスしている限り、クラウドに保持されます。 この時間間隔内にアプリが実行されないと、そのローミング データはクラウドから削除されます。 ユーザーがアプリをアンインストールしても、そのローミング データがクラウドから自動的に削除されることはなく、保持されます。 時間間隔内にユーザーがアプリを再インストールすると、ローミング データがクラウドから同期されます。
 
 ### <a name="roaming-data-dos-and-donts"></a>データのローミングの推奨事項と非推奨事項
 
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
 - ユーザーの基本設定やカスタマイズ、リンク、小さなデータ ファイルにローミングを使います。 たとえば、ローミングを使って、ユーザーの背景色の基本設定をすべてのデバイスで保持します。
 - ユーザーがデバイス間で作業を続けられるようにローミングを使います。 たとえば、下書きしたメールの内容やリーダー アプリで最近表示したページなどのアプリ データをローミングします。
-- アプリ データを更新して、 [**DataChanged**](/uwp/api/windows.storage.applicationdata.datachanged) イベントを処理します。 このイベントは、クラウドからのアプリ データの同期が完了したときに発生します。
+- アプリ データを更新して、[**DataChanged**](/uwp/api/windows.storage.applicationdata.datachanged) イベントを処理します。 このイベントは、クラウドからのアプリ データの同期が完了したときに発生します。
 - 生データではなくコンテンツへの参照をローミングします。 たとえば、オンライン記事のコンテンツではなく URL をローミングします。
-- タイム クリティカルな重要な設定に対しては、 [**RoamingSettings**](/uwp/api/windows.storage.applicationdata.roamingsettings) に関連付けられた *HighPriority* 設定を使います。
+- タイム クリティカルな重要な設定に対しては、[**RoamingSettings**](/uwp/api/windows.storage.applicationdata.roamingsettings) に関連付けられた *HighPriority* 設定を使います。
 - デバイス固有のアプリ データをローミングしないでください。 ローカルにあるファイル リソースのパス名など、ローカルのみに関連した情報もあります。 ローカル情報をローミングする場合は、その情報が別のデバイスで無効なときにアプリを回復できることを確認してください。
-- 大量のアプリ データをローミングしないでください。 アプリでローミングできるアプリ データの量には制限があります。この最大値を取得するには、 [**RoamingStorageQuota**](/uwp/api/windows.storage.applicationdata.roamingstoragequota) プロパティを使ってください。 この制限に達した場合、アプリ データのサイズが制限を下回るまで、データはローミングできません。 アプリを設計する際は、この制限を超えないようにサイズの大きいデータをどのように制限するかを検討してください。 たとえば、ゲームの状態を保存するのにそれぞれ 10 KB 必要になる場合は、ユーザーによる保存を 10 ゲームまでに制限したりすると効果的です。
+- 大量のアプリ データをローミングしないでください。 アプリでローミングできるアプリ データの量には制限があります。この最大値を取得するには、[**RoamingStorageQuota**](/uwp/api/windows.storage.applicationdata.roamingstoragequota) プロパティを使ってください。 この制限に達した場合、アプリ データのサイズが制限を下回るまで、データはローミングできません。 アプリを設計する際は、この制限を超えないようにサイズの大きいデータをどのように制限するかを検討してください。 たとえば、ゲームの状態を保存するのにそれぞれ 10 KB 必要になる場合は、ユーザーによる保存を 10 ゲームまでに制限したりすると効果的です。
 - 即時同期に依存するデータにローミングを使わないでください。 Windows では即時同期が保証されません。ユーザーがオフラインであったり、待ち時間の長いネットワークを使っている場合、ローミングはかなり遅れる可能性があります。 UI が即時同期に依存しないことを確認してください。
 - 頻繁に変更されるデータにはローミングを使用しないでください。 たとえば、再生中の曲の秒刻みの位置など、頻繁に変更される情報を追跡する場合は、この情報をローミング アプリ データとして保存しないでください。 代わりに、現在再生中の曲など、変更の頻度が少なく、ユーザー エクスペリエンスも損なわないような情報を利用します。
 
 ### <a name="roaming-pre-requisites"></a>ローミングの前提条件
 
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
 アプリ データのローミングは、Microsoft アカウントを使ってデバイスにログインするすべてのユーザーに利点をもたらします。 ただし、いつでもデバイスでアプリ データのローミングを切り替えることができるのは、ユーザーとグループ ポリシーの管理者です。 ユーザーが Microsoft アカウントを使わない場合やデータのローミング機能を無効にする場合、ユーザーは引き続きアプリを使用できますが、アプリ データは各デバイスに対してローカルのままになります。
 
-[  **PasswordVault**](/uwp/api/Windows.Security.Credentials.PasswordVault) に格納されているデータは、ユーザーが "信頼" しているデバイスにしか移行されません。 デバイスが信頼されていない場合、この資格情報コンテナーのセキュリティで確保されているデータはローミングされません。
+[**PasswordVault**](/uwp/api/Windows.Security.Credentials.PasswordVault) に格納されているデータは、ユーザーが "信頼" しているデバイスにしか移行されません。 デバイスが信頼されていない場合、この資格情報コンテナーのセキュリティで確保されているデータはローミングされません。
 
-### <a name="conflict-resolution"></a>［競合の解決］
+### <a name="conflict-resolution"></a>競合の解決
+
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
 
 アプリ データのローミングは、複数のデバイスでの同時使用を想定していません。 2 台のデバイスで特定のデータ単位が変更されたことが原因で同期中に競合が発生した場合、最後に書き込まれた値が常に優先されます。 これにより、アプリで最新の情報が利用されます。 データ単位が設定コンポジットの場合、競合の解決は設定の単位で行われ、最新の変更を含むコンポジットが同期されます。
 
 ### <a name="when-to-write-data"></a>データを書き込むタイミング
 
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
 想定される設定の有効期間に応じて、データを書き込むタイミングを変える必要があります。 変更の頻度が低いアプリ データや変更間隔の長いアプリ データは、変更されたらすぐに書き込むようにします。 ただし、頻繁に変更されるアプリ データは、アプリが中断されたとき以外は、一定の間隔 (5 分に 1 回など) でのみ書き込むようにします。 たとえば、音楽アプリでは、"現在の曲" の設定は新しい曲の再生が始まるたびに書き込みますが、曲の途中の実際の位置は中断したときにのみ書き込みます。
 
 ### <a name="excessive-usage-protection"></a>使いすぎに対する保護
 
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
 リソースの不適切な使用を防止するために、システムにはさまざまな保護メカニズムが備わっています。 アプリ データが想定どおりに移行されない場合は、デバイスが一時的に制限されていることが考えられます。 通常、この状況はしばらくすると自動的に解決されるため、操作は必要ありません。
 
 ### <a name="versioning"></a>バージョン管理
+
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
 
 アプリ データは、バージョンに基づいてデータ構造をアップグレードできます。 バージョン番号は、アプリのバージョンとは別の番号で、自由に設定することができます。 強制ではありませんが、バージョン番号は新しいデータほど大きくすることを強くお勧めします。新しいデータを表すバージョン番号が小さくなると、データ損失などの望ましくない問題が発生する可能性があります。
 
@@ -197,20 +213,23 @@ async void ReadTimestamp()
 
 ### <a name="testing-and-tools"></a>テストとツール
 
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
 開発者は、ローミング アプリ データの同期をトリガーするためにデバイスをロックできます。 一定の期間にわたってアプリ データが移行されていない場合は、次の点を確認してください。
 
-- ローミング データが最大サイズを超えていないこと (詳しくは、「 [**RoamingStorageQuota**](/uwp/api/windows.storage.applicationdata.roamingstoragequota)」をご覧ください)。
+- ローミング データが最大サイズを超えていないこと (詳しくは、「[**RoamingStorageQuota**](/uwp/api/windows.storage.applicationdata.roamingstoragequota)」をご覧ください)。
 - ファイルが閉じていて、適切に解放されていること。
 - 同じバージョンのアプリを実行しているデバイスが 2 台以上あること。
 
-
 ### <a name="register-to-receive-notification-when-roaming-data-changes"></a>ローミング データが変更された場合に通知を受け取るように登録する
+
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
 
 アプリのローミング データを使用するには、ローミング データの変更に備えて登録し、設定を読み書きできるように、ローミング データのコンテナーを取得する必要があります。
 
 1.  ローミング データが変更されたときに通知を受け取るように登録します。
 
-    [  **DataChanged**](/uwp/api/windows.storage.applicationdata.datachanged) イベントで、ローミング データが変更されたときに通知します。 この例では、ローミング データの変更のハンドラーとして `DataChangeHandler` を設定します。
+    [**DataChanged**](/uwp/api/windows.storage.applicationdata.datachanged) イベントで、ローミング データが変更されたときに通知します。 この例では、ローミング データの変更のハンドラーとして `DataChangeHandler` を設定します。
 
 ```csharp
 void InitHandlers()
@@ -238,7 +257,9 @@ Windows.Storage.ApplicationDataContainer roamingSettings =
 
 ### <a name="create-and-retrieve-roaming-settings"></a>ローミング設定を作成して取得する
 
-前のセクションで取得した `roamingSettings` コンテナー内の設定にアクセスするには、 [**ApplicationDataContainer.Values**](/uwp/api/windows.storage.applicationdatacontainer.values) プロパティを使用します。 次の例では、`exampleSetting` という名前の簡易設定と、`composite` という名前のコンポジット値を作成します。
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
+前のセクションで取得した `roamingSettings` コンテナー内の設定にアクセスするには、[**ApplicationDataContainer.Values**](/uwp/api/windows.storage.applicationdatacontainer.values) プロパティを使用します。 次の例では、`exampleSetting` という名前の簡易設定と、`composite` という名前のコンポジット値を作成します。
 
 ```csharp
 // Simple setting
@@ -282,7 +303,9 @@ else
 
 ### <a name="create-and-retrieve-roaming-files"></a>ローミング ファイルを作成して取得する
 
-ローミング アプリ データ ストアでファイルを作成して更新するには、 [**Windows.Storage.StorageFolder.CreateFileAsync**](/uwp/api/windows.storage.storagefolder.createfileasync) や [**Windows.Storage.FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) などのファイル API を使用します。 次の例では、`roamingFolder` コンテナーに `dataFile.txt` という名前のファイルを作成し、現在の日付と時刻をファイルに書き込みます。 [  **CreationCollisionOption**](/uwp/api/Windows.Storage.CreationCollisionOption) 列挙体の **ReplaceExisting** 値は、ファイルが既にある場合にファイルを置き換えることを示します。
+> [データのローミング](#roaming-data)に関する重要な注意事項を参照してください。
+
+ローミング アプリ データ ストアでファイルを作成して更新するには、[**Windows.Storage.StorageFolder.CreateFileAsync**](/uwp/api/windows.storage.storagefolder.createfileasync) や [**Windows.Storage.FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) などのファイル API を使用します。 次の例では、`roamingFolder` コンテナーに `dataFile.txt` という名前のファイルを作成し、現在の日付と時刻をファイルに書き込みます。 [**CreationCollisionOption**](/uwp/api/Windows.Storage.CreationCollisionOption) 列挙体の **ReplaceExisting** 値は、ファイルが既にある場合にファイルを置き換えることを示します。
 
 ```csharp
 async void WriteTimestamp()
@@ -296,7 +319,7 @@ async void WriteTimestamp()
 }
 ```
 
-ローミング アプリ データ ストアのファイルを開いて読み取るには、 [**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync)、 [**Windows.Storage.StorageFile.GetFileFromApplicationUriAsync**](/uwp/api/windows.storage.storagefile.getfilefromapplicationuriasync)、 [**Windows.Storage.FileIO.ReadTextAsync**](/uwp/api/windows.storage.fileio.readtextasync) などのファイル API を使用します。 この例では、前のセクションで作成した `dataFile.txt` ファイルを開き、ファイルから日付を読み取ります。 さまざまな場所からファイル リソースを読み込む方法について詳しくは、「[ファイル リソースを読み込む方法](/previous-versions/windows/apps/hh965322(v=win.10))」をご覧ください。
+ローミング アプリ データ ストアのファイルを開いて読み取るには、[**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync)、[**Windows.Storage.StorageFile.GetFileFromApplicationUriAsync**](/uwp/api/windows.storage.storagefile.getfilefromapplicationuriasync)、[**Windows.Storage.FileIO.ReadTextAsync**](/uwp/api/windows.storage.fileio.readtextasync) などのファイル API を使用します。 この例では、前のセクションで作成した `dataFile.txt` ファイルを開き、ファイルから日付を読み取ります。 さまざまな場所からファイル リソースを読み込む方法について詳しくは、「[ファイル リソースを読み込む方法](/previous-versions/windows/apps/hh965322(v=win.10))」をご覧ください。
 
 ```csharp
 async void ReadTimestamp()
@@ -314,11 +337,10 @@ async void ReadTimestamp()
 }
 ```
 
-
 ## <a name="temporary-app-data"></a>一時アプリ データ
 
 
-一時アプリ データ ストアは、キャッシュのような働きをします。 ファイルはローミングされず、任意の時点で削除されます。 システム メンテナンス タスクを使うと、この場所に格納されているデータをいつでも自動的に削除できます。 ディスク クリーンアップを使って、一時データ ストアからファイルを削除することもできます。 一時アプリ データは、アプリ セッションの一時的な情報の格納に使うことができます。 このデータは、アプリ セッションの終了後に保持されるという保証はありません。必要に応じて使用領域が再利用されます。 この場所には、 [**temporaryFolder**](/uwp/api/windows.storage.applicationdata.temporaryfolder) プロパティを使ってアクセスできます。
+一時アプリ データ ストアは、キャッシュのような働きをします。 ファイルはローミングされず、任意の時点で削除されます。 システム メンテナンス タスクを使うと、この場所に格納されているデータをいつでも自動的に削除できます。 ディスク クリーンアップを使って、一時データ ストアからファイルを削除することもできます。 一時アプリ データは、アプリ セッションの一時的な情報の格納に使うことができます。 このデータは、アプリ セッションの終了後に保持されるという保証はありません。必要に応じて使用領域が再利用されます。 この場所には、[**temporaryFolder**](/uwp/api/windows.storage.applicationdata.temporaryfolder) プロパティを使ってアクセスできます。
 
 ### <a name="retrieve-the-temporary-data-container"></a>一時データコンテナーを取得する
 
@@ -330,7 +352,7 @@ Windows.Storage.StorageFolder temporaryFolder = ApplicationData.Current.Temporar
 
 ### <a name="create-and-read-temporary-files"></a>一時ファイルを作成して読み取る
 
-一時アプリ データ ストアにファイルを作成して更新するには、 [**Windows.Storage.StorageFolder.CreateFileAsync**](/uwp/api/windows.storage.storagefolder.createfileasync) や [**Windows.Storage.FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) などのファイル API を使用します。 次の例では、`temporaryFolder` コンテナーに `dataFile.txt` という名前のファイルを作成し、現在の日付と時刻をファイルに書き込みます。 [  **CreationCollisionOption**](/uwp/api/Windows.Storage.CreationCollisionOption) 列挙体の **ReplaceExisting** 値は、ファイルが既にある場合にファイルを置き換えることを示します。
+一時アプリ データ ストアにファイルを作成して更新するには、[**Windows.Storage.StorageFolder.CreateFileAsync**](/uwp/api/windows.storage.storagefolder.createfileasync) や [**Windows.Storage.FileIO.WriteTextAsync**](/uwp/api/windows.storage.fileio.writetextasync) などのファイル API を使用します。 次の例では、`temporaryFolder` コンテナーに `dataFile.txt` という名前のファイルを作成し、現在の日付と時刻をファイルに書き込みます。 [**CreationCollisionOption**](/uwp/api/Windows.Storage.CreationCollisionOption) 列挙体の **ReplaceExisting** 値は、ファイルが既にある場合にファイルを置き換えることを示します。
 
 
 ```csharp
@@ -345,7 +367,7 @@ async void WriteTimestamp()
 }
 ```
 
-一時アプリ データ ストアのファイルを開いて読み取るには、 [**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync)、 [**Windows.Storage.StorageFile.GetFileFromApplicationUriAsync**](/uwp/api/windows.storage.storagefile.getfilefromapplicationuriasync)、 [**Windows.Storage.FileIO.ReadTextAsync**](/uwp/api/windows.storage.fileio.readtextasync) などのファイル API を使用します。 この例では、前の手順で作成した `dataFile.txt` ファイルを開き、ファイルから日付を読み取ります。 さまざまな場所からファイル リソースを読み込む方法について詳しくは、「[ファイル リソースを読み込む方法](/previous-versions/windows/apps/hh965322(v=win.10))」をご覧ください。
+一時アプリ データ ストアのファイルを開いて読み取るには、[**Windows.Storage.StorageFolder.GetFileAsync**](/uwp/api/windows.storage.storagefolder.getfileasync)、[**Windows.Storage.StorageFile.GetFileFromApplicationUriAsync**](/uwp/api/windows.storage.storagefile.getfilefromapplicationuriasync)、[**Windows.Storage.FileIO.ReadTextAsync**](/uwp/api/windows.storage.fileio.readtextasync) などのファイル API を使用します。 この例では、前の手順で作成した `dataFile.txt` ファイルを開き、ファイルから日付を読み取ります。 さまざまな場所からファイル リソースを読み込む方法について詳しくは、「[ファイル リソースを読み込む方法](/previous-versions/windows/apps/hh965322(v=win.10))」をご覧ください。
 
 ```csharp
 async void ReadTimestamp()
@@ -366,9 +388,9 @@ async void ReadTimestamp()
 ## <a name="organize-app-data-with-containers"></a>コンテナーでアプリ データを整理する
 
 
-アプリ データの設定とファイルを整理するには、ディレクトリで直接作業するのではなく、コンテナー ( [**ApplicationDataContainer**](/uwp/api/Windows.Storage.ApplicationDataContainer) オブジェクトで表されます) を作成します。 コンテナーは、ローカル アプリ データ ストア、ローミング アプリ データ ストア、一時アプリ データ ストアに追加できます。 コンテナーは 32 階層まで入れ子にすることができます。
+アプリ データの設定とファイルを整理するには、ディレクトリで直接作業するのではなく、コンテナー ([**ApplicationDataContainer**](/uwp/api/Windows.Storage.ApplicationDataContainer) オブジェクトで表されます) を作成します。 コンテナーは、ローカル アプリ データ ストア、ローミング アプリ データ ストア、一時アプリ データ ストアに追加できます。 コンテナーは 32 階層まで入れ子にすることができます。
 
-設定コンテナーを作成するには、 [**ApplicationDataContainer.CreateContainer**](/uwp/api/windows.storage.applicationdatacontainer.createcontainer) メソッドを呼び出します。 次の例では、`exampleContainer` という名前のローカル設定コンテナーを作成し、`exampleSetting` という名前の設定を追加します。 [  **ApplicationDataCreateDisposition**](/uwp/api/Windows.Storage.ApplicationDataCreateDisposition) 列挙体の **Always** 値は、コンテナーがまだない場合に作成されることを示します。
+設定コンテナーを作成するには、[**ApplicationDataContainer.CreateContainer**](/uwp/api/windows.storage.applicationdatacontainer.createcontainer) メソッドを呼び出します。 次の例では、`exampleContainer` という名前のローカル設定コンテナーを作成し、`exampleSetting` という名前の設定を追加します。 [**ApplicationDataCreateDisposition**](/uwp/api/Windows.Storage.ApplicationDataCreateDisposition) 列挙体の **Always** 値は、コンテナーがまだない場合に作成されることを示します。
 
 ```csharp
 Windows.Storage.ApplicationDataContainer localSettings = 
@@ -389,7 +411,7 @@ if (localSettings.Containers.ContainsKey("exampleContainer"))
 ## <a name="delete-app-settings-and-containers"></a>アプリの設定とコンテナーを削除する
 
 
-アプリでもう必要のない簡易設定を削除するには、 [**ApplicationDataContainerSettings.Remove**](/uwp/api/windows.storage.applicationdatacontainersettings.remove) メソッドを使用します。 この例では、前の手順で作成した `exampleSetting` ローカル設定を削除します。
+アプリでもう必要のない簡易設定を削除するには、[**ApplicationDataContainerSettings.Remove**](/uwp/api/windows.storage.applicationdatacontainersettings.remove) メソッドを使用します。 この例では、前の手順で作成した `exampleSetting` ローカル設定を削除します。
 
 ```csharp
 Windows.Storage.ApplicationDataContainer localSettings = 
@@ -402,7 +424,7 @@ Windows.Storage.StorageFolder localFolder =
 localSettings.Values.Remove("exampleSetting");
 ```
 
-コンポジット設定を削除するには、 [**ApplicationDataCompositeValue.Remove**](/uwp/api/windows.storage.applicationdatacompositevalue.remove) メソッドを使用します。 この例では、前の例で作成したローカルの `exampleCompositeSetting` コンポジット設定を削除します。
+コンポジット設定を削除するには、[**ApplicationDataCompositeValue.Remove**](/uwp/api/windows.storage.applicationdatacompositevalue.remove) メソッドを使用します。 この例では、前の例で作成したローカルの `exampleCompositeSetting` コンポジット設定を削除します。
 
 ```csharp
 Windows.Storage.ApplicationDataContainer localSettings = 
@@ -415,7 +437,7 @@ Windows.Storage.StorageFolder localFolder =
 localSettings.Values.Remove("exampleCompositeSetting");
 ```
 
-コンテナーを削除するには、 [**ApplicationDataContainer.DeleteContainer**](/uwp/api/windows.storage.applicationdatacontainer.deletecontainer) メソッドを呼び出します。 この例では、前の手順で作成したローカルの `exampleContainer` 設定コンテナーを削除します。
+コンテナーを削除するには、[**ApplicationDataContainer.DeleteContainer**](/uwp/api/windows.storage.applicationdatacontainer.deletecontainer) メソッドを呼び出します。 この例では、前の手順で作成したローカルの `exampleContainer` 設定コンテナーを削除します。
 
 ```csharp
 Windows.Storage.ApplicationDataContainer localSettings = 
@@ -431,7 +453,7 @@ localSettings.DeleteContainer("exampleContainer");
 ## <a name="versioning-your-app-data"></a>アプリ データのバージョン管理
 
 
-必要に応じて、アプリのアプリ データをバージョン管理することもできます。 これにより、将来作成するアプリのバージョンでアプリ データの形式を変更しても、以前のバージョンとの互換性に問題が起こりません。 データ ストア内のアプリ データのバージョンをアプリが確認し、以前のバージョンであった場合、アプリ データは新しい形式に更新され、バージョンも更新されます。 詳しくは、「 [**Application.Version**](/uwp/api/windows.storage.applicationdata.version) プロパティ」と「 [**ApplicationData.SetVersionAsync**](/uwp/api/windows.storage.applicationdata.setversionasync) メソッド」をご覧ください。
+必要に応じて、アプリのアプリ データをバージョン管理することもできます。 これにより、将来作成するアプリのバージョンでアプリ データの形式を変更しても、以前のバージョンとの互換性に問題が起こりません。 データ ストア内のアプリ データのバージョンをアプリが確認し、以前のバージョンであった場合、アプリ データは新しい形式に更新され、バージョンも更新されます。 詳しくは、「[**Application.Version**](/uwp/api/windows.storage.applicationdata.version) プロパティ」と「[**ApplicationData.SetVersionAsync**](/uwp/api/windows.storage.applicationdata.setversionasync) メソッド」をご覧ください。
 
 ## <a name="related-articles"></a>関連記事
 

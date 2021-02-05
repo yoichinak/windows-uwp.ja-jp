@@ -1,34 +1,33 @@
 ---
-Description: ビデオ、オーディオ、および画像を表示したり聴いたりするには、メディア プレーヤーを使います。
+description: メディアの再生には、インラインまたは専用の全画面エクスペリエンスを使用した、ビデオとオーディオの表示とリッスンが関与します。
 title: メディア プレーヤー
 ms.assetid: 9AABB5DE-1D81-4791-AB47-7F058F64C491
 dev.assetid: AF2F2008-9B53-430C-BBC3-8888F631B0B0
-label: Media player
+label: Media playback controls
 template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: e7f575f22a56c7c97700e1949494848402d239c6
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: a1471eb468e85bb1c4706c5432e38e501c4c1469
+ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218711"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534411"
 ---
-# <a name="media-player"></a>メディア プレーヤー
+# <a name="media-players"></a>メディア プレーヤー
 
+メディアの再生には、インライン (ページに埋め込まれている、または他のコントロールのグループを使用した) または専用の全画面エクスペリエンスを使用した、ビデオとオーディオの表示とリッスンが関与します。
 
-
-ビデオやオーディオを表示したり聴いたりするには、メディア プレーヤーを使います。 メディアはインラインで (ページに埋め込むか、その他のコントロールのグループを使う) 再生するか、専用の全画面表示で再生できます。 プレーヤーのボタン セットやコントロール バーの背景を変更したり、必要に応じてレイアウトを整理したりできます。 ユーザーが必要とするのは基本的なコントロール セット (再生/一時停止、巻き戻し、早送り) です。
+ユーザーは、再生と一時停止、後へスキップ、前へスキップなどの基本的なコントロール セットを必要とします。これは、(メディア プレーヤーのボタン、コントロール バーの背景、コントロールの配置やレイアウトを含め) 必要に応じて変更できます。
 
 ![トランスポート コントロールを含むメディア プレーヤー要素](images/controls/mtc_double_video_inprod.png)
 
 > **重要な API**:[MediaPlayerElement クラス](/uwp/api/windows.ui.xaml.controls.mediaplayerelement)、[MediaTransportControls クラス](/uwp/api/windows.ui.xaml.controls.mediatransportcontrols)
 
-
-> [!NOTE]
-> **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) を使用する必要があります。 このページの推奨事項はすべて MediaElement にも適用されます。
+> [!Important]
+> **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) コントロールを使用する必要があります。 ここで推奨されている事項はすべて MediaElement にも適用されます。
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -97,9 +96,9 @@ XAML で [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayereleme
 ### <a name="set-the-media-source"></a>メディア ソースを設定する
 ネットワーク上のファイルまたはアプリに埋め込まれたファイルを再生する場合は、ファイルのパスを使用して [Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを [MediaSource](/uwp/api/windows.media.core.mediasource) に設定します。
 
-**ヒント**  インターネットからファイルを開くには、アプリのマニフェスト (Package.appxmanifest) で **Internet (Client)** 機能を宣言する必要があります。 機能の宣言について詳しくは、「[アプリ機能の宣言](../../packaging/app-capability-declarations.md)」をご覧ください。
+**ヒント**  インターネットからファイルを開くには、アプリのマニフェスト (Package.appxmanifest) で **Internet (Client)** 機能を宣言する必要があります。 機能の宣言について詳しくは、「[アプリ機能の宣言](../../packaging/app-capability-declarations.md)」をご覧ください。
 
- 
+ 
 
 次のコードでは、XAML で定義した [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを、[TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox) に入力したファイルのパスに設定してみます。
 
@@ -169,7 +168,7 @@ private void LoadEmbeddedAppFile()
 ### <a name="open-local-media-files"></a>ローカル メディア ファイルを開く
 ローカル システムや OneDrive のファイルを開くには、[FileOpenPicker](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイルを取得し、[Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) を使ってメディア ソースを設定します。または、プログラムによってユーザーのメディア フォルダーにアクセスすることもできます。
 
-アプリがユーザーの操作なしで、**Music** または **Video** フォルダーにアクセスする必要がある場合、たとえばユーザーのコレクションのすべての音楽ファイルやビデオ ファイルを列挙し、アプリで表示する場合は、**音楽ライブラリ**および**ビデオ ライブラリ**機能を宣言する必要があります。 詳しくは、「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](../../files/quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」をご覧ください。
+アプリがユーザーの操作なしで、**Music** または **Video** フォルダーにアクセスする必要がある場合、たとえばユーザーのコレクションのすべての音楽ファイルやビデオ ファイルを列挙し、アプリで表示する場合は、**音楽ライブラリ** および **ビデオ ライブラリ** 機能を宣言する必要があります。 詳しくは、「[ミュージック、画像、およびビデオ ライブラリのファイルとフォルダー](../../files/quickstart-managing-folders-in-the-music-pictures-and-videos-libraries.md)」をご覧ください。
 
 ユーザーはどのファイルにアクセスしているかを完全に制御できるので、[FileOpenPicker](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) には、ユーザーの **Music** または **Video** フォルダーなど、ローカル ファイル システム上のファイルにアクセスするための特別な機能は必要ありません。 セキュリティとプライバシーの観点から、アプリで使用する機能の数は最小限にすることをお勧めします。
 

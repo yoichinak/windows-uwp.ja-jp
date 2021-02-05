@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 36397e64215bfe4b57aac32e9eccc94182495688
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: c84595a8d5aadfb22f84a5fe780e93b9518490dc
+ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93033305"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534481"
 ---
 # <a name="controls-by-function"></a>機能別コントロール
 
@@ -41,7 +41,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ## <a name="appbars-and-commands"></a>アプリ バーとコマンド
 
 ### <a name="app-bar"></a>アプリ バー
-アプリ特有のコマンドを表示するツール バー。 「コマンド バー」をご覧ください。
+アプリ特有のコマンドを表示するツール バー。 「[コマンド バー](#command-bar)」をご覧ください。
 
 参照 :[AppBar](/uwp/api/Windows.UI.Xaml.Controls.AppBar) 
 
@@ -105,7 +105,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 デザインと使い方: [ボタン コントロールのガイド](buttons.md) 
 
 ### <a name="hyperlink"></a>ハイパーリンク
-「ハイパーリンク ボタン」をご覧ください。
+「[ハイパーリンク ボタン](#hyperlink-button)」をご覧ください。
 
 ### <a name="hyperlink-button"></a>ハイパーリンク ボタン
 ブラウザーでマークアップ テキストとして表示され、指定された URI を開くボタンです。
@@ -248,7 +248,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 ## <a name="flyouts"></a>ポップアップ
 
 ### <a name="context-menu"></a>ショートカット メニュー
-「メニュー ポップアップ」および「ポップアップ メニュー」をご覧ください。
+「[メニュー ポップアップ](#menu-flyout)」および「[ポップアップ メニュー](#popup-menu)」をご覧ください。
 
 ### <a name="flyout"></a>ポップアップ
 ユーザーの操作が必要であることを示すメッセージを表示します (ダイアログでは他のユーザー操作がブロックされますが、ポップアップでは別のウィンドウが作成されず、操作もブロックされません)。
@@ -416,7 +416,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 参照 :[Grid](/uwp/api/Windows.UI.Xaml.Controls.Grid)
  
 ### <a name="panning-scroll-viewer"></a>パン スクロール ビューアー
-「スクロール ビューアー」をご覧ください。
+「[スクロール ビューアー](#scroll-viewer)」をご覧ください。
 
 ### <a name="relativepanel"></a>RelativePanel
 互いまたは親パネルを基準にして、子オブジェクトの位置を決定し、調整できるパネル。
@@ -433,7 +433,7 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 参照 :[RelativePanel](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel)
 
 ### <a name="scroll-bar"></a>スクロール バー
-「スクロール ビューアー」をご覧ください (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
+「[スクロール ビューアー](#scroll-viewer)」をご覧ください。 (ScrollBar は ScrollViewer の要素です。 通常、スタンドアロン コントロールとしては使用しません)。
 
 参照 :[ScrollBar](/uwp/api/Windows.UI.Xaml.Controls.Primitives.ScrollBar)
  
@@ -511,23 +511,28 @@ Windows の XAML UI フレームワークには、UI 開発をサポートする
 参照 :[Viewbox](/uwp/api/Windows.UI.Xaml.Controls.Viewbox)
  
 ### <a name="zooming-scroll-viewer"></a>ズーム スクロール ビューアー
-「スクロール ビューアー」をご覧ください。
+「[スクロール ビューアー](#scroll-viewer)」をご覧ください。
 
 ## <a name="media-controls"></a>メディア コントロール
 
 ### <a name="audio"></a>オーディオ
-「メディア要素」をご覧ください。
 
-### <a name="media-element"></a>メディア要素
+「[メディア プレーヤーの要素](#media-player-element)」をご覧ください。
+
+### <a name="media-player-element"></a>メディア プレーヤーの要素
+
 オーディオとビデオのコンテンツを再生するコントロール。
 
 ```xaml
-<MediaElement x:Name="myMediaElement"/>
+<MediaPlayerElement x:Name="myMediaPlayerElement"/>
 ```
 
-参照 :[MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) 
+> [!Important]
+> **MediaPlayerElement** は Windows 10 バージョン 1607 以降でのみ使用できます。 Windows 10 の以前のバージョン用にアプリを開発する場合は、代わりに [MediaElement](/uwp/api/Windows.UI.Xaml.Controls.MediaElement) コントロールを使用する必要があります。
 
-デザインと使い方: [メディア要素コントロールのガイド](media-playback.md)
+参照 :[MediaPlayerElement](/uwp/api/Windows.UI.Xaml.Controls.MediaPlayerElement)
+
+デザインと使い方: [メディア再生](media-playback.md)
 
 ### <a name="mediatransportcontrols"></a>MediaTransportControls
 MediaElement の再生コントロールを提供するコントロール。
@@ -540,12 +545,12 @@ MediaElement の再生コントロールを提供するコントロール。
 
 参照 :[MediaTransportControls](/uwp/api/Windows.UI.Xaml.Controls.MediaTransportControls) 
 
-デザインと使い方: [メディア要素コントロールのガイド](media-playback.md) 
+デザインと使い方: [メディア再生](media-playback.md)
 
 サンプル コード: [メディア トランスポート コントロールのサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlCustomMediaTransportControls)
 
 ### <a name="video"></a>ビデオ
-「メディア要素」をご覧ください。
+「[メディア プレーヤーの要素](#media-player-element)」をご覧ください。
 
 ## <a name="navigation"></a>［ナビゲーション］
 
@@ -666,7 +671,7 @@ Web コンテンツをホストするコンテナー コントロール。
 サンプル コード: [AutoSuggestBox の移行のサンプル](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlAutoSuggestBox)
 
 ### <a name="multi-line-text-box"></a>複数行テキスト ボックス
-「テキスト ボックス」をご覧ください。
+「[テキスト ボックス](#text-box)」をご覧ください。
 
 ### <a name="password-box"></a>パスワード ボックス
 パスワードを入力するためのコントロール。
@@ -698,13 +703,13 @@ Web コンテンツをホストするコンテナー コントロール。
 サンプル コード: [XAML テキストのサンプル](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/XAML%20text%20display%20sample%20(Windows%208))
 
 ### <a name="search-box"></a>検索ボックス
-「自動提案ボックス」をご覧ください。
+「[自動提案ボックス](#auto-suggest-box)」をご覧ください。
 
 ### <a name="single-line-text-box"></a>単一行テキスト ボックス
-「テキスト ボックス」をご覧ください。
+「[テキスト ボックス](#text-box)」をご覧ください。
 
 ### <a name="static-textparagraph"></a>静的テキスト/段落
-「テキスト ブロック」をご覧ください。
+「[テキスト ブロック](#text-block)」をご覧ください。
 
 ### <a name="text-block"></a>テキスト ブロック
 テキストを表示するコントロール。

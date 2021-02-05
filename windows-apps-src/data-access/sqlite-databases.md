@@ -5,12 +5,12 @@ ms.date: 06/26/2020
 ms.topic: article
 keywords: windows 10, UWP, SQLite, データベース
 ms.localizationpriority: medium
-ms.openlocfilehash: ba2bcf104bd1fee9657e83f7a20334522fa0450c
-ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
+ms.openlocfilehash: 045f327622c93d7d4c1653492e54b7939ee919a2
+ms.sourcegitcommit: d0eef123b167dc63f482a9f4432a237c1c6212db
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97860205"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99077250"
 ---
 # <a name="use-a-sqlite-database-in-a-uwp-app"></a>UWP アプリでの SQLite データベースの使用
 SQLite を使用すると、ユーザーのデバイス上の軽量なデータベースにデータを保存し、取得することができます。 このガイドでその方法を示します。
@@ -35,7 +35,7 @@ Entity Framework Core またはオープン ソースの [SQLite ライブラリ
 
 Entity Framework (EF) は、ドメイン固有のオブジェクトを使ってリレーショナル データを操作できる、オブジェクト リレーショナル マッパーです。 既に他の .NET アプリでデータを操作するためにこのフレームワークを使用している場合は、そのコードを UWP アプリに移行することができ、接続文字列を適切に変更することでアプリが動作します。
 
-これを試すには、[新しいデータベースを使用した、ユニバーサル Windows プラットフォーム (UWP) 上の EF Core の概要](/ef/core/get-started/uwp/getting-started)に関するページをご覧ください。
+試してみるには、「[EF Core の概要](/ef/core/get-started/overview/first-app)」を参照してください。
 
 ### <a name="sqlite-library"></a>SQLite ライブラリ
 
