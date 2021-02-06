@@ -4,12 +4,12 @@ description: 実行可能ファイルまたはパッケージマネージャー 
 ms.date: 12/02/2020
 ms.topic: quickstart
 ms.localizationpriority: medium
-ms.openlocfilehash: d0018e69e5a107baa595e4d3dd05a924257551a8
-ms.sourcegitcommit: d0eef123b167dc63f482a9f4432a237c1c6212db
+ms.openlocfilehash: 3effdd927b89a53b2ff92efeb422fb32293f98ba
+ms.sourcegitcommit: 447382282a6f549825480c2ff5b3cec9568d0e47
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99077220"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624631"
 ---
 # <a name="install-powertoys"></a>PowerToys をインストールする
 
@@ -34,7 +34,7 @@ Windows 実行可能ファイルを使用して Powertoy をインストール�
 - [.Net Core 3.1 デスクトップランタイム](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-3.1.4-windows-x64-installer)。 この要件は、Powertoy インストーラーによって処理されます。
 - 現在、x64 アーキテクチャがサポートされています。 ARM および x86 のサポートは、今後ご利用いただけるようになりました。
 
-コンピューターがこれらの要件を満たしていることを確認するには、windows 10 のバージョンとビルド番号を確認します。そのためには、 **⊞ Win** *(Windows キー)*  +  **D** を選択し、「 **winver**」と入力して、[ **OK]** を選択します。 (または、Windows コマンド プロンプトで `ver` コマンドを入力します)。 [**設定**] メニューでは、[最新の Windows バージョンに更新](ms-settings:windowsupdate)できます。
+コンピューターがこれらの要件を満たしていることを確認するには、windows 10 のバージョンとビルド番号を確認します。そのためには、 **⊞ Win** *(Windows キー)*  +  **R** を選択し、「 **winver**」と入力して、[ **OK]** を選択します。 (または、Windows コマンド プロンプトで `ver` コマンドを入力します)。 [**設定**] メニューでは、[最新の Windows バージョンに更新](ms-settings:windowsupdate)できます。
 
 ## <a name="alternative-install-methods"></a>別のインストール方法
 
