@@ -5,17 +5,19 @@ ms.assetid: 6fe5fcc5-9ee4-4c04-92f4-7b1bf7ef5651
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 5d0f841ed653adac6770089a9ec9c1be0335e346
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: d96e54604c5def61802a77625a6c18c556db909d
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057833"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99606057"
 ---
 # <a name="deep-link-from-a-background-app-in-cortana-to-a-foreground-app"></a>Cortana のバックグラウンドアプリから前景アプリへのディープリンク
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 **Cortana** でバックグラウンド アプリからのディープ リンクを提供し、フォアグラウンドに特定の状態やコンテキストでアプリを起動します。
 

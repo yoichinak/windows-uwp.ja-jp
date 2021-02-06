@@ -8,17 +8,19 @@ keywords: Cortana, Cortana のキャンバス, Cortana の設計, ユーザー �
 ms.date: 01/27/2021
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ca9f77d10f6e22d4e244b102cb8b85e1f75113fc
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: 6187022f4fcce254d142c61f1c2fe222c11bd8a5
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057563"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99606047"
 ---
 # <a name="cortana-interactions-in-windows-apps"></a>Windows アプリにおける Cortana のやり取り
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 Windows アプリケーションで1つのアクションを起動して実行する音声コマンドを使用して、 **Cortana** の基本的な機能を拡張します。
 

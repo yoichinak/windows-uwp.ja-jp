@@ -5,17 +5,19 @@ ms.assetid: b497145b-c7a0-454a-8329-6bc1228953bb
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 9f9e0aeb1cf23eb64df3104cf1f90e2b30d083ba
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: 1f61a08e9eeb66371ed39b44eb39dacbc1bf3cf5
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057811"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99606037"
 ---
 # <a name="dynamically-modify-cortana-vcd-phrase-lists"></a>Cortana を動的に変更する VCD 語句の一覧
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 音声認識の結果を使って、音声コマンド定義 (VCD) ファイルに含まれているサポート対象語句の一覧 (**PhraseList** 要素) にアクセスし、この一覧を実行時に更新することができます。
 
@@ -41,7 +43,7 @@ ms.locfileid: "99057811"
 **PhraseList** とその他の VCD 要素について詳しくは、[**VCD 要素および属性 v1.2**](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2) のリファレンスをご覧ください。
 
 > [!TIP]
-> **必要条件**
+> **前提条件**
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
@@ -104,7 +106,7 @@ if (Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
 }
 ```
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>解説
 
 **PhraseList** を使った認識の制約は、比較的少ないセットや単語に適しています。 単語セットが大きすぎ (数百語など) たり、まったく制約しない場合は、**PhraseTopic** 要素と **Subject** 要素を使って音声認識結果の関連性を絞り込み、スケーラビリティを高めます。
 

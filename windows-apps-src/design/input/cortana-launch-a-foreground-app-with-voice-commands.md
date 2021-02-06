@@ -5,17 +5,19 @@ ms.assetid: e4bf3714-6f62-466f-9e7c-3b03ee86a117
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: a9df2d107482234fa8783d92a1f4fbb075e7d505
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: 6e4e1b30d7d6e259ff66cdccebeed325ded57c18
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057787"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99606017"
 ---
 # <a name="activate-a-foreground-app-with-voice-commands-through-cortana"></a>Cortana の音声コマンドを使ったフォアグラウンド アプリのアクティブ化
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 **Cortana** 内で音声コマンドを使ってシステム機能にアクセスするだけでなく、アプリの機能によって **Cortana** を拡張することもできます。 音声コマンドを使用して、アプリをフォアグラウンドでアクティブ化し、アプリ内で操作やコマンドを実行できます。
 
@@ -53,7 +55,7 @@ ms.locfileid: "99057787"
 3. 音声コマンドによるアクティブ化、アプリ内でのナビゲーション、コマンドの実行を処理します。
 
 > [!TIP]
-> **必要条件**
+> **前提条件**
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >

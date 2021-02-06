@@ -8,17 +8,19 @@ ms.date: 01/27/2021
 ms.topic: article
 keywords: cortana, デザイン
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d1f27c2e70ce8bf9d77f07dd0871cf09a441bdc
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: b7711f9fd653bbd635582a0b2268a5eb0ed7417b
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057573"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99606087"
 ---
 # <a name="cortana-design-guidelines"></a>Cortana の設計ガイドライン
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 このガイドラインおよび推奨事項では、アプリがユーザーとやり取りしてタスクを実行し、どのように行われているかがすべて明らかになるように **Cortana** を有効に活用する方法について説明します。
 
@@ -108,7 +110,7 @@ ms.locfileid: "99057573"
 
 代替応答のコレクションを回転したり、ランダムに選んで、応答に変化を持たせてください。 たとえば、「どんな映画を見ますか」 「どんな映画を鑑賞しますか」などです。 これにより、アプリがより自然でユニークになります。
 
-## <a name="localization"></a>ローカライズ
+## <a name="localization"></a>ローカリゼーション
 
 音声コマンドを使ってアクションを開始するには、ユーザーがデバイスで選んだ言語で音声コマンドをアプリに登録する必要があります ([設定] &gt; [システム] &gt; [音声] &gt; [音声認識の言語])。
 

@@ -7,17 +7,19 @@ ms.assetid: c2959c1b-c2f2-4a8d-8f3e-79585f69afcf
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 94f3d6323649737f978128e442c95449bce94075
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: 7716d4d623653c6b2d943135f2e2cf1ac9a40343
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057790"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99605997"
 ---
 # <a name="support-natural-language-voice-commands-in-cortana"></a>Cortana での自然言語音声コマンドのサポート
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 ユーザーがコマンド内の任意の場所にアプリ名を含めることができる柔軟で自然な音声コマンドで **Cortana** を拡張します。
 
@@ -38,7 +40,7 @@ ms.locfileid: "99057790"
 - サフィックス - コマンド語句の後
 
 > [!TIP]
-> **必要条件**
+> **前提条件**
 >
 > このトピックで [は、音声コマンドを使用して Cortana でバックグラウンドアプリをアクティブ化する方法](cortana-launch-a-background-app-with-voice-commands.md)について説明します。 ここでは、引き続き **Adventure Works** という旅行の計画および管理アプリを使って機能について説明します。
 >
@@ -142,7 +144,7 @@ ms.locfileid: "99057790"
     <ListenFor RequireAppName="ExplicitlySpecified">Find {searchPhrase} {builtin:AppName}</ListenFor>
     ```
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>解説
 
 **Cortana** でユーザーが声に出すことができる音声コマンドのバリエーションを増やすことによっても、アプリの全体的な使いやすさが高まります。
 

@@ -5,17 +5,19 @@ ms.assetid: e2c7eae3-6beb-4156-92a5-474bba53451e
 ms.date: 09/24/2019
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 9331a87eb6a7f2f8a09beb57f82540518993806a
-ms.sourcegitcommit: d7efd35c1749f695aebbc0db99d8b62b70fb72da
+ms.openlocfilehash: f1ed51107f41318cecf2d8fea73484713b4b837c
+ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057813"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99606067"
 ---
 # <a name="activate-a-background-app-in-cortana-using-voice-commands"></a>音声コマンドを使用して Cortana でバックグラウンドアプリをアクティブ化する  
 
 >[!WARNING]
 > この機能は、Windows 10 2020 年5月の更新プログラム (バージョン2004、コードネーム "20H1") ではサポートされなくなりました。
+>
+> Cortana が最新の生産性エクスペリエンスを変革する方法については [、Microsoft 365 の cortana](/microsoft-365/admin/misc/cortana-integration) を参照してください。
 
 **Cortana** 内の音声コマンドを使用してシステム機能にアクセスするだけでなく、実行するアクションまたはコマンドを指定する音声コマンドを使用して、(バックグラウンドタスクとして) アプリの機能を使用して **cortana** を拡張することもできます。 アプリはバックグラウンドで音声コマンドを処理するとき、フォーカスを取得しません。 その代わり、**Cortana** キャンバスと **Cortana** 音声を介して、すべてのフィードバックと結果が返されます。  
 
@@ -55,7 +57,7 @@ ms.locfileid: "99057813"
 5. **Cortana** 内で音声コマンドに対する適切なフィードバックを表示して読み上げます。  
 
 > [!TIP]
-> **必要条件**
+> **前提条件**
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
@@ -87,8 +89,8 @@ ms.locfileid: "99057813"
 UWP アプリでは、最も適切なイメージを自動的に選択する必要があります。 選択は、特定の設定とデバイスの機能 (ハイコントラスト、有効なピクセル、ロケールなど) に基づいています。 イメージを指定し、異なるリソースバージョンに対して、アプリプロジェクト内で適切な名前付け規則とフォルダー編成を使用していることを確認する必要があります。  
 推奨されるリソースバージョンを指定しないと、ユーザーエクスペリエンスが次のような影響を受ける可能性があります。
 
-- アクセシビリティ
-- ローカライズ  
+- ユーザー補助
+- ローカリゼーション  
 - 画質  
 リソースバージョンは、ユーザーエクスペリエンスの次の変更を調整するために使用されます。  
 - ユーザー設定  
@@ -132,7 +134,7 @@ destinationTile.Image = await StorageFile.GetFileFromApplicationUriAsync(
 1. ソリューション名を右クリックし、[ **新しい > プロジェクト**] を選択します。  
 2. [ **インストールされている > テンプレート > Visual C \# > Windows > Universal**] の下で、[ **Windows ランタイムコンポーネント**] を選択します。 **Windows ランタイムコンポーネント** は、app Service ([**AppService**](/uwp/api/Windows.ApplicationModel.AppService)) を実装するコンポーネントです。  
 3. プロジェクトの名前を入力し、[ **OK** ] ボタンをクリックします。  
-    例 : `VoiceCommandService`。  
+    例: `VoiceCommandService`.  
 4. **ソリューションエクスプローラー** で、プロジェクトを選択し、 `VoiceCommandService` `Class1.cs` Visual Studio によって生成されるファイルの名前を変更します。
     例: **Adventure works** で使用 `AdventureWorksVoiceCommandService.cs` します。  
 5. [ **はい** ] ボタンをクリックします。すべてのの名前を変更するかどうかを確認するメッセージが表示された場合 `Class1.cs` 。  
@@ -140,7 +142,7 @@ destinationTile.Image = await StorageFile.GetFileFromApplicationUriAsync(
     1. 次の using ディレクティブを追加します。  
         `using Windows.ApplicationModel.Background;`  
     2. 新しいプロジェクトを作成するときに、プロジェクト名は、すべてのファイルで既定のルート名前空間として使用されます。 プライマリ プロジェクトの下でアプリ サービスのコードを入れ子にするために、名前空間の名前を変更します。
-        例 : `namespace AdventureWorks.VoiceCommands`。  
+        例: `namespace AdventureWorks.VoiceCommands`.  
     3. ソリューションエクスプローラーで app service プロジェクトの名前を右クリックし、[ **プロパティ**] を選択します。  
     4. [ **ライブラリ** ] タブで、[ **既定の名前空間** ] フィールドを同じ値に更新します。  
         例: `AdventureWorks.VoiceCommands`。  
@@ -201,7 +203,7 @@ destinationTile.Image = await StorageFile.GetFileFromApplicationUriAsync(
     4. 要素 [`uap:Extension`](/uwp/schemas/appxpackage/uapmanifestschema/element-1-extension) に要素を追加 [`Extensions`](/uwp/schemas/appxpackage/uapmanifestschema/element-1-extensions) します。  
     5. `Category`要素に属性を追加 `uap:Extension` し、属性の値 `Category` をに設定し `windows.appService` ます。  
     6. 属性を `EntryPoint` 要素に追加 `uap: Extension` し、属性の値を、を `EntryPoint` 実装するクラスの名前に設定し [`IBackgroundTask`](/uwp/api/Windows.ApplicationModel.Background.IBackgroundTask) ます。  
-        例 : `AdventureWorks.VoiceCommands.AdventureWorksVoiceCommandService`。  
+        例: `AdventureWorks.VoiceCommands.AdventureWorksVoiceCommandService`.  
     7. 要素 [`uap:AppService`](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-appservice) に要素を追加 `uap:Extension` します。  
     8. `Name`要素に属性を追加 [`uap:AppService`](/uwp/schemas/appxpackage/uapmanifestschema/element-uap-appservice) し、属性の値 `Name` を app service の名前 (この場合は) に設定し `AdventureWorksVoiceCommandService` ます。  
     9. 要素に2番目の要素を追加 [`uap:Extension`](/uwp/schemas/appxpackage/uapmanifestschema/element-1-extension) [`Extensions`](/uwp/schemas/appxpackage/uapmanifestschema/element-1-extensions) します。  
@@ -236,7 +238,7 @@ destinationTile.Image = await StorageFile.GetFileFromApplicationUriAsync(
 
 1. Visual Studio で、プライマリプロジェクト名を右クリックし、[ **新しい項目の追加 >**] を選択します。 **XML ファイル** を追加します。  
 2. [**VCD**](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)ファイルの名前を入力します。  
-    例 : `AdventureWorksCommands.xml`。
+    例: `AdventureWorksCommands.xml`.
 3. [ **追加** ] ボタンをクリックします。  
 4. **ソリューション エクスプローラー** で、[**VCD**](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2) ファイルを選びます。  
 5. [ **プロパティ** ] ウィンドウで、[ **ビルドアクション** ] を [ **コンテンツ**] に設定し、[ **出力ディレクトリにコピー** ] を [ **新しい場合はコピー** する] に設定します。  
@@ -515,7 +517,7 @@ VCD をインストールするには、アプリを 1 回実行する必要が�
 アプリ サービスで音声コマンドを処理します。  
 
 1. 次の using ディレクティブを音声コマンドサービスファイルに追加します。  
-    例 : `AdventureWorksVoiceCommandService.cs`。  
+    例: `AdventureWorksVoiceCommandService.cs`.  
 
     ```csharp
         using Windows.ApplicationModel.VoiceCommands;
