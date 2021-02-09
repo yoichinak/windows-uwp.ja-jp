@@ -6,18 +6,22 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, 教育
 ms.localizationpriority: medium
-ms.openlocfilehash: 29a5d2749531e12ef7ce9b44cd6598c38cd089db
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: d4ed3bf3062deac308b9ed39ff7be709bcee4af3
+ms.sourcegitcommit: 3be258523c5ee3666498d6a98ed2648b27b2907d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93031525"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99973102"
 ---
 # <a name="take-a-test-javascript-api"></a>テスト JavaScript API
 
 [テストを実行](/education/windows/take-tests-in-windows-10) するブラウザーベースの UWP アプリでは、杭テスト用にロックダウンされたオンライン評価をレンダリングします。これにより、教育機関は、セキュリティで保護されたテスト環境を提供する方法ではなく、評価コンテンツに焦点を絞ることができます。 これを実現するには、任意の Web アプリケーションで利用できる JavaScript API を使用します。 テスト API は、重要な共通学力テストの [SBAC ブラウザー API 標準](https://www.smarterapp.org/documents/SecureBrowserRequirementsSpecifications_0-3.pdf)に対応しています。
 
 アプリ自体の詳細については、「[テスト アプリ技術リファレンス](/education/windows/take-a-test-app-technical?f=255&MSPPError=-2147217396)」を参照してください。 トラブルシューティングについては、「[イベント ビューアーを使用して、Microsoft テストをトラブルシューティングする](troubleshooting.md)」を参照してください。
+
+> [!NOTE]
+> この記事には、Microsoft では使用されなくなった "ブラックリスト" という用語への言及があります。 ソフトウェアからこの用語が削除された時点で、この記事から削除します。
+
 
 ## <a name="reference-documentation"></a>リファレンス ドキュメント
 テスト API は、次の名前空間に存在します。 すべての API は、グローバルな `SecureBrowser` オブジェクトに依存する点に注意してください。
@@ -241,7 +245,7 @@ Windows 10 バージョン 1709
 `feature` -クエリする機能を決定する文字列。 有効な機能の文字列は、"screenMonitoring"、"printing"、"textSuggestions" (大文字と小文字を区別しない) です。
 
 **戻り値**  
-この関数は、JavaScript Object または `{<feature>:true|false}` の形式のリテラルのいずれかを返します。 照会した機能が有効である場合は **true** 、機能が有効になっていないか、機能の文字列が正しくない場合は **false** 。
+この関数は、JavaScript Object または `{<feature>:true|false}` の形式のリテラルのいずれかを返します。 照会した機能が有効である場合は **true**、機能が有効になっていないか、機能の文字列が正しくない場合は **false**。
 
 **要件** Windows 10 バージョン 1703
 
@@ -258,8 +262,8 @@ Windows 10 バージョン 1709
 **パラメーター**  
 * `feature` -設定する機能を決定する文字列。 有効な機能の文字列は、`"screenMonitoring"`、`"printing"`、`"textSuggestions"` (大文字と小文字を区別しない) です。  
 * `value` -機能の目的の設定。 `"true"` または `"false"` にする必要があります。  
-* `onSuccess` -[省略可能] 設定操作が正常に完了した後に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、 *jsonValue* は `{<feature>:true|false|undefined}` という形式です。  
-* `onError` -[省略可能] 設定操作が失敗した場合に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、 *jsonValue* は `{<feature>:true|false|undefined}` という形式です。
+* `onSuccess` -[省略可能] 設定操作が正常に完了した後に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、*jsonValue* は `{<feature>:true|false|undefined}` という形式です。  
+* `onError` -[省略可能] 設定操作が失敗した場合に呼び出す関数。 `Function(String jsonValue)` という形式にする必要があります。ここでは、*jsonValue* は `{<feature>:true|false|undefined}` という形式です。
 
 **解説**  
 対象となる機能がブラウザーに不明である場合、この関数は `undefined` の値をコールバック関数に渡します。
@@ -277,7 +281,7 @@ Windows 10 バージョン 1709
 `Boolean SecureBrowser.security.isRemoteSession();`
 
 **戻り値**  
-現在のセッションがリモートの場合は **true** 、それ以外の場合は **false** です。
+現在のセッションがリモートの場合は **true**、それ以外の場合は **false** です。
 
 **必要条件**  
 Windows 10 バージョン 1709
@@ -293,7 +297,7 @@ Windows 10 バージョン 1709
 `Boolean SecureBrowser.security.isVMSession();`
 
 **戻り値**  
-現在のセッションが仮想マシンで実行されている場合は **true** 、それ以外の場合は **false** です。
+現在のセッションが仮想マシンで実行されている場合は **true**、それ以外の場合は **false** です。
 
 **解説**  
 この API のチェックは、適切な API を実装している特定のハイパーバイザーで実行されている VM セッションのみを検出できます。
