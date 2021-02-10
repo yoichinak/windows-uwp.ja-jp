@@ -78,8 +78,6 @@
       href: controls-and-patterns/controls-and-events-intro.md
     - name: コマンド実行の概要
       href: controls-and-patterns/commanding.md
-    - name: 機能別コントロールのインデックス
-      href: controls-and-patterns/controls-by-function.md
     - name: 基本入力
       items:
         - name: ボタン
@@ -542,7 +540,7 @@
   items:
     - name: 概要
       href: usability/index.md
-    - name: アクセシビリティ
+    - name: ユーザー補助
       href: accessibility/accessibility.md
       items:
         - name: 概要
