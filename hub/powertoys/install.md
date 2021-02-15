@@ -4,12 +4,12 @@ description: 実行可能ファイルまたはパッケージマネージャー 
 ms.date: 12/02/2020
 ms.topic: quickstart
 ms.localizationpriority: medium
-ms.openlocfilehash: 3effdd927b89a53b2ff92efeb422fb32293f98ba
-ms.sourcegitcommit: 447382282a6f549825480c2ff5b3cec9568d0e47
+ms.openlocfilehash: 7b6cf15e7d21eca9e24fcc2d81f9409b2cd94b6f
+ms.sourcegitcommit: 884318ec5118cade85a31f4d5644436614e9f272
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624631"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524988"
 ---
 # <a name="install-powertoys"></a>PowerToys をインストールする
 
@@ -28,7 +28,7 @@ Windows 実行可能ファイルを使用して Powertoy をインストール�
 4. ファイルを選択して、 `PowerToysSetup-0.##.#-x64.exe` powertoy 実行可能ファイルのインストーラーをダウンロードします。
 5. ダウンロードが完了したら、実行可能ファイルを開き、インストールのプロンプトに従います。
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
 - Windows 10 1803 (ビルド 17134) 以降。
 - [.Net Core 3.1 デスクトップランタイム](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-3.1.4-windows-x64-installer)。 この要件は、Powertoy インストーラーによって処理されます。
@@ -78,6 +78,7 @@ choco upgrade powertoys
 [つい](https://scoop.sh/)を使用して powertoy をインストールするには、コマンドラインまたは PowerShell から次のコマンドを実行します。
 
 ```powershell
+scoop bucket add extras
 scoop install powertoys
 ```
 
