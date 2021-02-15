@@ -825,7 +825,7 @@
           href: ../csharp-winrt/index.md
         - name: 'チュートリアル:C++/WinRT コンポーネントから .NET 5.0 プロジェクションを生成する'
           href: ../csharp-winrt/net-projection-from-cppwinrt-component.md
-        - name: C#/WinRT コンポーネントを作成し、C++/WinRT から使用する
+        - name: 'チュートリアル:C#/WinRT コンポーネントを作成し、C++/WinRT から使用する'
           href: ../csharp-winrt/create-windows-runtime-component-cswinrt.md
         - name: コンポーネント エラーの診断
           href: ../csharp-winrt/authoring-diagnostics.md
