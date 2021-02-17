@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp, タイトル バー
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 9d8aa92ec320c18b1947cb9b3fa7777070e19726
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 5fdc3f6a38e6115e211eb5ea0644ad82df840301
+ms.sourcegitcommit: 06d59b59a95aad009acb947a0dac7432116bdb60
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220085"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544642"
 ---
 # <a name="title-bar-customization"></a>タイトル バーのカスタマイズ
 
@@ -75,6 +75,7 @@ titleBar.ButtonInactiveBackgroundColor = Windows.UI.Colors.SeaGreen;
 - システムの [戻る] ボタンにはボタンの色のプロパティが適用されます (使用時)  (「[ナビゲーション履歴と前に戻る移動](../basics/navigation-history-and-backwards-navigation.md)」をご覧ください)。
 - 色のプロパティを **null** に設定すると、既定のシステム色にリセットされます。
 - 透明色を設定することはできません。 色のアルファ チャネルは無視されます。
+- 色フィルターやハイコントラストモードなどの設定が原因で、画面の色が選択とは異なる場合があります。 重要な情報を伝えるために、色だけに依存しないでください。
 
 Windows では、ユーザーが選択した[アクセント カラー](../style/color.md#accent-color)をタイトル バーに適用するかどうかをユーザーが指定できます。 タイトル バーの色を設定した場合は、すべての色を明示的に設定することをお勧めします。 これにより、ユーザー定義の色設定によって意図しない色の組み合わせが発生する心配がなくなります。
 
@@ -253,7 +254,7 @@ ExtendViewIntoTitleBar を **true** に設定すると、アプリの背景が�
 
 ### <a name="full-screen-and-tablet-mode"></a>全画面とタブレット モード
 
-アプリが_全画面_または_タブレット モード_で実行されている場合は、タイトル バーとタイトル コントロール ボタンが非表示になります。 ただし、ユーザーがタイトル バーを呼び出し、アプリ UI の上にオーバーレイとして表示することもあります。
+アプリが _全画面_ または _タブレット モード_ で実行されている場合は、タイトル バーとタイトル コントロール ボタンが非表示になります。 ただし、ユーザーがタイトル バーを呼び出し、アプリ UI の上にオーバーレイとして表示することもあります。
 タイトル バーが非表示になった場合または呼び出された場合の通知を受け取り、必要に応じてカスタムのタイトル バー コンテンツを表示または非表示にするには、[CoreApplicationViewTitleBar.IsVisibleChanged](/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar.IsVisibleChanged) イベントを処理します。
 
 この例では、IsVisibleChanged を処理して、前に表示されていた `AppTitleBar` 要素を表示または非表示にする方法を示しています。
@@ -284,7 +285,7 @@ private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, o
 ```
 
 >[!NOTE]
->_全画面表示_モードは、アプリでサポートされている場合にのみ使用できます。 詳しくは、[ApplicationView.IsFullScreenMode](/uwp/api/windows.ui.viewmanagement.applicationview.IsFullScreenMode) をご覧ください。 [_タブレット モード_](https://support.microsoft.com/help/17210/windows-10-use-your-pc-like-a-tablet)は、サポートされているハードウェア上のユーザー オプションであり、ユーザーは任意のアプリをタブレット モードで実行できます。
+>_全画面表示_ モードは、アプリでサポートされている場合にのみ使用できます。 詳しくは、[ApplicationView.IsFullScreenMode](/uwp/api/windows.ui.viewmanagement.applicationview.IsFullScreenMode) をご覧ください。 [_タブレット モード_](https://support.microsoft.com/help/17210/windows-10-use-your-pc-like-a-tablet)は、サポートされているハードウェア上のユーザー オプションであり、ユーザーは任意のアプリをタブレット モードで実行できます。
 
 ## <a name="full-customization-example"></a>全面的なカスタマイズの例
 

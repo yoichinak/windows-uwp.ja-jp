@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: de1115281859ba322a03e3bab7a8d0e4ef71440d
-ms.sourcegitcommit: 044c75ea0c6fb3463a0150acdae1ff867dc05f29
+ms.openlocfilehash: e4b5507c36da520c7356b07857b8532162e05785
+ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97972126"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100335087"
 ---
 # <a name="build-windows-apps-with-project-reunion-prerelease"></a>Project Reunion による Windows アプリのビルド (プレリリース)
 
@@ -72,7 +72,7 @@ Project Reunion 0.1 プレリリースを試してみる場合、提供されて
 
 4. **nuget.org** に対して NuGet パッケージ ソースがシステムで有効になっていることを確認します。詳細については、「[一般的な NuGet 構成](/nuget/consume-packages/configuring-nuget-behavior)」を参照してください。
 
-5. [WinUI 3 Preview 3 VSIX パッケージ](https://aka.ms/winui3/preview3-download)をダウンロードしてインストールします。 この手順は、既に WinUI 3 を使用するように構成されている Hello World と MRT Core サンプルに対してのみ必要です。 VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](/visualstudio/ide/finding-and-using-visual-studio-extensions#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
+5. [WinUI 3 Preview 4 VSIX パッケージ](https://aka.ms/winui3/preview3-download)をダウンロードしてインストールします。 この手順は、既に WinUI 3 を使用するように構成されている Hello World と MRT Core サンプルに対してのみ必要です。 VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](/visualstudio/ide/finding-and-using-visual-studio-extensions#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
 
 6. 次のサンプルを複製して調べます。
     - [DWriteCore ギャラリーのサンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/DWriteCore/DWriteCoreGallery):このサンプル アプリケーションでは、[DWriteCore](dwritecore.md) API が示されています。

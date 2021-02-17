@@ -3,12 +3,12 @@ title: WinUI のリリース ノート
 description: WinUI リリース ノートのインデックス。
 ms.date: 07/15/2020
 ms.topic: article
-ms.openlocfilehash: b2e337065df48cadd54332b9d22bda963fbc4a29
-ms.sourcegitcommit: 617344ae1a1f5b580c938b61e910d99120b73626
+ms.openlocfilehash: 0e115593065cc1fe4761bae5ab3cf2f1729cef8a
+ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98620829"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100334944"
 ---
 # <a name="windows-ui-library-2x-release-notes"></a>Windows UI ライブラリ 2.x のリリース ノート
 
@@ -53,6 +53,6 @@ API リファレンスのドキュメントがある場所は、[Windows UI ラ�
 | [2.1](winui-2.1.md) | 安定 | 2019 年 4 月 | [リリース ノート](winui-2.1.md) | [GitHub](https://github.com/microsoft/microsoft-ui-xaml) からの **最初のオープン ソース リリース**。 [ItemsRepeater](winui-2.1.md#itemsrepeater)、[AnimatedVisualPlayer](winui-2.1.md#animatedvisualplayer)、[TeachingTip](winui-2.1.md#teachingtip)、[RadioMenuFlyoutItem](winui-2.1.md#radiomenuflyoutitem)、[CompactDensity](winui-2.1.md#compactdensity)、[Shadows](winui-2.1.md#shadows) が含まれます。 |
 | [2.0](winui-2.0.md) | 安定 | 2018 年 10 月 | [リリース ノート](winui-2.0.md) | **最初のリリース**。 Windows UWP アプリ用の正式なネイティブ Fluent コントロールと機能が含まれています。  |
 
-### <a name="windows-ui-library-3-preview-3-november-2020"></a>Windows UI ライブラリ 3 Preview 3 (2020 年 11 月)
+### <a name="windows-ui-library-3-preview-4-february-2021"></a>Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)
 
-WinUI 3 の早期プレビューを試す方法については、「[Windows UI ライブラリ 3 Preview 3 (2020 年 11 月)](../../winui3/index.md)」を参照してください。
+WinUI 3 の早期プレビューを試す方法については、「[Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](../../winui3/index.md)」を参照してください。
