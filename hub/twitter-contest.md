@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: uwp
 ms.technology: apps
 ms.date: 03/19/2020
-ms.openlocfilehash: 0f67795f57ba5a7af1fea54eac59e00b5664d6e8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6e5eaae1360e87e7e2153b3cee162ca8940c8e53
+ms.sourcegitcommit: 71701f5ffc540951f86d6f77a52416c6d75fe305
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174546"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632693"
 ---
 # <a name="contribute-to-windows-docs-and-be-entered-to-win-some-swag"></a>Windows ドキュメントに投稿し、物申すを獲得するために入力する
 
@@ -23,9 +23,9 @@ Windows のドキュメントを使用する場合は、共同作成者のコミ
 
 1. [GitHub を使用](https://github.com/join)してアカウントを設定します (まだお持ちでない場合)。その後、 [docs 共同作成者ガイド](/contribute/)をお読みください。
 2. 次のドキュメントコンテンツを読み、より適切な内容を探してください。
-    - **デスクトップアプリ**  -  を構築する[UWP](/windows/uwp/)、 [Win32](/windows/win32/)、 [WPF](/dotnet/framework/wpf/)、 [Windows フォーム](/dotnet/framework/winforms/)
-    - **WINDOWS UI ライブラリ**  - [UWP アプリのコントロール](/windows/uwp/design/controls-and-patterns/)、 [controls API リファレンス](/uwp/api/microsoft.ui.xaml.controls?view=winui-2.3)
-    - Windows でビルドする**Build with Windows**  - [Windows Subsystem For Linux](/windows/wsl/about)、 [Python](./python/index.yml)、 [Nodejs](./nodejs/index.yml)、 [Mac から Windows へのガイド](./dev-environment/mac-to-windows.md)
+    - **デスクトップアプリ**  -  を構築する [UWP](/windows/uwp/)、 [Win32](/windows/win32/)、 [WPF](/dotnet/framework/wpf/)、 [Windows フォーム](/dotnet/framework/winforms/)
+    - **WINDOWS UI ライブラリ**  - [UWP アプリのコントロール](/windows/uwp/design/controls-and-patterns/)、 [controls API リファレンス](/uwp/api/microsoft.ui.xaml.controls)
+    - Windows でビルドする  - [Windows Subsystem For Linux](/windows/wsl/about)、 [Python](./python/index.yml)、 [Nodejs](./nodejs/index.yml)、 [Mac から Windows へのガイド](./dev-environment/mac-to-windows.md)
     - **Windows ハードウェア開発者**  - [ツールとドライバー](/windows-hardware/drivers/)
 3. ページの上部にある [ **編集** ] ボタンを選択して、ドキュメントページを修正します。 これにより、GitHub の markdown ソースファイルに移動します。
 4. 変更が完了したら、 プル要求 (PR) をファイルします。
