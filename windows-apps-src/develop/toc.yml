@@ -819,6 +819,8 @@
           items:
             - name: 値のカテゴリと参照
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
+        - name: C++/WinRT アプリから使用するための C# Windows ランタイム コンポーネントの作成
+          href: ../cpp-and-winrt-apis/use-csharp-component-from-cpp-winrt.md
     - name: C#/WinRT
       items:
         - name: 概要
