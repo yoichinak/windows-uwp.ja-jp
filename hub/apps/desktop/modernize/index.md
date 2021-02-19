@@ -6,12 +6,12 @@ ms.date: 10/02/2020
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 99bb68ff7d990b0b633df0c4efa2d8eafad759cd
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: e57a3fc5444a4afa2217cc128dabec76844ef549
+ms.sourcegitcommit: 71701f5ffc540951f86d6f77a52416c6d75fe305
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93031065"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632673"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -28,8 +28,8 @@ Windows UI ライブラリは、Windows 10 アプリ用のコントロールと�
 
 デスクトップ アプリでは、次の方法で WinUI を使用できます。
 
-* WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新して、これらのアプリで [XAML Islands](xaml-islands.md) を使用して WinUI 2.x コントロールをホストできます。
-* [WinUi 3.0 Preview 1](../../winui/winui3/index.md) からは、[全面的に WinUI ベースの UI を使用する .NET アプリと C++/Win32 アプリ](../../winui/winui3/get-started-winui3-for-desktop.md)を作成できます。
+* [XAML Islands](xaml-islands.md) と WinUI 2.x コントロールを使用して、WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新できます。
+* [WinUI 3.0](../../winui/winui3/index.md) (プレビュー) を使って、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド [C#/.NET Core およびネイティブ C++/Win32 デスクトップ アプリ](../../winui/winui3/get-started-winui3-for-desktop.md)を作成します。
 
 「[Windows UI (WinUI) ライブラリ](../../winui/index.md)」をご覧ください。
 
@@ -55,7 +55,7 @@ MSIX パッケージにデスクトップ Windows アプリをパッケージ化
 
 ## <a name="host-winrt-xaml-controls-xaml-islands"></a>WinRT XAML コントロールのホスト (XAML Islands)
 
-Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (HWND) に関連付けられた WPF、Windows フォーム、または C++ Win32 アプリ内の任意の UI 要素に直接 [UWP XAML コントロール](/windows/uwp/design/controls-and-patterns/controls-by-function)を追加できます。 つまり、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)、[Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールなど最新の UWP 機能を、デスクトップ アプリのウィンドウやその他のディスプレイ サーフェスに完全に統合できます。 この開発者シナリオは " *XAML Islands* " とも呼ばれます。
+Windows 10、バージョン 1903 以降では、ウィンドウ ハンドル (HWND) に関連付けられた WPF、Windows フォーム、または C++ Win32 アプリ内の任意の UI 要素に直接 [UWP XAML コントロール](/windows/uwp/design/controls-and-patterns/controls-by-function)を追加できます。 つまり、[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions)、[Fluent Design System](/windows/uwp/design/fluent-design-system/index) をサポートするコントロールなど最新の UWP 機能を、デスクトップ アプリのウィンドウやその他のディスプレイ サーフェスに完全に統合できます。 この開発者シナリオは "*XAML Islands*" とも呼ばれます。
 
 詳細については、[デスクトップ アプリでの WinRT XAML コントロール](xaml-islands.md)をご覧ください
 
@@ -72,7 +72,7 @@ UWP 以外のデスクトップ アプリで Windows ランタイム API を使�
 デスクトップ アプリに ID を付与する方法はいくつかあります。
 
 * [MSIX パッケージ](/windows/msix/desktop/desktop-to-uwp-root)でパッケージ化します。 MSIX は、すべての Windows アプリ、WPF、Windows フォーム、Win32 アプリ用のユニバーサルなパッケージ化エクスペリエンスを提供するモダンなアプリ パッケージ形式です。 これは、堅牢なインストールと更新のエクスペリエンス、柔軟な機能システムによる管理されたセキュリティ モデル、Microsoft Store のサポート、エンタープライズ管理、および多くのカスタム配布モデルを提供します。 詳しくは、MSIX ドキュメントの「[デスクトップ アプリケーションのパッケージ化](/windows/msix/desktop/desktop-to-uwp-root)」をご覧ください。
-* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む " *スパース MSIX パッケージ* " を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
+* デスクトップ アプリを配置するために MSIX パッケージを導入できない場合、Windows 10 バージョン 2004 以降では、パッケージ マニフェストのみを含む "*スパース MSIX パッケージ*" を作成することでパッケージ ID を付与できます。 詳細については、「[パッケージ化されていないデスクトップ アプリに ID を付与する](grant-identity-to-nonpackaged-apps.md)」を参照してください。
 
 <a id="desktop-uwp-controls"></a>
 
