@@ -1,25 +1,25 @@
 ---
 description: このガイドでは、WinUI 3 UI を使用して UWP アプリの作成を開始する方法について説明します。
 title: UWP アプリ用の WinUI 3 の概要
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.topic: article
 keywords: windows 10, uwp, winui
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 5da4944b38fc764eb11bdc2f6daed0cab54ea445
-ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
+ms.openlocfilehash: d13acb2181160ec214070dc1276e844dc1f203ad
+ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025138"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100334902"
 ---
 # <a name="get-started-with-winui-3-for-uwp-apps"></a>UWP アプリ用の WinUI 3 の概要
 
-WinUI 3 Preview 3 には、新しいプロジェクト テンプレートが含まれています。これを使用すると、完全に WinUI 上でビルドされたユーザー インターフェイスを備えたユニバーサル Windows プラットフォーム (UWP) アプリを作成できます。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、スタイルを使用して実装されます。 サポートされる WinUI 3 プロジェクト テンプレートの完全な一覧については、「[WinUI 3 のプロジェクト テンプレート](index.md#project-templates-for-winui-3)」を参照してください。
+WinUI 3 Preview 4 には、新しいプロジェクト テンプレートが含まれています。これを使用すると、完全に WinUI 上でビルドされたユーザー インターフェイスを備えたユニバーサル Windows プラットフォーム (UWP) アプリを作成できます。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、スタイルを使用して実装されます。 サポートされる WinUI 3 プロジェクト テンプレートの完全な一覧については、「[WinUI 3 のプロジェクト テンプレート](index.md#project-templates-for-winui-3)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-この記事で説明されている UWP 用の WinUI 3 プロジェクト テンプレート を使用するには、開発用コンピューターを構成して、[WinUI 3 Preview 3 をインストール](index.md#install-winui-3-preview-3)します。
+この記事で説明されている UWP 用の WinUI 3 プロジェクト テンプレートを使用するには、開発用コンピューターを構成して、[WinUI 3 Preview 4 をインストール](index.md#install-winui-3-preview-4)します。
 
 ## <a name="create-a-winui-3-app-in-uwp-for-c"></a>"UWP の WinUI 3 アプリ" を C# で作成する
 
@@ -48,7 +48,7 @@ WinUI 3 Preview 3 には、新しいプロジェクト テンプレートが含�
 
 6. Visual Studio によって、次のオブジェクトを含む **UWP の WinUI** プロジェクトが生成されます。
 
-    - **_<プロジェクト名>_ (ユニバーサル Windows)** :アプリケーション コードが含まれます。 これは、プロジェクト ソリューションの既定のスタートアップ プロジェクトです。
+    - ***<プロジェクト名>* (ユニバーサル Windows)** :アプリケーション コードが含まれます。 これは、プロジェクト ソリューションの既定のスタートアップ プロジェクトです。
 
     :::image type="content" source="images/WinUI-and-UWP/vs2019-project.png" alt-text="ユニバーサル Windows ソリューションが強調表示された [ソリューション エクスプローラー] パネルのスクリーンショット。":::
 
@@ -68,7 +68,7 @@ WinUI 3 Preview 3 には、新しいプロジェクト テンプレートが含�
 
     :::image type="content" source="images/WinUI-and-UWP/vs2019-file-mainpage-xaml-cs.png" alt-text="Visual Studio 2019 - MainPage.xaml.cs ファイル":::
 
-7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー** で **[ _<プロジェクト名>_ (ユニバーサル Window)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、「[WinUI 3 の項目テンプレート](index.md#item-templates-for-winui-3)」を参照してください。
+7. アプリ プロジェクトに新しい項目を追加するには、**ソリューション エクスプローラー** で **[ *<プロジェクト名>* (ユニバーサル Window)]** プロジェクト ノードを右クリックし、 **[追加]**  ->  **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログ ボックスで、 **[WinUI]** タブを選択し、追加する項目を選択して、 **[追加]** をクリックします。 使用可能な項目の詳細については、「[WinUI 3 の項目テンプレート](index.md#item-templates-for-winui-3)」を参照してください。
 
     :::image type="content" source="images/WinUI-and-UWP/vs2019-add-new-item-dialog.png" alt-text="Visual Studio 2019 - [新しい項目の追加] ダイアログ":::
 
@@ -84,9 +84,9 @@ WinUI 3 Preview 3 には、新しいプロジェクト テンプレートが含�
 
 ## <a name="known-issues-and-limitations"></a>既知の問題と制限事項
 
-既知の問題と制限事項の一覧については、[こちらのセクション](index.md#preview-3-limitations-and-known-issues)を参照してください。
+「[Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](index.md)」の「[制限事項と既知の問題](index.md#limitations-and-known-issues)」のセクションを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [WinUI 3](index.md)
+- [Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](index.md)
 - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)

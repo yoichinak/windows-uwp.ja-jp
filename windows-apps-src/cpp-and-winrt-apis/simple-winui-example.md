@@ -1,20 +1,20 @@
 ---
-description: このトピックでは、C++/WinRT プロジェクト内に WinUI の単純なサポートを追加する処理を順を追って説明します。
+description: このトピックでは、C++/WinRT プロジェクト内に WinUI の基本サポートを追加する処理を順を追って説明します。
 title: 単純な C++/WinRT Windows UI ライブラリの例
 ms.date: 07/12/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, Windows UI ライブラリ, WinUI
 ms.localizationpriority: medium
-ms.openlocfilehash: 8242055e3c448e2720226859f2ea10e1ae54794f
-ms.sourcegitcommit: db48036af630f33f0a2f7a908bfdfec945f3c241
+ms.openlocfilehash: b7323ba63bedfc1ed560effb4da8ea61d1527897
+ms.sourcegitcommit: 71701f5ffc540951f86d6f77a52416c6d75fe305
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84437136"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632683"
 ---
-# <a name="a-simple-cwinrt-windows-ui-library-example"></a>単純な C++/WinRT Windows UI ライブラリの例
+# <a name="a-basic-cwinrt-windows-ui-library-example"></a>基本的な C++/WinRT Windows UI ライブラリの例
 
-このトピックでは、C++/WinRT プロジェクトに [Windows UI (WinUI) ライブラリ](https://github.com/Microsoft/microsoft-ui-xaml)の単純なサポートを追加する処理を順を追って説明します。 ちなみに、Windows UI ライブラリ自体は C++/WinRT で記述されています。
+このトピックでは、C++/WinRT プロジェクトに [Windows UI (WinUI) ライブラリ](https://github.com/Microsoft/microsoft-ui-xaml)の基本サポートを追加する処理を順を追って説明します。 ちなみに、Windows UI ライブラリ自体は C++/WinRT で記述されています。
 
 > [!NOTE]
 > Windows UI (WinUI) ライブラリ ツールキットは NuGet パッケージとして提供されており、このトピックで説明するように、Visual Studio を使用して既存または新規のプロジェクトに追加できます。 背景、セットアップ、およびサポート情報の詳細については、「[Windows UI ライブラリの概要](/uwp/toolkits/winui/getting-started)」を参照してください。

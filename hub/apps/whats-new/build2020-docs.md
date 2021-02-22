@@ -6,12 +6,12 @@ ms.date: 05/11/2020
 ms.localizationpriority: medium
 ms.author: jken
 author: grantmestrength
-ms.openlocfilehash: d2690bd0a166856c92201e9d1693b622d3ecaa87
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: c409284b7d1f994930c5c659c9ea23c2d326bf14
+ms.sourcegitcommit: 71701f5ffc540951f86d6f77a52416c6d75fe305
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93031995"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632663"
 ---
 # <a name="microsoft-build---the-windows-documentation"></a>Microsoft Build - Windows に関するドキュメント
 
@@ -44,7 +44,7 @@ ms.locfileid: "93031995"
 ## <a name="winui"></a>WinUI
 
 * [WinUI の概要](../winui/index.md)
-* [WinUI 3.0 Preview リリース 1](../winui/winui3/index.md) 
+* [WinUI 3.0 Preview](../winui/winui3/index.md)
 * [デスクトップ アプリ用 WinUI 3.0](../winui/winui3/get-started-winui3-for-desktop.md)
 
 ## <a name="developing-for-android-on-windows"></a>Windows での Android 向けの開発

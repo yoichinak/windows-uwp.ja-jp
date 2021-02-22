@@ -8,12 +8,12 @@ ms.author: drewbat
 author: drewbatgit
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: d319374791eeb0a02b0291c66f25f55e31bcbc4b
-ms.sourcegitcommit: 6759309a3fbb6ede498c95c04c05f57a074ab070
+ms.openlocfilehash: 154177c8c909f0ea30f4fbe2323a0b28222eb932
+ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99069169"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100334997"
 ---
 # <a name="templated-xaml-controls-for-winui-3-apps-with-cwinrt"></a>C++/WinRT を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
 
@@ -148,7 +148,7 @@ WinUI 3 プロジェクト テンプレートに既定で含まれていない [
 
 そのコンストラクター内で、**BgLabelControl** によってそれ自体の既定のスタイル キーが設定されます。 テンプレート コントロールには、コントロールのコンシューマーがスタイルやテンプレートを設定しない場合にレンダリングするために使用できる既定のコントロール テンプレートが含まれている、既定のスタイルを指定する必要があります。 このセクションでは、既定のスタイルを含むマークアップ ファイルをプロジェクトに追加します。
 
-(**ソリューション エクスプローラー** で) **[すべてのファイルを表示]** がまだオンになっていることを確認します。 プロジェクト ノードで、新しいフォルダー (フィルターではなくフォルダー) を作成し、"Themes" という名前を付けます。 `Themes` の下に、種類が **[Visual C++] > [XAML] > [リソース ディクショナリ (WinUI)]** である新しい項目を追加し、"Generic.xaml" という名前を付けます。 XAML フレームワークでテンプレート コントロールの既定のスタイルを検出するために、フォルダーとファイルの名前をこのようにする必要があります。 Generic.xaml の既定のコンテンツを削除し、以下のマークアップを貼り付けます。
+(**ソリューション エクスプローラー** で) **[すべてのファイルを表示]** がまだオンになっていることを確認します。 プロジェクト ノードで、新しいフォルダー (フィルターではなくフォルダー) を作成し、"Themes" という名前を付けます。 `Themes` の下に、種類が **[Visual C++] > [WinUI] > [リソース ディクショナリ (WinUI)]** である新しい項目を追加し、"Generic.xaml" という名前を付けます。 XAML フレームワークでテンプレート コントロールの既定のスタイルを検出するために、フォルダーとファイルの名前をこのようにする必要があります。 Generic.xaml の既定のコンテンツを削除し、以下のマークアップを貼り付けます。
 
 ```xaml
 <!-- \Themes\Generic.xaml -->
