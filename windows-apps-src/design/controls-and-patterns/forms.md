@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 0c55d98d0680142ad1d4f319b8910fd335fe8d5f
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 7a4c33bbdae980029cdeeb650375b9f8cb38bbf9
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219465"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823346"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -147,7 +147,7 @@ Control | vmmblue_2
 [TimePicker](time-picker.md) | 1 つの時刻の値を選択します
 
 ### <a name="additional-controls"></a>その他のコントロール 
-UWP コントロールの完全な一覧については、[機能別コントロールのインデックス](controls-by-function.md)に関する記事をご覧ください。
+UWP コントロールの完全な一覧については、[機能別コントロールのインデックス](./index.md)に関する記事をご覧ください。
 
 さらに複雑な UI コントロールおよびカスタム UI コントロールについては、[Telerik](https://www.telerik.com/)、[SyncFusion](https://www.syncfusion.com/uwp-ui-controls)、[DevExpress](https://www.devexpress.com/Products/NET/Controls/Win10Apps/)、[Infragistics](https://www.infragistics.com/products/universal-windows-platform)、[ComponentOne](https://www.componentone.com/Studio/Platform/UWP)、[ActiPro](https://www.actiprosoftware.com/products/controls/universal) などの企業から入手できるリソースをご覧ください。
 

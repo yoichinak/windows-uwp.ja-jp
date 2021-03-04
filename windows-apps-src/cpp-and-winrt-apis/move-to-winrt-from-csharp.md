@@ -5,12 +5,12 @@ ms.date: 07/15/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: f107de951c527b9ca4405d1f22870389a219f441
-ms.sourcegitcommit: 2e691ec4998467c8c5525031a00f0213dcce3b6b
+ms.openlocfilehash: f4dbffbee1ecabf89d316fe0d497162c0b1f6312
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98193204"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824406"
 ---
 # <a name="move-to-cwinrt-from-c"></a>C# から C++/WinRT への移行
 
@@ -38,17 +38,17 @@ ms.locfileid: "98193204"
 
 | タスク | Content |
 | - | - |
-|Windows ランタイム コンポーネント (WRC) を作成する|一部の機能は、C++ を使用することによって (または、特定の API 呼び出しによって) のみ実現できます。 その機能を C++/WinRT WRC に組み込み、(たとえば) C# アプリから WRC を使用することができます。 「[C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)」および「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」を参照してください。|
-|非同期メソッドを移植する|C++/WinRT ランタイム クラスの非同期メソッドの最初の行を `auto lifetime = get_strong();` にするのがよい方法です (「[class-member コルーチンで *this* ポインターに安全にアクセスする](/windows/uwp/cpp-and-winrt-apis/weak-references#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください)。<br><br>`Task` からの移植については、「<a href="#id_async_action">非同期アクション</a>」を参照してください。<br>`Task<T>` からの移植については、「<a href="#id_async_operation">非同期操作</a>」を参照してください。<br>`async void` からの移植については、「<a href="#id_fire_and_forget">fire-and-forget メソッド</a>」を参照してください。|
-|クラスを移植する|まず、クラスをランタイム クラスにする必要があるか、または通常のクラスでかまわないかを判断します。 それを判断するときの参考として、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」の冒頭を参照してください。 その後で、その下の 3 つの行を参照してください。|
-|ランタイム クラスを移植する|C++ アプリの外部の機能を共有するクラス、または XAML データ バインディングで使用されるクラス。 「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」または「[XAML UI で参照されるランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)」を参照してください。<br><br>それらのリンクではこれについて詳しく説明されていますが、ランタイム クラスは IDL で宣言する必要があります。 プロジェクトに IDL ファイル (`Project.idl` など) が既に含まれている場合は、そのファイルで新しいランタイム クラスを宣言することをお勧めします。 IDL において、アプリの外部または XAML で使用されるメソッドとデータ メンバーを宣言します。 IDL ファイルを更新した後、リビルドを行い、プロジェクトの `Generated Files` フォルダーで生成されたスタブ ファイル (`.h` と `.cpp`) を確認します (**ソリューション エクスプローラー** でプロジェクトのノードを選択し、 **[すべてのファイルを表示]** をオンにします)。 スタブ ファイルをプロジェクト内の既存のファイルと比較し、必要に応じて、ファイルを追加するか、関数のシグネチャを追加または更新します。 スタブ ファイルの構文は常に正しいので、ビルド エラーを最小限に抑えるためにそれを使用することをお勧めします。 プロジェクト内のスタブがスタブ ファイル内のそれと一致したら、C# コードを移植して実装できます。 |
-|通常のクラスを移植する|「[ランタイム クラスを作成して "*いない*" 場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-not-authoring-a-runtime-class)」を参照してください。|
-|IDL を作成する|[Microsoft インターフェイス定義言語 3.0 の概要](/uwp/midl-3/intro)<br>[XAML UI で参照されるランタイム クラスを作成する場合](/windows/uwp/cpp-and-winrt-apis/author-apis#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)<br>[XAML マークアップからのオブジェクトの使用](/windows/uwp/cpp-and-winrt-apis/binding-property#consuming-objects-from-xaml-markup)<br>[IDL でランタイム クラスを定義する](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#define-your-runtime-classes-in-idl)|
-|コレクションを移植する|[C++/WinRT でのコレクション](/windows/uwp/cpp-and-winrt-apis/collections)<br>[データ ソースを XAML マークアップで使用できるようにする](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#making-a-data-source-available-to-xaml-markup)<br><a href="#id_associative_container">連想コンテナー</a><br><a href="#id_vector_member_access">ベクター メンバーのアクセス</a>|
+|Windows ランタイム コンポーネント (WRC) を作成する|一部の機能は、C++ を使用することによって (または、特定の API 呼び出しによって) のみ実現できます。 その機能を C++/WinRT WRC に組み込み、(たとえば) C# アプリから WRC を使用することができます。 「[C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)」および「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](./author-apis.md#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」を参照してください。|
+|非同期メソッドを移植する|C++/WinRT ランタイム クラスの非同期メソッドの最初の行を `auto lifetime = get_strong();` にするのがよい方法です (「[class-member コルーチンで *this* ポインターに安全にアクセスする](./weak-references.md#safely-accessing-the-this-pointer-in-a-class-member-coroutine)」を参照してください)。<br><br>`Task` からの移植については、「<a href="#id_async_action">非同期アクション</a>」を参照してください。<br>`Task<T>` からの移植については、「<a href="#id_async_operation">非同期操作</a>」を参照してください。<br>`async void` からの移植については、「<a href="#id_fire_and_forget">fire-and-forget メソッド</a>」を参照してください。|
+|クラスを移植する|まず、クラスをランタイム クラスにする必要があるか、または通常のクラスでかまわないかを判断します。 それを判断するときの参考として、「[C++/WinRT での API の作成](./author-apis.md)」の冒頭を参照してください。 その後で、その下の 3 つの行を参照してください。|
+|ランタイム クラスを移植する|C++ アプリの外部の機能を共有するクラス、または XAML データ バインディングで使用されるクラス。 「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](./author-apis.md#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」または「[XAML UI で参照されるランタイム クラスを作成する場合](./author-apis.md#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)」を参照してください。<br><br>それらのリンクではこれについて詳しく説明されていますが、ランタイム クラスは IDL で宣言する必要があります。 プロジェクトに IDL ファイル (`Project.idl` など) が既に含まれている場合は、そのファイルで新しいランタイム クラスを宣言することをお勧めします。 IDL において、アプリの外部または XAML で使用されるメソッドとデータ メンバーを宣言します。 IDL ファイルを更新した後、リビルドを行い、プロジェクトの `Generated Files` フォルダーで生成されたスタブ ファイル (`.h` と `.cpp`) を確認します (**ソリューション エクスプローラー** でプロジェクトのノードを選択し、 **[すべてのファイルを表示]** をオンにします)。 スタブ ファイルをプロジェクト内の既存のファイルと比較し、必要に応じて、ファイルを追加するか、関数のシグネチャを追加または更新します。 スタブ ファイルの構文は常に正しいので、ビルド エラーを最小限に抑えるためにそれを使用することをお勧めします。 プロジェクト内のスタブがスタブ ファイル内のそれと一致したら、C# コードを移植して実装できます。 |
+|通常のクラスを移植する|「[ランタイム クラスを作成して "*いない*" 場合](./author-apis.md#if-youre-not-authoring-a-runtime-class)」を参照してください。|
+|IDL を作成する|[Microsoft インターフェイス定義言語 3.0 の概要](/uwp/midl-3/intro)<br>[XAML UI で参照されるランタイム クラスを作成する場合](./author-apis.md#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)<br>[XAML マークアップからのオブジェクトの使用](./binding-property.md#consuming-objects-from-xaml-markup)<br>[IDL でランタイム クラスを定義する](#define-your-runtime-classes-in-idl)|
+|コレクションを移植する|[C++/WinRT でのコレクション](./collections.md)<br>[データ ソースを XAML マークアップで使用できるようにする](#making-a-data-source-available-to-xaml-markup)<br><a href="#id_associative_container">連想コンテナー</a><br><a href="#id_vector_member_access">ベクター メンバーのアクセス</a>|
 |イベントを移植する|<a href="#id_event_handler_delegate_as_class_member">クラス メンバーとしてのイベント ハンドラー デリゲート</a><br><a href="#id_revoke_event_handler_delegate">イベント ハンドラー デリゲートの取り消し</a>|
 |メソッドを移植する|C# から: `private async void SampleButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e) { ... }`<br>C++/WinRT の `.h` ファイルへ: `fire_and_forget SampleButton_Tapped(IInspectable const&, RoutedEventArgs const&);`<br>C++/WinRT の `.cpp` ファイルへ: `fire_and_forget OcrFileImage::SampleButton_Tapped(IInspectable const&, RoutedEventArgs const&) {...}`<br>|
-|文字列を移植する|[C++/WinRT での文字列の処理](/windows/uwp/cpp-and-winrt-apis/strings)<br>[ToString](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#tostring)<br>[文字列の作成](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#string-building)<br>[文字列のボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#boxing-and-unboxing-a-string)|
-|型変換 (型キャスト)|C#: `o.ToString()`<br>C++/WinRT: `to_hstring(static_cast<int>(o))`<br>「[ToString](/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-csharp#tostring)」も参照してください。<br><br>C#: `(Value)o`<br>C++/WinRT: `unbox_value<Value>(o)`<br>ボックス化解除が失敗した場合にスローします。 [ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページも参照してください。<br><br>C#: `o as Value? ?? fallback`<br>C++/WinRT: `unbox_value_or<Value>(o, fallback)`<br>ボックス化解除が失敗した場合は、フォールバックを返します。 [ボックス化とボックス化解除](/windows/uwp/cpp-and-winrt-apis/boxing)に関するページも参照してください。<br><br>C#: `(Class)o`<br>C++/WinRT: `o.as<Class>()`<br>変換が失敗した場合にスローします。<br><br>C#: `o as Class`<br>C++/WinRT: `o.try_as<Class>()`<br>変換が失敗した場合は、null を返します。|
+|文字列を移植する|[C++/WinRT での文字列の処理](./strings.md)<br>[ToString](#tostring)<br>[文字列の作成](#string-building)<br>[文字列のボックス化とボックス化解除](#boxing-and-unboxing-a-string)|
+|型変換 (型キャスト)|C#: `o.ToString()`<br>C++/WinRT: `to_hstring(static_cast<int>(o))`<br>「[ToString](#tostring)」も参照してください。<br><br>C#: `(Value)o`<br>C++/WinRT: `unbox_value<Value>(o)`<br>ボックス化解除が失敗した場合にスローします。 [ボックス化とボックス化解除](./boxing.md)に関するページも参照してください。<br><br>C#: `o as Value? ?? fallback`<br>C++/WinRT: `unbox_value_or<Value>(o, fallback)`<br>ボックス化解除が失敗した場合は、フォールバックを返します。 [ボックス化とボックス化解除](./boxing.md)に関するページも参照してください。<br><br>C#: `(Class)o`<br>C++/WinRT: `o.as<Class>()`<br>変換が失敗した場合にスローします。<br><br>C#: `o as Class`<br>C++/WinRT: `o.try_as<Class>()`<br>変換が失敗した場合は、null を返します。|
 
 ## <a name="changes-that-involve-the-language-projection"></a>言語プロジェクションに関連する変更
 
@@ -130,9 +130,9 @@ void OpenButton_Click(Object sender, Windows.UI.Xaml.RoutedEventArgs e);
 | -------- | -- | --------- | -------- |
 |アクセス修飾子|`public \<member\>`|`public:`<br>&nbsp;&nbsp;&nbsp;&nbsp;`\<member\>`|[**Button_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#button_click)|
 |データ メンバーへのアクセス|`this.variable`|`this->variable`||
-|<a name="id_async_action"></a>非同期アクション|`async Task ...`|`IAsyncAction ...`| [**IAsyncAction** インターフェイス](/uwp/api/windows.foundation.iasyncaction)、[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency) |
-|<a name="id_async_operation"></a>非同期操作|`async Task<T> ...`|`IAsyncOperation<T> ...`| [**IAsyncOperation** インターフェイス](/uwp/api/windows.foundation.iasyncoperation)、[C++/WinRT を使用した同時実行操作と非同期操作](/windows/uwp/cpp-and-winrt-apis/concurrency) |
-|<a name="id_fire_and_forget"></a>fire-and-forget メソッド (つまり、非同期)|`async void ...`|`winrt::fire_and_forget ...`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)、[ファイア アンド フォーゲット](/windows/uwp/cpp-and-winrt-apis/concurrency-2#fire-and-forget)|
+|<a name="id_async_action"></a>非同期アクション|`async Task ...`|`IAsyncAction ...`| [**IAsyncAction** インターフェイス](/uwp/api/windows.foundation.iasyncaction)、[C++/WinRT を使用した同時実行操作と非同期操作](./concurrency.md) |
+|<a name="id_async_operation"></a>非同期操作|`async Task<T> ...`|`IAsyncOperation<T> ...`| [**IAsyncOperation** インターフェイス](/uwp/api/windows.foundation.iasyncoperation)、[C++/WinRT を使用した同時実行操作と非同期操作](./concurrency.md) |
+|<a name="id_fire_and_forget"></a>fire-and-forget メソッド (つまり、非同期)|`async void ...`|`winrt::fire_and_forget ...`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)、[ファイア アンド フォーゲット](./concurrency-2.md#fire-and-forget)|
 |列挙型定数へのアクセス|`E.Value`|`E::Value`|[**DisplayChangedFormats** メソッドの移植](./clipboard-to-winrt-from-csharp.md#displaychangedformats)|
 |協調的な待機|`await ...`|`co_await ...`|[**CopyButton_Click** メソッドの移植](./clipboard-to-winrt-from-csharp.md#copybutton_click)|
 |プライベート フィールドとしての投影型のコレクション|`private List<MyRuntimeClass> myRuntimeClasses = new List<MyRuntimeClass>();`|`std::vector`<br>`<MyNamespace::MyRuntimeClass>`<br>`m_myRuntimeClasses;`||
