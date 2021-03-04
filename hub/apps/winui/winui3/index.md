@@ -3,12 +3,12 @@ title: WinUI 3 Preview 4 (2021 年 2 月)
 description: WinUI 3 Preview 4 リリースの概要。
 ms.date: 02/09/2021
 ms.topic: article
-ms.openlocfilehash: 7bbc5c4983f77080366942ecaf702e7e1f844886
-ms.sourcegitcommit: 884318ec5118cade85a31f4d5644436614e9f272
+ms.openlocfilehash: a6c74ac64e3384b5a1f5cdc466b4faf441f14445
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524998"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824086"
 ---
 # <a name="windows-ui-library-3-preview-4-february-2021"></a>Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)
 
@@ -262,36 +262,36 @@ WinUI 3 Preview 4 は、Windows 10 April 2018 Update (バージョン 1803 - ビ
 
 #### <a name="corewindow-applicationview-coreapplicationview-and-coredispatcher-in-desktop-apps"></a>デスクトップ アプリの CoreWindow、ApplicationView、CoreApplicationView、CoreDispatcher
 
-Preview 4 での新機能である [CoreWindow](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow)、[ApplicationView](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.ApplicationView)、[CoreApplicationView](https://docs.microsoft.com/uwp/api/Windows.ApplicationModel.Core.CoreApplicationView)、
-[CoreDispatcher](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreDispatcher)、およびそれらの依存関係は、デスクトップ アプリでは使用できません。
+Preview 4 での新機能である [CoreWindow](/uwp/api/Windows.UI.Core.CoreWindow)、[ApplicationView](/uwp/api/Windows.UI.ViewManagement.ApplicationView)、[CoreApplicationView](/uwp/api/Windows.ApplicationModel.Core.CoreApplicationView)、
+[CoreDispatcher](/uwp/api/Windows.UI.Core.CoreDispatcher)、およびそれらの依存関係は、デスクトップ アプリでは使用できません。
 
-たとえば、[Window.Dispatcher](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Window.Dispatcher) プロパティは常に null ですが、Window.DispatcherQueue プロパティを代わりに使用できます。
+たとえば、[Window.Dispatcher](/uwp/api/Windows.UI.Xaml.Window.Dispatcher) プロパティは常に null ですが、Window.DispatcherQueue プロパティを代わりに使用できます。
 
 これらの API は、UWP アプリでのみ機能します。
 以前のプレビューでは、デスクトップ アプリでも部分的に機能していましたが、Preview 4 では完全に無効になっています。
 これらの API は、スレッドごとにウィンドウが 1 つだけ存在する UWP の場合向けに設計されており、WinUI 3 の機能の 1 つは、複数を有効にすることです。
 
-これらの API の存在に内部的に依存する API があり、そのためデスクトップ アプリではサポートされません。 通常、これらの API には静的な `GetForCurrentView` メソッドがあります。 たとえば、[UIViewSettings.GetForCurrentView](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.UIViewSettings.GetForCurrentView) などです。
+これらの API の存在に内部的に依存する API があり、そのためデスクトップ アプリではサポートされません。 通常、これらの API には静的な `GetForCurrentView` メソッドがあります。 たとえば、[UIViewSettings.GetForCurrentView](/uwp/api/Windows.UI.ViewManagement.UIViewSettings.GetForCurrentView) などです。
 
 
 ### <a name="known-issues"></a>既知の問題
 
 - Alt + F4 を押したとき、デスクトップ アプリ ウィンドウは閉じません。
 
-- [CoreWindow](https://docs.microsoft.com/uwp/api/windows.ui.core.corewindow) が変更されたため、次の WinRT API は **デスクトップ** アプリで意図したとおりに動作しなくなる可能性があります。
-  - [`ApplicationView`](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.applicationview) および関連するすべての API は動作しなくなります。
-  - [`CoreApplicationView`](https://docs.microsoft.com/uwp/api/windows.applicationmodel.core.coreapplicationview) および関連するすべての API は動作しなくなります。
-  - すべての `GetForCurrentView` API は、サポートされない可能性があります ([`CoreInputView.GetForCurrentView`](https://docs.microsoft.com/uwp/api/Windows.UI.ViewManagement.Core.CoreInputView.GetForCurrentView) など)。
-  - [`CoreWindow.GetForCurrentThread`](https://docs.microsoft.com/uwp/api/Windows.UI.Core.CoreWindow.GetForCurrentThread) は null を返すようになります。
+- [CoreWindow](/uwp/api/windows.ui.core.corewindow) が変更されたため、次の WinRT API は **デスクトップ** アプリで意図したとおりに動作しなくなる可能性があります。
+  - [`ApplicationView`](/uwp/api/windows.ui.viewmanagement.applicationview) および関連するすべての API は動作しなくなります。
+  - [`CoreApplicationView`](/uwp/api/windows.applicationmodel.core.coreapplicationview) および関連するすべての API は動作しなくなります。
+  - すべての `GetForCurrentView` API は、サポートされない可能性があります ([`CoreInputView.GetForCurrentView`](/uwp/api/Windows.UI.ViewManagement.Core.CoreInputView.GetForCurrentView) など)。
+  - [`CoreWindow.GetForCurrentThread`](/uwp/api/Windows.UI.Core.CoreWindow.GetForCurrentThread) は null を返すようになります。
 
-  WinUI 3 デスクトップ アプリでの WinRT API の使用に関する詳細については、「[デスクトップ アプリで使用できる Windows ランタイム API](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-supported-api
+  WinUI 3 デスクトップ アプリでの WinRT API の使用に関する詳細については、「[デスクトップ アプリで使用できる Windows ランタイム API](../../desktop/modernize/desktop-to-uwp-supported-api.md
 )」を参照してください。
 
-- [UISettings.ColorValuesChanged Event](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.uisettings.colorvalueschanged) と [AccessibilitySettings.HighContrastChanged Event](https://docs.microsoft.com/uwp/api/windows.ui.viewmanagement.accessibilitysettings.highcontrastchanged) は、デスクトップ アプリでサポートされなくなります。 これにより、Windows テーマでの変更を検出するためにそれを使用している場合、問題が発生する可能性があります。 
+- [UISettings.ColorValuesChanged Event](/uwp/api/windows.ui.viewmanagement.uisettings.colorvalueschanged) と [AccessibilitySettings.HighContrastChanged Event](/uwp/api/windows.ui.viewmanagement.accessibilitysettings.highcontrastchanged) は、デスクトップ アプリでサポートされなくなります。 これにより、Windows テーマでの変更を検出するためにそれを使用している場合、問題が発生する可能性があります。 
 
 - このリリースには、試験的な API がいくつか含まれています。 これらはチームによって完全にはテストされていないため、不明な問題が発生する可能性があります。 問題が発生した場合は、リポジトリで[バグを報告](https://github.com/microsoft/microsoft-ui-xaml/issues/new?assignees=&labels=&template=bug_report.md&title=)してください。 
 
-- 以前は、CompositionCapabilities インスタンスを取得するには、[CompositionCapabilites.GetForCurrentView()](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositioncapabilities.getforcurrentview) を呼び出していました。 しかし、この呼び出しから返される機能は、ビューに依存して "*いませんでした*"。 これを解決して反映するため、このリリースでは静的な GetForCurrentView () を削除したので、[CompositionCapabilties](https://docs.microsoft.com/uwp/api/windows.ui.composition.compositioncapabilities) オブジェクトを直接作成できるようになりました。
+- 以前は、CompositionCapabilities インスタンスを取得するには、[CompositionCapabilites.GetForCurrentView()](/uwp/api/windows.ui.composition.compositioncapabilities.getforcurrentview) を呼び出していました。 しかし、この呼び出しから返される機能は、ビューに依存して "*いませんでした*"。 これを解決して反映するため、このリリースでは静的な GetForCurrentView () を削除したので、[CompositionCapabilties](/uwp/api/windows.ui.composition.compositioncapabilities) オブジェクトを直接作成できるようになりました。
 
 - C# UWP アプリの場合:
 

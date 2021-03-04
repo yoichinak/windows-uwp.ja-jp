@@ -7,12 +7,12 @@ ms.date: 12/15/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト, カスタム オーディオ, 通知, オーディオ, サウンド
 ms.localizationpriority: medium
-ms.openlocfilehash: d2d32b9545cccfb25790d394aec028fd29904ca5
-ms.sourcegitcommit: 140bbbab0f863a7a1febee85f736b0412bff1ae7
+ms.openlocfilehash: 54f890ceb0031b4c244e387e1f7068615a2fedc1
+ms.sourcegitcommit: 98ca28fd0b5d306d35f3919fe9dd4d5a0222235e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91984408"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102029825"
 ---
 # <a name="custom-audio-on-toasts"></a>トーストでのカスタム オーディオの使用
 
@@ -76,7 +76,7 @@ if (supportsCustomAudio)
 
 ## <a name="send-the-notification"></a>通知を送信する
 
-オーディオを使用した通知の送信は、通常の通知の送信と同じです。 詳細については、「 [ローカルトーストを送信](send-local-toast.md) する」を参照してください。
+音声を使用して通知を送信することは、通常の通知を送信することと同じです。 詳細については、「 [ローカルトーストを送信](send-local-toast.md) する」を参照してください。
 
 
 ## <a name="related-topics"></a>関連トピック
