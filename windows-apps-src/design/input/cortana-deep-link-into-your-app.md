@@ -1,16 +1,16 @@
 ---
-title: Cortana のバックグラウンドアプリから前景アプリへのディープリンク-Cortana UWP の設計と開発
+title: Cortana のバックグラウンド アプリからフォアグラウンド アプリへのディープ リンク - Cortana UWP の設計と開発
 description: '**Cortana** でバックグラウンド アプリからのディープ リンクを提供し、フォアグラウンドに特定の状態やコンテキストでアプリを起動します。'
 ms.assetid: 6fe5fcc5-9ee4-4c04-92f4-7b1bf7ef5651
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: d96e54604c5def61802a77625a6c18c556db909d
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: 5096e4897d5a75be70deaf272ec52c151c1ad871
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99606057"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823496"
 ---
 # <a name="deep-link-from-a-background-app-in-cortana-to-a-foreground-app"></a>Cortana のバックグラウンドアプリから前景アプリへのディープリンク
 
@@ -230,7 +230,7 @@ await  VoiceCommandServiceConnection.RequestAppLaunchAsync(response);
 
 ## <a name="protocol-contract"></a>プロトコル コントラクト
 
-アプリは、[**Protocol**](/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) コントラクトを使用して、Uniform Resource Identifier (URI) アクティブ化によってフォアグラウンドで起動されます。 アプリは、アプリの [**OnActivated**](/uwp/api/Windows.UI.Xaml.Application) イベントをオーバーライドし、**Protocol** の **ActivationKind** を確認する必要があります。 詳しくは、「[URI のアクティブ化の処理](/windows/uwp/launch-resume/handle-uri-activation)」をご覧ください。
+アプリは、[**Protocol**](/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) コントラクトを使用して、Uniform Resource Identifier (URI) アクティブ化によってフォアグラウンドで起動されます。 アプリは、アプリの [**OnActivated**](/uwp/api/Windows.UI.Xaml.Application) イベントをオーバーライドし、**Protocol** の **ActivationKind** を確認する必要があります。 詳しくは、「[URI のアクティブ化の処理](../../launch-resume/handle-uri-activation.md)」をご覧ください。
 
 ここでは、[**ProtocolActivatedEventArgs**](/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs) によって提供される URI をデコードして、起動引数にアクセスします。 この例では、[**Uri**](/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs) は "windows.personalassistantlaunch:?LaunchContext=Las Vegas" に設定されています。
 
@@ -259,7 +259,7 @@ if (args.Kind == ActivationKind.Protocol)
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [Cortana のデザインガイドライン](cortana-design-guidelines.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)

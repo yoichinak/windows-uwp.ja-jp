@@ -6,14 +6,14 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9a6f78d30b1366078f2094aa17ab15c65a050c43
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c421f071cb3e13e1ebb24b8d2cd9f8aec3341c2b
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89164346"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824536"
 ---
-#  <a name="porting-windowsphone-silverlight-xaml-and-ui-to-uwp"></a>Windows Phone Silverlight の XAML と UI の UWP への移植
+#  <a name="porting-windows-phone-silverlight-xaml-and-ui-to-uwp"></a>Windows Phone Silverlight の XAML と UI の UWP への移植
 
 
 
@@ -152,7 +152,7 @@ Windows 10 アプリでは、単一のアプローチで "戻る" ボタンを�
 -   UI 要素から別の UI 要素へのバインド
 -   監視可能なビュー モデルの記述 (つまり、プロパティ値の変更時およびコマンドの可用性の変更時に通知が発生します)
 
-こうした要素はすべて、引き続きサポートされていますが、名前空間には違いがあります。 たとえば、 **system.componentmodel**は、INotifyPropertyChanged にマップ[**され、**](/uwp/api/Windows.UI.Xaml.Data.Binding) [**INotifyPropertyChanged**](/uwp/api/Windows.UI.Xaml.Data.INotifyPropertyChanged)にマップされ、INotifyPropertyChanged はにマップされます。には、INotifyCollectionChanged が割り当てられています。 **System.Collections.Specialized.INotifyPropertyChanged**に**は、** [**Windows.UI.Xaml.Interop.INotifyCollectionChanged**](/uwp/api/Windows.UI.Xaml.Interop.INotifyCollectionChanged)が割り当てられていることになります。
+こうした要素はすべて、引き続きサポートされていますが、名前空間には違いがあります。 たとえば、 **system.componentmodel** は、INotifyPropertyChanged にマップ [**され、**](/uwp/api/Windows.UI.Xaml.Data.Binding) [**INotifyPropertyChanged**](/uwp/api/Windows.UI.Xaml.Data.INotifyPropertyChanged)にマップされ、INotifyPropertyChanged はにマップされます。には、INotifyCollectionChanged が割り当てられています。 に **は、** [](/uwp/api/Windows.UI.Xaml.Interop.INotifyCollectionChanged)が割り当てられていることになります。
 
 Windows Phone Silverlight のアプリ バーとアプリ バーのボタンは、UWP アプリとは異なり、バインドできません。 アプリ バーとそのボタンを構築し、プロパティとローカライズされた文字列にバインドして、イベントを処理する命令型コードを使う場合もあります。 その場合、プロパティとコマンドにバインドされた宣言型マークアップ、および静的なリソース参照によって置き換えることで、該当する命令型コードを移植し、アプリの安全性と保守性を段階的に高めることができます。 Visual Studio または Blend for Visual Studio を使って、他の XAML 要素と同様に、UWP アプリ バーのボタンのバインドとスタイル設定を行うことができます。 UWP アプリでは、使う型名は [**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.CommandBar) および [**AppBarButton**](/uwp/api/Windows.UI.Xaml.Controls.AppBarButton) であることに注意してください。
 
@@ -174,7 +174,7 @@ Windows Phone Silverlight のアプリ バーとアプリ バーのボタンは�
     return new BitmapImage(new Uri(this.CoverImagePath, UriKind.Relative));
 ```
 
-UWP アプリでは、ms-appx [URI スキーム](/previous-versions/windows/apps/jj655406(v=win.10))を使います。 残るコードを変更せずに維持するために、**System.Uri** コンストラクターの異なるオーバーロードを使って、ベース URI に ms-appx URI スキームを格納し、パスの残る部分を追加できます。 以下に例を示します。
+UWP アプリでは、ms-appx [URI スキーム](/previous-versions/windows/apps/jj655406(v=win.10))を使います。 残るコードを変更せずに維持するために、**System.Uri** コンストラクターの異なるオーバーロードを使って、ベース URI に ms-appx URI スキームを格納し、パスの残る部分を追加できます。 例:
 
 ```csharp
     // this.BookCoverImagePath contains a path of the form "/Assets/CoverImages/one.png".
@@ -187,7 +187,7 @@ UWP アプリでは、ms-appx [URI スキーム](/previous-versions/windows/apps
 
 Windows Phone Silverlight アプリは、**Microsoft.Phone.Controls** 名前空間と **System.Windows.Controls** 名前空間で定義されたコントロールを使います。 XAML UWP アプリは、[**Windows.UI.Xaml.Controls**](/uwp/api/Windows.UI.Xaml.Controls) 名前空間で定義されたコントロールを使います。 UWP の XAML コントロールのアーキテクチャと設計は、Windows Phone Silverlight コントロールと事実上同じです。 ただし、使用可能なコントロール セットの向上と Windows アプリとの一体化のために、若干の変更が加えられています。 具体的な例をいくつか紹介します。
 
-| コントロール名 | 変更 |
+| コントロール名 | Change |
 |--------------|--------|
 | ApplicationBar | [Page.TopAppBar](/uwp/api/windows.ui.xaml.controls.page.topappbar) プロパティです。 |
 | ApplicationBarIconButton | UWP の相当要素は [Glyph](/uwp/api/windows.ui.xaml.controls.fonticon.glyph) プロパティです。 PrimaryCommands は CommandBar のコンテンツ プロパティです。 XAML パーサーは、コンテンツ プロパティの値として要素の内部 xml を解釈します。 |
@@ -199,11 +199,11 @@ Windows Phone Silverlight アプリは、**Microsoft.Phone.Controls** 名前空�
 | Panorama | Windows Phone Silverlight パノラマコントロールは、 [Windows ランタイム8.x アプリのハブコントロールのガイドライン](../design/basics/navigation-basics.md) とハブコントロールのガイドラインにマップされます。 <br/> Panorama コントロールは、最後のセクションから最初のセクションに折り返され、背景画像はセクションを基準とした視差効果で移動します。 [Hub](/uwp/api/Windows.UI.Xaml.Controls.Hub) セクションは折り返されず、視差効果は使われません。 |
 | ピボット | Windows Phone Silverlight の Pivot コントロールに相当する UWP のコントロールは、[Windows.UI.Xaml.Controls.Pivot](/uwp/api/Windows.UI.Xaml.Controls.Pivot) です。 これはすべてのデバイス ファミリで利用できます。 |
 
-**メモ**   視覚的な状態を上回るポインターは、Windows 10 アプリのカスタムスタイル/テンプレートに関連しますが、Windows Phone Silverlight アプリには関係ありません。 既にあるカスタム スタイル/テンプレートが Windows 10 アプリで適切ではない場合があるのには、他の理由もあります。たとえば、使っているシステム リソース キー、使われる表示状態のセットへの変更、Windows 10 の既定のスタイル/テンプレートに対するパフォーマンスの向上が挙げられます。 Windows 10 用のコントロールの新しい既定のテンプレートのコピーを編集し、そのコピーにスタイルやテンプレートのカスタマイズをもう一度適用することをお勧めします。
+**注:** PointerOver 表示状態は、Windows 10 アプリのカスタム スタイル/テンプレートには関連しますが、Windows Phone Silverlight アプリのカスタム スタイル/テンプレートには関連しません。 既にあるカスタム スタイル/テンプレートが Windows 10 アプリで適切ではない場合があるのには、他の理由もあります。たとえば、使っているシステム リソース キー、使われる表示状態のセットへの変更、Windows 10 の既定のスタイル/テンプレートに対するパフォーマンスの向上が挙げられます。 Windows 10 用のコントロールの新しい既定のテンプレートのコピーを編集し、そのコピーにスタイルやテンプレートのカスタマイズをもう一度適用することをお勧めします。
 
-UWP コントロールの詳細については、「 [関数別のコントロール](../design/controls-and-patterns/controls-by-function.md)、コントロールの [一覧](../design/controls-and-patterns/index.md)、および [コントロールのガイドライン](../design/controls-and-patterns/index.md)」を参照してください。
+UWP コントロールの詳細については、「 [関数別のコントロール](../design/controls-and-patterns/index.md)、コントロールの [一覧](../design/controls-and-patterns/index.md)、および [コントロールのガイドライン](../design/controls-and-patterns/index.md)」を参照してください。
 
-##  <a name="design-language-in-windows10"></a>Windows 10 でのデザイン言語
+##  <a name="design-language-in-windows-10"></a>Windows 10 でのデザイン言語
 
 Windows Phone Silverlight アプリと Windows 10 アプリでは、デザイン言語に関して若干の違いがあります。 詳しくは、「[Design](https://developer.microsoft.com/windows/apps/design)」(UWP アプリの設計) をご覧ください。 デザイン言語に変更が加えられていますが、設計原則は維持されています。細部にまで注意を払いながら、簡潔さを追求しています。そのために、クロムよりもコンテンツを優先し、視覚要素を大幅に減らし、真のデジタル領域を常に意識しています。また、視覚的な階層の利用 (特に文字体裁に対して)、グリッド内でのデザイン、滑らかなアニメーションを使ったエクスペリエンスの実現も行っています。
 
@@ -368,13 +368,13 @@ Windows Phone Silverlight アプリと Windows 10 アプリでは、デバイス
 
 画面の物理ピクセル数、ピクセル密度、物理サイズにかかわらず、Windows Phone Silverlight アプリに対してすべての電話画面は例外なく正確に 480 表示ピクセル幅です。 これは、`Width="48"` を含む **Image** 要素が Windows Phone Silverlight アプリを実行できるすべての電話画面の幅に対して正確に 1/10 であることを示します。
 
-Windows 10 アプリに対しては、すべてのデバイスが固定数の有効ピクセル幅になるわけでは*ありません*。 これは、UWP アプリが広範なデバイスで実行できることから、おそらく明白です。 デバイスによって、有効ピクセルの幅の値が異なります。その範囲は、320 epx (最小のデバイス) から 1024 epx (一般的なサイズのモニター)、またはそれ以上のさらに広い幅になります。 これまでと同様に、自動的にサイズ調整される要素と動的レイアウト パネルを引き続き使うことで十分に対応できます。 ただし、場合によっては、UI 要素のプロパティを XAML マークアップで固定サイズに設定することがあります。 スケール ファクターは、アプリが実行されているデバイスやユーザーが行った表示設定に応じて、アプリに自動的に適用されます。 スケール ファクターによって、さまざまな幅の画面サイズでユーザーに対してほぼ一定サイズのタッチ (または読み取り) ターゲットを提示するように、すべての UI 要素を固定サイズで維持できます。 また、動的レイアウトと共に使うことで、UI は単にさまざまなデバイスで光学的なスケーリングを行うだけでなく、利用可能な領域に合わせて適切な量のコンテンツを表示するために必要となる処理も実行します。
+Windows 10 アプリに対しては、すべてのデバイスが固定数の有効ピクセル幅になるわけでは *ありません*。 これは、UWP アプリが広範なデバイスで実行できることから、おそらく明白です。 デバイスによって、有効ピクセルの幅の値が異なります。その範囲は、320 epx (最小のデバイス) から 1024 epx (一般的なサイズのモニター)、またはそれ以上のさらに広い幅になります。 これまでと同様に、自動的にサイズ調整される要素と動的レイアウト パネルを引き続き使うことで十分に対応できます。 ただし、場合によっては、UI 要素のプロパティを XAML マークアップで固定サイズに設定することがあります。 スケール ファクターは、アプリが実行されているデバイスやユーザーが行った表示設定に応じて、アプリに自動的に適用されます。 スケール ファクターによって、さまざまな幅の画面サイズでユーザーに対してほぼ一定サイズのタッチ (または読み取り) ターゲットを提示するように、すべての UI 要素を固定サイズで維持できます。 また、動的レイアウトと共に使うことで、UI は単にさまざまなデバイスで光学的なスケーリングを行うだけでなく、利用可能な領域に合わせて適切な量のコンテンツを表示するために必要となる処理も実行します。
 
 以前は電話サイズの画面の表示ピクセル単位の固定幅が 480 でしたが、現在はその値が有効ピクセル単位では一般的に小さくなるため、経験則として、Windows Phone Silverlight アプリのマークアップのサイズにすべて 0.8 の係数を乗算します。
 
 すべてのディスプレイで最適なアプリのエクスペリエンスが実現できるように、一連のサイズで各ビットマップ アセットを作成し、各アセットが特定のスケール ファクターに適合するように設定することをお勧めします。 ただし、100% スケール、200% スケール、および 400% スケール (この優先順位で) でアセットを作成するほうが、多くの場合、すべての中間スケール ファクターで適切な結果を得ることができます。
 
-**メモ**   何らかの理由で、複数のサイズでアセットを作成できない場合は、100% スケールのアセットを作成します。 Microsoft Visual Studio では、UWP アプリの既定のプロジェクト テンプレートには 1 つのサイズのみのブランド アセット (タイル イメージとロゴ) が用意されていますが、これらは 100% のスケールではありません。 独自のアプリのアセットを作成する場合は、このセクションに示したガイドラインに従って、100%、200%、400% のサイズを用意し、アセット パックを使います。
+**注**  何らかの理由で複数のサイズでアセットを作成できない場合は、100% スケールのアセットを作成します。 Microsoft Visual Studio では、UWP アプリの既定のプロジェクト テンプレートには 1 つのサイズのみのブランド アセット (タイル イメージとロゴ) が用意されていますが、これらは 100% のスケールではありません。 独自のアプリのアセットを作成する場合は、このセクションに示したガイドラインに従って、100%、200%、400% のサイズを用意し、アセット パックを使います。
 
 複雑なアートワークがある場合は、さらに多くのサイズに対応したアセットが必要になることがあります。 ベクター アートを使って作業を始める場合は、どのようなスケール ファクターでも高品質なアセットを比較的簡単に生成できます。
 

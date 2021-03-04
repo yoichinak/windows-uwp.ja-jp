@@ -1,18 +1,18 @@
 ---
 title: Windows でのネイティブ Android 開発
-description: Windows で Android ネイティブアプリの開発を開始しましょう。
+description: Windows で Android ネイティブアプリの開発を開始する手順について説明します。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: android、windows、android studio、visual studio、c++ android game、windows defender、emulator、virtual device、install、java、kotlin
 ms.date: 04/28/2020
-ms.openlocfilehash: c9c718d2cccc6a38ac75d3220a79c7b2ec757f54
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: c08aac8968ecc16ec548fadd4bee7d83b74ea719
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166846"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823186"
 ---
 # <a name="get-started-with-native-android-development-on-windows"></a>Windows でのネイティブ Android 開発の概要
 
@@ -31,7 +31,7 @@ Android Studio のセットアップウィザードに従って、推奨され�
 
 ## <a name="create-a-new-project"></a>新しいプロジェクトを作成する
 
-[**ファイル**] [新規作成] [  >  **New**  >  **新しいプロジェクト**] を選択します。
+[**ファイル**] [新規作成] [  >    >  **新しいプロジェクト**] を選択します。
 
 [ **プロジェクトの選択** ] ウィンドウでは、次のテンプレートのいずれかを選択できます。
 
@@ -46,7 +46,7 @@ Android Studio のセットアップウィザードに従って、推奨され�
 テンプレートは、通常、新規および既存のアプリモジュールにアクティビティを追加するために使用されます。 たとえば、アプリのユーザーのログイン画面を作成するには、 [ログインアクティビティテンプレート](https://developer.android.com/studio/projects/templates#LoginActivity)を使用してアクティビティを追加します。
 
 > [!NOTE]
-> Android オペレーティングシステムは、 **コンポーネント** の概念に基づいており、 **アクティビティ** と **目的** という用語を使用して相互作用を定義します。 **アクティビティ**は、ユーザーが実行できる1つのフォーカスがあるタスクを表します。 **アクティビティ**には、**ビュー**クラスに基づくクラスを使用してユーザーインターフェイスを構築するためのウィンドウが用意されています。 Android オペレーティングシステムでは**activities** 、、、、、、 `onCreate()` `onStart()` `onResume()` `onPause()` `onStop()` およびと `onDestroy()` いう6つのコールバックのセットによって定義されるアクティビティのライフサイクルがあります。 アクティビティコンポーネントは、 **インテント** オブジェクトを使用して相互に対話します。 インテントは、開始するアクティビティを定義するか、実行するアクションの種類を記述します (また、システムは適切なアクティビティを選択します。これは、別のアプリケーションからでもかまいません)。 [アクティビティ](https://developer.android.com/reference/android/app/Activity)、[アクティビティのライフサイクル](https://developer.android.com/guide/components/activities/activity-lifecycle)、および Android ドキュメントに含まれる[インテント](https://developer.android.com/reference/android/content/Intent.html)の詳細について説明します。
+> Android オペレーティングシステムは、 **コンポーネント** の概念に基づいており、 **アクティビティ** と **目的** という用語を使用して相互作用を定義します。 **アクティビティ** は、ユーザーが実行できる1つのフォーカスがあるタスクを表します。 **アクティビティ** には、**ビュー** クラスに基づくクラスを使用してユーザーインターフェイスを構築するためのウィンドウが用意されています。 Android オペレーティングシステムでは 、、、、、、 `onCreate()` `onStart()` `onResume()` `onPause()` `onStop()` およびと `onDestroy()` いう6つのコールバックのセットによって定義されるアクティビティのライフサイクルがあります。 アクティビティコンポーネントは、 **インテント** オブジェクトを使用して相互に対話します。 インテントは、開始するアクティビティを定義するか、実行するアクションの種類を記述します (また、システムは適切なアクティビティを選択します。これは、別のアプリケーションからでもかまいません)。 [アクティビティ](https://developer.android.com/reference/android/app/Activity)、[アクティビティのライフサイクル](https://developer.android.com/guide/components/activities/activity-lifecycle)、および Android ドキュメントに含まれる[インテント](https://developer.android.com/reference/android/content/Intent.html)の詳細について説明します。
 
 ### <a name="java-or-kotlin"></a>Java または Kotlin
 
@@ -68,7 +68,7 @@ Java は、より広範なアプリケーションで広く使用されており
 
 ### <a name="instant-app-support-and-androidx-artifacts"></a>インスタントアプリのサポートと Androidx 成果物
 
-**インスタントアプリをサポート**するチェックボックスと、プロジェクト作成オプションで**androidx 成果物を使用**するためのチェックボックスが表示される場合があります。 [ *インスタントアプリのサポート* ] はオフになっており、推奨される既定値として [ *androidx* ] がオンになっています。
+**インスタントアプリをサポート** するチェックボックスと、プロジェクト作成オプションで **androidx 成果物を使用** するためのチェックボックスが表示される場合があります。 [ *インスタントアプリのサポート* ] はオフになっており、推奨される既定値として [ *androidx* ] がオンになっています。
 
 Google Play **インスタントアプリ** を使用すると、最初にアプリやゲームをインストールせずに試すことができます。 これらのインスタントアプリは、Play ストア、Google Search、ソーシャルネットワークのほか、リンクを共有しているどこにでも表示できます。 [サポート- **インスタントアプリ** ] ボックスをオンにすると、プロジェクトと共に Google Play インスタント開発 SDK を含めるように Android Studio 求められます。 [Google Play インスタントアプリ](https://developer.android.com/topic/google-play-instant)の詳細と、[インスタント対応アプリバンドルを作成](https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle)する方法の詳細については、Android のドキュメントを参照してください。
 
@@ -107,7 +107,7 @@ C/c + + サポートを使用して新しいプロジェクトを作成するに
 
 - ウィザードの [ **C++ サポートのカスタマイズ** ] セクションでは、 **c++ 標準** フィールドを使用してプロジェクトをカスタマイズできます。 ドロップダウンリストを使用して、使用する C++ の標準化を選択します。 [ツール **チェーンの既定値** ] を選択すると、既定の cmake 設定が使用されます。 **[完了]** を選択します。
 
-- Android Studio によって新しいプロジェクトが作成されると、**プロジェクト**ウィンドウに**cpp**フォルダーが見つかります。このフォルダーには、ネイティブソースファイル、ヘッダー、cmake または ndk ビルドのビルドスクリプト、プロジェクトの一部であるビルド済みライブラリが含まれています。 また、サンプル C++ ソースファイル () をフォルダーで検索することもでき `native-lib.cpp` ます。このフォルダーには、 `src/main/cpp/` `stringFromJNI()` "Hello from C++" という文字列を返す単純な関数が用意されています。 また、 [`CMakeLists.txt`](https://developer.android.com/studio/projects/configure-cmake.html) ネイティブライブラリを構築するために必要なモジュールのルートディレクトリに、CMake ビルドスクリプトがあります。
+- Android Studio によって新しいプロジェクトが作成されると、**プロジェクト** ウィンドウに **cpp** フォルダーが見つかります。このフォルダーには、ネイティブソースファイル、ヘッダー、cmake または ndk ビルドのビルドスクリプト、プロジェクトの一部であるビルド済みライブラリが含まれています。 また、サンプル C++ ソースファイル () をフォルダーで検索することもでき `native-lib.cpp` ます。このフォルダーには、 `src/main/cpp/` `stringFromJNI()` "Hello from C++" という文字列を返す単純な関数が用意されています。 また、 [`CMakeLists.txt`](https://developer.android.com/studio/projects/configure-cmake.html) ネイティブライブラリを構築するために必要なモジュールのルートディレクトリに、CMake ビルドスクリプトがあります。
 
 詳細については、「Android ドキュメント: [プロジェクトへの c および C++ コードの追加](https://developer.android.com/studio/projects/add-native-code)」を参照してください。 サンプルについては、GitHub の [Android Studio C++ 統合リポジトリを使用した ANDROID NDK のサンプル](https://github.com/android/ndk-samples) を参照してください。 Android で C++ ゲームをコンパイルして実行するには、 [Google Play game SERVICES API](https://developers.google.com/games/services/cpp/gettingStartedAndroid)を使用します。
 

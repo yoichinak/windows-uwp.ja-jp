@@ -1,18 +1,18 @@
 ---
 title: Windows での Android 開発のためにネイティブに対応
-description: Windows で Xamarin Native を使用して Android アプリの開発を開始します。
+description: Android デバイスで動作するクロスプラットフォームアプリを作成するための Windows でのネイティブ対応の使用の開始方法についてのステップバイステップガイドです。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: android、windows、ネイティブ、エミュレーター、エキスポ、metro bundler、ターミナルを対応
 ms.date: 04/28/2020
-ms.openlocfilehash: 50c117154b103ca4e201f21bc643e7cbfa609b84
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 82bf078d6c29c8968ce3e0cc19ce4d6f803e6d71
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157716"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823226"
 ---
 # <a name="get-started-developing-for-android-using-react-native"></a>ネイティブな応答を使用した Android 向けの開発の開始
 
@@ -75,7 +75,7 @@ ms.locfileid: "89157716"
 
 5. Android デバイスで実行されているプロジェクトを表示するには、最初に Android デバイスに [Google Play ストアを使用してエキスポクライアントアプリをインストール](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US) する必要があります。 エキスポ client アプリがインストールされたら、デバイスでそれを開き、[ **QR コードのスキャン**] を選択します。 QR コードが登録されると、お使いのデバイスと、ローカルのブラウザーで localhost で実行されている Metro Bundler ウィンドウの両方でパッケージのビルドを確認できるようになります。
 
-6. Android エミュレーターで実行されているプロジェクトを表示するには、最初に Android Studio を開き、仮想デバイスを作成して起動する必要があります。 **ツール**  > **Avd マネージャー**  > **[+ 仮想デバイスの作成](https://developer.android.com/studio/run/managing-avds#createavd)**...仮想デバイスが作成されたら、Android 仮想デバイスマネージャーの [**アクション**] 列の下にある起動ボタン▷を選択して、デバイスのエミュレーションを開始します。 仮想デバイスが開いたら、インターネットブラウザーウィンドウで実行されている Metro Bundler ウィンドウに戻り、左側の列から [Android デバイス/エミュレーターで実行] を選択します。 Metro Bundler が "シミュレーターを開こうとしています..." であることを知らせるポップアップが表示されます。エミュレートされた Android デバイスでエキスポクライアントアプリを開いていることを確認します。 JavaScript バンドルのダウンロードが完了すると、[対応するネイティブアプリ] が表示されます。 (問題が発生した場合は、 [エキスポ Android emulator のドキュメントを確認して](https://docs.expo.io/workflow/android-studio-emulator/)ください)。
+6. Android エミュレーターで実行されているプロジェクトを表示するには、最初に Android Studio を開き、仮想デバイスを作成して起動する必要があります。 **ツール**  > **Avd マネージャー**  > **[+ 仮想デバイスの作成](https://developer.android.com/studio/run/managing-avds#createavd)**...仮想デバイスが作成されたら、Android 仮想 Device Manager の [**アクション**] 列の下にある起動ボタン▷を選択して、デバイスのエミュレーションを開始します。 仮想デバイスが開いたら、インターネットブラウザーウィンドウで実行されている Metro Bundler ウィンドウに戻り、左側の列から [Android デバイス/エミュレーターで実行] を選択します。 Metro Bundler が "シミュレーターを開こうとしています..." であることを知らせるポップアップが表示されます。エミュレートされた Android デバイスでエキスポクライアントアプリを開いていることを確認します。 JavaScript バンドルのダウンロードが完了すると、[対応するネイティブアプリ] が表示されます。 (問題が発生した場合は、 [エキスポ Android emulator のドキュメントを確認して](https://docs.expo.io/workflow/android-studio-emulator/)ください)。
 
 7. 反応するネイティブプロジェクトを開いて、アプリでの作業を開始します。 デバイス上のエキスポクライアントまたは Android Emulator で実行されているアプリで、変更が自動更新されていることがわかります。
 

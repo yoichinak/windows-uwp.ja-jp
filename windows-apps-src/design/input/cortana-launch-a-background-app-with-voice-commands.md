@@ -1,16 +1,16 @@
 ---
-title: 音声コマンドを使用して Cortana でバックグラウンドアプリをアクティブ化する |Cortana UWP の設計と開発
+title: Cortana の音声コマンドを使ったバックグラウンド アプリのアクティブ化 | Cortana UWP の設計と開発
 description: 音声コマンドを使用して、アプリの機能を使用して Cortana を (バックグラウンドタスクとして) 拡張します。
 ms.assetid: e2c7eae3-6beb-4156-92a5-474bba53451e
 ms.date: 09/24/2019
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: f1ed51107f41318cecf2d8fea73484713b4b837c
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: 987a8f4146e5f97c0338c6a8492ace050fbaa3d0
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99606067"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824636"
 ---
 # <a name="activate-a-background-app-in-cortana-using-voice-commands"></a>音声コマンドを使用して Cortana でバックグラウンドアプリをアクティブ化する  
 
@@ -61,8 +61,8 @@ ms.locfileid: "99606067"
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
-> - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)
-> - 「[イベントとルーティング イベントの概要](/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
+> - [初めてのアプリの作成](../../get-started/your-first-app.md)
+> - 「[イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)」に記載されているイベントの説明
 >
 > **ユーザーエクスペリエンスのガイドライン**
 >
@@ -89,7 +89,7 @@ ms.locfileid: "99606067"
 UWP アプリでは、最も適切なイメージを自動的に選択する必要があります。 選択は、特定の設定とデバイスの機能 (ハイコントラスト、有効なピクセル、ロケールなど) に基づいています。 イメージを指定し、異なるリソースバージョンに対して、アプリプロジェクト内で適切な名前付け規則とフォルダー編成を使用していることを確認する必要があります。  
 推奨されるリソースバージョンを指定しないと、ユーザーエクスペリエンスが次のような影響を受ける可能性があります。
 
-- ユーザー補助
+- アクセシビリティ
 - ローカリゼーション  
 - 画質  
 リソースバージョンは、ユーザーエクスペリエンスの次の変更を調整するために使用されます。  
@@ -98,7 +98,7 @@ UWP アプリでは、最も適切なイメージを自動的に選択する必�
 - デバイスの種類  
 - 場所  
 
-ハイコントラストとスケールファクターのイメージリソースの詳細については、 [msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-app-assets](/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast)にある [タイルとアイコンのアセット] ページのガイドラインを参照してください。  
+ハイコントラストとスケールファクターのイメージリソースの詳細については、 [msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-app-assets](../../app-resources/images-tailored-for-scale-theme-contrast.md)にある [タイルとアイコンのアセット] ページのガイドラインを参照してください。  
 
 リソースには、修飾子を使用して名前を指定する必要があります。 リソース修飾子は、リソースの特定のバージョンが使われるコンテキストを識別するフォルダーとファイル名の修飾子です。  
 
@@ -675,7 +675,7 @@ VCD をインストールするには、アプリを 1 回実行する必要が�
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [Cortana を使用して音声コマンドでフォアグラウンドアプリをアクティブ化する](cortana-launch-a-foreground-app-with-voice-commands.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana のデザインガイドライン](cortana-design-guidelines.md)

@@ -1,5 +1,5 @@
 ---
-title: Cortana のデザインガイドライン-Cortana UWP の設計と開発
+title: Cortana の設計ガイドライン - Cortana UWP の設計と開発
 description: これらのガイドラインと推奨事項では、アプリが Cortana を使用してユーザーと対話する方法について説明します。
 ms.assetid: 332ccb95-0e56-410e-ab63-cc028fce4192
 label: Cortana
@@ -8,12 +8,12 @@ ms.date: 01/27/2021
 ms.topic: article
 keywords: cortana, デザイン
 ms.localizationpriority: medium
-ms.openlocfilehash: b7711f9fd653bbd635582a0b2268a5eb0ed7417b
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: ae5f1ce3c481e833ce80d0ebd52d64f6efba7e78
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99606087"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823276"
 ---
 # <a name="cortana-design-guidelines"></a>Cortana の設計ガイドライン
 
@@ -118,17 +118,17 @@ ms.locfileid: "99606087"
 
 長い GUI 文字列は避けてください。 **Cortana** のキャンバスで応答に使うことができるのは 3 行のため、それよりも長い文字列は切り捨てられます。
 
-詳細については、「 [グローバリゼーションとローカリゼーション」セクション](/windows/uwp/design/globalizing/guidelines-and-checklist-for-globalizing-your-app)を参照してください。
+詳細については、「 [グローバリゼーションとローカリゼーション」セクション](../globalizing/guidelines-and-checklist-for-globalizing-your-app.md)を参照してください。
 
 ## <a name="image-resources-and-scaling"></a>画像リソースとスケーリング
 
 ユニバーサル Windows プラットフォーム (UWP) アプリでは、特定の設定とデバイス機能 (ハイ コントラスト、有効ピクセル、ロケールなど) に基づいて最適なアプリ ロゴ画像を自動的に選択できます。 必要な作業は、画像を提供し、リソースのバージョンごとに、アプリ プロジェクト内で適切な名前付け規則とフォルダー構造を使用していることを確認することだけです。 推奨されるリソースのバージョンが提供されない場合、ユーザーの基本設定、身体能力、デバイスの種類、場所によって、アクセシビリティ、ローカライズ、画像の品質が影響を受ける可能性があります。
 
-ハイコントラストとスケールファクターのイメージリソースの詳細については、「 [タイルとアイコン資産のガイドライン](/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast)」を参照してください。
+ハイコントラストとスケールファクターのイメージリソースの詳細については、「 [タイルとアイコン資産のガイドライン](../../app-resources/images-tailored-for-scale-theme-contrast.md)」を参照してください。
 
 修飾子を使ってリソースに名前を付けます。 リソース修飾子は、リソースの特定のバージョンが使われるコンテキストを識別するフォルダーとファイル名の修飾子です。
 
-標準的な名前付け規則は、"foldername/qualifiername \[ \_ qualifiername-value \] /filename.qualifiername-value \[ \_ qualifiername \] " です。 例: images/logo. scale ~ 100 \_contrast-white.png は、単にルートフォルダーと filename: images/logo.png を使用してコード内で参照されます。 「 [言語と地域の管理](/windows/uwp/design/globalizing/manage-language-and-region) 」および「 [修飾子を使用してリソースに名前を指定する方法](/previous-versions/windows/apps/hh965324(v=win.10))」を参照してください。
+標準的な名前付け規則は、"foldername/qualifiername \[ \_ qualifiername-value \] /filename.qualifiername-value \[ \_ qualifiername \] " です。 例: images/logo. scale ~ 100 \_contrast-white.png は、単にルートフォルダーと filename: images/logo.png を使用してコード内で参照されます。 「 [言語と地域の管理](../globalizing/manage-language-and-region.md) 」および「 [修飾子を使用してリソースに名前を指定する方法](/previous-versions/windows/apps/hh965324(v=win.10))」を参照してください。
 
 \\ローカライズされたまたは複数の解決リソースを提供する予定がない場合でも、文字列リソースファイル ("en-us" など) の既定の言語とイメージの既定のスケールファクター ("logo.scale-100.png" など) をマークすることをお勧めします。 ただし、100、200、400 の倍率のアセットを提供することをお勧めします。
 
@@ -352,6 +352,6 @@ GUI 文字列と TTS の文字列は同じにすることができますが、�
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)

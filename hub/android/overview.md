@@ -1,18 +1,18 @@
 ---
 title: Windows での Android 開発の概要
-description: Windows で Android の開発を始める際に役立つガイドです。
+description: ネイティブの Android 開発、クロスプラットフォームの開発、Android ゲーム開発など、Windows で Android の開発を開始しましょう。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: windows での android、xamarin android、ネイティブ、cordova、ionic、phonegap、c++ android game、windows defender、emulator
 ms.date: 04/28/2020
-ms.openlocfilehash: e215d9e08fcef7ddb1caae40bd8f3a83e183d197
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: b839972033c9edfad3524909345380e7fac9462e
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89157706"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823166"
 ---
 # <a name="overview-of-android-development-on-windows"></a>Windows での Android 開発の概要
 
@@ -41,7 +41,7 @@ Windows オペレーティングシステムを使用して Android デバイス
 
 クロスプラットフォームフレームワークは、可能な限りネイティブアプリに近いルックアンドフィールを目的としていますが、ネイティブに開発されたアプリとしてシームレスに統合されることはなく、速度の低下とパフォーマンスの低下の影響を受ける可能性があります。 また、クロスプラットフォームアプリのビルドに使用されるツールには、各デバイスプラットフォームで提供されるすべての機能が含まれていない場合があります。回避策が必要になる可能性があります。
 
-コードベースは、通常、ページ、ボタンコントロール、ラベル、リストなどのユーザーインターフェイスを作成するために、web サービスの呼び出し、データベースへのアクセス、ハードウェア機能の呼び出し、および状態の管理のため**に、** **UI コード**で構成されます。 平均して、このの90% を再利用できますが、通常はデバイスプラットフォームごとにコードをカスタマイズする必要があります。 この一般化は、構築しているアプリの種類によって大きく異なりますが、お客様の意思決定に役立つ少しのコンテキストを提供します。  
+コードベースは、通常、ページ、ボタンコントロール、ラベル、リストなどのユーザーインターフェイスを作成するために、web サービスの呼び出し、データベースへのアクセス、ハードウェア機能の呼び出し、および状態の管理のため **に、** **UI コード** で構成されます。 平均して、このの90% を再利用できますが、通常はデバイスプラットフォームごとにコードをカスタマイズする必要があります。 この一般化は、構築しているアプリの種類によって大きく異なりますが、お客様の意思決定に役立つ少しのコンテキストを提供します。  
 
 ## <a name="choosing-a-cross-platform-framework"></a>クロスプラットフォームフレームワークの選択
 
@@ -84,7 +84,7 @@ Android 用のゲーム開発は、通常は OpenGL または Vulkan で記述�
 
 Android 用にゲームを開発するためのもう1つの一般的なパスは、ゲームエンジンを使用することです。 利用可能な無料のオープンソースエンジンは多数あります。たとえば、 [Visual Studio](/visualstudio/cross-platform/visual-studio-tools-for-unity?view=vs-2019)、 [unreal Engine](https://docs.unrealengine.com/en-US/Platforms/Mobile/Android/GettingStarted/index.html)、 [モノゲーム (xamarin](/xamarin/graphics-games/monogame/introduction/))、 [urhosharp With](/xamarin/graphics-games/urhosharp/introduction)Xamarin、 [SkiaSharp](/xamarin/xamarin-forms/user-interface/graphics/skiasharp/) WITH xamarin、アプリゲームキット、Fusion、コロナ SDK、ココス2d などがあります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Windows でのネイティブ Android 開発の概要](native-android.md)
 - [Xamarin を使用して Android 向けの開発を始める](xamarin-android.md)

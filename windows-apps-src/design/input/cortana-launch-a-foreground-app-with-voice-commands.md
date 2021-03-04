@@ -1,16 +1,16 @@
 ---
-title: Cortana を使用して音声コマンドでフォアグラウンドアプリをアクティブ化する-Cortana UWP の設計と開発
+title: Cortana の音声コマンドを使ったフォアグラウンド アプリのアクティブ化 - Cortana UWP の設計と開発
 description: 音声コマンドを使用して、アプリをフォアグラウンドでアクティブ化し、アプリ内でアクションまたはコマンドを実行します。
 ms.assetid: e4bf3714-6f62-466f-9e7c-3b03ee86a117
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 6e4e1b30d7d6e259ff66cdccebeed325ded57c18
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: 4b17a93d950d48209637cedf89bb49759ba0cf1f
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99606017"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824326"
 ---
 # <a name="activate-a-foreground-app-with-voice-commands-through-cortana"></a>Cortana の音声コマンドを使ったフォアグラウンド アプリのアクティブ化
 
@@ -59,8 +59,8 @@ ms.locfileid: "99606017"
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
-> - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)
-> - 「[イベントとルーティング イベントの概要](/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
+> - [初めてのアプリの作成](../../get-started/your-first-app.md)
+> - 「[イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)」に記載されているイベントの説明
 >
 > **ユーザーエクスペリエンスのガイドライン**
 >
@@ -90,7 +90,7 @@ ms.locfileid: "99606017"
 
 UWP アプリでは、特定の設定とデバイス機能 (ハイ コントラスト、有効ピクセル、ロケールなど) に基づいて最適な画像を自動的に選択できます。 必要な作業は、画像を提供し、リソースのバージョンごとに、アプリ プロジェクト内で適切な名前付け規則とフォルダー構造を使用していることを確認することだけです。 推奨されるリソースのバージョンが提供されない場合、ユーザーの基本設定、身体能力、デバイスの種類、場所によって、アクセシビリティ、ローカライズ、画像の品質が影響を受ける可能性があります。
 
-ハイコントラストとスケールファクターのイメージリソースの詳細については、「 [タイルとアイコン資産のガイドライン](/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast)」を参照してください。
+ハイコントラストとスケールファクターのイメージリソースの詳細については、「 [タイルとアイコン資産のガイドライン](../../app-resources/images-tailored-for-scale-theme-contrast.md)」を参照してください。
 
 修飾子を使ってリソースに名前を付けます。 リソース修飾子は、リソースの特定のバージョンが使われるコンテキストを識別するフォルダーとファイル名の修飾子です。
 
@@ -385,7 +385,7 @@ private string SemanticInterpretation(string interpretationKey, SpeechRecognitio
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [音声コマンドを使用して Cortana でバックグラウンドアプリをアクティブ化する](cortana-launch-a-background-app-with-voice-commands.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana のデザインガイドライン](cortana-design-guidelines.md)

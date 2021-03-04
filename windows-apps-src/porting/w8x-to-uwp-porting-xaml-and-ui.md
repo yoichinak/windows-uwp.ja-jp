@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 62085377da89d64c8ba0799dc6bab13c17675f90
-ms.sourcegitcommit: 39fb8c0dff1b98ededca2f12e8ea7977c2eddbce
+ms.openlocfilehash: ba3a01487dd962ffb119d808ef951c891a8b9443
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91750678"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824466"
 ---
 # <a name="porting-windows-runtime-8x-xaml-and-ui-to-uwp"></a>Windows ランタイム 8.x の XAML と UI の UWP への移植
 
@@ -88,7 +88,7 @@ ms.locfileid: "91750678"
 
 Windows 10 で実行されるユニバーサル 8.1 アプリでは、コントロールに関して 8.1 の外観と動作が維持されます。 ただし、そのアプリを Windows 10 アプリに移植すると、外観と動作が異なる場合があるので、注意してください。 コントロールのアーキテクチャと設計は、基本的には Windows 10 アプリでは変更されません。そのため、ほとんどの変更はデザイン言語、簡略化、およびユーザビリティの向上に関するものです。
 
-**メモ**   視覚的な状態を上回るポインターは、Windows 10 アプリのカスタムスタイル/テンプレートと Windows ランタイム2.x アプリでは、Windows Phone ストアアプリには関係ありません。 この理由 (および Windows 10 アプリでサポートされているシステムリソースキー) では、アプリを Windows 10 に移植するときに、Windows ランタイム1.x アプリからカスタムスタイルまたはテンプレートを再利用することをお勧めします。
+**メモ**   視覚的な状態を上回るポインターは、Windows 10 アプリのカスタムスタイル/テンプレートと Windows ランタイム2.x アプリでは、Windows Phone ストアアプリには関係ありません。 この理由 (および Windows 10 アプリでサポートされているシステムリソースキー) では、アプリを Windows 10 に移植するときに、Windows ランタイム1.x アプリからカスタムスタイルまたはテンプレートを再利用することをお勧めします。
 カスタムのスタイル/テンプレートで、確実に最新の表示状態のセットを使い、既定のスタイル/テンプレートに対するパフォーマンスの向上を活用するには、Windows 10 の新しい既定のテンプレートのコピーを編集し、カスタマイズを再適用します。 パフォーマンス向上の 1 つの例として、以前に **ContentPresenter** または Panel を囲んでいた **Border** が削除され、子要素が境界線を表示するようになりました。
 
 以下に、コントロールの変更に関する具体的な例を示します。
@@ -102,7 +102,7 @@ Windows 10 で実行されるユニバーサル 8.1 アプリでは、コント�
 | [**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.AppBar) | Windows 10 アプリでは、[**CommandBar**](/uwp/api/Windows.UI.Xaml.Controls.AppBar) で [**EdgeGesture.Completed**](/uwp/api/windows.ui.input.edgegesture.completed) イベントも [**UIElement.RightTapped**](/uwp/api/windows.ui.xaml.uielement.righttapped) イベントも処理されません。 タップまたはスワイプにも応答しません。 これらのイベントを処理し、 [**IsOpen**](/uwp/api/windows.ui.xaml.controls.appbar.isopen)を設定するオプションもあります。 |
 | [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、[**TimePicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) | [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker) や [**TimePicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) に加えられた視覚的な変化によってアプリの外観がどうなるかを確認してください。 モバイル デバイスで実行される Windows 10 アプリでは、これらのコントロールを使っても選択ページへは移動されません。ただし、簡易非表示に対応したポップアップが使われます。 |
 | [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker)、[**TimePicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) | Windows 10 アプリでは、 [**DatePicker**](/uwp/api/Windows.UI.Xaml.Controls.DatePicker) または [**timepicker**](/uwp/api/Windows.UI.Xaml.Controls.TimePicker) をフライアウト内に配置することはできません。これらのコントロールをポップアップ型のコントロールに表示する場合は、 [**DatePickerFlyout**](/uwp/api/Windows.UI.Xaml.Controls.DatePickerFlyout) と [**TimePickerFlyout**](/uwp/api/Windows.UI.Xaml.Controls.TimePickerFlyout)を使用できます。 |
-| **GridView**、**ListView** | **Gridview** / **listview**の場合は、「 [gridview と listview の変更点](#gridview-and-listview-changes)」を参照してください。 |
+| **GridView**、**ListView** | **Gridview** / **listview** の場合は、「 [gridview と listview の変更点](#gridview-and-listview-changes)」を参照してください。 |
 | [**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) | Windows Phone ストア アプリでは、[**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) コントロールは最後のセクションから最初のセクションに折り返します。 Windows ランタイム 8. x アプリと Windows 10 アプリでは、ハブのセクションは折り返されません。 |
 | [**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) | Windows Phone ストア アプリでは、[**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub) コントロールの背景画像は、ハブ セクションに対する視差効果で移動します。 Windows ランタイム 8. x アプリと Windows 10 アプリでは、視差は使用されません。 |
 | [**Hub**](/uwp/api/Windows.UI.Xaml.Controls.Hub)  | ユニバーサル 8.1 アプリでは、[**HubSection.IsHeaderInteractive**](/uwp/api/windows.ui.xaml.controls.hubsection.isheaderinteractive) プロパティにより、セクション ヘッダーとその横に表示される山形のグリフが対話型になります。 Windows 10 アプリでは、ヘッダーの横に対話型の "詳細表示" アフォーダンスが表示されますが、ヘッダーそのものは対話型にはなりません。 **IsHeaderInteractive** により、操作で [**Hub.SectionHeaderClick**](/uwp/api/windows.ui.xaml.controls.hub.sectionheaderclick) イベントが発生するかどうかが決まります。 |
@@ -113,14 +113,14 @@ Windows 10 で実行されるユニバーサル 8.1 アプリでは、コント�
 | [**SearchBox**](/uwp/api/Windows.UI.Xaml.Controls.SearchBox) | ユニバーサル デバイス ファミリでは [**SearchBox**](/uwp/api/windows.ui.xaml.controls.searchbox) が実装されていますが、モバイル デバイスでは部分的に機能しません。 AutoSuggestBox を優先する場合 [は、[検索を推奨](#searchbox-deprecated-in-favor-of-autosuggestbox)しません。 |
 | **SemanticZoom** | **SemanticZoom** については、「[SemanticZoom に関する変更](#semanticzoom-changes)」をご覧ください。 |
 | [**ScrollViewer**](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)  | [**ScrollViewer**](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer) の既定のプロパティの一部が変更されています。 [**HorizontalScrollMode**](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollmode) が **Auto**、[**VerticalScrollMode**](/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollmode) が **Auto**、[**ZoomMode**](/uwp/api/windows.ui.xaml.controls.scrollviewer.zoommode) が **Disabled** です。 新しい既定値がアプリに対して適切でない場合は、スタイルで変更するか、コントロール自体のローカル値として変更できます。  |
-| [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | Windows ランタイム2.x アプリでは、 [**テキストボックス**](/uwp/api/Windows.UI.Xaml.Controls.TextBox)のスペルチェックが既定でオフになっています。 Windows Phone ストア アプリと Windows 10 アプリでは、既定でオンになります。 |
-| [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) の既定のフォント サイズは 11 から 15 に変更されました。 |
-| [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | [**TextBox.TextReadingOrder**](/uwp/api/windows.ui.xaml.controls.textblock.textreadingorder) の既定値は、**Default** から **DetectFromContent** に変更されました。 これが望ましくない場合は、**UseFlowDirection** を使ってください。 **Default** は使われなくなりました。 |
+| [**Wl**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | Windows ランタイム2.x アプリでは、 [**テキストボックス**](/uwp/api/Windows.UI.Xaml.Controls.TextBox)のスペルチェックが既定でオフになっています。 Windows Phone ストア アプリと Windows 10 アプリでは、既定でオンになります。 |
+| [**Wl**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | [**TextBox**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) の既定のフォント サイズは 11 から 15 に変更されました。 |
+| [**Wl**](/uwp/api/Windows.UI.Xaml.Controls.TextBox) | [**TextBox.TextReadingOrder**](/uwp/api/windows.ui.xaml.controls.textblock.textreadingorder) の既定値は、**Default** から **DetectFromContent** に変更されました。 これが望ましくない場合は、**UseFlowDirection** を使ってください。 **Default** は使われなくなりました。 |
 | 各種 | アクセントカラーは、Windows Phone ストアアプリと Windows 10 アプリに適用されますが、Windows ランタイム 8. x アプリには適用されません。  |
 
-UWP アプリのコントロールについて詳しくは、「[機能別コントロール](../design/controls-and-patterns/controls-by-function.md)」、「[コントロールの一覧](../design/controls-and-patterns/index.md)」、「[コントロールのガイドライン](../design/controls-and-patterns/index.md)」をご覧ください。
+UWP アプリのコントロールについて詳しくは、「[機能別コントロール](../design/controls-and-patterns/index.md)」、「[コントロールの一覧](../design/controls-and-patterns/index.md)」、「[コントロールのガイドライン](../design/controls-and-patterns/index.md)」をご覧ください。
 
-##  <a name="design-language-in-windows10"></a>Windows 10 でのデザイン言語
+##  <a name="design-language-in-windows-10"></a>Windows 10 でのデザイン言語
 
 ユニバーサル 8.1 アプリと Windows 10 アプリでは、デザイン言語に関して若干の違いがありますが、重要な相違点なので注意してください。 詳しくは、「[Design](https://developer.microsoft.com/windows/apps/design)」(UWP アプリの設計) をご覧ください。 デザイン言語に変更が加えられていますが、設計原則は維持されています。細部にまで注意を払いながら、簡潔さを追求しています。そのために、クロムよりもコンテンツを優先し、視覚要素を大幅に減らし、真のデジタル領域を常に意識しています。また、視覚的な階層の利用 (特に文字体裁に対して)、グリッド内でのデザイン、滑らかなアニメーションを使ったエクスペリエンスの実現も行っています。
 
@@ -134,7 +134,7 @@ UWP アプリのコントロールについて詳しくは、「[機能別コン
 
 すべてのディスプレイで最適なアプリのエクスペリエンスが実現できるように、一連のサイズで各ビットマップ アセットを作成し、各アセットが特定のスケール ファクターに適合するように設定することをお勧めします。 ただし、100% スケール、200% スケール、および 400% スケール (この優先順位で) でアセットを作成するほうが、多くの場合、すべての中間スケール ファクターで適切な結果を得ることができます。
 
-**メモ**   何らかの理由で、複数のサイズでアセットを作成できない場合は、100% スケールのアセットを作成します。 Microsoft Visual Studio では、UWP アプリの既定のプロジェクト テンプレートには 1 つのサイズのみのブランド アセット (タイル イメージとロゴ) が用意されていますが、これらは 100% のスケールではありません。 独自のアプリのアセットを作成する場合は、このセクションに示したガイドラインに従って、100%、200%、400% のサイズを用意し、アセット パックを使います。
+**注**  何らかの理由で複数のサイズでアセットを作成できない場合は、100% スケールのアセットを作成します。 Microsoft Visual Studio では、UWP アプリの既定のプロジェクト テンプレートには 1 つのサイズのみのブランド アセット (タイル イメージとロゴ) が用意されていますが、これらは 100% のスケールではありません。 独自のアプリのアセットを作成する場合は、このセクションに示したガイドラインに従って、100%、200%、400% のサイズを用意し、アセット パックを使います。
 
 複雑なアートワークがある場合は、さらに多くのサイズに対応したアセットが必要になることがあります。 ベクター アートを使って作業を始める場合は、どのようなスケール ファクターでも高品質なアセットを比較的簡単に生成できます。
 
@@ -146,9 +146,9 @@ Windows ランタイム 8. x アプリから XAML マークアップを再利用
 
 コントロールを縦方向へスクロールするために、[**GridView**](/uwp/api/Windows.UI.Xaml.Controls.GridView) の既定の style setter に対していくつかの変更が行われました (横方向へのスクロールではありません。これについては既定で対応しています)。 プロジェクトに含まれている既定のスタイルのコピーを編集した場合、そのコピーにはこれらの変更が適用されていないため、手動で変更を加える必要があります。 一連の変更を以下にまとめます。
 
--   [**HorizontalScrollBarVisibility**](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollbarvisibility)の Setter が**Auto**から**Disabled**に変更されました。
+-   [**HorizontalScrollBarVisibility**](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollbarvisibility)の Setter が **Auto** から **Disabled** に変更されました。
 -   [**ScrollViewer.VerticalScrollBarVisibility**](/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollbarvisibility) の setter は、**Disabled** から **Auto** に変更されました。
--   [**ScrollViewer スクロールモード**](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollmode)の Setter が**Enabled**から**Disabled**に変更されました。
+-   [**ScrollViewer スクロールモード**](/uwp/api/windows.ui.xaml.controls.scrollviewer.horizontalscrollmode)の Setter が **Enabled** から **Disabled** に変更されました。
 -   [**ScrollViewer.VerticalScrollMode**](/uwp/api/windows.ui.xaml.controls.scrollviewer.verticalscrollmode) の setter は、**Disabled** から **Enabled** に変更されました。
 -   [**ItemsPanel**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) の setter では、[**ItemsWrapGrid.Orientation**](/uwp/api/windows.ui.xaml.controls.itemswrapgrid.orientation) の値が **Vertical** から **Horizontal** に変更されました。
 
@@ -196,7 +196,7 @@ Windows ランタイム 8. x アプリから XAML マークアップを再利用
 |                     | PointerOverPressed      |                   | [利用不可]       |
 |                     | 無効                |                   | [利用不可]       |
 |                     | [利用不可]           |                   | PointerOverSelected |
-|                     | [利用不可]           |                   | 選択済み            |
+|                     | [利用不可]           |                   | オン            |
 |                     | [利用不可]           |                   | PressedSelected     |
 | [利用不可]       |                         | DisabledStates    |                     |
 |                     | [利用不可]           |                   | 無効            |
@@ -213,8 +213,8 @@ Windows ランタイム 8. x アプリから XAML マークアップを再利用
 |                     | 未選択              |                   | [利用不可]       |
 |                     | UnselectedPointerOver   |                   | [利用不可]       |
 |                     | UnselectedSwiping       |                   | [利用不可]       |
-|                     | 次を選択する               |                   | [利用不可]       |
-|                     | 選択済み                |                   | [利用不可]       |
+|                     | 選択               |                   | [利用不可]       |
+|                     | オン                |                   | [利用不可]       |
 |                     | SelectedSwiping         |                   | [利用不可]       |
 |                     | SelectedUnfocused       |                   | [利用不可]       |
 
@@ -410,7 +410,7 @@ UWP アプリ プロジェクトで、ユニバーサル 8.1 プロジェクト�
 
 ## <a name="searchbox-deprecated-in-favor-of-autosuggestbox"></a>SearchBox に代わって使われる AutoSuggestBox
 
-ユニバーサル デバイス ファミリでは [**SearchBox**](/uwp/api/windows.ui.xaml.controls.searchbox) が実装されていますが、モバイル デバイスでは部分的に機能しません。 ユニバーサル検索エクスペリエンスには [**AutoSuggestBox**](/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox) を使います。 **AutoSuggestBox**を使用して検索エクスペリエンスを実装する方法を次に示します。
+ユニバーサル デバイス ファミリでは [**SearchBox**](/uwp/api/windows.ui.xaml.controls.searchbox) が実装されていますが、モバイル デバイスでは部分的に機能しません。 ユニバーサル検索エクスペリエンスには [**AutoSuggestBox**](/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox) を使います。 **AutoSuggestBox** を使用して検索エクスペリエンスを実装する方法を次に示します。
 
 入力を開始すると、**UserInput** という理由で **TextChanged** イベントが発生します。 次に、候補の一覧を設定し、[**AutoSuggestBox**](/uwp/api/Windows.UI.Xaml.Controls.AutoSuggestBox) の **ItemsSource** を設定します。 ユーザーが一覧を移動すると、**SuggestionChosen** イベントが発生します (また、**TextMemberDisplayPath** を設定すると、指定されたプロパティに基づいてテキスト ボックスが自動的に入力されます)。 ユーザーが Enter キーで選択項目を送信すると、**QuerySubmitted** イベントが発生し、その時点で、選ばれた候補に対するアクションを実行できます (多くの場合、指定されたコンテンツの詳細を示す別のページに移動するというアクションが実行されます)。 **SearchBoxQuerySubmittedEventArgs** の **LinguisticDetails** プロパティと **Language** プロパティはサポートされなくなった点に注意してください (その機能をサポートする同等の API はあります)。 また、**KeyModifiers** もサポートされなくなりました。
 
@@ -450,7 +450,7 @@ Windows ランタイム 8.x の **SettingsPane** クラスは、Windows 10 に�
 
 [設定] ページはアプリのウィンドウ全体を埋め、このページには [バージョン情報] と [フィードバック] があることも必要です。 設定ページの設計に関するガイダンスについては、「 [アプリ設定のガイドライン](../design/app-settings/guidelines-for-app-settings.md)」を参照してください。
 
-## <a name="text"></a>Text
+## <a name="text"></a>テキスト
 
 テキスト (または文字体裁) は UWP アプリの重要な要素です。移植するときには、ビューの視覚的なデザインが新しいデザイン言語に適合するように、ビューの視覚的なデザインを再検討することが必要になる場合があります。 次の図を使って、ユニバーサル Windows プラットフォーム (UWP) の利用可能な  **TextBlock** システム スタイルを見つけてください。 使用した Windows Phone Silverlight スタイルに対応するものを見つけます。 また、独自のユニバーサル スタイルを作成し、Windows Phone Silverlight システム スタイルからプロパティをコピーすることもできます。
 

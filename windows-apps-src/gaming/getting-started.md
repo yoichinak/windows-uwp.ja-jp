@@ -6,12 +6,12 @@ ms.date: 01/25/2018
 ms.topic: article
 keywords: windows 10、uwp、ゲーム、はじめに
 localizationpriority: medium
-ms.openlocfilehash: 3368186fdf860df48d7ae49e08d47e1abf667aa3
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: 6927bc6910d95a0d7499d6706e1f92c1f379b2b8
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339450"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824096"
 ---
 # <a name="getting-started"></a>作業の開始
 
@@ -54,7 +54,7 @@ UWP DirectX 開発を開始するには、「 [DirectX を使用した簡単な 
 
 Xbox ゲームを開発する場合、またはゲームで Xbox Live 機能を使用する場合は、 [Xbox live](https://developer.microsoft.com/games/xbox/xboxlive/creator) 作成者プログラムまたはプログラムのいずれかに参加し [ID@Xbox](https://www.xbox.com/Developers/id) ます。 
 
-各プログラムで使用できる Xbox Live 機能の詳細については、「 [Feature Table](/gaming/xbox-live/developer-program-overview.md#feature-table)」を参照してください。 詳細については、「 [開発者プログラム](e2e.md#developer-programs)」を参照してください。
+各プログラムで使用できる Xbox Live 機能の詳細については、「 [Feature Table](/gaming/xbox-live/get-started/join-dev-program/live-feature-comparison-table)」を参照してください。 詳細については、「 [開発者プログラム](e2e.md#developer-programs)」を参照してください。
 
 > [!Note]
 > Xbox Live クリエータープログラムは、すべての開発者が利用できます。 **だれ** でも Xbox ゲームを発行できます。 Xbox Live 作成者プログラムのタイトル部分を作成するには、パートナーセンターからこのオプションを有効にするだけです。 パートナーセンターアカウントへのサインアップの詳細については、以下の [手順 5](#step-5-sign-up-for-a-partner-center-account) . を参照してください。

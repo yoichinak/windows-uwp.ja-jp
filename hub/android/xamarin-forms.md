@@ -1,18 +1,18 @@
 ---
 title: Xamarin. Forms を使用して簡単な Android アプリを作成する
-description: Xamarin を使用して Android アプリの作成を開始する方法
+description: Windows で Xamarin. Forms を使用して、Android デバイスで動作するクロスプラットフォームアプリを作成する方法についてのステップバイステップガイドです。
 author: hickeys
 ms.author: hickeys
 manager: jken
 ms.topic: article
 keywords: android、windows、xamarin. forms、xaml、チュートリアル
 ms.date: 04/28/2020
-ms.openlocfilehash: a1426bfef9863227c1ac110bc295536786695df7
-ms.sourcegitcommit: 24b19e7ee06e5bb11a0dae334806741212490ee9
+ms.openlocfilehash: b1364d8ac19176ec25ee6d45664c7e765accfe1e
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82255196"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823196"
 ---
 # <a name="get-started-developing-for-android-using-xamarinforms"></a>Xamarin を使用して Android 向けの開発を始める
 
@@ -20,7 +20,7 @@ ms.locfileid: "82255196"
 
 この記事では、Xamarin と Visual Studio 2019 を使用して、簡単な Android アプリを作成します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 このチュートリアルを使用するには、次のものが必要です。
 
@@ -37,19 +37,19 @@ ms.locfileid: "82255196"
 
 Visual Studio を起動します。 [ファイル > 新規 > プロジェクト] をクリックして、新しいプロジェクトを作成します。
 
-[新しいプロジェクト] ダイアログで、[**モバイルアプリ (Xamarin)** ] テンプレートを選択し、[**次へ**] をクリックします。
+[新しいプロジェクト] ダイアログで、[ **モバイルアプリ (Xamarin)** ] テンプレートを選択し、[ **次へ**] をクリックします。
 
-プロジェクトに**Timechangerforms**という名前を指定し、[**作成**] をクリックします。
+プロジェクトに **Timechangerforms** という名前を指定し、[ **作成**] をクリックします。
 
-[新しいクロスプラットフォームアプリ] ダイアログで、[**空白**] を選択します。 [プラットフォーム] セクションで、[ **Android** ] をオンにし、他のすべてのボックスをオフにします。 **[OK]** をクリックします。
+[新しいクロスプラットフォームアプリ] ダイアログで、[ **空白**] を選択します。 [プラットフォーム] セクションで、[ **Android** ] をオンにし、他のすべてのボックスをオフにします。 **[OK]** をクリックします。
 
-Xamarin は、 **timechangerforms**と**timechangerforms**という2つのプロジェクトを含む新しいソリューションを作成します。
+Xamarin は、 **timechangerforms** と **timechangerforms** という2つのプロジェクトを含む新しいソリューションを作成します。
 
 ## <a name="create-a-ui-with-xaml"></a>XAML を使った UI の作成
 
-**Timechangerforms**プロジェクトを展開し、 **mainpage.xaml**を開きます。 このファイルの XAML は、TimeChanger を開くときにユーザーに表示される最初の画面を定義します。
+**Timechangerforms** プロジェクトを展開し、 **mainpage.xaml** を開きます。 このファイルの XAML は、TimeChanger を開くときにユーザーに表示される最初の画面を定義します。
 
-TimeChanger の UI はシンプルです。 現在の時刻が表示され、1時間単位で時間を調整するためのボタンがあります。 この例では、垂直方向の StackLayout を使用して、ボタンの上に時間を配置し、水平方向の StackLayout を使用してボタンを並べて配置しています。 このコンテンツは、垂直方向の StackLayout の**水平オプション**と垂直**オプション**を **"センター andexpand"** に設定することによって、画面の中央に配置されます。
+TimeChanger の UI はシンプルです。 現在の時刻が表示され、1時間単位で時間を調整するためのボタンがあります。 この例では、垂直方向の StackLayout を使用して、ボタンの上に時間を配置し、水平方向の StackLayout を使用してボタンを並べて配置しています。 このコンテンツは、垂直方向の StackLayout の **水平オプション** と垂直 **オプション** を **"センター andexpand"** に設定することによって、画面の中央に配置されます。
 
 Mainpage.xaml の内容を次のコードに置き換えます。
 
@@ -83,17 +83,17 @@ Mainpage.xaml の内容を次のコードに置き換えます。
 </ContentPage>
 ```
 
-この時点で、UI は完成です。 ただし、 **UpButton_Clicked**および**DOWNBUTTON_CLICKED**メソッドは XAML で参照されますが、どこにも定義されていないため、timechangerforms はビルドされません。 アプリが実行された場合でも、現在の時刻は表示されません。 次のセクションでは、これらのエラーを修正し、UI に機能を追加します。
+この時点で、UI は完成です。 ただし、 **UpButton_Clicked** および **DOWNBUTTON_CLICKED** メソッドは XAML で参照されますが、どこにも定義されていないため、timechangerforms はビルドされません。 アプリが実行された場合でも、現在の時刻は表示されません。 次のセクションでは、これらのエラーを修正し、UI に機能を追加します。
 
 ## <a name="add-logic-code-with-c"></a>C でロジックコードを追加する#
 
-ソリューションエクスプローラーで Mainpage.xaml を右クリックし、[コードの**表示**] をクリックします。 このファイルには、UI に機能を追加する分離コードが含まれています。
+ソリューションエクスプローラーで Mainpage.xaml を右クリックし、[コードの **表示**] をクリックします。 このファイルには、UI に機能を追加する分離コードが含まれています。
 
 ### <a name="set-the-current-time"></a>現在の時刻を設定する
 
-このファイル内のコードは、コントロールの**x:Name**属性の値を使用して、XAML で宣言されたコントロールを参照できます。 この場合、現在の時刻を表示するラベルが呼び出さ`time`れます。
+このファイル内のコードは、コントロールの **x:Name** 属性の値を使用して、XAML で宣言されたコントロールを参照できます。 この場合、現在の時刻を表示するラベルが呼び出され `time` ます。
 
-メインスレッドで UI コントロールを更新する必要があります。 別のスレッドから行った変更によって、画面に表示されるコントロールが正しく更新されない場合があります。 このコードは常にメインスレッドで実行されるという保証がないので、 **Begininvokeonmainthread**メソッドを使用して、更新が正しく表示されることを確認してください。 完全な UpdateTimeLabel メソッドを次に示します。
+メインスレッドで UI コントロールを更新する必要があります。 別のスレッドから行った変更によって、画面に表示されるコントロールが正しく更新されない場合があります。 このコードは常にメインスレッドで実行されるという保証がないので、 **Begininvokeonmainthread** メソッドを使用して、更新が正しく表示されることを確認してください。 完全な UpdateTimeLabel メソッドを次に示します。
 
 ```csharp
 private void UpdateTimeLabel(object state = null)
@@ -108,7 +108,7 @@ private void UpdateTimeLabel(object state = null)
 
 ### <a name="update-the-current-time-once-every-second"></a>1秒ごとに現在の時刻を更新する
 
-この時点で、現在の時刻は、TimeChangerForms が起動された後、最大で1秒で正確になります。 時間を正確に保つために、ラベルを定期的に更新する必要があります。 **タイマー**オブジェクトは、現在の時刻でラベルを更新するコールバックメソッドを定期的に呼び出します。
+この時点で、現在の時刻は、TimeChangerForms が起動された後、最大で1秒で正確になります。 時間を正確に保つために、ラベルを定期的に更新する必要があります。 **タイマー** オブジェクトは、現在の時刻でラベルを更新するコールバックメソッドを定期的に呼び出します。
 
 ```csharp
 var clockRefresh = new Timer(dueTime: 0, period: 1000, callback: UpdateTimeLabel, state: null);
@@ -116,7 +116,7 @@ var clockRefresh = new Timer(dueTime: 0, period: 1000, callback: UpdateTimeLabel
 
 ### <a name="add-houroffset"></a>HourOffset の追加
 
-上矢印ボタンと下矢印ボタンは、1時間単位で時間を調整します。 **HourOffset**プロパティを追加して、現在の調整を追跡します。
+上矢印ボタンと下矢印ボタンは、1時間単位で時間を調整します。 **HourOffset** プロパティを追加して、現在の調整を追跡します。
 
 ```csharp
 public int HourOffset { get; private set; }
@@ -194,7 +194,7 @@ namespace TimeChangerForms
 
 ## <a name="run-the-app"></a>アプリを実行する
 
-アプリを実行するには、 **F5**キーを押すか、[デバッグ] をクリック > てデバッグを開始します。 [デバッガーが](emulator.md)どのように構成されているかによって、アプリはデバイスまたはエミュレーターで起動します。
+アプリを実行するには、 **F5** キーを押すか、[デバッグ] をクリック > てデバッグを開始します。 [デバッガーが](emulator.md)どのように構成されているかによって、アプリはデバイスまたはエミュレーターで起動します。
 
 ## <a name="related-links"></a>関連リンク
 

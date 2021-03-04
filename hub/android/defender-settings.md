@@ -1,18 +1,18 @@
 ---
 title: Defender 設定を更新してパフォーマンス速度を向上させる
-description: Windows Defender の設定を更新して、指定したファイルの種類の確認を除外することで、パフォーマンス速度とビルド時間を向上させる方法について説明します。
+description: 指定されたファイルの種類のチェックを除外するように Windows Defender の設定を更新して、全体的なパフォーマンス速度とビルド時間を向上させるためのガイドです。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: android、windows、windows defender、設定、構成、除外、% USERPROFILE%、devenv.exe、パフォーマンス、速度、ビルド、gradle
 ms.date: 04/28/2020
-ms.openlocfilehash: 0437ffc263c618e52c7a3e4dc3256e9fcd502c8e
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e762e595bf2b8aa9b8420d41f68d2890e7d5dfe0
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154866"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823206"
 ---
 # <a name="update-windows-defender-settings-to-improve-performance"></a>パフォーマンスを向上させるための Windows Defender 設定の更新
 
@@ -36,11 +36,11 @@ Android のビルド処理中に、コンピューター上に多くのファイ
 Android のビルド速度を向上させるには、次の方法で [Windows Defender Security Center](windowsdefender://) に除外を追加します。
 
 1. Windows メニューの [ **スタート** ] ボタンを選択する
-2. **Windows セキュリティ**を入力してください
-3. **ウイルスと脅威の保護**を選択する
+2. **Windows セキュリティ** を入力してください
+3. **ウイルスと脅威の保護** を選択する
 4. [**ウイルス & 脅威保護の設定**] の下の [**設定の管理**] を選択します。
-5. **除外**の見出しまでスクロールし、[**除外の追加または削除**] を選択します。
-6. [ **+ 除外の追加**] を選択します。 次に、追加する除外が **ファイル**、 **フォルダー**、 **ファイルの種類**、または **プロセス**のどれであるかを選択する必要があります。
+5. **除外** の見出しまでスクロールし、[**除外の追加または削除**] を選択します。
+6. [ **+ 除外の追加**] を選択します。 次に、追加する除外が **ファイル**、 **フォルダー**、 **ファイルの種類**、または **プロセス** のどれであるかを選択する必要があります。
 
 ![Windows Defender の除外の追加のスクリーンショット](../images/windows-defender-exclusions.png)
 

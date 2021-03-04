@@ -1,18 +1,18 @@
 ---
 title: Windows での Android 開発への PWA アプローチ
-description: Windows で PWA アプローチを使用して Android アプリの開発を開始しましょう。
+description: Windows でハイブリッド web アプリまたはプログレッシブ Web アプリ (PWA) の作成を開始する手順について説明します。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: windows での android、pwa、android、cordova、ionic、phonegap、ハイブリッド web アプリ
 ms.date: 04/28/2020
-ms.openlocfilehash: 4559e795b4a9737bf68129790029f6f9136b4f81
-ms.sourcegitcommit: 99f5544d9642c87a16e3bd21f76c2fcbc97c20d2
+ms.openlocfilehash: 8115de0dedaa561c7a71621904d060ca62b5ac47
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743595"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823156"
 ---
 # <a name="get-started-developing-a-pwa-or-hybrid-web-app-for-android"></a>Android 用の PWA またはハイブリッド web アプリの開発を開始する
 

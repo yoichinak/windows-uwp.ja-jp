@@ -1,18 +1,18 @@
 ---
 title: Xamarin Android で簡単な Android アプリを作成する
-description: Xamarin android で Android アプリの作成を開始する方法
+description: Windows で Xamarin Android を使用して、Android デバイスで動作するクロスプラットフォームアプリを作成する方法についてのステップバイステップガイドです。
 author: hickeys
 ms.author: hickeys
 manager: jken
 ms.topic: article
 keywords: android、windows、xamarin android、チュートリアル、xaml
 ms.date: 04/28/2020
-ms.openlocfilehash: c731b5f96243333e4a4ad150de499ac9459113bc
-ms.sourcegitcommit: 24b19e7ee06e5bb11a0dae334806741212490ee9
+ms.openlocfilehash: 3bcecf24fe6bb90dc2b94dfa62a5768481b298e5
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82255207"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823176"
 ---
 # <a name="get-started-developing-for-android-using-xamarinandroid"></a>Xamarin を使用して Android 向けの開発を始める
 
@@ -20,7 +20,7 @@ ms.locfileid: "82255207"
 
 この記事では、Xamarin Android と Visual Studio 2019 を使用して、簡単な Android アプリを作成します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 このチュートリアルを使用するには、次のものが必要です。
 
@@ -37,21 +37,21 @@ ms.locfileid: "82255207"
 
 Visual Studio を起動します。 新しいプロジェクトを作成するには、[ファイル > 新しい > プロジェクト] を選択します。
 
-[新しいプロジェクト] ダイアログで、[ **Android アプリ (Xamarin)** ] テンプレートを選択し、[**次へ**] をクリックします。
+[新しいプロジェクト] ダイアログで、[ **Android アプリ (Xamarin)** ] テンプレートを選択し、[ **次へ**] をクリックします。
 
-プロジェクトに**Timechangerandroid**という名前を指定し、[**作成**] をクリックします。
+プロジェクトに **Timechangerandroid** という名前を指定し、[ **作成**] をクリックします。
 
-[新しいクロスプラットフォームアプリ] ダイアログで、[**空のアプリ**] を選択します。 Android の**最小バージョン**で、[ **Android 5.0 (ロリポップ)**] を選択します。 **[OK]** をクリックします。
+[新しいクロスプラットフォームアプリ] ダイアログで、[ **空のアプリ**] を選択します。 Android の **最小バージョン** で、[ **Android 5.0 (ロリポップ)**] を選択します。 **[OK]** をクリックします。
 
-Xamarin は、 **Timechangerandroid**という名前の1つのプロジェクトで新しいソリューションを作成します。
+Xamarin は、 **Timechangerandroid** という名前の1つのプロジェクトで新しいソリューションを作成します。
 
 ## <a name="create-a-ui-with-xaml"></a>XAML を使った UI の作成
 
-プロジェクトの**Resources\ layout**ディレクトリで**activity_main .xml**を開きます。 このファイルの XML は、TimeChanger を開くときにユーザーに表示される最初の画面を定義します。
+プロジェクトの **Resources\ layout** ディレクトリで、 **activity_main.xml** を開きます。 このファイルの XML は、TimeChanger を開くときにユーザーに表示される最初の画面を定義します。
 
-TimeChanger の UI はシンプルです。 現在の時刻が表示され、1時間単位で時間を調整するためのボタンがあります。 この例では`LinearLayout` 、垂直方向`LinearLayout`を使用して、ボタンを横に並べて配置します。 コンテンツは、 **android: 重力**属性を垂直方向`LinearLayout`の**中央**に設定することによって、画面の中央に配置されます。
+TimeChanger の UI はシンプルです。 現在の時刻が表示され、1時間単位で時間を調整するためのボタンがあります。 この例では、垂直方向を使用して、ボタンを横に `LinearLayout` `LinearLayout` 並べて配置します。 コンテンツは、 **android: 重力** 属性を垂直方向の **中央** に設定することによって、画面の中央に配置され `LinearLayout` ます。
 
-**Activity_main**の内容を次のコードに置き換えます。
+**activity_main.xml** の内容を次のコードに置き換えます。
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -85,21 +85,21 @@ TimeChanger の UI はシンプルです。 現在の時刻が表示され、1�
 </LinearLayout>
 ```
 
-この時点で、 **Timechangerandroid**を実行して、作成した UI を確認することができます。 次のセクションでは、現在の時刻を表示し、ボタンがアクションを実行できるようにする機能を UI に追加します。
+この時点で、 **Timechangerandroid** を実行して、作成した UI を確認することができます。 次のセクションでは、現在の時刻を表示し、ボタンがアクションを実行できるようにする機能を UI に追加します。
 
 ## <a name="add-logic-code-with-c"></a>C でロジックコードを追加する#
 
-**MainActivity.cs**を開きます。 このファイルには、UI に機能を追加する分離コードロジックが含まれています。
+**MainActivity.cs** を開きます。 このファイルには、UI に機能を追加する分離コードロジックが含まれています。
 
 ### <a name="set-the-current-time"></a>現在の時刻を設定する
 
-最初に、時刻を表示する`TextView`への参照を取得します。 **FindViewById**を使用して、正しい**android: id** (前の手順の xml ではに`"@+id/timeDisplay"`設定されていたもの) を持つすべての UI 要素を検索します。 これは、 `TextView`現在の時刻を表示するです。
+最初に、時刻を表示するへの参照を取得し `TextView` ます。 **FindViewById** を使用して、正しい **android: id** (前の手順の xml ではに設定されていたもの) を持つすべての UI 要素を検索し `"@+id/timeDisplay"` ます。 これは、 `TextView` 現在の時刻を表示するです。
 
 ```csharp
 var timeDisplay = FindViewById<TextView>(Resource.Id.timeDisplay);
 ```
 
-Ui スレッドで UI コントロールを更新する必要があります。 別のスレッドから行った変更によって、画面に表示されるコントロールが正しく更新されない場合があります。 このコードが常に UI スレッドで実行されるという保証はないので、 **Runonuithread**メソッドを使用して、更新が正しく表示されることを確認してください。 完全な`UpdateTimeLabel`メソッドを次に示します。
+Ui スレッドで UI コントロールを更新する必要があります。 別のスレッドから行った変更によって、画面に表示されるコントロールが正しく更新されない場合があります。 このコードが常に UI スレッドで実行されるという保証はないので、 **Runonuithread** メソッドを使用して、更新が正しく表示されることを確認してください。 完全なメソッドを次に示し `UpdateTimeLabel` ます。
 
 ```csharp
 private void UpdateTimeLabel(object state = null)
@@ -113,7 +113,7 @@ private void UpdateTimeLabel(object state = null)
 
 ### <a name="update-the-current-time-once-every-second"></a>1秒ごとに現在の時刻を更新する
 
-この時点で、現在の時刻は、TimeChangerAndroid を起動した後、最大で1秒で正確になります。 時間を正確に保つために、ラベルを定期的に更新する必要があります。 **タイマー**オブジェクトは、現在の時刻でラベルを更新するコールバックメソッドを定期的に呼び出します。
+この時点で、現在の時刻は、TimeChangerAndroid を起動した後、最大で1秒で正確になります。 時間を正確に保つために、ラベルを定期的に更新する必要があります。 **タイマー** オブジェクトは、現在の時刻でラベルを更新するコールバックメソッドを定期的に呼び出します。
 
 ```csharp
 var clockRefresh = new Timer(dueTime: 0, period: 1000, callback: UpdateTimeLabel, state: null);
@@ -121,7 +121,7 @@ var clockRefresh = new Timer(dueTime: 0, period: 1000, callback: UpdateTimeLabel
 
 ### <a name="add-houroffset"></a>HourOffset の追加
 
-上矢印ボタンと下矢印ボタンは、1時間単位で時間を調整します。 **HourOffset**プロパティを追加して、現在の調整を追跡します。
+上矢印ボタンと下矢印ボタンは、1時間単位で時間を調整します。 **HourOffset** プロパティを追加して、現在の調整を追跡します。
 
 ```csharp
 public int HourOffset { get; private set; }
@@ -147,7 +147,7 @@ public void UpButton_Click(object sender, System.EventArgs e)
 
 ### <a name="wire-up-the-up-and-down-buttons-to-their-corresponding-event-handlers"></a>対応するイベントハンドラーに上矢印と下矢印ボタンを接続する
 
-これらのボタンを対応するイベントハンドラーに関連付けるには、まず FindViewById を使用して、その id でボタンを検索します。 Button オブジェクトへの参照を取得したら、イベントに`Click`イベントハンドラーを追加できます。
+これらのボタンを対応するイベントハンドラーに関連付けるには、まず FindViewById を使用して、その id でボタンを検索します。 Button オブジェクトへの参照を取得したら、イベントにイベントハンドラーを追加でき `Click` ます。
 
 ```csharp
 Button upButton = FindViewById<Button>(Resource.Id.upButton);
@@ -217,9 +217,9 @@ namespace TimeChangerAndroid
 }
 ```
 
-## <a name="run-your-app"></a>アプリケーションを実行する
+## <a name="run-your-app"></a>アプリを実行する
 
-アプリを実行するには、 **F5**キーを押すか、[デバッグ] をクリック > てデバッグを開始します。 [デバッガーが](emulator.md)どのように構成されているかによって、アプリはデバイスまたはエミュレーターで起動します。
+アプリを実行するには、 **F5** キーを押すか、[デバッグ] をクリック > てデバッグを開始します。 [デバッガーが](emulator.md)どのように構成されているかによって、アプリはデバイスまたはエミュレーターで起動します。
 
 ## <a name="related-links"></a>関連リンク
 

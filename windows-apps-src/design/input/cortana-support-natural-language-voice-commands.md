@@ -1,5 +1,5 @@
 ---
-title: Cortana のより自然な音声コマンドをサポートする-Cortana UWP の設計と開発
+title: Cortana でのより自然な音声コマンドのサポート - Cortana UWP の設計と開発
 description: ユーザーがコマンド内の任意の場所にアプリ名を含めることができる柔軟で自然な音声コマンドで Cortana を拡張します。
 author: kbridge
 label: Conceptual
@@ -7,12 +7,12 @@ ms.assetid: c2959c1b-c2f2-4a8d-8f3e-79585f69afcf
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 7716d4d623653c6b2d943135f2e2cf1ac9a40343
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: c6777a0c7ad9a8e2658b759e516b659bbd4eb9a9
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99605997"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824506"
 ---
 # <a name="support-natural-language-voice-commands-in-cortana"></a>Cortana での自然言語音声コマンドのサポート
 
@@ -46,8 +46,8 @@ ms.locfileid: "99605997"
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
-> - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)
-> - 「[イベントとルーティング イベントの概要](/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
+> - [初めてのアプリの作成](../../get-started/your-first-app.md)
+> - 「[イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)」に記載されているイベントの説明
 >
 > **ユーザーエクスペリエンスのガイドライン**
 >
@@ -206,7 +206,7 @@ ms.locfileid: "99605997"
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [Cortana のデザインガイドライン](cortana-design-guidelines.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)

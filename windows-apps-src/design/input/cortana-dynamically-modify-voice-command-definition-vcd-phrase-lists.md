@@ -1,16 +1,16 @@
 ---
-title: Cortana を動的に変更する VCD 語句の一覧-Cortana UWP の設計と開発
+title: Cortana VCD の語句一覧の動的な変更 - Cortana UWP の設計と開発
 description: 音声認識の結果を使って、音声コマンド定義 (VCD) ファイルに含まれているサポート対象語句の一覧 (PhraseList 要素) にアクセスし、この一覧を実行時に更新することができます。
 ms.assetid: b497145b-c7a0-454a-8329-6bc1228953bb
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 1f61a08e9eeb66371ed39b44eb39dacbc1bf3cf5
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: 5c28330a975b66c2f04baba1d0df58b38d684356
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99606037"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824416"
 ---
 # <a name="dynamically-modify-cortana-vcd-phrase-lists"></a>Cortana を動的に変更する VCD 語句の一覧
 
@@ -47,8 +47,8 @@ ms.locfileid: "99606037"
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
-> - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)
-> - 「[イベントとルーティング イベントの概要](/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
+> - [初めてのアプリの作成](../../get-started/your-first-app.md)
+> - 「[イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)」に記載されているイベントの説明
 >
 > **ユーザーエクスペリエンスのガイドライン**
 >
@@ -141,7 +141,7 @@ if (Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana を使用して音声コマンドでフォアグラウンドアプリをアクティブ化する](cortana-launch-a-foreground-app-with-voice-commands.md)
 - [音声コマンドを使用して Cortana でバックグラウンドアプリをアクティブ化する](cortana-launch-a-background-app-with-voice-commands.md)

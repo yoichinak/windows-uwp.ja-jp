@@ -1,16 +1,16 @@
 ---
-title: Cortana でのバックグラウンドアプリとの対話-Cortana UWP の設計と開発
+title: Cortana でのバックグラウンド アプリの操作- Cortana UWP の設計と開発
 description: 音声コマンドの実行中に、Cortana キャンバスでの音声認識とテキストの入力により、バック グラウンド アプリへのユーザー操作が可能になります。
 ms.assetid: e42917dc-aece-4880-813f-80b897f9126c
 ms.date: 01/28/2021
 ms.topic: article
 keywords: Cortana
-ms.openlocfilehash: 835a2f60d2b86e5bef49195d4f937fa844f4d921
-ms.sourcegitcommit: 8fe992f3a6d8f7975af4911ad88e855bee50083e
+ms.openlocfilehash: 6e63d86d8d3764f8ca95dce4c1b8b7de437c95ec
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99606077"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824496"
 ---
 # <a name="interact-with-a-background-app-in-cortana"></a>Cortana でのバックグラウンド アプリの操作
 
@@ -43,8 +43,8 @@ Cortana は、アプリでの完全なターン バイ ターン方式のワー�
 >
 > ユニバーサル Windows プラットフォーム (UWP) アプリを開発するのが初めての場合は、以下のトピックに目を通して、ここで説明されているテクノロジをよく理解できるようにしてください。
 >
-> - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)
-> - 「[イベントとルーティング イベントの概要](/windows/uwp/xaml-platform/events-and-routed-events-overview)」に記載されているイベントの説明
+> - [初めてのアプリの作成](../../get-started/your-first-app.md)
+> - 「[イベントとルーティング イベントの概要](../../xaml-platform/events-and-routed-events-overview.md)」に記載されているイベントの説明
 >
 > **ユーザーエクスペリエンスのガイドライン**
 >
@@ -454,7 +454,7 @@ var userMessage = new VoiceCommandUserMessage();
 
 ## <a name="related-articles"></a>関連記事
 
-- [Windows アプリにおける Cortana のやり取り](cortana-interactions.md)
+- [Windows アプリでの Cortana の操作](cortana-interactions.md)
 - [VCD 要素および属性 v1.2](/uwp/schemas/voicecommands/voice-command-elements-and-attributes-1-2)
 - [Cortana のデザインガイドライン](cortana-design-guidelines.md)
 - [Cortana 音声コマンドのサンプル](https://go.microsoft.com/fwlink/p/?LinkID=619899)
