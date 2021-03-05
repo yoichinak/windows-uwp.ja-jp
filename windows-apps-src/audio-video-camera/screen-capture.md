@@ -9,12 +9,12 @@ dev_langs:
 - vb
 keywords: Windows 10, UWP, 画面キャプチャ
 ms.localizationpriority: medium
-ms.openlocfilehash: 26de7699f9f261bba6e02bc3664e335c46e4ac3d
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: be8d63a446c05998948327d7055b4385c5e88761
+ms.sourcegitcommit: 9842e0e5c369a52594336d2278af877ccf40b049
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91218665"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102196975"
 ---
 # <a name="screen-capture"></a>画面の取り込み
 
@@ -29,11 +29,11 @@ Windows 10、バージョン 1803 以降では、[Windows.Graphics.Capture](/uwp
 
 ## <a name="add-the-screen-capture-capability"></a>画面キャプチャ機能を追加する
 
-**Windows**の名前空間にある api を使用するには、アプリケーションのマニフェストで汎用的な機能を宣言する必要があります。
+**Windows** の名前空間にある api を使用するには、アプリケーションのマニフェストで汎用的な機能を宣言する必要があります。
 
-1. **ソリューションエクスプローラー**で**package.appxmanifest**を開きます。
+1. **ソリューションエクスプローラー** で **package.appxmanifest** を開きます。
 2. **[機能]** タブを選択します。
-3. **グラフィックスキャプチャ**を確認します。
+3. **グラフィックスキャプチャ** を確認します。
 
 ![グラフィックスキャプチャ](images/screen-capture-1.png)
 
@@ -96,7 +96,7 @@ Public Async Function StartCaptureAsync() As Task
 End Function
 ```
 
-これは UI コードであるため、UI スレッドで呼び出す必要があります。 アプリケーションのページ ( **MainPage.xaml.cs**など) の分離コードから呼び出している場合は、自動的に実行されますが、そうでない場合は、次のコードを使用して UI スレッドで実行するように強制できます。
+これは UI コードであるため、UI スレッドで呼び出す必要があります。 アプリケーションのページ ( **MainPage.xaml.cs** など) の分離コードから呼び出している場合は、自動的に実行されますが、そうでない場合は、次のコードを使用して UI スレッドで実行するように強制できます。
 
 ```csharp
 CoreWindow window = CoreApplication.MainView.CoreWindow;
@@ -115,7 +115,10 @@ Await window.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
 
 ## <a name="create-a-capture-frame-pool-and-capture-session"></a>キャプチャ フレーム プールとキャプチャ セッションを作成する
 
-**GraphicsCaptureItem**を使用して、D3D デバイス、サポートされているピクセル形式 (**DXGI \_ 形式 \_ B8G8R8A8 \_ unorm**)、必要なフレームの数 (任意の整数)、フレームサイズを含む[Direct3D11CaptureFramePool](/uwp/api/windows.graphics.capture.direct3d11captureframepool)を作成します。 **GraphicsCaptureItem** クラスの **ContentSize** プロパティをフレーム サイズとして使用できます。
+**GraphicsCaptureItem** を使用して、D3D デバイス、サポートされているピクセル形式 (**DXGI \_ 形式 \_ B8G8R8A8 \_ unorm**)、必要なフレームの数 (任意の整数)、フレームサイズを含む [Direct3D11CaptureFramePool](/uwp/api/windows.graphics.capture.direct3d11captureframepool)を作成します。 **GraphicsCaptureItem** クラスの **ContentSize** プロパティをフレーム サイズとして使用できます。
+
+> [!NOTE]
+> Windows HD color が有効になっているシステムでは、コンテンツのピクセル形式は必ずしも **DXGI \_ 形式の \_ B8G8R8A8 \_ unorm** であるとは限りません。 HDR コンテンツをキャプチャするときにピクセルオーバー (キャプチャされたコンテンツが薄く表示されるなど) を回避するには、キャプチャパイプライン内のすべてのコンポーネントに対して、 [CanvasBitmap](https://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_CanvasBitmap.htm)のような [Direct3D11CaptureFramePool](/uwp/api/windows.graphics.capture.direct3d11captureframepool)を含む、 **\_ \_ R16G16B16A16 \_ FLOAT** を使用することを検討してください。 必要に応じて、HDR コンテンツ形式や HDR から SDR への変換など、追加の処理が必要になる場合があります。 この記事では、SDR コンテンツのキャプチャに焦点を当てます。 詳細については、「 [高ダイナミックレンジ表示および高度な色での DirectX の使用](/windows/win32/direct3darticles/high-dynamic-range)」を参照してください。
 
 ```csharp
 private GraphicsCaptureItem _item;
@@ -216,9 +219,9 @@ End Sub
 
 UI スレッドで **FrameArrived** を使用することはできれば避けることをお勧めします。このイベントは新しいフレームが使用可能になるたびに発生するため、頻繁に発生します。 それでもなお UI スレッドで **FrameArrived** をリッスンする場合は、イベントが発生するたびにどの程度の作業が必要になるかを考慮してください。
 
-これに代わる方法として、**Direct3D11CaptureFramePool.TryGetNextFrame**メソッドを使用し、必要なフレームをすべて取得し終わるまで、フレームを手動で取得することができます。
+これに代わる方法として、**Direct3D11CaptureFramePool.TryGetNextFrame** メソッドを使用し、必要なフレームをすべて取得し終わるまで、フレームを手動で取得することができます。
 
-**Direct3D11CaptureFrame**オブジェクトには、**ContentSize**、**Surface**、**SystemRelativeTime** の 3 つのプロパティが含まれています **SystemRelativeTime** は、他のメディア要素との同期に使用する QPC ([QueryPerformanceCounter](/windows/desktop/api/profileapi/nf-profileapi-queryperformancecounter)) 時間です。
+**Direct3D11CaptureFrame** オブジェクトには、**ContentSize**、**Surface**、**SystemRelativeTime** の 3 つのプロパティが含まれています **SystemRelativeTime** は、他のメディア要素との同期に使用する QPC ([QueryPerformanceCounter](/windows/desktop/api/profileapi/nf-profileapi-queryperformancecounter)) 時間です。
 
 ## <a name="process-capture-frames"></a>キャプチャフレームの処理
 
@@ -241,7 +244,7 @@ CanvasBitmap canvasBitmap = CanvasBitmap.CreateFromDirect3D11Surface(
     frame.Surface);
 ```
 
-**CanvasBitmap**を取得したら、それをイメージファイルとして保存できます。 次の例では、ユーザーの **保存さ** れているピクチャフォルダーに PNG ファイルとして保存します。
+**CanvasBitmap** を取得したら、それをイメージファイルとして保存できます。 次の例では、ユーザーの **保存さ** れているピクチャフォルダーに PNG ファイルとして保存します。
 
 ```csharp
 StorageFolder pictureFolder = KnownFolders.SavedPictures;
@@ -261,7 +264,7 @@ using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
 
 ## <a name="putting-it-all-together"></a>まとめ
 
-次のコードスニペットは、UWP アプリケーションで画面キャプチャを実装する方法を示すエンドツーエンドの例です。 このサンプルでは、フロントエンドに2つのボタンがあります。1つは **Button_ClickAsync**を呼び出し、もう1つは **ScreenshotButton_ClickAsync**を呼び出します。
+次のコードスニペットは、UWP アプリケーションで画面キャプチャを実装する方法を示すエンドツーエンドの例です。 このサンプルでは、フロントエンドに2つのボタンがあります。1つは **Button_ClickAsync** を呼び出し、もう1つは **ScreenshotButton_ClickAsync** を呼び出します。
 
 > [!NOTE]
 > このスニペットでは、2D グラフィックスレンダリング用のライブラリである [Win2D](https://microsoft.github.io/Win2D/html/Introduction.htm)を使用します。 プロジェクトに設定する方法については、ドキュメントを参照してください。
