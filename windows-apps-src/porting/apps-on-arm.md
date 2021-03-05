@@ -5,12 +5,12 @@ ms.date: 05/22/2020
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM, ARM64, x86 エミュレーション
 ms.localizationpriority: medium
-ms.openlocfilehash: 39ff5b2aa6c72feaeaea0a7a61100196c109257c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: abb6e891d1f23ae94d61732d70af6bc3babcb07f
+ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162296"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102192934"
 ---
 # <a name="windows-10-on-arm"></a>ARM 版 Windows 10
 もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在、Windows 10 desktop は、ARM64 プロセッサを搭載したコンピューターで実行できます。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 詳細やデモについては、「 [常時接続されている PC の Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)」を参照してください。
@@ -37,15 +37,15 @@ UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように
 
 ## <a name="downloads"></a>ダウンロード
 
-Visual Studio 2019 では、ARM 上の Windows 10 用のツールをいくつかダウンロードできます。 Visual Studio 2017 を使用するユーザー stil は、インストーラーを使用して、同等のツールとパッケージを検索してインストールできます。 これらの手順を実行するには、Visual Studio 2019 を使用している必要があることに注意してください。
+Visual Studio 2019 では、ARM 上の Windows 10 用のツールをいくつかダウンロードできます。 Visual Studio 2017 をまだ使用しているユーザーは、インストーラーを使用して、同等のツールとパッケージを検索してインストールできます。 これらの手順を実行するには、Visual Studio 2019 を使用している必要があることに注意してください。
 
-### <a name="visual-c-redistributable"></a>Visual C++ 再頒布可能パッケージ
+### <a name="visual-c-redistributable"></a>Visual C++ 再頒布可能ファイル
 
-Visual C++ Redist パッケージは、ARM アプリで使用できます。 [Visual studio のダウンロードページ](https://visualstudio.microsoft.com/downloads/)にアクセスして、[**すべてのダウンロード**] を表示し、**他のツールとフレームワーク**を開き、[ **Microsoft Visual C++ 2019 の再頒布可能パッケージ**] に移動します。 **ARM64**ラジオボタンを選択し、[**ダウンロード**] をクリックします。
+Visual C++ Redist パッケージは、ARM アプリで使用できます。 [Visual studio のダウンロードページ](https://visualstudio.microsoft.com/downloads/)にアクセスして、[**すべてのダウンロード**] を表示し、**他のツールとフレームワーク** を開き、[ **Microsoft Visual C++ 2019 の再頒布可能パッケージ**] に移動します。 **ARM64** ラジオボタンを選択し、[**ダウンロード**] をクリックします。
 
 ### <a name="remote-tools"></a>リモート ツール
 
-ARM アプリでは Remote Tools for Visual Studio を使用できます。 [Visual studio のダウンロードページ](https://visualstudio.microsoft.com/downloads/)にアクセスして、[**すべてのダウンロード**] にスクロールし、[ **Tools for Visual Studio 2019**] を開いて、 **Remote Tools for Visual Studio 2019**エントリに移動します。 **ARM64* オプションボタンを選択し、[ **ダウンロード**] をクリックします。
+ARM アプリでは Remote Tools for Visual Studio を使用できます。 [Visual studio のダウンロードページ](https://visualstudio.microsoft.com/downloads/)にアクセスして、[**すべてのダウンロード**] にスクロールし、[ **Tools for Visual Studio 2019**] を開いて、 **Remote Tools for Visual Studio 2019** エントリに移動します。 **ARM64* オプションボタンを選択し、[ **ダウンロード**] をクリックします。
 
 
 ## <a name="in-this-section"></a>このセクションの内容
