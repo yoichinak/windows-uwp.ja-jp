@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Windows での Node.js を使用した開発
-summary: Windows での Node.js を使用した開発を始めましょう。
+summary: Windows での Node.js を使用した開発を始めましょう。 開発環境、Web フレームワーク、データベース、コンテナーを設定するためのリソースを参照してください。
 metadata:
   author: mattwojo
   description: Windows での Node.js を使用した開発を始めましょう。
@@ -10,12 +10,12 @@ metadata:
   ms.prod: dev-environment
   ms.technology: windows-nodejs
   ms.topic: landing-page
-  ms.openlocfilehash: 862a1a13e8617ed055adee403b18674f4ed2aded
-  ms.sourcegitcommit: 7aa0e1108fd1a19ebc5632acbc9f66ea9af2b321
+  ms.openlocfilehash: 04ba800e1b2ac247ae158fbdcead6f53446c26c2
+  ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97691510"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "101823586"
 landingContent:
 - title: Node.js 開発環境のセットアップ
   linkLists:
