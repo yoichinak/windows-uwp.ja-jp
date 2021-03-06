@@ -1,18 +1,18 @@
 ---
-title: Xamarin Android で簡単な Android アプリを作成する
-description: Windows で Xamarin Android を使用して、Android デバイスで動作するクロスプラットフォームアプリを作成する方法についてのステップバイステップガイドです。
+title: Xamarin Android で Android アプリを作成する
+description: Xamarin android で Android アプリの作成を開始する方法
 author: hickeys
 ms.author: hickeys
 manager: jken
 ms.topic: article
 keywords: android、windows、xamarin android、チュートリアル、xaml
 ms.date: 04/28/2020
-ms.openlocfilehash: 3bcecf24fe6bb90dc2b94dfa62a5768481b298e5
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: f14947564f08872ec1849d0d0b2f14218fb10322
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823176"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254295"
 ---
 # <a name="get-started-developing-for-android-using-xamarinandroid"></a>Xamarin を使用して Android 向けの開発を始める
 
@@ -20,7 +20,7 @@ ms.locfileid: "101823176"
 
 この記事では、Xamarin Android と Visual Studio 2019 を使用して、簡単な Android アプリを作成します。
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
 このチュートリアルを使用するには、次のものが必要です。
 

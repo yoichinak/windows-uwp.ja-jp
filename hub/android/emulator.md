@@ -1,5 +1,5 @@
 ---
-title: Windows からの Android デバイスまたはエミュレーターの実行
+title: Android デバイスまたはエミュレーターでテストする
 description: Windows から Android デバイスまたはエミュレーターでアプリをテストし、hyper-v と Windows ハイパーバイザープラットフォーム (WHPX) で仮想化を有効にします。
 author: mattwojo
 ms.author: mattwoj
@@ -7,12 +7,12 @@ manager: jken
 ms.topic: article
 keywords: android、windows、エミュレーター、仮想デバイス、デバイスのセットアップ、デバイスの有効化、開発者、構成、仮想化、visual studio、hyper-v、intel、haxm、amd、Windows ハイパーバイザープラットフォーム、WHPX
 ms.date: 04/28/2020
-ms.openlocfilehash: 57e1d8d62ea7b3918c5e52724c11febcb9f03d72
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 9e9d8cac14fd424ab653db2f5e1639a4c26e434a
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161556"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254317"
 ---
 # <a name="test-on-an-android-device-or-emulator"></a>Android デバイスまたはエミュレーターでテストする
 
@@ -32,7 +32,7 @@ Windows コンピューター上の実際のデバイスまたはエミュレー
 4. 一番下までスクロールし、[ **ビルド番号** ] を7回タップすると、 **開発者になります。** と表示されます。
 5. 前の画面に戻り、[ **システム**] を選択します。
 6. [ **詳細設定**] を選択し、一番下までスクロールして、[ **開発者オプション**] をタップします。
-7. [ **開発者オプション** ] ウィンドウで、下にスクロールして [ **USB デバッグ**の検索と有効化] を選択します。
+7. [ **開発者オプション** ] ウィンドウで、下にスクロールして [ **USB デバッグ** の検索と有効化] を選択します。
 
 以前のバージョンの Android を実行しているデバイスについては、「 [開発用にデバイスを設定](/xamarin/android/get-started/installation/set-up-device-for-development)する」を参照してください。
 
@@ -61,7 +61,7 @@ Android エミュレーターで仮想デバイスを作成する前に、Hyper-
 > * 4 GB のメモリを使用可能
 > * 64ビットの Intel プロセッサまたは AMD Ryzen CPU と第2レベルのアドレス変換 (SLAT) があること
 > * Windows 10 ビルド1803を実行している ([ビルド番号を確認](ms-settings:about)する)
-> * グラフィックスドライバーを更新しました (デバイスマネージャー > ディスプレイアダプター > 更新ドライバー)
+> * グラフィックスドライバーを更新しました (Device Manager > ディスプレイアダプター > 更新ドライバー)
 >
 > コンピューターがこの条件を満たすことができない場合は、 [Intel HAXM](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) または [AMD ハイパーバイザー](https://github.com/google/android-emulator-hypervisor-driver-for-amd-processors)を実行できる可能性があります。 詳細については、「 [エミュレーターのパフォーマンスのハードウェア高速化](/xamarin/android/get-started/installation/android-emulator/hardware-acceleration) 」または [Android Studio エミュレーターのドキュメント](https://developer.android.com/studio/run/emulator)を参照してください。
 
@@ -98,9 +98,9 @@ Windows Pc には、多くの [Android emulator オプション](https://www.and
 
 ### <a name="install-android-emulator-with-visual-studio"></a>Visual Studio で Android emulator をインストールする
 
-1. まだインストールしていない場合は、 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)をダウンロードします。 Visual Studio インストーラーを使用して、 [ワークロードを変更](/visualstudio/install/modify-visual-studio?view=vs-2019#modify-workloads) し、 **.net ワークロードを**使用したモバイル開発があることを確認します。
+1. まだインストールしていない場合は、 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)をダウンロードします。 Visual Studio インストーラーを使用して、 [ワークロードを変更](/visualstudio/install/modify-visual-studio?view=vs-2019#modify-workloads) し、 **.net ワークロードを** 使用したモバイル開発があることを確認します。
 
-2. 新しいプロジェクトを作成します。 [Android Emulator を設定](/xamarin/android/get-started/installation/android-emulator/)したら、 [Android Device Manager](/xamarin/android/get-started/installation/android-emulator/device-manager?pivots=windows&tabs=windows#requirements)を使用して、さまざまな Android 仮想デバイスを作成、複製、カスタマイズ、および起動できます。 [ツール] メニューから [**ツール**] [Android Android Device Manager] の Android Device Manager を起動  >  **Android**  >  **Android Device Manager**します。
+2. 新しいプロジェクトを作成します。 [Android Emulator を設定](/xamarin/android/get-started/installation/android-emulator/)したら、 [Android Device Manager](/xamarin/android/get-started/installation/android-emulator/device-manager?pivots=windows&tabs=windows#requirements)を使用して、さまざまな Android 仮想デバイスを作成、複製、カスタマイズ、および起動できます。 [ツール] メニューから [**ツール**] [Android Android Device Manager] の Android Device Manager を起動  >    >  します。
 
 3. Android Device Manager が開いたら、[ **+ 新規** ] を選択して新しいデバイスを作成します。
 

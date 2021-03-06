@@ -1,18 +1,18 @@
 ---
-title: Windows での Android 開発の概要
-description: ネイティブの Android 開発、クロスプラットフォームの開発、Android ゲーム開発など、Windows で Android の開発を開始しましょう。
+title: Windows での Android 開発
+description: Windows で Android の開発を始める際に役立つガイドです。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: windows での android、xamarin android、ネイティブ、cordova、ionic、phonegap、c++ android game、windows defender、emulator
 ms.date: 04/28/2020
-ms.openlocfilehash: b839972033c9edfad3524909345380e7fac9462e
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 315c32eb6219deafe2817ba8df36b4f9d1cb1dae
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823166"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254285"
 ---
 # <a name="overview-of-android-development-on-windows"></a>Windows での Android 開発の概要
 

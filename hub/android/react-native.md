@@ -1,18 +1,18 @@
 ---
-title: Windows での Android 開発のためにネイティブに対応
-description: Android デバイスで動作するクロスプラットフォームアプリを作成するための Windows でのネイティブ対応の使用の開始方法についてのステップバイステップガイドです。
+title: Android 開発用にネイティブに対応
+description: Windows で Xamarin Native を使用して Android アプリの開発を開始します。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: android、windows、ネイティブ、エミュレーター、エキスポ、metro bundler、ターミナルを対応
 ms.date: 04/28/2020
-ms.openlocfilehash: 82bf078d6c29c8968ce3e0cc19ce4d6f803e6d71
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 099dc073e36ee153376f4247b5d7c0526c3a8646
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823226"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254330"
 ---
 # <a name="get-started-developing-for-android-using-react-native"></a>ネイティブな応答を使用した Android 向けの開発の開始
 

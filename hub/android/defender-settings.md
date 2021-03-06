@@ -1,18 +1,18 @@
 ---
-title: Defender 設定を更新してパフォーマンス速度を向上させる
-description: 指定されたファイルの種類のチェックを除外するように Windows Defender の設定を更新して、全体的なパフォーマンス速度とビルド時間を向上させるためのガイドです。
+title: Windows Defender のセキュリティ設定
+description: Windows Defender の設定を更新して、指定したファイルの種類の確認を除外することで、パフォーマンス速度とビルド時間を向上させる方法について説明します。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
 ms.topic: article
 keywords: android、windows、windows defender、設定、構成、除外、% USERPROFILE%、devenv.exe、パフォーマンス、速度、ビルド、gradle
 ms.date: 04/28/2020
-ms.openlocfilehash: e762e595bf2b8aa9b8420d41f68d2890e7d5dfe0
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: f7b2a44f31bf4ec84a4c7f014a3a502350dca748
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823206"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254308"
 ---
 # <a name="update-windows-defender-settings-to-improve-performance"></a>パフォーマンスを向上させるための Windows Defender 設定の更新
 
