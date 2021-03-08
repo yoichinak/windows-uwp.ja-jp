@@ -1,6 +1,6 @@
 ---
 title: Windows で Python を使ってみる (初心者向け)
-description: Windows で初めて Python を使用する場合に役立つスタート ガイドです。
+description: Windows 10 を使用した Python の学習に関心がある初心者向けのステップバイステップ ガイドです。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, python の学習, windows での python (初心者向け), microsoft store から python をインストール, python と vs code, windows での pygame
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: f225932685e71cb2374249ad96efeac11184d000
-ms.sourcegitcommit: 3fafc6b6d548a03e6191fa95ebf9384c42396a30
+ms.openlocfilehash: 614e78b3dc4295b52b58645f04a0c02007bff4d4
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880545"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823616"
 ---
 # <a name="get-started-using-python-on-windows-for-beginners"></a>Windows で Python を使ってみる (初心者向け)
 

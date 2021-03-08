@@ -1,6 +1,6 @@
 ---
 title: Windows 10 で開発環境を設定する
-description: Windows で開発環境を設定し、好みのツールとコード言語をインストールするためのガイドです。 Python、NodeJS、VS Code、Git、Bash、Linux のツールとコマンド、Android Studio のいずれを使用するかに関わらず、Windows ターミナルや WSL などの優れた新しいツールを活用できます。
+description: Windows で開発環境を設定し、お好みのツールとコード言語をインストールするための詳細なガイドです。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Windows の設定, 開発環境, 開発ツール, 開発パス, Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL, ターミナル, nodejs, Python
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: 578bc10b26dfe04384ca8e8174e36497c20896cb
-ms.sourcegitcommit: 48702934676ae366fd46b7d952396c5e2fb2cbbe
+ms.openlocfilehash: 58c68522fdb3ffe11c4e11dff48fb49faa79b830
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97927815"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824036"
 ---
 # <a name="set-up-your-development-environment-on-windows-10"></a>Windows 10 で開発環境を設定する
 
@@ -92,9 +92,9 @@ ms.locfileid: "97927815"
     :::column-end:::
     :::column:::
        [![PowerToys アイコン](../images/powertoys.png)](https://github.com/microsoft/PowerToys)<br>
-        **[Windows PowerToys](../PowerToys/index.md)**<br>
+        **[Windows PowerToys](https://github.com/microsoft/PowerToys)**<br>
         この一連のパワー ユーザー ユーティリティを使用して、生産性が向上するように Windows のエクスペリエンスを調整して合理化します。<br>
-        [PowerToys をインストールする](https://github.com/microsoft/PowerToys#installing-and-running-microsoft-powertoys)
+        [PowerToys のインストール (パブリック プレビュー)](https://github.com/microsoft/PowerToys#installing-and-running-microsoft-powertoys)
     :::column-end:::
 :::row-end:::
 :::row:::

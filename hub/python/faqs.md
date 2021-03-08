@@ -1,6 +1,6 @@
 ---
 title: Windows での Python の使用についてよく寄せられる質問
-description: 開発のための Windows での Python の使用についてよく寄せられる質問 (FAQ) に対する回答を確認することにより、役立つ情報が得られます。
+description: Windows での Python を使用した開発に関してよく寄せられる質問 (FAQ) に対する回答をご覧ください。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, pip, py.exe, ファイル パス, PYTHONPATH, python 開発, python パッケージ化
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: c1cada0fef5968846100f66bb41b3dd70ea5b59a
-ms.sourcegitcommit: 8040760f5520bd1732c39aedc68144c4496319df
+ms.openlocfilehash: 7bc1d159bac5ebc9877db5d879b6acd82c51079b
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98691307"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823556"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用についてよく寄せられる質問
 
@@ -46,7 +46,7 @@ sudo python3 -m pip uninstall pip
 sudo apt -y install python3-pip --fix-missing
 ```
 
-* *詳細については、[GitHub の WSL 製品リポジトリ](https://github.com/microsoft/WSL/issues/4020)を参照してください。ドキュメントへの[このイシューに関する寄与](https://github.com/MicrosoftDocs/windows-uwp/issues/2679)について、ユーザー コミュニティに感謝します。*
+* *詳細については、[GitHub の WSL 製品リポジトリ](https://github.com/microsoft/WSL/issues/4020)を参照してください。ドキュメントへの [このイシューに関する寄与](https://github.com/MicrosoftDocs/windows-uwp/issues/2679)について、ユーザー コミュニティに感謝します。*
 
 ## <a name="what-is-pyexe"></a>py.exe とは何ですか?
 

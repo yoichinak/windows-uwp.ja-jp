@@ -1,6 +1,6 @@
 ---
 title: Windows での Python を使用した Web 開発
-description: Windows で Python を使用して Web 開発を始める方法。Flask や Django などのフレームワークのセットアップを含みます。
+description: Windows での Web 開発用の Python の使用を開始するためのステップバイステップ ガイド。Flask や Django などのフレームワークのセットアップを含みます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, windows での python , wsl を使用した python web , linux 用 windows サブシステムを使用した python web アプリ, windows での python web 開発, windows での flask アプリ, windows での django アプリ, python web, windows での flask web 開発, windows での django web 開発, python を使用した windows web 開発, vs code python web 開発, リモート wsl 拡張機能, ubuntu, wsl, venv, pip, microsoft python 拡張機能, windows での python の実行, windows での python の使用, windows での python を使用した構築
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 3b5ed80b746d0aa1441bf77e6468101deee320a6
-ms.sourcegitcommit: 3fafc6b6d548a03e6191fa95ebf9384c42396a30
+ms.openlocfilehash: ae9084541656ababf9ace4207cbfa84e30f7417a
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880555"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823626"
 ---
 # <a name="get-started-using-python-for-web-development-on-windows"></a>Windows で Web 開発に Python を使用する
 

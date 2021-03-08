@@ -1,6 +1,6 @@
 ---
 title: コンテナーを使用するリモート開発のための Docker の概要
-description: Windows または WSL で Docker Desktop を使用するためのガイド。
+description: Windows または WSL で Docker Desktop を使ってみるための完全なガイド。 Microsoft およびさまざまな Azure サービスで提供されるサポートを含む。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 ms.technology: windows-nodejs
 keywords: Microsoft, Windows, Docker, WSL, リモート開発, コンテナー, Docker Desktop, Windows と WSL の比較
 ms.date: 09/24/2020
-ms.openlocfilehash: b3fc2509aa6a623bebd9f4566f3b8e75301251db
-ms.sourcegitcommit: c65f62bda57563f6196691e7b9c25cbf5a8b16e5
+ms.openlocfilehash: 09552a6a2a43e414c143ef0a51b6932fa2aaaf20
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91780558"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101824166"
 ---
 # <a name="overview-of-docker-remote-development-on-windows"></a>Windows での Docker リモート開発の概要
 

@@ -1,6 +1,6 @@
 ---
 title: Mac から Windows に切り替えた開発者のストーリー
-description: 開発用マシンを Mac から Windows に切り替えた開発者のストーリーです。
+description: 他の開発者から、Mac と Windows の間での開発環境エクスペリエンスの切り替えについて話を聞きます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Microsoft, Windows, 開発者, ストーリー, Mac から Windows への切り替え, Mac から Windows, WSL
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: 8b4cba6ae1267d6acb1034ba47648d5aa6e0a05a
-ms.sourcegitcommit: 5ba2524d237be82d3621551e48cac938fe81d2ea
+ms.openlocfilehash: 0141e3698b40b941cd78b60f28d862246cbc5d50
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87255034"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823976"
 ---
 # <a name="stories-from-developers-who-have-switched-from-mac-to-windows"></a>Mac から Windows に切り替えた開発者のストーリー
 

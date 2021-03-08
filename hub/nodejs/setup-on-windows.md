@@ -1,6 +1,6 @@
 ---
 title: NodeJS をネイティブ Windows 上に設定する
-description: Windows 上に Node.js 開発環境を設定するために役立つガイド。
+description: Windows 上に Node.js 開発環境を設定するために役立つステップバイステップ ガイド。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Node.js, windows 10, ネイティブ Windows, Windows 上に直接
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: 8c865610ba2678c1c5ab1b25ff7a2c7410d11f15
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bb950dcda9fddd6cf1b4b77da657f88ce2687785
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89166586"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823596"
 ---
 # <a name="set-up-your-nodejs-development-environment-directly-on-windows"></a>Node.js 開発環境を Windows 上に直接設定する
 
@@ -75,7 +75,7 @@ Windows で Node.js を使用して開発するには、[VS Code](https://code.v
 Node.js 拡張パックをインストールするには、次の手順を行います。
 
 1. VS Code で **[拡張機能]** ウィンドウを開きます (Ctrl + Shift + X)。
-2. [拡張機能] ウィンドウの上部にある [検索] ボックスに、次のように入力します。"Node Extension Pack" (または、お探しの拡張機能の名前)。
+2. [拡張機能] ウィンドウの上部にある検索ボックスに「Node Extension Pack」 (または、お探しの拡張機能の名前) と入力します。
 3. **[インストール]** を選択します。 インストールが完了すると、拡張機能が **[拡張機能]** ウィンドウの [有効] フォルダーに表示されます。 新しい拡張機能の説明の横にある歯車アイコンを選択して、設定を無効、アンインストール、または構成することができます。
 
 他にも検討をお勧めする拡張機能として、次のようなものがあります。
@@ -101,4 +101,4 @@ Node.js 拡張パックをインストールするには、次の手順を行い
 Node.js を Windows で直接使用することは、何ができるかを学習し、体験するのに最適です。 通常は Linux ベースのサーバーに展開される運用環境対応の Web アプリを構築する準備ができたら、Linux 用 Windows サブシステムのバージョン 2 (WSL 2) を使用して Node.js Web アプリを開発することをお勧めします。 多くの Node.js パッケージおよびフレームワークは、*nix 環境を念頭に置いて作成され、ほとんどの Node.js アプリは Linux に展開されるため、WSL で開発すると、開発環境と運用環境の間で一貫性が確保されます。 WSL 開発環境を設定するには、「[WSL 2 を使用して node.js 開発環境を設定する](./setup-on-wsl2.md)」を参照してください。
 
 > [!NOTE]
-> Node.js アプリを Windows サーバーでホストする必要がある (まれな) 状況では、最も一般的なシナリオとして、[リバース プロキシの使用](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca)が考えられます。 これには、1) [iisnode を使用する](https://harveywilliams.net/blog/installing-iisnode) または [直接使用する](https://dev.to/petereysermans/hosting-a-node-js-application-on-windows-with-iis-as-reverse-proxy-397b)という 2 つの方法があります。 Microsoft では、これらのリソースを保持していないので、[Linux サーバーを使用して Node.js アプリをホストする](/azure/app-service/app-service-web-get-started-nodejs)ことをお勧めします。
+> Node.js アプリを Windows サーバーでホストする必要がある (まれな) 状況では、最も一般的なシナリオとして、[リバース プロキシの使用](https://medium.com/intrinsic/why-should-i-use-a-reverse-proxy-if-node-js-is-production-ready-5a079408b2ca)が考えられます。 これを行うには、2 つの方法があります: [iisnode を使う](https://harveywilliams.net/blog/installing-iisnode)か、[直接使用](https://dev.to/petereysermans/hosting-a-node-js-application-on-windows-with-iis-as-reverse-proxy-397b)します。 Microsoft では、これらのリソースを保持していないので、[Linux サーバーを使用して Node.js アプリをホストする](/azure/app-service/app-service-web-get-started-nodejs)ことをお勧めします。

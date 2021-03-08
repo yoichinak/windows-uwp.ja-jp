@@ -1,6 +1,6 @@
 ---
 title: Windows での Node.js Web フレームワークの概要
-description: Windows で Node.js Web フレームワークの使用を開始するために役立つガイド。
+description: Windows で Node.js Web フレームワーク (Next.js、Nuxt.js、Gatsby を含む) の使用を開始するために役立つステップ バイ ステップ ガイド。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: a8ce1d08136a74504e1b3bad26feadd61b72068f
-ms.sourcegitcommit: 76e8b4fb3f76cc162aab80982a441bfc18507fb4
+ms.openlocfilehash: af23ec1374d5fce727579171113402536221e5f2
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72517789"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823606"
 ---
 # <a name="get-started-with-nodejs-web-frameworks-on-windows"></a>Windows での Node.js Web フレームワークの概要
 
@@ -26,7 +26,7 @@ Windows で Node.js Web フレームワーク (Next.js、Nuxt.js、Gatsby を含
 - Windows 10 Insider Preview ビルド 18932 以降をインストールします。
 - Windows で WSL 2 機能を有効にします。
 - Linux ディストリビューション (この例では Ubuntu 18.04) をインストールします。 これは `wsl lsb_release -a` で確認できます。
-- Ubuntu 18.04 ディストリビューションが WSL 2 モードで実行されていることを確認します。 (WSL は、v1 または v2 モードの両方でディストリビューションを実行できます。)これは PowerShell を開き、「`wsl -l -v`」と入力することによって確認できます。
+- Ubuntu 18.04 ディストリビューションが確実に WSL 2 モードで実行されるようにします。 (WSL は、v1 または v2 モードの両方でディストリビューションを実行できます。)これは PowerShell を開き、「`wsl -l -v`」と入力することによって確認できます。
 - PowerShell を使用して、`wsl -s ubuntu 18.04` で、Ubuntu 18.04 を既定のディストリビューションとして設定します。
 
 ## <a name="get-started-with-nextjs"></a>Next.js の概要
@@ -82,14 +82,14 @@ Nuxt.js プロジェクトを作成するには (これには、どのような�
 4. Nuxt.js インストーラーから次の項目をたずねられます。
     - プロジェクト名: my-nuxtjs-app
     - プロジェクトの説明: Nuxt.js アプリの説明。
-    - 作成者名: GitHub のエイリアスを使用します。
-    - パッケージ マネージャーの選択: Yarn または **Npm** - この例では NPM を使用します。
-    - UI フレームワークの選択: なし、Ant Design Vue、Bootstrap Vue など。 この例では **[Vuetify]** を選択しましょう。ただし、Vue コミュニティが、プロジェクトに最も適したものを選択するために役立つ[これらの UI フレームワークを比較した素晴らしいサマリー](https://vue-community.org/guide/ecosystem/ui-libraries.html#summary-tldr)を作成しました。
-    - カスタム サーバー フレームワークの選択: なし、AdonisJs、Express、Fastify など。 この例では **[なし]** を選択しましょう。ただし、Dev.to のサイトで [2019-2020 サーバー フレームワークの比較](https://dev.to/santypk4/introducing-the-best-10-node-js-frameworks-for-2019-and-2020-mcm)を見つけることができます。
-    - Nuxt.js モジュールの選択 (Space キーを使用してモジュールを選択します。何も選択しない場合は単に Enter キーを押します): Axios (HTTP 要求の簡略化のため) または [PWA サポート](https://pwa.nuxtjs.org/) (サービス ワーカー、manifest.json ファイルなどの追加のため)。 この例では、モジュールを追加しないようにしましょう。
-    - リンティング ツールの選択: **ESLint**、Prettier、Lint のステージングされたファイル。 **[ESLint]** (コードを分析し、潜在的なエラーを警告するためのツール) を選択しましょう。
-    - テスト フレームワークの選択: **なし**、Jest、AVA。 このクイックスタートではテストを行わないため、 **[なし]** を選択しましょう。
-    - レンダリング モードの選択: **ユニバーサル (SSR)** またはシングル ページ アプリ (SPA)。 この例では **[Universal (SSR)] (ユニバーサル (SSR))** を選択しましょう。ただし、[Nuxt.js のドキュメント](https://nuxtjs.org/guide#server-rendered-universal-ssr-)にいくつかの違いが指摘されています。つまり、SSR にはアプリのサーバー レンダリングのための Node.js サーバーが必要であり、SPA は静的ホスティング用です。
+    - 作成者名: GitHub エイリアスを使用します。
+    - パッケージ マネージャー (Yarn または **Npm**) を選択します。例については、Npm を使用します。
+    - UI フレームワーク: なし、Ant Design Vue、Bootstrap Vue などを選択します。 この例では **[Vuetify]** を選択しましょう。ただし、Vue コミュニティが、プロジェクトに最も適したものを選択するために役立つ[これらの UI フレームワークを比較した素晴らしいサマリー](https://vue-community.org/guide/ecosystem/ui-libraries.html#summary-tldr)を作成しました。
+    - カスタム サーバー フレームワーク: なし、AdonisJs、Express、Fastify などを選択します。 この例では **[なし]** を選択しましょう。ただし、Dev.to のサイトで [2019-2020 サーバー フレームワークの比較](https://dev.to/santypk4/introducing-the-best-10-node-js-frameworks-for-2019-and-2020-mcm)を見つけることができます。
+    - Nuxt.js モジュール (Space キーを使ってモジュールを選択するか、不要な場合は単に入力します): Axios (HTTP 要求を簡易化)、[PWA サポート](https://pwa.nuxtjs.org/) (サービスワーカー、manifest.json ファイルの追加など) を選択します。 この例では、モジュールを追加しないようにしましょう。
+    - リンティング ツール: **ESLint**、Prettier、Lint のステージングされたファイルを選択します。 **[ESLint]** (コードを分析し、潜在的なエラーを警告するためのツール) を選択しましょう。
+    - テスト フレームワーク: **なし**、JEST、AVA を選択します。 このクイックスタートではテストを行わないため、 **[なし]** を選択しましょう。
+    - 表示モード: **Universal (SSR)** 、シングル ページ アプリ (SPA) を選択します。 この例では **[Universal (SSR)] (ユニバーサル (SSR))** を選択しましょう。ただし、[Nuxt.js のドキュメント](https://nuxtjs.org/guide#server-rendered-universal-ssr-)にいくつかの違いが指摘されています。つまり、SSR にはアプリのサーバー レンダリングのための Node.js サーバーが必要であり、SPA は静的ホスティング用です。
     - 開発ツールの選択: **jsconfig.json** (Intellisense コード補完が機能するように VS Code に推奨されます)
 
 5. プロジェクトが作成されたら、`cd my-nuxtjs-app` を入力して Nuxt.js プロジェクトのディレクトリに移動し、「`code .`」と入力して VS Code WSL-Remote 環境でプロジェクトを開きます。
@@ -140,7 +140,7 @@ Gatsby.js プロジェクトを作成するには:
 
     VS Code に統合された WSL ターミナルを開きます ( **[表示] > [ターミナル]** )。 ターミナル パスがプロジェクト ディレクトリ (`~/GatsbyProjects/my-gatsby-app$`) を指していることを確認してください。 その後、`gatsby develop` を使用して、新しいアプリの開発インスタンスを実行してみてください。
 
-7. 新しい Gatsby プロジェクトのコンパイルが完了すると、ターミナルに "ブラウザーに gatsby-starter-default を表示できるようになりました。 [http://localhost:8000/](http://localhost:8000/)" が表示されます。 この localhost リンクを選択して、Web ブラウザーに組み込まれた新しいプロジェクトを表示します。
+7. 新しい Gatsby プロジェクトのコンパイルが完了すると、ターミナルに "ブラウザーに gatsby-starter-default を表示できるようになりました。 [http://localhost:8000/](http://localhost:8000/)." この localhost リンクを選択して、Web ブラウザーに組み込まれた新しいプロジェクトを表示します。
 
 > [!NOTE]
 > ターミナル出力からは、"ブラウザー内 IDE である GraphiQL を表示して、サイトのデータやスキーマを調査する: [http://localhost:8000/___graphql](http://localhost:8000/___graphql)" こともできると通知されることがわかります。 GraphQL では、Gatsby に組み込まれた自己文書化 IDE (GraphiQL) に API が統合されます。 サイトのデータやスキーマの調査に加えて、クエリ、変異、サブスクリプションなどの GraphQL 操作を実行できます。 詳細については、[GraphiQL の概要](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)に関するページを参照してください。

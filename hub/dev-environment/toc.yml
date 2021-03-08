@@ -69,6 +69,18 @@
           href: /powershell/
         - name: WSL のデータベースの概要
           href: /windows/wsl/tutorials/wsl-database
+        - name: Rust の使用を開始する
+          items:
+            - name: 内容
+              href: ./rust/index.yml
+            - name: Rust を使用した Windows での開発の概要
+              href: ./rust/overview.md
+            - name: 開発環境を設定する
+              href: ./rust/setup.md
+            - name: Windows 用 Rust
+              href: ./rust/rust-for-windows.md
+            - name: RSS リーダー チュートリアル (Windows 用 Rust)
+              href: ./rust/rss-reader-rust-for-windows.md
     - name: ツールとプラットフォーム
       items:
         - name: Linux 用 Windows サブシステム

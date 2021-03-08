@@ -1,6 +1,6 @@
 ---
 title: WSL 2 上で NodeJS を設定する
-description: Linux 用 Windows サブシステム (WSL) 上で Node.js 開発環境を設定するのに役立つガイド。
+description: Linux 用 Windows サブシステム (WSL) 上で Node.js 開発環境を設定するのに役立つステップバイステップ ガイド。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 07/28/2020
-ms.openlocfilehash: 4e0477c91470d69f9ec5fd726079a1164e2cf276
-ms.sourcegitcommit: 3fafc6b6d548a03e6191fa95ebf9384c42396a30
+ms.openlocfilehash: 70a9e067cc69eb4f040e5f579883113cdeb2ef47
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880535"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823646"
 ---
 # <a name="set-up-your-nodejs-development-environment-with-wsl-2"></a>WSL 2 を使用して Node.js 開発環境を設定する
 

@@ -1,6 +1,6 @@
 ---
 title: Windows 10 での開発ワークフローを改善するためのヒント
-description: Windows 10 での開発ワークフローを改善するためのヒント。
+description: パフォーマンスを向上させ、開発ワークフローを Windows 10 でより効率的かつ楽しいものにするためのヒント。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: 7d02e3b46d6938532bbc7024e8840b976b2715a6
-ms.sourcegitcommit: 861c381a31e4a5fd75f94ca19952b2baaa2b72df
+ms.openlocfilehash: ef7ee52e778f49e35f68acb4ea02351d4208b3b7
+ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171153"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101823956"
 ---
 # <a name="tips-for-improving-performance-and-development-workflows"></a>パフォーマンスと開発ワークフローを改善するためのヒント
 

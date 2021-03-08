@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Windows での Rust を使用した開発
+summary: 開発環境のセットアップ、Windows 用 Rust、コード例など、Windows を使用して Rust で開発を開始しましょう。
+metadata:
+  author: stevewhims
+  description: 開発環境のセットアップ、Windows 用 Rust、コード例など、Windows を使用して Rust で開発を開始しましょう。
+  manager: jken
+  ms.author: stwhi
+  ms.date: 03/04/2021
+  ms.prod: dev-environment
+  ms.technology: windows-rust
+  ms.topic: landing-page
+  ms.openlocfilehash: dddb2575da4215f2be7168581221a33b329cb3db
+  ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102194111"
+landingContent:
+- title: 概要
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Rust とは
+      url: ./overview.md
+    - text: Rust 開発ツールセット/エコシステムの構成要素
+      url: ./overview.md#the-pieces-of-the-rust-development-toolsetecosystem
+    - text: Windows 用 Rust と windows クレート
+      url: ./rust-for-windows.md
+- title: 開発環境を設定する
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Windows で Rust 用の開発環境を設定する
+      url: ./setup.md
+- title: チュートリアル
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Hello, world! チュートリアル (VS Code を使用した Rust)
+      url: ./setup.md#hello-world-tutorial-rust-with-vs-code
+    - text: RSS リーダー チュートリアル (VS Code を使用した Windows 用 Rust)
+      url: ./rss-reader-rust-for-windows.md
+- title: その他のリソース
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Rust Web サイト
+      url: https://www.rust-lang.org/
+    - text: Windows API 用の Rust ドキュメント
+      url: https://microsoft.github.io/windows-docs-rs/doc/bindings/windows/
+    - text: マインスイーパー サンプル アプリ
+      url: https://github.com/robmikh/minesweeper-rs
