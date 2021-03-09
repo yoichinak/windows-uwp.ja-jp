@@ -1,0 +1,26 @@
+- name: Windows 10 での Web 開発
+  items:
+    - name: Windows 10 での Web 開発
+      items:
+        - name: 概要
+          href: index.md
+        - name: API
+          href: apis.md
+    - name: "Visual\_Studio"
+      href: /visualstudio/windows/
+    - name: Visual Studio Code
+      href: 'https://code.visualstudio.com/docs'
+    - name: Microsoft Edge
+      href: 'https://developer.microsoft.com/microsoft-edge/'
+    - name: .NET
+      href: 'https://dotnet.microsoft.com/'
+    - name: Linux 用 Windows サブシステム
+      href: /windows/wsl/
+    - name: Windows ターミナル
+      href: /windows/terminal/
+    - name: Windows パッケージ マネージャー
+      href: /windows/package-manager/
+    - name: Docker Desktop for Windows
+      href: /windows/dev-environment/docker/overview/
+    - name: Azure Cloud Services
+      href: /azure/
