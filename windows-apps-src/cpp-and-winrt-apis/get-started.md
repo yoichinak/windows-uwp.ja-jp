@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 取得, 取得, 開始
 ms.localizationpriority: medium
-ms.openlocfilehash: f38269acd9f1d6e2e830b51b3fcfa3a9014f2d7e
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 994ca6c28fab60528f9c533fad9587525c003e43
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219905"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629330"
 ---
 # <a name="get-started-with-cwinrt"></a>C++/WinRT の使用を開始する
 
@@ -68,10 +68,10 @@ int main()
 
 既定のプロジェクト設定では、含まれているヘッダーは Windows SDK のフォルダー `%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt` 内にあります。 Visual Studio には、その *IncludePath* マクロにそのパスが含まれています。 ただし、プロジェクトでは (`cppwinrt.exe` ツールを介して) プロジェクトの *$(GeneratedFilesDir)* フォルダーに同じヘッダーが生成されるため、Windows SDK にはそれほど依存していません。 他の場所に見つからない場合、またはプロジェクト設定を変更した場合は、そのフォルダーから読み込まれます。
 
-このヘッダーには、C++/WinRT に投影された Windows API が含まれます。 つまり、Windows の種類ごとに、C++/WinRT は C++ 対応の同等の型 (*投影された型*と呼ばれます) を定義します。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ **winrt** 名前空間に配置されます。 これらのインクルードをプリコンパイル済みヘッダーに配置すると、段階的なビルド時間が短縮されます。
+このヘッダーには、C++/WinRT に投影された Windows API が含まれます。 つまり、Windows の種類ごとに、C++/WinRT は C++ 対応の同等の型 (*投影された型* と呼ばれます) を定義します。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ **winrt** 名前空間に配置されます。 これらのインクルードをプリコンパイル済みヘッダーに配置すると、段階的なビルド時間が短縮されます。
 
 > [!IMPORTANT]
-> Windows 名前空間から型を使用する場合は、上に示すように、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを `#include` する必要があります。 *対応する*ヘッダーは、その型の名前空間と同じ名前を持つヘッダーです。 たとえば、C++/WinRT プロジェクションを [**Windows::Foundation::Collections::PropertySet**](/uwp/api/windows.foundation.collections.propertyset) ランタイム クラスに使用するには、`winrt/Windows.Foundation.Collections.h` ヘッダーを含めます。
+> Windows 名前空間から型を使用する場合は、上に示すように、対応する C++/WinRT Windows 名前空間ヘッダー ファイルを `#include` する必要があります。 *対応する* ヘッダーは、その型の名前空間と同じ名前を持つヘッダーです。 たとえば、C++/WinRT プロジェクションを [**Windows::Foundation::Collections::PropertySet**](/uwp/api/windows.foundation.collections.propertyset) ランタイム クラスに使用するには、`winrt/Windows.Foundation.Collections.h` ヘッダーを含めます。
 > 
 > C++/WinRT プロジェクション ヘッダーに、その親の名前空間のヘッダー ファイルが自動的に含まれるのはよくあることです。 たとえば `winrt/Windows.Foundation.Collections.h` には `winrt/Windows.Foundation.h` が含まれます。 とはいえ、実装の詳細は時とともに変化するので、この挙動に依存するべきではありません。 必要なヘッダーはすべて明示的に含める必要があります。
 
@@ -129,7 +129,7 @@ HRESULT リターン コードを処理する必要もありません。 C++/Win
 
 プロジェクトのプロパティ **[全般]** \> **[Windows SDK バージョン]** に移動し、 **[すべての構成]** と **[すべてのプラットフォーム]** を選択します。 **[Windows SDK バージョン]** が 10.0.17134.0 (Windows 10 Version 1803) 以降に設定されていることを確認します。
 
-「[新しいプロジェクトがコンパイルされないのはなぜですか?](./faq.md)」の影響を受けていないことを確認します。
+「[新しいプロジェクトがコンパイルされないのはなぜですか?](./faq.yml)」の影響を受けていないことを確認します。
 
 C++/WinRT には C++17 標準の機能が使用されるので、プロジェクト プロパティの **[C/C++]**  >  **[言語]**  >  **[C++ 言語標準]** を *[ISO C++17 標準 (/std:c++17)]* に設定します。
 
@@ -183,7 +183,7 @@ XAML は、リフレクションを提供するプログラミング言語で最
 
 ## <a name="sample-apps-written-in-cwinrt"></a>C++/WinRT で記述されたサンプル アプリ
 
-「[C++/WinRT サンプル アプリはどこにありますか?](./faq.md#where-can-i-find-cwinrt-sample-apps)」を参照してください。
+「[C++/WinRT サンプル アプリはどこにありますか?](./faq.yml#where-can-i-find-c---winrt-sample-apps-)」を参照してください。
 
 ## <a name="important-apis"></a>重要な API
 * [SyndicationClient::RetrieveFeedAsync メソッド](/uwp/api/windows.web.syndication.syndicationclient.retrievefeedasync)

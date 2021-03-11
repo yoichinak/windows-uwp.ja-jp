@@ -5,12 +5,12 @@ ms.date: 12/30/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c6d766eb757241d6d3f38c425538c62fd057316
-ms.sourcegitcommit: b0cedbb65d00e6241a9350c2ee1b1e89b090a2d2
+ms.openlocfilehash: cc341f6fd716daf0474fdbcb25f567a7c727d507
+ms.sourcegitcommit: 7d542c6367b3b441044225431ee69d869ed0ff4b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101086949"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102402338"
 ---
 # <a name="authoring-a-c-windows-runtime-component-for-use-from-a-cwinrt-app"></a>C++/WinRT アプリから使用するための C# Windows ランタイム コンポーネントの作成
 
@@ -124,7 +124,7 @@ void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
 
 ## <a name="application-minimum-version"></a>アプリケーションの最小バージョン
 
-アプリケーションのコンパイルに使用される .NET のバージョンは、C# プロジェクト バージョンの [ **[Application Minimum]\(アプリケーションの最小\)** ](https://docs.microsoft.com/windows/uwp/updates-and-versions/choose-a-uwp-version) で制御されます。 たとえば、 **[Windows 10 Fall Creators Update (10.0; Build 16299)]** 以上を選ぶと、.NET Standard 2.0 と Windows ARM64 プロセッサのサポートが有効になります。 
+アプリケーションのコンパイルに使用される .NET のバージョンは、C# プロジェクト バージョンの [ **[Application Minimum]\(アプリケーションの最小\)**](https://docs.microsoft.com/windows/uwp/updates-and-versions/choose-a-uwp-version) で制御されます。 たとえば、 **[Windows 10 Fall Creators Update (10.0; Build 16299)]** 以上を選ぶと、.NET Standard 2.0 と Windows ARM64 プロセッサのサポートが有効になります。 
 
 > [!TIP]
 > .NET Standard 2.0 または ARM64 のサポートが不要な場合は、16299 より前の **[Application Minimum]\(アプリケーションの最小\)** バージョンを使用して追加のビルド構成を回避することをお勧めします。
@@ -218,5 +218,5 @@ Visual Studio ソリューション エクスプローラーで *CppToCSharpWinR
 ```
 
 ## <a name="related-topics"></a>関連トピック
-* [C# および Visual Basic を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md)
-* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows-apps-src/winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)
+* [C# および Visual Basic を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)

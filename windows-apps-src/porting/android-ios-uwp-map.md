@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.assetid: 082736c8-2ac3-41b3-b246-e705edc23f34
 ms.localizationpriority: medium
-ms.openlocfilehash: 21cb4c105cc4c95c3a14c4c5bd0049265682f91c
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: d15f0b1dccbdb165cb2bbcf39628e16859a42ed5
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220585"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784733"
 ---
 # <a name="windows-apps-concept-mapping-for-android-and-ios-developers"></a>Android と iOS 開発者向けの Windows アプリ概念マッピング
 
@@ -127,7 +127,7 @@ ms.locfileid: "91220585"
 <td align="left"><strong>ピアナビゲーション。</strong> <br><br>階層の重要度が同じページ間を移動する方法をユーザーに提供します。</td>
 <td align="left"><strong>タブ</strong>、 <strong>スワイプビュー</strong> 、および <strong>ナビゲーション引き出し</strong> は横方向の <strong>ナビゲーション</strong>を提供します。</td>
 <td align="left"><strong>タブ バー コントローラー</strong>、<strong>分割ビュー コントローラー</strong>、<strong>ページ ビュー コントローラー</strong>で同じ階層のビューの間を移動できます。</td>
-<td align="left"><strong><a href="/windows/uwp/controls-and-patterns/tabs-pivot">タブ/ピボット</a></strong>を使って、コンテンツの上にあるリンクやタブの永続的な一覧を表示できます。 <strong><a href="/windows/uwp/controls-and-patterns/split-view">ナビゲーションウィンドウ/分割ビュー</a></strong>を使用すると、コンテンツと共にリンクの一覧を表示できます。<br/><br/><a href="/windows/uwp/layout/navigation-basics">ナビゲーション</a><br/><br/><a href="/windows/uwp/layout/navigate-between-two-pages">2 つのページ間の移動</a></td>
+<td align="left"><strong><a href="/windows/uwp/controls-and-patterns/navigationview">Navigationview</a></strong>を使用すると、コンテンツの上にあるリンク/タブの永続的な一覧を表示できます。 <strong><a href="/windows/uwp/controls-and-patterns/split-view">ナビゲーションウィンドウ/分割ビュー</a></strong>を使用すると、コンテンツと共にリンクの一覧を表示できます。<br/><br/><a href="/windows/uwp/layout/navigation-basics">ナビゲーション</a><br/><br/><a href="/windows/uwp/layout/navigate-between-two-pages">2 つのページ間の移動</a></td>
 </tr>
 <tr class="odd" style="background-color: #f2f2f2">
 <td align="left"><strong>階層ナビゲーション。</strong> <br><br>階層の親と子のページ間を移動します。</td>

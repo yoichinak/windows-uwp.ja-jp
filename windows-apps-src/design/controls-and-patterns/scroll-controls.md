@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: regisb
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 60a8e8f204591e455e2ccf52b09684a878b67452
-ms.sourcegitcommit: da44cb95946440cd06ff36254d42ecefcdd87ce2
+ms.openlocfilehash: f0bd0fa72587d83e9dca28b18688f1c667033070
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93063034"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784853"
 ---
 # <a name="scroll-viewer-controls"></a>スクロール ビューアー コントロール
 
@@ -25,7 +25,7 @@ ms.locfileid: "93063034"
 
 1 つの領域には収まらない UI コンテンツがある場合は、スクロール ビューアー コントロールを使用します。
 
-> **重要な API** : [ScrollViewer クラス](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、 [ScrollBar クラス](/uwp/api/windows.ui.xaml.controls.primitives.scrollbar)
+> **重要な API**: [ScrollViewer クラス](/uwp/api/Windows.UI.Xaml.Controls.ScrollViewer)、[ScrollBar クラス](/uwp/api/windows.ui.xaml.controls.primitives.scrollbar)
 
 スクロール ビューアーにより、ビューポート (表示可能な領域) の境界外のコンテンツを拡張表示できるようになります。 ユーザーはこのコンテンツを表示するために、タッチ、マウス ホイール、キーボード、ゲームパッドでスクロール ビューアーのサーフェスを操作します。またはマウスやペン カーソルでスクロール ビューアーのスクロールバーを操作します。 以下の画像に、スクロール ビューアー コントロールの例をいくつか示します。
 
@@ -143,7 +143,6 @@ ScrollViewer が XAML で明示的である場合、コード例に示すよう�
 - ユーザーがより大きな領域の周囲で両方向にパンすること、そしておそらくズームできるようにする場合、たとえばユーザーが (画面に適合するサイズに設定されたイメージではなく) フル サイズのイメージをパンおよびズームできるようにする場合には、スクロール ビューアー内にイメージを配置します。
 - ユーザーが長いテキスト パスをスクロールする場合、垂直方向にのみスクロールするようにスクロール ビューアーを構成します。
 - 1 つのオブジェクトのみを含める場合にスクロール ビューアーを使います。 1 つのオブジェクトをレイアウト パネルとし、その任意の数のオブジェクトを含めることができる点に注意してください。
-- ピボットのスクロール ロジックが競合するのを避けるため、スクロール ビューアー内には[ピボット](pivot.md) コントロールを配置しないでください。
 - スクロール可能なビュー (ScrollViewer や ListView など) で [UIElement](/uwp/api/Windows.UI.Xaml.UIElement) のポインター イベントを処理する必要がある場合は、[UIElement.CancelDirectmanipulation()](/uwp/api/windows.ui.xaml.uielement.canceldirectmanipulations) を呼び出すことにより、ビュー内のこの要素に対する操作イベントのサポートを明示的に無効にする必要があります。 ビューで操作イベントを再び有効にするには、[UIElement.TryStartDirectManipulation()](/uwp/api/windows.ui.xaml.uielement.trystartdirectmanipulation) を呼び出します。
 
 

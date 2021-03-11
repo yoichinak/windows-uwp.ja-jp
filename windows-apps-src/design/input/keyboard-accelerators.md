@@ -10,12 +10,12 @@ pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: ee0c92ec81f7bbabc2218afbf263000a167d2057
-ms.sourcegitcommit: e81227399ba0f286e74e4977d757237829440a2e
+ms.openlocfilehash: 6f712dd8e845b3beb52981be4a17df128c48845d
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310210"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784743"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 
@@ -127,11 +127,11 @@ UWP アプリのキーボード アクセラレータを作成するには、[Ke
 ```
 
 ![ツールヒントのキーボードアクセスキーのスクリーンショット。](images/accelerators/accelerators_tooltip.png)  
-**_ツールヒントに記述されているキーボードアクセスキー_*
+***ツール ヒントに示されたアクセス キーの説明***
 
 [UIElement](/uwp/api/windows.ui.xaml.uielement) オブジェクトには、[KeyboardAccelerator](/uwp/api/windows.ui.xaml.input.keyboardaccelerator) コレクションおよび [KeyboardAccelerators](/uwp/api/windows.ui.xaml.uielement.KeyboardAccelerators) があり、カスタムの KeyboardAccelerator オブジェクトを指定して、キーボード アクセラレータのキー入力を定義できます。
 
--   _ *[Key](/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Key)**-キーボードアクセラレータに使用される [virtualkey](/uwp/api/windows.system.virtualkey) 。
+-   **[Key](/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Key)** - キーボード アクセラレータに使用される [VirtualKey](/uwp/api/windows.system.virtualkey)。
 
 -   **[Modifiers](/uwp/api/windows.ui.xaml.input.keyboardaccelerator.Modifiers)** – キーボード アクセラレータに使用される [VirtualKeyModifiers](/uwp/api/windows.system.virtualkeymodifiers)。 Modifiers が設定されていない場合、既定値は None です。
 
@@ -367,7 +367,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 
 ## <a name="usability-affordances-for-keyboard-accelerators"></a>キーボード アクセラレータのユーザビリティ アフォーダンス
 
-### <a name="tooltips"></a>ヒント
+### <a name="tooltips"></a>ツールヒント
 
 通常、キーボードアクセラレータは、Windows アプリケーションの UI に直接記述されていないので、 [ツールヒント](../controls-and-patterns/tooltips.md)を使用すると、ユーザーがフォーカスを移動したり、マウスポインターをコントロールの上に置いたりしたときに自動的に表示されるツールヒントによって発見しやすくなります。 ヒントによって、コントロールにキーボード アクセラレータが関連付けられているかどうかを識別でき、関連付けられている場合は、アクセラレータ キーの組み合わせを識別することができます。
 
@@ -466,7 +466,7 @@ Windows アプリケーション間でキーボードアクセラレータを統
 </Button>
 ```
 
-場合によっては、他の要素 (通常はコンテナー オブジェクト) に関連するヒントを表示する必要があります。 たとえば、ピボット ヘッダー共に PivotItem のヒントを表示するピボット コントロールがあります。 
+場合によっては、他の要素 (通常はコンテナー オブジェクト) に関連するヒントを表示する必要があります。 
 
 ここでは、KeyboardAcceleratorPlacementTarget プロパティを使用して、[保存] ボタンのキーボード アクセラレータを構成するキーの組み合わを表示する方法について説明します。この例では、ボタンではなく Grid コンテナーを使用します。
 
@@ -526,8 +526,8 @@ TextBox などのテキスト コントロールに対する [KeyDown](/uwp/api/
 プレビュー入力イベントは、他のイベントの前に発生します。 これらのイベントを処理しない場合は、フォーカスのある要素のアクセラレータが呼び出され、これに続いて KeyDown イベントが発生します。 処理されるまで、両方のイベントのバブルが発生します。
 
 
-![キーイベントシーケンス ](images/accelerators/accelerators_keyevents.png) 
-* **キーイベントシーケンス** _ を示す図
+![キーイベントシーケンス ](images/accelerators/accelerators_keyevents.png)
+ ***キーイベントシーケンス*** を示す図
 
 イベントの順序:
 
@@ -582,7 +582,8 @@ protected override void OnProcessKeyboardAccelerators(
 
 キーボード アクセラレータは、すべてローカライズすることをお勧めします。 これを行うには、標準的な UWP リソース (.resw) ファイルと XAML 宣言の x:Uid 属性を使用します。 この例では、Windows ランタイムによってリソースが自動的に読み込まれます。
 
-![Uwp リソースを使用したキーボードアクセラレータのローカライズファイル ](images/accelerators/accelerators_localization.png) _ *_キーボードアクセスと uwp リソースファイルのローカライズ_**
+![UWP リソースを使用したキーボードアクセラレータのローカライズファイルの ](images/accelerators/accelerators_localization.png)
+ ***キーボードアクセラレータに関する uwp リソースファイルを使用*** したローカライズ
 
 ``` xaml
 <Button x:Uid="myButton" Click="OnSave">

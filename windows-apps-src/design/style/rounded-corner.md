@@ -4,12 +4,12 @@ description: 角の丸めの原則、デザイン方法、カスタマイズ オ
 ms.date: 10/08/2019
 ms.topic: article
 keywords: windows 10, uwp, 角の半径, 丸め
-ms.openlocfilehash: 33432ac0083c0d6660d0669ea43805e0ae73f37e
-ms.sourcegitcommit: 4cafc1c55511741dd1e5bfe4496d9950a9b4de1b
+ms.openlocfilehash: 14abadb968e31c52e49d7597241eb017f5ebead7
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97860196"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784813"
 ---
 # <a name="corner-radius"></a>角の半径
 
@@ -94,7 +94,6 @@ WinUI 2.2 以降の NuGet パッケージをインストールすると、WinUI 
 **コントロール**
 
 - NavigationView 選択インジケーター
-- ピボット選択インジケーター
 - ProgressBar
 - ScrollBar (`IndicatorMode=TouchIndicator` のとき)
 - スライダー

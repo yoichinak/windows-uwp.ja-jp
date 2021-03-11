@@ -13,12 +13,12 @@ design-contact: jeffarn
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: c7ac5b8c34f007e18e04eb8299d9ccddd583ad29
-ms.sourcegitcommit: 9378b1b2c2a5ba6e774ae76b53d755cbc5215af2
+ms.openlocfilehash: 51dc59f9390e2f4bbbf8dda35ed8fad6de0135a4
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709651"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784783"
 ---
 # <a name="designing-for-xbox-and-tv"></a>Xbox およびテレビ向け設計
 
@@ -66,7 +66,7 @@ _**スクリーンショットに示されているすべてのムービーは�
 
 ここまで、10 フィート エクスペリエンス向けに優れた UWP アプリを設計する原則を説明しました。次に、アプリを最適化して優れたユーザー エクスペリエンスを提供する具体的な方法について、概要を示します。
 
-| 機能        | 説明           |
+| 特徴量        | 説明           |
 | -------------------------------------------------------------- |--------------------------------|
 | [UI 要素のサイズ](#ui-element-sizing)  | ユニバーサル Windows プラットフォームは、[スケーリングと有効ピクセル](../basics/design-and-ui-intro.md#effective-pixels-and-scaling)を使い、視聴距離に合わせて UI をスケーリングします。 サイズについて理解し UI 全体に適用すれば、アプリを 10 フィート環境用に最適化するのに役立ちます。  |
 |  [テレビのセーフ エリア](#tv-safe-area) | UWP は既定で、テレビのセーフ エリア以外の領域 (画面の端に近い部分) に UI を表示することを自動的に避けます。 ただし、この場合、アスペクト比が変わり、UI がレターボックス化されてしまいます。 テレビでイマーシブなアプリにするには、サポートしているテレビで、画面の端まで広がるようにアプリを変更します。 |
@@ -77,7 +77,7 @@ _**スクリーンショットに示されているすべてのムービーは�
 
 上記の設計とレイアウトの考慮事項に加えて、アプリをビルドするときに考慮する必要がある [ゲームパッドとリモートコントロールの対話](../input/gamepad-and-remote-interactions.md) の最適化がいくつかあります。
 
-| 機能        | 説明           |
+| 特徴量        | 説明           |
 | -------------------------------------------------------------- |--------------------------------|
 | [XY フォーカス ナビゲーションと操作](../input/gamepad-and-remote-interactions.md#xy-focus-navigation-and-interaction) | ユーザーは、 **XY フォーカスナビゲーション** を使用して、アプリの UI 内を移動できます。 ただし、ユーザーの移動は上下左右に制限されます。 このセクションでは、この点に対応するための推奨事項とその他の考慮事項について説明します。 |
 | [[マウス モード]](../input/gamepad-and-remote-interactions.md#mouse-mode)|XY フォーカスナビゲーションは、マップ、描画、および描画アプリなど、一部の種類のアプリケーションでは実用的ではなく、可能でもありません。 このような場合、 **マウスモード** では、ユーザーは PC 上のマウスと同じように、ゲームパッドやリモコンで自由に移動できます。|
@@ -427,14 +427,6 @@ DirectX 11 または DirectX 12 を使ってアプリを開発し、UI または
 ## <a name="guidelines-for-ui-controls"></a>UI コントロールのガイドライン
 
 いくつかの UI コントロールは、複数のデバイスで問題なく動作しますが、テレビで使用する場合には特定の考慮事項があります。 10 フィート エクスペリエンスを設計する際にこのようなコントロールを使う場合のベスト プラクティスについて説明します。
-
-### <a name="pivot-control"></a>ピボット コントロール
-
-[ピボット](/uwp/api/Windows.UI.Xaml.Controls.Pivot)は、別のヘッダーやタブを選択することにより、アプリ内でビューのすばやいナビゲーションを提供します。 このコントロールでは、フォーカスがあるヘッダーに下線が引かれ、ゲームパッド/リモコンを使用している場合に、現在選択されているヘッダーがわかりやすくなります。
-
-![ピボットの下線](images/designing-for-tv/pivot-underline.png)
-
-[Pivot.IsHeaderItemsCarouselEnabled](/uwp/api/windows.ui.xaml.controls.pivot.isheaderitemscarouselenabledproperty) プロパティを `true` に設定すると、選択したピボット ヘッダーが常に最初の位置に移動する代わりに、ピボットが常に同じ位置に固定されます。 ヘッダーの折り返しを煩わしいと感じるユーザーもいるため、これでテレビなどの大画面表示でエクスペリエンスが向上します。 すべてのピボット ヘッダーが同時に画面に収まらない場合、ユーザーは表示されるスクロール バーを使って他のヘッダーを表示できますが、最良のエクスペリエンスを提供するためには、すべてのピボット ヘッダーが画面に収まることを確認する必要があります。 詳しくは、「[タブとピボット](../controls-and-patterns/pivot.md)」をご覧ください。
 
 <a name="navigation-pane"></a>
 

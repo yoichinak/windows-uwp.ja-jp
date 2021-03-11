@@ -1,20 +1,20 @@
 ---
 description: MRT.DLL コアコンポーネントの概要と、それらがアプリケーションリソースの読み込みにどのように機能するか (Project レユニオン)
-title: MRT.DLL Core の概要 (プロジェクトのレユニオン)
+title: リソースの管理 MRT.DLL コア (プロジェクトのレユニオン)
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 03/09/2021
 keywords: MRT.DLL、MRTCore、pri、makepri、resources、リソースの読み込み
 ms.author: hickeys
 author: hickeys
 ms.localizationpriority: medium
-ms.openlocfilehash: ce07491dcab2a11738bd5407e9094d8d780ea219
-ms.sourcegitcommit: 30d1a27fd78d198cec5c50af5621f9e65c7b965e
+ms.openlocfilehash: bde540ff99e763a2d5c622eba1d292f722008ef6
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043061"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629212"
 ---
-# <a name="introduction-to-mrt-core-project-reunion"></a>MRT.DLL Core の概要 (プロジェクトのレユニオン)
+# <a name="manage-resources-with-mrt-core-project-reunion"></a>MRT.DLL Core を使用したリソースの管理 (Project レユニオン)
 
 MRT.DLL Core は、[プロジェクトのレユニオン](../index.md)の一部として配布される最新の Windows[リソース管理システム](/windows/uwp/app-resources/resource-management-system)の合理化されたバージョンです。
 

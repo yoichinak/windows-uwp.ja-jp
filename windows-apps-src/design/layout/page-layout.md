@@ -5,18 +5,18 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
-ms.openlocfilehash: e4875e7d34f36104cb5ed64bb56ea289de2db92e
-ms.sourcegitcommit: 6cb20dca1cb60b4f6b894b95dcc2cc3a166165ad
+ms.openlocfilehash: 46d63a5f0bf929c391e9080e621023dc9eaafdd0
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91636572"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784723"
 ---
 # <a name="page-layout"></a>ページのレイアウト
 
-Windows アプリの場合、通常、各[**ページ**](/uwp/api/Windows.UI.Xaml.Controls.Page)は、ナビゲーション、コマンド、コンテンツの各要素で構成されます。 
+Windows アプリの場合、通常、各 [**ページ**](/uwp/api/Windows.UI.Xaml.Controls.Page)は、ナビゲーション、コマンド、コンテンツの各要素で構成されます。 
 
-アプリは複数のページで構成することができます。ユーザーが Windows アプリを起動すると、アプリケーション コードによって、[**フレーム**](/uwp/api/Windows.UI.Xaml.Controls.Frame)が作成され、アプリケーションの[**ウィンドウ**](/uwp/api/windows.ui.xaml.window)内に配置されます。 フレームは、アプリケーションの[**ページ**](/uwp/api/Windows.UI.Xaml.Controls.Page) インスタンス間を[移動](../basics/navigate-between-two-pages.md)できます。 
+アプリは複数のページで構成することができます。ユーザーが Windows アプリを起動すると、アプリケーション コードによって、[**フレーム**](/uwp/api/Windows.UI.Xaml.Controls.Frame)が作成され、アプリケーションの [**ウィンドウ**](/uwp/api/windows.ui.xaml.window)内に配置されます。 フレームは、アプリケーションの [**ページ**](/uwp/api/Windows.UI.Xaml.Controls.Page) インスタンス間を [移動](../basics/navigate-between-two-pages.md)できます。 
 
 ほとんどのページは一般的なレイアウト構造に従うため、この記事では、必要な UI 要素、それらのページ上の配置場所について説明します。 
 
@@ -51,7 +51,7 @@ Windows アプリの場合、通常、各[**ページ**](/uwp/api/Windows.UI.Xam
 
 上部ナビゲーションもトップレベルのナビゲーションとして機能します。 左側のナビゲーションは折りたたむことができますが、上部ナビゲーションは常に表示されます。 [NavigationView](../controls-and-patterns/navigationview.md) コントロールは、UWP の上部ナビゲーションとタブのパターンを実装します。
 
-![上部ナビゲーション](images/pivot-large.svg)
+:::image type="content" source="../controls-and-patterns/images/displaymode-top.png" alt-text="上部ナビゲーション":::
 
 ## <a name="command-bar"></a>コマンド バー
 

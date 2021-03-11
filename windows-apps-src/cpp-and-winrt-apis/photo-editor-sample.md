@@ -5,12 +5,12 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, サンプル, アプリケーション, フォト, エディター
 ms.localizationpriority: medium
-ms.openlocfilehash: 535ae3ce60eab5f5cef4654c7a5142e01ce5cf3e
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 2938bc8c7d054241e57db9ed26c7600dc189f6c5
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91219995"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629360"
 ---
 # <a name="photo-editor-cwinrt-sample-application"></a>Photo Editor C++/WinRT サンプル アプリケーション
 
@@ -19,14 +19,14 @@ ms.locfileid: "91219995"
 
 サンプル アプリケーションを複製またはダウンロードするには、コード サンプル ギャラリーの「[Photo Editor C++/WinRT サンプル アプリケーション](/samples/microsoft/windows-appsample-photo-editor/photo-editor-cwinrt-sample-application/)」を参照してください。
 
-フォト エディター アプリケーションは、[C++/WinRT](intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介するユニバーサル Windows プラットフォーム (UWP) のサンプル アプリケーションです。 サンプル アプリケーションを使用すると、**画像**ライブラリから写真を取得し、関連する写真効果で選択したイメージを編集できます。 サンプルのソース コードには、C++/WinRT プロジェクションを使用して実行された&mdash;[データ バインディング](binding-property.md)や[非同期アクションと非同期操作](concurrency.md)&mdash;など多くの一般的な方法が含まれています。 このサンプルで示されている特定の機能の一部を次に示します。
+フォト エディター アプリケーションは、[C++/WinRT](intro-to-using-cpp-with-winrt.md) 言語プロジェクションでの開発を紹介するユニバーサル Windows プラットフォーム (UWP) のサンプル アプリケーションです。 サンプル アプリケーションを使用すると、**画像** ライブラリから写真を取得し、関連する写真効果で選択したイメージを編集できます。 サンプルのソース コードには、C++/WinRT プロジェクションを使用して実行された&mdash;[データ バインディング](binding-property.md)や[非同期アクションと非同期操作](concurrency.md)&mdash;など多くの一般的な方法が含まれています。 このサンプルで示されている特定の機能の一部を次に示します。
 
 - 標準 C++17 の構文およびライブラリと Windows ランタイム (WinRT) API との使用。
-- co_await、co_return、[**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction)、 [**IAsyncOperation&lt;TResult&gt;** ](/uwp/api/windows.foundation.iasyncoperation-1) を含むコルーチンの使用。
+- co_await、co_return、[**IAsyncAction**](/uwp/api/windows.foundation.iasyncaction)、 [**IAsyncOperation&lt;TResult&gt;**](/uwp/api/windows.foundation.iasyncoperation-1) を含むコルーチンの使用。
 - Windows ランタイムのカスタム クラス (ランタイム クラス) の投影型と実装型の作成と使用 これらの用語の詳細については、「[C++/WinRT での API の使用](consume-apis.md)」および「[C++/WinRT での API の作成](author-apis.md)」を参照してください。
 - 自動失効イベント トークンの使用を含む、[イベント処理](handle-events.md)。
 - 画像効果での Win2D NuGet 外部パッケージおよび [Windows::UI::Composition](/uwp/api/windows.ui.composition) の使用。
 - [{x:Bind} markup extension](../xaml-platform/x-bind-markup-extension.md) を含む XAML データ バインディング。
 - [接続型アニメーション](../design/motion/connected-animation.md)を含む、XAML スタイルと UI のカスタマイズ。
 
-「[C++/WinRT サンプル アプリはどこにありますか?](./faq.md#where-can-i-find-cwinrt-sample-apps)」も参照してください。
+「[C++/WinRT サンプル アプリはどこにありますか?](./faq.yml#where-can-i-find-c---winrt-sample-apps-)」も参照してください。

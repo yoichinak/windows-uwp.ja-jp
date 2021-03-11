@@ -10,18 +10,18 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: ae88d30988ff2c3ccb4e7b32e1fefbf4d8bb9fde
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: c5dc119edefbdd3ef4dd155c9de9d2e69fee193b
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93031125"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784773"
 ---
 # <a name="navigation-design-basics-for-windows-apps"></a>Windows アプリのナビゲーション デザインの基本
 
 ![ナビゲーションの基本のヘッダー](images/nav/navigation-basics-header.jpg)
 
-アプリをページの集まりと考えると、 *ナビゲーション* は、ページ間およびページ内を移動する動作を表します。 これはユーザー エクスペリエンスの出発点です。これによって、ユーザーは利用するコンテンツと機能を見つけます。 これは非常に重要ですが、適切な設計が難しい場合もあります。
+アプリをページの集まりと考えると、*ナビゲーション* は、ページ間およびページ内を移動する動作を表します。 これはユーザー エクスペリエンスの出発点です。これによって、ユーザーは利用するコンテンツと機能を見つけます。 これは非常に重要ですが、適切な設計が難しい場合もあります。
 
 ナビゲーションに関して行うことができる膨大な数の選択肢があります。 以下を行うことができます。
 
@@ -204,22 +204,6 @@ ms.locfileid: "93031125"
 - ユーザーが、タブを動的に開いたり、閉じたり、再配置したりできるようにする。
 - 同時に多数のタブが開かれることが予想される。
 - Microsoft Edge などの Web ブラウザーと同様に、タブを使用するアプリケーションのウィンドウ間でユーザーがタブを簡単に移動できるようにしたい。
-
-:::row-end:::
-
-:::row:::
-    :::column:::
-         ![タブとピボットの画像](images/nav/thumbnail-tabs-pivot.svg)
-    :::column-end:::
-        :::column span="2":::
-    [**ピボット**](../controls-and-patterns/pivot.md)
-    
-[ナビゲーション ビュー](../controls-and-patterns/navigationview.md)と似ていますが、タッチのサポートが追加され、ナビゲーション動作が少し異なります。
-    
-ピボットは次の場合に使用します。
-- アプリがカテゴリ間のタッチ スワイプを許可する場合
-- ナビゲーション オプションを無限に循環させる場合
-- カテゴリ間のナビゲーション動作を詳細に制御する必要がない場合
 
 :::row-end:::
 

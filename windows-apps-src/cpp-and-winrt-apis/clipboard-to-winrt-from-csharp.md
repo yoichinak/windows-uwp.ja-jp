@@ -5,12 +5,12 @@ ms.date: 04/13/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#, サンプル, クリップボード, ケース, スタディ
 ms.localizationpriority: medium
-ms.openlocfilehash: 5a7ec46b28a8ddf0b4accadb37b40e786ac8c47a
-ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
+ms.openlocfilehash: f862dd01e91d99e19fb6996921dbc20a33d714da
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "89170416"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629370"
 ---
 # <a name="porting-the-clipboard-sample-to-cwinrt-from-cmdasha-case-study"></a>C# から C++/WinRT への Clipboard サンプルの移植 &mdash; ケース スタディ
 
@@ -286,9 +286,9 @@ namespace winrt::SDKTemplate::implementation
 C++/WinRT プロジェクトをビルドする前に、**Clipboard** 名前空間を宣言 (および参照) している箇所をすべて検索し、**SDKTemplate** に変更します。
 
 - `MainPage.xaml` と `App.xaml`。 名前空間は、`x:Class` 属性と `xmlns:local` 属性の値に含まれます。
-- `App.idl` の順にクリックします。
-- `App.h` の順にクリックします。
-- `App.cpp` の順にクリックします。 2 つの `using namespace` ディレクティブ (部分文字列 `using namespace Clipboard` を検索) と、**MainPage** 型の 2 つの修飾 (`Clipboard::MainPage` を検索)。 それらの変更が必要です。
+- `App.idl`.
+- `App.h`.
+- `App.cpp`. 2 つの `using namespace` ディレクティブ (部分文字列 `using namespace Clipboard` を検索) と、**MainPage** 型の 2 つの修飾 (`Clipboard::MainPage` を検索)。 それらの変更が必要です。
 
 **MainPage** からイベント ハンドラーを削除したので、`MainPage.xaml` に移動し、マークアップから **Button** 要素も削除します。
 
@@ -778,7 +778,7 @@ using namespace Windows::UI::Notifications;
 - ヒープではなく、スタックで C++/WinRT オブジェクトを構築します。
 - プロパティの get アクセサーの呼び出しを、関数呼び出しの構文 (`()`) に置き換えます。
 
-コンパイラやリンカーのエラーのよくある原因は、必要な C++/WinRT Windows 名前空間ヘッダー ファイルのインクルードを忘れることです。 可能性のあるエラーについて詳しくは、「[リンカーで "LNK2019: 外部シンボルは未解決です" というエラーが発生するのはなぜですか?](./faq.md#why-is-the-linker-giving-me-a-lnk2019-unresolved-external-symbol-error)」を参照してください。
+コンパイラやリンカーのエラーのよくある原因は、必要な C++/WinRT Windows 名前空間ヘッダー ファイルのインクルードを忘れることです。 可能性のあるエラーについて詳しくは、「[リンカーで "LNK2019: 外部シンボルは未解決です" というエラーが発生するのはなぜですか?](./faq.yml#why-is-the-linker-giving-me-a--lnk2019--unresolved-external-symbol--error-)」を参照してください。
 
 チュートリアルに従って **DisplayToast** を自分で移植したい場合は、自分の結果と、ダウンロードした [Clipboard サンプル](/samples/microsoft/windows-universal-samples/clipboard/) ZIP に含まれる C++/WinRT バージョンのソース コードを比較できます。
 
@@ -1352,7 +1352,7 @@ if (imageReceived)
 }
 ```
 
-C++/WinRT のオブジェクトでは、主として確定的な終了処理を持たない言語のメリットのために、**IClosable** が実装されています。 C++/WinRT には確定的な終了処理があるため、C++/WinRT を記述するときは、**IClosable::Close** を呼び出す必要がないことがよくあります。 ただし、それを呼び出すことが適切な場合もあり、これはそのような場合の 1 つです。 ここで、*imageStream* 識別子は、基になる Windows ランタイム オブジェクト (この場合は、[**IRandomAccessStreamWithContentType**](/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype) を実装するオブジェクト) に対する参照カウント ラッパーです。 *imageStream* (そのデストラクター) のファイナライザーが外側のスコープの最後 (中かっこ) に実行されることは確認できますが、そのファイナライザーで **Close** が呼び出されることは確実ではありません。 これは、*imageStream* を他の API に渡しても、基になる Windows ランタイム オブジェクトの参照カウントに加算される可能性があるためです。 そのため、このような場合は、**Close** を明示的に呼び出すことをお勧めします。 詳しくは、「[使用するランタイム クラスで IClosable::Close を読み出す必要性](./faq.md#do-i-need-to-call-iclosableclose-on-runtime-classes-that-i-consume)」をご覧ください。
+C++/WinRT のオブジェクトでは、主として確定的な終了処理を持たない言語のメリットのために、**IClosable** が実装されています。 C++/WinRT には確定的な終了処理があるため、C++/WinRT を記述するときは、**IClosable::Close** を呼び出す必要がないことがよくあります。 ただし、それを呼び出すことが適切な場合もあり、これはそのような場合の 1 つです。 ここで、*imageStream* 識別子は、基になる Windows ランタイム オブジェクト (この場合は、[**IRandomAccessStreamWithContentType**](/uwp/api/windows.storage.streams.irandomaccessstreamwithcontenttype) を実装するオブジェクト) に対する参照カウント ラッパーです。 *imageStream* (そのデストラクター) のファイナライザーが外側のスコープの最後 (中かっこ) に実行されることは確認できますが、そのファイナライザーで **Close** が呼び出されることは確実ではありません。 これは、*imageStream* を他の API に渡しても、基になる Windows ランタイム オブジェクトの参照カウントに加算される可能性があるためです。 そのため、このような場合は、**Close** を明示的に呼び出すことをお勧めします。 詳しくは、「[使用するランタイム クラスで IClosable::Close を読み出す必要性](./faq.yml#do-i-need-to-call-iclosable--close-on-runtime-classes-that-i-consume-)」をご覧ください。
 
 次に、C# の式 `(uint)(imageDecoder.OrientedPixelWidth * 0.5)` について考えます。これは、**OnDeferredImageRequestedHandler** イベント ハンドラーにあります。 その式では、`uint` と `double` を乗算し、`double` を得ています。 その後、それを `uint` にキャストします。 C++/WinRT では、同様の C スタイルのキャスト (`(uint32_t)(imageDecoder.OrientedPixelWidth() * 0.5)`) を使用することも "*できます*" が、意図するキャストの種類を正確に明示することをお勧めします。この例では `static_cast<uint32_t>(imageDecoder.OrientedPixelWidth() * 0.5)` を使用します。
 
