@@ -7,12 +7,12 @@ ms.date: 12/15/2017
 ms.topic: article
 keywords: windows 10, uwp, トースト, カスタム オーディオ, 通知, オーディオ, サウンド
 ms.localizationpriority: medium
-ms.openlocfilehash: 54f890ceb0031b4c244e387e1f7068615a2fedc1
-ms.sourcegitcommit: 98ca28fd0b5d306d35f3919fe9dd4d5a0222235e
+ms.openlocfilehash: 905292155dfc43a82c464edb651b2d176aeab960
+ms.sourcegitcommit: 5e718720d1032a7089dea46a7c5aefa6cda3385f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102029825"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103226126"
 ---
 # <a name="custom-audio-on-toasts"></a>トーストでのカスタム オーディオの使用
 
@@ -27,11 +27,8 @@ NuGet からの [Microsoft Toolkit](https://www.nuget.org/packages/Microsoft.Too
 
 ## <a name="add-namespace-declarations"></a>名前空間宣言の追加
 
-`Windows.UI.Notifications` タイルとトースト API のが含まれています。 `Microsoft.Toolkit.Uwp.Notifications` には、通知ライブラリが含まれています。
-
 ```csharp
 using Microsoft.Toolkit.Uwp.Notifications;
-using Windows.UI.Notifications;
 ```
 
 
@@ -61,7 +58,8 @@ if (supportsCustomAudio)
     contentBuilder.AddAudio(new Uri("ms-appx:///Assets/Audio/CustomToastAudio.m4a"));
 }
 
-// TODO: Send the toast
+// Send the toast
+contentBuilder.Show();
 ```
 
 サポートされているオーディオ ファイルの種類は次のとおりです。
@@ -76,7 +74,7 @@ if (supportsCustomAudio)
 
 ## <a name="send-the-notification"></a>通知を送信する
 
-音声を使用して通知を送信することは、通常の通知を送信することと同じです。 詳細については、「 [ローカルトーストを送信](send-local-toast.md) する」を参照してください。
+音声を使用して通知を送信することは、通常の通知を送信することと同じです (Show メソッドを呼び出すだけです)。 詳細については、「 [ローカルトーストを送信](send-local-toast.md) する」を参照してください。
 
 
 ## <a name="related-topics"></a>関連トピック

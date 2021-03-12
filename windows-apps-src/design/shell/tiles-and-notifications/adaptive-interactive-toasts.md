@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp, トースト通知, 対話型トースト, アダプティブ トースト, トーストのコンテンツ, トースト ペイロード
 ms.localizationpriority: medium
-ms.openlocfilehash: 92a8f53b2951d7fb3ed5bb5c0afbdf1e7e2424cc
-ms.sourcegitcommit: fc7fb82121a00e552eaebafba42e5f8e1623c58a
+ms.openlocfilehash: b4dfc904bfd7fce4d2444dee1e0dd6e5bc26a6a2
+ms.sourcegitcommit: 5e718720d1032a7089dea46a7c5aefa6cda3385f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978587"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103226146"
 ---
 # <a name="toast-content"></a>トーストのコンテンツ
 
@@ -27,7 +27,7 @@ ms.locfileid: "97978587"
 
 ## <a name="getting-started"></a>作業の開始
 
-**Notifications ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で示している C# のサンプルでは、NuGet パッケージの Version 1.0.0 を使っています。
+**Notifications ライブラリをインストールします。** XML の代わりに C# を使って通知を生成する場合は、[Microsoft.Toolkit.Uwp.Notifications](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp.Notifications/) という名前の NuGet パッケージをインストールします (「notifications uwp」を検索してください)。 この記事で提供する C# のサンプルでは、NuGet パッケージのバージョン7.0.0 を使用します。
 
 **Notifications Visualizer をインストールします。** この無料の Windows アプリは、Visual Studio の [XAML エディター]/[デザイン] ビューと同様に、編集するときにトーストの瞬時プレビューを提供することで、対話型トースト通知をデザインするのに役立ちます。 詳しくは、「[Notifications Visualizer](notifications-visualizer.md)」をご覧になるか、[Notifications Visualizer を Microsoft Store からダウンロード](https://www.microsoft.com/store/apps/notifications-visualizer/9nblggh5xsl1)してください。
 
@@ -53,9 +53,15 @@ ms.locfileid: "97978587"
 
 ```csharp
 new ToastContentBuilder()
-    .AddToastActivationInfo("app-defined-string", ToastActivationType.Foreground)
+    .AddArgument("conversationId", 9813)
+
     .AddText("Some text")
-    .AddButton("Archive", ToastActivationType.Background, "archive")
+
+    .AddButton(new ToastButton()
+        .SetContent("Archive")
+        .AddArgument("action", "archive")
+        .SetBackgroundActivation())
+
     .AddAudio(new Uri("ms-appx:///Sound.mp3"));
 ```
 
@@ -413,8 +419,14 @@ Buttons は次のようなさまざまな操作を実行できます。
 new ToastContentBuilder()
     ...
     
-    .AddButton("See more details", ToastActivationType.Foreground, "action=viewdetails&contentId=351")
-    .AddButton("Remind me later", ToastActivationType.Background, "action=remindlater&contentId=351");
+    .AddButton(new ToastButton()
+        .SetContent("See more details")
+        .AddArgument("action", "viewDetails"))
+
+    .AddButton(new ToastButton()
+        .SetContent("Remind me later")
+        .AddArgument("action", "remindLater")
+        .SetBackgroundActivation());
 ```
 
 #### <a name="xml"></a>[XML](#tab/xml)
@@ -428,7 +440,7 @@ new ToastContentBuilder()
 
         <action
             content="See more details"
-            arguments="action=viewdetails&amp;contentId=351"
+            arguments="action=viewDetails&amp;contentId=351"
             activationType="foreground"/>
 
         <action
@@ -459,10 +471,11 @@ new ToastContentBuilder()
 new ToastContentBuilder()
     ...
     
-    .AddButton(
-        "Dismiss",
-        ToastActivationType.Foreground,
-        "dismiss", new Uri("Assets/NotificationButtonIcons/Dismiss.png", UriKind.Relative));
+    .AddButton(new ToastButton()
+        .SetContent("Dismiss")
+        .AddArgument("action", "dismiss")
+        .SetImageUri(new Uri("Assets/NotificationButtonIcons/Dismiss.png", UriKind.Relative))
+        .SetBackgroundActivation());
 ```
 
 #### <a name="xml"></a>[XML](#tab/xml)
@@ -563,12 +576,12 @@ new ToastContentBuilder()
     
     .AddInputTextBox("tbReply", "Type a reply")
 
-    .AddButton(
-        textBoxId: "tbReply", // To place button next to text box, reference text box's id
-        content: "Reply",
-        activationType: ToastActivationType.Background,
-        arguments: "action=reply&convId=9318",
-        imageUri: new Uri("Assets/Reply.png", UriKind.Relative));
+    .AddButton(new ToastButton()
+        .SetContent("Reply")
+        .SetTextBoxId("tbReply") // To place button next to text box, reference text box's id
+        .SetImageUri(new Uri("Assets/Reply.png", UriKind.Relative))
+        .AddArgument("action", "reply")
+        .SetBackgroundActivation());
 ```
 
 #### <a name="xml"></a>[XML](#tab/xml)
@@ -612,8 +625,14 @@ new ToastContentBuilder()
     
     .AddInputTextBox("tbReply", "Type a reply")
 
-    .AddButton("Reply", ToastActivationType.Background, "action=reply&threadId=9218")
-    .AddButton("Video call", ToastActivationType.Foreground, "action=videocall&threadId=9218");
+    .AddButton(new ToastButton()
+        .SetContent("Reply")
+        .AddArgument("action", "reply")
+        .SetBackgroundActivation())
+
+    .AddButton(new ToastButton()
+        .SetContent("Video call")
+        .AddArgument("action", "videoCall"));
 ```
 
 #### <a name="xml"></a>[XML](#tab/xml)
