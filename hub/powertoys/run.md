@@ -4,12 +4,12 @@ description: パフォーマンスを犠牲にすることなく、いくつか�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 126c38cd98f0d8ff1102c7f53f14cb95ec7e38c5
-ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
+ms.openlocfilehash: 5b6f86636cb5753d93422a5658e6ae661151d0f9
+ms.sourcegitcommit: eb203b55b1332d0ed135abccd50f3fc287f89a5a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534401"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103193297"
 ---
 # <a name="powertoys-run-utility"></a>Powertoy 実行ユーティリティ
 
@@ -21,7 +21,7 @@ Powertoy の実行を使用するには、[ <kbd>Alt</kbd>Space] を選択し、
 
 ![Powertoy でアプリを開くデモを実行する](../images/pt-powerrun-demo.gif)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 - Windows 10 バージョン 1903 以降
 - をインストールした後、このユーティリティが動作するには、Powertoy が有効になっていて、バックグラウンドで実行されている必要があります。
@@ -40,7 +40,7 @@ Powertoy の実行機能は次のとおりです。
 
 - 電卓を使用して簡単な計算を実行する
 
-## <a name="settings"></a>設定
+## <a name="settings"></a>Settings
 
 次の実行オプションは、[Powertoy の設定] メニューで使用できます。
 
@@ -76,7 +76,7 @@ Powertoy の実行機能は次のとおりです。
   | `<` | 実行中のプロセスのみ。 `<outlook`Outlook を含むすべてのプロセスを検索する例 |
   | `>` | Shell コマンドのみ。 `>ping localhost`Ping クエリを実行する例 |
   | `:` | レジストリキーのみ。 `:hkcu`HKEY_CURRENT_USER レジストリキーを検索する例 |
-  | `!` | Windows サービスのみ。 `!alu`開始または停止するアプリケーションレイヤーゲートウェイサービスを検索する例 |
+  | `!` | Windows サービスのみ。 `!alg`開始または停止するアプリケーションレイヤーゲートウェイサービスを検索する例 |
 
 ## <a name="system-commands"></a>システムコマンド
 
