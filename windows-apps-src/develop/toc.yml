@@ -747,12 +747,12 @@
       items:
         - name: はじめに
           href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
-        - name: 作業開始
+        - name: 開始
           href: ../cpp-and-winrt-apis/get-started.md
         - name: 新機能
           href: ../cpp-and-winrt-apis/news.md
         - name: よく寄せられる質問
-          href: ../cpp-and-winrt-apis/faq.md
+          href: ../cpp-and-winrt-apis/faq.yml
         - name: トラブルシューティング
           href: ../cpp-and-winrt-apis/troubleshooting.md
         - name: Photo Editor サンプル アプリケーション
