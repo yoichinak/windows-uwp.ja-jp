@@ -4,12 +4,12 @@ description: ファイルの一括名前変更を行うための windows シェ�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c751624c93fec5996885c766e73b5ab1849fd4c
-ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
+ms.openlocfilehash: 26eee9fcb954a0a97ba6f30fae8a9d09395403a3
+ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534391"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417103"
 ---
 # <a name="powerrename-utility"></a>PowerRename ユーティリティ
 
@@ -141,13 +141,13 @@ Windows エクスプローラーでいくつかのファイルを選択し、右
 
 **注:** 正規表現を使用しているときに、"すべての出現箇所を照合" を確認することが必要になる場合があります。
 
-標準ライブラリではなく [ブーストライブラリ](https://www.boost.org/doc/libs/1_74_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html) を使用するには、[powertoy] 設定のオプションをオンにし `Use Boost library` ます。 これにより、標準ライブラリでサポートされていないなどの拡張機能が有効になり `[lookbehind](https://www.boost.org/doc/libs/1_74_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html#boost_regex.syntax.perl_syntax.lookbehind)` ます。
+標準ライブラリではなく [ブーストライブラリ](https://www.boost.org/doc/libs/1_74_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html) を使用するには、[powertoy] 設定のオプションをオンにし `Use Boost library` ます。 これにより、標準ライブラリではサポートされていない、後 [読み](https://www.boost.org/doc/libs/1_74_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html#boost_regex.syntax.perl_syntax.lookbehind)などの拡張機能が有効になります。
 
 ### <a name="examples-of-regular-expressions"></a>正規表現の例
 
 #### <a name="simple-matching-examples"></a>単純一致の例
 
-| 検索       | [説明]                                           |
+| 検索       | 説明                                           |
 | ---------------- | ------------- |
 | `^`              | ファイル名の先頭と一致します                   |
 | `$`              | ファイル名の末尾と一致します                         |
@@ -162,7 +162,7 @@ Windows エクスプローラーでいくつかのファイルを選択し、右
 
 *変数を使用する場合は、[すべてのオカレンスに一致] オプションを有効にする必要があります。*
 
-| 検索   | 置換後の文字列    | [説明]                                |
+| 検索   | 置換後の文字列    | 説明                                |
 | ------------ | --------------- |--------------------------------------------|
 | `(.*).png`   | `foo_$1.png`   | \_既存のファイル名に "foo" を付加する |
 | `(.*).png`   | `$1_foo.png`   | \_既存のファイル名に "foo" を追加します。  |

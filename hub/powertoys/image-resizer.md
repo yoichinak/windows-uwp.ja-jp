@@ -4,12 +4,12 @@ description: 一括イメージサイズ変更用の Windows シェル拡張機�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 486eb90b8515ec8422e8a475c9f03ced070dafa1
-ms.sourcegitcommit: 46a7e9db64e17a645ee6e888f62a9b04632c56af
+ms.openlocfilehash: e417a70e34ae1e5fdba95e2838a6221b3236e1c6
+ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618587"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417080"
 ---
 # <a name="image-resizer-utility"></a>イメージの拡大/縮小ユーティリティ
 
@@ -23,7 +23,7 @@ ms.locfileid: "97618587"
 
 ![イメージの拡大/縮小のドラッグアンドドロップのデモ](../images/powertoys-resize-drag-drop.gif)
 
-## <a name="settings"></a>設定
+## <a name="settings"></a>Settings
 
 [Powertoy イメージの表示] タブでは、次の設定を構成できます。
 
@@ -41,7 +41,6 @@ ms.locfileid: "97618587"
 
 指定されたサイズの幅と高さは、現在のイメージの向き (縦/横) と一致するようにスワップされる場合があります。 常に指定された幅と高さを使用するには、非チェック: **画像の向きを無視** します。
 
-![イメージの拡大/縮小の設定](../images/powertoys-resize-settings.gif)
 
 ### <a name="fallback-encoding"></a>フォールバックエンコード
 

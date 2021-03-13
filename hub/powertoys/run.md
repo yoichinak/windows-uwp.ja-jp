@@ -4,12 +4,12 @@ description: パフォーマンスを犠牲にすることなく、いくつか�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b6f86636cb5753d93422a5658e6ae661151d0f9
-ms.sourcegitcommit: eb203b55b1332d0ed135abccd50f3fc287f89a5a
+ms.openlocfilehash: ce71ac5f4667952be8beb790b0890aadd0d8eb54
+ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103193297"
+ms.locfileid: "103417113"
 ---
 # <a name="powertoys-run-utility"></a>Powertoy 実行ユーティリティ
 
@@ -21,7 +21,7 @@ Powertoy の実行を使用するには、[ <kbd>Alt</kbd>Space] を選択し、
 
 ![Powertoy でアプリを開くデモを実行する](../images/pt-powerrun-demo.gif)
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
 - Windows 10 バージョン 1903 以降
 - をインストールした後、このユーティリティが動作するには、Powertoy が有効になっていて、バックグラウンドで実行されている必要があります。
@@ -50,7 +50,7 @@ Powertoy の実行機能は次のとおりです。
   | 全画面モードでショートカットを無視する |  全画面表示 (F11) では、を実行してもショートカットが表示されません。 |
   | 結果の最大数 |  スクロールせずに表示される結果の最大数 |
   | 起動時に上記のクエリをクリアする | 起動すると、以前の検索は強調表示されません |
-  | ドライブ検出の無効化の警告 | すべてのドライブのインデックスが作成されていない場合、警告が表示されなくなります。 |
+  | ドライブ検出の無効化の警告 | すべてのドライブのインデックスが作成されていない場合、警告は表示されなくなります。 |
 
 ## <a name="keyboard-shortcuts"></a>キーボード ショートカット
 
@@ -65,13 +65,13 @@ Powertoy の実行機能は次のとおりです。
 
 ## <a name="action-key"></a>アクションキー
 
-これにより、Powertoy はターゲットプラグインのみに強制的に実行されます。
+これらの既定のアクティブ化フレーズは、Powertoy をターゲットプラグインのみに強制的に実行します。
 
   | **アクションキー** | **操作** |
   | --- | --- |
   | `=` | 電卓のみ。 例 `=2+2` |
   | `?` | ファイルの検索のみ。 `?road`検索する例`roadmap.txt` |
-  | `.` | インストールされているアプリの検索のみ。 `.code`Visual Studio Code を取得する例 |
+  | `.` | インストールされているプログラムのみ。 `.code`Visual Studio Code を取得する例。 プログラムの起動時にパラメーターを追加する方法については、「 [プログラムパラメーター](#program-parameters) 」を参照してください。 |
   | `//` | Url のみ。 `//docs.microsoft.com`既定のブラウザーを使用する例https://docs.microsoft.com |
   | `<` | 実行中のプロセスのみ。 `<outlook`Outlook を含むすべてのプロセスを検索する例 |
   | `>` | Shell コマンドのみ。 `>ping localhost`Ping クエリを実行する例 |
@@ -80,7 +80,7 @@ Powertoy の実行機能は次のとおりです。
 
 ## <a name="system-commands"></a>システムコマンド
 
-Powertoy v 0.31 および on では、現在実行できるシステムレベルのアクションがあります。
+Powertoy を実行すると、実行可能な一連のシステムレベルのアクションが有効になります。
 
   | **アクションキー**   |   **操作** |
   | ------------------ | ---------------------------------------------------------------------------------|
@@ -92,13 +92,33 @@ Powertoy v 0.31 および on では、現在実行できるシステムレベル
   | `Hibernate` | コンピューターを休止状態にする |
   | `Empty Recycle Bin` | ごみ箱を空にします |
 
-## <a name="indexer-settings"></a>インデクサーの設定
+## <a name="plugin-manager"></a>プラグインマネージャー
 
-インデクサー設定がすべてのドライブに対応するように設定されていない場合は、次の警告が表示されます。
+Powertoy v 0.33 とをオンにすると、[Powertoy 実行設定] メニューには、現在使用可能なさまざまなプラグインを有効または無効にするプラグインマネージャーが含まれます。 セクションを選択して展開することで、各プラグインで使用されるアクティベーション語句をカスタマイズできます。 また、プラグインがグローバル結果に表示されるかどうかを選択したり、使用可能な場合は追加のプラグインオプションを設定したりすることもできます。 
+
+## <a name="program-parameters"></a>プログラムのパラメーター
+
+Powertoy v 0.33 以降では、Powertoy Run プログラムプラグインを使用して、アプリケーションを起動するときにプログラム引数を追加できます。 プログラムの引数は、プログラムのコマンドラインインターフェイスで定義されているように、必要な形式に従う必要があります。
+
+たとえば、Visual Studio Code を起動するときに、次のようにして開くフォルダーを指定できます。
+
+`Visual Studio Code -- C:\myFolder`
+
+また Visual Studio Code は、 [コマンドラインパラメーター](https://code.visualstudio.com/docs/editor/command-line)のセットもサポートしています。このパラメーターは、powertoy の対応する引数と共に使用できます。たとえば、ファイル間の違いを確認できます。
+
+`Visual Studio Code -d C:\foo.txt C:\bar.txt` 
+
+プログラムプラグインの [グローバルな結果に含める] オプションが選択されていない場合は、 `.` 既定では、プラグインの動作を呼び出すためにアクティベーション語句を含めてください。
+
+`.Visual Studio Code -- C:\myFolder`
+
+## <a name="windows-search-settings"></a>Windows Search の設定
+
+Windows Search プラグインがすべてのドライブをカバーするように設定されていない場合は、次の警告が表示されます。
 
 ![Powertoy 実行インデクサー警告](../images/pt-run-warning.png)
 
-[Powertoy] 設定の警告をオフにするか、警告を選択して、インデックスを作成するドライブを拡張することができます。 警告を選択すると、Windows 10 の設定の [Windows の検索] オプションが開きます。
+Windows Search の Powertoy の [プラグインマネージャーの実行] オプションで警告をオフにするか、警告を選択して、インデックスを作成するドライブを拡張することができます。 警告を選択すると、Windows 10 の設定の [Windows の検索] オプションメニューが開きます。
 
 ![インデックス設定](../images/pt-run-indexing.png)
 

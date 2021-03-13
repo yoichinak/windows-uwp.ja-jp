@@ -4,12 +4,12 @@ description: 実行可能ファイルまたはパッケージマネージャー 
 ms.date: 12/02/2020
 ms.topic: quickstart
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b6cf15e7d21eca9e24fcc2d81f9409b2cd94b6f
-ms.sourcegitcommit: 884318ec5118cade85a31f4d5644436614e9f272
+ms.openlocfilehash: c7add819c201678ceca72814d36c585859972e23
+ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524988"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417053"
 ---
 # <a name="install-powertoys"></a>PowerToys をインストールする
 
@@ -89,3 +89,7 @@ scoop update powertoys
 ```
 
 のインストールまたは更新時に問題が発生した場合は、 [GitHub のついリポジトリ](https://github.com/lukesampson/scoop/issues)に問題を報告してください。
+
+## <a name="post-install"></a>インストール後
+
+Powertoy を正常にインストールすると、[概要] ウィンドウが表示され、使用可能な各ユーティリティの概要が示されます。
