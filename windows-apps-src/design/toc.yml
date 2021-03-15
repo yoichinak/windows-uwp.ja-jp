@@ -316,16 +316,14 @@
           href: shell/tiles-and-notifications/toast-ux-guidance.md
         - name: ローカル トーストの送信
           items:
-            - name: UWP アプリ
+            - name: C# アプリ
               href: shell/tiles-and-notifications/send-local-toast.md
-            - name: デスクトップ アプリ
-              items:
-                - name: 概要
-                  href: shell/tiles-and-notifications/toast-desktop-apps.md
-                - name: C# アプリ
-                  href: shell/tiles-and-notifications/send-local-toast-desktop.md
-                - name: C++ WRL アプリ
-                  href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
+            - name: C++ UWP アプリ
+              href: shell/tiles-and-notifications/send-local-toast-cpp-uwp.md
+            - name: C++ WRL アプリ
+              href: shell/tiles-and-notifications/send-local-toast-desktop-cpp-wrl.md
+            - name: その他のアプリ
+              href: shell/tiles-and-notifications/send-local-toast-other-apps.md
         - name: トーストのコンテンツ
           items:
             - name: Content
@@ -540,7 +538,7 @@
   items:
     - name: 概要
       href: usability/index.md
-    - name: ユーザー補助
+    - name: アクセシビリティ
       href: accessibility/accessibility.md
       items:
         - name: 概要
