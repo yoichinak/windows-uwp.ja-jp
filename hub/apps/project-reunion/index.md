@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 2354e7f42ab9c487275c66c9f709f8791ba5005e
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: 9e2e4bda8440a9a504cba78286de491236d6bd49
+ms.sourcegitcommit: 2a71bb5c56bed80f26fb67a47ae8f9198c431760
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629237"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103366237"
 ---
 # <a name="build-desktop-windows-apps-with-project-reunion-05-preview-march-2021"></a>Project Reunion 0.5 Preview を使用してデスクトップ Windows アプリをビルドする (2021 年 3 月)
 
@@ -59,7 +59,10 @@ Project Reunion 0.5 Preview には、次のコンポーネントが含まれま�
 
 1. 開発用コンピューターに Windows 10 Version 1809 (ビルド 17763) 以降の OS バージョンがインストールされていることを確認します。
 
-2. まだインストールしていない場合は、[Visual Studio 2019 バージョン 16.10 Preview](https://visualstudio.microsoft.com/vs/preview/) (またはそれ以降) をインストールします。
+2. まだインストールしていない場合は、[Visual Studio 2019 バージョン 16.10 Preview](https://visualstudio.microsoft.com/vs/preview/) (またはそれ以降) をインストールします。 
+
+    > [!NOTE]
+    > Visual Studio 2019 バージョン 16.9 では Project Reunion もサポートされていますが、WinUI 3 ツール機能はサポートされていません。 WinUI 3 ツールのサポートの詳細については、「Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)」を参照してください。
 
     Visual Studio をインストールする際、次のコンポーネントを含める必要があります。
     - **[ワークロード]** タブで、 **[ユニバーサル Windows プラットフォーム開発]** が選択されていることを確認します。

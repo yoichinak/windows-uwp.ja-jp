@@ -3,12 +3,12 @@ title: WinUI 3 Project Reunion 0.5 Preview (2021 年 3 月)
 description: WinUI 3 Project Reunion 0.5 Preview の概要。
 ms.date: 03/08/2021
 ms.topic: article
-ms.openlocfilehash: 8e5dea7ee18fe305cd9550ab42d30c561b9d803e
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: de00c3fa2a9dba5eae3ceadc7e6ad16c10286f77
+ms.sourcegitcommit: 2a71bb5c56bed80f26fb67a47ae8f9198c431760
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629266"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103366247"
 ---
 # <a name="windows-ui-library-3---project-reunion-05-preview-march-2021"></a>Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)
 
@@ -94,14 +94,14 @@ WinUI 3 Preview 4 を使用してプロジェクトを作成した場合は、Pr
 
 ### <a name="visual-studio-support"></a>Visual Studio のサポート
 
-ホット リロード、ライブ ビジュアル ツリー、ライブ プロパティ エクスプローラーなど、WinUI 3 に追加された最新のツール機能を利用するには、Visual Studio の最新プレビュー バージョンを最新の WinUI 3 プレビューと共に使用し、[こちらの手順](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)で説明されているように、Visual Studio Preview 機能で WinUI ツールを有効にする必要があります。 次の表は、将来のバージョンと WinUI 3 - Project Reunion 0.5 Preview の互換性を示したものです。
+ホット リロード、ライブ ビジュアル ツリー、ライブ プロパティ エクスプローラーなど、WinUI 3 に追加された最新のツール機能を利用するには、Visual Studio の最新 **プレビュー** バージョンを最新の WinUI 3 プレビューと共に使用し、[こちらの手順](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)で説明されているように、Visual Studio Preview 機能で WinUI ツールを有効にする必要があります。 次の表は、将来のバージョンと WinUI 3 - Project Reunion 0.5 Preview の互換性を示したものです。
 
 | VS バージョン  | WinUI 3 - Project Reunion 0.5 Preview  |
 |---|---|
 | 16.8 RTM  | いいえ   |
-| 16.9 プレビュー  | はい  | 
-| 16.9 RTM  | いいえ   |
-| 16.10 プレビュー  | はい   |
+| 16.9 プレビュー  | はい (ツールあり)  | 
+| 16.9 RTM  | はい (ただしツールなし)   |
+| 16.10 プレビュー  | はい (ツールあり)   |
 
 ## <a name="major-changes-introduced-in-this-release"></a>このリリースで導入される主な変更点
 
