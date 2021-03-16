@@ -1,4 +1,4 @@
-- name: Windows 向けアプリの構築
+- name: Windows 向けの開発
   href: index.yml
   items:
     - name: デスクトップ アプリの構築
@@ -88,11 +88,19 @@
                   href: desktop/modernize/modernize-wpf-tutorial-5.md
             - name: パッケージ化されていないデスクトップ アプリに ID を付与する
               href: desktop/modernize/grant-identity-to-nonpackaged-apps.md
+    - name: Project Reunion 0.5 Preview
+      items:
+        - name: 概要
+          href: project-reunion/index.md
+        - name: MRT Core を使用してリソースを管理する
+          href: project-reunion/mrtcore/mrtcore-overview.md
+        - name: DWriteCore を使用してテキストを表示する
+          href: project-reunion/dwritecore.md
     - name: Windows UI ライブラリ (WinUI)
       items:
         - name: 概要
           href: winui/index.md
-        - name: Windows UI ライブラリ 3 Preview 4
+        - name: Windows UI ライブラリ 3 - Project Reunion 0.5 Preview
           items:
             - name: 概要およびリリース ノート
               href: winui/winui3/index.md
@@ -132,14 +140,6 @@
                   href: winui/winui2/release-notes/winui-2.0.md
         - name: WinUI API リファレンス
           href: /windows/winui/api/
-    - name: Project Reunion による Windows アプリのビルド (プレリリース)
-      items:
-        - name: 概要
-          href: project-reunion/index.md
-        - name: MRT Core
-          href: project-reunion/mrtcore/mrtcore-overview.md
-        - name: DWriteCore
-          href: project-reunion/dwritecore.md
     - name: Windows 10X 用の開発
       items:
         - name: Windows 10X 開発の FAQ

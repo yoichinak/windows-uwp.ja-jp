@@ -4,12 +4,12 @@ description: Windows アプリ開発用の WinUI ライブラリ。
 ms.topic: article
 ms.date: 07/15/2020
 keywords: windows 10, uwp, ツールキット sdk, winui, Windows UI ライブラリ
-ms.openlocfilehash: 7b41e6cf1729831e6fa7a7d7f690306abb28ec27
-ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
+ms.openlocfilehash: d90101cfd674ddb2d422b200443fe7c8552f8f7a
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100334975"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629280"
 ---
 # <a name="windows-ui-library-winui"></a>Windows UI ライブラリ (WinUI)
 
@@ -46,20 +46,22 @@ WinUI 2.x ライブラリは [Windows 10 SDK](https://developer.microsoft.com/wi
 - [ソース コード](https://aka.ms/winui)
 - [XAML Controls Gallery アプリ](https://www.microsoft.com/p/xaml-controls-gallery/9msvh128x2zt)
 
-## <a name="windows-ui-3-library-preview-4"></a>Windows UI 3 ライブラリ (Preview 4)
+## <a name="windows-ui-3-library-project-reunion-05-preview"></a>Windows UI 3 ライブラリ (Project Reunion 0.5 Preview)
 
 WinUI 3 は WinUI の次期バージョンであり、[Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk/) から完全に切り離されたネイティブ Windows 10 UI プラットフォームです。
 
 > [!Important]
-> この WinUI 3 Preview リリースは、早期評価と、開発者コミュニティからのフィードバックの収集を目的としています。 実稼働アプリには使用 **できません**。
+> この WinUI 3 Preview は、早期評価と開発者コミュニティからフィードバックを収集することを目的としています。 実稼働アプリには使用 **できません**。
 >
-> WinUI 3 Preview のリリースは 2020 年から 2021 年前半にかけて継続され、その後、最初の公式リリースが利用可能になる予定です。
+> 2021 年 3 月下旬に最初の公式サポート リリースを提供します。 これは、Project Reunion 0.5 パッケージに含まれます。
 >
 > [WinUI GitHub リポジトリ](https://github.com/microsoft/microsoft-ui-xaml)を使用して、フィードバックを提供し、提案と問題をログに記録してください。
 
 XAML、コンポジション、および入力 API を [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk/) から 完全に分離することにより、WinUI 3 には、Windows 10 のネイティブ UI プラットフォーム全体が含まれます。
 
-WinUI は、すべての Windows アプリへのパスです。ネイティブの UWP アプリまたは Win32 アプリの UI レイヤーとして使用したり、[XAML Islands](../desktop/modernize/xaml-islands.md) で使用してデスクトップ アプリを少しずつ最新化したりできます。
+WinUI 3 は [Project Reunion](../project-reunion/index.md) のコンポーネントであり、提供される API とツールの統合セットは、対象の幅広い Windows 10 OS バージョン上のどのデスクトップ アプリからでも一貫した方法で使用できます。 Project Reunion のコンポーネントとして、WinUI 3 は Project Reunion パッケージに含まれます。詳細については、「[Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)](winui3/index.md)」を参照してください。
+
+WinUI 3 は、すべての Windows アプリがこれから進む道です。ネイティブの UWP アプリや Win32 アプリの UI レイヤーとして使用することも、[XAML Islands](../desktop/modernize/xaml-islands.md) を使用してデスクトップ アプリを少しずつ最新化することもできます。
 
 XAML のすべての新機能は、最終的には WinUI の一部として同梱されます。 OS の一部として同梱されている既存の UWP XAML API に対して、新しい機能更新プログラムが提供されることはなくなります。 ただし、Windows 10 のサポート ライフサイクルに従って、セキュリティ更新プログラムと重要な修正プログラムが引き続き提供されます。
 
@@ -69,11 +71,11 @@ XAML のすべての新機能は、最終的には WinUI の一部として同�
 
 ### <a name="related-links-for-winui-3"></a>WinUI 3 の関連リンク
 
-- [Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](winui3/index.md)
-- [XAML コントロール ギャラリー (WinUI 3 Preview 4) アプリ](https://github.com/microsoft/Xaml-Controls-Gallery/tree/winui3preview)
+- [Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)](winui3/index.md)
+- [XAML コントロール ギャラリー (WinUI 3 Preview) アプリ](https://github.com/microsoft/Xaml-Controls-Gallery/tree/winui3preview)
 
 ## <a name="winui-resources"></a>WinUI リソース
 
 **GitHub**:WinUI は、GitHub でホストされているオープン ソース プロジェクトです。 [WinUI リポジトリ](https://github.com/microsoft/microsoft-ui-xaml)を使用して、機能リクエストやバグ報告を行ったり、WinUI チームと対話したりできます。WinUI 3 以降のチームの計画を[ロードマップ](https://github.com/microsoft/microsoft-ui-xaml/blob/master/docs/roadmap.md)で確認することもできます。
 
-**Web サイト**:[WinUI Web サイト](https://aka.ms/winui)には、製品の比較と WinUI の利点に関する説明があり、製品と製品チームの最新の動向を常にチェックするために役立ちます。
+**Web サイト**: [WinUI Web サイト](https://aka.ms/winui)には、製品の比較と WinUI の利点に関する説明があり、製品と製品チームの最新の動向を常にチェックできます。

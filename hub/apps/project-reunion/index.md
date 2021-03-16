@@ -2,90 +2,159 @@
 description: Project Reunion と、これによって開発者が受ける利点、開発者に用意されているもの、およびフィードバックの提供方法について説明します。
 title: Project Reunion
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/09/2021
 keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: e4b5507c36da520c7356b07857b8532162e05785
-ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
+ms.openlocfilehash: 2354e7f42ab9c487275c66c9f709f8791ba5005e
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100335087"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629237"
 ---
-# <a name="build-windows-apps-with-project-reunion-prerelease"></a>Project Reunion による Windows アプリのビルド (プレリリース)
+# <a name="build-desktop-windows-apps-with-project-reunion-05-preview-march-2021"></a>Project Reunion 0.5 Preview を使用してデスクトップ Windows アプリをビルドする (2021 年 3 月)
 
-Project Reunion 0.1 プレリリースは、Windows アプリ開発プラットフォームの次世代の新しい開発者向けコンポーネントおよびツール セットのプレビュー版です。 Project Reunion により、さまざまな一連の対象の Windows 10 OS バージョン上のあらゆるアプリによって一貫した方法で使用できる、統合された API とツールのセットが提供されます。 Project Reunion は、UWP、ネイティブ Win32、.NET などの既存の Windows アプリ プラットフォームやフレームワークに代わるものではありません。 これは、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットにより、これらの既存のプラットフォームを補完するものです。
+Project Reunion は、Windows アプリ開発プラットフォームの次世代の新しい開発者向けコンポーネントとツールのセットです。 Project Reunion によって提供される API とツールの統合セットは、対象の幅広い Windows 10 OS バージョン上のどのデスクトップ アプリからでも一貫した方法で使用できます。 
+
+Project Reunion は、既存のデスクトップ Windows アプリプラット フォームや .NET (Windows フォームと WPF を含む)、C++/Win32 などのフレームワークから置き換わるものではありません。 これは、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットにより、これらの既存のプラットフォームを補完するものです。
 
 > [!NOTE]
-> Project Reunion 0.1 プレリリースは、いち早く利用する開発者向けのプレビューです。 このリリースをご自身の開発環境で試すことをお勧めします。 ただし、Project Reunion は、最終リリースに向けて、今後さまざまな面で変更されることに注意してください。 Project Reunion 0.1 プレリリースは、実稼働環境で使用されているアプリには対応しません。 **Project Reunion** は、今後のリリースで変更される可能性のあるコード ネームです。
+> Project Reunion 0.5 Preview は、開発者向けのプレビューです。 このリリースをご自身の開発環境で試すことをお勧めします。 ただし、Project Reunion は、現在から 1.0 リリースまでの間にさまざまな方法で変更されることに注意してください。 Project Reunion 0.5 Preview は、実稼働環境で使用されているアプリには対応していません。 **Project Reunion** は、今後のリリースで変更される可能性のあるコード ネームです。
 
-## <a name="goals-of-project-reunion"></a>Project Reunion の目的
+## <a name="benefits-of-project-reunion-for-windows-app-developers"></a>Windows アプリ開発者にとっての Project Reunion の利点
 
 Project Reunion は、OS から切り離され、NuGet パッケージを開始て開発者にリリースされる、さまざまな Windows API のセットを提供します。 Project Reunion は、Windows SDK に代わるものではありません。 Windows SDK は引き続き機能します。また、OS および Windows SDK リリースを通じて配信される API 経由で引き続き進化する Windows のコア コンポーネントが多数あります。 開発者は Project Reunion を自身のペースで採用することをお勧めします。
 
-Project Reunion は、次の目標をサポートすることを目的としています。
+#### <a name="unified-api-surface-across-desktop-app-platforms"></a>デスクトップ アプリ プラットフォームの Unified API サーフェス
 
-#### <a name="unified-api-surface-across-different-types-of-windows-apps"></a>さまざまな種類の Windows API アプリ間で統一された API サーフェス
-
-Windows アプリを作成する開発者は、複数のアプリ プラットフォームおよびフレームワークから選択する必要があります。 各プラットフォームには、他のプラットフォームを使用して構築されるアプリで使用できる多くの機能と API が用意されていますが、一部の機能と API は特定のプラットフォームでのみ使用できます。 Project Reunion は、すべての Windows 10 アプリの Windows API へのアクセスを統合します。 どのアプリ モデルを選択しても、Project Reunion で利用できる同じ Windows API セットにアクセスできます。
+デスクトップ Windows アプリを作成する開発者は、複数のアプリ プラットフォームおよびフレームワークから選択する必要があります。 各プラットフォームには、他のプラットフォームを使用して構築されるアプリで使用できる多くの機能と API が用意されていますが、一部の機能と API は特定のプラットフォームでのみ使用できます。 Project Reunion により、すべてのデスクトップ Windows 10 アプリの Windows API へのアクセスが統合されます。 どのアプリ モデルを選択しても、Project Reunion で利用できる同じ Windows API セットにアクセスできます。
 
 Microsoft は徐々に、異なるアプリ モデル間の相違をなくすように Project Reunion に投資する予定です。 Project Reunion には、WinRT API とネイティブ C API の両方が含まれます。
 
 #### <a name="consistent-support-across-windows-10-versions"></a>Windows 10 バージョン間での一貫したサポート
 
-Windows API が新しい OS バージョンにより進化し続けるのに伴い、開発者は[バージョン アダプティブ コード](/windows/uwp/debug-test-perf/version-adaptive-code)などの手法を使用して、バージョンでのすべての相違を考慮して、アプリケーションの対象ユーザーにアピールする必要があります。 これにより、コードと開発エクスペリエンスが複雑になる可能性があります。 Project Reunion を使用すると、さまざまな OS バージョンとすべての Windows 10 デバイス全体で Project Reunion API へのアクセスを統合できます。これにより、最新バージョンの Windows だけでなく、必要に応じて、より多くの開発者が更新プログラムを入手できるようにすることができます。 現在の計画では、Project Reunion は Windows 10 Version 1809 およびそれ以降のすべてのバージョンの Windows 10 に対応する予定です。
+Windows API が新しい OS バージョンにより進化し続けるのに伴い、開発者は[バージョン アダプティブ コード](/windows/uwp/debug-test-perf/version-adaptive-code)などの手法を使用して、バージョンでのすべての相違を考慮して、アプリケーションの対象ユーザーにアピールする必要があります。 これにより、コードと開発エクスペリエンスが複雑になる可能性があります。
+
+Project Reunion API は、Windows 10 バージョン 1809 以降のすべてのバージョンの Windows 10 で動作します。 つまり、お客様が Windows 10 バージョン 1809 以降のバージョンを使用している限り、Project Reunion の新しい API と機能をリリースと同時に使用でき、バージョンに適応したコードを記述する必要がありません。
 
 #### <a name="faster-release-cadence"></a>短いリリース サイクル
 
-新しい Windows API と機能は、通常、年に 1 回または 2 回のリリース サイクルで発生する OS リリースに関連付けられています。 Project Reunion を使用すると、より頻繁かつアジャイルな方法で新しい実稼働品質の API と機能をリリースできます。
+新しい Windows API と機能は、通常、年に 1 回または 2 回のリリース サイクルで発生する OS リリースに関連付けられています。 Project Reunion の更新プログラムはさらに短いサイクルで提供されるため、Windows 開発プラットフォームでイノベーションが起きるとすぐに、より早く、より迅速に利用できるようになります。
 
-## <a name="get-started"></a>作業開始
+## <a name="components-available-with-project-reunion"></a>Project Reunion で使用可能なコンポーネント
 
-Project Reunion 0.1 プレリリースには、次の機能領域用の新しい API が含まれています。
+Project Reunion 0.5 Preview には、次のコンポーネントが含まれます。
 
-| 機能 | 説明 |
+| コンポーネント | 説明 |
 |---------|-------------|
-| [MRT Core (Modern Resource Management System)](mrtcore/mrtcore-overview.md) | MRT Core は、Project Reunion の一部として配布される最新の [Windows リソース管理システム](/windows/uwp/app-resources/resource-management-system)の簡素化されたバージョンです。 |
-| [DWriteCore](dwritecore.md) | DWriteCore は、Windows のバージョン (以前のバージョン Windows 8 まで) 上で実行される DirectWrite の一種で、クロスプラットフォームでの使用が可能になります。 |
+| [Windows UI ライブラリ 3](../winui/winui3/index.md) | Windows UI ライブラリ (WinUI) 3 は、デスクトップ (.NET と C++/Win32) と UWP アプリの両方に対する次世代の Windows ユーザー エクスペリエンス (UX) プラットフォームです。 このリリースには、[WinUI ベースのユーザー インターフェイスを備えたアプリのビルド](..\winui\winui3\index.md#create-winui-projects)を始めるときに役立つ Visual Studio プロジェクト テンプレートと、WinUI ライブラリが収められた NuGet パッケージが含まれます。  |
+| [MRT Core を使用してリソースを管理する](mrtcore/mrtcore-overview.md) | MRT Core から、アプリで使用されるリソースを読み込んで管理するための API が提供されます。 MRT Core は、最新の [Windows リソース管理システム](/windows/uwp/app-resources/resource-management-system)の簡素化されたバージョンです。 |
+| [DWriteCore を使用してテキストを表示する](dwritecore.md) | DWriteCore を使用すると、デバイスに依存しないテキスト レイアウト システム、ハードウェアアクセラレーション テキスト、マルチフォーマット テキスト、および幅広い言語サポートなど、テキスト レンダリングの現在のすべての DirectWrite 機能にアクセスできます。  |
 
 他のコンポーネントを Project Reunion に取り込むための将来的な計画について詳しくは、[こちら](https://github.com/microsoft/ProjectReunion/blob/master/docs/README.md)をご覧ください。
 
-> [!NOTE]
-> Windows UI ライブラリ (WinUI)、MSIX、WebView2 など、他の特定の既存コンポーネントは既に OS から切り離されており、Project Reunion のガイドラインに従っています (たとえば、これらは Windows 10 Version 1809 以降の OS バージョンではサポートされています)。 ただし、これらの他のコンポーネントは、現在、Project Reunion NuGet パッケージには含まれていません。  
-
-### <a name="set-up-your-development-environment"></a>開発環境を設定する
-
-Project Reunion 0.1 プレリリースを試してみる場合、提供されている C++ サンプルのいずれかで始める必要があります。 これらのサンプルは、Project Reunion NuGet パッケージを使用するように事前構成されています。 このプレビューでは、独自のプロジェクトへの Project Reunion NuGet パッケージのインストールはサポートされていません。 サンプルのいずれかを使用するように開発環境を設定するには、次の手順に従います。
+## <a name="set-up-your-development-environment"></a>開発環境を設定する
 
 1. 開発用コンピューターに Windows 10 Version 1809 (ビルド 17763) 以降の OS バージョンがインストールされていることを確認します。
 
-2. [Visual Studio 2019 バージョン 16.9 Preview 2](https://visualstudio.microsoft.com/vs/preview/) 以降をインストールします。 Visual Studio インストーラーで次の項目が選択されていることを確認します。
-    - **[ワークロード]** タブで、次のワークロードが選択されていることを確認します。
-        - **.NET デスクトップ開発**
-        - **C++ によるデスクトップ開発**
-        - **ユニバーサル Windows プラットフォーム開発** ( **[インストールの詳細]** ウィンドウで、このワークロードに対して **[C++ (v142) ユニバーサル Windows プラットフォーム ツール]** オプション コンポーネントが選択されていることも確認します)
+2. まだインストールしていない場合は、[Visual Studio 2019 バージョン 16.10 Preview](https://visualstudio.microsoft.com/vs/preview/) (またはそれ以降) をインストールします。
+
+    Visual Studio をインストールする際、次のコンポーネントを含める必要があります。
+    - **[ワークロード]** タブで、 **[ユニバーサル Windows プラットフォーム開発]** が選択されていることを確認します。
     - **[個別のコンポーネント]** タブで、**SDK、ライブラリ、およびフレームワーク** セクションで **Windows 10 SDK (10.0.19041.0)** が選択されていることを確認します。
 
-3. Visual Studio Marketplace から最新バージョンの [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) をインストールします。
+    .NET アプリをビルドするには、次のコンポーネントも含める必要があります。
+    - **[.NET デスクトップ開発]** ワークロード。
+
+    C++ アプリをビルドするには、次のコンポーネントも含める必要があります。
+    - **[C++ によるデスクトップ開発]** ワークロード。
+    - **[ユニバーサル Windows プラットフォーム開発]** ワークロード用の **C++ (v142) ユニバーサル Windows プラットフォーム ツール** のオプション コンポーネント。
+
+3. 以前の WinUI 3 プレビュー リリースで、既に [WinUI 3 Preview 拡張機能](https://marketplace.visualstudio.com/items?itemName=Microsoft-WinUI.WinUIProjectTemplates)をインストールしていた場合は、拡張機能をアンインストールします。 拡張機能をアンインストールする方法の詳細については、[Visual Studio の拡張機能の管理](/visualstudio/ide/finding-and-using-visual-studio-extensions)に関するページを参照してください。
 
 4. **nuget.org** に対して NuGet パッケージ ソースがシステムで有効になっていることを確認します。詳細については、「[一般的な NuGet 構成](/nuget/consume-packages/configuring-nuget-behavior)」を参照してください。
 
-5. [WinUI 3 Preview 4 VSIX パッケージ](https://aka.ms/winui3/preview3-download)をダウンロードしてインストールします。 この手順は、既に WinUI 3 を使用するように構成されている Hello World と MRT Core サンプルに対してのみ必要です。 VSIX パッケージを Visual Studio に追加する方法については、[Visual Studio 拡張機能を見つけて使用する方法](/visualstudio/ide/finding-and-using-visual-studio-extensions#install-without-using-the-manage-extensions-dialog-box)に関するページをご覧ください。
+5. Visual Studio 2019 で、 **[拡張機能]**  >  **[拡張機能の管理]** をクリックし、 **[Project Reunion]** を探して、**Project Reunion** 拡張機能をインストールします。 または、[Project Reunion 拡張機能](https://marketplace.visualstudio.com/items?itemName=ProjectReunion.MicrosoftProjectReunion) を Visual Studio Marketplace から直接ダウンロードしてインストールすることもできます。 VSIX パッケージを Visual Studio に追加する方法については、「[Visual Studio の拡張機能を管理する](/visualstudio/ide/finding-and-using-visual-studio-extensions)」を参照してください。
 
-6. 次のサンプルを複製して調べます。
-    - [DWriteCore ギャラリーのサンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/DWriteCore/DWriteCoreGallery):このサンプル アプリケーションでは、[DWriteCore](dwritecore.md) API が示されています。
-    - [MRT Core サンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/MrtCore):このサンプル アプリケーションでは、[MRT Core](mrtcore/mrtcore-overview.md) API が示されています。
-    - [Hello World サンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/HelloWorld/reunioncppdesktopsampleapp):このサンプルでは、Project Reunion NuGet パッケージとの基本的な統合を示します。
+6. ライブ ビジュアル ツリー、ホット リロード、ライブ プロパティ エクスプローラーなどの WinUI 3 のツールを使用するには、[こちらの手順](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)で説明されているように、Visual Studio のプレビュー機能で WinUI 3 ツールを有効にする必要があります。
 
-## <a name="known-issues"></a>既知の問題
+## <a name="get-started-developing-with-project-reunion"></a>Project Reunion を使用して開発を開始する
 
-Project Reunion 0.1 プレリリースには、次の制限があります。
+Project Reunion 0.5 Preview は、Project Reunion 拡張機能に含まれている WinUI 3 プロジェクト テンプレートを使用して作成される新しいアプリで使用できます。また、既存のプロジェクトでは、NuGet パッケージをインストールすると、Project Reunion コンポーネントを使用できます。
 
- - このリリースは、MSIX パッケージ C++/Win32 アプリにのみ対応しています。
- - このリリースでは、C# はサポートされていません。
- - このリリースでは、.NET 5 はサポートされていません。
+> [!NOTE]
+> Project Reunion 0.5 Preview では、MSIX パッケージ化されたアプリのみがサポートされます。
+
+#### <a name="create-a-new-project-that-uses-project-reunion"></a>Project Reunion を使用して新しいプロジェクトを作成する
+
+Visual Studio 2019 の Project Reunion 0.5 Preview 拡張機能には、WinUI 3 ベースの UI レイヤーでプロジェクトを生成し、他のすべての Project Reunion API へのアクセスを提供するプロジェクト テンプレートが含まれます。 これらのテンプレートを使用して、MSIX パッケージ化されたデスクトップ アプリ (C#/.NET 5 または C++/WinRT)、または Project Reunion を使用する UWP アプリをビルドできます。 使用可能なプロジェクト テンプレートの詳細については、「[WinUI プロジェクトを作成する](..\winui\winui3\index.md#create-winui-projects)」を参照してください。
+
+Project Reunion 0.5 Preview を使用する新しいプロジェクトを作成するには:
+
+1. 次の記事の手順に従います。
+
+    - [デスクトップ アプリ用の WinUI 3 の概要](..\winui\winui3\get-started-winui3-for-desktop.md)
+    - [UWP アプリ用の WinUI 3 の概要](..\winui\winui3\get-started-winui3-for-uwp.md)
+
+2. プロジェクトを作成した後、通常はデスクトップ アプリと UWP アプリで使用できる他のすべての Windows および .NET API に加えて、次のプロジェクトの Project Reunion API とコンポーネントにアクセスできます。
+
+    - [Windows UI ライブラリ 3](../winui/winui3/index.md)
+    - [リソース MRT Core を管理する](mrtcore/mrtcore-overview.md)
+    - [DWriteCore を使用してテキストを表示する](dwritecore.md)
+
+新しいプロジェクトで Project Reunion を使用していることを確認するには、**ソリューション エクスプローラー** でプロジェクトの **[依存関係]**  >  **[パッケージ]** ノードを展開します。 次の図のように、このノードの下に複数の **Microsoft.ProjectReunion** パッケージが表示されるはずです。
+
+![[ソリューション エクスプローラー] ペインの Project Reunion パッケージのスクリーンショット](images/reunion-packages.png)
+
+#### <a name="use-project-reunion-in-an-existing-project"></a>既存のプロジェクトで Project Reunion を使用する
+
+Project Reunion を使用する既存のデスクトップ プロジェクト (C#/.NET 5 または C++/WinRT) がある場合は、Project Reunion 0.5 Preview NuGet パッケージをプロジェクトにインストールできます。 
+
+> [!NOTE]
+> このシナリオでは、プロジェクトの Project Reunion に含まれる WinUI 3 以外のコンポーネントのみを使用できます。 WinUI 3 を使用するには、前のセクションで説明したように、WinUI 3 プロジェクト テンプレートのいずれかを使用して新しいプロジェクトを作成する必要があります。
+
+1. Visual Studio 2019 で、既存のデスクトップ プロジェクト (C#/.NET 5 または C++/WinRT) または UWP プロジェクトを開きます。
+
+2. [パッケージ参照](/nuget/consume-packages/package-references-in-project-files)が有効になっていることを確認します。
+
+    1. Visual Studio で、 **[ツール] -> [NuGet パッケージ マネージャー] -> [パッケージ マネージャー設定]** の順にクリックします。
+    2. **[既定のパッケージ管理形式]** に **[PackageReference]** が選択されていることを確認します。
+
+3. **ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+
+4. **[NuGet パッケージ マネージャー]** ウィンドウで、 **[参照]** タブを選択して、`Microsoft.ProjectReunion` を検索します。
+
+5. **Microsoft.ProjectReunion** パッケージが見つかったら、 **[NuGet パッケージ マネージャー]** ウィンドウの右側ペインで、 **[インストール]** をクリックします。
+
+6. パッケージをインストールした後、プロジェクトで次の Project Reunion API とコンポーネントを使用することができます。
+
+    - [リソース MRT Core を管理する](mrtcore/mrtcore-overview.md)
+    - [DWriteCore を使用してテキストを表示する](dwritecore.md)
+
+#### <a name="deploying-apps-that-use-project-reunion"></a>Project Reunion を使用するアプリを展開する
+
+現在、Project Reunion を使用するアプリは、[MSIX](/windows/msix) を使用してパッケージ化する必要があります。 既定では、Visual Studio の Project Reunion 拡張機能で提供される WinUI プロジェクト テンプレートのいずれかを使用してプロジェクトを作成すると、アプリを MSIX パッケージ化するように構成された [Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net)がプロジェクトに含まれます。 このプロジェクトを構成して、アプリの MSIX パッケージを作成する方法の詳細については、「[Visual Studio でのデスクトップまたは UWP アプリのパッケージ化](/windows/msix/package/packaging-uwp-apps)」を参照してください。
+
+アプリの MSIX パッケージを作成したら、他のコンピューターに展開するためのオプションがいくつかあります。 詳細については、「[MSIX の展開を管理する](/windows/msix/desktop/managing-your-msix-deployment-overview)」を参照してください。
+
+> [!NOTE]
+> Project Reunion 0.5 Preview を使用するアプリを Microsoft Store に発行することはできません。
+
+## <a name="samples"></a>サンプル
+
+現在、次の Project Reunion サンプルを利用できます。
+
+- [DWriteCore ギャラリーのサンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/DWriteCore/DWriteCoreGallery):このサンプル アプリケーションでは、[DWriteCore](dwritecore.md) API が示されています。
+- [MRT Core サンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/MrtCore):このサンプル アプリケーションでは、[MRT Core](mrtcore/mrtcore-overview.md) API が示されています。
+- [Hello World サンプル](https://github.com/microsoft/Project-Reunion-Samples/tree/main/HelloWorld/reunioncppdesktopsampleapp):このサンプルでは、Project Reunion NuGet パッケージとの基本的な統合を示します。
+
+## <a name="limitations-and-known-issues"></a>制限事項と既知の問題
+
+- このリリースは、実稼働環境で使用されているアプリには対応していません。 バグ、制限事項、およびその他の問題があることを想定してください。
+- このリリースは、MSIX パッケージ化されたデスクトップ アプリ (C#/.NET 5 または C++/Win32) でのみ使用できます。 パッケージ化されていないデスクトップ アプリでは使用できません。
+- また、[WinUI 3 のツールの制限](..\winui\winui3\index.md#developer-tools)は、Project Reunion 0.5 Preview を使用するどのプロジェクトにも適用されます。
 
 ## <a name="developer-roadmap"></a>開発者向けロードマップ
 
