@@ -1,6 +1,6 @@
 ---
-title: Windows での Node.js Web フレームワークの概要
-description: Windows で Node.js Web フレームワーク (Next.js、Nuxt.js、Gatsby を含む) の使用を開始するために役立つステップ バイ ステップ ガイド。
+title: Windows での Node.js Web フレームワーク
+description: Windows で Node.js Web フレームワークの使用を開始するために役立つガイド。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS, Node.js, Windows 10, Microsoft, ラーニング NodeJS, Windows 上のノード, WSL 上のノード, Windows 上の Linux 上のノード, Windows 上のインストール ノード, NodeJS と VS Code, Windows 上のノードでの開発, Windows 上の NodeJS での開発, WSL 上のインストール ノード, Linux 用 Windows サブシステム上の NodeJS
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: af23ec1374d5fce727579171113402536221e5f2
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: c4f2d679c50dab94beea2b15d0f4650f0967097d
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823606"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254279"
 ---
 # <a name="get-started-with-nodejs-web-frameworks-on-windows"></a>Windows での Node.js Web フレームワークの概要
 
@@ -84,7 +84,7 @@ Nuxt.js プロジェクトを作成するには (これには、どのような�
     - プロジェクトの説明: Nuxt.js アプリの説明。
     - 作成者名: GitHub エイリアスを使用します。
     - パッケージ マネージャー (Yarn または **Npm**) を選択します。例については、Npm を使用します。
-    - UI フレームワーク: なし、Ant Design Vue、Bootstrap Vue などを選択します。 この例では **[Vuetify]** を選択しましょう。ただし、Vue コミュニティが、プロジェクトに最も適したものを選択するために役立つ[これらの UI フレームワークを比較した素晴らしいサマリー](https://vue-community.org/guide/ecosystem/ui-libraries.html#summary-tldr)を作成しました。
+    - UI フレームワーク: なし、Ant Design Vue、Bootstrap Vue などを選択します。 この例では **[Vuetify]** を選択しましょう。ただし、Vue コミュニティが、プロジェクトに最も適したものを選択するために役立つ [これらの UI フレームワークを比較した素晴らしいサマリー](https://vue-community.org/guide/ecosystem/ui-libraries.html#summary-tldr)を作成しました。
     - カスタム サーバー フレームワーク: なし、AdonisJs、Express、Fastify などを選択します。 この例では **[なし]** を選択しましょう。ただし、Dev.to のサイトで [2019-2020 サーバー フレームワークの比較](https://dev.to/santypk4/introducing-the-best-10-node-js-frameworks-for-2019-and-2020-mcm)を見つけることができます。
     - Nuxt.js モジュール (Space キーを使ってモジュールを選択するか、不要な場合は単に入力します): Axios (HTTP 要求を簡易化)、[PWA サポート](https://pwa.nuxtjs.org/) (サービスワーカー、manifest.json ファイルの追加など) を選択します。 この例では、モジュールを追加しないようにしましょう。
     - リンティング ツール: **ESLint**、Prettier、Lint のステージングされたファイルを選択します。 **[ESLint]** (コードを分析し、潜在的なエラーを警告するためのツール) を選択しましょう。

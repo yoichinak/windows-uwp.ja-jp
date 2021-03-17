@@ -1,6 +1,6 @@
 ---
-title: NodeJS をネイティブ Windows 上に設定する
-description: Windows 上に Node.js 開発環境を設定するために役立つステップバイステップ ガイド。
+title: ネイティブ Windows 上に Node.js を設定する
+description: Windows 上に Node.js 開発環境を設定するために役立つガイド。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Node.js, windows 10, ネイティブ Windows, Windows 上に直接
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: bb950dcda9fddd6cf1b4b77da657f88ce2687785
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 34ef6f65e57256170d7d1f82b08653b70fe117e9
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823596"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254567"
 ---
 # <a name="set-up-your-nodejs-development-environment-directly-on-windows"></a>Node.js 開発環境を Windows 上に直接設定する
 

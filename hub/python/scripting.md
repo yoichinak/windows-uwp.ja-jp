@@ -1,6 +1,6 @@
 ---
-title: Windows での Python によるスクリプト作成と自動化の概要
-description: Windows でスクリプト作成、自動化、およびシステム管理のために Python の使用を開始するためのステップバイステップ ガイドです。
+title: スクリプト作成と自動化のための Python の使用
+description: Windows でスクリプト作成、自動化、およびシステム管理のために Python の使用を開始する方法について説明します。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, python システム管理, python ファイル自動化, windows での python スクリプト, windows での python セットアップ, windows での python 開発環境, windows での python 開発環境, powershell を使用した python, ファイル システム タスク用の python スクリプト
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 8b6ce391d810fc26ab9964f39939ce8c5a9958e9
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 9123aed078a2af243b201b92d2cd0565be53efe3
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823576"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254536"
 ---
 # <a name="get-started-using-python-on-windows-for-scripting-and-automation"></a>Windows で Python を使用してスクリプト作成と自動化を開始する
 

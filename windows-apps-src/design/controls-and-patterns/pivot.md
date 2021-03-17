@@ -10,14 +10,19 @@ design-contact: kimsea
 dev-contact: llongley
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: eaef3bb57eb8719ac4183f21b764ece98cae22fe
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: c5462eecbb4b15e74fc6932da9bbbbe37fcdbd92
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93030855"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784843"
 ---
 # <a name="pivot"></a>Pivot
+
+> [!Important]
+> **[Pivot](/uwp/api/Windows.UI.Xaml.Controls.Pivot)** コントロールは、推奨されなくなっていて、今後のリリースの Windows UI ライブラリ (WinUI) では削除される可能性があります。 このトピックの情報と画像は、古くなっている可能性があることに注意してください。
+>
+> 代わりに、*最上部での* ナビゲーション スタイル (すなわち表示モード) となっている **[NavigationView](navigationview.md)** コントロールを使用してください。
 
 [Pivot](/uwp/api/Windows.UI.Xaml.Controls.Pivot) コントロールを使用すると、少数のコンテンツ セクション間のタッチ スワイプが可能になります。
 
@@ -37,7 +42,7 @@ ms.locfileid: "93030855"
    :::column-end:::
 :::row-end:::
 
-> **プラットフォーム API** : [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、 [NavigationView クラス](/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
+> **プラットフォーム API**: [Pivot クラス](/uwp/api/Windows.UI.Xaml.Controls.Pivot)、[NavigationView クラス](/uwp/api/Windows.UI.Xaml.Controls.NavigationView)
 
 ## <a name="examples"></a>例
 
@@ -199,7 +204,7 @@ Pivot は [ItemsControl](/uwp/api/Windows.UI.Xaml.Controls.ItemsControl) であ�
 - ピボット ラベルをタップすると対応するページに移動し、アクティブなピボット ラベルは最初の位置までカルーセル表示されます。
 - カルーセル内のピボット項目は、最後のピボット セクションから最初のピボット セクションにループします。
 
-> **注** ピボット ヘッダーを [10 フィート環境](../devices/designing-for-tv.md)でカルーセル表示しないでください。 Xbox 上でアプリを実行する場合は、 [IsHeaderItemsCarouselEnabled](/uwp/api/Windows.UI.Xaml.Controls.Pivot.IsHeaderItemsCarouselEnabled) プロパティを **false** に設定します。
+> **注** ピボット ヘッダーを [10 フィート環境](../devices/designing-for-tv.md)でカルーセル表示しないでください。 Xbox 上でアプリを実行する場合は、[IsHeaderItemsCarouselEnabled](/uwp/api/Windows.UI.Xaml.Controls.Pivot.IsHeaderItemsCarouselEnabled) プロパティを **false** に設定します。
 
 ## <a name="recommendations"></a>推奨事項
 

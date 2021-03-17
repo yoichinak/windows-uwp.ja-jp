@@ -1,5 +1,5 @@
 ---
-title: 開発に関する、人気のあるチュートリアル
+title: 開発に関するチュートリアルとコース
 description: 一般的な開発タスクやシナリオについての、人気のあるチュートリアル、オンライン コース、コード サンプルの一覧です。
 author: mattwojo
 ms.author: mattwoj
@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Microsoft, Windows, 開発者, 人気のあるチュートリアル, コース, コード サンプル, WSL
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: ad37ef190a2bc34a0c067bb01b3502228a2c5ad5
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 2792d9b0f33dec7cef4d4328044afee454477fca
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89168736"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254512"
 ---
 # <a name="popular-tutorials-courses-and-code-samples"></a>人気のあるチュートリアル、コース、コード サンプル
 

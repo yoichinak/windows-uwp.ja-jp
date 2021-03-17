@@ -1,6 +1,6 @@
 ---
 title: Windows 10 で開発環境を設定する
-description: Windows で開発環境を設定し、お好みのツールとコード言語をインストールするための詳細なガイドです。
+description: Windows で開発環境を設定し、好みのツールとコード言語をインストールするためのガイドです。 Python、NodeJS、VS Code、Git、Bash、Linux のツールとコマンド、Android Studio のいずれを使用するかに関わらず、Windows ターミナルや WSL などの優れた新しいツールを活用できます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Windows の設定, 開発環境, 開発ツール, 開発パス, Microsoft, Windows, 開発者, ヒント, パフォーマンス, WSL, ターミナル, nodejs, Python
 ms.localizationpriority: medium
 ms.date: 07/24/2020
-ms.openlocfilehash: 58c68522fdb3ffe11c4e11dff48fb49faa79b830
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 3a577ca4241f102bcff2a84419a0e3523f812b74
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101824036"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254634"
 ---
 # <a name="set-up-your-development-environment-on-windows-10"></a>Windows 10 で開発環境を設定する
 
@@ -65,6 +65,14 @@ ms.locfileid: "101824036"
        [![PowerShell アイコン](../images/powershell.png)](/powershell/)<br>
         **[PowerShell の概要](/powershell/)**<br>
         PowerShell、コマンドライン シェル、スクリプト言語を使用して、クロスプラットフォームのタスク自動化と構成管理を行います。
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+       [![Rust アイコン](../images/rust-icon.png)](./rust/index.yml)<br>
+        **[Rust の使用を開始する](./rust/index.yml)**<br>
+        Rust でのプログラミングを開始します。これには、*windows* クレートを利用して Windows 用の Rust を設定する方法が含まれます。
     :::column-end:::
 :::row-end:::
 

@@ -1,5 +1,5 @@
 ---
-title: Node.js で Docker コンテナーを使ってみる
+title: Node.js での Docker コンテナー
 description: Node.js アプリで Docker コンテナーの使用を開始する際に役立つステップ バイ ステップ ガイドです。
 author: mattwojo
 ms.author: mattwoj
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: ''
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: bd9b912dfd4b733f57aaacfe6e8f246985e3b4f5
-ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
+ms.openlocfilehash: 5a6ba80f96410ead8195e6175063916d2519ed91
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91933083"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254550"
 ---
 # <a name="get-started-using-docker-containers-with-nodejs"></a>Node.js で Docker コンテナーを使ってみる
 
@@ -83,7 +83,7 @@ Docker 拡張機能を使用すると、コンテナー化されたアプリケ�
 
 1. VS Code で **[拡張機能]** ウィンドウを開き (Ctrl + Shift + X)、**Docker** を検索します。
 
-2. [Microsoft Docker 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)を選択し、**インストール**します。 拡張機能を有効にするには、インストールした後に VS Code を再読み込みする必要があります。
+2. [Microsoft Docker 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)を選択し、**インストール** します。 拡張機能を有効にするには、インストールした後に VS Code を再読み込みする必要があります。
 
     ![Remote-WSL の VS Code での Docker 拡張機能](../images/docker-vscode-extension.png)
 
@@ -93,7 +93,7 @@ VS Code での Docker の使用に関する詳細は、[こちら](https://code.
 
 ## <a name="create-a-container-image-with-dockerfile"></a>DockerFile を使用してコンテナー イメージを作成する
 
-**コンテナー イメージ**には、アプリケーション コード、ライブラリ、構成ファイル、環境変数、ランタイムが格納されます。 イメージを使用することで、コンテナー内の環境が標準化され、アプリケーションのビルドと実行に必要なものだけが含まれるようになります。
+**コンテナー イメージ** には、アプリケーション コード、ライブラリ、構成ファイル、環境変数、ランタイムが格納されます。 イメージを使用することで、コンテナー内の環境が標準化され、アプリケーションのビルドと実行に必要なものだけが含まれるようになります。
 
 **DockerFile** には、新しいコンテナー イメージをビルドするために必要な命令が含まれています。 つまり、このファイルにより、アプリの環境どこでも再現できるように定義するコンテナーイ メージがビルドされます。
 
@@ -141,9 +141,9 @@ VS Code での Docker の使用に関する詳細は、[こちら](https://code.
 
 ## <a name="upload-your-container-image-to-a-repository"></a>コンテナー イメージをリポジトリにアップロードする
 
-**コンテナー リポジトリ**では、コンテナー イメージがクラウドに格納されます。 多くの場合、コンテナー リポジトリには、関連するイメージ (バージョン違いなど) のコレクションが実際に含まれており、これらはすべて、簡単なセットアップや迅速なデプロイに使用できます。 通常は、セキュリティで保護された HTTPS エンドポイント経由でコンテナー リポジトリのイメージにアクセスできます。これにより、任意のシステム、ハードウェア、または VM インスタンスを使用してイメージをプル、プッシュ、または管理できます。
+**コンテナー リポジトリ** では、コンテナー イメージがクラウドに格納されます。 多くの場合、コンテナー リポジトリには、関連するイメージ (バージョン違いなど) のコレクションが実際に含まれており、これらはすべて、簡単なセットアップや迅速なデプロイに使用できます。 通常は、セキュリティで保護された HTTPS エンドポイント経由でコンテナー リポジトリのイメージにアクセスできます。これにより、任意のシステム、ハードウェア、または VM インスタンスを使用してイメージをプル、プッシュ、または管理できます。
 
-一方、**コンテナー リポジトリ**では、リポジトリのコレクションに加えて、インデックス、アクセス制御ルール、および API パスが格納されます。 これらは、パブリックまたはプライベートにホストできます。 [Docker Hub](https://hub.docker.com/) はオープン ソースの Docker レジストリで、`docker push` コマンドと `docker pull` コマンドを実行するときに既定で使用されます。 これはパブリック リポジトリには無料で、プライベート リポジトリには料金がかかります。
+一方、**コンテナー リポジトリ** では、リポジトリのコレクションに加えて、インデックス、アクセス制御ルール、および API パスが格納されます。 これらは、パブリックまたはプライベートにホストできます。 [Docker Hub](https://hub.docker.com/) はオープン ソースの Docker レジストリで、`docker push` コマンドと `docker pull` コマンドを実行するときに既定で使用されます。 これはパブリック リポジトリには無料で、プライベート リポジトリには料金がかかります。
 
 Docker Hub でホストされているリポジトリに新しいコンテナー イメージをアップロードするには、次の手順を行います。
 

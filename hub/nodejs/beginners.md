@@ -1,6 +1,6 @@
 ---
-title: Windows で NodeJS を使ってみる (初心者向け)
-description: Windows での Node.js 開発を開始するビギナー向け完全ガイド。
+title: Windows での Node.js (初心者向け)
+description: 初心者が Windows で Node.js 開発を始めるときに役立つガイド。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: NodeJS、Node.js、windows 10、microsoft、nodejs 学習、windows のノード、windows のノード (初心者向け)、windows でノード開発、windows で nodejs 開発
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: ab06ba36e2c77a105912a6a7b73abcdfa992c0ad
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 76d9cc90ee64173e979a43855d7bec02ca1d1f61
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823896"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254531"
 ---
 # <a name="get-started-using-nodejs-on-windows-for-beginners"></a>Windows で Node.js を使ってみる (初心者向け)
 

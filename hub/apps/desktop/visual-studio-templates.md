@@ -7,12 +7,12 @@ keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
-ms.openlocfilehash: 7f288d301583c08b0fd4104802b643a7c31ad99f
-ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
+ms.openlocfilehash: ea6ac2491afe8820bc47f69149f553241f17e89e
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100335110"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629290"
 ---
 # <a name="visual-studio-project-and-item-templates-for-windows-apps"></a>Windows アプリ用の Visual Studio プロジェクトおよび項目テンプレート
 
@@ -25,7 +25,9 @@ Visual Studio 2019 によって提供される多数のプロジェクト テン
 
 [Windows UI ライブラリ (WinUI)](../winui/index.md) は、デスクトップ (.NET およびネイティブ Win32) と UWP アプリ プラットフォームにおける、Windows アプリ用の最新のネイティブ ユーザー インターフェイス (UI) プラットフォームです。 [WinUI 3](../winui/winui3/index.md) (現在開発者用プレビューとして提供中) は、WinUI の最新メジャー バージョンであり、WinUI をデスクトップ Windows アプリ用の完全な UX フレームワークに変換します。
 
-WinUI 3 には Visual Studio 2019 用の VSIX パッケージが含まれており、これによって WinUI ベースのインターフェイスを備えたアプリのビルドを開始するために役立つプロジェクト テンプレートと項目テンプレートが提供されます。 WinUI 3 VSIX パッケージと、提供されるプロジェクト テンプレートについて詳しくは、「[WinUI 3 Preview 4 をインストールする](../winui/winui3/index.md#install-winui-3-preview-4)」を参照してください。
+現在開発者用プレビューである WinUI 3 は、[Project Reunion 0.5 Preview](../project-reunion/index.md) の一部として提供されています。 このプレビューには、Visual Studio 2019 用の VSIX パッケージが含まれています。これには、WinUI ベースのインターフェイスを備えたアプリのビルドを開始する助けとなる、プロジェクトテンプレートと項目テンプレートが用意されています。
+
+Project Reunion 0.5 Preview VSIX パッケージと WinUI プロジェクト テンプレートをインストールする手順については、「[開発環境を設定する](../project-reunion/index.md#set-up-your-development-environment)」を参照してください。 使用できる WinUI プロジェクト テンプレートと項目テンプレートの詳細については、「[WinUI プロジェクトを作成する](../winui/winui3/index.md#create-winui-projects)」を参照してください。
 
 > [!IMPORTANT]
 > WinUI 3 は、関連する Visual Studio テンプレートを含めて、現在開発者プレビューとして提供されています。これは、初期評価を目的としたものであり、開発者コミュニティからフィードバックを収集します。 この時点では実稼働アプリには使用できません。

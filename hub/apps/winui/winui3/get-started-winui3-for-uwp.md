@@ -1,25 +1,27 @@
 ---
 description: このガイドでは、WinUI 3 UI を使用して UWP アプリの作成を開始する方法について説明します。
 title: UWP アプリ用の WinUI 3 の概要
-ms.date: 02/09/2021
+ms.date: 03/08/2021
 ms.topic: article
 keywords: windows 10, uwp, winui
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: d13acb2181160ec214070dc1276e844dc1f203ad
-ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
+ms.openlocfilehash: 6216dd85579e606f6de04c44b2f7cab6277a8df5
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100334902"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629310"
 ---
 # <a name="get-started-with-winui-3-for-uwp-apps"></a>UWP アプリ用の WinUI 3 の概要
 
-WinUI 3 Preview 4 には、新しいプロジェクト テンプレートが含まれています。これを使用すると、完全に WinUI 上でビルドされたユーザー インターフェイスを備えたユニバーサル Windows プラットフォーム (UWP) アプリを作成できます。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、スタイルを使用して実装されます。 サポートされる WinUI 3 プロジェクト テンプレートの完全な一覧については、「[WinUI 3 のプロジェクト テンプレート](index.md#project-templates-for-winui-3)」を参照してください。
+WinUI 3 - Project Reunion 0.5 Preview には、完全に WinUI 上に構築されたユーザー インターフェイスを備えたユニバーサル Windows プラットフォーム (UWP) アプリを作成できるようになるプロジェクト テンプレートが含まれています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、スタイルを使用して実装されます。 サポートされる WinUI 3 プロジェクト テンプレートの完全な一覧については、「[WinUI 3 のプロジェクト テンプレート](index.md#project-templates-for-winui-3)」を参照してください。
+
+WinUI 3 - Project Reunion 0.5 Preview 以降、WinUI 3 は Project Reunion パッケージの一部として出荷されるようになりました。 これにより、インストール手順が少し変更され、選択型の機能がより多く提供されますが、他の点では WinUI 3 アプリを開発するエクスペリエンスに変化はありません。 Project Reunion の詳細については、[Project Reunion (0.5 Preview) を使用した Windows アプリの構築](../../project-reunion/index.md)に関するページを参照してください
 
 ## <a name="prerequisites"></a>前提条件
 
-この記事で説明されている UWP 用の WinUI 3 プロジェクト テンプレートを使用するには、開発用コンピューターを構成して、[WinUI 3 Preview 4 をインストール](index.md#install-winui-3-preview-4)します。
+この記事で説明されている UWP 用の WinUI 3 プロジェクト テンプレートを使用するには、開発用コンピューターを構成して、[Project Reunion 0.5 Preview をインストール](../../project-reunion/index.md#set-up-your-development-environment)します。
 
 ## <a name="create-a-winui-3-app-in-uwp-for-c"></a>"UWP の WinUI 3 アプリ" を C# で作成する
 
@@ -42,7 +44,7 @@ WinUI 3 Preview 4 には、新しいプロジェクト テンプレートが含�
 
 :::image type="content" source="images/WinUI-and-UWP/vs2019-configure-new-project-dialog.png" alt-text="[場所] テキスト ボックスと [作成] オプションが強調表示された、[新しいプロジェクトの構成] ダイアログ ボックスのスクリーンショット。":::
 
-5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1803 (ビルド 17134) に設定し、 **[OK]** をクリックします。
+5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1809 (ビルド 17763) に設定し、 **[OK]** をクリックします。
 
 :::image type="content" source="images/WinUI-min-target-version.png" alt-text="ターゲット バージョンと最小バージョンのダイアログ":::
 
@@ -84,9 +86,9 @@ WinUI 3 Preview 4 には、新しいプロジェクト テンプレートが含�
 
 ## <a name="known-issues-and-limitations"></a>既知の問題と制限事項
 
-「[Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](index.md)」の「[制限事項と既知の問題](index.md#limitations-and-known-issues)」のセクションを参照してください。
+「[Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)](index.md)」の「[制限事項と既知の問題](index.md#limitations-and-known-issues)」のセクションを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](index.md)
+- [Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)](index.md)
 - [初めてのアプリの作成](/windows/uwp/get-started/your-first-app)

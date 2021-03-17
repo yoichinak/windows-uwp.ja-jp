@@ -11,12 +11,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f81e440670ccee34269ddbe5d55d93637b8d89df
-ms.sourcegitcommit: cb5af00af05e838621c270173e7fde1c5d2168ef
+ms.openlocfilehash: 7cc03fd8b2acafd7f3e85b0a6438365d74d5657c
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89043554"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784823"
 ---
 # <a name="swipe"></a>スワイプ
 
@@ -186,7 +186,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 
 スワイプ コマンドを処理するには、その [Invoked](/uwp/api/windows.ui.xaml.controls.swipeitem.Invoked) イベントを処理します。 (ユーザーがコマンドを呼び出す方法の詳細については、この記事の前半にある「_スワイプの動作の仕組み_」セクションをご覧ください。) 通常、スワイプ コマンドは、ListView または一覧のようなシナリオで使用されます。 その場合は、コマンドが呼び出されるた場合、そのスワイプされた項目で操作を実行する必要があります。
 
-以前に作成した_削除_スワイプ項目で Invoked イベントを処理する方法を以下に示します。
+以前に作成した _削除_ スワイプ項目で Invoked イベントを処理する方法を以下に示します。
 
 ```xaml
 <SwipeItems x:Key="ExecuteDelete" Mode="Execute">
@@ -217,7 +217,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 - **RemainOpen**
   - 項目が呼び出されると、スワイプ コントロールはモードに関係なく常に開いたままになります。
 
-ここでは、_返信_スワイプ項目は呼び出された後に閉じるように設定されます。
+ここでは、_返信_ スワイプ項目は呼び出された後に閉じるように設定されます。
 
 ```xaml
 <SwipeItem Text="Reply" IconSource="{StaticResource ReplyIcon}"
@@ -227,7 +227,7 @@ SwipeControl がその項目の DataTemplate で適用されている ListView �
 
 ## <a name="dos-and-donts"></a>すべきこととやってはいけないこと
 
-- FlipView、ハブ、ピボットではスワイプを使用しないでください。 組み合わせによっては、スワイプの方向が競合するために、ユーザーの混乱を招く可能性があります。
+- FlipView やハブでスワイプを使用しないでください。 組み合わせによっては、スワイプの方向が競合するために、ユーザーの混乱を招く可能性があります。
 - 水平方向ナビゲーションと水平方向のスワイプ、または垂直方向ナビゲーションと垂直方向のスワイプを組み合わせないでください。
 - ユーザーがスワイプしている対象が同じアクションであり、スワイプできるすべての関連する項目で一貫していることを確認します。
 - ユーザーが実行する主なアクションではスワイプを使用します。

@@ -1,6 +1,6 @@
 ---
-title: Mac (Unix) から Windows への移行のサポート
-description: Mac (Unix) から Windows への開発環境の移行に役立つ完全ガイドで、ショートカット キーのマッピングも示します。
+title: Mac (Unix) から Windows への移行
+description: Mac (Unix) から Windows 開発環境への移行に役立つガイドで、ショートカット キーのマッピングや Mac と Windows で異なる概念の簡単な概要を示します。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -9,12 +9,12 @@ ms.technology: windows-nodejs
 keywords: Mac から Windows、ショートカット キーのマッピング、Unix から Windows への移行、Mac から Windows への移行、MacBook から Surface への移行のサポート、Macintosh ユーザーの Windows の使用方法、Macintosh から Windows への切り替え、開発環境の変更のサポート、Mac OS X から Windows へ、Mac から PC への移行のサポート
 ms.localizationpriority: medium
 ms.date: 09/19/2019
-ms.openlocfilehash: c23bceecc09677dbecbda7b4e4065377c514cc0d
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 782f0d50c8b1f577f8530628b76b3df75673c083
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823946"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254585"
 ---
 # <a name="guide-for-changing-your-dev-environment-from-mac-to-windows"></a>開発環境を Mac から Windows に変更するためのガイド
 

@@ -5,31 +5,33 @@ ms.date: 07/08/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、プロジェクション、実装、インプリメント、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b5c515760d0a03e163fa663da1f97a728a6da2c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: e81b635d4c5bc2819aa126e4d685b49b044aa6ca
+ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154596"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102192954"
 ---
 # <a name="author-apis-with-cwinrt"></a>C++/WinRT での API の作成
 
-このトピックでは、直接的または間接的に [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体を使用して、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) API を作成する方法を示します。 このコンテキストで*作成者*の同義語は、*生成*、または*実装*です。 このトピックでは、C++/WinRT で API を実装するために、次のシナリオをこの順序で説明します。
+このトピックでは、直接的または間接的に [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) 基本構造体を使用して、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) API を作成する方法を示します。 このコンテキストで *作成者* の同義語は、*生成*、または *実装* です。 このトピックでは、C++/WinRT で API を実装するために、次のシナリオをこの順序で説明します。
 
 > [!NOTE]
 > このトピックでは Windows ランタイム コンポーネントについて説明しますが、C++/WinRT のコンテキストについてだけです。 すべての Windows ランタイム言語を対象とする Windows ランタイム コンポーネントに関するコンテンツをお探しの場合は、「[Windows ランタイム コンポーネント](../winrt-components/index.md)」をご覧ください。
 
-- Windows ランタイム クラス (ランタイム クラス) は作成*しません*。アプリ内でのローカルの使用のために 1 つまたは複数の Windows ランタイム インターフェイスを実装するだけです。 この場合、**winrt::implements** から直接派生し、機能を実装します。
-- ランタイム クラスを作成*します*。 アプリで使用するコンポーネントを作成している場合があります。 または、XAML ユーザー インターフェイス (UI) で使用する型を作成していることがあり、その場合は両方を実装して、同じのコンパイル ユニット内のランタイム クラスを使用しています。 このような場合、ツールで **winrt::implements** から派生するクラスを生成することができます。
+- Windows ランタイム クラス (ランタイム クラス) は作成 *しません*。アプリ内でのローカルの使用のために 1 つまたは複数の Windows ランタイム インターフェイスを実装するだけです。 この場合、**winrt::implements** から直接派生し、機能を実装します。
+- ランタイム クラスを作成 *します*。 アプリで使用するコンポーネントを作成している場合があります。 または、XAML ユーザー インターフェイス (UI) で使用する型を作成していることがあり、その場合は両方を実装して、同じのコンパイル ユニット内のランタイム クラスを使用しています。 このような場合、ツールで **winrt::implements** から派生するクラスを生成することができます。
 
-どちらの場合も、C++/WinRT API を実装する型は、*実装型*と呼ばれます。
+どちらの場合も、C++/WinRT API を実装する型は、*実装型* と呼ばれます。
 
 > [!IMPORTANT]
 > 実装型の概念を投影型と区別することは重要です。 投影型については、「[C++/WinRT での API の使用](consume-apis.md)」で説明します。
 
-## <a name="if-youre-not-authoring-a-runtime-class"></a>ランタイム クラスを作成*していない*場合
+## <a name="if-youre-not-authoring-a-runtime-class"></a>ランタイム クラスを作成 *していない* 場合
 
-最も単純なシナリオは、ローカル使用のための Windows ランタイム インターフェイスを実装しているケースです。 ランタイム クラスは必要ありません。通常の C++ のクラスだけです。 たとえば、[**CoreApplication**](/uwp/api/windows.applicationmodel.core.coreapplication) に基づいてアプリを記述している場合があります。
+最も単純なのは、型で Windows ランタイム インターフェイスを実装し、その型を同じアプリ内で使用するというシナリオです。 その場合、型はランタイム クラスである必要はなく、ただ通常の C++ クラスでかまいません。 たとえば、[**CoreApplication**](/uwp/api/windows.applicationmodel.core.coreapplication) に基づいてアプリを記述している場合があります。
+
+型が XAML UI によって参照される場合は、*たとえそれが XAML と同じプロジェクト内にあるとしても*、ランタイム クラスで *ある* 必要があります。 その場合は、「[XAML UI で参照されるランタイム クラスを作成する場合](#if-youre-authoring-a-runtime-class-to-be-referenced-in-your-xaml-ui)」セクションを参照してください。
 
 > [!NOTE]
 > C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用については、[Visual Studio での C++/WinRT のサポート](intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
@@ -64,7 +66,7 @@ void Run(IFrameworkViewSource viewSource) const
 }
 ```
 
-したがって、開発者は、**IFrameworkViewSource** インターフェイスを実装します。 C++/WinRT には、基本構造体テンプレート [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) があり、COM スタイルのプログラミングを使用せずにインターフェイス (1 つまたは複数) を簡単に実装することができます。 **実装**から型を派生して、インターフェイスの機能を実装するだけです。 以下にその方法を示します。
+したがって、開発者は、**IFrameworkViewSource** インターフェイスを実装します。 C++/WinRT には、基本構造体テンプレート [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) があり、COM スタイルのプログラミングを使用せずにインターフェイス (1 つまたは複数) を簡単に実装することができます。 **実装** から型を派生して、インターフェイスの機能を実装するだけです。 以下にその方法を示します。
 
 ```cppwinrt
 // App.cpp
@@ -79,7 +81,7 @@ struct App : implements<App, IFrameworkViewSource>
 ...
 ```
 
-**IFrameworkViewSource** に対応済みです。 次に、**IFrameworkView** インターフェイスを実装するオブジェクトを返します。 **アプリ**上にそのインターフェイスを実装することも選択できます。 次のコード例は、少なくともウィンドウを起動してデスクトップ上で実行する最小限のアプリを表します。
+**IFrameworkViewSource** に対応済みです。 次に、**IFrameworkView** インターフェイスを実装するオブジェクトを返します。 **アプリ** 上にそのインターフェイスを実装することも選択できます。 次のコード例は、少なくともウィンドウを起動してデスクトップ上で実行する最小限のアプリを表します。
 
 ```cppwinrt
 // App.cpp
@@ -114,7 +116,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
 ...
 ```
 
-**アプリ**型*が* **IFrameworkViewSource** であるため、**Run** に渡すことだけができます。
+**アプリ** 型 *が* **IFrameworkViewSource** であるため、**Run** に渡すことだけができます。
 
 ```cppwinrt
 using namespace Windows::ApplicationModel::Core;
@@ -126,7 +128,7 @@ int __stdcall wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 
 ## <a name="if-youre-authoring-a-runtime-class-in-a-windows-runtime-component"></a>Windows ランタイム コンポーネントでランタイム クラスを作成する場合
 
-型が、アプリケーションから使用する Windows ランタイム コンポーネントにパッケージ化されている場合は、ランタイム クラスである必要があります。 ランタイム クラスは Microsoft インターフェイス定義言語 (IDL) (.idl) ファイルに宣言します (「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](#factoring-runtime-classes-into-midl-files-idl)」を参照)。
+型が別のバイナリ (別のバイナリは通常、アプリケーションです) から使用される Windows ランタイム コンポーネントにパッケージ化される場合、その型はランタイム クラスにする必要があります。 ランタイム クラスは Microsoft インターフェイス定義言語 (IDL) (.idl) ファイルに宣言します (「[ランタイム クラスを Midl ファイル (.idl) にファクタリングする](#factoring-runtime-classes-into-midl-files-idl)」を参照)。
 
 結果として各 IDL ファイルが `.winmd` ファイルになり、Visual Studio では、それらのすべてのファイルをルート名前空間と同じ名前の単一のファイルにマージします。 その最終的な `.winmd` ファイルが、コンポーネントのユーザーが参照するファイルになります。
 
@@ -187,8 +189,8 @@ Windows ランタイム コンポーネントでの API の作成に関する詳
 このシナリオでは、API を使用する *および* のどちらも作成します。 ランタイム クラスを実装するための手順は、Windows ランタイム コンポーネントと基本的に同じです。 このため、前のセクション「[Windows ランタイム コンポーネントでランタイム クラスを作成する場合](#if-youre-authoring-a-runtime-class-in-a-windows-runtime-component)」を参照してください。 これと唯一異なる詳細な点は、IDL から、C++/WinRT ツールチェーンが、実装型だけでなく投影型も生成することです。 このシナリオでは "**MyRuntimeClass**" というだけではあいまいなことを理解することは重要です。これは、その名前を持つさまざまな種類の複数のエンティティがあるためです。
 
 - **MyRuntimeClass** はランタイム クラスの名前です。 ただし、これは実際には IDL で宣言され、一部のプログラミング言語で実装されたアブストラクションです。
-- **MyRuntimeClass** は、C++ 構造体 **winrt::MyProject::implementation::MyRuntimeClass** の名前です。これはランタイム クラスの C++/WinRT の実装です。 すでに見たように、プロジェクトを別に実装および使用している場合、この構造体は実装しているプロジェクトにのみ存在します。 これは*実装型*、または*実装*です。 この型は、(`cppwinrt.exe` ツールによって) ファイル `\MyProject\MyProject\Generated Files\sources\MyRuntimeClass.h` と `MyRuntimeClass.cpp` で生成されます。
-- **MyRuntimeClass** は C++ 構造体 **winrt::MyProject::MyRuntimeClass** の形式の投影型の名前です。 プロジェクトを別に実装および使用している場合、この構造体は使用しているプロジェクトにのみ存在します。 これは*投影型*、または*投影*です。 この型は、(`cppwinrt.exe` によって) ファイル `\MyProject\MyProject\Generated Files\winrt\impl\MyProject.2.h` で生成されます。
+- **MyRuntimeClass** は、C++ 構造体 **winrt::MyProject::implementation::MyRuntimeClass** の名前です。これはランタイム クラスの C++/WinRT の実装です。 すでに見たように、プロジェクトを別に実装および使用している場合、この構造体は実装しているプロジェクトにのみ存在します。 これは *実装型*、または *実装* です。 この型は、(`cppwinrt.exe` ツールによって) ファイル `\MyProject\MyProject\Generated Files\sources\MyRuntimeClass.h` と `MyRuntimeClass.cpp` で生成されます。
+- **MyRuntimeClass** は C++ 構造体 **winrt::MyProject::MyRuntimeClass** の形式の投影型の名前です。 プロジェクトを別に実装および使用している場合、この構造体は使用しているプロジェクトにのみ存在します。 これは *投影型*、または *投影* です。 この型は、(`cppwinrt.exe` によって) ファイル `\MyProject\MyProject\Generated Files\winrt\impl\MyProject.2.h` で生成されます。
 
 ![投影型と実装型](images/myruntimeclass.png)
 
@@ -221,9 +223,9 @@ Visual Studio プロジェクトと項目テンプレートでは、ランタイ
 
 上記で見た一覧から除くためのポイントを次に示します。
 
-- 各コンストラクターを IDL で宣言することで、コンストラクターは実装型と投影型の両方で生成されます。 IDL で宣言したコンストラクターは、*別の*コンパイル ユニットからランタイム クラスを使用するために使用されます。
+- 各コンストラクターを IDL で宣言することで、コンストラクターは実装型と投影型の両方で生成されます。 IDL で宣言したコンストラクターは、*別の* コンパイル ユニットからランタイム クラスを使用するために使用されます。
 - コンストラクターを IDL で宣言してもしなくても、**std::nullptr_t** を受け取るコンストラクターのオーバーロードが投影型に対して生成されます。 **std::nullptr_t** コンストラクターの呼び出しは、"*同じ*" コンパイル ユニットからのランタイム クラスの使用における "*2 つのステップのうちの最初のステップ*" です。 詳細とコード例については、「[C++/WinRT での API の使用](consume-apis.md#if-the-api-is-implemented-in-the-consuming-project)」を参照してください。
-- *同じ*コンパイル ユニットからランタイム クラスを使用している場合、(`MyRuntimeClass.h` の) 実装型で非既定のコンストラクターを直接実装することもできます。
+- *同じ* コンパイル ユニットからランタイム クラスを使用している場合、(`MyRuntimeClass.h` の) 実装型で非既定のコンストラクターを直接実装することもできます。
 
 > [!NOTE]
 > ランタイム クラスが別のコンパイル ユニットから使用することが予測される場合は (これは一般的です)、IDL にコンストラクター (少なくとも既定のコンストラクター) を含めます。 これを行うことで、実装型とともにファクトリの実装も取得します。
@@ -327,7 +329,7 @@ void ImplFromIClosable(IClosable const& from)
 }
 ```
 
-ただし元のインターフェイス オブジェクトのみ参照に保持されます。 こ*れを*保持する場合は、[**com_ptr::copy_from**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrcopy_from-function) を呼び出すことができます。
+ただし元のインターフェイス オブジェクトのみ参照に保持されます。 こ *れを* 保持する場合は、[**com_ptr::copy_from**](/uwp/cpp-ref-for-winrt/com-ptr#com_ptrcopy_from-function) を呼び出すことができます。
 
 ```cppwinrt
 winrt::com_ptr<MyType> impl;
@@ -406,7 +408,7 @@ void FreeFunction(MyProject::MyOtherClass const& oc)
 
 ## <a name="deriving-from-a-type-that-has-a-non-default-constructor"></a>既定以外のコンストラクターを持つ型からの派生
 
-[**ToggleButtonAutomationPeer::ToggleButtonAutomationPeer(ToggleButton)** ](/uwp/api/windows.ui.xaml.automation.peers.togglebuttonautomationpeer.-ctor#Windows_UI_Xaml_Automation_Peers_ToggleButtonAutomationPeer__ctor_Windows_UI_Xaml_Controls_Primitives_ToggleButton_) は既定以外のコンストラクターの例です。 既定のコンストラクターがないので、**ToggleButtonAutomationPeer** を作成するには、*オーナー* に渡す必要があります。 したがって、**ToggleButtonAutomationPeer** から派生する場合、*オーナー* を受け取りベースに渡すコンストラクターを提供する必要があります。 実際には次のようになります。
+[**ToggleButtonAutomationPeer::ToggleButtonAutomationPeer(ToggleButton)**](/uwp/api/windows.ui.xaml.automation.peers.togglebuttonautomationpeer.-ctor#Windows_UI_Xaml_Automation_Peers_ToggleButtonAutomationPeer__ctor_Windows_UI_Xaml_Controls_Primitives_ToggleButton_) は既定以外のコンストラクターの例です。 既定のコンストラクターがないので、**ToggleButtonAutomationPeer** を作成するには、*オーナー* に渡す必要があります。 したがって、**ToggleButtonAutomationPeer** から派生する場合、*オーナー* を受け取りベースに渡すコンストラクターを提供する必要があります。 実際には次のようになります。
 
 ```idl
 // MySpecializedToggleButton.idl

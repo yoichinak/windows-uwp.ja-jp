@@ -1,30 +1,42 @@
 ---
 title: Microsoft Store ポリシー
 description: Microsoft Store の製品は、Microsoft の認定基準を満たし、本当に便利で魅力的なエクスペリエンスをユーザーに提供するアプリであり、Microsoft Store に適合している必要があります。
-ms.date: 12/16/2020
+ms.date: 03/04/2021
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: F02A720E-2899-4863-8945-9AB99158BCA1
-ms.openlocfilehash: 7d9679b591b64f804ae9c84badc5849cac28de99
-ms.sourcegitcommit: afc4ff2c89f148d32073ab1cc42063ccdc573a8c
+ms.openlocfilehash: 4a762410011a369e79956f5fb858d030169307b2
+ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104663"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102192994"
 ---
 # <a name="microsoft-store-policies"></a>Microsoft Store ポリシー
 
 
 **ドキュメントのバージョン:7.12**
 
-**発行日: 2019 年 10 月 1 日**
+**発行日: 2021 年 3 月 4 日**
 
 > [!NOTE]
 > この契約に最近加えられた変更の概要については、「[変更履歴](store-policies-change-history.md)」を参照してください。
 
 > [!NOTE]
-> **2020 年 12 月 16 日 ポリシーの更新通知**:[Xbox Live Creators プログラム](https://www.xbox.com/developers/creators-program/)を通じて開発されたコンソールを対象とするゲーム製品の場合、XBL サービスと統合するための要件は適用されなくなりました。 特定のポリシー ([ポリシー 10.13.1](#1013-gaming-and-xbox)) は、次にストア ポリシー ドキュメントが更新されたときにこの変更を反映するように更新されますが、この通知の時点から有効であり、ポリシーは XBL Creators プログラムに対して適用されなくなります。 
+>**2021 年 3 月 4 日 ポリシー更新通知**
+>
+>Microsoft Store は今月、ストア ポリシーを更新する予定で、発効日は 2021 年 4 月末に向けて計画されています。  ポリシーの重要な変更点には、以下が含まれます。
+>
+>- ポリシー 10.8.6 に対する更新: PC ゲーム サブスクリプション製品では、サブスクリプション サービスを通して提供されたゲーム内でゲーム内購入を行うための、Microsoft のアプリ内購入 API またはサードパーティによる安全な課金サービスを使用することが許可されます。 さらに、そのようなサブスクリプション サービスの一部として含まれているゲームが、ストア外のサブスクライバーに配信される可能性があります。
+>- ユーザー生成コンテンツに関連するポリシー要件を明確にするため、ポリシー 11.12 に更新します。
+>
+>当該製品が上記の更新内容に準拠したものとなる場合は、この通知によって示されたとおり更新の対象となるどのポリシーについても、Microsoft は要求に応じて例外を認めます。
+
+>[!NOTE]
+>**2020 年 12 月 16 日 ポリシー更新通知**
+>
+>Xbox Live Creators プログラムを通じて開発されたコンソールを対象とするゲーム製品については、XBL サービスと統合するための要件は適用されなくなりました。 特定のポリシー (ポリシー 10.13.1) は、次にストア ポリシー ドキュメントが更新されたときにこの変更を反映するように更新されますが、この通知の時点から有効であり、ポリシーは XBL Creators プログラムに対して適用されなくなります。
 
 Microsoft Store<sup>1</sup> 向け製品の開発に関心をお持ちいただき、ありがとうございます。 「製品」は、提出されたあらゆるフォームのコンテンツを意味します。これには、製品内で販売または提供されるアプリ、ゲーム、タイトル、およびあらゆる追加コンテンツを含みますが、これに限定されません。 Microsoft は、世界中のユーザーに向けた多様な製品の掲載に取り組んでいます。 Microsoft Store の製品は、Microsoft の認定基準を満たし、本当に便利で魅力的なエクスペリエンスをユーザーに提供するアプリであり、Microsoft Store に適合している必要があります。
 

@@ -1,27 +1,29 @@
 ---
 description: このガイドでは、WinUI 3 UI を使用して .NET および C++/Win32 デスクトップ アプリの作成を開始する方法について説明します。
 title: デスクトップ アプリ用の WinUI 3 の概要
-ms.date: 02/09/2021
+ms.date: 03/08/2021
 ms.topic: article
 keywords: windows 10、uwp、windows フォーム、wpf、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: dcf3309f9b4a82019e867789bbeabb07c724ea0d
-ms.sourcegitcommit: 71701f5ffc540951f86d6f77a52416c6d75fe305
+ms.openlocfilehash: c0935fdde0e0fa721f07c50572ed978b51629a39
+ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100632703"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629300"
 ---
 # <a name="get-started-with-winui-3-for-desktop-apps"></a>デスクトップ アプリ用の WinUI 3 の概要
 
-WinUI 3 Preview 4 には、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド C#/.NET Core およびネイティブ C++/Win32 デスクトップ アプリを作成できるプロジェクト テンプレートが用意されています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、その他の種類の UI を使用して実装されます。 プロジェクト テンプレートの完全な一覧については、[こちらのセクション](index.md#project-templates-for-winui-3)を参照してください。
+WinUI 3 - Project Reunion 0.5 Preview には、全面的に WinUI ベースのユーザー インターフェイスを採用した、マネージド C#/.NET Core およびネイティブ C++/Win32 デスクトップ アプリを作成できるプロジェクト テンプレートが用意されています。 これらのプロジェクト テンプレートを使用してアプリを作成すると、アプリケーションのユーザー インターフェイス全体が、WinUI 3 で提供されるウィンドウ、コントロール、その他の種類の UI を使用して実装されます。 プロジェクト テンプレートの完全な一覧については、[こちらのセクション](index.md#project-templates-for-winui-3)を参照してください。
+
+WinUI 3 - Project Reunion 0.5 Preview 以降、WinUI 3 は Project Reunion パッケージの一部として出荷されるようになりました。 これにより、インストール手順が少し変更され、選択型の機能がより多く提供されますが、他の点では WinUI 3 アプリを開発するエクスペリエンスに変化はありません。 Project Reunion の詳細については、[Project Reunion (0.5 Preview) を使用した Windows アプリの構築](../../project-reunion/index.md)に関するページを参照してください
 
 ## <a name="prerequisites"></a>前提条件
 
-この記事で説明されているデスクトップ プロジェクト テンプレート用の WinUI 3 を使用するには、[こちら](index.md#install-winui-3-preview-4)の手順に従って開発用コンピューターを構成し、WinUI 3 Preview 4 をインストールします。
+この記事で説明されている デスクトップ 用の WinUI 3 プロジェクト テンプレートを使用するには、開発用コンピューターを構成して、[Project Reunion 0.5 Preview をインストール](../../project-reunion/index.md#set-up-your-development-environment)します。
 
 ## <a name="create-a-winui-3-desktop-app-for-c-and-net-5"></a>C# および .NET 5 用の WinUI 3 デスクトップ アプリを作成する
 
@@ -35,7 +37,7 @@ WinUI 3 Preview 4 には、全面的に WinUI ベースのユーザー インタ
 
 4. プロジェクト名を入力し、必要に応じてその他のオプションを選択して、 **[作成]** をクリックします。
 
-5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1803 (ビルド 17134) に設定し、 **[OK]** をクリックします。
+5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1809 (ビルド 17763) に設定し、 **[OK]** をクリックします。
 
     ![ターゲットおよび最小バージョン](images/WinUI-min-target-version.png)
 
@@ -67,7 +69,7 @@ WinUI 3 Preview 4 には、全面的に WinUI ベースのユーザー インタ
 
 4. プロジェクト名を入力し、必要に応じてその他のオプションを選択して、 **[作成]** をクリックします。
 
-5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1803 (ビルド 17134) に設定し、 **[OK]** をクリックします。
+5. 次のダイアログ ボックスで、 **[ターゲット バージョン]** を Windows 10 バージョン 1903 (ビルド 18362) に、 **[最小バージョン]** を Windows 10 バージョン 1809 (ビルド 17763) に設定し、 **[OK]** をクリックします。
 
     ![ターゲットおよび最小バージョン](images/WinUI-min-target-version.png)
 
@@ -113,8 +115,8 @@ WinUI デスクトップ アプリで複数の言語をサポートし、パッ�
 
 ## <a name="known-issues-and-limitations"></a>既知の問題と制限事項
 
-「[Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](index.md)」の「[制限事項と既知の問題](index.md#limitations-and-known-issues)」のセクションを参照してください。
+「[Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)](index.md)」の「[制限事項と既知の問題](index.md#limitations-and-known-issues)」のセクションを参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Windows UI ライブラリ 3 Preview 4 (2021 年 2 月)](index.md)
+- [Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)](index.md)

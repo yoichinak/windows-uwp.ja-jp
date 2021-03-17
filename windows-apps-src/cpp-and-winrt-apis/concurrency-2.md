@@ -5,12 +5,12 @@ ms.date: 07/23/2019
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、同時実行、非同期、非同期、非同期操作
 ms.localizationpriority: medium
-ms.openlocfilehash: e916465d664b5658eeb155874dfa00795a772622
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: d5dc755fbb5247c47cd0acd8a3e1f3147f061ccf
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170396"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784653"
 ---
 # <a name="more-advanced-concurrency-and-asynchrony-with-cwinrt"></a>C++/WinRT でのより高度な同時実行操作と非同期操作
 
@@ -92,7 +92,7 @@ IAsyncAction DoWorkAsync(TextBlock textblock)
 
 ## <a name="execution-contexts-resuming-and-switching-in-a-coroutine"></a>実行コンテキスト、再開、およびコルーチンでの切り替え
 
-大まかに言えば、コルーチン内の一時停止ポイントの後に、実行の元のスレッドが消えて、いずれかのスレッドで再開が発生する場合があります (つまり、いずれかのスレッドで非同期操作のために**完了した**メソッドが呼び出されることがあります)。
+大まかに言えば、コルーチン内の一時停止ポイントの後に、実行の元のスレッドが消えて、いずれかのスレッドで再開が発生する場合があります (つまり、いずれかのスレッドで非同期操作のために **完了した** メソッドが呼び出されることがあります)。
 
 ただし、4 つの Windows ランタイムの非同期操作型 (**IAsyncXxx**) のいずれかを `co_await` する場合、`co_await` するポイントで呼び出し元コンテキストが C++/WinRT によってキャプチャされます。 また、継続が再開されたときに、引き続きそのコンテキストにいることが保証されます。 C++/WinRT では、ユーザーが呼び出し元コンテキストに既にいるかどうかが確認され、いない場合はそれに切り替えられることでこれが行われます。 `co_await` の前にシングル スレッド アパートメント (STA) スレッドにいた場合は、その後も同じスレッドにいることになり、`co_await` の前にマルチ スレッド アパートメント (MTA) スレッドにいた場合は、その後もそこにいることになります。
 
@@ -148,7 +148,7 @@ IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /
 }
 ```
 
-このシナリオでは、**StorageFile::OpenAsync** の呼び出しが少々非効率的です。 C++/WinRT が UI スレッドのコンテキストを復元した後の再開時に、(ハンドラーが実行を呼び出し元に返せるように) バックグラウンド スレッドへの必要なコンテキスト スイッチがあります。 ただし、この場合は、UI を更新する寸前まで UI スレッド上に存在する必要はありません。 **winrt::resume_background** を呼び出す*前に*、呼び出す Windows ランタイム API の数が多くなるほど、不要な前後のコンテキスト スイッチが多く発生します。 解決策は、その前に、Windows ランタイム API を*一切*呼び出さないことです。 それらをすべて **winrt::resume_background** の後に移動します。
+このシナリオでは、**StorageFile::OpenAsync** の呼び出しが少々非効率的です。 C++/WinRT が UI スレッドのコンテキストを復元した後の再開時に、(ハンドラーが実行を呼び出し元に返せるように) バックグラウンド スレッドへの必要なコンテキスト スイッチがあります。 ただし、この場合は、UI を更新する寸前まで UI スレッド上に存在する必要はありません。 **winrt::resume_background** を呼び出す *前に*、呼び出す Windows ランタイム API の数が多くなるほど、不要な前後のコンテキスト スイッチが多く発生します。 解決策は、その前に、Windows ランタイム API を *一切* 呼び出さないことです。 それらをすべて **winrt::resume_background** の後に移動します。
 
 ```cppwinrt
 IAsyncAction MainPage::ClickHandler(IInspectable /* sender */, RoutedEventArgs /* args */)
@@ -314,7 +314,7 @@ winrt::fire_and_forget RunAsync(DispatcherQueue queue)
 }
 ```
 
-**winrt::resume_foreground** の呼び出しにより常に*キュー処理*され、その後、スタックがアンワインドされます。 必要に応じて、再開の優先順位を設定することもできます。
+**winrt::resume_foreground** の呼び出しにより常に *キュー処理* され、その後、スタックがアンワインドされます。 必要に応じて、再開の優先順位を設定することもできます。
 
 ```cppwinrt
 winrt::fire_and_forget RunAsync(DispatcherQueue queue)
@@ -558,32 +558,39 @@ IAsyncOperationWithProgress<double, double> CalcPiTo5DPs()
 
     co_await 1s;
     double pi_so_far{ 3.1 };
+    progress.set_result(pi_so_far);
     progress(0.2);
 
     co_await 1s;
     pi_so_far += 4.e-2;
+    progress.set_result(pi_so_far);
     progress(0.4);
 
     co_await 1s;
     pi_so_far += 1.e-3;
+    progress.set_result(pi_so_far);
     progress(0.6);
 
     co_await 1s;
     pi_so_far += 5.e-4;
+    progress.set_result(pi_so_far);
     progress(0.8);
 
     co_await 1s;
     pi_so_far += 9.e-5;
+    progress.set_result(pi_so_far);
     progress(1.0);
+
     co_return pi_so_far;
 }
 
 IAsyncAction DoMath()
 {
     auto async_op_with_progress{ CalcPiTo5DPs() };
-    async_op_with_progress.Progress([](auto const& /* sender */, double progress)
+    async_op_with_progress.Progress([](auto const& sender, double progress)
     {
-        std::wcout << L"CalcPiTo5DPs() reports progress: " << progress << std::endl;
+        std::wcout << L"CalcPiTo5DPs() reports progress: " << progress << L". "
+                   << L"Value so far: " << sender.GetResults() << std::endl;
     });
     double pi{ co_await async_op_with_progress };
     std::wcout << L"CalcPiTo5DPs() is complete !" << std::endl;
@@ -597,8 +604,15 @@ int main()
 }
 ```
 
+進行状況を報告するには、進行状況の値を引数として使用して、進行状況トークンを呼び出します。 暫定的な結果を設定するには、進行状況トークンに対して `set_result()` メソッドを使用します。
+
 > [!NOTE]
-> 非同期アクションまたは操作に、複数の*完了ハンドラー*を実装するのは誤りです。 完了したイベントに対して 1 つのデリゲートを持つか、それを `co_await` することができます。 両方ある場合、2 つ目は失敗します。 同じ非同期オブジェクトには次の 2 種類の完了ハンドラーの両方ではなく、いずれか 1 つが適切です。
+> 暫定的な結果を報告するためには、C++/WinRT バージョン 2.0.210309.3 以降が必要です。
+
+上の例では、すべての進行状況レポートに対して暫定的な結果を設定することを選択しています。 いつでも暫定的な結果をレポートするように選択できます。 進行状況レポートと対にする必要はありません。
+
+> [!NOTE]
+> 非同期アクションまたは操作に、複数の *完了ハンドラー* を実装するのは誤りです。 完了したイベントに対して 1 つのデリゲートを持つか、それを `co_await` することができます。 両方ある場合、2 つ目は失敗します。 同じ非同期オブジェクトには次の 2 種類の完了ハンドラーの両方ではなく、いずれか 1 つが適切です。
 
 ```cppwinrt
 auto async_op_with_progress{ CalcPiTo5DPs() };
@@ -670,7 +684,7 @@ IAsyncAction Async(HANDLE event)
 
 受信 **HANDLE** は関数によって返されるまでのみ有効で、この関数 (コルーチン) によって最初の中断ポイント (この場合は最初の `co_await`) で返されます。 **DoWorkAsync** の待機中に制御が呼び出し元に返されて呼び出しフレームが範囲外になっているため、コルーチンの再開時にハンドルが有効になるかどうかがわからなくなります。
 
-厳密に言えば、コルーチンは、必要に応じてそのパラメーターを値によって受け取ります (前述の「[パラメーターの引き渡し](concurrency.md#parameter-passing)」を参照)。 ただし、この場合は、そのガイダンスの*主旨* (単なる文字ではなく) に従うように、一歩先まで踏み込む必要があります。 ハンドルと共に、強参照 (つまり、所有権) を渡す必要があります。 以下にその方法を示します。
+厳密に言えば、コルーチンは、必要に応じてそのパラメーターを値によって受け取ります (前述の「[パラメーターの引き渡し](concurrency.md#parameter-passing)」を参照)。 ただし、この場合は、そのガイダンスの *主旨* (単なる文字ではなく) に従うように、一歩先まで踏み込む必要があります。 ハンドルと共に、強参照 (つまり、所有権) を渡す必要があります。 以下にその方法を示します。
 
 ```cppwinrt
 IAsyncAction Async(winrt::handle event)

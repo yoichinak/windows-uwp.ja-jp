@@ -1,6 +1,6 @@
 ---
-title: Windows での Python の使用についてよく寄せられる質問
-description: Windows での Python を使用した開発に関してよく寄せられる質問 (FAQ) に対する回答をご覧ください。
+title: Windows 10 での Python の使用に関する FAQ
+description: 開発のための Windows での Python の使用についてよく寄せられる質問 (FAQ) に対する回答を確認することにより、役立つ情報が得られます。
 author: mattwojo
 ms.author: mattwoj
 manager: jken
@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, windows 10, microsoft, pip, py.exe, ファイル パス, PYTHONPATH, python 開発, python パッケージ化
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: 7bc1d159bac5ebc9877db5d879b6acd82c51079b
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 49ff3d506835555ed5be598419a5cbf13f46cdf9
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823556"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254496"
 ---
 # <a name="frequently-asked-questions-about-using-python-on-windows"></a>Windows での Python の使用についてよく寄せられる質問
 

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 keywords: windows win32, デスクトップ開発
-ms.openlocfilehash: 62567b36d16e01fc6091f9514137c60dc352942a
-ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
+ms.openlocfilehash: 11605902b334025c50847103e2de9b10e49c3a0f
+ms.sourcegitcommit: 432cc11c460e9ddf855d28bcd59852741408c823
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534381"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102474842"
 ---
 # <a name="choose-your-windows-app-platform"></a>Windows アプリ プラットフォームの選択
 
@@ -23,9 +23,9 @@ Windows PC 用の新しいデスクトップ アプリケーションを作成�
 * [WPF](#wpf) と [Windows フォーム](#windows-forms): これらの .NET ベースのプラットフォームには、マネージド アプリケーションに共通の型システム、API、およびアプリケーション モデルが用意されています。
 * [Win32](#win32): これは、Windows とハードウェアへの直接アクセスを必要とするネイティブ C/C++ の Windows アプリケーション向けの最初のプラットフォームです。 これにより、Win32 API 最高レベルのパフォーマンスとシステム ハードウェアへの直接アクセスを必要とするアプリケーションに適したプラットフォームになっています。
 
-これらの各プラットフォームには、一連の UI フレームワークおよび UI コントロールが備わっています。それを使用すると、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、この各プラットフォームで [Windows UI ライブラリ (WinUI)](#use-the-windows-ui-library-with-windows-apps) を使用したユーザー インターフェイスの作成がサポートされています。
+これらの各プラットフォームには、一連の UI フレームワークおよび UI コントロールが備わっています。それを使用すると、従来の Windows デスクトップで実行される Word、Excel、Photoshop などのデスクトップ アプリを作成し、その環境固有の機能を最大限に活用できます。 Windows 10 では、これらのプラットフォームそれぞれで、[Windows UI ライブラリ (WinUI)](#use-the-windows-ui-library-with-windows-apps) を使用したユーザー インターフェイスの作成がサポートされています。
 
-これらのプラットフォームの一部はいくつかの特徴を共有し、特定の種類のアプリケーションにより適しています。 たとえば、UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
+これらのプラットフォームの一部は一定の特徴を共有しているので、特定の種類のアプリケーションにより適しています。 たとえば、UWP と .NET はどちらも Visual Studio と緊密に統合されています。 これには、特に開発者の生産性、洗練されたカスタマイズ可能な UI、アプリケーションのセキュリティの領域において、多くの利点があります。 これらのフレームワークは、UI を迅速に作成するためのビジュアル デザイナーと UI マークアップをサポートしているため、基幹業務アプリケーションに特に適しています。
 
 > [!NOTE]
 > どのアプリ プラットフォームを選択しても、Windows 10 の多くの機能を使用して、アプリで最新のエクスペリエンスを実現できます。 たとえば、デスクトップ アプリが WPF、Windows フォーム、または Win32 API を使用して構築されている場合でも、MSIX パッケージの展開を引き続き利用できます。 デスクトップ アプリを現代化するためのすべての方法の詳細については、「[デスクトップ アプリの現代化](modernize/index.md)」を参照してください。

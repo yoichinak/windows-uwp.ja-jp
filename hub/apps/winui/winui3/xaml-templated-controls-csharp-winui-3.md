@@ -1,19 +1,19 @@
 ---
 description: この記事では、C# で WinUI 3 の XAML テンプレート コントロールを作成する手順について説明します。
 title: C# を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
-ms.date: 09/11/2020
+ms.date: 03/05/2021
 ms.topic: article
 keywords: Windows 10, UWP, カスタム コントロール, テンプレート コントロール, WinUI
 ms.author: drewbat
 author: drewbatgit
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 618bfc5a9937d29c546dc9420a1cba1c25fcc0ea
-ms.sourcegitcommit: aabd6f40df6cc82bb8ce3a43275e4abd568c236f
+ms.openlocfilehash: 3caadca2c6aae1ecceed534f9d9597f126310f3d
+ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92061700"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102254628"
 ---
 # <a name="templated-xaml-controls-for-winui-3-apps-with-c"></a>C# を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
 
@@ -29,11 +29,11 @@ ms.locfileid: "92061700"
 
 ## <a name="add-a-templated-control-to-your-app"></a>テンプレート コントロールをアプリに追加する
 
-テンプレート コントロールを追加するには、ツールバーの **[プロジェクト]** メニューをクリックするか、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[新しい項目の追加]** を選択します。 **[Visual C#] -> [WinUI]** の下で、 **[カスタム コントロール (WinUI)]** テンプレートを選択します。 新しいコントロールに "BgLabelControl" という名前を指定し、 *[追加]* をクリックします。 これにより、2 つの新しいファイルがプロジェクトに追加されます。 `BgLabelControl.cs` には、コントロールのコードビハインドが含まれます。 
+テンプレート コントロールを追加するには、ツールバーの **[プロジェクト]** メニューをクリックするか、**ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[新しい項目の追加]** を選択します。 **[Visual C#] -> [WinUI]** の下で、 **[カスタム コントロール (WinUI)]** テンプレートを選択します。 新しいコントロールに "BgLabelControl" という名前を指定し、 *[追加]* をクリックします。 
 
-## <a name="update-the-code-behind-file"></a>コードビハインド ファイルを更新する
+## <a name="update-the-custom-control-c-file"></a>カスタム コントロール C# ファイルを更新する
 
-コード ビハンド ファイル BgLabelControl.xaml.cs では、コンストラクターによってコントロールの **DefaultStyleKey** プロパティが定義されていることに注意してください。 このキーでは、コントロールのコンシューマーがテンプレートを明示的に指定していない場合に使用される既定のテンプレートを識別します。 今作成しているコントロールの場合、キーの値は "*type*" です。 このキーは、後で汎用テンプレート ファイルを実装するときに使用します。
+C# ファイルの BgLabelControl.cs では、コンストラクターによってコントロールの **DefaultStyleKey** プロパティが定義されていることに注意してください。 このキーでは、コントロールのコンシューマーがテンプレートを明示的に指定していない場合に使用される既定のテンプレートを識別します。 今作成しているコントロールの場合、キーの値は "*type*" です。 このキーは、後で汎用テンプレート ファイルを実装するときに使用します。
 
 ```csharp
 public BgLabelControl()
@@ -85,9 +85,9 @@ private static void OnLabelChanged(DependencyObject d, DependencyPropertyChanged
 依存関係プロパティのしくみについて詳しくは、「[依存関係プロパティの概要](/windows/uwp/xaml-platform/dependency-properties-overview)」をご覧ください。
 
 ## <a name="define-the-default-style-for-bglabelcontrol"></a>BgLabelControl の既定のスタイルを定義する
-テンプレート コントロールでは、コントロールのユーザーが明示的にスタイルを設定しない場合に使用される既定のスタイル テンプレートを提供する必要があります。 このステップでは、コントロールの汎用テンプレート ファイルを作成します。
+テンプレート コントロールでは、コントロールのユーザーが明示的にスタイルを設定しない場合に使用される既定のスタイル テンプレートを提供する必要があります。 このステップでは、コントロールの汎用テンプレート ファイルに変更を加えます。
 
-(**ソリューション エクスプローラー**で) **[すべてのファイルを表示]** がまだオンになっていることを確認します。 プロジェクト ノードで、新しいフォルダーを作成し、"Themes" という名前を付けます。 `Themes` の下に、種類が **[Visual C#] > [XAML] > [リソース ディクショナリ (WinUI)]** である新しい項目を追加し、"Generic.xaml" という名前を付けます。 XAML フレームワークでテンプレート コントロールの既定のスタイルを検出するために、フォルダーとファイルの名前をこのようにする必要があります。 Generic.xaml の既定のコンテンツを削除し、以下のマークアップを貼り付けます。
+汎用テンプレート ファイルは、**カスタム コントロール (WinUI)** をアプリに追加するときに生成されます。 ファイルの名前は "Generic.xaml" で、ソリューション エクスプローラーの **[テーマ]** フォルダー内に生成されます。 XAML フレームワークでテンプレート コントロールの既定のスタイルを検出するために、フォルダーとファイルの名前が必要です。 Generic.xaml の既定のコンテンツを削除し、以下のマークアップを貼り付けます。
 
 
 

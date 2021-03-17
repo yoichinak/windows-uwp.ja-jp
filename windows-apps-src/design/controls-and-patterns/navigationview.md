@@ -1,6 +1,6 @@
 ---
 description: NavigationView は、ご利用のアプリの最上位のナビゲーション パターンを実装するアダプティブ コントロールです。
-title: ナビゲーション ビュー
+title: NavigationView
 template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
@@ -14,19 +14,19 @@ ms.custom: RS5
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: af52032a0ebdf60e72f8bad0dd853696b717a05a
-ms.sourcegitcommit: 9bd23e0e08ed834accebde4db96fc87f921d983d
+ms.openlocfilehash: 4da8d370c76f18b243930bb478bc28975d6444a9
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98949145"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784863"
 ---
-# <a name="navigation-view"></a>ナビゲーション ビュー
+# <a name="navigationview"></a>NavigationView
 
 NavigationView コントロールでは、ご利用のアプリの最上位のナビゲーションが提供されます。 これは、さまざまな画面サイズに適応し、_上部_ のナビゲーション スタイルと _左側_ のナビゲーション スタイルの両方をサポートしています。
 
 ![上部のナビゲーション](images/nav-view-header.png)<br/>
-_ナビゲーション ビューでは上部と左側の両方のナビゲーションのウィンドウまたはメニューがサポートされます_
+_NavigationView では、上部と左側の両方のナビゲーション ペインやナビゲーション メニューがサポートされます_
 
 **Windows UI ライブラリを入手する**
 
@@ -138,19 +138,19 @@ PaneDisplayMode プロパティを使用すれば、NavigationView でさまざ�
 
 ### <a name="auto"></a>自動
 
-既定では、PaneDisplayMode は Auto に設定されます。自動モードでは、ナビゲーション ビューは、ウィンドウが狭いときは LeftMinimal または LeftCompact となり、ウィンドウが広くなると Left に切り替わります。 詳細については、「[アダプティブ動作](#adaptive-behavior)」セクションを参照してください。
+既定では、PaneDisplayMode は Auto に設定されます。自動モードでは、NavigationView は、ウィンドウが狭いときの LeftMinimal から LeftCompact までの間で適応し、ウィンドウが広くなると Left に適応します。 詳細については、「[アダプティブ動作](#adaptive-behavior)」セクションを参照してください。
 
 ![左側のナビゲーションの既定のアダプティブ動作](images/displaymode-auto.png)<br/>
-_ナビゲーション ビューの既定のアダプティブ動作_
+_NavigationView の既定のアダプティブ動作_
 
 ## <a name="anatomy"></a>構造
 
 これらのイメージは、_上部_ または _左側_ のナビゲーションが構成されている場合の、ウィンドウ、ヘッダー、およびコントロールのコンテンツ領域のレイアウトを示します。
 
-![上部のナビゲーション ビューのレイアウト](images/topnav-anatomy.png)<br/>
+![上部の NavigationView レイアウト](images/topnav-anatomy.png)<br/>
 _上部のナビゲーションのレイアウト_
 
-![左側のナビゲーション ビューのレイアウト](images/leftnav-anatomy.png)<br/>
+![左側の NavigationView レイアウト](images/leftnav-anatomy.png)<br/>
 _左側のナビゲーションのレイアウト_
 
 ### <a name="pane"></a>ウィンドウ
@@ -169,13 +169,13 @@ NavigationView ウィンドウには、次のものを含めることができ�
 
 - ウィンドウの開閉を切り替えるメニュー ボタン。 [IsPaneToggleButtonVisible](/uwp/api/windows.ui.xaml.controls.navigationview.IsPaneToggleButtonVisible) プロパティを使うと、ウィンドウが開いたとき、大きなアプリ ウィンドウで、このボタンを非表示にすることを選択できます。
 
-ナビゲーション ビューには、ウィンドウの左上隅に配置された [戻る] ボタンがあります。 ただし、これを使用しても、後方ナビゲーションの処理と、バック スタックへのコンテンツの追加は自動的には行われません。 前に戻る処理を有効にするには、「[後方ナビゲーション](#backwards-navigation)」セクションを参照してください。
+NavigationView ナビゲーション ビューには、ペインの左上隅に配置された [戻る] ボタンがあります。 ただし、これを使用しても、後方ナビゲーションの処理と、バック スタックへのコンテンツの追加は自動的には行われません。 前に戻る処理を有効にするには、「[後方ナビゲーション](#backwards-navigation)」セクションを参照してください。
 
 ウィンドウが上部または左側に配置された場合の詳細なウィンドウ構造を以下に示します。
 
 #### <a name="top-navigation-pane"></a>上部のナビゲーションのウィンドウ
 
-![ナビゲーション ビューの上部のウィンドウの構造](images/navview-pane-anatomy-horizontal.png)
+![NavigationView の上部ペインの構造](images/navview-pane-anatomy-horizontal.png)
 
 1. ヘッダー
 1. ナビゲーション項目
@@ -185,7 +185,7 @@ NavigationView ウィンドウには、次のものを含めることができ�
 
 #### <a name="left-navigation-pane"></a>左側のナビゲーションのウィンドウ
 
-![ナビゲーション ビューの左側のウィンドウの構造](images/navview-pane-anatomy-vertical.png)
+![NavigationView の左側ペインの構造](images/navview-pane-anatomy-vertical.png)
 
 1. メニュー ボタン
 1. ナビゲーション項目
@@ -260,8 +260,8 @@ PaneTitle と PaneHeader の両方を設定した場合、コンテンツはメ�
 
 [Header](/uwp/api/windows.ui.xaml.controls.navigationview.header) プロパティを設定することで、ページのタイトルを追加できます。
 
-![ナビゲーション ビューのヘッダー領域の例](images/nav-header.png)<br/>
-_ナビゲーション ビューのヘッダー_
+![NavigationView のヘッダー領域の例](images/nav-header.png)<br/>
+_NavigationView のヘッダー_
 
 ヘッダー領域は、左側のウィンドウ位置では移動ボタンともに垂直方向に揃えられ、上部のウィンドウ位置ではウィンドウの下に置かれます。 その高さは、52 ピクセルで固定です。 これは、選択されたナビゲーション カテゴリのページ タイトルを保持するためです。 ヘッダーはページ上部に固定され、コンテンツ領域のスクロール クリッピング ポイントとして機能します。
 
@@ -269,8 +269,8 @@ _ナビゲーション ビューのヘッダー_
 
 ### <a name="content"></a>コンテンツ
 
-![ナビゲーション ビューのコンテンツ領域の例](images/nav-content.png)<br/>
-_ナビゲーション ビューのコンテンツ_
+![NavigationView のコンテンツ領域の例](images/nav-content.png)<br/>
+_NavigationView のコンテンツ_
 
 コンテンツ領域には、選んだナビゲーション カテゴリのほとんどの情報が表示されます。
 
@@ -278,7 +278,7 @@ NavigationView が **Minimal** モードの場合はコンテンツ領域に 12 
 
 ## <a name="adaptive-behavior"></a>アダプティブ動作
 
-既定では、ナビゲーション ビューは、利用可能な画面領域の大きさに基づいて自動的に表示モードが変わります。 [CompactModeThresholdWidth](/uwp/api/windows.ui.xaml.controls.navigationview.compactmodethresholdwidth) プロパティおよび [ExpandedModeThresholdWidth](/uwp/api/windows.ui.xaml.controls.navigationview.expandedmodethresholdwidth) プロパティでは、表示モードが変更されるブレークポイントが指定されます。 これらの値を変更することで、アダプティブ表示モードの動作をカスタマイズできます。
+既定では、利用可能な画面領域の大きさに基づいて、自動的に NavigationView の表示モードが変化します。 [CompactModeThresholdWidth](/uwp/api/windows.ui.xaml.controls.navigationview.compactmodethresholdwidth) プロパティおよび [ExpandedModeThresholdWidth](/uwp/api/windows.ui.xaml.controls.navigationview.expandedmodethresholdwidth) プロパティでは、表示モードが変更されるブレークポイントが指定されます。 これらの値を変更することで、アダプティブ表示モードの動作をカスタマイズできます。
 
 ### <a name="default"></a>既定
 
@@ -291,7 +291,7 @@ PaneDisplayMode を既定値である **Auto** に設定すると、アダプテ
 アダプティブ動作に対応するウィンドウ サイズの詳細については、「[画面のサイズとブレークポイント](../layout/screen-sizes-and-breakpoints-for-responsive-design.md)」を参照してください。
 
 ![左側のナビゲーションの既定のアダプティブ動作](images/displaymode-auto.png)<br/>
-_ナビゲーション ビューの既定のアダプティブ動作_
+_NavigationView の既定のアダプティブ動作_
 
 ### <a name="minimal"></a>最小
 
@@ -303,7 +303,7 @@ _ナビゲーション ビューの既定のアダプティブ動作_
 - アイコンでは、ナビゲーション カテゴリを明確に表すことができない。
 
 ![左側のナビゲーションの最小アダプティブ動作](images/adaptive-behavior-minimal.png)<br/>
-_ナビゲーション ビューの "最小" アダプティブ動作_
+_NavigationView の "最小" アダプティブ動作_
 
 この動作を設定するには、ウィンドウを折りたたむときの幅を CompactModeThresholdWidth に設定します。 ここでは、既定の 640 から 1007 に変更されています。 また、値が競合しないように ExpandedModeThresholdWidth を設定する必要があります。
 
@@ -321,7 +321,7 @@ _ナビゲーション ビューの "最小" アダプティブ動作_
 - アイコンで、ナビゲーション カテゴリを明確に表すことができる。
 
 ![左側のナビゲーションのコンパクト アダプティブ動作](images/adaptive-behavior-compact.png)<br/>
-_ナビゲーション ビューの "コンパクト" アダプティブ動作_
+_NavigationView の "コンパクト" アダプティブ動作_
 
 この動作を構成するには、CompactModeThresholdWidth を 0 に設定します。
 
@@ -334,7 +334,7 @@ _ナビゲーション ビューの "コンパクト" アダプティブ動作_
 自動アダプティブ動作を無効にするには、PaneDisplayMode を Auto 以外の値に設定します。ここでは、LeftMinimal に設定されているので、ウィンドウの幅に関係なくメニュー ボタンのみが表示されます。
 
 ![左側のナビゲーションのアダプティブ動作なし](images/adaptive-behavior-none.png)<br/>
-_PaneDisplayMode が LeftMinimal に設定されたナビゲーション ビュー_
+_PaneDisplayMode が LeftMinimal に設定された NavigationView_
 
 ```xaml
 <NavigationView PaneDisplayMode="LeftMinimal" />
@@ -384,13 +384,13 @@ _PaneDisplayMode が LeftMinimal に設定されたナビゲーション ビュ�
 ```
 
 > [!TIP]
-> AdaptiveTrigger.MinWindowWidth を使用すると、ウィンドウの幅が指定された最小幅よりも広くなったときに表示状態がトリガーされます。 つまり、既定の XAML によって狭いウィンドウが定義され、VisualState によってウィンドウが広くなったときに適用する変更が定義されます。 ナビゲーション ビューの既定の PaneDisplayMode は Auto です。したがって、ウィンドウの幅が CompactModeThresholdWidth 以下である場合は、LeftMinimal ナビゲーションが使用されます。 ウィンドウが広くなると、VisualState によって既定値がオーバーライドされ、Top ナビゲーションが使用されます。
+> AdaptiveTrigger.MinWindowWidth を使用すると、ウィンドウの幅が指定された最小幅よりも広くなったときに表示状態がトリガーされます。 つまり、既定の XAML によって狭いウィンドウが定義され、VisualState によってウィンドウが広くなったときに適用する変更が定義されます。 NavigationView の既定の PaneDisplayMode は Auto なので、ウィンドウの幅が CompactModeThresholdWidth 以下のときは LeftMinimal ナビゲーションが使用されます。 ウィンドウが広くなると、VisualState によって既定値がオーバーライドされ、Top ナビゲーションが使用されます。
 
 ## <a name="navigation"></a>［ナビゲーション］
 
-ナビゲーション ビューではナビゲーション タスクは自動的に実行されません。 ユーザーがナビゲーション項目をタップすると、ナビゲーション ビューではその項目が選択済みとして表示され、[ItemInvoked](/uwp/api/windows.ui.xaml.controls.navigationview.ItemInvoked) イベントが発生します。 タップによって新しい項目が選択されると、[SelectionChanged](/uwp/api/windows.ui.xaml.controls.navigationview.SelectionChanged) イベントも発生します。
+NavigationView では、どのナビゲーション タスクも自動的に実行されません。 ユーザーがナビゲーション項目をタップすると、NavigationView ではその項目が選択済みとして表示され、[ItemInvoked](/uwp/api/windows.ui.xaml.controls.navigationview.ItemInvoked) イベントが発生します。 タップによって新しい項目が選択されると、[SelectionChanged](/uwp/api/windows.ui.xaml.controls.navigationview.SelectionChanged) イベントも発生します。
 
-どちらのイベントを処理しても、要求されたナビゲーションに関連するタスクを実行できます。 どちらを処理する必要があるかは、ご利用のアプリに求める動作によって異なります。 通常は、要求されたページに移動し、これらのイベントに応じてナビゲーション ビューのヘッダーを更新します。
+どちらのイベントを処理しても、要求されたナビゲーションに関連するタスクを実行できます。 どちらを処理する必要があるかは、ご利用のアプリに求める動作によって異なります。 通常は、要求されたページに移動し、これらのイベントに応じて NavigationView のヘッダーを更新します。
 
 **ItemInvoked** は、ユーザーがナビゲーション項目をタップするたびに、それが既に選択されている場合でも発生します。 (項目は、マウス、キーボード、またはその他の入力を使用して同等の操作で呼び出すこともできます。 詳細については、「[入力と操作](../input/index.md)」を参照してください)。ItemInvoked ハンドラー内を移動すると、既定ではページが再読み込みされ、重複エントリがナビゲーション スタックに追加されます。 項目が呼び出されたときに移動する場合は、ページの再読み込みを禁止するか、またはページが再読み込みされるときにナビゲーション バックスタック内に重複エントリが決して作成されないようにする必要があります。 (コード例を参照してください)。
 
@@ -402,7 +402,7 @@ _PaneDisplayMode が LeftMinimal に設定されたナビゲーション ビュ�
 
 NavigationView には組み込みの [戻る] ボタンがありますが、前方ナビゲーションと同様に、後方ナビゲーションは自動的には実行されません。 ユーザーが [戻る] ボタンをタップすると、[BackRequested](/uwp/api/windows.ui.xaml.controls.navigationview.BackRequested) イベントが発生します。 このイベントを処理して、後方ナビゲーションを実行します。 詳細については、[ナビゲーション履歴と後方ナビゲーション](../basics/navigation-history-and-backwards-navigation.md)に関するページを参照してください。
 
-Minimal モードまたは Compact モードでは、ナビゲーション ビュー ウィンドウはポップアップとして開きます。 この場合、[戻る] ボタンをクリックすると、ウィンドウが閉じられ、代わりに **PaneClosing** イベントが発生します。
+Minimal モードまたは Compact モードでは、NavigationView ペインはポップアップとして開きます。 この場合、[戻る] ボタンをクリックすると、ウィンドウが閉じられ、代わりに **PaneClosing** イベントが発生します。
 
 以下のプロパティを設定することで、[戻る] ボタンを非表示または無効にすることができます。
 
@@ -411,11 +411,11 @@ Minimal モードまたは Compact モードでは、ナビゲーション ビ�
 
 :::row:::
     :::column:::
-        ![左側のナビゲーション ウィンドウのナビゲーション ビューの [戻る] ボタン](images/leftnav-back.png)<br/>
+        ![左側のナビゲーション ペインの NavigationView の [戻る] ボタン](images/leftnav-back.png)<br/>
         _左側のナビゲーション ウィンドウの [戻る] ボタン_
     :::column-end:::
     :::column:::
-        ![上部ナビゲーション ウィンドウのナビゲーション ビューの [戻る] ボタン](images/topnav-back.png)<br/>
+        ![上部ナビゲーション ペインの NavigationView の [戻る] ボタン](images/topnav-back.png)<br/>
         _上部ナビゲーション ウィンドウの [戻る] ボタン_
     :::column-end:::
 :::row-end:::
@@ -1651,7 +1651,7 @@ MainPage::MainPage()
 
 ### <a name="keyboarding-within-hierarchical-navigationview"></a>階層型 NavigationView 内でのキーボード操作
 
-ユーザーは、[キーボード](../input/keyboard-interactions.md)を使用してナビゲーション ビューの周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](./tree-view.md)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
+ユーザーは、[キーボード](../input/keyboard-interactions.md)を使用して NavigationView の周囲にフォーカスを移動できます。 方向キーはペイン内の "内部ナビゲーション" を表示し、[ツリー ビュー](./tree-view.md)でのアクションに従います。 キー アクションは、NavigationView 内を移動するとき、または HierarchicalNavigationView の Top および LeftCompact モードで表示されるポップアップ メニュー内を移動するときに変更されます。 階層型の NavigationView で各キーが実行できる特定のアクションを次に示します。
 
 | キー      |      Left モード      |  Top モード | ポップアップ  |
 |----------|------------------------|--------------|------------|
@@ -1666,7 +1666,7 @@ Space または Enter キーでは常に項目の呼び出しまたは選択を�
 
 \* 項目が視覚的に隣接している必要はありません。ペインの一覧の最後の項目にあるフォーカスは設定項目に移動します。 
 
-## <a name="navigation-view-customization"></a>ナビゲーション ビューのカスタマイズ
+## <a name="navigationview-customization"></a>NavigationView のカスタマイズ
 
 ### <a name="pane-backgrounds"></a>ウィンドウの背景
 

@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: f34e2a882746ac833d2b78373a96496c1f079864
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: ecb4f0dd59c5e48d348821c55ed33f2b27495da3
+ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034775"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102784833"
 ---
 # <a name="tabview"></a>TabView
 
@@ -34,7 +34,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
    :::column-end:::
 :::row-end:::
 
-> **Windows UI ライブラリ API** : [TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、 [TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
+> **Windows UI ライブラリ API**: [TabView クラス](/uwp/api/microsoft.ui.xaml.controls.tabview)、[TabViewItem クラス](/uwp/api/microsoft.ui.xaml.controls.tabviewitem)
 
 > [!TIP]
 > このドキュメントでは、XAML で **muxc** エイリアスを使って、プロジェクトに含めた Windows UI Library API を表します。 [Page](/uwp/api/windows.ui.xaml.controls.page) 要素にこれを追加しました。`xmlns:muxc="using:Microsoft.UI.Xaml.Controls"`
@@ -43,7 +43,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
-一般に、タブ付き UI は、機能と外観が異なる 2 種類のスタイルのいずれかで提供されます。 **静的タブ** は、設定ウィンドウでよく見られるタブの種類です。 通常、内容があらかじめ定義されている固定順序の複数のページが含まれます。
+一般に、タブ付き UI は、機能と外観が異なる 2 種類のスタイルのいずれかで提供されます。**静的タブ** は、設定ウィンドウでよく見られるタブの種類です。 通常、内容があらかじめ定義されている固定順序の複数のページが含まれます。
 **ドキュメント タブ** は、Microsoft Edge のようなブラウザーで見られるタブの種類です。 ユーザーは、タブの作成、削除、再配置、ウィンドウ間でのタブの移動、タブの内容の変更を行うことができます。
 
 [TabView](/uwp/api/microsoft.ui.xaml.controls.tabview) では、UWP アプリ用のドキュメント タブが提供されています。 次のような場合は TabView を使用します。
@@ -52,7 +52,7 @@ TabView コントロールは、一連のタブとそれぞれの内容を表示
 - ユーザーが、ドキュメントや Web ページを直接タブで開くことができる。
 - ユーザーが、ウィンドウ間でタブをドラッグ アンド ドロップできる。
 
-TabView がアプリに適していない場合は、[Pivot](./pivot.md) や [NavigationView](./navigationview.md) などのコントロールの使用を検討してください。
+TabView がアプリに適していない場合は、[NavigationView](./navigationview.md) コントロールの使用を検討してください。
 
 ## <a name="anatomy"></a>構造
 
@@ -339,4 +339,3 @@ private void NavigateToNumberedTabKeyboardAccelerator_Invoked(KeyboardAccelerato
 
 - [MasterDetails](./master-details.md)
 - [NavigationView](./navigationview.md)
-- [ピボット](./pivot.md)
