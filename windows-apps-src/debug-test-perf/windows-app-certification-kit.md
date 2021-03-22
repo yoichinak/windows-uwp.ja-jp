@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: be02f9b049a1beb1866d21c97f11fe3efeb815f3
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: a8be8ff09b962456b70d604a6a44203ceddb8cbc
+ms.sourcegitcommit: 8bface2162e091999b1cf2218340edda2389da89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339350"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496689"
 ---
 # <a name="windows-app-certification-kit"></a>Windows アプリ認定キット
 
@@ -22,12 +22,36 @@ ms.locfileid: "94339350"
 ユニバーサル Windows アプリのテストの前提条件:
 
 - Windows 10 をインストールして実行する必要があります。
-- Windows 10 用 Windows ソフトウェア開発キット (Windows SDK) に含まれる [Windows アプリ認定キット](https://developer.microsoft.com/windows/downloads/app-certification-kit/)をインストールする必要があります。
+- Windows 10 用 Windows ソフトウェア開発キット (Windows SDK) に含まれる [Windows アプリ認定キット](https://developer.microsoft.com/windows/downloads/windows-10-sdk/)をインストールする必要があります。
 - [開発用にデバイスを有効にする](/windows/apps/get-started/enable-your-device-for-development)必要があります。
 - テストする Windows アプリをコンピューターに展開する必要があります。
 
 > [!NOTE]
 > **一括アップグレード:** より新しい [Windows アプリ認定キット](https://developer.microsoft.com/windows/develop/app-certification-kit)をインストールすると、以前にインストールされていたバージョンのキットがすべて置き換えられます。
+
+## <a name="whats-new"></a>新着情報
+
+このキットでは、Windows [デスクトップ ブリッジ アプリ](/windows/msix/desktop/source-code-overview)のテストがサポートされるようになりました。 [Windows デスクトップ ブリッジ アプリ テスト](/windows/uwp/debug-test-perf/windows-desktop-bridge-app-tests)を使用すると、作成したアプリを Microsoft Store に公開し、認定を取得できる可能性が最大限に高まります。
+
+キットは、自動テストに統合できるようになり、対話型ユーザー セッションは使用できなくなりました。
+
+アプリの事前起動の検証テストは、サポートされなくなりました。
+
+## <a name="known-issues"></a>既知の問題
+
+Windows アプリ認定キットの既知の問題を次に示します。
+
+テスト中、インストーラーが終了したものの、アクティブなプロセスまたはウィンドウが実行されたままになった場合、インストーラーが処理する必要のある作業がまだ残っていることがアプリ認定キットで検出されることがある。 この場合、キットで "インストール トレース ファイルの処理" タスクの実行に問題が発生しているように表示され、UI で前に進めなくなります。
+
+**解決方法:** インストーラーが完了したら、インストーラーによって生成されたアクティブなプロセスまたはウィンドウを手動で終了します。
+
+ARM UWA、またはデバイス ファミリ デスクトップまたは OneCore を対象としない UWA アプリの最終的なレポートに、"検証時に一部のテストが実行されませんでした。 Microsoft Store への提出に影響する可能性があります。" というメッセージが表示されることがある。 このメッセージは、ユーザーがテストを手動で選択解除しなかった場合には表示されません。
+
+**解決方法:** 該当なし
+
+Windows SDK バージョン 10.0.15063 を使用したデスクトップ ブリッジ アプリに対してアプリケーション マニフェストのリソース テストを行った場合に、イメージが予測サイズに適合しないことを示すエラーが発生しても、イメージと予測サイズの差異が 1 ピクセルのみであればそのエラーを無視してください。 このテストでは、本来、+/-1 ピクセルの許容誤差が想定されています。 例: 125% の小さいタイルは 89 x 89 px に切り上げた場合、88.75 x 88.75 px になります。サイズの制限である 88 x 88 px を超えます。
+
+**解決方法:** 該当なし
 
 ## <a name="validate-your-windows-app-using-the-windows-app-certification-kit-interactively"></a>Windows アプリ認定キットを使った Windows アプリをインタラクティブに検証する
 
@@ -89,5 +113,7 @@ Windows アプリ認定キットで使用するパフォーマンス テスト�
 
 ## <a name="related-topics"></a>関連トピック
 
+- [Windows アプリ認定キットの使用](/windows/win32/win_cert/using-the-windows-app-certification-kit)
+- [Windows デスクトップ アプリの認定要件](/windows/win32/win_cert/certification-requirements-for-windows-desktop-apps)
 - [Windows アプリ認定キットのテスト](windows-app-certification-kit-tests.md)
 - [Microsoft Store ポリシー](/legal/windows/agreements/store-policies)
