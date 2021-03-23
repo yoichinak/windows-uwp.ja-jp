@@ -8,12 +8,12 @@ keywords: windows 10, uwp
 pm-contact: stmoy
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: b676cf274121ae991066f908b18f1be705d1c580
-ms.sourcegitcommit: 77903451ae8ab1ba854494488f79184e674707df
+ms.openlocfilehash: 0b2bdb95c6383559899e6baf06c391bbd250f3ca
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97911012"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804986"
 ---
 # <a name="page-transitions"></a>ページ切り替え効果
 
@@ -95,11 +95,11 @@ myFrame.Navigate(typeof(Page2), null, new SuppressNavigationTransitionInfo());
 
 アニメーションの抑制は、[接続型アニメーション](connected-animation.md)または暗黙的な表示/非表示アニメーションを使用して独自の切り替え効果を作成している場合に役立ちます。
 
-## <a name="backwards-navigation"></a>逆方向のナビゲーション
+## <a name="backwards-navigation"></a>後方ナビゲーション
 
 `Frame.GoBack(NavigationTransitionInfo)` を使用して逆方向に移動するときに特定の切り替え効果を再生することができます。
 
-これは、たとえば応答性の高いマスター/詳細シナリオなど、画面サイズに基づいて移動動作を動的に変更する場合に役立ちます。
+これは、画面サイズに基づいてナビゲーション動作を動的に変更する場合に便利です。たとえば、応答性の高いリスト/詳細シナリオです。
 
 ## <a name="related-topics"></a>関連トピック
 

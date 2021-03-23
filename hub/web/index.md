@@ -7,12 +7,12 @@ manager: jken
 ms.topic: article
 keywords: web 開発、web 開発、windows 上の web、api、エッジ
 ms.date: 01/06/2021
-ms.openlocfilehash: 3149e49b258f970989df75b87300a2dce23ff1f2
-ms.sourcegitcommit: 5e40a6f8755aca1e97226ce8f85cda239bdcdad0
+ms.openlocfilehash: 98b5d1443869baec9dd46796088ff7b71521237d
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102259151"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804486"
 ---
 # <a name="web-development-on-windows-10"></a>Windows 10 での Web 開発
 
@@ -97,8 +97,8 @@ Microsoft では、Web 開発者向けにさまざまなリソースを提供し
         [CLI のインストール](https://webhint.io/docs/user-guide/)
     :::column-end:::
     :::column:::
-       [![WebDriver アイコン](../images/webdriver.png)](https://docs.microsoft.com/microsoft-edge/webdriver-chromium/)<br>
-        **[WebDriver](https://docs.microsoft.com/microsoft-edge/webdriver-chromium/)**<br>
+       [![WebDriver アイコン](../images/webdriver.png)](/microsoft-edge/webdriver-chromium/)<br>
+        **[WebDriver](/microsoft-edge/webdriver-chromium/)**<br>
         Microsoft WebDriver を使用して Microsoft Edge で web サイトのテストを自動化することにより、開発者サイクルのループを閉じます。<br>
         [WebDriver をインストールする](https://developer.microsoft.com/microsoft-edge/tools/webdriver/)
     :::column-end:::
@@ -204,11 +204,11 @@ Microsoft では、Web 開発者向けにさまざまなリソースを提供し
         [パフォーマンスの問題を提出する](https://github.com/microsoft/WinDev/issues)
     :::column-end:::
     :::column:::
-       [![docs アイコン](../images/docs.png)](https://docs.microsoft.com/contribute/)<br>
-        **[ドキュメントに投稿する](https://docs.microsoft.com/contribute/)**<br>
+       [![docs アイコン](../images/docs.png)](/contribute/)<br>
+        **[ドキュメントに投稿する](/contribute/)**<br>
         Microsoft のドキュメント セットは、オープン ソースで GitHub 上でホストされているものがほとんどです。 問題をファイリングしたり、プル要求を作成したりして投稿します。
         <br>
-        [方法](https://docs.microsoft.com/contribute/)
+        [方法](/contribute/)
     :::column-end:::
 :::row-end:::
 
@@ -254,11 +254,11 @@ Microsoft では、Web 開発者向けにさまざまなリソースを提供し
         [macOS 用 React Native をインストールする](https://microsoft.github.io/react-native-windows/docs/rnm-getting-started)
     :::column-end:::
     :::column:::
-       [![Learn アイコン](../images/learn-icon.png)](https://docs.microsoft.com/learn/browse/?terms=web)<br>
-        **[Web 開発に関連する Microsoft Learn コース](https://docs.microsoft.com/learn/browse/?terms=web)**<br>
+       [![Learn アイコン](../images/learn-icon.png)](/learn/browse/?terms=web)<br>
+        **[Web 開発に関連する Microsoft Learn コース](/learn/browse/?terms=web)**<br>
         Microsoft Learn には、各種の新しいスキルを学ぶことができる無料のオンライン コースが用意されており、ステップバイステップのガイダンスを使用して Microsoft の製品やサービスを見つけることができます。
         <br>
-        [学習を開始する](https://docs.microsoft.com/learn/browse/?terms=web)
+        [学習を開始する](/learn/browse/?terms=web)
     :::column-end:::
 :::row-end:::
 

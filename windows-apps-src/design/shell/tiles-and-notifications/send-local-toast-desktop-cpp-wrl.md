@@ -7,19 +7,19 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10、uwp、win32、デスクトップ、トースト通知、トーストの送信、ローカルトースト、デスクトップブリッジ、msix、スパースパッケージ、C++、cpp、cplusplus、WRL
 ms.localizationpriority: medium
-ms.openlocfilehash: 1913eef17ac768b8d7e1f047ac318da9aa1b2925
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: ed35d013d518ac4662bf43318c0dcbcfe3423e63
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034495"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804276"
 ---
 # <a name="send-a-local-toast-notification-from-win32-c-wrl-apps"></a>Win32 C++ WRL アプリからローカルトースト通知を送信する
 
 Win32 アプリ (パッケージ化された [Msix](/windows/msix/desktop/source-code-overview) アプリ、 [スパースパッケージ](/windows/apps/desktop/modernize/grant-identity-to-nonpackaged-apps) を使用してパッケージ id を取得するアプリ、および従来のパッケージ化されていない Win32 アプリを含む) は、Windows アプリと同様に対話型のトースト通知を送信できます。 ただし、異なるライセンス認証スキームと、MSIX またはスパースパッケージを使用していない場合は、パッケージ id が存在しない可能性があるため、Win32 アプリにはいくつかの特別な手順があります。
 
 > [!IMPORTANT]
-> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[Desktop C# に関するページ](send-local-toast-desktop.md) をご覧ください。
+> UWP アプリを作成している場合は、[UWP のドキュメント](send-local-toast.md) をご覧ください。 その他のデスクトップ言語については、[Desktop C# に関するページ](./send-local-toast.md) をご覧ください。
 
 
 ## <a name="step-1-enable-the-windows-10-sdk"></a>手順 1: Windows 10 SDK を有効にする
@@ -29,13 +29,13 @@ Win32 アプリ向けの Windows 10 SDK がまだ有効でない場合は、ま�
 1. **[追加の依存ファイル]** に `runtimeobject.lib` を追加する
 2. Windows 10 SDK をターゲットとして設定する
 
-プロジェクトを右クリックし、 **[プロパティ]** をクリックします。
+プロジェクトを右クリックし、**[プロパティ]** をクリックします。
 
-上部にある **[構成]** メニューで、 **[すべての構成]** を選択し、[Debug] と [Release] の両方で次の変更を行います。
+上部にある **[構成]** メニューで、**[すべての構成]** を選択し、[Debug] と [Release] の両方で次の変更を行います。
 
-**[リンカー] -> [入力]** で、 **[追加の依存ファイル]** に `runtimeobject.lib` を追加します。
+**[リンカー] -> [入力]** で、**[追加の依存ファイル]** に `runtimeobject.lib` を追加します。
 
-次に、 **[全般]** の下で、 **[Windows SDK バージョン]** が 10.0 以上のいずれかのバージョンであること (Windows 8.1 ではないこと) を確認します。
+次に、**[全般]** の下で、**[Windows SDK バージョン]** が 10.0 以上のいずれかのバージョンであること (Windows 8.1 ではないこと) を確認します。
 
 
 ## <a name="step-2-copy-compat-library-code"></a>手順 2: compat ライブラリのコードをコピーする
@@ -64,7 +64,7 @@ using namespace Microsoft::WRL;
 
 トーストをアクティブ化するためのハンドラーを実装する必要があります。これにより、ユーザーがトーストをクリックすると、アプリで何らかの処理を実行できるようになります。 これは、アクション センターにトーストを継続的に表示するために必要です (トーストは、数日後、アプリが閉じているときにクリックされる可能性があります)。 このクラスは、プロジェクトの任意の位置に指定できます。
 
-以下に示すように、UUID を含めて **INotificationActivationCallback** インターフェイスを実装し、 **CoCreatableClass** を呼び出して、クラスを COM 作成可能としてフラグ設定します。 UUID は、任意のオンライン GUID ジェネレーターを使用して、一意の GUID を作成します。 アクション センターは、この GUID CLSID (クラス識別子) に基づいて、COM アクティブ化するクラスを認識します。
+以下に示すように、UUID を含めて **INotificationActivationCallback** インターフェイスを実装し、**CoCreatableClass** を呼び出して、クラスを COM 作成可能としてフラグ設定します。 UUID は、任意のオンライン GUID ジェネレーターを使用して、一意の GUID を作成します。 アクション センターは、この GUID CLSID (クラス識別子) に基づいて、COM アクティブ化するクラスを認識します。
 
 ```cpp
 // The UUID CLSID must be unique to your app. Create a new GUID if copying this code.
@@ -167,7 +167,7 @@ CoCreatableClass(NotificationActivator);
 
 #### <a name="step-52-register-aumid-and-com-server"></a>手順 5.2: AUMID と COM サーバーを登録する
 
-次に、どちらのインストーラーを使用する場合も、(通知 API を呼び出す前に) アプリのスタートアップ コード内で、 **RegisterAumidAndComServer** メソッドを呼び出して、上記の手順 4 の通知アクティベーター クラスと AUMID を指定します。
+次に、どちらのインストーラーを使用する場合も、(通知 API を呼び出す前に) アプリのスタートアップ コード内で、**RegisterAumidAndComServer** メソッドを呼び出して、上記の手順 4 の通知アクティベーター クラスと AUMID を指定します。
 
 ```cpp
 // Register AUMID and COM server (for MSIX/sparse package apps, this no-ops)
@@ -193,9 +193,9 @@ hr = DesktopNotificationManagerCompat::RegisterActivator();
 
 ## <a name="step-7-send-a-notification"></a>手順 7: 通知を送信する
 
-通知を送信する手順は、 **DesktopNotificationManagerCompat** を使用して **ToastNotifier** を作成することを除き、UWP アプリとまったく同じです。 互換ライブラリでは、MSIX/スパースパッケージと従来の Win32 の違いが自動的に処理されるため、コードをフォークする必要がありません。 従来の Win32 では、 **RegisterAumidAndComServer** の呼び出し時に、指定した AUMID が compat ライブラリによってキャッシュされるため、AUMID を指定するタイミングや指定するかどうかを検討する必要はありません。
+通知を送信する手順は、**DesktopNotificationManagerCompat** を使用して **ToastNotifier** を作成することを除き、UWP アプリとまったく同じです。 互換ライブラリでは、MSIX/スパースパッケージと従来の Win32 の違いが自動的に処理されるため、コードをフォークする必要がありません。 従来の Win32 では、**RegisterAumidAndComServer** の呼び出し時に、指定した AUMID が compat ライブラリによってキャッシュされるため、AUMID を指定するタイミングや指定するかどうかを検討する必要はありません。
 
-レガシの Windows 8.1 のトースト通知テンプレートでは、手順 4 で作成した COM 通知アクティベーターがアクティブ化されないため、以下に示すように、 **ToastGeneric** バインディングを必ず使用します。
+レガシの Windows 8.1 のトースト通知テンプレートでは、手順 4 で作成した COM 通知アクティベーターがアクティブ化されないため、以下に示すように、**ToastGeneric** バインディングを必ず使用します。
 
 > [!IMPORTANT]
 > Http イメージは、マニフェストにインターネット機能を持つ MSIX/スパースパッケージアプリでのみサポートされています。 従来の Win32 アプリは http イメージをサポートしていないため、ローカル アプリ データにイメージをダウンロードし、それをローカルに参照する必要があります。
@@ -234,7 +234,7 @@ if (SUCCEEDED(hr))
 
 ## <a name="step-8-handling-activation"></a>手順 8: アクティブ化を処理する
 
-ユーザーがトースト、またはトーストのボタンをクリックすると、 **NotificationActivator** クラスの **Activate** メソッドが呼び出されます。
+ユーザーがトースト、またはトーストのボタンをクリックすると、**NotificationActivator** クラスの **Activate** メソッドが呼び出されます。
 
 Activate メソッド内では、トーストで指定した引数を解析し、ユーザーが入力または選択したユーザー入力を取得したうえで、それに応じてアプリをアクティブ化できます。
 
@@ -414,17 +414,17 @@ MSIX/スパースパッケージと従来の Win32 アプリの両方をイン�
 
 ## <a name="handling-older-versions-of-windows"></a>従来のバージョンの Windows の処理
 
-Windows 8.1 以下をサポートする場合は、実行時に Windows 10 を実行しているかどうかを確認した後、 **DesktopNotificationManagerCompat** API の呼び出しや、ToastGeneric トースト通知の送信を行います。
+Windows 8.1 以下をサポートする場合は、実行時に Windows 10 を実行しているかどうかを確認した後、**DesktopNotificationManagerCompat** API の呼び出しや、ToastGeneric トースト通知の送信を行います。
 
-トースト通知は Windows 8 で導入されましたが、ToastText01 などの[レガシ トースト テンプレート](/previous-versions/windows/apps/hh761494(v=win.10))が使用されていました。 トーストは短時間のポップアップにすぎず、継続的に表示されるものではなかったため、 **ToastNotification** クラスのインメモリ **Activated** イベントによって処理されていました。 Windows 10 では、[対話型の ToastGeneric トースト](adaptive-interactive-toasts.md) が導入され、さらに通知が数日間継続して表示されるアクション センターが導入されました。 アクション センターの導入には、トーストが作成から数日後もアクティブ化できるように、COM アクティベーターの導入が必須でした。
+トースト通知は Windows 8 で導入されましたが、ToastText01 などの[レガシ トースト テンプレート](/previous-versions/windows/apps/hh761494(v=win.10))が使用されていました。 トーストは短時間のポップアップにすぎず、継続的に表示されるものではなかったため、**ToastNotification** クラスのインメモリ **Activated** イベントによって処理されていました。 Windows 10 では、[対話型の ToastGeneric トースト](adaptive-interactive-toasts.md) が導入され、さらに通知が数日間継続して表示されるアクション センターが導入されました。 アクション センターの導入には、トーストが作成から数日後もアクティブ化できるように、COM アクティベーターの導入が必須でした。
 
 | OS | ToastGeneric | COM アクティベーター | レガシ トースト テンプレート |
 | -- | ------------ | ------------- | ---------------------- |
 | Windows 10 | サポートされています | サポートされています | サポート対象 (ただし COM サーバーをアクティブ化しない) |
-| Windows 8.1 / 8 | N/A | 該当なし | サポートされています |
-| Windows 7 以下 | N/A | N/A | N/A |
+| Windows 8.1 / 8 | 該当なし | 該当なし | サポートされています |
+| Windows 7 以下 | 該当なし | 該当なし | 該当なし |
 
-Windows 10 で実行しているかどうかを確認するには、`<VersionHelpers.h>` ヘッダーをインクルードし、 **IsWindows10OrGreater** メソッドを確認します。 これが true を返す場合は、続いてこのドキュメントで説明されているすべてのメソッドを呼び出してください。 
+Windows 10 で実行しているかどうかを確認するには、`<VersionHelpers.h>` ヘッダーをインクルードし、**IsWindows10OrGreater** メソッドを確認します。 これが true を返す場合は、続いてこのドキュメントで説明されているすべてのメソッドを呼び出してください。 
 
 ```cpp
 #include <VersionHelpers.h>
@@ -438,7 +438,7 @@ if (IsWindows10OrGreater())
 
 ## <a name="known-issues"></a>既知の問題
 
-**修正済み: トーストのクリック後、アプリがフォーカスされない** : ビルド 15063 以前では、COM サーバーをアクティブ化したときに、フォアグラウンドの権利がアプリケーションに移転されませんでした。 そのため、アプリをフォアグラウンドに移動しようとしても、点滅するのみで移動できませんでした。 この問題を解決する方法はありませんでした。 この問題は、16299 以降のビルドでは解決済みです。
+**修正済み: トーストのクリック後、アプリがフォーカスされない**: ビルド 15063 以前では、COM サーバーをアクティブ化したときに、フォアグラウンドの権利がアプリケーションに移転されませんでした。 そのため、アプリをフォアグラウンドに移動しようとしても、点滅するのみで移動できませんでした。 この問題を解決する方法はありませんでした。 この問題は、16299 以降のビルドでは解決済みです。
 
 
 ## <a name="resources"></a>リソース

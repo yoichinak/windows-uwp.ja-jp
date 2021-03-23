@@ -4,23 +4,23 @@ title: C#/WinRT コンポーネントを作成し、C++/WinRT から使用する
 ms.date: 01/28/2021
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f5157f97163a72ccce1ce9fc3f560fb4e16b1df
-ms.sourcegitcommit: 61a874d00991f7ca06466a99a557ef0777bd0f7c
+ms.openlocfilehash: be19b88860be127b0db826dffa22554cb86d21a1
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989636"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804692"
 ---
-# <a name="walkthrough-create-a-cwinrt-component-and-consume-it-from-cwinrt"></a>チュートリアル: C#/Winrt コンポーネントを作成し、C++/winrt から使用する
+# <a name="walkthrough-create-a-cwinrt-component-and-consume-it-from-cwinrt"></a>チュートリアル:C#/WinRT コンポーネントを作成し、C++/WinRT から使用する
 
 > [!NOTE]
-> この記事で説明されている c#/Winrt 作成サポートは、現在、c#/Winrt バージョン 1.1.2 210208.6 の時点でプレビュー段階です。 このリリースでは、初期のフィードバックと評価にのみ使用することを意図しています。
+> この記事で説明されている c#/Winrt 作成サポートは、現在、c#/Winrt バージョン1.1.4 の時点でプレビュー段階にあります。 このリリースでは、初期のフィードバックと評価にのみ使用することを意図しています。
 
 C#/WinRT を使用すると、.NET 5 開発者はクラスライブラリプロジェクトを使用して c# で独自の Windows ランタイムコンポーネントを作成できます。 作成されたコンポーネントは、ネイティブデスクトップアプリケーションでパッケージ参照として使用することも、いくつかの変更を加えたプロジェクト参照として使用することもできます。
 
-このチュートリアルでは、C#/Winrt を使用して単純な Windows ランタイムコンポーネントを作成し、そのコンポーネントを NuGet パッケージとして配布し、C++/winrt コンソールアプリケーションからコンポーネントを使用する方法について説明します。 このチュートリアルのサンプルコードについ [ては、Github を](https://github.com/microsoft/CsWinRT/tree/master/src/Samples/AuthoringDemo)参照してください。
+このチュートリアルでは、C#/Winrt を使用して単純な Windows ランタイムコンポーネントを作成し、そのコンポーネントを NuGet パッケージとして配布し、C++/winrt コンソールアプリケーションからコンポーネントを使用する方法について説明します。 この記事のコードを提供する完全なサンプルについては、 [C#/WinRT 作成のサンプル](https://github.com/microsoft/CsWinRT/tree/master/src/Samples/AuthoringDemo)を参照してください。 作成の詳細については、「 [コンポーネントの作成](https://github.com/microsoft/CsWinRT/blob/master/docs/authoring.md)」を参照してください。
 
-ランタイムコンポーネントの作成中に、この記事で説明されているガイドラインと型の制限に従い [ます。](../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md) 内部的には、コンポーネント内の Windows ランタイム型は、UWP アプリで許可されているすべての .NET 機能を使用できます。 詳細については、「 [UWP アプリ用 .net](/dotnet/api/index?view=dotnet-uwp-10.0&preserve-view=true)」を参照してください。 外部的には、型のメンバーは、パラメーターと戻り値に対して Windows ランタイム型のみを公開できます。
+ランタイムコンポーネントの作成中に、この記事で説明されているガイドラインと型の制限に従い [ます。](../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md) 内部的には、コンポーネント内の Windows ランタイム型は、UWP アプリで許可されているすべての .NET 機能を使用できます。 詳細については、「 [UWP アプリ用 .net](/dotnet/api/index?view=dotnet-uwp-10.0&preserve-view=true)」を参照してください。 外部的には、型のメンバーによってパラメーターと戻り値の Windows ランタイム型のみを公開できます。
 
 > [!NOTE]
 > [.Net 型にマップ](../winrt-components/net-framework-mappings-of-windows-runtime-types.md#uwp-types-that-map-to-net-types-with-a-different-name-andor-namespace)される Windows ランタイムの型がいくつかあります。 これらの .NET 型は、Windows ランタイムコンポーネントのパブリックインターフェイスで使用できます。また、コンポーネントのユーザーには、対応する Windows ランタイムの種類として表示されます。
@@ -55,7 +55,7 @@ C#/WinRT を使用すると、.NET 5 開発者はクラスライブラリプロ�
 
     a. ソリューションエクスプローラーで、プロジェクトノードを右クリックし、[ **NuGet パッケージの管理**] を選択します。
 
-    b. **Microsoft. Windows. CsWinRT** NuGet パッケージを検索し、最新バージョンをインストールします。 このチュートリアルでは、C#/WinRT バージョンの 1.1.2 210208.6 を使用します。
+    b. **Microsoft. Windows. CsWinRT** NuGet パッケージを検索し、最新バージョンをインストールします。 このチュートリアルでは、C#/WinRT バージョン1.1.4 を使用します。
 
 3. `PropertyGroup`いくつかの C#/WinRT プロパティを設定する新しい要素を追加します。
 
@@ -71,7 +71,7 @@ C#/WinRT を使用すると、.NET 5 開発者はクラスライブラリプロ�
     - プロパティは、 `CsWinRTComponent` プロジェクトが Windows ランタイムコンポーネントであることを指定します。これにより、コンポーネントに対して WinMD ファイルが生成されます。
     - プロパティは、 `CsWinRTWindowsMetadata` Windows メタデータのソースを提供します。 これは、バージョン1.1.1 の場合に必要です。
 
-4. ランタイムクラスは、ライブラリ **(.cs)** クラスファイルを使用して作成できます。 **Class1.cs** ファイルを右クリックし、名前を **Example.cs** に変更します。 このファイルに次のコードを追加します。これにより、パブリックプロパティとメソッドがランタイムクラスに追加されます。 ランタイムコンポーネントで公開するクラスはすべて、 **パブリック** にマークするようにしてください。
+4. ランタイムクラスは、ライブラリ **(.cs)** クラスファイルを使用して作成できます。 **Class1** ファイルを右クリックし、「 **Example .cs**」という名前に変更します。 このファイルに次のコードを追加します。これにより、パブリックプロパティとメソッドがランタイムクラスに追加されます。 ランタイムコンポーネントで公開するクラスはすべて、 **パブリック** にマークするようにしてください。
 
     ```csharp
     namespace AuthoringDemo
@@ -136,36 +136,9 @@ C#/WinRT で作成された Windows ランタイムコンポーネントは、�
         
         a. **Cppconsoleapp** プロジェクトを右クリックし、[参照の **追加**] を選択し  ->  ます。 [ **プロジェクト** ] ノードの下に、 **authoringdemo** プロジェクトへの参照を追加します。 このプレビューでは、**参照** ノードから **authoringdemo. winmd** へのファイル参照を追加する必要もあります。 生成された winmd ファイルは、 **Authoringdemo** プロジェクトの出力ディレクトリにあります。
 
-        b. このプレビューでは、次のプロパティグループを **Cppconsoleapp. .vcxproj** に追加する必要もあります。 ネイティブアプリケーションプロジェクトファイルを編集するには、まず **Cppconsoleapp** プロジェクトノードを右クリックし、[ **プロジェクトのアンロード**] を選択します。
+3. コンポーネントのホストを支援するには、アクティブ化可能なクラスの登録用のマニフェストファイルを追加する必要があります。 マネージコンポーネントのホストの詳細については、「 [マネージコンポーネントのホスト](https://github.com/microsoft/CsWinRT/blob/master/docs/hosting.md)」を参照してください。
 
-        ```xml
-        <PropertyGroup>
-            <TargetFrameworkVersion>net5.0</TargetFrameworkVersion>
-            <TargetFramework>native</TargetFramework>
-            <TargetRuntime>Native</TargetRuntime>
-        </PropertyGroup>
-        ```
-
-3. コンポーネントのホストを支援するには、ファイルとマニフェストファイルに runtimeconfig.jsを追加する必要があります。 マネージコンポーネントホストの詳細については、 [次のホスティングドキュメント](https://github.com/microsoft/CsWinRT/blob/master/docs/hosting.md)を参照してください。
-
-    a. ファイルに runtimeconfig.jsを追加するには、プロジェクトを右クリックし、[ **追加] > [新しい項目**] の順に選択します。 **テキストファイル** のテンプレートを検索し、 **WinRT.Host.runtimeconfig.js** 名前を入力します。 次の内容を貼り付けます。
-
-    ```json
-    {
-        "runtimeOptions": {
-            "tfm": "net5.0",
-            "rollForward": "LatestMinor",
-            "framework": {
-                "name": "Microsoft.NETCore.App",
-                "version": "5.0.0"
-            }
-        }
-    }
-    ```
-
-    注エントリについては、 `tfm` DOTNET_ROOT 環境変数を使用して、自己完結型のカスタム .net 5 インストールを参照できます。
-
-    b. マニフェストファイルを追加するには、もう一度プロジェクトを右クリックし、[追加]、[ **新しい項目の >**] の順に選択します。 **テキストファイル** テンプレートを検索して、 **CppConsoleApp.exe .manifest** という名前を指定します。 次の内容を貼り付けます。
+    a. マニフェストファイルを追加するには、もう一度プロジェクトを右クリックし、[追加]、[ **新しい項目の >**] の順に選択します。 **テキストファイル** テンプレートを検索して、 **CppConsoleApp.exe .manifest** という名前を指定します。 次の内容を貼り付けます。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -182,9 +155,9 @@ C#/WinRT で作成された Windows ランタイムコンポーネントは、�
 
     パッケージ化されていないアプリケーションには、マニフェストファイルが必要です。 このファイルでは、上に示すように、アクティブ化可能なクラスの登録エントリを使用してランタイムクラスを指定します。
 
-4. プロジェクトを変更して、プロジェクトの配置時に出力に runtimeconfig.jsとマニフェストファイルを含めます。 **WinRT.Host.runtimeconfig.js** と **CppConsoleApp.exe .manifest** ファイルの両方について、**ソリューションエクスプローラー** 内のファイルをクリックし、 **Content** プロパティを **True** に設定します。 この例を次に示します。
+    b. プロジェクトを配置するときに、出力にマニフェストファイルを含めるようにプロジェクトを変更します。 **ソリューションエクスプローラー** で **CppConsoleApp.exe マニフェスト** ファイルをクリックし、[**コンテンツ**] プロパティを [ **True**] に設定します。 この例を次に示します。
 
-    ![コンテンツの展開](images/deploy-content.png)
+    ![コンテンツの展開](images/deploy-content.png) 
 
 5. プロジェクトのヘッダーファイルの下にある **.pch** を開き、コンポーネントを含めるための次のコード行を追加します。
 

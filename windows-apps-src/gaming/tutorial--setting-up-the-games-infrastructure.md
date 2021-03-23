@@ -6,12 +6,12 @@ ms.date: 06/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, セットアップ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 86c7b80ba7125547c2a45dae434c40a67a758b0d
-ms.sourcegitcommit: 8bface2162e091999b1cf2218340edda2389da89
+ms.openlocfilehash: 8e2e93ad43f866e26b448e2cbcd2cb480054cbc9
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496699"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804266"
 ---
 # <a name="set-up-the-game-project"></a>ゲーム プロジェクトのセットアップ
 
@@ -30,7 +30,7 @@ ms.locfileid: "103496699"
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio での新しいプロジェクトの作成
 
 > [!NOTE]
-> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
+> &mdash;C++/WinRT Visual Studio Extension (VSIX) と NuGet パッケージ (両者が連携してプロジェクト テンプレートとビルドをサポート) のインストールと使用など、&mdash;C++/WinRT 開発用に Visual Studio を設定する方法については、[Visual Studio での C++/WinRT のサポート](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)に関する記事を参照してください。
 
 最初に、最新バージョンの C++/WinRT Visual Studio 拡張機能 (VSIX) をインストール (または更新) します。上のメモを参照してください。 次に、Visual Studio で、 **コアアプリ (C++/WinRT)** プロジェクトテンプレートに基づいて新しいプロジェクトを作成します。 Windows SDK の最新の一般公開された (プレビュー以外の) バージョンを対象とします。
 
@@ -85,7 +85,7 @@ Windows は、 **IFrameworkView** のメソッドの **App** クラスの実装�
 - [**SetWindow**](/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow)
 - [**[読み込み]**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
 - [**Coreapplicationview:: アクティブ化**](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)イベントが発生します。 そのため、そのイベントを処理するために (必要に応じて) 登録した場合は、この時点で **Onactivated 化** ハンドラーが呼び出されます。
-- [**[実行]**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
+- [**実行**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
 - [**解除**](/uwp/api/windows.applicationmodel.core.iframeworkview.uninitialize)
 
 ここで、 **App** クラスのスケルトン (では) が、 `App.cpp` これらのメソッドのシグネチャを示しています。
@@ -189,7 +189,7 @@ void GameMain::Run()
 |VertexShader. hlsl および VertexShaderFlat|シェーダー|基本的な頂点シェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |PixelShader および PixelShaderFlat|シェーダー|基本ピクセルシェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |ConstantBuffers .hlsli|シェーダー|モデルビュープロジェクション (MVP) 行列と頂点ごとのデータを頂点シェーダーに渡すために使用される、定数バッファーおよびシェーダー構造体のデータ構造の定義を格納します。|
-|pch.h/.cpp|N/A|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。| 
+|pch.h/.cpp|該当なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。| 
 
 ### <a name="next-steps"></a>次のステップ
 

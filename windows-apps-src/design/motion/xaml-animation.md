@@ -6,12 +6,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 40752da17591c9eca16f46fbd244d4507a38b1fb
-ms.sourcegitcommit: eda7bbe9caa9d61126e11f0f1a98b12183df794d
+ms.openlocfilehash: 178ab2e8787621b6df42cbb850895c058bb3eb7e
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91220005"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804906"
 ---
 # <a name="animations-in-xaml"></a>XAML でのアニメーション
 
@@ -38,11 +38,11 @@ Windows 10 バージョン 1607 では、ナビゲーション時にビューの
 
 Windows ランタイム アニメーション システムとアニメーション ライブラリには、コントロールと UI のその他の部分が動作をアニメーション化できるようにするという、より大きな目的があります。 アニメーションには、いくつかの個別の種類があります。
 
--   *テーマ切り替え*は、UI で特定の条件が変化したときに自動的に適用されます。定義済みの Windows ランタイム XAML UI 型のコントロールまたは要素が対象になります。 これらのアニメーションは、Windows の外観と操作性をサポートし、すべてのアプリが操作モードを切り替えるときに特定の UI シナリオに対して行うことを定義しているので、*テーマ切り替え*と呼ばれます。 テーマ切り替えは、アニメーション ライブラリの一部です。
--   *テーマ アニメーション*は、定義済み Windows ランタイム XAML UI 型の 1 つ以上のプロパティに対するアニメーションです。 テーマ アニメーションは、特定の 1 要素を対象とし、コントロール内に特定の表示状態で存在するという点でテーマ切り替えとは異なります。一方、テーマ切り替えは、表示状態の外側に存在するコントロールのプロパティに割り当てられ、表示状態間の切り替えに影響を及ぼします。 Windows ランタイム XAML コントロールの多くは、コントロール テンプレートの一部であり、表示状態がアニメーションのきっかけとなるテーマ アニメーションをストーリーボード内に含んでいます。 テンプレートを変更しない限り、UI のコントロールでこの組み込みのテーマ アニメーションを使うことができます。 ただし、テンプレートを置き換えた場合は、組み込みのテーマ アニメーションも削除されます。 テーマ アニメーションを元に戻すには、コントロールの表示状態セット内にテーマ アニメーションを含むストーリーボードを定義する必要があります。 また、ストーリーボードから表示状態内にないテーマ アニメーションを実行し、[**Begin**](/uwp/api/windows.ui.xaml.media.animation.storyboard.begin) メソッドを使って開始することもできますが、これは一般的ではありません。 テーマ アニメーションはアニメーション ライブラリの一部です。
--   *視覚的な切り替え*は、コントロールが定義済みの 1 つの表示状態から別の状態に切り替えられたときに適用されます。 これらは、開発者が記述するカスタム アニメーションです。通常は、コントロールのために記述したカスタム テンプレートと、そのテンプレート内の表示状態の定義に関連しています。 アニメーションは状態間の切り替え中だけに実行され、通常は、最大でも数秒間のわずかな時間です。 詳しくは、「[表示状態用にストーリーボードに設定されたアニメーション](/previous-versions/windows/apps/jj819808(v=win.10))」の「視覚的な切り替え」のセクションをご覧ください。
--   *ストーリーボードに設定されたアニメーション*は、時間の経過と共に Windows ランタイム依存関係プロパティの値をアニメーション化します。 ストーリーボードは、視覚的切り替えの一部として定義することも、実行時にアプリケーションによってトリガーすることもできます。 詳しくは、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」をご覧ください。 依存関係プロパティとその存在場所について詳しくは、「[依存関係プロパティの概要](../../xaml-platform/dependency-properties-overview.md)」をご覧ください。
--   新しい [**ConnectedAnimationService**](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice) API によって提供される*接続型アニメーション*により、開発者はナビゲーション時にビューの間で要素がアニメーション化される効果を容易に作成できます。 この API は、Windows 10 バージョン 1607 以降で使うことができます。 詳しくは、「[**ConnectedAnimationService**](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)」をご覧ください。
+-   *テーマ切り替え* は、UI で特定の条件が変化したときに自動的に適用されます。定義済みの Windows ランタイム XAML UI 型のコントロールまたは要素が対象になります。 これらのアニメーションは、Windows の外観と操作性をサポートし、すべてのアプリが操作モードを切り替えるときに特定の UI シナリオに対して行うことを定義しているので、*テーマ切り替え* と呼ばれます。 テーマ切り替えは、アニメーション ライブラリの一部です。
+-   *テーマ アニメーション* は、定義済み Windows ランタイム XAML UI 型の 1 つ以上のプロパティに対するアニメーションです。 テーマ アニメーションは、特定の 1 要素を対象とし、コントロール内に特定の表示状態で存在するという点でテーマ切り替えとは異なります。一方、テーマ切り替えは、表示状態の外側に存在するコントロールのプロパティに割り当てられ、表示状態間の切り替えに影響を及ぼします。 Windows ランタイム XAML コントロールの多くは、コントロール テンプレートの一部であり、表示状態がアニメーションのきっかけとなるテーマ アニメーションをストーリーボード内に含んでいます。 テンプレートを変更しない限り、UI のコントロールでこの組み込みのテーマ アニメーションを使うことができます。 ただし、テンプレートを置き換えた場合は、組み込みのテーマ アニメーションも削除されます。 テーマ アニメーションを元に戻すには、コントロールの表示状態セット内にテーマ アニメーションを含むストーリーボードを定義する必要があります。 また、ストーリーボードから表示状態内にないテーマ アニメーションを実行し、[**Begin**](/uwp/api/windows.ui.xaml.media.animation.storyboard.begin) メソッドを使って開始することもできますが、これは一般的ではありません。 テーマ アニメーションはアニメーション ライブラリの一部です。
+-   *視覚的な切り替え* は、コントロールが定義済みの 1 つの表示状態から別の状態に切り替えられたときに適用されます。 これらは、開発者が記述するカスタム アニメーションです。通常は、コントロールのために記述したカスタム テンプレートと、そのテンプレート内の表示状態の定義に関連しています。 アニメーションは状態間の切り替え中だけに実行され、通常は、最大でも数秒間のわずかな時間です。 詳しくは、「[表示状態用にストーリーボードに設定されたアニメーション](/previous-versions/windows/apps/jj819808(v=win.10))」の「視覚的な切り替え」のセクションをご覧ください。
+-   *ストーリーボードに設定されたアニメーション* は、時間の経過と共に Windows ランタイム依存関係プロパティの値をアニメーション化します。 ストーリーボードは、視覚的切り替えの一部として定義することも、実行時にアプリケーションによってトリガーすることもできます。 詳しくは、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」をご覧ください。 依存関係プロパティとその存在場所について詳しくは、「[依存関係プロパティの概要](../../xaml-platform/dependency-properties-overview.md)」をご覧ください。
+-   新しい [**ConnectedAnimationService**](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice) API によって提供される *接続型アニメーション* により、開発者はナビゲーション時にビューの間で要素がアニメーション化される効果を容易に作成できます。 この API は、Windows 10 バージョン 1607 以降で使うことができます。 詳しくは、「[**ConnectedAnimationService**](/uwp/api/windows.ui.xaml.media.animation.connectedanimationservice)」をご覧ください。
 
 ## <a name="animations-available-in-the-library"></a>ライブラリに用意されているアニメーション
 
@@ -134,7 +134,7 @@ Windows ランタイム アニメーション システムとアニメーショ�
 | 各種 UI コンテナーのコンテンツ | [**ContentThemeTransition**](/uwp/api/windows.ui.xaml.media.animation.contentthemetransition.contentthemetransition) |
 | コントロールに対して (または他に該当するアニメーションがない場合に) 適用する | [**FadeInThemeAnimation**](/uwp/api/windows.ui.xaml.media.animation.fadeinthemeanimation.fadeinthemeanimation) と [**FadeOutThemeAnimation**](/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) |
 
- 
+ 
 
 ## <a name="transition-animation-examples"></a>切り替え効果のアニメーションの例
 
@@ -303,7 +303,7 @@ void BlankPage::RemoveButton_Click(Platform::Object^ sender, Windows::UI::Xaml::
 | [**ReorderThemeTransition**](/uwp/api/Windows.UI.Xaml.Media.Animation.ReorderThemeTransition) | リスト ビュー コントロールの項目の順序が変わったときの切り替え動作のアニメーションです。 通常、この変化は、ドラッグ アンド ドロップ操作の結果として起こります。 コントロールやテーマの種類によって、アニメーションの特性が異なる場合があります。 |
 | [**RepositionThemeTransition**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition) | コントロールの位置が変わったときの切り替え動作のアニメーションです。 |
 
- 
+ 
 
 ## <a name="theme-animation-examples"></a>テーマ アニメーションの例
 
@@ -349,9 +349,9 @@ void BlankPage::Rectangle_Tapped(Object^ sender, PointerRoutedEventArgs^ e)
 
 切り替え効果のアニメーションとは異なり、テーマ アニメーションでは、アニメーションを自動的に実行する組み込みのトリガー (切り替え) がありません。 XAML でテーマ アニメーションを定義するときは、[**Storyboard**](/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) を使ってそれを格納する必要があります。 アニメーションの既定の動作を変更することもできます。 たとえば、[**FadeOutThemeAnimation**](/uwp/api/Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation) の [**Duration**](/uwp/api/windows.ui.xaml.media.animation.timeline.duration) の時間値を増やすと、フェード アウトの速度を遅くすることができます。
 
-**メモ**   基本的なアニメーション技法を示すために、アプリケーションコードを使用して、[**ストーリーボード**](/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard)のメソッドを呼び出すことによってアニメーションを開始しています。 ストーリーボードの[**開始**](/uwp/api/windows.ui.xaml.media.animation.storyboard.begin)、[**停止**](/uwp/api/windows.ui.xaml.media.animation.storyboard.stop)、[**一時停止**](/uwp/api/windows.ui.xaml.media.animation.storyboard.pause)、[**再開**](/uwp/api/windows.ui.xaml.media.animation.storyboard.resume)の**各メソッドを**使用して、**ストーリーボード**アニメーションを実行する方法を制御できます。 ただし、これはライブラリ アニメーションをアプリに含める通常の方法ではありません。 むしろ、通常は、コントロールまたは要素に適用される XAML スタイルとテンプレートにライブラリ アニメーションを統合します。 テンプレートと表示状態の説明はもう少し込み入ったものになります。 ただし、表示状態でライブラリ アニメーションを使用する方法については、「[表示状態用にストーリーボードに設定されたアニメーション](/previous-versions/windows/apps/jj819808(v=win.10))」トピックの一部として取り上げています。
+**注**  基本的なアニメーション技法を示すために、アプリ コードで [**Storyboard**](/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) のメソッドを呼び出してアニメーションを開始しています。 ストーリーボードの [**開始**](/uwp/api/windows.ui.xaml.media.animation.storyboard.begin)、[**停止**](/uwp/api/windows.ui.xaml.media.animation.storyboard.stop)、[**一時停止**](/uwp/api/windows.ui.xaml.media.animation.storyboard.pause)、[**再開**](/uwp/api/windows.ui.xaml.media.animation.storyboard.resume)の **各メソッドを** 使用して、**ストーリーボード** アニメーションを実行する方法を制御できます。 ただし、これはライブラリ アニメーションをアプリに含める通常の方法ではありません。 むしろ、通常は、コントロールまたは要素に適用される XAML スタイルとテンプレートにライブラリ アニメーションを統合します。 テンプレートと表示状態の説明はもう少し込み入ったものになります。 ただし、表示状態でライブラリ アニメーションを使用する方法については、「[表示状態用にストーリーボードに設定されたアニメーション](/previous-versions/windows/apps/jj819808(v=win.10))」トピックの一部として取り上げています。
 
- 
+ 
 
 そのほかにもさまざまなテーマ アニメーションを UI 要素に適用して、アニメーション効果を作ることができます。 これらの API はすべて、名前に "ThemeAnimation" という単語が含まれています。
 
@@ -369,19 +369,19 @@ void BlankPage::Rectangle_Tapped(Object^ sender, PointerRoutedEventArgs^ e)
 | [**RepositionThemeAnimation**](/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation) | オブジェクトの位置が変更されたときに適用される事前構成済みのアニメーションです。 |
 | [**SplitCloseThemeAnimation**](/uwp/api/Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation) | [**ComboBox**](/uwp/api/windows.ui.xaml.controls.combobox) を開閉するときのスタイルのアニメーションでターゲット UI を非表示にする事前構成済みのアニメーションです。 |
 | [**SplitOpenThemeAnimation**](/uwp/api/Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation) | [**ComboBox**](/uwp/api/windows.ui.xaml.controls.combobox) を開閉するときのスタイルのアニメーションでターゲット UI を表示する事前構成済みのアニメーションです。 |
-| [**DrillInThemeAnimation**](/uwp/api/windows.ui.xaml.media.animation.drillinthemeanimation) | マスター ページから詳細ページのように、ユーザーが論理階層を順方向に移動するときに実行される事前構成済みのアニメーションを表します。 |
-| [**DrillOutThemeAnimation**](/uwp/api/windows.ui.xaml.media.animation.drilloutthemeanimation) | 詳細ページからマスター ページのように、ユーザーが論理階層を逆方向に移動するときに実行される事前構成済みのアニメーションを表します。 |
+| [**DrillInThemeAnimation**](/uwp/api/windows.ui.xaml.media.animation.drillinthemeanimation) | リストページから詳細ページまでのように、ユーザーが論理階層内で前方に移動したときに実行される事前構成済みのアニメーションを表します。 |
+| [**DrillOutThemeAnimation**](/uwp/api/windows.ui.xaml.media.animation.drilloutthemeanimation) | 詳細ページからリストページまで、ユーザーが論理階層内で後方に移動したときに実行される事前構成されたアニメーションを表します。 |
 
- 
+ 
 
 ## <a name="create-your-own-animations"></a>カスタム アニメーションの作成
 
 テーマ アニメーションでは自分のニーズが満たせない場合は、アニメーションを独自に作ることができます。 オブジェクトのプロパティ値のいくつかをアニメーション化することによって、オブジェクトに動きを与えることができます。 たとえば、四角形の幅や [**RotateTransform**](/uwp/api/Windows.UI.Xaml.Media.RotateTransform) の角度、ボタンの色の値をアニメーション化することができます。 この種のカスタム アニメーションは、事前構成済みのアニメーションの種類として Windows ランタイムに既に用意されているライブラリ アニメーションと区別するために、"ストーリーボードに設定されたアニメーション" と呼ばれています。 ストーリーボードに設定されたアニメーションの場合、特定の型の値を変更できるアニメーション (**Double** をアニメーションできる [**DoubleAnimation**](/uwp/api/Windows.UI.Xaml.Media.Animation.DoubleAnimation) など) を使い、そのアニメーションを [**Storyboard**](/uwp/api/Windows.UI.Xaml.Media.Animation.Storyboard) 内に配置して制御します。
 
-アニメーション化するためには、アニメーション化しているプロパティが*依存関係プロパティ*である必要があります。 依存関係プロパティについて詳しくは、「[依存関係プロパティの概要](../../xaml-platform/dependency-properties-overview.md)」をご覧ください。 ストーリーボードに設定されたカスタム アニメーションの作成について詳しくは、対象に選ぶ方法や制御方法も含め、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」をご覧ください。
+アニメーション化するためには、アニメーション化しているプロパティが *依存関係プロパティ* である必要があります。 依存関係プロパティについて詳しくは、「[依存関係プロパティの概要](../../xaml-platform/dependency-properties-overview.md)」をご覧ください。 ストーリーボードに設定されたカスタム アニメーションの作成について詳しくは、対象に選ぶ方法や制御方法も含め、「[ストーリーボードに設定されたアニメーション](storyboarded-animations.md)」をご覧ください。
 
 ストーリーボードに設定されたカスタム アニメーションを定義する際に XAML のアプリ UI 定義で最大となるのは、XAML でコントロールの表示状態を定義する場合です。 これを行うのは、新たにコントロール クラスを作成するか、既にあるコントロールのうち、コントロール テンプレートに表示状態があるものに対してもう一度テンプレートを作成する場合です。 詳細については、「 [Storyboarded アニメーション for visual states](/previous-versions/windows/apps/jj819808(v=win.10))」を参照してください。
 
- 
+ 
 
- 
+ 
