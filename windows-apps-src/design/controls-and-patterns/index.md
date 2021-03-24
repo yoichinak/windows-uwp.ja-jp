@@ -8,12 +8,12 @@ ms.date: 03/23/2020
 ms.topic: article
 ms.assetid: ce2e611c-c419-4a14-9095-b88ac711d1b8
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e568dfb35f273b4efe045a6a16c944007f1ee7f
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: df9acd948ea2dc964989803a550d9ee57ea5caf6
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101824476"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804796"
 ---
 # <a name="controls-for-windows-apps"></a>Windows アプリ用のコントロール
 
@@ -86,9 +86,9 @@ XAML フレームワークを使って、さまざまな方法でアプリの外
 - [ハイパーリンク ボタン](hyperlinks.md#create-a-hyperlinkbutton)
 - [画像とイメージ ブラシ](images-imagebrushes.md)
 - [インク コントロール](inking-controls.md)
+- [リスト/詳細](list-details.md) (パターン)
 - [リスト ビュー](listview-and-gridview.md)
 - [マップ コントロール](../../maps-and-location/display-maps.md)
-- [マスターと詳細](master-details.md) (パターン)
 - [メディア再生](media-playback.md)
 - [メニュー バー](menus.md#create-a-menu-bar) :::image type="icon" source="images/winui-logo-16x16.png":::
 - [メニュー ポップアップ](menus.md)
