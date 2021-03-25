@@ -6,12 +6,12 @@ ms.date: 11/16/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a33670f69d86a913288608ff07efb72edab8fd17
-ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
+ms.openlocfilehash: d94ba7ccd1ebce9612747d5a7be5239300bf21d6
+ms.sourcegitcommit: 9c84129c8b02c370a528b876a62ad9502092689d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91829662"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105030356"
 ---
 # <a name="draw-shapes"></a>図形の描画
 
@@ -102,7 +102,7 @@ layoutRoot.Children.Add(rectangle1);
 
 ![レンダリングされた Rectangle。](images/shapes-rectangle.jpg)
 
-**ヒント**  UI の定義のシナリオで、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) よりも [**Border**](/uwp/api/Windows.UI.Xaml.Controls.Border) を使った方が適している場合があります。 一般に、コンテンツの周囲に四角形の図形を作成することが目的であるときは、**Border** の方が適しています。子のコンテンツを設定できるほか、高さと幅によってサイズが固定されている **Rectangle** とは異なり、コンテンツに合わせてサイズが自動的に調整されるためです。 **Border** は、[**CornerRadius**](/uwp/api/windows.ui.xaml.controls.border.cornerradius) プロパティを設定することによって、角に丸みを持たせることもできます。
+**ヒント:**  UI を定義する際、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) よりも、[**Border**](/uwp/api/Windows.UI.Xaml.Controls.Border) を使った方が適しているケースもあります。 一般に、コンテンツの周囲に四角形の図形を作成することが目的であるときは、**Border** の方が適しています。子のコンテンツを設定できるほか、高さと幅によってサイズが固定されている **Rectangle** とは異なり、コンテンツに合わせてサイズが自動的に調整されるためです。 **Border** は、[**CornerRadius**](/uwp/api/windows.ui.xaml.controls.border.cornerradius) プロパティを設定することによって、角に丸みを持たせることもできます。
 
 また、[**Rectangle**](/uwp/api/Windows.UI.Xaml.Shapes.Rectangle) は、コントロールの合成に適したオプションであると考えられます。 **Rectangle** の図形は多くのコントロール テンプレートで使われます。これは、フォーカス対応コントロールの "FocusVisual" 部分としてこの図形が使われるためです。 コントロールが "Focused" の表示状態にある場合は常に、この四角形が表示されます。その他の状態にある場合は非表示です。
 
@@ -141,7 +141,7 @@ layoutRoot.Children.Add(polygon1);
 
 ![レンダリングされた Polygon。](images/shapes-polygon.jpg)
 
-**ヒント**  [**Point**](/uwp/api/Windows.Foundation.Point) の値は、図形の頂点を宣言する場合以外のシナリオで XAML の型としてよく使われます。 たとえば、**Point** はタッチ イベントのイベント データの一部であるため、座標空間におけるタッチ操作が発生した位置を正確に認識することができます。 **Point** の詳しい情報と、それを XAML やコードで使う方法については、API リファレンスの [**Point**](/uwp/api/Windows.Foundation.Point) のトピックをご覧ください。
+**ヒント**[**Point**](/uwp/api/Windows.Foundation.Point) の値は、図形の頂点を宣言する場合以外のシナリオで XAML の型としてよく使われます。 たとえば、**Point** はタッチ イベントのイベント データの一部であるため、座標空間におけるタッチ操作が発生した位置を正確に認識することができます。 **Point** の詳しい情報と、それを XAML やコードで使う方法については、API リファレンスの [**Point**](/uwp/api/Windows.Foundation.Point) のトピックをご覧ください。
 
 ## <a name="line"></a>行
 
@@ -169,7 +169,7 @@ layoutRoot.Children.Add(line1);
 
 [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) と同様に、図形の境界線を点のセットによって定義しますが、**Polyline** では最後の点が最初の点に接続されません。
 
-**注**  [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の始点と終点が等しくなるように明示的に [**Points**](/uwp/api/windows.ui.xaml.shapes.polyline.points) を設定することもできますが、その場合は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を使うのが一般的です。
+**注:** [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の始点と終点が等しくなるように明示的に [**Points**](/uwp/api/windows.ui.xaml.shapes.polyline.points) を設定することもできますが、その場合は、[**Polygon**](/uwp/api/Windows.UI.Xaml.Shapes.Polygon) を使うのが一般的です。
 
 [**Polyline**](/uwp/api/Windows.UI.Xaml.Shapes.Polyline) の [**Fill**](/uwp/api/windows.ui.xaml.shapes.shape.fill) を指定した場合、**Polyline** に対して設定された [**Points**](/uwp/api/windows.ui.xaml.shapes.polyline.points) の始点と終点が交わらなくても、図形の内部領域が **Fill** によって塗りつぶされます。 **Polyline** で **Fill** を指定しなかった場合のレンダリングは、複数の [**Line**](/uwp/api/Windows.UI.Xaml.Shapes.Line) 要素を個別に指定し、前の直線の終点が次の直線の始点と交わるようにした場合と同様の結果となります。
 
@@ -310,7 +310,7 @@ path1.Data = geometryGroup1;
 // When you create a XAML element in code, you have to add
 // it to the XAML visual tree. This example assumes you have
 // a panel named 'layoutRoot' in your XAML file, like this:
-// <Grid x:Name="layoutRoot>
+// <Grid x:Name="layoutRoot">
 layoutRoot.Children.Add(path1);
 ```
 
