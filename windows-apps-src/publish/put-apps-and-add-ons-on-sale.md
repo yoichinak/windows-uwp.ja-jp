@@ -2,16 +2,16 @@
 description: 期間限定で特売することにより Microsoft Store でアプリやアドオンの販促活動をすることができます。
 title: アプリとアドオンの販売
 ms.assetid: 71ABA960-0CDC-4E35-A1C8-1D34B6673817
-ms.date: 10/31/2018
+ms.date: 03/24/2021
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 848fa6bd448d4da0bfc8d760fa36a75a13fc32ae
-ms.sourcegitcommit: 3e1f65d6bb4f1e18f962f9fef66e31fe0264b6bb
+ms.openlocfilehash: 98998692d64f7b059dc7395aa1942a32a445fcf0
+ms.sourcegitcommit: e8ea2a36e4f2b9e0326958d226a36dd30c3efa57
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105030994"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105099783"
 ---
 # <a name="put-apps-and-add-ons-on-sale"></a>アプリとアドオンの販売
 

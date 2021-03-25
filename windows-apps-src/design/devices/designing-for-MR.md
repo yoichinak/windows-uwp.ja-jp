@@ -6,19 +6,19 @@ label: Designing for Mixed Reality
 template: detail.hbs
 isNew: true
 keywords: Mixed Reality、Hololens、拡張現実、視線、音声、コントローラー
-ms.date: 02/05/2018
+ms.date: 02/26/2021
 ms.topic: article
 pm-contact: chigy
 design-contact: jeffarn
 dev-contact: ''
 doc-status: ''
 ms.localizationpriority: medium
-ms.openlocfilehash: 225b91b20f35c974fca865cc4e94a96efceda84d
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 11987ec6e7bd5f97937cc7b9aa86ec9f0fafcca1
+ms.sourcegitcommit: e8ea2a36e4f2b9e0326958d226a36dd30c3efa57
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034375"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105099823"
 ---
 # <a name="designing-for-mixed-reality"></a>Mixed Reality 向けの設計
 
@@ -40,7 +40,7 @@ HoloLens と Windows Mixed Reality ヘッドセットの両方が UWP プラッ�
 
 イマーシブ アプリを作成する場合、詳細については、[Windows Mixed Reality デベロッパー センター](https://developer.microsoft.com/mixed-reality) を参照してください。
 
-2D アプリは、ユーザーのビュー内で従来のフラット ウィンドウとして実行します。 HoloLens では、ユーザー独自の現実世界でリビング ルームやオフィスの空間内にある壁またはポイントに固定されたビューを指します。 Windows Mixed Reality ヘッドセットで、アプリは [Mixed Reality ホーム](/windows/mixed-reality/enthusiast-guide/your-mixed-reality-home) ( *クリフ ハウス* とも呼ばれる) の壁に固定されます。
+2D アプリは、ユーザーのビュー内で従来のフラット ウィンドウとして実行します。 HoloLens では、ユーザー独自の現実世界でリビング ルームやオフィスの空間内にある壁またはポイントに固定されたビューを指します。 Windows Mixed Reality ヘッドセットで、アプリは [Mixed Reality ホーム](/windows/mixed-reality/enthusiast-guide/your-mixed-reality-home) (*クリフ ハウス* とも呼ばれる) の壁に固定されます。
 
 ![Mixed Reality で実行される複数のアプリ](images/MR-multiple.png)
 
@@ -113,9 +113,9 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 
 ![Mixed Reality アプリに表示されるテキストは大きくなります。](images/MR-text.png)
 
-* [視線がマウスになります](https://developer.microsoft.com/windows/mixed-reality/gaze_targeting)。 ユーザーが何かを見ると、 **タッチ ホバー** イベントとして動作するため、オブジェクトを見るだけで、不要なホップアップが表示されたり、他の不要な操作が実行される場合があります。 アプリが Mixed Reality で現在実行されているかどうかを検出し、この動作の変更が必要になる場合があります。 下記の「 **ランタイム サポート** 」のご覧ください。 
+* [視線がマウスになります](https://developer.microsoft.com/windows/mixed-reality/gaze_targeting)。 ユーザーが何かを見ると、**タッチ ホバー** イベントとして動作するため、オブジェクトを見るだけで、不要なホップアップが表示されたり、他の不要な操作が実行される場合があります。 アプリが Mixed Reality で現在実行されているかどうかを検出し、この動作の変更が必要になる場合があります。 下記の「**ランタイム サポート**」のご覧ください。 
 
-* ユーザーがモーション コントローラーを使用してどこかの方向やポイントを見ると、 **タッチ ホバー** イベントが発生します。 これは [ **PointerPoint** ] で構成されます。この場合、[ **PointerType** ] は [ **Touch** ]、[ **IsInContact** ] は [ **false** ] です。 何かが確定すると (たとえば、ゲームパッドの A ボタンが押された場合、クリッカー デバイスが押された場合、モーション コントローラーのトリガーが押された場合、または音声認識で [選択] を選んだ場合)、[ **PointerPoint** ] の [ **IsInContact** ] が [ **true** ] となり、 **タッチ プレス** が発生します。 入力イベントの詳細については、「[タッチ操作](../input/touch-interactions.md)」をご覧ください。
+* ユーザーがモーション コントローラーを使用してどこかの方向やポイントを見ると、**タッチ ホバー** イベントが発生します。 これは [**PointerPoint**] で構成されます。この場合、[**PointerType**] は [**Touch**]、[**IsInContact**] は [**false**] です。 何かが確定すると (たとえば、ゲームパッドの A ボタンが押された場合、クリッカー デバイスが押された場合、モーション コントローラーのトリガーが押された場合、または音声認識で [選択] を選んだ場合)、[**PointerPoint**] の [**IsInContact**] が [**true**] となり、**タッチ プレス** が発生します。 入力イベントの詳細については、「[タッチ操作](../input/touch-interactions.md)」をご覧ください。
 
 * 視線はマウス ポインターほど正確でありません。 マウス ターゲットまたはボタンが小さくなるほど、ユーザーには不便になるため、コントロールのサイズを適切に変更します。 タッチ操作用に設計した場合は、Mixed Reality で動作しますが、実行時にいくつかのボタンを大きくすることもあります。 「[Hololens 用の既存のユニバーサル アプリを更新する](https://developer.microsoft.com/windows/mixed-reality/updating_your_existing_universal_app_for_hololens)」をご覧ください。
 
@@ -126,10 +126,7 @@ Mixed Reality プラットフォームで使用する可能性がある UWP ア�
 
 ## <a name="other-points-to-consider"></a>他に考慮する点
 
-* [デスクトップ ブリッジ](/windows/msix/desktop/source-code-overview) により、既存の (Win32) デスクトップ アプリを Windows 10 および Microsoft Store に移植できますが、現時点で HoloLens または Mixed Reality で実行できるアプリを作成することはできません。
-
-
-
+* [デスクトップブリッジ](/windows/msix/desktop/source-code-overview)は、既存の (Win32) デスクトップアプリを Windows 10 および Microsoft Store に導入するのに役立ちますが、現時点では HoloLens で実行されるアプリを作成することはできません。 Windows 10 バージョン1903以降では、Win32 デスクトップアプリは Mixed Reality ヘッドセットで実行できます。
 
 ## <a name="runtime-support"></a>ランタイム サポート
 

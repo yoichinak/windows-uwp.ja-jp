@@ -2,20 +2,20 @@
 description: '[パッケージ] ページでは、送信しているアプリのすべてのパッケージファイル (.appxupload、.appx、.appxbundle、および/または .xap) をアップロードします。'
 title: アプリ パッケージのアップロード
 ms.assetid: B1BB810D-3EAA-4FB5-B03C-1F01AFB2DE36
-ms.date: 09/24/2020
+ms.date: 02/26/2021
 ms.topic: article
 keywords: windows 10、uwp、パッケージ、アップロード、パッケージアップロード
 ms.localizationpriority: medium
-ms.openlocfilehash: c2e72a767b9d50f81fba548531965d75d4ce0b56
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 4c83318f749d5b63e38b819085643aa69de64463
+ms.sourcegitcommit: e8ea2a36e4f2b9e0326958d226a36dd30c3efa57
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034955"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105099803"
 ---
 # <a name="upload-app-packages"></a>アプリ パッケージのアップロード
 
-[ **パッケージ** ] ページでは、送信しているアプリのすべてのパッケージファイル (. msix、. msixupload、. .msixbundle、.appx、. .appxupload、.appxbundle) をアップロードします。 このページでは、同じアプリのすべてのパッケージをアップロードできます。また、顧客がアプリをダウンロードすると、ストアは各顧客に対して、デバイスに最適なパッケージを自動的に提供します。 開発者がパッケージをアップロードした後は、[特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージ](#device-family-availability)をランキング順に示すテーブルが表示されます。
+[アプリ送信プロセス](app-submissions.md)の [**パッケージ**] ページページでは、送信しているアプリのすべてのパッケージファイル (. msix、. msixupload、. .msixbundle、.appx、. .appxupload、.appxbundle) をアップロードします。 このページでは、同じアプリのすべてのパッケージをアップロードできます。また、顧客がアプリをダウンロードすると、ストアは各顧客に対して、デバイスに最適なパッケージを自動的に提供します。 開発者がパッケージをアップロードした後は、[特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージ](#device-family-availability)をランキング順に示すテーブルが表示されます。
 
 > [!IMPORTANT]
 > Windows Phone 8. x SDK を使用してビルドされた新しい XAP パッケージをアップロードすることはできなくなりました。 既に XAP パッケージと共にストアに格納されているアプリは、引き続き Windows 10 Mobile デバイスで動作します。 詳細については、こちらの [ブログ投稿](https://blogs.windows.com/windowsdeveloper/2018/08/20/important-dates-regarding-apps-with-windows-phone-8-x-and-earlier-and-windows-8-8-1-packages-submitted-to-microsoft-store)を参照してください。
@@ -37,14 +37,14 @@ ms.locfileid: "93034955"
 
 ## <a name="device-family-availability"></a>デバイス ファミリの利用可否
 
-パッケージのアップロードが正常に行われると、 **[Device family availability]** (デバイス ファミリの利用可否) セクションに、特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージをランキング順に示すテーブルが表示されます。 このセクションでは、申請するアプリを特定の Windows 10 デバイス ファミリのユーザーに提供するかどうかも選択できます。
+パッケージのアップロードが正常に行われると、**[Device family availability]** (デバイス ファミリの利用可否) セクションに、特定の Windows 10 デバイス ファミリ (および該当する場合は以前の OS バージョン) に対して提供されるパッケージをランキング順に示すテーブルが表示されます。 このセクションでは、申請するアプリを特定の Windows 10 デバイス ファミリのユーザーに提供するかどうかも選択できます。
 
 詳しくは、「[デバイス ファミリの利用可否](device-family-availability.md)」をご覧ください。
 
 
 ## <a name="package-details"></a>パッケージの詳細
 
-アップロードしたパッケージは、ターゲットのオペレーティングシステム別にグループ化された一覧に表示されます。 パッケージの名前、バージョン、アーキテクチャが表示されます。 各パッケージのサポートされる言語、アプリの機能、ファイル サイズなどの詳しい情報については、 **[詳細の表示]** をクリックします。
+アップロードしたパッケージは、ターゲットのオペレーティングシステム別にグループ化された一覧に表示されます。 パッケージの名前、バージョン、アーキテクチャが表示されます。 各パッケージのサポートされる言語、アプリの機能、ファイル サイズなどの詳しい情報については、**[詳細の表示]** をクリックします。
 
 提出からパッケージを削除する必要がある場合は、各パッケージの **[詳細]** セクションの下部にある **[削除]** リンクをクリックします。
 
@@ -58,14 +58,14 @@ ms.locfileid: "93034955"
 
 ## <a name="gradual-package-rollout"></a>段階的なパッケージのロールアウト
 
-申請が前に公開したアプリに対する更新プログラムの場合は、 **[Roll out update gradually after this submission is published (to Windows 10 customers only)]** (この申請が公開された後で段階的に更新プログラムをロールアウトする (Windows 10 ユーザーのみ)) チェック ボックスが表示されます。 これにより、申請からパッケージを取得するユーザーの割合を選択でき、フィードバックや分析データを監視して、自信を持って更新プログラムのロールアウト範囲を広げることができます。 この割合は、新しい申請を作成することなく、いつでも増やす (または更新を停止する) ことができます。 
+申請が前に公開したアプリに対する更新プログラムの場合は、**[Roll out update gradually after this submission is published (to Windows 10 customers only)]** (この申請が公開された後で段階的に更新プログラムをロールアウトする (Windows 10 ユーザーのみ)) チェック ボックスが表示されます。 これにより、申請からパッケージを取得するユーザーの割合を選択でき、フィードバックや分析データを監視して、自信を持って更新プログラムのロールアウト範囲を広げることができます。 この割合は、新しい申請を作成することなく、いつでも増やす (または更新を停止する) ことができます。 
 
 詳しくは、「[段階的なパッケージのロールアウト](gradual-package-rollout.md)」をご覧ください。
 
 
 ## <a name="mandatory-update"></a>必須の更新プログラム
 
-申請が以前に公開したアプリに対する更新プログラムの場合、 **[Make this update mandatory]** (この更新プログラムを必須にする) チェック ボックスが表示されます。 Windows.Services.Store API を使うことで、アプリがプログラムでパッケージの更新プログラムを確認し、更新されたパッケージをダウンロードしてインストールできるようにしてある場合は、このチェック ボックスをオンにすると、必須の更新の日時を設定できます。 このオプションを使うには、アプリの対象を Windows 10 Version 1607 以降にする必要があります。
+申請が以前に公開したアプリに対する更新プログラムの場合、**[Make this update mandatory]** (この更新プログラムを必須にする) チェック ボックスが表示されます。 Windows.Services.Store API を使うことで、アプリがプログラムでパッケージの更新プログラムを確認し、更新されたパッケージをダウンロードしてインストールできるようにしてある場合は、このチェック ボックスをオンにすると、必須の更新の日時を設定できます。 このオプションを使うには、アプリの対象を Windows 10 Version 1607 以降にする必要があります。
 
 詳しくは、「[アプリのパッケージの更新をダウンロードしてインストールする](../packaging/self-install-package-updates.md)」をご覧ください。
 
