@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, アプリ認定
 ms.localizationpriority: medium
-ms.openlocfilehash: a8be8ff09b962456b70d604a6a44203ceddb8cbc
-ms.sourcegitcommit: 8bface2162e091999b1cf2218340edda2389da89
+ms.openlocfilehash: 6f63ad960993ade83bdfa52283a33b76e2d80db2
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496689"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804816"
 ---
 # <a name="windows-app-certification-kit"></a>Windows アプリ認定キット
 
@@ -31,7 +31,7 @@ ms.locfileid: "103496689"
 
 ## <a name="whats-new"></a>新着情報
 
-このキットでは、Windows [デスクトップ ブリッジ アプリ](/windows/msix/desktop/source-code-overview)のテストがサポートされるようになりました。 [Windows デスクトップ ブリッジ アプリ テスト](/windows/uwp/debug-test-perf/windows-desktop-bridge-app-tests)を使用すると、作成したアプリを Microsoft Store に公開し、認定を取得できる可能性が最大限に高まります。
+このキットでは、Windows [デスクトップ ブリッジ アプリ](/windows/msix/desktop/source-code-overview)のテストがサポートされるようになりました。 [Windows デスクトップ ブリッジ アプリ テスト](./windows-desktop-bridge-app-tests.md)を使用すると、作成したアプリを Microsoft Store に公開し、認定を取得できる可能性が最大限に高まります。
 
 キットは、自動テストに統合できるようになり、対話型ユーザー セッションは使用できなくなりました。
 

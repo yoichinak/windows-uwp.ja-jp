@@ -14,12 +14,12 @@ ms.custom: RS5
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 4da8d370c76f18b243930bb478bc28975d6444a9
-ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
+ms.openlocfilehash: f49d30e5ef3d2b7d4130d2141da711c99f8969bb
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102784863"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804726"
 ---
 # <a name="navigationview"></a>NavigationView
 
@@ -1761,6 +1761,6 @@ NavigationView のヘッダー領域の位置をさらに調整するには、Pa
 ## <a name="related-topics"></a>関連トピック
 
 - [NavigationView クラス](/uwp/api/windows.ui.xaml.controls.navigationview)
-- [マスター/詳細](master-details.md)
+- [リストと詳細](list-details.md)
 - [ナビゲーションの基本](../basics/navigation-basics.md)
 - [Fluent Design の概要](/windows/apps/fluent-design-system)

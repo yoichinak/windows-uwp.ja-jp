@@ -5,12 +5,12 @@ ms.date: 12/30/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, C#
 ms.localizationpriority: medium
-ms.openlocfilehash: cc341f6fd716daf0474fdbcb25f567a7c727d507
-ms.sourcegitcommit: 7d542c6367b3b441044225431ee69d869ed0ff4b
+ms.openlocfilehash: 0b2b4f67d67fc1a23e650d1fbe5d58964add1a70
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102402338"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804756"
 ---
 # <a name="authoring-a-c-windows-runtime-component-for-use-from-a-cwinrt-app"></a>C++/WinRT アプリから使用するための C# Windows ランタイム コンポーネントの作成
 
@@ -21,12 +21,12 @@ Visual Studio を使用すると、C# または Visual Basic で記述された 
 内部的には、UWP アプリケーションで許可されているすべての .NET 機能をその Windows ランタイム型で使用できます。
 
 > [!NOTE]
-> 詳しくは、「[C# および Visual Basic を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md)」および「[UWP アプリ用 .NET の概要](/dotnet/api/index?view=dotnet-uwp-10.0&preserve-view=true)」を参照してください。
+> 詳しくは、「[C# および Visual Basic を使用した Windows ランタイム コンポーネント](../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md)」および「[UWP アプリ用 .NET の概要](/dotnet/api/index?view=dotnet-uwp-10.0&preserve-view=true)」を参照してください。
 
 外部的には、型のメンバーによってパラメーターと戻り値の Windows ランタイム型のみを公開できます。 ソリューションをビルドすると、Visual Studio によって .NET WRC プロジェクトがビルドされ、Windows メタデータ (.winmd) ファイルを作成するビルド ステップが実行されます。 これが、Visual Studio によってアプリに含められる Windows ランタイム コンポーネント (WRC)です。
 
 > [!NOTE]
-> .NET により、一般的に使用される .NET の型 (プリミティブ データ型やコレクション型など) が対応する Windows ランタイム型に自動的にマップされます。 .NET のこれら型は、Windows ランタイム コンポーネントのパブリック インターフェイス内で使用でき、対応する Windows ランタイム型としてコンポーネントのユーザーに表示されます。 「[C# および Visual Basic を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md)」を参照してください。
+> .NET により、一般的に使用される .NET の型 (プリミティブ データ型やコレクション型など) が対応する Windows ランタイム型に自動的にマップされます。 .NET のこれら型は、Windows ランタイム コンポーネントのパブリック インターフェイス内で使用でき、対応する Windows ランタイム型としてコンポーネントのユーザーに表示されます。 「[C# および Visual Basic を使用した Windows ランタイム コンポーネント](../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件:
 
@@ -124,7 +124,7 @@ void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
 
 ## <a name="application-minimum-version"></a>アプリケーションの最小バージョン
 
-アプリケーションのコンパイルに使用される .NET のバージョンは、C# プロジェクト バージョンの [ **[Application Minimum]\(アプリケーションの最小\)**](https://docs.microsoft.com/windows/uwp/updates-and-versions/choose-a-uwp-version) で制御されます。 たとえば、 **[Windows 10 Fall Creators Update (10.0; Build 16299)]** 以上を選ぶと、.NET Standard 2.0 と Windows ARM64 プロセッサのサポートが有効になります。 
+アプリケーションのコンパイルに使用される .NET のバージョンは、C# プロジェクト バージョンの [ **[Application Minimum]\(アプリケーションの最小\)**](../updates-and-versions/choose-a-uwp-version.md) で制御されます。 たとえば、 **[Windows 10 Fall Creators Update (10.0; Build 16299)]** 以上を選ぶと、.NET Standard 2.0 と Windows ARM64 プロセッサのサポートが有効になります。 
 
 > [!TIP]
 > .NET Standard 2.0 または ARM64 のサポートが不要な場合は、16299 より前の **[Application Minimum]\(アプリケーションの最小\)** バージョンを使用して追加のビルド構成を回避することをお勧めします。
@@ -218,5 +218,5 @@ Visual Studio ソリューション エクスプローラーで *CppToCSharpWinR
 ```
 
 ## <a name="related-topics"></a>関連トピック
-* [C# および Visual Basic を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)
-* [C++/WinRT を使用した Windows ランタイム コンポーネント](/windows/uwp/winrt-components/create-a-windows-runtime-component-in-cppwinrt)
+* [C# および Visual Basic を使用した Windows ランタイム コンポーネント](../winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic.md)
+* [C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md)
