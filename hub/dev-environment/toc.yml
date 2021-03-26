@@ -26,7 +26,7 @@
             - name: 自動化の概要
               href: ../python/scripting.md
             - name: よく寄せられる質問
-              href: ../python/faqs.md
+              href: ../python/faqs.yml
         - name: Node.js の概要
           items:
             - name: 概要
