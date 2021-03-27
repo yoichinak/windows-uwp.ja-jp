@@ -6,12 +6,12 @@ ms.date: 02/28/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリ データ
 ms.localizationpriority: medium
-ms.openlocfilehash: 7dfbad9d0aa2bfb69479f168ec262fe67bedb49c
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 120cb4d20299a8690f3d3814a8e937e763de1e7a
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162416"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619608"
 ---
 # <a name="get-app-data"></a>アプリ データの入手
 
@@ -68,12 +68,11 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 | primaryName   | string  | アプリのプライマリ名です。      |
 | packageFamilyName | string  | アプリのパッケージ ファミリ名です。      |
 | packageIdentityName          | string  | アプリのパッケージ ID 名です。                       |
-| publisherName       | string  | アプリに関連付けられている Windows 発行元 ID です。 これは、パートナーセンターのアプリの [[アプリ id](../publish/view-app-identity-details.md) ] ページに表示される**パッケージ/Id/発行元**の値に対応しています。       |
+| publisherName       | string  | アプリに関連付けられている Windows 発行元 ID です。 これは、パートナーセンターのアプリの [[アプリ id](../publish/view-app-identity-details.md) ] ページに表示される **パッケージ/Id/発行元** の値に対応しています。       |
 | firstPublishedDate      | string  | アプリが最初に発行された日付 (ISO 8601 形式)。   |
 | lastPublishedApplicationSubmission       | object | アプリの最後に公開された申請に関する情報を提供する[申請のリソース](#submission_object)。    |
 | pendingApplicationSubmission        | object  |  アプリの現在保留中の申請に関する情報を提供する[申請のリソース](#submission_object)。   |   
-| hasAdvancedListingPermission        | boolean  |  アプリの申請用に [gamingOptions](manage-app-submissions.md#gaming-options-object) または[トレーラー](manage-app-submissions.md#trailer-object)を構成できるかどうかを示します。 2017 年 5 月以降に作成された申請では、この値は true になります。 |  |
-
+| hasAdvancedListingPermission        | boolean  |  アプリの申請用に [gamingOptions](manage-app-submissions.md#gaming-options-object) または[トレーラー](manage-app-submissions.md#trailer-object)を構成できるかどうかを示します。 2017 年 5 月以降に作成された申請では、この値は true になります。 |
 
 <span id="add-on-object" />
 
@@ -153,7 +152,7 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 | id                 | string | 申請 ID。 |
 | resourceLocation   | string | 申請の完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。 |
 
- 
+ 
 ## <a name="related-topics"></a>関連トピック
 
 * [Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)

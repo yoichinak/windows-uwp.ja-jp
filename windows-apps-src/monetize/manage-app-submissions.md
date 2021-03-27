@@ -6,12 +6,12 @@ ms.date: 04/30/2018
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アプリの申請
 ms.localizationpriority: medium
-ms.openlocfilehash: 00820f00360575f0a335d37aa0859b94648709e3
-ms.sourcegitcommit: 7e8dfd83b181fe720b4074cb42adc908e1ba5e44
+ms.openlocfilehash: 45f4dd26920d0e323bd1efc13a378aec6eb52468
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811279"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619338"
 ---
 # <a name="manage-app-submissions"></a>アプリの申請の管理
 
@@ -352,7 +352,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | hasExternalInAppProducts           |     boolean          |   ユーザーが Microsoft Store コマース システムを使わないで購入することをアプリが許可するかどうかを示します。 詳しくは、「[アプリの宣言](../publish/product-declarations.md)」をご覧ください。     |   
 | meetAccessibilityGuidelines           |    boolean           |  アプリがアクセシビリティ ガイドラインを満たことをテストされているかどうかを示します。 詳しくは、「[アプリの宣言](../publish/product-declarations.md)」をご覧ください。      |   
 | notesForCertification           |  string  |   アプリの[認定の注意書き](../publish/notes-for-certification.md)が含まれます。    |    
-| status           |   string  |  申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定</li><li>CertificationFailed</li><li>Release</li><li>ReleaseFailed</li></ul>      |    
+| status           |   string  |  申請の状態。 次のいずれかの値を指定できます。 <ul><li>なし</li><li>Canceled</li><li>PendingCommit</li><li>CommitStarted</li><li>CommitFailed</li><li>PendingPublication</li><li>発行</li><li>公開済み</li><li>PublishFailed</li><li>PreProcessing</li><li>PreProcessingFailed</li><li>認定資格</li><li>CertificationFailed</li><li>Release</li><li>ReleaseFailed</li></ul>      |    
 | statusDetails           |   object  | エラーに関する情報など、申請のステータスに関する追加情報が保持される[ステータスの詳細に関するリソース](#status-details-object)です。       |    
 | fileUploadUrl           |   string  | 申請のパッケージのアップロードに使用する共有アクセス署名 (SAS) URI です。 申請用に新しいパッケージ、登録情報の画像、またはトレーラー ファイルを追加する場合は、パッケージと画像を含む ZIP アーカイブをこの URI にアップロードします。 詳しくは、「[アプリの申請の作成](#create-an-app-submission)」をご覧ください。       |    
 | applicationPackages           |   array  | 申請の各パッケージに関する詳細を提供する[アプリケーション パッケージ リソース](#application-package-object)の配列です。 |    
@@ -410,7 +410,7 @@ Microsoft Store 申請 API を直接呼び出す代わりに、API の上にコ�
 | 値           | Type    | 説明                  |
 |-----------------|---------|------|
 |  baseListing               |   object      |  アプリの[基本の登録情報](#base-listing-object)です。これはすべてのプラットフォームで既定の登録情報となります。   |     
-|  platformOverrides               | object |   キーと値のペアのディクショナリです。各キーは、登録情報を上書きするプラットフォームを示す文字列を表し、各値は、指定されたプラットフォームで上書きする登録情報を示す[基本の登録情報](#base-listing-object)リソース (description から title までの値のみが保持されています) を表します。 キーには次の値を設定できます。 <ul><li>Unknown</li><li>Windows80</li><li>Windows81</li><li>WindowsPhone71</li><li>WindowsPhone80</li><li>WindowsPhone81</li></ul>     |      |     
+|  platformOverrides               | object |   キーと値のペアのディクショナリです。各キーは、登録情報を上書きするプラットフォームを示す文字列を表し、各値は、指定されたプラットフォームで上書きする登録情報を示す[基本の登録情報](#base-listing-object)リソース (description から title までの値のみが保持されています) を表します。 キーには次の値を設定できます。 <ul><li>Unknown</li><li>Windows80</li><li>Windows81</li><li>WindowsPhone71</li><li>WindowsPhone80</li><li>WindowsPhone81</li></ul>     |
 
 <span id="base-listing-object" />
 

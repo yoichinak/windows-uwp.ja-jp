@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 72a6fe2e704bc419306c74f410ed51e8e8560fa6
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 31889f94eaa489bdb6955b578c0ad4b18af6b606
+ms.sourcegitcommit: dacbb7eef2cfffd7a8639e3a24ebda7b4eefae38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89362975"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105616785"
 ---
 # <a name="audio-graphs"></a>オーディオ グラフ
 
@@ -19,13 +19,12 @@ ms.locfileid: "89362975"
 
 この記事では、[**Windows.Media.Audio**](/uwp/api/Windows.Media.Audio) 名前空間の API を使ってオーディオのルーティング、ミキシング、処理のシナリオでオーディオ グラフを作成する方法について説明します。
 
-*オーディオグラフ*は、オーディオデータが流れる、相互接続されたオーディオノードのセットです。 
+*オーディオグラフ* は、オーディオデータが流れる、相互接続されたオーディオノードのセットです。 
 
-- *オーディオ入力ノード*は、オーディオ入力デバイス、オーディオ ファイル、またはカスタム コードから、オーディオ データをグラフに提供します。 
+- *オーディオ入力ノード* は、オーディオ入力デバイス、オーディオ ファイル、またはカスタム コードから、オーディオ データをグラフに提供します。 lat
+- *オーディオ出力ノード* は、グラフで処理されたオーディオの目的地です。 オーディオは、グラフからオーディオ出力デバイス、オーディオ ファイル、またはカスタム コードにルーティングできます。 
 
-- *オーディオ出力ノード*は、グラフで処理されたオーディオの目的地です。 オーディオは、グラフからオーディオ出力デバイス、オーディオ ファイル、またはカスタム コードにルーティングできます。 
-
-- *サブミックス ノード*は、1 つまたは複数のノードからのオーディオを結合して 1 つの出力にします。この出力は、グラフ内の他のノードにルーティングすることができます。 
+- *サブミックス ノード* は、1 つまたは複数のノードからのオーディオを結合して 1 つの出力にします。この出力は、グラフ内の他のノードにルーティングすることができます。 
 
 すべてのノードが作成され、ノード間の接続が設定された後、オーディオ グラフを開始すると、オーディオ データが入力ノードからサブミックス ノードを通って出力ノードまで流れます。 このモデルでは、デバイスのマイクからオーディオ ファイルへの録音、ファイルからデバイスのスピーカーへのオーディオ再生、複数ソースからのオーディオ ミキシングなどのシナリオが、すばやく簡単に実装できるようになります。
 
@@ -109,7 +108,7 @@ Windows ランタイム オーディオ グラフ API:
 
 ##  <a name="mediasource-input-node"></a>MediaSource 入力ノード
 
-[**MediaSource**](/uwp/api/Windows.Media.Core.MediaSource) クラスは、さまざまなソースのメディアを参照するための一般的な方法を提供し、基になるメディア形式 (ディスク上のファイル、ストリーム、アダプティブ ストリーミング ネットワーク ソースなど) に関係なく、メディア データにアクセスするための一般的なモデルを公開します。 [**MediaSourceAudioInputNode](/uwp/api/windows.media.audio.mediasourceaudioinputnode) ノードを使用すると、**MediaSource** からオーディオ グラフにオーディオ データを渡すことができます。 **MediaSourceAudioInputNode** を作成するには、[**CreateMediaSourceAudioInputNodeAsync**](/uwp/api/windows.media.audio.audiograph.createmediasourceaudioinputnodeasync#Windows_Media_Audio_AudioGraph_CreateMediaSourceAudioInputNodeAsync_Windows_Media_Core_MediaSource_) を呼び出して、再生するコンテンツを表す **MediaSource** オブジェクトを渡します。 [* * CreateMediaSourceAudioInputNodeResult](/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult) が返され、その [**Status**](/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.status) プロパティを確認すると、操作の状態を判断できます。 状態が **Success** の場合は、[**Node**](/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.node) プロパティにアクセスして、作成された **MediaSourceAudioInputNode ** を取得できます。 以下では、ネットワーク経由のコンテンツのストリーミングを表す AdaptiveMediaSource オブジェクトからノードを作成する例を示します。 **MediaSource** の使用方法について詳しくは、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」をご覧ください。 インターネット経由のストリーミング メディア コンテンツについて詳しくは、「[アダプティブ ストリーミング](adaptive-streaming.md)」をご覧ください。
+[**MediaSource**](/uwp/api/Windows.Media.Core.MediaSource) クラスは、さまざまなソースのメディアを参照するための一般的な方法を提供し、基になるメディア形式 (ディスク上のファイル、ストリーム、アダプティブ ストリーミング ネットワーク ソースなど) に関係なく、メディア データにアクセスするための一般的なモデルを公開します。 [**MediaSourceAudioInputNode](/uwp/api/windows.media.audio.mediasourceaudioinputnode) ノードを使用すると、**MediaSource** からオーディオ グラフにオーディオ データを渡すことができます。 **MediaSourceAudioInputNode** を作成するには、[**CreateMediaSourceAudioInputNodeAsync**](/uwp/api/windows.media.audio.audiograph.createmediasourceaudioinputnodeasync#Windows_Media_Audio_AudioGraph_CreateMediaSourceAudioInputNodeAsync_Windows_Media_Core_MediaSource_) を呼び出して、再生するコンテンツを表す **MediaSource** オブジェクトを渡します。 [* * CreateMediaSourceAudioInputNodeResult](/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult) が返され、その [**Status**](/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.status) プロパティを確認すると、操作の状態を判断できます。 状態が **Success** の場合は、[**Node**](/uwp/api/windows.media.audio.createmediasourceaudioinputnoderesult.node) プロパティにアクセスして、作成された **MediaSourceAudioInputNode** を取得できます。 以下では、ネットワーク経由のコンテンツのストリーミングを表す AdaptiveMediaSource オブジェクトからノードを作成する例を示します。 **MediaSource** の使用方法について詳しくは、「[メディア項目、プレイリスト、トラック](media-playback-with-mediasource.md)」をご覧ください。 インターネット経由のストリーミング メディア コンテンツについて詳しくは、「[アダプティブ ストリーミング](adaptive-streaming.md)」をご覧ください。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioGraph/cs/MainPage.xaml.cs" id="SnippetDeclareMediaSourceInputNode":::
 
@@ -167,8 +166,8 @@ Windows ランタイム オーディオ グラフ API:
 
 -   このメソッドは、Windows ランタイム型よりも低いレベルの RAW バッファーにアクセスするため、**unsafe** キーワードを使って宣言する必要があります。 また、Microsoft Visual Studio でアンセーフ コードのコンパイルを許可するようにプロジェクトを構成する必要があります。プロジェクトの **[プロパティ]** ページを開き、**[ビルド]** プロパティ ページをクリックして、**[アンセーフ コードの許可]** チェック ボックスをオンにしてください。
 -   **Windows.Media** 名前空間で [**AudioFrame**](/uwp/api/Windows.Media.AudioFrame) の新しいインスタンスを初期化するには、必要なバッファー サイズをコンストラクターに渡します。 バッファー サイズとは、サンプル数に各サンプルのサイズを掛けた値です。
--   [**Lockbuffer**](/uwp/api/windows.media.audioframe.lockbuffer)を呼び出して、オーディオフレームの[**audiobuffer**](/uwp/api/Windows.Media.AudioBuffer)を取得します。
--   [**CreateReference**](/uwp/api/windows.media.audiobuffer.createreference)を呼び出して、オーディオバッファーから[**IMemoryBufferByteAccess**](/previous-versions/mt297505(v=vs.85)) COM インターフェイスのインスタンスを取得します。
+-   [**Lockbuffer**](/uwp/api/windows.media.audioframe.lockbuffer)を呼び出して、オーディオフレームの [**audiobuffer**](/uwp/api/Windows.Media.AudioBuffer)を取得します。
+-   [**CreateReference**](/uwp/api/windows.media.audiobuffer.createreference)を呼び出して、オーディオバッファーから [**IMemoryBufferByteAccess**](/previous-versions/mt297505(v=vs.85)) COM インターフェイスのインスタンスを取得します。
 -   [**IMemoryBufferByteAccess**](/windows/desktop/WinRT/imemorybufferbyteaccess-getbuffer)を呼び出して生のオーディオバッファーデータへのポインターを取得し、オーディオデータのサンプルデータ型にキャストします。
 -   オーディオ グラフへの提出用に、バッファーにデータを設定して [**AudioFrame**](/uwp/api/Windows.Media.AudioFrame) を返します。
 
@@ -193,7 +192,7 @@ Windows ランタイム オーディオ グラフ API:
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioGraph/cs/MainPage.xaml.cs" id="SnippetProcessFrameOutput":::
 
 -   上に示したオーディオ フレーム入力ノードの例と同様、基になっているオーディオ バッファーにアクセスするために、**IMemoryBufferByteAccess** COM インターフェイスを宣言して、アンセーフ コードが許可されるようにプロジェクトを構成する必要があります。
--   [**Lockbuffer**](/uwp/api/windows.media.audioframe.lockbuffer)を呼び出して、オーディオフレームの[**audiobuffer**](/uwp/api/Windows.Media.AudioBuffer)を取得します。
+-   [**Lockbuffer**](/uwp/api/windows.media.audioframe.lockbuffer)を呼び出して、オーディオフレームの [**audiobuffer**](/uwp/api/Windows.Media.AudioBuffer)を取得します。
 -   オーディオ バッファーから **IMemoryBufferByteAccess** COM インターフェイスのインスタンスを取得するには、[**CreateReference**](/uwp/api/windows.media.audiobuffer.createreference) を呼び出します。
 -   生のオーディオ バッファー データへのポインターを取得するには、**IMemoryBufferByteAccess.GetBuffer** を呼び出してオーディオ データのサンプル データ型にキャストします。
 
@@ -230,7 +229,7 @@ Windows ランタイム オーディオ グラフ API:
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioGraph/cs/MainPage.xaml.cs" id="SnippetAddEffect":::
 
 -   すべてのオーディオ エフェクトには、[**IAudioEffectDefinition**](/uwp/api/Windows.Media.Effects.IAudioEffectDefinition) が実装されています。 すべてのノードには、そのノードに適用されたエフェクトの一覧を表す **EffectDefinitions** プロパティが用意されています。 エフェクトを追加するには、エフェクトの定義オブジェクトをこの一覧に追加します。
--   **Windows.Media.Audio** 名前空間には、複数のエフェクト定義クラスがあります。 これには以下が含まれます。
+-   **Windows.Media.Audio** 名前空間には、複数のエフェクト定義クラスがあります。 次の設定があります。
     -   [**EchoEffectDefinition**](/uwp/api/Windows.Media.Audio.EchoEffectDefinition)
     -   [**EqualizerEffectDefinition**](/uwp/api/Windows.Media.Audio.EqualizerEffectDefinition)
     -   [**LimiterEffectDefinition**](/uwp/api/Windows.Media.Audio.LimiterEffectDefinition)
@@ -250,7 +249,7 @@ Windows 10 バージョン 1607 以降、**AudioGraph** は空間オーディオ
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioGraph/cs/MainPage.xaml.cs" id="SnippetCreateEmitter":::
 
-グラフからのオーディオをユーザーに対して出力する [**AudioDeviceOutputNode**](/uwp/api/Windows.Media.Audio.AudioDeviceOutputNode) には、[**Listener**](/uwp/api/windows.media.audio.audiodeviceoutputnode.listener) プロパティでアクセスできるリスナー オブジェクトがあります。このオブジェクトは、3D 空間でのユーザーの位置、向き、速度を表します。 グラフ内のすべてのエミッターの位置は、エミッター オブジェクトの位置と向きを基準とします。 既定では、リスナーは原点 (0,0,0) に位置し、Z 軸に沿って前向きですが、リスナーの位置と向きは、[**Position**](/uwp/api/windows.media.audio.audionodelistener.position) プロパティと [**Orientation**](/uwp/api/windows.media.audio.audionodelistener.orientation) プロパティを使って設定できます。
+グラフからのオーディオをユーザーに対して出力する [**AudioDeviceOutputNode**](/uwp/api/Windows.Media.Audio.AudioDeviceOutputNode) には、[**Listener**](/uwp/api/windows.media.audio.audiodeviceoutputnode.listener) プロパティでアクセスできるリスナー オブジェクトがあります。このオブジェクトは、3D 空間でのユーザーの位置、向き、速度を表します。 グラフ内のすべての発信器の位置は、リスナーオブジェクトの位置と向きに対して相対的です。 既定では、リスナーは原点 (0,0,0) に位置し、Z 軸に沿って前向きですが、リスナーの位置と向きは、[**Position**](/uwp/api/windows.media.audio.audionodelistener.position) プロパティと [**Orientation**](/uwp/api/windows.media.audio.audionodelistener.orientation) プロパティを使って設定できます。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/AudioGraph/cs/MainPage.xaml.cs" id="SnippetListener":::
 
@@ -266,6 +265,6 @@ Windows 10 バージョン 1607 以降、**AudioGraph** は空間オーディオ
 
 ## <a name="see-also"></a>関連項目
 - [メディア再生](media-playback.md)
- 
+ 
 
- 
+ 

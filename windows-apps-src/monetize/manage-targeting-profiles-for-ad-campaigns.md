@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store プロモーション API, 広告キャンペーン
 ms.localizationpriority: medium
-ms.openlocfilehash: 0d84c6eb678bf884709e13ecefd81e64097ee738
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 10a10e15c736d77e132543a54dff11455f08cde3
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630207"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619518"
 ---
 # <a name="manage-targeting-profiles"></a>ターゲット プロファイルの管理
 
@@ -31,19 +31,19 @@ ms.locfileid: "57630207"
 
 これらのメソッドでは、次の URL が使用されます。
 
-| メソッドの種類 | 要求 URI                                                      |  説明  |
+| メソッドの型 | 要求 URI                                                      |  説明  |
 |--------|------------------------------------------------------------------|---------------|
 | POST   | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/targeting-profile``` |  新しいターゲット プロファイルを作成します。  |
 | PUT    | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/targeting-profile/{targetingProfileId}``` |  *targetingProfileId* により指定されたターゲット プロファイルを編集します。  |
 | GET    | ```https://manage.devcenter.microsoft.com/v1.0/my/promotion/targeting-profile/{targetingProfileId}``` |  *targetingProfileId* により指定されたターゲット プロファイルを取得します。  |
 
 
-### <a name="header"></a>Header
+### <a name="header"></a>ヘッダー
 
-| Header        | 種類   | 説明         |
+| ヘッダー        | Type   | 説明         |
 |---------------|--------|---------------------|
-| Authorization | string | 必須。 **Bearer** &lt;*トークン*&gt; という形式の Azure AD アクセス トークン。 |
-| 追跡 ID   | GUID   | (省略可能)。 呼び出しフローを追跡する ID。                                  |
+| 承認 | string | 必須。 ベアラートークン形式の Azure AD アクセストークン &lt;  &gt; 。 |
+| 追跡 ID   | GUID   | 省略可能。 呼び出しフローを追跡する ID。                                  |
 
 
 ### <a name="request-body"></a>要求本文
@@ -93,7 +93,7 @@ Authorization: Bearer <your access token>
 
 <span/>
 
-## <a name="response"></a>応答
+## <a name="response"></a>Response
 
 これらのメソッドは、作成、更新、または取得されたターゲット プロファイルに関する情報を含む[ターゲット プロファイル](#targeting-profile) オブジェクトを持つ JSON 応答本文を返します。 これらのメソッドの応答本文を次の例に示します。
 
@@ -139,17 +139,17 @@ Authorization: Bearer <your access token>
 
 これらのメソッドの要求本文と応答本文には、次のフィールドが含まれています。 この表は、読み取り専用のフィールド (つまり、PUT メソッドで変更できない) と POST メソッドの要求本文で必須のフィールドを示しています。
 
-| フィールド        | 種類   |  説明      |  読み取り専用かどうか  | Default  | POST に必須かどうか |  
+| フィールド        | Type   |  説明      |  読み取り専用  | Default  | POST に必須かどうか |  
 |--------------|--------|---------------|------|-------------|------------|
-|  id   |  整数   |  ターゲット プロファイルの ID。     |   〇    |       |   X      |       
-|  name   |  string   |   ターゲット プロファイルの名前。    |    いいえ   |      |  〇     |       
-|  targetingType   |  string   |  次のいずれかの値です。 <ul><li>**自動**:Microsoft パートナー センターでアプリの設定に基づいて対象とするプロファイルを選択することを許可するには、この値を指定します。</li><li>**手動**:独自のプロファイルのターゲットを定義するには、この値を指定します。</li></ul>     |  いいえ     |  Auto    |   〇    |       
-|  age   |  array   |   対象とするユーザーの年齢範囲を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[年齢の値](#age-values)」をご覧ください。    |    いいえ    |  null    |     X    |       
-|  gender   |  array   |  対象とするユーザーの性別を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[性別の値](#gender-values)」をご覧ください。       |  X    |  null    |     いいえ    |       
-|  country   |  array   |  対象とするユーザーの国コードを識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[国コードの値](#country-code-values)」をご覧ください。    |  X    |  null   |      X   |       
-|  osVersion   |  array   |   対象とするユーザーの OS バージョンを識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[OS バージョンの値](#osversion-values)」をご覧ください。     |   いいえ    |  null   |     いいえ    |       
-|  deviceType   | array    |  対象とするユーザーのデバイスの種類を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[デバイスの種類の値](#devicetype-values)」をご覧ください。       |   いいえ    |  null    |    X     |       
-|  supplyType   |  array   |  キャンペーンの広告が表示されるインベントリの種類を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[サプライの種類の値](#supplytype-values)」をご覧ください。      |   X    |  null   |     X    |   |  
+|  id   |  整数 (integer)   |  ターゲット プロファイルの ID。     |   はい    |       |   いいえ      |       
+|  name   |  string   |   ターゲット プロファイルの名前。    |    いいえ   |      |  はい     |       
+|  targetingType   |  string   |  次のいずれかの値です。 <ul><li>**Auto**: パートナーセンターでのアプリの設定に基づいて、Microsoft がターゲットプロファイルを選択できるようにするには、この値を指定します。</li><li>**Manual**: 独自のターゲット プロファイルを定義する場合は、この値を指定します。</li></ul>     |  No     |  Auto    |   はい    |       
+|  age   |  array   |   対象とするユーザーの年齢範囲を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[年齢の値](#age-values)」をご覧ください。    |    No    |  null    |     No    |       
+|  gender   |  array   |  対象とするユーザーの性別を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[性別の値](#gender-values)」をご覧ください。       |  No    |  null    |     No    |       
+|  country   |  array   |  対象とするユーザーの国コードを識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[国コードの値](#country-code-values)」をご覧ください。    |  No    |  null   |      No   |       
+|  osVersion   |  array   |   対象とするユーザーの OS バージョンを識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[OS バージョンの値](#osversion-values)」をご覧ください。     |   No    |  null   |     No    |       
+|  deviceType   | array    |  対象とするユーザーのデバイスの種類を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[デバイスの種類の値](#devicetype-values)」をご覧ください。       |   No    |  null    |    No     |       
+|  supplyType   |  array   |  キャンペーンの広告が表示されるインベントリの種類を識別する 1 つ以上の整数です。 整数の詳しい一覧については、この記事の「[サプライの種類の値](#supplytype-values)」をご覧ください。      |   No    |  null   |     No    |
 
 
 <span id="age-values"/>
@@ -166,7 +166,7 @@ Authorization: Bearer <your access token>
 |     654     |            35 ～ 49             |
 |     655     |            50 以上             |
 
-*age* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization```ヘッダー形式で Azure AD アクセス トークンを渡す**ベアラー** &lt;*トークン*&gt;します。
+*age* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization``` ヘッダーでは、**Bearer** &lt;*トークン*&gt; の形式で Azure AD アクセス トークンを渡します。
 
 ```json
 GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/reference/age
@@ -197,10 +197,10 @@ Authorization: Bearer <your access token>
 
 |  *gender* フィールドの整数値  |  対応する性別  |  
 |---------------------------------|---------------------------|
-|     700     |            男性             |
-|     701     |           女性             |
+|     700     |            Male             |
+|     701     |           Female             |
 
-*gender* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization```ヘッダー形式で Azure AD アクセス トークンを渡す**ベアラー** &lt;*トークン*&gt;します。
+*gender* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization``` ヘッダーでは、**Bearer** &lt;*トークン*&gt; の形式で Azure AD アクセス トークンを渡します。
 
 ```json
 GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/reference/gender
@@ -240,7 +240,7 @@ Authorization: Bearer <your access token>
 |     508     |           Windows 10             |
 |     509     |           Windows 10 Mobile             |
 
-*osVersion* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization```ヘッダー形式で Azure AD アクセス トークンを渡す**ベアラー** &lt;*トークン*&gt;します。
+*osVersion* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization``` ヘッダーでは、**Bearer** &lt;*トークン*&gt; の形式で Azure AD アクセス トークンを渡します。
 
 ```json
 GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/reference/osversion
@@ -280,7 +280,7 @@ Authorization: Bearer <your access token>
 |     710     |  Windows   |  これは、Windows 10 または Windows 8.x のデスクトップ バージョンを実行しているデバイスを表しています。  |
 |     711     |  Phone     |  これは、Windows 10 Mobile、Windows Phone 8.x、Windows Phone 7.x を実行しているデバイスを表しています。
 
-*deviceType* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization```ヘッダー形式で Azure AD アクセス トークンを渡す**ベアラー** &lt;*トークン*&gt;します。
+*deviceType* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization``` ヘッダーでは、**Bearer** &lt;*トークン*&gt; の形式で Azure AD アクセス トークンを渡します。
 
 ```json
 GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/reference/devicetype
@@ -309,10 +309,10 @@ Authorization: Bearer <your access token>
 
 |  *supplyType* フィールドの整数値  |  対応するサプライの種類  |  説明  |
 |---------------------------------|---------------------------|---------------------------|
-|     11470     |  App        |  これは、アプリにのみ表示される広告を示しています。  |
+|     11470     |  アプリ        |  これは、アプリにのみ表示される広告を示しています。  |
 |     11471     |  ユニバーサル        |  これは、アプリ、Web、および他のディスプレイ サーフェスに表示される広告を示しています。  |
 
-*supplyType* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization```ヘッダー形式で Azure AD アクセス トークンを渡す**ベアラー** &lt;*トークン*&gt;します。
+*supplyType* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization``` ヘッダーでは、**Bearer** &lt;*トークン*&gt; の形式で Azure AD アクセス トークンを渡します。
 
 ```json
 GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/reference/supplytype
@@ -353,14 +353,14 @@ Authorization: Bearer <your access token>
 |     11      |            GR                  |
 |     12      |            HK                  |
 |     13      |            IN                  |
-|     14      |            Internet Explorer                  |
+|     14      |            IE                  |
 |     15      |            IT                  |
 |     16      |            JP                  |
 |     17      |            LU                  |
 |     18      |            MX                  |
 |     19      |            NL                  |
 |     20      |            NZ                  |
-|     21      |            使用不可                  |
+|     21      |            NO                  |
 |     22      |            PL                  |
 |     23      |            PT                  |
 |     24      |            SG                  |
@@ -381,7 +381,7 @@ Authorization: Bearer <your access token>
 |     39      |            TR                  |
 |     40      |            SK                  |
 |     41      |            IL                  |
-|     42      |            ID                  |
+|     42      |            id                  |
 |     43      |            AR                  |
 |     44      |            MY                  |
 |     45      |            PH                  |
@@ -447,7 +447,7 @@ Authorization: Bearer <your access token>
 |     145      |            ME                  |
 |     146      |            MA                  |
 |     147      |            MZ                  |
-|     148      |            該当なし                  |
+|     148      |            NA                  |
 |     150      |            NP                  |
 |     151      |            NI                  |
 |     153      |            NG                  |
@@ -470,7 +470,7 @@ Authorization: Bearer <your access token>
 |     225      |            RE                  |
 |     246      |            PR                  |
 
-*country* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization```ヘッダー形式で Azure AD アクセス トークンを渡す**ベアラー** &lt;*トークン*&gt;します。
+*country* フィールドでサポートされる値をプログラムにより取得するには、次の GET メソッドを呼び出します。  ```Authorization``` ヘッダーでは、**Bearer** &lt;*トークン*&gt; の形式で Azure AD アクセス トークンを渡します。
 
 ```json
 GET https://manage.devcenter.microsoft.com/v1.0/my/promotion/reference/country
@@ -619,8 +619,8 @@ Authorization: Bearer <your access token>
 
 ## <a name="related-topics"></a>関連トピック
 
-* [Microsoft ストアのサービスを使用して広告キャンペーンを実行します。](run-ad-campaigns-using-windows-store-services.md)
-* [広告キャンペーンを管理します。](manage-ad-campaigns.md)
-* [広告キャンペーンの配信の線を管理します。](manage-delivery-lines-for-ad-campaigns.md)
-* [広告キャンペーンのクリエイティブを管理します。](manage-creatives-for-ad-campaigns.md)
-* [広告キャンペーンのパフォーマンス データを取得します。](get-ad-campaign-performance-data.md)
+* [Microsoft Store Services を使用して ad キャンペーンを実行する](run-ad-campaigns-using-windows-store-services.md)
+* [広告キャンペーンの管理](manage-ad-campaigns.md)
+* [広告キャンペーンの配信ラインの管理](manage-delivery-lines-for-ad-campaigns.md)
+* [広告キャンペーンのクリエイティブの管理](manage-creatives-for-ad-campaigns.md)
+* [広告キャンペーンのパフォーマンス データの取得](get-ad-campaign-performance-data.md)

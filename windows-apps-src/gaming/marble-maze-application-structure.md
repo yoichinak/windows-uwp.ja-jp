@@ -6,12 +6,12 @@ ms.date: 09/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, サンプル, DirectX, 構造
 ms.localizationpriority: medium
-ms.openlocfilehash: e4dd33bb40b84db79e3ac2ea43a4252b6e20d441
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 4e3491bfb18edeecaa15e946dc5f0732cac1f0e9
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165246"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619558"
 ---
 # <a name="marble-maze-application-structure"></a>Marble Maze のアプリケーション構造
 
@@ -23,7 +23,7 @@ DirectX ユニバーサル Windows プラットフォーム (UWP) アプリの�
 > [!NOTE]
 > このドキュメントに対応するサンプル コードは、[DirectX Marble Maze ゲームのサンプルに関するページ](https://github.com/microsoft/Windows-appsample-marble-maze)にあります。
 
- 
+ 
 ## 
 このドキュメントでは、ゲーム コードを構成する際に重要となるいくつかの事柄について説明します。取り上げる内容は次のとおりです。
 
@@ -45,7 +45,7 @@ Marble Maze の一部のコンポーネントは、変更なしで、または�
 | BasicLoader.h、BasicLoader.cpp             | テクスチャ、メッシュ、シェーダーの読み込みに役立つユーティリティ メソッドを提供する **BasicLoader** クラスを定義しています。                                                                  |
 | BasicMath.h                                | ベクターやマトリックスのデータと計算の操作に役立つ構造と関数を定義しています。 これらの関数の多くは、HLSL シェーダーの種類と互換性があります。                     |
 | BasicReaderWriter.h、BasicReaderWriter.cpp | UWP アプリのファイル データの読み取りと書き込みのために Windows ランタイムを使う **BasicReaderWriter** クラスを定義しています。                                                                    |
-| BasicShapes.h、BasicShapes.cpp             | 立方体や球体などの基本的な図形を作るためのユーティリティ メソッドを提供する **BasicShapes** クラスを定義しています。 これらのファイルは、Marble Maze の実装では使われません。 |                                                                                  |
+| BasicShapes.h、BasicShapes.cpp             | 立方体や球体などの基本的な図形を作るためのユーティリティ メソッドを提供する **BasicShapes** クラスを定義しています。 これらのファイルは、Marble Maze の実装では使われません。 |
 | Camera.h、Camera.cpp                       | カメラの位置と向きを保持する **Camera** クラスを定義しています。                                                                                               |
 | Collision.h、Collision.cpp                 | 大理石と、迷路などの他のオブジェクトとの衝突情報を管理します。                                                                                                       |
 | DDSTextureLoader.h、DDSTextureLoader.cpp   | メモリ バッファーから .dds 形式のテクスチャを読み込む **CreateDDSTextureFromMemory** 関数を定義しています。                                                              |
@@ -61,14 +61,14 @@ Marble Maze の一部のコンポーネントは、変更なしで、または�
 | StepTimer.h               | 合計時間と経過時間を簡単に取得できるようにする **StepTimer** クラスを定義しています。
 | UserInterface.h、UserInterface.cpp         | メニュー システムやハイ スコア表などのユーザー インターフェイスに関連する機能を定義しています。                                                                        |
 
- 
+ 
 
 ##  <a name="design-time-versus-run-time-resource-formats"></a>設計時と実行時のリソース形式
 
 
 できれば、より効率的にゲームのリソースを読み込むために、設計時形式ではなく実行時形式を使います。
 
-*設計時*形式は、リソースを設計するときに使う形式です。 通常、3D デザイナーは設計時形式で作業します。 一部の設計時形式はテキスト ベースであり、任意のテキスト ベース エディターで変更できます。 設計時形式は冗長で、ゲームが必要とするよりも多くの情報を持っている場合があります。 *実行時*形式は、ゲームが読み取るバイナリ形式です。 実行時形式は通常、対応する設計時形式よりもコンパクトで、効率的に読み込むことができます。 そのため、ゲームの大多数は実行時に実行時アセットを使います。
+*設計時* 形式は、リソースを設計するときに使う形式です。 通常、3D デザイナーは設計時形式で作業します。 一部の設計時形式はテキスト ベースであり、任意のテキスト ベース エディターで変更できます。 設計時形式は冗長で、ゲームが必要とするよりも多くの情報を持っている場合があります。 *実行時* 形式は、ゲームが読み取るバイナリ形式です。 実行時形式は通常、対応する設計時形式よりもコンパクトで、効率的に読み込むことができます。 そのため、ゲームの大多数は実行時に実行時アセットを使います。
 
 ゲームは設計時形式を直接読み取れますが、別の実行時形式を使うことには、いくつかの利点があります。 実行時形式は多くの場合、よりコンパクトであり、必要なディスク領域が少なく、ネットワークでの転送にかかる時間も短くなります。 また、実行時形式は通常、メモリ マップ データ構造として表されます。 そのため、XML ベースのテキスト ファイルなどよりも大幅に速くメモリに読み込むことができます。 さらに、個別の実行時形式は通常はバイナリ形式でエンコードされており、エンド ユーザーによる変更がより難しくなっています。
 
@@ -83,7 +83,7 @@ Marble Maze は、一般的な UWP アプリのライフ サイクルに従っ�
 
 UWP ゲームの初期化時には、通常、Direct3D、Direct2D などのランタイム コンポーネントと、ゲームで使用される入力、オーディオ、または物理ライブラリが初期化されます。 また、ゲームを開始する前に必要なゲーム固有のリソースも読み込まれます。 この初期化は、ゲーム セッション中に 1 回行われます。
 
-初期化後、ゲームは通常、*ゲーム ループ*を実行します。 このループでは、ゲームは通常、4 つの操作を実行します。それらは、Windows イベントの処理、入力の収集、シーン オブジェクトの更新、シーンの表示です。 ゲームがシーンを更新するときに、現在の入力状態をシーン オブジェクトに適用し、オブジェクトの衝突などの物理的なイベントをシミュレートすることができます。 また、効果音の再生やネットワーク経由のデータ送信など、その他のアクティビティも実行できます。 ゲームがシーンを表示するときに、シーンの現在の状態がキャプチャされ、ディスプレイ デバイスに描画されます。 以降のセクションでは、これらのアクティビティについてさらに詳しく説明します。
+初期化後、ゲームは通常、*ゲーム ループ* を実行します。 このループでは、ゲームは通常、4 つの操作を実行します。それらは、Windows イベントの処理、入力の収集、シーン オブジェクトの更新、シーンの表示です。 ゲームがシーンを更新するときに、現在の入力状態をシーン オブジェクトに適用し、オブジェクトの衝突などの物理的なイベントをシミュレートすることができます。 また、効果音の再生やネットワーク経由のデータ送信など、その他のアクティビティも実行できます。 ゲームがシーンを表示するときに、シーンの現在の状態がキャプチャされ、ディスプレイ デバイスに描画されます。 以降のセクションでは、これらのアクティビティについてさらに詳しく説明します。
 
 ##  <a name="adding-to-the-template"></a>テンプレートへの追加
 
@@ -110,7 +110,7 @@ UWP ゲームの初期化時には、通常、Direct3D、Direct2D などのラ�
 > [!NOTE]
 > また、準備ができたらメイン メニューを表示することもでき、残りのアセットをバックグラウンドで読み込み続けることができます。 すべてのリソースが読み込まれる前にユーザーがメニューのオプションを選択した場合は、進行状況バーを表示するなどして、シーン リソースが読み込み中であることを示すことができます。
 
- 
+ 
 
 ゲームに含まれているゲーム アセットが比較的少ない場合でも、非同期的に読み込むことをお勧めします。これには 2 つの理由があります。 1 つの理由は、すべてのデバイスとすべての構成ですべてのリソースをすばやく読み込めることを保証することが難しいことです。 また、非同期的な読み込みを早期に組み込むことによって、機能の追加による規模の拡大にもコードが対応できるようになります。
 
@@ -123,14 +123,14 @@ UWP ゲームの初期化時には、通常、Direct3D、Direct2D などのラ�
     });
 ```
 
-**MarbleMazeMain**クラスは、非同期読み込みが完了したことを示す*m \_ deferredResourcesReady*フラグを定義します。 **MarbleMazeMain::LoadDeferredResources** メソッドは、ゲーム リソースを読み込んで、このフラグを設定します。 アプリの更新 (**MarbleMazeMain::Update**) フェーズとレンダリング (**MarbleMazeMain::Render**) フェーズでは、このフラグを確認します。 このフラグが設定されると、ゲームは通常どおりに続行されます。 フラグがまだ設定されていない場合、ゲームは読み込み画面を表示します。
+**MarbleMazeMain** クラスは、非同期読み込みが完了したことを示す *m \_ deferredResourcesReady* フラグを定義します。 **MarbleMazeMain::LoadDeferredResources** メソッドは、ゲーム リソースを読み込んで、このフラグを設定します。 アプリの更新 (**MarbleMazeMain::Update**) フェーズとレンダリング (**MarbleMazeMain::Render**) フェーズでは、このフラグを確認します。 このフラグが設定されると、ゲームは通常どおりに続行されます。 フラグがまだ設定されていない場合、ゲームは読み込み画面を表示します。
 
 UWP アプリの非同期プログラミングについて詳しくは、「[C++ での非同期プログラミング](../threading-async/asynchronous-programming-in-cpp-universal-windows-platform-apps.md)」をご覧ください。
 
 > [!TIP]
 > Windows ランタイム C++ ライブラリの一部であるゲーム コード (つまり DLL) を記述している場合は、アプリとその他のライブラリで使える非同期操作を作る方法を学ぶために「[UWP アプリ用に C++ で非同期操作を作成](/cpp/parallel/concrt/creating-asynchronous-operations-in-cpp-for-windows-store-apps)」を読むことを検討してください。
 
- 
+ 
 
 ## <a name="the-game-loop"></a>ゲーム ループ
 
@@ -178,7 +178,7 @@ void App::Run()
 ## <a name="the-state-machine"></a>ステート マシン
 
 
-ゲームは通常、ゲーム ロジックのフローと順序を制御するために、*ステート マシン* (*有限ステート マシン*、FSM とも呼ばれます) を備えています。 ステート マシンには、特定の数の状態と、状態間を遷移する機能が含まれています。 通常、ステート マシンは*初期*状態から始まり、1 つ以上の*中間*状態に遷移し、*終端*状態で終了します。
+ゲームは通常、ゲーム ロジックのフローと順序を制御するために、*ステート マシン* (*有限ステート マシン*、FSM とも呼ばれます) を備えています。 ステート マシンには、特定の数の状態と、状態間を遷移する機能が含まれています。 通常、ステート マシンは *初期* 状態から始まり、1 つ以上の *中間* 状態に遷移し、*終端* 状態で終了します。
 
 ゲーム ループでは多くの場合、現在のゲームの状態に固有のロジックを実行できるように、ステート マシンを使います。 Marble Maze では、ゲームの各状態を定義する **GameState** 列挙が定義されています。
 
@@ -195,7 +195,7 @@ enum class GameState
 };
 ```
 
-たとえば、**MainMenu** 状態は、メイン メニューが表示され、ゲームがアクティブでないと定義されています。 反対に、**InGameActive** 状態は、ゲームがアクティブで、メニューが表示されていないと定義されています。 **MarbleMazeMain**クラスは、アクティブなゲームの状態を保持するために、 **m の \_ 状態**のメンバー変数を定義します。
+たとえば、**MainMenu** 状態は、メイン メニューが表示され、ゲームがアクティブでないと定義されています。 反対に、**InGameActive** 状態は、ゲームがアクティブで、メニューが表示されていないと定義されています。 **MarbleMazeMain** クラスは、アクティブなゲームの状態を保持するために、 **m の \_ 状態** のメンバー変数を定義します。
 
 **MarbleMazeMain::Update** メソッドと **MarbleMazeMain::Render** メソッドは、現在の状態のロジックを実行するために、switch ステートメントを使います。 次の例は、**MarbleMazeMain::Update** メソッドでのこの switch ステートメントがどのようなものかを示しています (構造をわかりやすく示すために、細部は削除されています)。
 
@@ -240,7 +240,7 @@ Marble Maze は、中断と再開をサポートするために、次のタス�
 -   中断の通知に対応して、状態を固定ストレージに保存します。
 -   再開の通知に対応して、状態を固定ストレージから読み込みます。 起動中に、以前の状態も読み込みます。
 
-中断と再開をサポートするために、Marble Maze は **PersistentState** クラスを定義しています。 (「 **PersistentState** と **PersistentState**」を参照してください)。 このクラスは、プロパティの読み取りと書き込みに [Windows::Foundation::Collections::IPropertySet](/uwp/api/Windows.Foundation.Collections.IPropertySet) インターフェイスを使います。 **PersistentState**クラスは、バッキングストアとの間でプリミティブデータ型 ( **bool**、 **int**、 **Float**、 [XMFLOAT3](/windows/desktop/api/directxmath/ns-directxmath-xmfloat3)、 [Platform:: String](/cpp/cppcx/platform-string-class)など) の読み取りと書き込みを行うメソッドを提供します。
+中断と再開をサポートするために、Marble Maze は **PersistentState** クラスを定義しています。 (「 **PersistentState** と **PersistentState**」を参照してください)。 このクラスは、プロパティの読み取りと書き込みに [Windows::Foundation::Collections::IPropertySet](/uwp/api/Windows.Foundation.Collections.IPropertySet) インターフェイスを使います。 **PersistentState** クラスは、バッキングストアとの間でプリミティブデータ型 ( **bool**、 **int**、 **Float**、 [XMFLOAT3](/windows/desktop/api/directxmath/ns-directxmath-xmfloat3)、 [Platform:: String](/cpp/cppcx/platform-string-class)など) の読み取りと書き込みを行うメソッドを提供します。
 
 ```cpp
 ref class PersistentState
@@ -416,7 +416,7 @@ void MarbleMazeMain::LoadState()
 
 アプリケーション データについて詳しくは、「[設定と他のアプリ データを保存して取得する](../design/app-settings/store-and-retrieve-app-data.md)」をご覧ください。
 
-##  <a name="next-steps"></a>次の手順
+##  <a name="next-steps"></a>次のステップ
 
 
 視覚的なリソースを扱う際の主な手法については、「[Marble Maze サンプルへの視覚的なコンテンツの追加](adding-visual-content-to-the-marble-maze-sample.md)」をご覧ください。
@@ -424,9 +424,9 @@ void MarbleMazeMain::LoadState()
 ## <a name="related-topics"></a>関連トピック
 
 * [Marble Maze サンプルへの視覚的なコンテンツの追加](adding-visual-content-to-the-marble-maze-sample.md)
-* [Marble Maze サンプルの基礎](marble-maze-sample-fundamentals.md)
+* [大理石の迷路サンプルの基礎](marble-maze-sample-fundamentals.md)
 * [Marble Maze、C++ と DirectX での UWP ゲームの開発](developing-marble-maze-a-windows-store-game-in-cpp-and-directx.md)
 
- 
+ 
 
- 
+ 

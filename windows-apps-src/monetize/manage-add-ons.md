@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオン, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ec2213f5a46318f3aaddbbe5d55b58f6816fcce
-ms.sourcegitcommit: 48702934676ae366fd46b7d952396c5e2fb2cbbe
+ms.openlocfilehash: 53fc255c85c3102d26110d05e20ebdee26b70ed9
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97927784"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619598"
 ---
 # <a name="manage-add-ons"></a>アドオンの管理
 
@@ -104,7 +104,7 @@ Microsoft Store 申請 API に関するすべての[前提条件](create-and-man
 | productId | string  | アドオンの製品 ID です。 これは、アドオンの作成時に開発者が指定した ID です。 詳しくは、「[IAP の製品の種類と製品 ID を設定する](../publish/set-your-add-on-product-id.md)」をご覧ください。 |
 | productType | string  | アドオンの製品の種類です。 値 **Durable** と **Consumable** がサポートされています。  |
 | lastPublishedInAppProductSubmission       | object | アドオンの最後に公開された申請に関する情報を提供する[申請のリソース](#submission-object)。         |
-| pendingInAppProductSubmission        | object  |  アドオンの現在保留中の申請に関する情報を提供する[申請のリソース](#submission-object)。  |   |
+| pendingInAppProductSubmission        | object  |  アドオンの現在保留中の申請に関する情報を提供する[申請のリソース](#submission-object)。  |
 
 <span id="application-object" />
 

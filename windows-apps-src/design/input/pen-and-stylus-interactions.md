@@ -8,12 +8,12 @@ keywords: Windows Ink, Windows の手書き入力, DirectInk, InkPresenter, InkC
 ms.date: 09/24/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a29a7ed497fdcd463df0855b4aad3b65ce6408a
-ms.sourcegitcommit: d786d084dafee5da0268ebb51cead1d8acb9b13e
+ms.openlocfilehash: 231145a5f8a9b44b4dc6060a6b02d55e007704e4
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91860178"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619588"
 ---
 # <a name="pen-interactions-and-windows-ink-in-windows-apps"></a>Windows アプリでのペン操作と Windows Ink
 
@@ -45,7 +45,7 @@ Windows Ink プラットフォームでペン デバイスを使うと、自然�
 アプリでは、ユーザーが筆記や描画を行うときの基本的なペンの位置と動きのキャプチャに加えて、ストロークの筆圧の変化を追跡および収集することもできます。 この情報が、ペン先の形状、サイズ、回転や、インクの色、用途 (プレーン インク、消去、強調表示、選択) などの設定と組み合わされて、紙の上でペン、鉛筆、ブラシを使っているときに近いユーザー エクスペリエンスが実現されます。
 
 > [!NOTE]
-> タッチ デジタイザーやマウス デバイスなど、他のポインター ベース デバイスからの手描き入力をアプリでサポートすることもできます。 
+> タッチ デジタイザーやマウス デバイスなど、他のポインター ベース デバイスからの手描き入力をアプリでサポートすることもできます。 
 
 インク プラットフォームは非常に柔軟で、 必要に応じてさまざまなレベルの機能をサポートできるようになっています。
 
@@ -108,7 +108,7 @@ Windows Ink UX のガイドラインについては、「[手描き入力コン�
 [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) オブジェクトは、各 [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールと共にインスタンス化されます。
 
 > [!NOTE]
-> [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) を直接インスタンス化することはできません。 代わりに、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティを通じてアクセスします。 
+> [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) を直接インスタンス化することはできません。 代わりに、[**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) の [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) プロパティを通じてアクセスします。 
 
 [**InkPresenter**](/uwp/api/Windows.UI.Input.Inking.InkPresenter) には、対応する [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) コントロールの既定の手書き入力動作のすべてに加えて、ストロークの追加のカスタマイズのための包括的な API のセット、および手描き入力 (標準および変更) の細かい管理を提供します。 たとえば、ストロークのプロパティ、サポートされている入力デバイスの種類、入力をオブジェクトで処理するかアプリに渡して処理するかなどを指定できます。
 
@@ -206,9 +206,22 @@ private void OnPenColorChanged(object sender, SelectionChangedEventArgs e)
 
 これらの画像は、ペン入力が [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によってどのように処理およびカスタマイズされるかを示しています。
 
-| ![既定の黒のインクストロークの System.windows.controls.inkcanvas> を示すスクリーンショット。](images/ink-basic-custom-1-small.png) | ![ユーザーが選択した赤いインクストロークを使用した System.windows.controls.inkcanvas> のスクリーンショット。](images/ink-basic-custom-2-small.png) |
-| --- | --- |
-| 既定の黒のインク ストロークを含む [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。 | ユーザーが赤のインクストロークを選択した [**system.windows.controls.inkcanvas>**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。 | 
+:::row:::
+   :::column span="":::
+      ![既定の黒のインクストロークの System.windows.controls.inkcanvas> を示すスクリーンショット。](images/ink-basic-custom-1-small.png)
+   :::column-end:::
+   :::column span="":::
+      既定の黒のインク ストロークを含む [**InkCanvas**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas)。
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ユーザーが選択した赤いインクストロークを使用した System.windows.controls.inkcanvas> のスクリーンショット。](images/ink-basic-custom-2-small.png)
+   :::column-end:::
+   :::column span="":::
+      ユーザーが赤のインクストロークを選択した [**system.windows.controls.inkcanvas>**](/uwp/api/Windows.UI.Xaml.Controls.InkCanvas) 。
+   :::column-end:::
+:::row-end:::
 
 手書き入力と消去以外の機能 (ストロークの選択など) を提供するには、アプリで処理するために [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter) では未処理のままパススルーする入力をアプリで識別する必要があります。
 
@@ -316,7 +329,7 @@ Windows Ink プラットフォームには、変更された入力を必要と�
         }
       ```
 
-4.  次に、選択された未処理の[**ポインター**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**ポインターの移動**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、および[**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によって渡された[**ポインター解放**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased)イベントのハンドラーを定義します。
+4.  次に、選択された未処理の [**ポインター**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerpressed)、[**ポインターの移動**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointermoved)、および [**InkPresenter**](/uwp/api/windows.ui.xaml.controls.inkcanvas.inkpresenter)によって渡された [**ポインター解放**](/uwp/api/windows.ui.input.inking.inkunprocessedinput.pointerreleased)イベントのハンドラーを定義します。
 
     なげなわストロークと境界の四角形を含むすべての選択機能をこれらのハンドラーに実装します。
 

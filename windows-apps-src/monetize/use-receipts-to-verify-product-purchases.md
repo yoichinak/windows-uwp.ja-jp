@@ -6,18 +6,18 @@ ms.date: 04/16/2018
 ms.topic: article
 keywords: Windows 10, UWP, アプリ内購入, IAP, 受領通知, Windows.ApplicationModel.Store
 ms.localizationpriority: medium
-ms.openlocfilehash: ba818ffbe748a20491557f7404e3f06e10fd628a
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 998cd5eda277a3e1865e1f51a8de5e4fbec16a40
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89363035"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619348"
 ---
 # <a name="use-receipts-to-verify-product-purchases"></a>受領通知を使った製品購入の確認
 
 製品購入が成功した Microsoft Store の各トランザクションでは、必要に応じてトランザクションの受領通知を返すことができます。 この通知は、ユーザーに対する製品と金銭的コストの一覧を掲載します。
 
-この情報は、ユーザーがアプリを購入したことや、Microsoft Store からアドオン (アプリ内製品または IAP とも呼ばれます) の購入が行われたことをアプリで確認する必要がある場合に役立ちます。 たとえば、ダウンロードしたコンテンツを提供するゲームを想像してください。 ゲーム コンテンツを購入したユーザーが別のデバイスでゲームをする場合、そのユーザーが既にコンテンツを所有していることを確認する必要があります。 ここではその方法を説明します。
+この情報は、ユーザーがアプリを購入したことや、Microsoft Store からアドオン (アプリ内製品または IAP とも呼ばれます) の購入が行われたことをアプリで確認する必要がある場合に役立ちます。 たとえば、ダウンロードしたコンテンツを提供するゲームを想像してください。 ゲーム コンテンツを購入したユーザーが別のデバイスでゲームをする場合、そのユーザーが既にコンテンツを所有していることを確認する必要があります。 以下にその方法を示します。
 
 > [!IMPORTANT]
 > この記事では、[Windows.ApplicationModel.Store](/uwp/api/Windows.ApplicationModel.Store) 名前空間のメンバーを使って、アプリ内での購入の受領通知を取得および検証する方法について説明します。 アプリ内購入に [Windows.Services.Store](/uwp/api/Windows.Services.Store) 名前空間 (Windows 10 バージョン 1607 で導入され、Visual Studio で **Windows 10 Anniversary Edition (10.0、ビルド 14393)** 以降のリリースをターゲットにするプロジェクトでも利用できる) を使用している場合、この名前空間では、アプリ内購入の購入受領通知を取得するための API が提供されません。 ただし、Microsoft Store コレクション API の REST メソッドを使うと、購入トランザクションのデータを取得することができます。 詳しくは、「[アプリ内購入の受領通知](in-app-purchases-and-trials.md#receipts)」をご覧ください。
@@ -87,7 +87,7 @@ ms.locfileid: "89363035"
 
 ## <a name="validating-a-receipt"></a>通知の検証
 
-受領通知の真正を検証するには、バックエンド システム (Web サービスやそれに類するサービス) でパブリック証明書を使って受領通知の署名を確認する必要があります。 この証明書を取得するには、証明書 id ' ' ' を使用して、 ```https://lic.apps.microsoft.com/licensing/certificateserver/?cid=CertificateId%60%60%60, where ``` 受信確認の **certificateid** 値を指定します。
+受領通知の真正を検証するには、バックエンド システム (Web サービスやそれに類するサービス) でパブリック証明書を使って受領通知の署名を確認する必要があります。 この証明書を取得するには、URL `https://lic.apps.microsoft.com/licensing/certificateserver/?cid=CertificateId%60%60%60` (`CertificateId` は受領通知の **CertificateId** の値) を使用します。
 
 検証プロセスの例を以下に示します。 このコードは、**System.Security** アセンブリへの参照を含む .NET Framework コンソール アプリケーションで実行されます。
 
@@ -106,8 +106,8 @@ ms.locfileid: "89363035"
 
 |  要素  |  必須  |  Quantity  |  説明   |
 |-------------|------------|--------|--------|
-|  [AppReceipt](#appreceipt)  |    いいえ        |  0 または 1  |  現在のアプリの購入情報が含まれています。            |
-|  [ProductReceipt](#productreceipt)  |     いいえ       |  0 以上    |   現在のアプリのアプリ内での購入に関する情報が含まれています。     |
+|  [AppReceipt](#appreceipt)  |    No        |  0 または 1  |  現在のアプリの購入情報が含まれています。            |
+|  [ProductReceipt](#productreceipt)  |     No       |  0 以上    |   現在のアプリのアプリ内での購入に関する情報が含まれています。     |
 |  署名  |      はい      |  1   |   この要素は、標準の [XML-DSIG コンストラクト](https://www.w3.org/TR/xmldsig-core/)です。 これには、受領通知の検証に使用する **SignatureValue** 要素に加え、**SignedInfo** 要素が含まれています。      |
 
 **Receipt** には次の属性があります。
@@ -117,7 +117,7 @@ ms.locfileid: "89363035"
 |  **Version**  |    受領通知のバージョン番号            |
 |  **CertificateId**  |     受領通知の署名に使用された証明サムプリント          |
 |  **ReceiptDate**  |    受領通知が署名され、ダウンロードされた日付です。           |  
-|  **ReceiptDeviceId**  |   この受領通知の要求に使用するデバイスを識別します。         |  |
+|  **ReceiptDeviceId**  |   この受領通知の要求に使用するデバイスを識別します。         |
 
 <span id="appreceipt" />
 
@@ -132,7 +132,7 @@ ms.locfileid: "89363035"
 |  **Id**  |    購入を識別します。           |
 |  **AppId**  |     OS がアプリに対して使用するパッケージ ファミリ名です。           |
 |  **LicenseType**  |    ユーザーがアプリの通常版を購入した場合は、**Full** です。 ユーザーがアプリの試用版をダウンロードした場合は、**Trial** です。           |  
-|  **購入日**  |    アプリが取得された日付です。          |  |
+|  **購入日**  |    アプリが取得された日付です。          |
 
 <span id="productreceipt" />
 
@@ -148,8 +148,8 @@ ms.locfileid: "89363035"
 |  **AppId**  |     ユーザーが購入に使ったアプリを識別します。           |
 |  **ProductId**  |     購入した製品を識別します。           |
 |  **ProductType**  |    製品の種類を示します。 現在サポートされている値は、**Durable** のみです。          |  
-|  **購入日**  |    購入した日付です。          |  |
+|  **購入日**  |    購入した日付です。          |
 
- 
+ 
 
- 
+ 
