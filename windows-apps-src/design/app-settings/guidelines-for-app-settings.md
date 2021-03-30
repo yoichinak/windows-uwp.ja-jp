@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1b3f3388951dc2e3d854fcb97269e5bfb0449a6e
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: d1608c88473bf8fdf615141c18ab8a85aed07797
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93032405"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804636"
 ---
 # <a name="guidelines-for-app-settings"></a>アプリ設定のガイドライン
 
@@ -62,9 +62,9 @@ ms.locfileid: "93032405"
 
 タブやピボットのレイアウトでは、アプリ設定のエントリ ポイントをナビゲーション内のトップレベルのいずれかの項目として配置することはお勧めしません。 代わりに、アプリ設定のエントリ ポイントをアプリ バーの [その他] オーバーフロー メニュー内に配置することをお勧めします。
 
-**マスター/詳細**
+**リストと詳細**
 
-アプリ設定のエントリをマスター/詳細ウィンドウ内の深い位置に配置するのではなく、マスター ウィンドウのトップ レベルに、最後のピン留めされた項目として配置してください。
+アプリ設定のエントリ ポイントをリストと詳細ペイン内の深い位置に配置するのではなく、リスト ペインのトップ レベルに、最後のピン留めされた項目として配置してください。
 
 ## <a name="layout"></a>レイアウト
 

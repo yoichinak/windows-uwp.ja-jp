@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: tpaine
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c942c5748ef1d62dc86f6fa3d041bae651167f2
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: fb12e251f56a8eb90b507d1bac40381789504926
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89173906"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804936"
 ---
 # <a name="split-view-control"></a>分割ビュー コントロール
 
@@ -36,7 +36,7 @@ SplitView を使ってハブを表示する Microsoft Edge アプリの例を次
 
     ウィンドウは開くまで表示されません。 開くと、ウィンドウはコンテンツ領域をオーバーレイします。
 
--   **インライン**
+-   **Inline**
 
     ウィンドウは常に表示され、コンテンツ領域をオーバーレイしません。 画面領域はウィンドウとコンテンツ領域に分割されます。
 
@@ -48,9 +48,9 @@ SplitView を使ってハブを表示する Microsoft Edge アプリの例を次
 
     このモードでは、ウィンドウの狭い部分が常にアイコンを表示できるだけの大きさで表示されます。 閉じたウィンドウの既定の幅は 48 ピクセルで、この値は `CompactPaneLength` で変更できます。 ウィンドウを開くと、コンテンツを押しのけるようにして、コンテンツの利用可能な領域が小さくなります。
 
-## <a name="is-this-the-right-control"></a>適切なコントロールの選択
+## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
-分割ビュー コントロールを使って、ユーザーが補足的なウィンドウを開いたり閉じたりできる "引き出し" エクスペリエンスを作成することができます。 たとえば、SplitView を使用して[マスター/詳細](master-details.md)パターンを構築できます。
+分割ビュー コントロールを使って、ユーザーが補足的なウィンドウを開いたり閉じたりできる "引き出し" エクスペリエンスを作成することができます。 たとえば、SplitView を使用して[リストと詳細](list-details.md)パターンを構築できます。
 
 展開/折りたたみボタンとナビゲーション項目のリストを含むナビゲーション メニューを構築する場合は、[NavigationView](navigationview.md) コントロールを使用します。
 
@@ -93,11 +93,11 @@ SplitView を使ってハブを表示する Microsoft Edge アプリの例を次
 </SplitView>
 ```
 
-## <a name="get-the-sample-code"></a>サンプル コードを入手する
+## <a name="get-the-sample-code"></a>サンプル コードの入手
 
-- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - インタラクティブな形で XAML コントロールのすべてを参照できます。
+- [XAML コントロール ギャラリー サンプル](https://github.com/Microsoft/Xaml-Controls-Gallery) - 対話形式で XAML コントロールのすべてを参照できます。
 
 ## <a name="related-topics"></a>関連トピック
 - [ナビゲーション ウィンドウのパターン](navigationview.md)
 - [リスト ビュー](lists.md)
-- [マスター/詳細](master-details.md)
+- [リストと詳細](list-details.md)

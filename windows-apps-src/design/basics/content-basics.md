@@ -9,12 +9,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 3933910d77249476e76c4d87dfd96af66bd418a8
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 4f076911fc1ed4770c9f1d69125c4fc6d0cecdf9
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93031576"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804872"
 ---
 # <a name="content-design-basics-for-windows-apps"></a>Windows アプリのコンテンツ デザインの基本
 
@@ -39,11 +39,11 @@ ms.locfileid: "93031576"
 コレクションを使用すると、ユーザーはコンテンツやデータのグループを参照することができます。 [グリッド ビュー](../controls-and-patterns/item-templates-gridview.md)は写真またはメディアを中心とするコンテンツに適していて、[リスト ビュー](../controls-and-patterns/item-templates-listview.md)はテキストが多いコンテンツやデータに適しています。
 
 
-### <a name="masterdetail"></a>マスター/詳細
+### <a name="listdetail"></a>リストと詳細
 
-![マスター/詳細](images/content-basics/master-detail.png)
+![リストと詳細](images/content-basics/list-detail.png)
 
-[マスター/詳細](../controls-and-patterns/master-details.md)モデルは、リスト ビュー (マスター) とコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト項目とコンテンツ ビューの間には明確な関係があります。マスター ビューで項目が選択されると、詳細ビューがそれに応じて更新されます。 詳細ビューのナビゲーションが提供されるだけでなく、マスター ビュー内の項目を追加および削除することができます。
+[リストと詳細](../controls-and-patterns/list-details.md)モデルは、リスト ビューとコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト項目とコンテンツ ビューの間には明確な関係があります。リスト ビューで項目が選択されると、詳細ビューがそれに応じて更新されます。 詳細ビューのナビゲーションが提供されるだけでなく、リスト ビュー内の項目を追加および削除することができます。
 
 ### <a name="details"></a>詳細情報
 

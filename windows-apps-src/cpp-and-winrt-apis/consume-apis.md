@@ -5,19 +5,26 @@ ms.date: 04/23/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、投影、プロジェクション、実装、ランタイム クラス、ライセンス認証
 ms.localizationpriority: medium
-ms.openlocfilehash: eb667c27b937b252f0fe3c883730646938bf19d9
-ms.sourcegitcommit: a93a309a11cdc0931e2f3bf155c5fa54c23db7c3
+ms.openlocfilehash: 5d696295c81aac18a0f11004a104f7a058bf76e0
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91646275"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804746"
 ---
 # <a name="consume-apis-with-cwinrt"></a>C++/WinRT での API の使用
 
 このトピックでは、[C++/WinRT](./intro-to-using-cpp-with-winrt.md) の API が Windows に含まれるかどうか、サード パーティ コンポーネント ベンダーで実装するかどうか、またはユーザー自身が実装するかどうかに応じて、その使用方法について説明します。
 
+> [!IMPORTANT]
+> このトピックのコード例を短くし、試し易くするには、新しい **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトを作成し、コードをコピーして貼り付けることによって再現することができます。 ただし、そのようなパッケージ化されていないアプリから、任意のカスタム (サード パーティ) Windows ランタイム型を使用することはできません。 これが Windows の型の唯一の使用方法です。
+>
+> コンソール アプリからカスタム (サード パーティ) の Windows ランタイム型を使用するには、使用されたカスタム型の登録を解決できるように、アプリに *パッケージ ID* を指定する必要があります。 詳細については、[Windows アプリケーション パッケージ プロジェクト](/windows/msix/desktop/source-code-overview)に関するページを参照してください。
+>
+> または、**空のアプリ (C++/WinRT)** 、**Core アプリ (C++/WinRT)** 、または **Windows ランタイム コンポーネント (C++/WinRT)** のプロジェクト テンプレートから新しいプロジェクトを作成します。 これらの種類のアプリには既に *パッケージ ID* が指定されています。
+
 ## <a name="if-the-api-is-in-a-windows-namespace"></a>API が Windows 名前空間に含まれる場合
-これは Windows ランタイム API を使用する際に最も一般的なケースです。 メタデータで定義される Windows 名前空間のすべての型について、C++/WinRT は C++ 対応の同等の型を定義します (*投影された型*と呼ばれます)。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ の構文を使用して **winrt** 名前空間に配置されます。 たとえば、[**Windows::Foundation::Uri**](/uwp/api/windows.foundation.uri) は **winrt::Windows::Foundation::Uri** として C++/WinRT に投影されます。
+これは Windows ランタイム API を使用する際に最も一般的なケースです。 メタデータで定義される Windows 名前空間のすべての型について、C++/WinRT は C++ 対応の同等の型を定義します (*投影された型* と呼ばれます)。 投影された型には Windows の型と同じ完全修飾名がありますが、C++ の構文を使用して **winrt** 名前空間に配置されます。 たとえば、[**Windows::Foundation::Uri**](/uwp/api/windows.foundation.uri) は **winrt::Windows::Foundation::Uri** として C++/WinRT に投影されます。
 
 次に簡単なコード例を示します。 以下のコード例を **Windows コンソール アプリケーション (C++/WinRT)** プロジェクトのメイン ソース コード ファイルに直接コピーして貼り付ける場合は、最初にプロジェクト プロパティで **[プリコンパイル済みヘッダーを使用しない]** を設定します。
 
@@ -36,12 +43,12 @@ int main()
 }
 ```
 
-インクルードするヘッダー `winrt/Windows.Foundation.h` は SDK に含まれるもので、`%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt\` フォルダー内にあります。 このフォルダー内のヘッダーには、C++/WinRT に投影された Windows の名前空間の型が含まれます。 この例では、`winrt/Windows.Foundation.h` に、ランタイム クラス [**Windows::Foundation::Uri**](/uwp/api/windows.foundation.uri) に投影された型である**winrt::Windows::Foundation::Uri** が含まれています。
+インクルードするヘッダー `winrt/Windows.Foundation.h` は SDK に含まれるもので、`%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt\` フォルダー内にあります。 このフォルダー内のヘッダーには、C++/WinRT に投影された Windows の名前空間の型が含まれます。 この例では、`winrt/Windows.Foundation.h` に、ランタイム クラス [**Windows::Foundation::Uri**](/uwp/api/windows.foundation.uri) に投影された型である **winrt::Windows::Foundation::Uri** が含まれています。
 
 > [!TIP]
 > Windows 名前空間から型を使用する場合は、この名前空間に対応する C++/WinRT ヘッダーを含めます。 `using namespace` ディレクティブはオプションですが、便利です。
 
-上記のコード例では、C++/WinRT の初期化後、公開されているいずれかのコンストラクターを介して投影される型 **winrt::Windows::Foundation::Uri** の値をスタックに割り当てます (この場合は、[**Uri(String)** ](/uwp/api/windows.foundation.uri.-ctor#Windows_Foundation_Uri__ctor_System_String_))。 このため、最も一般的な使用事例を使用します。 C++/WinRT 投影型の値を取得したら、それにはすべての同じメンバーが含まれるため、実際の Windows ランタイム型のインスタンスのように扱うことができます。
+上記のコード例では、C++/WinRT の初期化後、公開されているいずれかのコンストラクターを介して投影される型 **winrt::Windows::Foundation::Uri** の値をスタックに割り当てます (この場合は、[**Uri(String)**](/uwp/api/windows.foundation.uri.-ctor#Windows_Foundation_Uri__ctor_System_String_))。 このため、最も一般的な使用事例を使用します。 C++/WinRT 投影型の値を取得したら、それにはすべての同じメンバーが含まれるため、実際の Windows ランタイム型のインスタンスのように扱うことができます。
 
 実際に、投影される値はプロキシです。基本的には、バッキング オブジェクトへのスマート ポインターに過ぎません。 投影された値のコンストラクターは [**RoActivateInstance**](/windows/desktop/api/roapi/nf-roapi-roactivateinstance) を呼び出し、Windows ランタイムのバッキング クラスのインスタンス (この場合は **Windows.Foundation.Uri**) を作成し、投影された新しい値の内部にそのオブジェクトの既定のインターフェイスを保存します。 次に示すように、投影された値のメンバーへの呼び出しは実際にはスマート ポインターを介して、状態変更が発生するバッキング オブジェクトに委任されます。
 
@@ -50,21 +57,21 @@ int main()
 `contosoUri` の値が範囲外になると破壊し、その参照を既定のインターフェイスに解放します。 その参照が、Windows ランタイムの **Windows.Foundation.Uri** バッキング オブジェクトへの最後の参照である場合、そのバッキング オブジェクトも破壊します。
 
 > [!TIP]
-> *投影された型*は、自身の API を使用するためのランタイム クラスに対するラッパーです。 *投影されたインターフェイス*は Windows ランタイム インターフェイスに対するラッパーです。
+> *投影された型* は、自身の API を使用するためのランタイム クラスに対するラッパーです。 *投影されたインターフェイス* は Windows ランタイム インターフェイスに対するラッパーです。
 
 ## <a name="cwinrt-projection-headers"></a>C++/WinRT プロジェクション ヘッダー
-Windows 名前空間 API を C++/WinRT から使用するには、`%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt` フォルダーからのヘッダーを含めます。 下位の名前空間の型では、その直接の親の名前空間の型を参照するのが一般的です。 したがって、各 C++/WinRT プロジェクションのヘッダーには、その親の名前空間のヘッダー ファイルが自動的に含まれるため、それを明示的に含める*必要*はありません。 ただし、含めてもエラーは発生しません。
+Windows 名前空間 API を C++/WinRT から使用するには、`%WindowsSdkDir%Include<WindowsTargetPlatformVersion>\cppwinrt\winrt` フォルダーからのヘッダーを含めます。 下位の名前空間の型では、その直接の親の名前空間の型を参照するのが一般的です。 したがって、各 C++/WinRT プロジェクションのヘッダーには、その親の名前空間のヘッダー ファイルが自動的に含まれるため、それを明示的に含める *必要* はありません。 ただし、含めてもエラーは発生しません。
 
 たとえば、[**Windows::Security::Cryptography::Certificates**](/uwp/api/windows.security.cryptography.certificates) 名前空間では、それと同等の C++/WinRT 型定義が `winrt/Windows.Security.Cryptography.Certificates.h` に存在します。 **Windows::Security::Cryptography::Certificates** の型には、親である **Windows::Security::Cryptography** 名前空間の型が必要であり、その名前空間の型には、自信の親である **Windows::Security** の型が必要になる場合があります。
 
 そのため、`winrt/Windows.Security.Cryptography.Certificates.h` を含める場合、そのファイルには `winrt/Windows.Security.Cryptography.h` が含まれ、`winrt/Windows.Security.Cryptography.h` には `winrt/Windows.Security.h` が含まれます。 `winrt/Windows.h` は存在しないため、その証跡はそこで停止します。 この推移的な包含プロセスは、第 2 レベルの名前空間で停止します。
 
-このプロセスには、必要な*宣言*を指定するヘッダー ファイルと、親の名前空間で定義されたクラスの*実装*が推移的に含まれます。
+このプロセスには、必要な *宣言* を指定するヘッダー ファイルと、親の名前空間で定義されたクラスの *実装* が推移的に含まれます。
 
-1 つの名前空間内の型のメンバーは、他の関連のない名前空間で 1 つまたは複数の型を参照できます。 コンパイラがこれらのメンバーの定義を正常にコンパイルするためには、コンパイラーはこれらのすべての型の終了の型の宣言を参照する必要があります。 したがって、各 C++/WinRT プロジェクション ヘッダーには、任意の依存タイプを*宣言*する必要がある名前空間ヘッダーが含まれます。 親の名前空間とは異なり、このプロセスは参照された型の*実装*を追加*しません*。
+1 つの名前空間内の型のメンバーは、他の関連のない名前空間で 1 つまたは複数の型を参照できます。 コンパイラがこれらのメンバーの定義を正常にコンパイルするためには、コンパイラーはこれらのすべての型の終了の型の宣言を参照する必要があります。 したがって、各 C++/WinRT プロジェクション ヘッダーには、任意の依存タイプを *宣言* する必要がある名前空間ヘッダーが含まれます。 親の名前空間とは異なり、このプロセスは参照された型の *実装* を追加 *しません*。
 
 > [!IMPORTANT]
-> 関連しない名前空間で宣言されている型 (インスタンス化、メソッドの呼び出しなど) を実際に*使用*する場合は、その型の適切な名前空間ヘッダー ファイルを含める必要があります。 *実装*ではなく*宣言*のみが自動的に含められます。
+> 関連しない名前空間で宣言されている型 (インスタンス化、メソッドの呼び出しなど) を実際に *使用* する場合は、その型の適切な名前空間ヘッダー ファイルを含める必要があります。 *実装* ではなく *宣言* のみが自動的に含められます。
 
 たとえば、`winrt/Windows.Security.Cryptography.Certificates.h` のみを含める場合、これらの名前空間などから推移的に宣言が取得されます。
 
@@ -186,7 +193,7 @@ runtimeclass Gift
 }
 ```
 
-ここで、ボックス内にない **Gift** を構築したいものとします (初期化されていない **GiftBox** で構築された **Gift**)。 最初に、それを行う "*間違った*" 方法を見てみましょう。 **GiftBox** を受け取る **Gift** コンストラクターがあることはわかっています。 ただし、null **GiftBox** を渡すと (以下で行うような同一の初期化で **Gift** コンストラクターを呼び出す)、目的の結果は*得られません*。
+ここで、ボックス内にない **Gift** を構築したいものとします (初期化されていない **GiftBox** で構築された **Gift**)。 最初に、それを行う "*間違った*" 方法を見てみましょう。 **GiftBox** を受け取る **Gift** コンストラクターがあることはわかっています。 ただし、null **GiftBox** を渡すと (以下で行うような同一の初期化で **Gift** コンストラクターを呼び出す)、目的の結果は *得られません*。
 
 ```cppwinrt
 // These are *not* what you intended. Doing it in one of these two ways
@@ -285,7 +292,7 @@ Windows ランタイム コンポーネントで実装された API の使用に
 ## <a name="if-the-api-is-implemented-in-the-consuming-project"></a>API が使用中のプロジェクトに実装される場合
 このセクションのコード例は、[XAML コントロール: C++/WinRT プロパティへのバインド](binding-property.md#add-a-property-of-type-bookstoreviewmodel-to-mainpage)に関するトピックから抜粋したものです。 詳細、コード、および使用しているものと同じプロジェクトに実装するランタイム クラスの使用に関するチュートリアルについてのトピックを参照してください。
 
-XAML UI で使用する型が XAML と同じプロジェクト内にある場合でも、ランタイム クラスを指定する必要があります。 このシナリオでは、ランタイム クラスの Windows ランタイム メタデータ (`.winmd`) から投影される型を生成します。 ここでも、ヘッダーを含めることになりますが、ランタイム クラスのインスタンスを構築する方法としてバージョン 1.0 またはバージョン 2.0 の C++/WinRT を選択できます。 バージョン 1.0 メソッドでは、[**winrt:: make**](/uwp/cpp-ref-for-winrt/make) が使用されます。バージョン 2.0 メソッドは*均一の構築*と呼ばれています。 それぞれを順番に見てみましょう。
+XAML UI で使用する型が XAML と同じプロジェクト内にある場合でも、ランタイム クラスを指定する必要があります。 このシナリオでは、ランタイム クラスの Windows ランタイム メタデータ (`.winmd`) から投影される型を生成します。 ここでも、ヘッダーを含めることになりますが、ランタイム クラスのインスタンスを構築する方法としてバージョン 1.0 またはバージョン 2.0 の C++/WinRT を選択できます。 バージョン 1.0 メソッドでは、[**winrt:: make**](/uwp/cpp-ref-for-winrt/make) が使用されます。バージョン 2.0 メソッドは *均一の構築* と呼ばれています。 それぞれを順番に見てみましょう。
 
 ### <a name="constructing-by-using-winrtmake"></a>**winrt:: make** を使用して構築する
 既定 (C++ /WinRT バージョン 1.0) のメソッドから始めましょう。少なくとも、このパターンについては理解しておくことをお勧めします。 その **std::nullptr_t** コンストラクターを介して投影される型を作成します。 このコンストラクターは初期化されないため、[**winrt::make**](/uwp/cpp-ref-for-winrt/make) ヘルパー関数を介してインスタンスに値を割り当て、必要なコンストラクター引数を渡す必要があります。 使用中のコードと同じプロジェクトに実装されるランタイム クラスは、Windows ランタイム/COM のアクティブ化を介して登録またはインスタンス化する必要がありません。
@@ -448,7 +455,7 @@ struct MyPage : Page
 }
 ```
 
-上記のように、コンパイラは、[**FrameworkElement.Style()** ](/uwp/api/windows.ui.xaml.frameworkelement.style) (C++/WinRT ではメンバー関数) をテンプレート パラメーターとして [**IUnknown:: as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) に渡していると認識します。 解決策は、名前 `Style` が強制的に型 [**Windows::UI::Xaml:: Style**](/uwp/api/windows.ui.xaml.style) として解釈されるようにすることです。
+上記のように、コンパイラは、[**FrameworkElement.Style()**](/uwp/api/windows.ui.xaml.frameworkelement.style) (C++/WinRT ではメンバー関数) をテンプレート パラメーターとして [**IUnknown:: as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) に渡していると認識します。 解決策は、名前 `Style` が強制的に型 [**Windows::UI::Xaml:: Style**](/uwp/api/windows.ui.xaml.style) として解釈されるようにすることです。
 
 ```cppwinrt
 struct MyPage : Page

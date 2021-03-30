@@ -1,17 +1,17 @@
 ---
 title: 学習トラック - 一覧での顧客の表示
 description: 一覧で Customer オブジェクトのコレクションを表示するために行う必要があることについて説明します。
-ms.date: 05/07/2018
+ms.date: 03/17/2021
 ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, データ バインディング, 一覧
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 097105d16d6d17807235ab61d36ab1fe185c8ca3
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: bf116dc1e7861cb9b135b57bc8be236b4ad2bb9c
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165056"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804246"
 ---
 # <a name="display-customers-in-a-list"></a>一覧での顧客の表示
 
@@ -23,7 +23,7 @@ UI 内で実際のデータを表示して操作することは多くのアプ�
 
 ## <a name="what-do-you-need-to-know"></a>理解しておく必要があること
 
-データ バインディングは、アプリのデータをその UI に表示する方法です。 これにより、アプリで*役割の分離*を使用できるため、UI をその他のコードから分離することができます。 このため、読みやすく保守が容易なより明確な概念モデルが作成されます。
+データ バインディングは、アプリのデータをその UI に表示する方法です。 これにより、アプリで *役割の分離* を使用できるため、UI をその他のコードから分離することができます。 このため、読みやすく保守が容易なより明確な概念モデルが作成されます。
 
 すべてのデータ バインディングには、次の 2 つの部分があります。
 
@@ -37,7 +37,7 @@ UI 内で実際のデータを表示して操作することは多くのアプ�
 
 可能な限り **x:Bind** を使用することをお勧めします。この記事のスニペットで x:Bind について説明します。 相違点の詳細については、「[{x:Bind} と {Binding} の機能の比較](../data-binding/data-binding-in-depth.md#xbind-and-binding-feature-comparison)」を参照してください。
 
-## <a name="create-a-data-source"></a>データ ソースの作成
+## <a name="create-a-data-source"></a>データ ソースを作成する
 
 最初に、Customer データを表すクラスを作成する必要があります。 参考のために、この必要最小限の例でのプロセスを示します。
 
@@ -48,7 +48,7 @@ public class Customer
 }
 ```
 
-## <a name="create-a-list"></a>一覧の作成
+## <a name="create-a-list"></a>リストを作成する
 
 顧客を表示するには、まずそれを保持する一覧を作成する必要があります。 [一覧表示](../design/controls-and-patterns/listview-and-gridview.md)はこのタスクに最適な基本的な XAML コントロールです。 ListView には現在ページ内での位置が必要であり、**ItemSource** プロパティの値が後で必要になります。
 
@@ -153,9 +153,9 @@ public class Customer : INotifyPropertyChanged
 > [!NOTE]
 > ListView 内で直接編集することは、双方向のバインディングの動作を表示するための簡単な方法ですが、ユーザビリティが複雑になる可能性があります。 アプリをさらに進める場合は、[他の XAML コントロール](../design/controls-and-patterns/controls-and-events-intro.md)を使用してデータを編集し、ListView を表示専用として維持することを検討してください。
 
-## <a name="going-further"></a>追加情報
+## <a name="going-further"></a>理解を深める
 
-双方向バインディングで顧客の一覧を作成したので、リンクしたドキュメントに自由に戻ってテストしてください。 基本および詳細なバインディングの手順を説明したチュートリアルが必要な場合、または[マスター/詳細パターン](../design/controls-and-patterns/master-details.md)のようなコントロールを調査してより強力な UI を作成する場合は、[データ バインディングのチュートリアル](../data-binding/xaml-basics-data-binding.md)を参照することもできます。
+双方向バインディングで顧客の一覧を作成したので、リンクしたドキュメントに自由に戻ってテストしてください。 基本および詳細なバインディングの手順を説明したチュートリアルが必要な場合、または[リストと詳細パターン](../design/controls-and-patterns/list-details.md)のようなコントロールを調査してより強力な UI を作成する場合は、[データ バインディングのチュートリアル](../data-binding/xaml-basics-data-binding.md)を参照することもできます。
 
 ## <a name="useful-apis-and-docs"></a>便利な API とドキュメント
 

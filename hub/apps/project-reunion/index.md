@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e2e4bda8440a9a504cba78286de491236d6bd49
-ms.sourcegitcommit: 2a71bb5c56bed80f26fb67a47ae8f9198c431760
+ms.openlocfilehash: 9e6ff54d8605457dd5b29735f29405e9d0302fb7
+ms.sourcegitcommit: dacbb7eef2cfffd7a8639e3a24ebda7b4eefae38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103366237"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105616795"
 ---
 # <a name="build-desktop-windows-apps-with-project-reunion-05-preview-march-2021"></a>Project Reunion 0.5 Preview を使用してデスクトップ Windows アプリをビルドする (2021 年 3 月)
 
@@ -65,15 +65,15 @@ Project Reunion 0.5 Preview には、次のコンポーネントが含まれま�
     > Visual Studio 2019 バージョン 16.9 では Project Reunion もサポートされていますが、WinUI 3 ツール機能はサポートされていません。 WinUI 3 ツールのサポートの詳細については、「Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)」を参照してください。
 
     Visual Studio をインストールする際、次のコンポーネントを含める必要があります。
-    - **[ワークロード]** タブで、 **[ユニバーサル Windows プラットフォーム開発]** が選択されていることを確認します。
-    - **[個別のコンポーネント]** タブで、**SDK、ライブラリ、およびフレームワーク** セクションで **Windows 10 SDK (10.0.19041.0)** が選択されていることを確認します。
+    - インストール ダイアログの **[ワークロード]** タブで、 **[ユニバーサル Windows プラットフォーム開発]** が選択されていることを確認します。
+    - インストール ダイアログの **[個別のコンポーネント]** タブで、 **[SDK、ライブラリ、およびフレームワーク]** セクションで **[Windows 10 SDK (10.0.19041.0)]** が選択されていることを確認します。
 
     .NET アプリをビルドするには、次のコンポーネントも含める必要があります。
-    - **[.NET デスクトップ開発]** ワークロード。
+    - インストール ダイアログの **[ワークロード]** タブで、 **[.NET デスクトップ開発]** が選択されていることを確認します。
 
     C++ アプリをビルドするには、次のコンポーネントも含める必要があります。
-    - **[C++ によるデスクトップ開発]** ワークロード。
-    - **[ユニバーサル Windows プラットフォーム開発]** ワークロード用の **C++ (v142) ユニバーサル Windows プラットフォーム ツール** のオプション コンポーネント。
+    - インストール ダイアログの **[ワークロード]** タブで、 **[C++ によるデスクトップ開発]** が選択されていることを確認します。
+    - インストール ダイアログの右側の **[インストールの詳細]** ウィンドウの **[ユニバーサル Windows プラットフォーム開発]** セクションで、 **[C++ (v142) ユニバーサル Windows プラットフォーム ツール]** オプション コンポーネントが選択されていることを確認します。
 
 3. 以前の WinUI 3 プレビュー リリースで、既に [WinUI 3 Preview 拡張機能](https://marketplace.visualstudio.com/items?itemName=Microsoft-WinUI.WinUIProjectTemplates)をインストールしていた場合は、拡張機能をアンインストールします。 拡張機能をアンインストールする方法の詳細については、[Visual Studio の拡張機能の管理](/visualstudio/ide/finding-and-using-visual-studio-extensions)に関するページを参照してください。
 

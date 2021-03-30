@@ -1,17 +1,17 @@
 ---
 title: 学習トラック - フォームの作成と構成
 description: 大量の情報の入力を処理するために、ユニバーサル Windows プラットフォーム (UWP) アプリで信頼性の高いフォームを構築して構成する方法について説明します。
-ms.date: 05/07/2018
+ms.date: 03/17/2021
 ms.topic: article
 keywords: 概要, uwp, windows 10, 学習トラック, レイアウト, フォーム
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 86d352aff0b091a698e4b91cbee9cfdc8b1f8340
-ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
+ms.openlocfilehash: 9d9fe2ee2c4d68084460293f91f65b728fabd4da
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102784663"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804976"
 ---
 # <a name="create-and-customize-a-form"></a>フォームを作成してカスタマイズする
 
@@ -144,7 +144,7 @@ UWP には、アプリに追加して構成することができる明示的な�
 
 ここではフォームを作成しましたが、レイアウトとコントロールの概念は、作成する可能性のあるすべての XAML UI で適用可能です。 リンクしたドキュメントに自由に戻って自分のフォームを試し、新しい UI 機能を追加して、さらにユーザー エクスペリエンスを改良してください。 より詳細なレイアウト機能の手順を説明したガイダンスが必要な場合は、「[アダプティブ レイアウトのチュートリアル](../design/basics/xaml-basics-adaptive-layout.md)」を参照してください
 
-また、フォームは何もない場所に存在する必要はありません。一歩先へ進み、自分のフォームを[マスター/詳細パターン](../design/controls-and-patterns/master-details.md)や [NavigationView](../design/controls-and-patterns/navigationview.md) に組み込むことができます。 または、自分のフォームで分離コードを使用する場合は、[イベントの概要](../xaml-platform/events-and-routed-events-overview.md)を参照して作業を開始することをお勧めします。
+また、フォームは何もない場所に存在する必要はありません。一歩先へ進み、それらを[リストと詳細パターン](../design/controls-and-patterns/list-details.md)や [NavigationView](../design/controls-and-patterns/navigationview.md) に組み込むことができます。 または、自分のフォームで分離コードを使用する場合は、[イベントの概要](../xaml-platform/events-and-routed-events-overview.md)を参照して作業を開始することをお勧めします。
 
 ## <a name="useful-apis-and-docs"></a>便利な API とドキュメント
 
@@ -169,7 +169,7 @@ UWP には、アプリに追加して構成することができる明示的な�
 | [イベントの概要](../xaml-platform/events-and-routed-events-overview.md) | UI 操作を処理するイベントの追加と構築に関する詳細です。 |
 | [フォーム](../design/controls-and-patterns/forms.md) | フォームを作成するための全体的なガイダンスです。 |
 | [レイアウト パネル](../design/layout/layout-panels.md) | レイアウト パネルの種類とそれらを使用する場所に関する概要を示します。 |
-| [マスター/詳細パターン](../design/controls-and-patterns/master-details.md) | 1 つまたは複数のフォームの周囲に実装できる設計パターンです。 |
+| [リストと詳細パターン](../design/controls-and-patterns/list-details.md) | 1 つまたは複数のフォームの周囲に実装できる設計パターンです。 |
 | [NavigationView](../design/controls-and-patterns/navigationview.md) | 1 つまたは複数のフォームを含めることができるコントロールです。 |
 | [レスポンシブ デザイン](../design/layout/responsive-design.md) | 大規模なレスポンシブ デザインの原則の概要です。 |
 | [XAML でのレスポンシブ レイアウト](../design/layout/layouts-with-xaml.md) | レスポンシブ デザインの表示状態とその他の実装に関する具体的な情報です。 |

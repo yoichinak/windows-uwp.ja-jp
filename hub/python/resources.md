@@ -8,12 +8,12 @@ ms.topic: article
 keywords: python, microsoft, windows 10, チュートリアル, オンライン コース, ブログ, イベント
 ms.localizationpriority: medium
 ms.date: 07/19/2019
-ms.openlocfilehash: e5ae3eb09a015a5ae1385612d5410c41a43b005b
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 3736802249eb0bce10b8d0730d361e4a70df5e8c
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89175776"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804556"
 ---
 # <a name="resources-for-developing-with-python-on-windows"></a>Windows での Python を使用した開発に関するリソース
 
@@ -44,6 +44,8 @@ Windows 10 を実行するコンピューターで作業している Python 開�
 - [Python を使用した Azure コード サンプル](https://azure.microsoft.com/resources/samples/?platform=python&sort=0):Python コードを使用して Azure サービスと対話する方法を学びます。
 
 - [Python と Visual Studio Code](https://code.visualstudio.com/docs/languages/python):VS Code での Python の使用の概要です。
+
+- [Windows 用の Python リリース](https://www.python.org/downloads/windows/): Windows 用の公式の Python リリースです。
 
 ## <a name="online-courses"></a>オンライン コース
 

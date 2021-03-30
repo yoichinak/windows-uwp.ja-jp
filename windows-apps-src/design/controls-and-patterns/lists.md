@@ -12,12 +12,12 @@ design-contact: kimsea
 dev-contact: ranjeshj
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b1304032243c7675c4aba6cbda7e7899e8deddb
-ms.sourcegitcommit: e252ccb4a76c4883c7073083d73007957202b84d
+ms.openlocfilehash: c21d7deb96f4788a1f9b4a23dad1455cf80c8956
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657679"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804926"
 ---
 # <a name="collections-and-lists"></a>コレクションとリスト
 
@@ -73,7 +73,7 @@ ms.locfileid: "97657679"
 - 次の一般的なケースを含むさまざまなユース ケースに対応する。
     - メッセージまたはメッセージ ログの一覧を作成する。
     - 連絡先リストを作成する。
-    - [マスター/詳細パターン](master-details.md)のマスター ウィンドウを作成する。 マスター/詳細パターンは、メール アプリによく使われます。このパターンでは、選択できる項目の一覧を一方のウィンドウ (マスター) に表示し、選択された項目の詳細ビューをもう一方のウィンドウ (詳細) に表示します。
+    - [リストと詳細パターン](list-details.md)でリスト ペインを作成します。 リストと詳細パターンは、メール アプリによく使われ、選択できる項目の一覧を一方のペインに表示し、選択された項目の詳細ビューをもう一方のペイン (詳細) に表示します。
 
 > [!NOTE]
 > スクロール可能なビュー (ScrollViewer や ListView など) で [**UIElement**](/uwp/api/Windows.UI.Xaml.UIElement) のポインター イベントを処理する必要がある場合は、[UIElement.CancelDirectmanipulation()](/uwp/api/windows.ui.xaml.uielement.canceldirectmanipulations) を呼び出すことにより、ビュー内のこの要素に対する操作イベントのサポートを明示的に無効にする必要があります。 ビューで操作イベントを再び有効にするには、[UIElement.TryStartDirectManipulation()](/uwp/api/windows.ui.xaml.uielement.trystartdirectmanipulation) を呼び出します。
@@ -330,7 +330,7 @@ ItemsRepeater は、次に該当する場合に使用します。
 ## <a name="related-articles"></a>関連記事
 
 **設計と UX のガイドライン**
-- [マスター/詳細](master-details.md)
+- [リストと詳細](list-details.md)
 - [ナビゲーション ウィンドウ](navigationview.md)
 - [セマンティック ズーム](semantic-zoom.md)
 - [ドラッグ アンド ドロップ](../input/drag-and-drop.md)

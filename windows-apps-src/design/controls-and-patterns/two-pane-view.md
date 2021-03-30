@@ -6,16 +6,16 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 76a6264a8ce1704e9bd209a6246c81ba9665265f
-ms.sourcegitcommit: 4df27104a9e346d6b9fb43184812441fe5ea3437
+ms.openlocfilehash: 8306b819b583edc9d2145c976d978c415c93183e
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "93034435"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804886"
 ---
 # <a name="two-pane-view"></a>2 つのペインからなるビュー
 
-[TwoPaneView](/uwp/api/microsoft.ui.xaml.controls.twopaneview) は、マスター ビューと詳細ビューなど、2 つの異なる領域のコンテンツがあるアプリの表示を管理するために役立つレイアウト コントロールです。
+[TwoPaneView](/uwp/api/microsoft.ui.xaml.controls.twopaneview) は、リストと詳細ビューなど、2 つの異なる領域のコンテンツがあるアプリの表示を管理するために役立つレイアウト コントロールです。
 
 > [!IMPORTANT]
 > この記事では、パブリック プレビュー段階であり、一般公開前に大幅に変更される可能性がある機能とガイダンスについて説明します。 本書に記載された情報について、Microsoft は明示または黙示を問わずいかなる保証をするものでもありません。
@@ -206,7 +206,7 @@ MyTwoPaneView.PanePriority = Microsoft.UI.Xaml.Controls.TwoPaneViewPriority.Pane
 
 > _既定のサイズ設定のペイン_
 
-この既定値は、`Pane1` に項目の一覧があり、`Pane2` の詳細項目の数が多い、マスターと詳細からなる一般的なレイアウトに役立ちます。 ただし、コンテンツに応じて、異なる方法で空間を分割することをお勧めします。 ここでは、`Pane1Length` が `2*` に設定されているため、`Pane2`の 2 倍の空間が使用されます。
+この既定値は、`Pane1` に項目の一覧があり、`Pane2` に多くの詳細がある、リストと詳細からなる一般的なレイアウトに役立ちます。 ただし、コンテンツに応じて、異なる方法で空間を分割することをお勧めします。 ここでは、`Pane1Length` が `2*` に設定されているため、`Pane2`の 2 倍の空間が使用されます。
 
 ```xaml
 <muxc:TwoPaneView x:Name="MyTwoPaneView" Pane1Length="2*">

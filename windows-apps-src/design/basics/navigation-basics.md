@@ -10,12 +10,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: c5dc119edefbdd3ef4dd155c9de9d2e69fee193b
-ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
+ms.openlocfilehash: 36a5489ab4fa278163fd5fad53be4d28156d4cf4
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102784773"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804463"
 ---
 # <a name="navigation-design-basics-for-windows-apps"></a>Windows アプリのナビゲーション デザインの基本
 
@@ -224,17 +224,17 @@ ms.locfileid: "102784773"
         
 :::row:::
     :::column:::
-        ![マスター詳細の画像](images/nav/thumbnail-master-detail.svg)
+        ![リストと詳細の画像](images/nav/thumbnail-list-detail.svg)
     :::column-end:::
     :::column span="2":::
-        [**マスターと詳細**](../controls-and-patterns/master-details.md)
+        [**リストと詳細**](../controls-and-patterns/list-details.md)
 
-項目の一覧 (マスター ビュー) を表示します。 項目を選ぶと、対応するページが詳細セクションに表示されます。 次の場合に使用します。
+項目の一覧を表示します。 項目を選ぶと、対応するページが詳細セクションに表示されます。 次の場合に使用します。
         
 - ユーザーが頻繁に子項目間を切り替えることを前提としている場合。
 - ユーザーが個々の項目や項目のグループに対して高いレベルの操作 (削除や並べ替えなど) を実行できるようにする場合、およびユーザーが各項目の詳細情報の表示や更新を実行できるようにする場合。
 
-マスター/詳細は、メールの受信トレイ、連絡先リスト、データ入力に適しています。
+リストと詳細は、メールの受信トレイ、連絡先リスト、データ入力に適しています。
 :::row-end:::
 
 :::row:::

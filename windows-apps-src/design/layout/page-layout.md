@@ -5,12 +5,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
-ms.openlocfilehash: 46d63a5f0bf929c391e9080e621023dc9eaafdd0
-ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
+ms.openlocfilehash: 238f341373e08f2ae73b22a01020e37e4fe68673
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102784723"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804446"
 ---
 # <a name="page-layout"></a>ページのレイアウト
 
@@ -79,11 +79,11 @@ Windows アプリの場合、通常、各 [**ページ**](/uwp/api/Windows.UI.Xa
 
 コレクションを使用すると、ユーザーはコンテンツやデータのグループを参照することができます。 [グリッド ビュー](../controls-and-patterns/item-templates-gridview.md)は写真またはメディアを中心とするコンテンツに適していて、[リスト ビュー](../controls-and-patterns/item-templates-listview.md)はテキストが多いコンテンツやデータに適しています。
 
-## <a name="masterdetail"></a>マスター/詳細
+## <a name="listdetail"></a>リストと詳細
 
-![マスター/詳細](images/master-detail.svg)
+![リストと詳細](images/master-detail.svg)
 
-[マスター/詳細](../controls-and-patterns/master-details.md)モデルは、リスト ビュー (マスター) とコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト ビュー内の項目が選択されると、それに対応して、コンテンツ ビューも更新されます。 
+[リストと詳細](../controls-and-patterns/list-details.md)モデルは、リスト ビューとコンテンツ ビュー (詳細) で構成されます。 両方のウィンドウは固定されていて、垂直方向にスクロールできます。 リスト ビュー内の項目が選択されると、それに対応して、コンテンツ ビューも更新されます。
 
 ## <a name="forms"></a>フォーム
 ![空のテキスト ボックスとボタンが表示されたフォームのスクリーンショット。](images/form.svg)

@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: 738efe43afaf5c278425d5636bddc72cecadf47a
-ms.sourcegitcommit: d51c3dd64d58c7fa9513ba20e736905f12df2a9a
+ms.openlocfilehash: 27250869d02c901825af72fe6fb1a3c0cd887e07
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98988764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804416"
 ---
 # <a name="navigation-history-and-backwards-navigation-for-windows-apps"></a>Windows アプリでのナビゲーション履歴と前に戻る移動
 
@@ -827,7 +827,7 @@ private:
 </tr>
 <tr class="odd">
 <td style="vertical-align:top;"><strong>項目の列挙</strong>
-<p>アプリが、マスター/詳細リストで選んだ項目の詳細など、画面上の項目のコンテンツを表示します。</p></td>
+<p>アプリで、リストと詳細リストで選んだ項目の詳細など、画面上の項目のコンテンツが表示されます。</p></td>
 <td style="vertical-align:top;"><strong>いいえ</strong>
 <p>項目の列挙は、ピア グループ内の移動に似ています。 ユーザーが戻るボタンを押すと、項目の列挙が表示されている現在のページの前のページに移動されます。</p>
 <p><img src="images/back-nav/nav-enumerate.png" alt="Iterm enumeration" /></p></td>

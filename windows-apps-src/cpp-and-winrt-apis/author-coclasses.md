@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 作成者, COM, コンポーネント
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 83ea8b5cea95f034b5cdfe4f1750a0ffd0166f49
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 286c2f87b004622d274b334cfe2852d88ab8cab3
+ms.sourcegitcommit: 0901104aa41f49674a99e6970233416c01166c71
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89154576"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859611"
 ---
 # <a name="author-com-components-with-cwinrt"></a>C++/WinRT での COM コンポーネントの作成
 
@@ -21,23 +21,29 @@ ms.locfileid: "89154576"
 
 C++/WinRT の [**winrt::implements**](/uwp/cpp-ref-for-winrt/implements) テンプレートは、ランタイム クラスとアクティベーション ファクトリの直接的または間接的な派生元です。
 
-既定では、**winrt::implements** では [**IInspectable**](/windows/win32/api/inspectable/nn-inspectable-iinspectable) ベースのインターフェイスのみがサポートされ、従来の COM インターフェイスは警告なしで無視されます。 したがって、従来の COM インターフェイスに対するすべての **QueryInterface** (QI) の呼び出しは、**E_NOINTERFACE** で失敗します。
+既定では、**winrt::implements** によって従来の COM インターフェイスが警告なしで無視されます。 したがって、従来の COM インターフェイスに対するすべての **QueryInterface** (QI) の呼び出しは、**E_NOINTERFACE** で失敗します。 既定では、**winrt::implements** では C++/WinRT インターフェイスのみがサポートされます。
 
-そのような状況に対処する方法は後で説明しますが、次に示すのは既定での動作を示すコード例です。
+* **winrt::IUnknown** は C++/WinRT インターフェイスであるため、**winrt::implements** では **winrt::IUnknown** ベースのインターフェイスがサポートされます。
+* 既定では、**winrt::implements** で [ **::IUnknown**](/windows/win32/api/unknwn/nn-unknwn-iunknown) 自体はサポートされません。
+
+既定でサポートされていないそのようなケースに対処する方法は後で説明しますが、 次に示すのは既定での動作を示すコード例です。
 
 ```idl
 // Sample.idl
-runtimeclass Sample
+namespace MyProject 
 {
-    Sample();
-    void DoWork();
+    runtimeclass Sample
+    {
+        Sample();
+        void DoWork();
+    }
 }
 
 // Sample.h
 #include "pch.h"
 #include <shobjidl.h> // Needed only for this file.
 
-namespace winrt::MyProject
+namespace winrt::MyProject::implementation
 {
     struct Sample : implements<Sample, IInitializeWithWindow>
     {
@@ -53,13 +59,42 @@ namespace winrt::MyProject
 // Client.cpp
 Sample sample; // Construct a Sample object via its projection.
 
-// This next line crashes, because the QI for IInitializeWithWindow fails.
+// This next line doesn't compile yet.
 sample.as<IInitializeWithWindow>()->Initialize(hwnd); 
 ```
 
-さいわい、**winrt::implements** で従来の COM インターフェイスをサポートするために必要なのは、C++/WinRT のヘッダーをインクルードする前に `unknwn.h` をインクルードすることだけです。
+### <a name="enabling-classic-com-support"></a>従来の COM サポートの有効化
+
+さいわい、**winrt::implements** で従来の COM インターフェイスをサポートするために必要なのは、C++/WinRT のヘッダーをインクルードする前に `unknwn.h` ヘッダー ファイルをインクルードすることだけです。
 
 それを明示的に行うことも、`ole2.h` などの他のヘッダー ファイルをインクルードすることで間接的に行うこともできます。 推奨される 1 つの方法は、`wil\cppwinrt.h` ヘッダー ファイルをインクルードすることです。これは、[Windows 実装ライブラリ (WIL)](https://github.com/Microsoft/wil) に含まれます。 `wil\cppwinrt.h` ヘッダー ファイルを使うと、`winrt/base.h` の前に `unknwn.h` が確実にインクルードされるだけでなく、C++/WinRT と WIL が相互の例外とエラー コードを認識するように設定されます。
+
+その後、**as<>** を従来の COM インターフェイスに対してを呼び出すことができ、上の例のコードがコンパイルされます。
+
+> [!NOTE]
+> 上の例では、クライアントで従来の COM サポート (クラスを使用しているコード) を有効にした後でも、サーバー (クラスを実装するコード) で従来の COM サポートを有効にしていない場合、QI for **IInitializeWithWindow** は失敗するため、クライアントでの **as<>** の呼び出しはクラッシュします。
+
+### <a name="a-local-non-projected-class"></a>ローカル (射影されていない) クラス
+
+ローカル クラスは、同じコンパイル単位 (アプリ、またはその他のバイナリ) で実装および使用されるものです。そのため、射影はありません。
+
+*従来の COM インターフェイスのみ* を実装するローカル クラスの例を次に示します。
+
+```cppwinrt
+struct LocalObject :
+    winrt::implements<LocalObject, IInitializeWithWindow>
+{
+    ...
+};
+```
+
+この例を実装しても、従来の COM サポートを有効にしない場合、次のコードは失敗します。
+
+```cppwinrt
+winrt::make<LocalObject>(); // error: ‘first_interface’: is not a member of ‘winrt::impl::interface_list<>’
+```
+
+ここでも、**IInitializeWithWindow** は COM インターフェイスとして認識されないため、C++/WinRT ではそれが無視されます。 **LocalObject** のケースで、COM インターフェイスが無視されるという結果は、**LocalObject** にインターフェイスがまったくないことを意味します。 ただし、すべての COM クラスでは、少なくとも 1 つのインターフェイスが実装される必要があります。
 
 ## <a name="a-simple-example-of-a-com-component"></a>COM コンポーネントの簡単な例
 
@@ -220,11 +255,11 @@ struct callback_factory : implements<callback_factory, IClassFactory>
 };
 ```
 
-上記のコクラスの実装は、「[C++/WinRT での API の作成](./author-apis.md#if-youre-not-authoring-a-runtime-class)」に示されているのと同じパターンに従っています。 そのため、同じ手法を使用して、COM インターフェイスと Windows ランタイム インターフェイスを実装できます。 COM コンポーネントと Windows ランタイム クラスの機能は、インターフェイスを介して公開されます。 すべての COM インターフェイスは、最終的に [**IUnknown インターフェイス**](/windows/desktop/api/unknwn/nn-unknwn-iunknown) から派生します。 Windows ランタイムは COM に基づいています。1 つの違いは、Windows ランタイム インターフェイスは最終的に [**IInspectable インターフェイス**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) から派生することです (**IInspectable** は **IUnknown** から派生)。
+上記のコクラスの実装は、「[C++/WinRT での API の作成](./author-apis.md#if-youre-not-authoring-a-runtime-class)」に示されているのと同じパターンに従っています。 そのため、同じ手法を使用して、COM インターフェイスと Windows ランタイム インターフェイスを実装できます。 COM コンポーネントと Windows ランタイム クラスの機能は、インターフェイスを介して公開されます。 すべての COM インターフェイスは、最終的に [**IUnknown インターフェイス**](/windows/win32/api/unknwn/nn-unknwn-iunknown) から派生します。 Windows ランタイムは COM に基づいています。1 つの違いは、Windows ランタイム インターフェイスは最終的に [**IInspectable インターフェイス**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) から派生することです (**IInspectable** は **IUnknown** から派生)。
 
 上記のコードのコクラスで、**INotificationActivationCallback::Activate** メソッドを実装しています。これは、ユーザーがトースト通知のコールバック ボタンをクリックしたときに呼び出される関数です。 しかし、その関数を呼び出す前に、コクラスのインスタンスを作成する必要があります。これを行うのは **IClassFactory::CreateInstance** 関数です。
 
-今実装したコクラスは、通知の *COM アクティベーター*として知られており、上に示すように `callback_guid` 識別子 (**GUID** 型) という形式のクラス ID (CLSID) が付いています。 その識別子は、スタート メニューのショートカットおよび Windows レジストリ エントリの形式で後から使用します。 COM アクティベーターの CLSID、およびそれに関連付けられた COM サーバーへのパス (ここでビルドしている実行可能ファイルへのパス) は、コールバック ボタンがクリックされたときに、どのインスタンスを作成するか (通知がアクション センターでクリックされたかどうか) をトースト通知に認識させるためのメカニズムです。
+今実装したコクラスは、通知の *COM アクティベーター* として知られており、上に示すように `callback_guid` 識別子 (**GUID** 型) という形式のクラス ID (CLSID) が付いています。 その識別子は、スタート メニューのショートカットおよび Windows レジストリ エントリの形式で後から使用します。 COM アクティベーターの CLSID、およびそれに関連付けられた COM サーバーへのパス (ここでビルドしている実行可能ファイルへのパス) は、コールバック ボタンがクリックされたときに、どのインスタンスを作成するか (通知がアクション センターでクリックされたかどうか) をトースト通知に認識させるためのメカニズムです。
 
 ## <a name="best-practices-for-implementing-com-methods"></a>COM メソッドを実装するためのベスト プラクティス
 
@@ -467,7 +502,7 @@ void LaunchedFromNotification(HANDLE consoleHandle, INPUT_RECORD & buffer, DWORD
 
 ## <a name="how-to-test-the-example-application"></a>アプリケーション例をテストする方法
 
-アプリケーションをビルドし、それを管理者として少なくとも 1 回実行して、登録とその他のセットアップのコードを実行します。 それを行う 1 つの方法として、Visual Studio を管理者として実行し、その後、Visual Studio からアプリを実行します。 タスク バーの Visual Studio を右クリックしてジャンプ リストを表示し、ジャンプ リストの Visual Studio を右クリックして、 **[管理者として実行]** をクリックします。 プロンプトに同意し、プロジェクトを開きます。 アプリケーションを実行するとき、アプリケーションが管理者として実行されているかどうかを示すメッセージが表示されます。 そうなっていない場合は、登録とその他のセットアップは実行されません。 アプリケーションの正常な動作のためには、その登録とその他のセットアップが少なくとも 1 回は実行される必要があります。
+アプリケーションをビルドし、それを管理者として少なくとも 1 回実行して、登録とその他のセットアップのコードを実行します。 それを行う 1 つの方法として、Visual Studio を管理者として実行し、その後、Visual Studio からアプリを実行します。 タスク バーの Visual Studio を右クリックしてジャンプ リストを表示し、ジャンプ リストの Visual Studio を右クリックして、**[管理者として実行]** をクリックします。 プロンプトに同意し、プロジェクトを開きます。 アプリケーションを実行するとき、アプリケーションが管理者として実行されているかどうかを示すメッセージが表示されます。 そうなっていない場合は、登録とその他のセットアップは実行されません。 アプリケーションの正常な動作のためには、その登録とその他のセットアップが少なくとも 1 回は実行される必要があります。
 
 管理者としてアプリケーションを実行しているかどうかにかかわらず、トーストを表示させるには T キーを押します。 次に、ポップアップ表示されるトースト通知から直接またはアクション センターから **ToastAndCallback コールバック** ボタンをクリックすると、トースト通知が起動され、コクラスがインスタンス化されて、**INotificationActivationCallback::Activate** メソッドが実行されます。
 

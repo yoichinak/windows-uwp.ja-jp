@@ -7,14 +7,14 @@ keywords: MRT.DLL、MRTCore、pri、makepri、resources、リソースの読み�
 ms.author: hickeys
 author: hickeys
 ms.localizationpriority: medium
-ms.openlocfilehash: bde540ff99e763a2d5c622eba1d292f722008ef6
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: 2b732deb0f387c11b2675193c047d33fa3e55ace
+ms.sourcegitcommit: 7f2a09e8d5d37cb5860a5f2ece5351ea6907b94c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629212"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730486"
 ---
-# <a name="manage-resources-with-mrt-core-project-reunion"></a>MRT.DLL Core を使用したリソースの管理 (Project レユニオン)
+# <a name="manage-resources-with-mrt-core"></a>MRT Core を使用してリソースを管理する 
 
 MRT.DLL Core は、[プロジェクトのレユニオン](../index.md)の一部として配布される最新の Windows[リソース管理システム](/windows/uwp/app-resources/resource-management-system)の合理化されたバージョンです。
 
@@ -22,22 +22,21 @@ MRT.DLL Core には、ビルド時と実行時の両方の機能があります�
 
 ## <a name="package-resource-index-pri-file"></a>パッケージ リソース インデックス (PRI) ファイル
 
-すべてのアプリ パッケージには、アプリ内のリソースのバイナリ インデックスが格納されている必要があります。 このインデックスは、ビルド時に作成され、1つまたは複数のリソース (resw) ファイルに格納されます。
+すべてのアプリ パッケージには、アプリ内のリソースのバイナリ インデックスが格納されている必要があります。 このインデックスは、ビルド時に作成され、1つまたは複数の PRI ファイルに格納されます。 各 PRI ファイルは、リソース マップと呼ばれる、リソースの名前付きコレクションを含みます。
 
-Resources.resw ファイルには、実際の文字列リソースと、パッケージ内のさまざまなファイルを参照するインデックス付きファイルパスのセットが含まれています。
-パッケージには、通常、リソース (リソース. resources.resw) ごとに1つの resources.resw ファイルが含まれています。 ResourceManager がインスタンス化されると、各パッケージのルートにあるリソースの resw ファイルが自動的に読み込まれます。
+PRI ファイルには、実際の文字列リソースが含まれています。 埋め込みバイナリおよびファイルパスのリソースには、プロジェクトファイルから直接インデックスが付けられます。 パッケージには、通常、language という名前の単一の PRI ファイルが含まれています **。** [ResourceManager](/windows/winui/api/microsoft.applicationmodel.resources.resourcemanager)オブジェクトがインスタンス化されると、各パッケージのルートにある **リソースの pri** ファイルが自動的に読み込まれます。
 
-各 resources.resw ファイルには、リソースマップと呼ばれるリソースの名前付きコレクションが含まれています。 パッケージからの resources.resw ファイルが読み込まれると、パッケージ id 名と一致するようにリソースマップ名が検証されます。
+PRI ファイルにはデータのみが格納され、移植可能な実行可能ファイル (PE) 形式は使用されません。 これらは、特にデータのみであるように設計されています。
 
-Resw ファイルにはデータのみが含まれているので、ポータブル実行可能 (PE) 形式は使用しません。 これらは、特にデータのみであるように設計されています。
+## <a name="access-app-resources"></a>アプリリソースにアクセスする
 
-## <a name="using-mrt-core-to-access-app-resources"></a>MRT.DLL Core を使用してアプリリソースにアクセスする
+MRT.DLL Core には、アプリリソースにアクセスするためのさまざまな方法が用意されています。
 
-### <a name="resource-loader-basic-functionality"></a>リソースローダー (基本的な機能)
+### <a name="basic-functionality-with-resourceloader"></a>ResourceLoader を使用した基本的な機能
 
-プログラムによってアプリリソースにアクセスする最も簡単な方法は、 [Microsoft の ApplicationModel. .resources](/windows/winui/api/microsoft.applicationmodel.resources) 名前空間と resourceloader クラスを使用することです。 ResourceLoader を使うと、一連のリソース ファイル、参照ライブラリ、または他のパッケージの文字列リソースへの基本的なアクセスが可能になります。
+プログラムによってアプリリソースにアクセスする最も簡単な方法は、 [Resourceloader](/windows/winui/api/microsoft.applicationmodel.resources.resourceloader) クラスを使用することです。 **ResourceLoader** を使うと、一連のリソース ファイル、参照ライブラリ、または他のパッケージの文字列リソースへの基本的なアクセスが可能になります。
 
-### <a name="resource-manager-advanced-functionality"></a>リソースマネージャー (高度な機能)
+### <a name="advanced-functionality-with-resourcemanager"></a>ResourceManager を使用した高度な機能
 
 [ResourceManager](/windows/winui/api/microsoft.applicationmodel.resources.resourcemanager)クラスは、列挙や検査などのリソースに関する追加情報を提供します。 このクラスは、**ResourceLoader** クラスが提供する情報よりも多くの情報を提供します。
 
@@ -47,15 +46,18 @@ Resw ファイルにはデータのみが含まれているので、ポータブ
 
 **ResourceManager** は、アプリの文字列リソースへのアクセスをサポートするだけでなく、さまざまなファイル リソースを列挙し検査する機能も保持します。 ファイルとその他のリソース (ファイル内から提供されるリソース) との衝突を回避するために、すべてのインデックス付きファイル パスは、予約済みの "Files" **ResourceMap** サブツリーに配置されます。 たとえば、ファイル ' \Images\logo.png ' はリソース名 ' Files/images/logo.png ' に対応しています。
 
-### <a name="resourcecontext"></a>ResourceContext
+### <a name="qualify-resource-selection-with-resourcecontext"></a>リソースの選択を ResourceContext で修飾する
 
 リソース候補は、リソース修飾子の値 (言語、スケール、コントラストなど) のコレクションである特定の [ResourceContext](/windows/winui/api/microsoft.applicationmodel.resources.resourcecontext) に基づいて選ばれます。 既定のコンテキストでは、上書きされない限り、それぞれの修飾子の値に対してアプリの現在の構成が使われます。 たとえば、画像などのリソースはスケールで修飾することができます。スケールはモニターごとに異なり、したがってアプリケーション ビューごとに異なります。 この理由から、アプリケーション ビューはそれぞれ別個の既定のコンテキストを持ちます。 リソース候補を取得するときは常に **ResourceContext** インスタンスを渡して、特定のビューに最も適した値を取得する必要があります。
 
-### <a name="important-apis"></a>重要な API
+### <a name="load-images"></a>イメージの読み込み
 
-- [ResourceLoader](/windows/winui/api/microsoft.applicationmodel.resources.resourceloader)
-- [ResourceManager](/windows/winui/api/microsoft.applicationmodel.resources.resourcemanager)
-- [ResourceContext](/windows/winui/api/microsoft.applicationmodel.resources.resourcecontext)
+MRT.DLL Core を使用してプロジェクトに追加したイメージを取得する場合は、イメージをコンテンツとしてビルドするように構成する必要があります。 この操作を行わないと、イメージはリソースの pri ファイルにインデックスが作成されず、MRT.DLL Core では取得できません。
+
+イメージをコンテンツとしてビルドするように構成するには:
+
+* C#/.NET 5 プロジェクトで、イメージの [ **ビルドアクション** ] プロパティを [ **コンテンツ**] に設定します。
+* C++/WinRT プロジェクトで、イメージの **コンテンツ** プロパティを **True** に設定します。
 
 ## <a name="sample"></a>サンプル
 

@@ -5,12 +5,12 @@ template: detail.hbs
 ms.date: 09/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, Fluent
-ms.openlocfilehash: 7a4c33bbdae980029cdeeb650375b9f8cb38bbf9
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 8c394e4f1168f986cfb97d218d2ef477b19028f7
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101823346"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804806"
 ---
 # <a name="forms"></a>フォーム
 フォームは、ユーザーからデータを収集して送信するコントロールのグループです。 通常、フォームは、ページの設定、調査、アカウントの作成、その他に使われます。 
@@ -152,7 +152,7 @@ UWP コントロールの完全な一覧については、[機能別コントロ
 さらに複雑な UI コントロールおよびカスタム UI コントロールについては、[Telerik](https://www.telerik.com/)、[SyncFusion](https://www.syncfusion.com/uwp-ui-controls)、[DevExpress](https://www.devexpress.com/Products/NET/Controls/Win10Apps/)、[Infragistics](https://www.infragistics.com/products/universal-windows-platform)、[ComponentOne](https://www.componentone.com/Studio/Platform/UWP)、[ActiPro](https://www.actiprosoftware.com/products/controls/universal) などの企業から入手できるリソースをご覧ください。
 
 ## <a name="one-column-form-example"></a>1 列のフォームの例
-この例では、Acrylic の[マスター/詳細](master-details.md)[リスト ビュー](lists.md)および [NavigationView](navigationview.md) コントロールを使います。
+この例では、Acrylic の[リストと詳細](list-details.md)[リスト ビュー](lists.md)および [NavigationView](navigationview.md) コントロールを使います。
 ![別のフォームの例のスクリーンショット](images/FormExample2.png)
 ```xaml
 <StackPanel>

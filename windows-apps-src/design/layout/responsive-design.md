@@ -8,12 +8,12 @@ ms.topic: article
 keywords: windows 10, uwp
 localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 249b738e3db4b266ad5bd589bfb9aff875e0b0d3
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 1c82993bc7fd2734550e4afe8406cbb40a9fd600
+ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034585"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104804286"
 ---
 # <a name="responsive-design-techniques"></a>レスポンシブ デザインの手法
 
@@ -60,7 +60,7 @@ UI 要素の場所と位置を変更して、ウィンドウ サイズを最大�
 
 ![デザイン要素の再配置](images/rsp-design/rspd_reflow.gif)
 
-## <a name="showhide"></a>［表示］/［非表示］
+## <a name="showhide"></a>表示/非表示
 
 UI 要素は、画面領域に基づいて表示したり、非表示にしたり、デバイスが追加機能、特定の状況、または推奨される画面の向きをサポートする場合にあわせて、表示したり、非表示にしたりできます。
 
@@ -76,7 +76,7 @@ UI 要素は、画面領域に基づいて表示したり、非表示にした�
 - どのアプリでも、列を分割して、さらに詳細な情報を表示できます。
 - どのアプリでも、縦に並べられたものを横に並べて配置することができます。 携帯電話やファブレットから大型デバイスに移行する場合、縦に並べられたリスト項目は、リスト項目の行とメタデータの列の表示に変更できます。
 
-## <a name="replace"></a>置換
+## <a name="replace"></a>Replace
 
 この手法では、特定のブレークポイント用にユーザー インターフェイスを切り替えることができます。 次の例では、ナビゲーション ウィンドウとそのコンパクトで一時的な UI は小さな画面に適していますが、大きな画面には、タブの方が適しています。
 
@@ -86,7 +86,7 @@ UI 要素は、画面領域に基づいて表示したり、非表示にした�
 
 ## <a name="re-architect"></a>再構築
 
-アプリのアーキテクチャを折りたたんだり、分岐させたりして、対象となる特定のデバイスをより明確にすることができます。 この例では、ウィンドウを拡大すると、マスター/詳細パターン全体が表示されます。
+アプリのアーキテクチャを折りたたんだり、分岐させたりして、対象となる特定のデバイスをより明確にすることができます。 この例では、ウィンドウを拡大すると、リストと詳細パターン全体が表示されます。
 
 ![ユーザー インターフェイスの再設計の例](images/rsp-design/rspd-rearchitect.gif)
 
