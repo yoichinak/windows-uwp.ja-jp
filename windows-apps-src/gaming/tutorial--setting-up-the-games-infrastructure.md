@@ -6,12 +6,12 @@ ms.date: 06/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, セットアップ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: c6e3a84b2f483f0b6d2d590181cac232f68f2b72
-ms.sourcegitcommit: e8ea2a36e4f2b9e0326958d226a36dd30c3efa57
+ms.openlocfilehash: 553069897cc71b45c34159749b7c16bd0af73c7b
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105099813"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105939097"
 ---
 # <a name="set-up-the-game-project"></a>ゲーム プロジェクトのセットアップ
 
@@ -83,9 +83,9 @@ Windows は、 **IFrameworkView** のメソッドの **App** クラスの実装�
 
 - [**初期化する**](/uwp/api/windows.applicationmodel.core.iframeworkview.initialize)
 - [**SetWindow**](/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow)
-- [**[読み込み]**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
+- [**読み込み**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
 - [**Coreapplicationview:: アクティブ化**](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)イベントが発生します。 そのため、そのイベントを処理するために (必要に応じて) 登録した場合は、この時点で **Onactivated 化** ハンドラーが呼び出されます。
-- [**実行**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
+- [**ラン**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
 - [**解除**](/uwp/api/windows.applicationmodel.core.iframeworkview.uninitialize)
 
 ここで、 **App** クラスのスケルトン (では) が、 `App.cpp` これらのメソッドのシグネチャを示しています。
@@ -179,7 +179,7 @@ void GameMain::Run()
 
 ここでは、テンプレートに含めると便利な **Simple3DGameDX** のファイルの一部について簡単に説明します (作成している場合)。 どのような場合でも、 **Simple3DGameDX** 自体がどのように機能するかを理解するには、これらは同様に重要です。
 
-|ソース ファイル|ファイル フォルダー|Description|
+|ソース ファイル|ファイル フォルダー|説明|
 |------------------------------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |DeviceResources.h/.cpp|Utilities|すべての DirectX [デバイスリソース](tutorial--assembling-the-rendering-pipeline.md#resource)を制御する **DeviceResources** クラスを定義します。 また、は、グラフィックスアダプターデバイスが紛失または再作成されたことをアプリケーションに通知するために使用される **IDeviceNotify** インターフェイスも定義します。|
 |DirectXSample.h|Utilities|**ConvertDipsToPixels** などのヘルパー関数を実装します。 **ConvertDipsToPixels** は、デバイスに依存しないピクセル (DIP) 単位の長さを物理ピクセル単位の長さに変換します。|
@@ -189,9 +189,9 @@ void GameMain::Run()
 |VertexShader. hlsl および VertexShaderFlat|シェーダー|基本的な頂点シェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |PixelShader および PixelShaderFlat|シェーダー|基本ピクセルシェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |ConstantBuffers .hlsli|シェーダー|モデルビュープロジェクション (MVP) 行列と頂点ごとのデータを頂点シェーダーに渡すために使用される、定数バッファーおよびシェーダー構造体のデータ構造の定義を格納します。|
-|pch.h/.cpp|該当なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。| 
+|pch.h/.cpp|該当なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。|
 
-### <a name="next-steps"></a>次のステップ
+### <a name="next-steps"></a>次の手順
 
 この時点で、DirectX ゲーム用の新しい UWP プロジェクトを作成し、その中のいくつかの部分を確認し、そのプロジェクトをゲーム用に再利用可能なテンプレートに変換する方法を検討しました。 また、 **Simple3DGameDX** サンプルゲームの重要な部分についても見てきました。
 

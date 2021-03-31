@@ -5,17 +5,19 @@ keywords: DirectX, XAML
 ms.date: 10/24/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: be2ef3b4d5c3cce4a4305a8faa1f4af5dea3e8bc
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: a81926a29d102acec0597f70678f66868d65e44d
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89156376"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105938977"
 ---
 # <a name="extend-the-sample-game"></a>サンプル ゲームを拡張する
 
 > [!NOTE]
 > このトピックは、「DirectX チュートリアルシリーズ [を含む simple ユニバーサル Windows プラットフォーム (UWP) ゲームの作成](tutorial--create-your-first-uwp-directx-game.md) 」に含まれています。 このリンクのトピックでは、系列のコンテキストを設定します。
+
+オーバーレイに XAML を使用するこのゲームのバージョンをダウンロードするには、「 [DirectX および xaml ゲームのサンプル](/samples/microsoft/windows-universal-samples/simple3dgamexaml/)」を参照してください。 サンプルをビルドする方法の詳細については、readme ファイルを参照してください。
 
 基本的なユニバーサル Windows プラットフォーム (UWP) DirectX 3D ゲームの主なコンポーネントについて説明してきました。 ビュープロバイダーとレンダリングパイプラインを含むゲームのフレームワークを設定し、基本的なゲームループを実装できます。 また、基本的なユーザー インターフェイス オーバーレイの作成、サウンドの組み込み、コントロールの実装を行うこともできます。 これで独自のゲームを作成することができるはずですが、他のヘルプや情報が必要な場合は以下のリソースを参照してください。
 
@@ -63,7 +65,7 @@ XAML を使用して、以前に作成した Direct2D のゲーム インター�
 </Page>
 ```
 
-**SwapChainPanel** オブジェクトは、アプリ シングルトンによる[起動時](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp#L45-L51)に作成された現在のウィンドウ オブジェクトの [**Content**](/uwp/api/Windows.UI.Xaml.Window.Content) プロパティとして設定されます。
+**SwapChainPanel** オブジェクトは、アプリ シングルトンによる [起動時](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp#L45-L51)に作成された現在のウィンドウ オブジェクトの [**Content**](/uwp/api/Windows.UI.Xaml.Window.Content) プロパティとして設定されます。
 
 ```cpp
 void App::OnLaunched(_In_ LaunchActivatedEventArgs^ /* args */)
@@ -132,6 +134,6 @@ XAML で定義された [**SwapChainPanel**](/uwp/api/Windows.UI.Xaml.Controls.S
 
 ## <a name="sample"></a>サンプル
 
-オーバーレイに XAML を使用するこのゲームのバージョンをダウンロードするには、 [Direct3D のサンプルゲーム (xaml)](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/Simple3DGameXaml)にアクセスしてください。
+オーバーレイに XAML を使用するこのゲームのバージョンをダウンロードするには、「 [DirectX および xaml ゲームのサンプル](/samples/microsoft/windows-universal-samples/simple3dgamexaml/)」を参照してください。 サンプルをビルドする方法の詳細については、readme ファイルを参照してください。
 
 これらのトピックの残りの部分で説明されているサンプルゲームのバージョンとは異なり、XAML バージョンでは、アプリケーションのフレームワークを、それぞれ、 [、または](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/App.xaml.cpp)、[アプリケーションの .cpp](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameDX/cpp/App.cpp) [との](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameDX/cpp/GameInfoOverlay.cpp)両方のファイルに定義[します。](https://github.com/Microsoft/Windows-universal-samples/blob/6370138b150ca8a34ff86de376ab6408c5587f5d/Samples/Simple3DGameXaml/cpp/DirectXPage.xaml.cpp)

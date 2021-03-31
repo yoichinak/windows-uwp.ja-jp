@@ -6,14 +6,14 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9b1e73dcb74ae95729cb5c07db469a1ef1a77e35
-ms.sourcegitcommit: 0c4bbaf1c119a84002748cdcf02e1449835559c3
+ms.openlocfilehash: b196408a769e204513d46b67cd13c31f0d2e8b9c
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92133005"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105939037"
 ---
-#  <a name="troubleshooting-porting-windowsphone-silverlight-to-uwp"></a>Windows Phone Silverlight から UWP への移植に関するトラブルシューティング
+#  <a name="troubleshooting-porting-windows-phone-silverlight-to-uwp"></a>Windows Phone Silverlight から UWP への移植に関するトラブルシューティング
 
 
 前のトピックは、「[プロジェクトの移植](wpsl-to-uwp-porting-to-a-uwp-project.md)」でした。
@@ -32,8 +32,8 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 
 このセクションでは、Visual Studio で Windows 10 プロジェクトを開いたとき、"Visual Studio 更新プログラムが必要。 1 つ以上のプロジェクトでは、インストールされていないか、Visual Studio に対する今後の更新の一部として含まれるプラットフォーム SDK &lt;バージョン&gt; が必要です。" というメッセージが表示されます。
 
--   まず、インストールされている SDK for Windows 10 のバージョン番号を確認します。 **C: \\ Program Files (x86) \\ Windows kit \\ 10 \\ \\ &lt; &gt; **に移動し、 * &lt; versionfoldername &gt; *をメモします。このバージョンは、"メジャー. マイナー. ビルド. リビジョン" のようになります。
--   編集用のプロジェクト ファイルを開き、`TargetPlatformVersion` 要素と `TargetPlatformMinVersion` 要素を探します。 次のように編集します。 * &lt; versionfoldername &gt; *は、ディスク上で検出されたクワッド表記のバージョン番号に置き換えます。
+-   まず、インストールされている SDK for Windows 10 のバージョン番号を確認します。 **C: \\ Program Files (x86) \\ Windows kit \\ 10 \\ \\ &lt; &gt;** に移動し、 *&lt; versionfoldername &gt;* をメモします。このバージョンは、"メジャー. マイナー. ビルド. リビジョン" のようになります。
+-   編集用のプロジェクト ファイルを開き、`TargetPlatformVersion` 要素と `TargetPlatformMinVersion` 要素を探します。 次のように編集します。 *&lt; versionfoldername &gt;* は、ディスク上で検出されたクワッド表記のバージョン番号に置き換えます。
 
 ```xml
    <TargetPlatformVersion><versionfoldername></TargetPlatformVersion>
@@ -58,6 +58,6 @@ XAML 解析例外は診断が難しい場合があります。特に、わかり
 | _SYSTEM.NI.DLL で、型 ' COMException ' の初回例外が発生しました。追加情報: アプリケーションは、別のスレッドに対してマーシャリングされたインターフェイスを呼び出しました。(HRESULT からの例外: 0x8001010E (RPC_E_WRONG_THREAD))。_ | ここで実行する作業は、UI スレッド上で行う必要があります。 [**CoreWindow.GetForCurrentThread**](/uwp/api/windows.ui.core.corewindow.getforcurrentthread)) を呼び出します。 |
 | アニメーションは実行中ですが、ターゲット プロパティに対しては無効です。 | アニメーションを独立して実行するか、またはアニメーションに対して `EnableDependentAnimation="True"` を設定します。 「 [アニメーション](wpsl-to-uwp-porting-xaml-and-ui.md)」を参照してください。 |
 | Visual Studio で Windows 10 プロジェクトを開いたとき、"Visual Studio 更新プログラムが必要。 1 つ以上のプロジェクトでは、インストールされていないか、Visual Studio に対する今後の更新の一部として含まれるプラットフォーム SDK &lt;バージョン&gt; が必要です。" というメッセージが表示されます。 | このトピックの「[TargetPlatformVersion](#targetplatformversion)」セクションをご覧ください。 |
-| InitializeComponent が xaml.cs ファイルで呼び出されると、System.InvalidCastException がスローされます。 | これは、同じ xaml.cs ファイルを共有している xaml ファイルが複数あり (少なくとも 1 つは MRT 修飾されたファイル)、要素が持つ x:Name 属性が 2 つの xaml ファイル間で整合性がとれていない場合に発生することがあります。 両方の xaml ファイルで同じ要素に同じ名前を追加してみるか、どちらの名前も省略してください。 | 
+| InitializeComponent が xaml.cs ファイルで呼び出されると、System.InvalidCastException がスローされます。 | これは、同じ xaml.cs ファイルを共有している xaml ファイルが複数あり (少なくとも 1 つは MRT 修飾されたファイル)、要素が持つ x:Name 属性が 2 つの xaml ファイル間で整合性がとれていない場合に発生することがあります。 両方の xaml ファイルで同じ要素に同じ名前を追加してみるか、どちらの名前も省略してください。 |
 
 次のトピックは、「[XAML と UI の移植](wpsl-to-uwp-porting-xaml-and-ui.md)」です。

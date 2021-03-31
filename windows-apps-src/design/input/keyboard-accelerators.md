@@ -10,12 +10,12 @@ pm-contact: chigy
 design-contact: miguelrb
 doc-status: Draft
 ms.localizationpriority: medium
-ms.openlocfilehash: 6f712dd8e845b3beb52981be4a17df128c48845d
-ms.sourcegitcommit: c5fdcc0779d4b657669948a4eda32ca3ccc7889b
+ms.openlocfilehash: 96df9555f567d8e8c1fd29847245e4e1a56a09bf
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102784743"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105939107"
 ---
 # <a name="keyboard-accelerators"></a>キーボード アクセラレータ
 
@@ -354,14 +354,14 @@ Windows アプリケーション間でキーボードアクセラレータを統
 | フォーカスのあるコントロールまたはウィンドウでコンテンツを見つける | Ctrl + F |
 | 次の検索結果に移動する | F3 |
 | **その他のアクション** | |
-| お気に入りに追加する | Ctrl + D | 
-| 更新 | F5 または Ctrl + R | 
-| 拡大 | Ctrl + + | 
-| 縮小します | Ctrl + - | 
-| 既定の表示倍率に拡大縮小 | Ctrl + 0 | 
-| 保存 | Ctrl + S | 
-| 閉じる | Ctrl + W | 
-| 印刷 | Ctrl + P | 
+| お気に入りに追加する | Ctrl + D |
+| 更新 | F5 または Ctrl + R |
+| 拡大 | Ctrl + + |
+| 縮小します | Ctrl + - |
+| 既定の表示倍率に拡大縮小 | Ctrl + 0 |
+| 保存 | Ctrl + S |
+| 閉じる | Ctrl + W |
+| 印刷 | Ctrl + P |
 
 ローカライズされたバージョンの Windows では使用できない組み合わせもあります。 たとえば、スペイン語バージョンの Windows では、太字の指定には Ctrl + B ではなく Ctrl + N が使用されます。 アプリがローカライズされている場合は、ローカライズされたキーボード アクセラレータを用意することをお勧めします。
 

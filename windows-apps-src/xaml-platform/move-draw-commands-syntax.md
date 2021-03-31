@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: d8fac685e341ab78357bfb2ab3ea4e668a78918a
-ms.sourcegitcommit: 34f532fd023af2849c3e975baf7aa6771d7e53b9
+ms.openlocfilehash: e1a0350cfcc9d77b0341fe90a92749faac5c63f2
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104893852"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105939017"
 ---
 # <a name="move-and-draw-commands-syntax"></a>移動と描画のコマンド構文
 
@@ -107,7 +107,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `H ` _x_ <br/> または <br/>`h ` _x_ |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | x | [**Double**](/dotnet/api/system.double) <br/> 直線の終点の x 座標。 |
 
@@ -119,7 +119,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `V `_y_ <br/> または <br/> `v `_y_ |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *y* | [**Double**](/dotnet/api/system.double) <br/> 直線の終点の y 座標。 |
 
@@ -131,11 +131,11 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `C ` *controlPoint1* *controlPoint2* *endPoint* <br/> または <br/> `c ` *controlPoint1* *controlPoint2* *endPoint* |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *controlPoint1* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の 1 つ目の制御点。曲線の前半の接線を決定します。 |
 | *controlPoint2* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の 2 つ目の制御点。曲線の後半の接線を決定します。 |
-| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線が描画される点。 | 
+| *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線が描画される点。 |
 
 **二次ベジエ曲線コマンド**
 
@@ -145,7 +145,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `Q ` *controlPoint endPoint* <br/> または <br/> `q ` *controlPoint endPoint* |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *controlPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の制御点。曲線の前半と後半の接線を決定します。 |
 | *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線が描画される点。 |
@@ -158,7 +158,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `S` *controlPoint2* *endPoint* <br/> または <br/>`s` *controlPoint2 endPoint* |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *controlPoint2* | [**ポイント**](/uwp/api/Windows.Foundation.Point) <br/> 曲線の制御点。曲線の後半の接線を決定します。 |
 | *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線が描画される点。 |
@@ -171,7 +171,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `T` *controlPoint* *endPoint* <br/> または <br/> `t` *controlPoint* *endPoint* |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *controlPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線の制御点。曲線の前半の接線を決定します。 |
 | *endPoint* | [**ポイント**](/uwp/api/Windows.Foundation.Point)<br/> 曲線が描画される点。 |
@@ -184,7 +184,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | `A ` *size* *rotationAngle* *isLargeArcFlag* *sweepDirectionFlag* *endPoint* <br/> または <br/>`a ` *size* *rotationAngle* *isLargeArcFlag* *sweepDirectionFlag* *endPoint* |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *size* | [**サイズ**](/uwp/api/Windows.Foundation.Size)<br/>円弧の x 半径と y 半径。 |
 | *rotationAngle* | [**Double**](/dotnet/api/system.double) <br/> 楕円の回転 (度単位)。 |
@@ -208,7 +208,7 @@ Windows ランタイム XAML では、移動と描画のコマンドにより、
 |--------|
 | *x*、*y*<br/> または <br/>*x* *y* |
 
-| 項目 | 説明 |
+| 期間 | 説明 |
 |------|-------------|
 | *x* | [**Double**](/dotnet/api/system.double) <br/> 点の x 座標。 |
 | *y* | [**Double**](/dotnet/api/system.double) <br/> 点の y 座標。 |

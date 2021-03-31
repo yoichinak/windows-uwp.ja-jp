@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: be238be3414fb17ff64a5c6d5da713f614c297be
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 1d5f1ce1b12e2cbc98744ba898a36c79ff5c6c4a
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89169086"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105938987"
 ---
 # <a name="xclass-attribute"></a>x:Class 属性
 
@@ -31,10 +31,10 @@ ms.locfileid: "89169086"
 
 | 期間 | 説明 |
 |------|-------------|
-| namespace | 任意。 _classname_ で識別される部分クラスが含まれている名前空間を指定します。 _名前空間_を指定すると、_名前空間_と_クラス名_がドット (.) で区切られます。 _名前空間_を省略すると、_クラス名_には名前空間がないものと見なされます。 |
-| classname | 必須。 ロードされた XAML とその XAML のコード ビハインドを結び付ける部分クラスの名前を指定します。 | 
+| namespace | 省略可能。 _classname_ で識別される部分クラスが含まれている名前空間を指定します。 _名前空間_ を指定すると、_名前空間_ と _クラス名_ がドット (.) で区切られます。 _名前空間_ を省略すると、_クラス名_ には名前空間がないものと見なされます。 |
+| classname | 必須です。 ロードされた XAML とその XAML のコード ビハインドを結び付ける部分クラスの名前を指定します。 |
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>Remarks
 
 **x:Class** は、XAML ファイル/オブジェクト ツリーのルートであり、ビルド アクションによってコンパイルされる任意の要素か、コンパイルされたアプリケーションのアプリケーション定義中の [**Application**](/uwp/api/Windows.UI.Xaml.Application) ルートの属性として宣言できます。 ルート ノード以外の任意の要素に対して **x:Class** を宣言した場合、XAML ファイルが **Page** ビルド動作でコンパイルされていない任意の状況下で、コンパイル時エラーになります。
 

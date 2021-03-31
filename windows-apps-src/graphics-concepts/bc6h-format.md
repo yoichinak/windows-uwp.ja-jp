@@ -7,12 +7,12 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f53ebf6a7326bd9e6a99272c01d9eeb5c03f580
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 668a95d92926ddce17d4003f66672ef1e7a3f34e
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89165076"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105939047"
 ---
 # <a name="bc6h-format"></a>BC6H 形式
 
@@ -26,19 +26,20 @@ BC6H 形式は、3 つの HDR カラー チャネルを使用した画像に、�
 
 BC6H は、次の DXGI 形式の列挙値によって指定され \_ ます。
 
--   **DXGI \_\_BC6H \_ の形式を指定**しないでください。
--   **DXGI \_\_BC6H \_ UF16 の書式を設定**します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用しません。
--   **DXGI \_\_BC6H \_ SF16 の書式を設定**します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用します。
+-   **DXGI \_\_BC6H \_ の形式を指定** しないでください。
+-   **DXGI \_\_BC6H \_ UF16 の書式を設定** します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用しません。
+-   **DXGI \_\_BC6H \_ SF16 の書式を設定** します。 この BC6H 形式は、16 ビット浮動小数点カラー チャネル値の符号ビットを使用します。
 
-**メモ**   カラーチャネルの16ビット浮動小数点形式は、"ハーフ" 浮動小数点形式と呼ばれることがよくあります。 この形式には、次のビット レイアウトがあります。
-|                       |                                                 |
+**注:** カラー チャネルの 16 ビット浮動小数点形式は、「半」浮動小数点形式とも呼ばれます。 この形式には、次のビット レイアウトがあります。
+
+| Format                      |      Layout                                           |
 |-----------------------|-------------------------------------------------|
 | UF16 (符号なし浮動小数点) | 5 指数ビット + 11 仮数ビット              |
 | SF16 (符号付き浮動小数点)   | 1 符号ビット + 5 指数ビット + 10 仮数ビット |
 
- 
+ 
 
- 
+ 
 
 BC6H 形式は、[Texture2D](/windows/desktop/direct3d10/d3d10-graphics-reference-resource-structures) (配列を含む)、Texture3D、または TextureCube (配列を含む) のテクスチャ リソースに使用できます。 同様に、この形式は、これらのリソースに関連付けられた任意のミップマップ サーフェスに適用されます。
 
@@ -93,7 +94,7 @@ decompress_bc6h(x, y, block)
 
 次の表に、BC6H ブロックで使用可能な 14 の形式のビット数と値を示します。
 
-| モード | パーティション インデックス | Partition | カラー エンドポイント                  | モード ビット      |
+| モード | パーティション インデックス | パーティション | カラー エンドポイント                  | モード ビット      |
 |------|-------------------|-----------|----------------------------------|----------------|
 | 1    | 46 ビット           | 5 ビット    | 75 ビット (10.555, 10.555, 10.555) | 2 ビット (00)    |
 | 2    | 46 ビット           | 5 ビット    | 75 ビット (7666, 7666, 7666)       | 2 ビット (01)    |
@@ -110,7 +111,7 @@ decompress_bc6h(x, y, block)
 | 13   | 63 ビット           | 0 ビット    | 60 ビット (12.8, 12.8, 12.8)       | 5 ビット (01011) |
 | 14   | 63 ビット           | 0 ビット    | 60 ビット (16.4, 16.4, 16.4)       | 5 ビット (01111) |
 
- 
+ 
 
 この表の各形式は、モード ビットによって一意に識別できます。 最初の 10 個のモードは 2 領域のタイルに使用され、モード ビット フィールドは 2 または 5 ビット長とすることができます。 これらのブロックには、圧縮されたカラー エンドポイント (72 または 75 ビット)、パーティション (5ビット)、およびパーティション インデックス (46ビット) のフィールドもあります。
 
@@ -156,7 +157,7 @@ BC6H では、アルファ チャネルはモードに関係なく常に 1.0 を
 | by    | endpt \[ 1 \] 。\[2\] |
 | bz    | endpt \[ 1 \] 。B \[ 2\] |
 
- 
+ 
 
 Endpt \[ i \] (i は0または 1) で、それぞれ0番目または1番目のエンドポイントを参照します。
 ## <a name="span-idsign-extension-for-endpoint-valuesspanspan-idsign-extension-for-endpoint-valuesspanspan-idsign-extension-for-endpoint-valuesspansign-extension-for-endpoint-values"></a><span id="Sign-extension-for-endpoint-values"></span><span id="sign-extension-for-endpoint-values"></span><span id="SIGN-EXTENSION-FOR-ENDPOINT-VALUES"></span>エンドポイント値の符号拡張
@@ -248,7 +249,7 @@ void generate_palette_unquantized(UINT8 uNumIndices, int c1, int c2, int prec, U
 
 次のコード サンプルでは、補間のプロセスを示しています。次のようなことがわかります。
 
--   **非量子化**関数 (下記) のカラー値の有効な範囲は -32768 〜 65535 であるため、インターポレーターは 17 ビット符号付き算術演算を使って実装されています。
+-   **非量子化** 関数 (下記) のカラー値の有効な範囲は -32768 〜 65535 であるため、インターポレーターは 17 ビット符号付き算術演算を使って実装されています。
 -   補間後、値は **終了 \_ unquantize** 関数 (このセクションの3番目のサンプルで説明します) に渡されます。これにより、最終的なスケーリングが適用されます。
 -   すべてのハードウェアの圧縮解除プログラムは、これらの関数でビットアキュレートの結果を返す必要があります。
 
@@ -296,7 +297,7 @@ int unquantize(int comp, int uBitsPerComp)
 }
 ```
 
-**finish \_ unquantize** は、パレット補間の後に呼び出されます。 **Unquantize** 関数は、符号付きの場合は 31/32、符号なしの場合は 31/64 で、スケーリングを延期します。 この動作は、パレット補間の完了後の最終値を有効な半範囲 (-0x7BFF〜0x7BFF) にして、必要な乗算の数を減らすために必要です。 **finish \_ unquantize**は、最終的なスケーリングを適用し、**半分**に解釈される**符号なし short**値を返します。
+**finish \_ unquantize** は、パレット補間の後に呼び出されます。 **Unquantize** 関数は、符号付きの場合は 31/32、符号なしの場合は 31/64 で、スケーリングを延期します。 この動作は、パレット補間の完了後の最終値を有効な半範囲 (-0x7BFF〜0x7BFF) にして、必要な乗算の数を減らすために必要です。 **finish \_ unquantize** は、最終的なスケーリングを適用し、**半分** に解釈される **符号なし short** 値を返します。
 
 ``` syntax
 unsigned short finish_unquantize(int comp)
@@ -323,8 +324,8 @@ unsigned short finish_unquantize(int comp)
 ## <a name="span-idrelated-topicsspanrelated-topics"></a><span id="related-topics"></span>関連トピック
 
 
-[テクスチャのブロック圧縮](texture-block-compression.md)
+[テクスチャブロックの圧縮](texture-block-compression.md)
 
- 
+ 
 
- 
+ 

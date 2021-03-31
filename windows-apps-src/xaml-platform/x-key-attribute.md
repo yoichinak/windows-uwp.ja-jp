@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 45cdc3bcf766cd110498e357052da150ea96fa21
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 462a1323766a4fb2cc1c8bfdc119c72069fd59e4
+ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161696"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105938997"
 ---
 # <a name="xkey-attribute"></a>x:Key 属性
 
@@ -39,7 +39,7 @@ ms.locfileid: "89161696"
 | 期間 | 説明 |
 |------|-------------|
 | object | 共有可能な任意のオブジェクト。 「[ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」をご覧ください。 |
-| stringKeyValue | _XamlName_> の文法に準拠する必要がある、キーとして使われる実際の文字列。 以下の「XamlName の文法」をご覧ください。 | 
+| stringKeyValue | _XamlName_> の文法に準拠する必要がある、キーとして使われる実際の文字列。 以下の「XamlName の文法」をご覧ください。 |
 
 ##  <a name="xamlname-grammar"></a>XamlName の文法
 
@@ -58,7 +58,7 @@ CombiningCharacter::= none
 -   Unicode 文字範囲はサポートされていません。
 -   名前の先頭を数字にすることはできません。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>Remarks
 
 通常、[**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) の子要素は、そのディクショナリ内の一意のキー値を指定する **x:Key** 属性を含みます。 キーは、読み込み時に XAML プロセッサによって一意であることが要求されます。 **x:Key** 値が一意でない場合は、XAML の解析で例外が発生します。 [{StaticResource} マークアップ拡張](staticresource-markup-extension.md)によって要求された場合、解決されていないキーも XAML の解析での例外の原因になります。
 
