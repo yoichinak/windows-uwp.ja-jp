@@ -88,10 +88,14 @@
                   href: desktop/modernize/modernize-wpf-tutorial-5.md
             - name: パッケージ化されていないデスクトップ アプリに ID を付与する
               href: desktop/modernize/grant-identity-to-nonpackaged-apps.md
-    - name: Project Reunion 0.5 Preview
+    - name: Project Reunion 0.5
       items:
         - name: 概要
           href: project-reunion/index.md
+        - name: Project Reunion の概要
+          href: project-reunion/get-started-with-project-reunion.md
+        - name: Project Reunion を使用するアプリを展開する
+          href: project-reunion/deploy-apps-that-use-project-reunion.md
         - name: MRT Core を使用してリソースを管理する
           href: project-reunion/mrtcore/mrtcore-overview.md
         - name: DWriteCore を使用してテキストを表示する
@@ -100,18 +104,31 @@
       items:
         - name: 概要
           href: winui/index.md
-        - name: Windows UI ライブラリ 3 - Project Reunion 0.5 Preview
+        - name: WinUI 3 と WinUI 2 の比較
+          href: winui/winui3-winui2-comparison.md
+        - name: Windows UI ライブラリ 3 - Project Reunion 0.5
           items:
             - name: 概要およびリリース ノート
               href: winui/winui3/index.md
-            - name: デスクトップ アプリ用の WinUI 3 の概要
-              href: winui/winui3/get-started-winui3-for-desktop.md
-            - name: UWP アプリ用の WinUI 3 の概要
-              href: winui/winui3/get-started-winui3-for-uwp.md
-            - name: C++/WinRT を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
-              href: winui/winui3/xaml-templated-controls-cppwinrt-winui-3.md
-            - name: C# を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
-              href: winui/winui3/xaml-templated-controls-csharp-winui-3.md
+            - name: 開発
+              items:
+                - name: Visual Studio での WinUI プロジェクト テンプレート
+                  href: winui/winui3/winui-project-templates-in-visual-studio.md
+                - name: デスクトップ アプリ用の WinUI 3 の概要
+                  href: winui/winui3/get-started-winui3-for-desktop.md
+                - name: 基本的な WinUI 3 デスクトップ アプリをビルドする
+                  href: winui/winui3/desktop-build-basic-winui3-app.md
+                - name: UWP アプリ用の WinUI 3 の概要 (プレビュー)
+                  href: winui/winui3/get-started-winui3-for-uwp.md
+                - name: C++/WinRT を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
+                  href: winui/winui3/xaml-templated-controls-cppwinrt-winui-3.md
+                - name: C# を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
+                  href: winui/winui3/xaml-templated-controls-csharp-winui-3.md
+            - name: リリース ノート アーカイブ (WinUI 3)
+              href: winui/winui3/release-notes/index.md
+              items:
+                - name: Windows UI ライブラリ 3 - Project Reunion 0.5 Preview (2021 年 3 月)
+                  href: winui/winui3/release-notes/winui3-project-reunion-0.5-preview.md
         - name: Windows UI 2.x ライブラリ
           items:
             - name: 概要
@@ -122,10 +139,9 @@
                   href: winui/winui2/getting-started.md
                 - name: NuGet パッケージの一覧
                   href: winui/winui2/nuget-packages.md
-            - name: のリリース ノート
+            - name: リリース ノート アーカイブ (WinUI 2)
+              href: winui/winui2/release-notes/index.md
               items:
-                - name: 概要
-                  href: winui/winui2/release-notes/index.md
                 - name: WinUI 2.5
                   href: winui/winui2/release-notes/winui-2.5.md
                 - name: WinUI 2.4
@@ -139,7 +155,18 @@
                 - name: WinUI 2.0
                   href: winui/winui2/release-notes/winui-2.0.md
         - name: WinUI API リファレンス
-          href: /windows/winui/api/
+          expanded: true
+          items:
+            - name: WinRT API リファレンス
+              href: /windows/winui/api/
+            - name: COM API リファレンス
+              items:
+                - name: IWindowNative
+                  items:
+                    - name: IWindowNative
+                      href: winui/reference/iwindownative.md
+                    - name: IWindowNative.WindowHandle
+                      href: winui/reference/iwindownative-windowhandle.md
     - name: Windows 10X 用の開発
       items:
         - name: Windows 10X 開発の FAQ

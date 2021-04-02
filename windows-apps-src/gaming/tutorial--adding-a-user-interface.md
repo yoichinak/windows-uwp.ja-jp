@@ -472,6 +472,6 @@ void GameMain::SetGameInfoOverlay(GameInfoOverlayState state)
 
 ゲームでは、ゲームの状態に基づいてテキスト情報をプレーヤーに伝える方法が用意されているので、ゲーム全体に表示される内容を切り替えることができます。
 
-### <a name="next-steps"></a>次の手順
+### <a name="next-steps"></a>次のステップ
 
 次のトピック「 [コントロールの追加](tutorial--adding-controls.md)」では、プレーヤーがサンプルゲームと対話する方法と、入力がゲーム状態にどのように変化するかを確認します。

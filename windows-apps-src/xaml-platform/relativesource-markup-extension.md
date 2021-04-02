@@ -36,12 +36,12 @@ ms.locfileid: "105938967"
 
 ## <a name="xaml-values"></a>XAML 値
 
-| 期間 | 説明 |
+| 用語 | 説明 |
 |------|-------------|
 | {RelativeSource Self} | <strong>Self</strong> の [<strong>Mode</strong>](/uwp/api/windows.ui.xaml.data.relativesource.mode) 値を生成します。 ターゲット要素をこのバインドのソースとして使う必要があります。 要素の 1 つのプロパティを同じ要素の別のプロパティにバインドする場合に便利です。 |
 | {RelativeSource TemplatedParent} | このバインドのソースとして適用される [<strong>ControlTemplate</strong>](/uwp/api/Windows.UI.Xaml.Controls.ControlTemplate) を生成します。 ランタイム情報をテンプレート レベルでバインドに適用する場合に便利です。 |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>解説
 
 [**Binding**](/uwp/api/Windows.UI.Xaml.Data.Binding) では、**Binding** オブジェクト要素の属性または [{Binding} マークアップ拡張](binding-markup-extension.md)内のコンポーネントとして [**Binding.RelativeSource**](/uwp/api/windows.ui.xaml.data.binding.relativesource) を設定できます。 これが、2 つの異なる XAML 構文が示されている理由です。
 
@@ -67,5 +67,5 @@ ms.locfileid: "105938967"
 * [XAML の概要](xaml-overview.md)
 * [データ バインディングの詳細](../data-binding/data-binding-in-depth.md)
 * [{Binding} マークアップ拡張](binding-markup-extension.md)
-* [**Binding**](/uwp/api/Windows.UI.Xaml.Data.Binding)
+* [**関連付け**](/uwp/api/Windows.UI.Xaml.Data.Binding)
 * [**RelativeSource**](/uwp/api/Windows.UI.Xaml.Data.RelativeSource)

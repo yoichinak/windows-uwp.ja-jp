@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: article
 keywords: windows 10, uwp, デバイス ポータル, REST
 ms.localizationpriority: medium
-ms.openlocfilehash: 33e914d124520b8f4eacd120c191ed63715a3168
-ms.sourcegitcommit: 02d220ef0ec0ecd7ed733086ba164ee9653d9602
+ms.openlocfilehash: ffae68a0b5b6d17ec6b0afe88c82dc77994d72fa
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2021
-ms.locfileid: "98056055"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619488"
 ---
 # <a name="windows-device-portal-core-rest-api-reference"></a>Windows デバイス ポータル コア REST API リファレンス
 
@@ -4350,7 +4350,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |。 ファイルの名前が変更されました
+| 200 | OK です。 ファイルの名前が変更されました|
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
@@ -4401,7 +4401,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |。 ファイルが削除されます。 |
+| 200 | OK です。 ファイルが削除されます。 |
 | 404 | ファイルが見つからない |
 | 5XX | エラー コード |
 
@@ -4449,7 +4449,7 @@ DNS-SD アドバタイズにタグを追加します。
 
 | HTTP 状態コード      | 説明 |
 | :------     | :----- |
-| 200 | OK |。 ファイルがアップロードされます。 |
+| 200 | OK です。 ファイルがアップロードされます。 |
 | 4XX | エラー コード |
 | 5XX | エラー コード |
 

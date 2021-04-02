@@ -6,12 +6,12 @@ ms.date: 10/02/2020
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: e57a3fc5444a4afa2217cc128dabec76844ef549
-ms.sourcegitcommit: 71701f5ffc540951f86d6f77a52416c6d75fe305
+ms.openlocfilehash: faf50ecd0513e0a26824eef0a4c9c54d2fd8b5ee
+ms.sourcegitcommit: 7f2a09e8d5d37cb5860a5f2ece5351ea6907b94c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100632673"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730515"
 ---
 # <a name="modernize-your-desktop-apps"></a>デスクトップ アプリの現代化
 
@@ -29,7 +29,7 @@ Windows UI ライブラリは、Windows 10 アプリ用のコントロールと�
 デスクトップ アプリでは、次の方法で WinUI を使用できます。
 
 * [XAML Islands](xaml-islands.md) と WinUI 2.x コントロールを使用して、WPF、Windows フォーム、および C++/Win32 の既存のアプリを更新できます。
-* [WinUI 3.0](../../winui/winui3/index.md) (プレビュー) を使って、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド [C#/.NET Core およびネイティブ C++/Win32 デスクトップ アプリ](../../winui/winui3/get-started-winui3-for-desktop.md)を作成します。
+* [WinUI 3](../../winui/winui3/index.md) を使って、全面的に WinUI ベースのユーザー インターフェイスを使用する、マネージド [C#/.NET 5 およびネイティブ C++/Win32 デスクトップ アプリ](../../winui/winui3/get-started-winui3-for-desktop.md)を作成します。
 
 「[Windows UI (WinUI) ライブラリ](../../winui/index.md)」をご覧ください。
 

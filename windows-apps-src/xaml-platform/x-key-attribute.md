@@ -36,7 +36,7 @@ ms.locfileid: "105938997"
 
 ## <a name="xaml-values"></a>XAML 値
 
-| 期間 | 説明 |
+| 用語 | 説明 |
 |------|-------------|
 | object | 共有可能な任意のオブジェクト。 「[ResourceDictionary と XAML リソースの参照](../design/controls-and-patterns/resourcedictionary-and-xaml-resource-references.md)」をご覧ください。 |
 | stringKeyValue | _XamlName_> の文法に準拠する必要がある、キーとして使われる実際の文字列。 以下の「XamlName の文法」をご覧ください。 |
@@ -58,7 +58,7 @@ CombiningCharacter::= none
 -   Unicode 文字範囲はサポートされていません。
 -   名前の先頭を数字にすることはできません。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>解説
 
 通常、[**ResourceDictionary**](/uwp/api/Windows.UI.Xaml.ResourceDictionary) の子要素は、そのディクショナリ内の一意のキー値を指定する **x:Key** 属性を含みます。 キーは、読み込み時に XAML プロセッサによって一意であることが要求されます。 **x:Key** 値が一意でない場合は、XAML の解析で例外が発生します。 [{StaticResource} マークアップ拡張](staticresource-markup-extension.md)によって要求された場合、解決されていないキーも XAML の解析での例外の原因になります。
 

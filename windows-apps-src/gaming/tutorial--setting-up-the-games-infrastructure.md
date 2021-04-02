@@ -83,9 +83,9 @@ Windows は、 **IFrameworkView** のメソッドの **App** クラスの実装�
 
 - [**初期化する**](/uwp/api/windows.applicationmodel.core.iframeworkview.initialize)
 - [**SetWindow**](/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow)
-- [**読み込み**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
+- [**[読み込み]**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
 - [**Coreapplicationview:: アクティブ化**](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)イベントが発生します。 そのため、そのイベントを処理するために (必要に応じて) 登録した場合は、この時点で **Onactivated 化** ハンドラーが呼び出されます。
-- [**ラン**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
+- [**[実行]**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
 - [**解除**](/uwp/api/windows.applicationmodel.core.iframeworkview.uninitialize)
 
 ここで、 **App** クラスのスケルトン (では) が、 `App.cpp` これらのメソッドのシグネチャを示しています。
@@ -189,9 +189,9 @@ void GameMain::Run()
 |VertexShader. hlsl および VertexShaderFlat|シェーダー|基本的な頂点シェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |PixelShader および PixelShaderFlat|シェーダー|基本ピクセルシェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |ConstantBuffers .hlsli|シェーダー|モデルビュープロジェクション (MVP) 行列と頂点ごとのデータを頂点シェーダーに渡すために使用される、定数バッファーおよびシェーダー構造体のデータ構造の定義を格納します。|
-|pch.h/.cpp|該当なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。|
+|pch.h/.cpp|なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。|
 
-### <a name="next-steps"></a>次の手順
+### <a name="next-steps"></a>次のステップ
 
 この時点で、DirectX ゲーム用の新しい UWP プロジェクトを作成し、その中のいくつかの部分を確認し、そのプロジェクトをゲーム用に再利用可能なテンプレートに変換する方法を検討しました。 また、 **Simple3DGameDX** サンプルゲームの重要な部分についても見てきました。
 

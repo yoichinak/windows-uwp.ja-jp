@@ -6,12 +6,12 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 7168895a690b8602e67b8e05832c74b8ddf4d67d
-ms.sourcegitcommit: 6009896ead442b378106d82870f249dc8b55b886
+ms.openlocfilehash: a24f4191541c289d4b26a07e69430a76e5f7bf67
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643819"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619658"
 ---
 # <a name="transforms-overview"></a>変換の概要
 
@@ -19,7 +19,7 @@ UI 要素の相対座標系を変更して、Windows ランタイム API で変�
 
 ## <a name="span-idwhat_is_a_transform_spanspan-idwhat_is_a_transform_spanspan-idwhat_is_a_transform_spanwhat-is-a-transform"></a><span id="What_is_a_transform_"></span><span id="what_is_a_transform_"></span><span id="WHAT_IS_A_TRANSFORM_"></span>変換とは
 
-*変換*とは、座標空間の間で点をマップする、つまり、変換する方法を定義することです。 変換が UI 要素に適用された場合、その UI 要素の外観が UI の一部として画面にレンダリングされる方法が変更されます。
+*変換* とは、座標空間の間で点をマップする、つまり、変換する方法を定義することです。 変換が UI 要素に適用された場合、その UI 要素の外観が UI の一部として画面にレンダリングされる方法が変更されます。
 
 平行移動、回転、スケーリング、スキュー (せん断) という 4 つの種類の変換を考えてみます。 グラフィックス API を使って UI 要素の外観を変更する目的で、最も簡単なのは通常、一度に 1 つの演算のみを定義する変換を作成することです。 そのため、Windows ランタイムでは、これらの変換の種類ごとに個別のクラスが定義されています。
 
@@ -107,7 +107,7 @@ void StartAnimation (object sender, RoutedEventArgs e) {
 
 変換の数学的記述が役立つことがあるのは、数学的な背景知識がある場合や、やはりマトリックスを使って座標空間の変換を記述するグラフィックス プログラミング手法に精通している場合です。 その 3×3 マトリックスで直接、変換を表すことができる次の [**Transform**](/uwp/api/Windows.UI.Xaml.Media.Transform) の派生クラスがあります。[**MatrixTransform**](/uwp/api/Windows.UI.Xaml.Media.MatrixTransform)。 **MatrixTransform** には [**Matrix**](/uwp/api/windows.ui.xaml.media.matrixtransform.matrix) プロパティがあり、次の 6 つのプロパティからなる構造体が格納されます。[**M11**](/uwp/api/windows.ui.xaml.media.matrix.m11)、[**M12**](/uwp/api/windows.ui.xaml.media.matrix.m12)、[**M21**](/uwp/api/windows.ui.xaml.media.matrix.m21)、[**M22**](/uwp/api/windows.ui.xaml.media.matrix.m22)、[**OffsetX**](/uwp/api/windows.ui.xaml.media.matrix.offsetx)、[**OffsetY**](/uwp/api/windows.ui.xaml.media.matrix.offsety)。 [  **Matrix**](/uwp/api/Windows.UI.Xaml.Media.Matrix) プロパティには **Double** 値が使われ、各プロパティはアフィン変換マトリックスの 6 つの該当する値 (列 1 および 2) に対応します。
 
-|                                             |                                             |     |
+|           列 1                                  |         列 2                                    | 列 3 |
 |---------------------------------------------|---------------------------------------------|-----|
 | [**M11**](/uwp/api/windows.ui.xaml.media.matrix.m11)         | [**M12**](/uwp/api/windows.ui.xaml.media.matrix.m12)         | 0   |
 | [**M21**](/uwp/api/windows.ui.xaml.media.matrix.m21)         | [**M22**](/uwp/api/windows.ui.xaml.media.matrix.m22)         | 0   |

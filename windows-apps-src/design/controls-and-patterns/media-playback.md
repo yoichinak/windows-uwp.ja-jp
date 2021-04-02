@@ -9,12 +9,12 @@ ms.date: 09/24/2020
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a1471eb468e85bb1c4706c5432e38e501c4c1469
-ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
+ms.openlocfilehash: 2207ef71314b9af1153bfb070f0691d1bfcbc6e5
+ms.sourcegitcommit: 80ea62d6c0ee25d73750437fe1e37df5224d5797
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534411"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105619528"
 ---
 # <a name="media-players"></a>メディア プレーヤー
 
@@ -59,7 +59,7 @@ XAML で [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayereleme
 この XAML は [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayerelement) を作成し、その [Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティをアプリのローカルにあるビデオ ファイルの URI に設定するコードを示します。 ページが読み込まれると、**MediaPlayerElement** によって再生が開始します。 メディアがすぐに再生されないようにするには、[AutoPlay](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.autoplay) プロパティを **false** に設定します。
 
 ```xaml
-<MediaPlayerElement x:Name="mediaSimple"
+<MediaPlayerElement x:Name="mediaPlayerElement"
                     Source="ms-appx:///Videos/video1.mp4"
                     Width="400" AutoPlay="True"/>
 ```
@@ -68,7 +68,7 @@ XAML で [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayereleme
 
 
 ```xaml
-<MediaPlayerElement x:Name="mediaPlayer"
+<MediaPlayerElement x:Name="mediaPlayerElement"
                     Source="ms-appx:///Videos/video1.mp4"
                     Width="400"
                     AutoPlay="False"
@@ -97,8 +97,6 @@ XAML で [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayereleme
 ネットワーク上のファイルまたはアプリに埋め込まれたファイルを再生する場合は、ファイルのパスを使用して [Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを [MediaSource](/uwp/api/windows.media.core.mediasource) に設定します。
 
 **ヒント**  インターネットからファイルを開くには、アプリのマニフェスト (Package.appxmanifest) で **Internet (Client)** 機能を宣言する必要があります。 機能の宣言について詳しくは、「[アプリ機能の宣言](../../packaging/app-capability-declarations.md)」をご覧ください。
-
- 
 
 次のコードでは、XAML で定義した [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) プロパティを、[TextBox](/uwp/api/Windows.UI.Xaml.Controls.TextBox) に入力したファイルのパスに設定してみます。
 
@@ -129,7 +127,7 @@ private void LoadMediaFromString(string path)
     try
     {
         Uri pathUri = new Uri(path);
-        mediaPlayer.Source = MediaSource.CreateFromUri(pathUri);
+        mediaPlayerElement.Source = MediaSource.CreateFromUri(pathUri);
     }
     catch (Exception ex)
     {
@@ -152,7 +150,7 @@ private void LoadEmbeddedAppFile()
     try
     {
         Uri pathUri = new Uri("ms-appx:///Videos/video1.mp4");
-        mediaPlayer.Source = MediaSource.CreateFromUri(pathUri);
+        mediaPlayerElement.Source = MediaSource.CreateFromUri(pathUri);
     }
     catch (Exception ex)
     {
@@ -186,7 +184,7 @@ private void LoadEmbeddedAppFile()
 この例は、[FileOpenPicker](/uwp/api/Windows.Storage.Pickers.FileOpenPicker) を使ってファイルを選び、そのファイルを [MediaPlayerElement](/uwp/api/windows.ui.xaml.controls.mediaplayerelement) の [Source](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.source) に設定する方法を示しています。
 
 ```xaml
-<MediaPlayerElement x:Name="mediaPlayer"/>
+<MediaPlayerElement x:Name="mediaPlayerElement"/>
 ...
 <Button Content="Choose file" Click="Button_Click"/>
 ```
@@ -208,12 +206,12 @@ async private System.Threading.Tasks.Task SetLocalMedia()
 
     var file = await openPicker.PickSingleFileAsync();
 
-    // mediaPlayer is a MediaPlayerElement defined in XAML
+    // mediaPlayerElement is a MediaPlayerElement control defined in XAML
     if (file != null)
     {
-        mediaPlayer.Source = MediaSource.CreateFromStorageFile(file);
+        mediaPlayerElement.Source = MediaSource.CreateFromStorageFile(file);
 
-        mediaPlayer.MediaPlayer.Play();
+        mediaPlayerElement.MediaPlayer.Play();
     }
 }
 ```
@@ -260,13 +258,13 @@ private DisplayRequest appDisplayRequest = null;
     各 [MediaPlayerElement.MediaPlayer](/uwp/api/windows.ui.xaml.controls.mediaplayerelement.mediaplayer) には、[PlaybackRate](/uwp/api/windows.media.playback.mediaplaybacksession.playbackrate)、[PlaybackState](/uwp/api/windows.media.playback.mediaplaybacksession.playbackstate)、[Position](/uwp/api/windows.media.playback.mediaplaybacksession.position) など、メディア再生のさまざまな側面を制御する [MediaPlaybackSession](/uwp/api/windows.media.playback.mediaplaybacksession) 型の [PlaybackSession](/uwp/api/windows.media.playback.mediaplayer.playbacksession) があります。 ここでは、[MediaPlayer.PlaybackSession](/uwp/api/windows.media.playback.mediaplayer.playbacksession) で [PlaybackStateChanged](/uwp/api/windows.media.playback.mediaplaybacksession.playbackstatechanged) イベントを使って、表示要求を解放する必要がある状況を検出します。 次に、[NaturalVideoHeight](/uwp/api/windows.media.playback.mediaplaybacksession.naturalvideoheight) プロパティを使って、オーディオ ファイルとビデオ ファイルのどちらが再生されているかを確認し、ビデオが再生されている場合にのみ画面をアクティブなままにします。
 
     ```xaml
-    <MediaPlayerElement x:Name="mpe" Source="ms-appx:///Media/video1.mp4"/>
+    <MediaPlayerElement x:Name="mediaPlayerElement" Source="ms-appx:///Media/video1.mp4"/>
     ```
 
     ```csharp
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
-        mpe.MediaPlayer.PlaybackSession.PlaybackStateChanged += MediaPlayerElement_CurrentStateChanged;
+        mediaPlayerElement.MediaPlayer.PlaybackSession.PlaybackStateChanged += MediaPlayerElement_CurrentStateChanged;
         base.OnNavigatedTo(e);
     }
 
@@ -288,7 +286,7 @@ private DisplayRequest appDisplayRequest = null;
             {
                 if(appDisplayRequest != null)
                 {
-                      // Deactivate the displayr request and set the var to null
+                      // Deactivate the display request and set the var to null
                       appDisplayRequest.RequestRelease();
                       appDisplayRequest = null;
                 }
@@ -319,7 +317,7 @@ private DisplayRequest appDisplayRequest = null;
 ```csharp
 private void FullWindow_Click(object sender, object e)
 {
-    mediaPlayer.IsFullWindow = !media.IsFullWindow;
+    mediaPlayerElement.IsFullWindow = !media.IsFullWindow;
 }
 ```
 
@@ -345,19 +343,19 @@ private void FullWindow_Click(object sender, object e)
 ```csharp
 private void PictureSize_Click(object sender, RoutedEventArgs e)
 {
-    switch (mediaPlayer.Stretch)
+    switch (mediaPlayerElement.Stretch)
     {
         case Stretch.Fill:
-            mediaPlayer.Stretch = Stretch.None;
+            mediaPlayerElement.Stretch = Stretch.None;
             break;
         case Stretch.None:
-            mediaPlayer.Stretch = Stretch.Uniform;
+            mediaPlayerElement.Stretch = Stretch.Uniform;
             break;
         case Stretch.Uniform:
-            mediaPlayer.Stretch = Stretch.UniformToFill;
+            mediaPlayerElement.Stretch = Stretch.UniformToFill;
             break;
         case Stretch.UniformToFill:
-            mediaPlayer.Stretch = Stretch.Fill;
+            mediaPlayerElement.Stretch = Stretch.Fill;
             break;
         default:
             break;
@@ -373,8 +371,8 @@ private void PictureSize_Click(object sender, RoutedEventArgs e)
 
 
 ```csharp
-MediaPlayerElement mp = new MediaPlayerElement();
-mp.MediaPlayer.RealTimePlayback = true;
+MediaPlayerElement mediaPlayerElement = new MediaPlayerElement();
+mediaPlayerElement.MediaPlayer.RealTimePlayback = true;
 ```
 
 ## <a name="recommendations"></a>推奨事項

@@ -2,17 +2,17 @@
 description: MRT.DLL コアコンポーネントの概要と、それらがアプリケーションリソースの読み込みにどのように機能するか (Project レユニオン)
 title: リソースの管理 MRT.DLL コア (プロジェクトのレユニオン)
 ms.topic: article
-ms.date: 03/09/2021
+ms.date: 03/31/2021
 keywords: MRT.DLL、MRTCore、pri、makepri、resources、リソースの読み込み
 ms.author: hickeys
 author: hickeys
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b732deb0f387c11b2675193c047d33fa3e55ace
-ms.sourcegitcommit: 7f2a09e8d5d37cb5860a5f2ece5351ea6907b94c
+ms.openlocfilehash: 4b86e3d1b232a9c0da87808e8fa07a13b18ffdd6
+ms.sourcegitcommit: d793c82587b8368e241d74be1473f4f0af5bb9ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730486"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106164372"
 ---
 # <a name="manage-resources-with-mrt-core"></a>MRT Core を使用してリソースを管理する 
 
@@ -28,7 +28,13 @@ PRI ファイルには、実際の文字列リソースが含まれています�
 
 PRI ファイルにはデータのみが格納され、移植可能な実行可能ファイル (PE) 形式は使用されません。 これらは、特にデータのみであるように設計されています。
 
-## <a name="access-app-resources"></a>アプリリソースにアクセスする
+> [!NOTE]
+> MRT.DLL Core を使用して、C#/.NET 5 を使用する WinUI 3 プロジェクトの文字列およびイメージを取得する前に、これらのリソースがリソースの pri ファイルにインデックスを作成できるように構成されていることを確認する必要があります。 それ以外の場合、これらのリソースを MRT.DLL Core で取得することはできません。
+>
+> * 文字列リソースファイル (resw) の場合は、ファイルの [ **ビルドアクション** ] プロパティが [プライマリ **リソース**] に設定されていることを確認します。
+> * イメージファイルの場合は、ファイルの [ **ビルドアクション** ] プロパティが [ **コンテンツ**] に設定されていることを確認します。
+
+## <a name="access-app-resources-with-mrt-core"></a>MRT.DLL Core を使用してアプリリソースにアクセスする
 
 MRT.DLL Core には、アプリリソースにアクセスするためのさまざまな方法が用意されています。
 
@@ -49,15 +55,6 @@ MRT.DLL Core には、アプリリソースにアクセスするためのさま�
 ### <a name="qualify-resource-selection-with-resourcecontext"></a>リソースの選択を ResourceContext で修飾する
 
 リソース候補は、リソース修飾子の値 (言語、スケール、コントラストなど) のコレクションである特定の [ResourceContext](/windows/winui/api/microsoft.applicationmodel.resources.resourcecontext) に基づいて選ばれます。 既定のコンテキストでは、上書きされない限り、それぞれの修飾子の値に対してアプリの現在の構成が使われます。 たとえば、画像などのリソースはスケールで修飾することができます。スケールはモニターごとに異なり、したがってアプリケーション ビューごとに異なります。 この理由から、アプリケーション ビューはそれぞれ別個の既定のコンテキストを持ちます。 リソース候補を取得するときは常に **ResourceContext** インスタンスを渡して、特定のビューに最も適した値を取得する必要があります。
-
-### <a name="load-images"></a>イメージの読み込み
-
-MRT.DLL Core を使用してプロジェクトに追加したイメージを取得する場合は、イメージをコンテンツとしてビルドするように構成する必要があります。 この操作を行わないと、イメージはリソースの pri ファイルにインデックスが作成されず、MRT.DLL Core では取得できません。
-
-イメージをコンテンツとしてビルドするように構成するには:
-
-* C#/.NET 5 プロジェクトで、イメージの [ **ビルドアクション** ] プロパティを [ **コンテンツ**] に設定します。
-* C++/WinRT プロジェクトで、イメージの **コンテンツ** プロパティを **True** に設定します。
 
 ## <a name="sample"></a>サンプル
 

@@ -6,17 +6,15 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, コーデック, エンコーダー, デコーダー, クエリ
 ms.localizationpriority: medium
-ms.openlocfilehash: f0f1ddff8336594e62ee26b6bf62b062039bf857
-ms.sourcegitcommit: c3ca68e87eb06971826087af59adb33e490ce7da
+ms.openlocfilehash: 75aac91f41a854ee21a3ccfaf5b9a9c0f19bfef8
+ms.sourcegitcommit: d7783efb1c60b81e94898294fc5794c1d3320004
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89363995"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105982635"
 ---
 # <a name="query-for-codecs-installed-on-a-device"></a>デバイスにインストールされているコーデックの照会
 **[CodecQuery](/uwp/api/windows.media.core.codecquery)** クラスによって、現在のデバイスにインストールされているコーデックを照会できます。 Windows 10 に含まれているさまざまなデバイス ファミリのコーデックの一覧については、「[サポートされるコーデック](supported-codecs.md)」の記事に示されています。ただし、ユーザーやアプリはデバイスに追加のコーデックをインストールできるため、現在のデバイスでどのようなコーデックが利用可能かを特定するために、実行時にコーデックのサポートを照会することができます。
-
-CodecQuery API は、**[Windows.Media.Core](/uwp/api/windows.media.core)** 名前空間のメンバーであるため、この名前空間をアプリに含める必要があります。
 
 CodecQuery API は、**[Windows.Media.Core](/uwp/api/windows.media.core)** 名前空間のメンバーであるため、この名前空間をアプリに含める必要があります。
 
@@ -28,7 +26,7 @@ CodecQuery API は、**[Windows.Media.Core](/uwp/api/windows.media.core)** 名�
 
 **[FindAllAsync](/uwp/api/windows.media.core.codecquery.findallasync)** メソッドは、指定されたパラメーターに一致するインストール済みのすべてのコーデックを返します。 これらのパラメーターには、オーディオ、ビデオ、またはその両方のどれを照会するかを指定する **[CodecKind](/uwp/api/windows.media.core.codeckind)** 値、エンコーダーとデコーダーのどちらを照会するかを指定する **[CodecCategory](/uwp/api/windows.media.core.codeccategory)** 値、照会するメディア エンコード サブタイプを表す文字列 (H.264 ビデオや MP3 オーディオなど) が含まれます。
 
-すべてサブタイプのコーデックを返すには、サブタイプ値として空の文字列または null を指定します。 次の例では、デバイスにインストールされているすべてのビデオ エンコーダーの一覧が取得されます。
+すべてのサブタイプに対してコーデックを返すには、subtype 値に空の文字列を指定します。 次の例では、デバイスにインストールされているすべてのビデオ エンコーダーの一覧が取得されます。
 
 :::code language="csharp" source="~/../snippets-windows/windows-uwp/audio-video-camera/TranscodeWin10/cs/MainPage.xaml.cs" id="SnippetFindAllEncoders":::
 
@@ -48,6 +46,6 @@ CodecQuery API は、**[Windows.Media.Core](/uwp/api/windows.media.core)** 名�
 * [MediaCapture を使った基本的な写真、ビデオ、およびオーディオのキャプチャ](basic-photo-video-and-audio-capture-with-MediaCapture.md)
 * [メディア ファイルのコード変換](transcode-media-files.md)
 * [サポートされるコーデック](supported-codecs.md)
- 
+ 
 
- 
+ 
