@@ -1,20 +1,20 @@
 ---
 description: この記事では、開発用コンピューターに Visual Studio 2019 の Project レユニオン拡張機能をインストールし、新規または既存のプロジェクトで Project レユニオンを使用する手順について説明します。
-title: Project レユニオンを使ってみる
+title: Project Reunion の概要
 ms.topic: article
 ms.date: 03/19/2021
 keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 08d25334014d90f4aaec7119bc9ee84444547115
-ms.sourcegitcommit: 7f2a09e8d5d37cb5860a5f2ece5351ea6907b94c
+ms.openlocfilehash: b427e3a5b26427e00c288f90bf6f63464ebd438a
+ms.sourcegitcommit: cc871be2508f52509b6a947fe879aeec360d0fd2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730798"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106270206"
 ---
-# <a name="get-started-with-project-reunion"></a>Project レユニオンを使ってみる
+# <a name="get-started-with-project-reunion"></a>Project Reunion の概要
 
 この記事では、開発用コンピューターに Visual Studio 2019 の Project レユニオン拡張機能をインストールし、新規または既存のプロジェクトで Project レユニオンを使用する手順について説明します。 Project レユニオンをインストールして使用する前に、 [制限事項と既知の問題](index.md#limitations-and-known-issues)を参照してください。
 
@@ -72,7 +72,7 @@ Project レユニオン0.5 を使用する新しいプロジェクトを作成�
 
     - [デスクトップ アプリ用の WinUI 3 の概要](..\winui\winui3\get-started-winui3-for-desktop.md)
     - [UWP アプリ用の WinUI 3 の概要 (プレビュー)](..\winui\winui3\get-started-winui3-for-uwp.md)
-    - [基本的な WinUI 3 デスクトップアプリをビルドする](..\winui\winui3\desktop-build-basic-winui3-app.md)
+    - [基本的な WinUI 3 デスクトップ アプリをビルドする](..\winui\winui3\desktop-build-basic-winui3-app.md)
 
 2. プロジェクトを作成した後、通常はデスクトップ アプリと UWP アプリで使用できる他のすべての Windows および .NET API に加えて、次のプロジェクトの Project Reunion API とコンポーネントにアクセスできます。
 
@@ -89,6 +89,9 @@ Project レユニオン0.5 を使用する新しいプロジェクトを作成�
 Project レユニオンを使用する既存のプロジェクトがある場合は、project レユニオン 0.5 NuGet パッケージをプロジェクトにインストールできます。 このシナリオには [いくつかの制限](#limitations-for-using-project-reunion-in-existing-projects)があります。
 
 1. Visual Studio 2019 で、既存のデスクトップ プロジェクト (C#/.NET 5 または C++/WinRT) または UWP プロジェクトを開きます。
+
+    > [!NOTE]
+    > C#/.NET 5 desktop プロジェクトがある場合は、プロジェクトファイル内の **Targetframework** 要素が、 **NET 5.0-windows 10.0.19041.0** などの windows 10 固有の .net 5 モニカーに割り当てられていることを確認して Windows ランタイム api を呼び出すことができるようにします。 詳細については、[こちらのセクション](../../apps/desktop/modernize/desktop-to-uwp-enhance.md#net-5-use-the-target-framework-moniker-option)をご覧ください。
 
 2. [パッケージ参照](/nuget/consume-packages/package-references-in-project-files)が有効になっていることを確認します。
 
@@ -128,5 +131,5 @@ Project レユニオンを使用する既存のプロジェクトがある場合
 
 ## <a name="related-topics"></a>関連トピック
 
-- [Project レユニオンを使用したデスクトップ Windows アプリの構築](index.md)
-- [Project レユニオンを使用するアプリをデプロイする](deploy-apps-that-use-project-reunion.md)
+- [Project Reunion を使用してデスクトップ Windows アプリをビルドする](index.md)
+- [Project Reunion を使用するアプリを展開する](deploy-apps-that-use-project-reunion.md)
