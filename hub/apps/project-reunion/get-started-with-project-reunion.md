@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: b427e3a5b26427e00c288f90bf6f63464ebd438a
-ms.sourcegitcommit: cc871be2508f52509b6a947fe879aeec360d0fd2
+ms.openlocfilehash: 5b07229f381575da29d25353ca8147e712482bef
+ms.sourcegitcommit: 3942f09c620e3f3065cae91dc51505e86ec0969b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106270206"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106376590"
 ---
 # <a name="get-started-with-project-reunion"></a>Project Reunion の概要
 
@@ -40,7 +40,10 @@ ms.locfileid: "106270206"
 
 3. 以前 [に Visual Studio 用の WinUI 3 Preview 拡張機能](https://marketplace.visualstudio.com/items?itemName=Microsoft-WinUI.WinUIProjectTemplates)をインストールした場合は、拡張機能をアンインストールします。 拡張機能をアンインストールする方法の詳細については、[Visual Studio の拡張機能の管理](/visualstudio/ide/finding-and-using-visual-studio-extensions)に関するページを参照してください。
 
-4. **nuget.org** に対して NuGet パッケージ ソースがシステムで有効になっていることを確認します。詳細については、「[一般的な NuGet 構成](/nuget/consume-packages/configuring-nuget-behavior)」を参照してください。
+4. システムで、公式の NuGet サービスインデックスが有効になっている NuGet パッケージソースがにあることを確認し `https://api.nuget.org/v3/index.json` ます。 
+
+    1. Visual Studio で、[**ツール**] [  ->  **NuGet パッケージマネージャー**] [  ->  **パッケージマネージャーの設定**] を選択し、[**オプション**] ダイアログを開きます。 
+    2. [ **オプション** ] ダイアログボックスの左ペインで、[ **パッケージソース** ] タブを選択し、ソース URL としてを指す **nuget.org** のパッケージソースがあることを確認し `https://api.nuget.org/v3/index.json` ます。 詳細については、「 [Common NuGet の構成](/nuget/consume-packages/configuring-nuget-behavior)」を参照してください。
 
 5. Project レユニオン 0.5 extension for Visual Studio をダウンロードしてインストールします。 拡張機能には、デスクトップ (C#/.NET 5 または C++/WinRT) アプリ用と UWP アプリ用の2つのバージョンがあります。
 
