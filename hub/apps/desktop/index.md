@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 2518d838ca41e5ca2faa6dbd5697d64ea9257922
-ms.sourcegitcommit: 382ae62f9d9bf980399a3f654e40ef4f85eae328
+ms.openlocfilehash: fcea88d91313893f93084716113ff506e502b03c
+ms.sourcegitcommit: cc871be2508f52509b6a947fe879aeec360d0fd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534371"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106270129"
 ---
 # <a name="build-desktop-apps-for-windows-pcs"></a>Windows PC 用のデスクトップ アプリの構築
 
@@ -66,11 +66,11 @@ Windows PC 用のデスクトップ アプリを構築するプラットフォ�
 
 今後、Windows UI ライブラリ (WinUI) と Project Reunion により Windows アプリ開発プラットフォームは進化します。
 
-* **WinUI** は、Windows 10 アプリ用のネイティブ ユーザー エクスペリエンス (UX) フレームワークです。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の WinRT コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI 3 (まだプレビュー段階) の時点で、WinUI は、UWP、.NET、および Win32 アプリ プラットフォームにわたって Windows 10 アプリのプレミア ネイティブ ユーザー インターフェイス (UI) フレームワークになるように範囲が拡大しています。
+* **WinUI** は、Windows 10 アプリ用のネイティブ ユーザー エクスペリエンス (UX) フレームワークです。 WinUI は、ダウンレベル バージョンの Windows 10 を対象とする UWP アプリ用の WinRT コントロールの新しいバージョンと更新バージョンを提供するツールキットとして開始されました。 WinUI 3 の時点で、WinUI は、UWP、.NET、および Win32 アプリ プラットフォームにわたって Windows 10 アプリのプレミア ネイティブ ユーザー インターフェイス (UI) フレームワークになるように範囲が拡大しています。
 
     詳細については、「[Windows UI ライブラリ (WinUI)](../winui/index.md)」を参照してください。
 
-* **Project Reunion** (現在プレビュー段階) は、Windows アプリ開発プラットフォームの次世代の広範な新しい開発者向けコンポーネントおよびツール セットのコードネームです。 Project Reunion により、さまざまな一連の対象の Windows 10 OS バージョン上のあらゆるアプリによって一貫した方法で使用できる、統合された API とツールのセットが提供されます。 Project Reunion は、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットによって、既存の Windows アプリのプラットフォームとフレームワーク (UWP、ネイティブ Win32、.NET など) を補完します。 
+* **Project Reunion** は、Windows アプリ開発プラットフォームの次世代を表す、開発者向けの新しい広範なコンポーネントおよびツール セットのコード ネームです。 Project Reunion により、さまざまな一連の対象の Windows 10 OS バージョン上のあらゆるアプリによって一貫した方法で使用できる、統合された API とツールのセットが提供されます。 Project Reunion は、開発者がこれらのプラットフォーム間で利用できる API とツールの共通セットによって、既存の Windows アプリのプラットフォームとフレームワーク (UWP、ネイティブ Win32、.NET など) を補完します。 
 
     詳細については、「[Project Reunion](../project-reunion/index.md)」を参照してください。
 
