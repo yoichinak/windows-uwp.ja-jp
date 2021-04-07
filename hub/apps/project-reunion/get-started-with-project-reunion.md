@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 5b07229f381575da29d25353ca8147e712482bef
-ms.sourcegitcommit: 3942f09c620e3f3065cae91dc51505e86ec0969b
+ms.openlocfilehash: 5ca69825acd12d67167b009474a2afe9fecc8187
+ms.sourcegitcommit: 0be372d792b58a260634b4e008e180f0447a46ff
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106376590"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106549678"
 ---
 # <a name="get-started-with-project-reunion"></a>Project Reunion の概要
 
@@ -89,7 +89,7 @@ Project レユニオン0.5 を使用する新しいプロジェクトを作成�
 
 ## <a name="use-project-reunion-in-an-existing-project"></a>既存のプロジェクトで Project Reunion を使用する
 
-Project レユニオンを使用する既存のプロジェクトがある場合は、project レユニオン 0.5 NuGet パッケージをプロジェクトにインストールできます。 このシナリオには [いくつかの制限](#limitations-for-using-project-reunion-in-existing-projects)があります。
+Project レユニオンを使用する既存のプロジェクトがある場合は、project レユニオン 0.5 NuGet パッケージをプロジェクトにインストールできます。 このシナリオには [いくつかの制限](index.md#using-the-project-reunion-nuget-package-in-existing-projects)があります。
 
 1. Visual Studio 2019 で、既存のデスクトップ プロジェクト (C#/.NET 5 または C++/WinRT) または UWP プロジェクトを開きます。
 
@@ -113,15 +113,6 @@ Project レユニオンを使用する既存のプロジェクトがある場合
 
     - [リソース MRT Core を管理する](mrtcore/mrtcore-overview.md)
     - [DWriteCore を使用してテキストを表示する](dwritecore.md)
-
-### <a name="limitations-for-using-project-reunion-in-existing-projects"></a>既存のプロジェクトで Project レユニオンを使用する場合の制限事項
-
-既存のプロジェクトで Project レユニオン0.5 を使用する場合は、次の制限事項に注意してください。
-
-- Project レユニオン 0.5 NuGet パッケージを既存のプロジェクトにインストールする場合、プロジェクトでは、プロジェクトのレユニオンに含まれる、WinUI 3 以外のコンポーネントのみを使用できます。 WinUI 3 を使用するには、前のセクションで説明したように、WinUI 3 プロジェクト テンプレートのいずれかを使用して新しいプロジェクトを作成する必要があります。
-- Project レユニオン 0.5 NuGet パッケージ (DWriteCore と **いう名前** の) には、WINUI、mrt.dll Core、およびを含むコンポーネントの実装を含む他のサブパッケージ (たとえば、 **microsoft..** .) が含まれてい **ます。** 現在のリリースでは、これらのサブパッケージを個別にインストールして、プロジェクト内の特定のコンポーネントのみを参照することはできません。 すべてのコンポーネントが含まれている、 **Microsoft** のすべてのパッケージをインストールする必要があります。  
-- Project レユニオン 0.5 NuGet パッケージのインストールは、現在、WPF プロジェクトではサポートされていません。
-- Project レユニオン 0.5 NuGet パッケージは、運用環境でのデスクトップ (C#/.NET 5 および C++/WinRT) プロジェクトでの使用がサポートされています。 UWP プロジェクトの開発者プレビューとして提供されており、運用環境での UWP プロジェクトでの使用はサポートされていません。
 
 ## <a name="samples"></a>サンプル
 
