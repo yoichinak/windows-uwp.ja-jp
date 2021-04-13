@@ -8,12 +8,12 @@ ms.author: drewbat
 author: drewbatgit
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 154177c8c909f0ea30f4fbe2323a0b28222eb932
-ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
+ms.openlocfilehash: 1c2d77c9e109fdaf83a3ca328daf183c47bc639b
+ms.sourcegitcommit: 7f2a09e8d5d37cb5860a5f2ece5351ea6907b94c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100334997"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730376"
 ---
 # <a name="templated-xaml-controls-for-winui-3-apps-with-cwinrt"></a>C++/WinRT を使用した WinUI 3 アプリ用のテンプレート化された XAML コントロール
 
@@ -34,7 +34,6 @@ ms.locfileid: "100334997"
 ## <a name="implement-the-bglabelcontrol-custom-control-class"></a>BgLabelControl カスタム コントロール クラスを実装する
 
 以下の手順で、ランタイム クラスを実装するために、プロジェクト ディレクトリ内の `BgLabelControl.idl`、`BgLabelControl.h`、`BgLabelControl.cpp` ファイルのコードを更新します。 
-
 
 テンプレート コントロール クラスは XAML マークアップからインスタンス化されます。そのため、ランタイム クラスになります。 完成したプロジェクトをビルドすると、MIDL コンパイラ (midl.exe) により `BgLabelControl.idl` ファイルを使用してコントロールの Windows ランタイム メタデータ ファイル (.winmd) が生成されます。これが、コンポーネントのコンシューマーによって参照されます。 ランタイム クラスの作成の詳細については、「[C++/WinRT での API の作成](/windows/uwp/cpp-and-winrt-apis/author-apis)」をご覧ください。
 

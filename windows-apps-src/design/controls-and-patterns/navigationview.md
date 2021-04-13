@@ -14,12 +14,12 @@ ms.custom: RS5
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: f49d30e5ef3d2b7d4130d2141da711c99f8969bb
-ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
+ms.openlocfilehash: b5e80a1c8f77fe10748eb671476b4cd81d3c4e37
+ms.sourcegitcommit: 23f3d452806f40752d7c2ebd07b7b056ac5d8934
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804726"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107031531"
 ---
 # <a name="navigationview"></a>NavigationView
 
@@ -642,7 +642,7 @@ private void CoreWindow_PointerPressed(CoreWindow sender, PointerEventArgs e)
     }
 }
 
-private bool TryGoBack();
+private bool TryGoBack()
 {
     if (!ContentFrame.CanGoBack)
         return false;

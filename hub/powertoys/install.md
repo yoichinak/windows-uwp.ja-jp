@@ -4,14 +4,17 @@ description: 実行可能ファイルまたはパッケージマネージャー 
 ms.date: 12/02/2020
 ms.topic: quickstart
 ms.localizationpriority: medium
-ms.openlocfilehash: c7add819c201678ceca72814d36c585859972e23
-ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
+ms.openlocfilehash: 2e6a585a6acd6bc9ec209b07e101daf8d844be34
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103417053"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107218125"
 ---
 # <a name="install-powertoys"></a>PowerToys をインストールする
+
+> [!WARNING]
+> Powertoy v 0.37 以降では、Windows 10 v1903 以上が必要になります。 以前のバージョンの Windows をサポートする v1 の設定は、v 0.37 で削除される予定です。
 
 次にリンクされている Windows 実行可能ボタンを使用して Powertoy をインストールすることをお勧めしますが、パッケージマネージャーを使用する場合は、別のインストール方法も示しています。
 
@@ -28,7 +31,7 @@ Windows 実行可能ファイルを使用して Powertoy をインストール�
 4. ファイルを選択して、 `PowerToysSetup-0.##.#-x64.exe` powertoy 実行可能ファイルのインストーラーをダウンロードします。
 5. ダウンロードが完了したら、実行可能ファイルを開き、インストールのプロンプトに従います。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 - Windows 10 1803 (ビルド 17134) 以降。
 - [.Net Core 3.1 デスクトップランタイム](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-3.1.4-windows-x64-installer)。 この要件は、Powertoy インストーラーによって処理されます。

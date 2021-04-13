@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: b8cb2670c09c5a93d2edd67e3f338a33eeb488ad
-ms.sourcegitcommit: b4c782b2403da83a6e0b5b7416cc4dc835b068d9
+ms.openlocfilehash: 6e881fbb883d35d35b70eb8984b9264acd78191d
+ms.sourcegitcommit: cc871be2508f52509b6a947fe879aeec360d0fd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98922762"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106270179"
 ---
 # <a name="host-winrt-xaml-controls-in-desktop-apps-xaml-islands"></a>デスクトップ アプリで WinRT XAML コントロールをホストする (XAML Islands)
 
@@ -29,7 +29,7 @@ Windows 10 バージョン 1903 以降では、"*XAML Islands*" という機能�
 XAML Islands の使用方法は、アプリケーションの種類と、ホストする WinRT XAML コントロールの種類によって異なります。
 
 > [!NOTE]
-> XAML Islands に関するフィードバックがある場合は、[Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)に新しい問題を作成し、そこにコメントを残してください。 個人的にフィードバックを送信したい場合は、XamlIslandsFeedback@microsoft.com に送信できます。 お客様の洞察とシナリオは弊社にとって非常に重要です。
+> XAML Islands に関するフィードバックがある場合は、[Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)に新しい問題を作成し、そこにコメントを残してください。
 
 ## <a name="requirements"></a>要件
 

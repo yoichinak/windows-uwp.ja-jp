@@ -4,12 +4,12 @@ description: ウィンドウを効率的なレイアウトに配置およびス�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e297467f6681d3060e085ee4b60fe8c51f1ec21
-ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
+ms.openlocfilehash: 4e85193aca4ffda4f863cca7321ca870a08694a3
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103417129"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219017"
 ---
 # <a name="fancyzones-utility"></a>Fブランコ Yzones ユーティリティ
 
@@ -19,7 +19,7 @@ Fて Yzones は、ウィンドウを効率的なレイアウトに配置およ�
 
 ## <a name="getting-started"></a>作業の開始
 
-### <a name="enable"></a>有効化
+### <a name="enable"></a>有効にする
 
 FancyZones の使用を開始するには、Powertoy の設定でユーティリティを有効にし、次に FancyZones エディターの UI を呼び出す必要があります。  
 
@@ -69,6 +69,14 @@ FancyZones の使用を開始するには、Powertoy の設定でユーティリ
 
 ![F・ Yzones ウィンドウエディターモード](../images/pt-fancyzones-canvaseditor.png)
 
+### <a name="quickly-changing-between-layouts"></a>レイアウト間ですばやく変更する
+
+カスタムレイアウトでは、このレイアウトをユーザー定義のホットキーに対して構成して、目的のデスクトップにすばやく適用できます。 ホットキーを設定するには、カスタムレイアウトの [編集] メニューを開きます。 設定が完了したら、バインディングを押すことによってカスタムレイアウトを適用でき `Win ⊞ + Ctrl + Alt + [hotkey]` ます。 レイアウトは、ウィンドウをドラッグするときにホットキーを押すことによっても適用できます。
+
+次のデモでは、画面に適用される既定のテンプレートと、ホットキーを割り当てる2つのカスタムレイアウトから始めます。 次に、バインディングを使用して `Win ⊞ + Ctrl + Alt + [hotkey]` 最初のカスタムレイアウトを適用し、ウィンドウをバインドします。 最後に、ウィンドウをドラッグしてウィンドウをバインドするときに、2番目のカスタムレイアウトを適用します。
+
+![F・ Yzones Quick-Swap レイアウト](../images/pt-fancyzones-quickswap.gif) 
+
 ## <a name="snapping-a-window-to-two-or-more-zones"></a>2つ以上のゾーンへのウィンドウのスナップ
 
 2つのゾーンが隣接している場合は、ウィンドウをその領域の合計にスナップできます (両方を含む最小の四角形に丸められます)。 マウスカーソルが2つのゾーンの共通エッジの近くにある場合、両方のゾーンが同時にアクティブ化されるため、両方のゾーンにウィンドウをドロップできます。  
@@ -88,7 +96,7 @@ FancyZones の使用を開始するには、Powertoy の設定でユーティリ
 
 F・ Yzones は、 `Win ⊞ + Shift + Arrow` ウィンドウを隣接するモニターにすばやく移動するために、Windows 10 を上書きしません。
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>設定
 
 | 設定 | 説明 |
 | --------- | ------------- |

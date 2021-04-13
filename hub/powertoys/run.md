@@ -4,12 +4,12 @@ description: パフォーマンスを犠牲にすることなく、いくつか�
 ms.date: 12/02/2020
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ce71ac5f4667952be8beb790b0890aadd0d8eb54
-ms.sourcegitcommit: a1b251971f7ac574275d53bbe3e9ef4a3a9dc15c
+ms.openlocfilehash: 8d9c67b38f9a7c7729c0f4839a327a2527aa116d
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103417113"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107218141"
 ---
 # <a name="powertoys-run-utility"></a>Powertoy 実行ユーティリティ
 
@@ -21,12 +21,12 @@ Powertoy の実行を使用するには、[ <kbd>Alt</kbd>Space] を選択し、
 
 ![Powertoy でアプリを開くデモを実行する](../images/pt-powerrun-demo.gif)
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 - Windows 10 バージョン 1903 以降
 - をインストールした後、このユーティリティが動作するには、Powertoy が有効になっていて、バックグラウンドで実行されている必要があります。
 
-## <a name="features"></a>特徴
+## <a name="features"></a>機能
 
 Powertoy の実行機能は次のとおりです。
 
@@ -40,7 +40,7 @@ Powertoy の実行機能は次のとおりです。
 
 - 電卓を使用して簡単な計算を実行する
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>設定
 
 次の実行オプションは、[Powertoy の設定] メニューで使用できます。
 
@@ -63,20 +63,21 @@ Powertoy の実行機能は次のとおりです。
   | Ctrl+C | (フォルダーとファイルにのみ適用)パスの場所のコピー |
   | タブ | 検索結果とコンテキストメニューボタンの間を移動します。 |
 
-## <a name="action-key"></a>アクションキー
+## <a name="action-keys"></a>アクション キー
 
 これらの既定のアクティブ化フレーズは、Powertoy をターゲットプラグインのみに強制的に実行します。
 
   | **アクションキー** | **操作** |
   | --- | --- |
-  | `=` | 電卓のみ。 例 `=2+2` |
-  | `?` | ファイルの検索のみ。 `?road`検索する例`roadmap.txt` |
+  | `=` | 電卓のみ。 例: `=2+2`。 |
+  | `?` | ファイルの検索のみ。 `?road`検索する例 `roadmap.txt` 。 |
   | `.` | インストールされているプログラムのみ。 `.code`Visual Studio Code を取得する例。 プログラムの起動時にパラメーターを追加する方法については、「 [プログラムパラメーター](#program-parameters) 」を参照してください。 |
-  | `//` | Url のみ。 `//docs.microsoft.com`既定のブラウザーを使用する例https://docs.microsoft.com |
-  | `<` | 実行中のプロセスのみ。 `<outlook`Outlook を含むすべてのプロセスを検索する例 |
-  | `>` | Shell コマンドのみ。 `>ping localhost`Ping クエリを実行する例 |
-  | `:` | レジストリキーのみ。 `:hkcu`HKEY_CURRENT_USER レジストリキーを検索する例 |
-  | `!` | Windows サービスのみ。 `!alg`開始または停止するアプリケーションレイヤーゲートウェイサービスを検索する例 |
+  | `//` | Url のみ。 `//docs.microsoft.com`既定のブラウザーでにアクセスする例 https://docs.microsoft.com 。 |
+  | `<` | 実行中のプロセスのみ。 `<outlook`Outlook を含むすべてのプロセスを検索する例。 |
+  | `>` | Shell コマンドのみ。 `>ping localhost`Ping クエリを実行する例。 |
+  | `:` | レジストリキーのみ。 `:hkcu`HKEY_CURRENT_USER レジストリキーを検索する例。 |
+  | `!` | Windows サービスのみ。 `!alg`開始または停止するアプリケーションレイヤーゲートウェイサービスを検索する例。 |
+  | `{` | 以前に開いたワークスペース、リモートコンピューター (SSH または Codespaces)、コンテナーを Visual Studio Code します。 `{powertoys`パスに "powertoy" が含まれているワークスペースを検索する例。 既定では、このプラグインはオフになっています。
 
 ## <a name="system-commands"></a>システムコマンド
 
@@ -94,11 +95,11 @@ Powertoy を実行すると、実行可能な一連のシステムレベルの�
 
 ## <a name="plugin-manager"></a>プラグインマネージャー
 
-Powertoy v 0.33 とをオンにすると、[Powertoy 実行設定] メニューには、現在使用可能なさまざまなプラグインを有効または無効にするプラグインマネージャーが含まれます。 セクションを選択して展開することで、各プラグインで使用されるアクティベーション語句をカスタマイズできます。 また、プラグインがグローバル結果に表示されるかどうかを選択したり、使用可能な場合は追加のプラグインオプションを設定したりすることもできます。 
+[Powertoy 実行設定] メニューには、現在使用可能なプラグインを有効または無効にするプラグインマネージャーが含まれています。 セクションを選択して展開することで、各プラグインで使用されるアクティベーション語句をカスタマイズできます。 また、プラグインがグローバル結果に表示されるかどうかを選択したり、使用可能な場合は追加のプラグインオプションを設定したりすることもできます。 
 
 ## <a name="program-parameters"></a>プログラムのパラメーター
 
-Powertoy v 0.33 以降では、Powertoy Run プログラムプラグインを使用して、アプリケーションを起動するときにプログラム引数を追加できます。 プログラムの引数は、プログラムのコマンドラインインターフェイスで定義されているように、必要な形式に従う必要があります。
+Powertoy Run program プラグインを使用すると、アプリケーションを起動するときにプログラム引数を追加できます。 プログラムの引数は、プログラムのコマンドラインインターフェイスで定義されているように、必要な形式に従う必要があります。
 
 たとえば、Visual Studio Code を起動するときに、次のようにして開くフォルダーを指定できます。
 
@@ -111,6 +112,16 @@ Powertoy v 0.33 以降では、Powertoy Run プログラムプラグインを使
 プログラムプラグインの [グローバルな結果に含める] オプションが選択されていない場合は、 `.` 既定では、プラグインの動作を呼び出すためにアクティベーション語句を含めてください。
 
 `.Visual Studio Code -- C:\myFolder`
+
+## <a name="monitor-positioning"></a>監視の配置
+
+複数のモニターが使用されている場合は、[設定] メニューで適切な起動動作を構成することによって、必要なモニターで Powertoy の実行を起動できます。 オプションの開始日:
+
+- プライマリモニタ
+- マウスカーソルで監視する
+- フォーカスされるウィンドウで監視する
+
+![Powertoy 実行モニターの選択](../images/pt-run-monitor.png)
 
 ## <a name="windows-search-settings"></a>Windows Search の設定
 
