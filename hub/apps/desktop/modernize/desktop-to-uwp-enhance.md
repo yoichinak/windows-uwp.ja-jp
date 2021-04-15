@@ -1,19 +1,19 @@
 ---
 description: Windows ランタイム API を使用して Windows 10 ユーザー向けデスクトップ アプリケーションを強化します。
 title: デスクトップ アプリで Windows ランタイム API を呼び出す
-ms.date: 01/28/2021
+ms.date: 04/02/2021
 ms.topic: article
 keywords: windows 10, uwp
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 2dc56597dccf00a15ffc672f60ca2e1f0936f14f
-ms.sourcegitcommit: 6f15cc14e0c4c13999c862664fa7a70de8730b74
+ms.openlocfilehash: 754cc0d4d230172ec8fc6b1ee7c253e10404c370
+ms.sourcegitcommit: 86630e2163a87f6d6e02db9598a3e43f2d227cb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981871"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106272992"
 ---
 # <a name="call-windows-runtime-apis-in-desktop-apps"></a>デスクトップ アプリで Windows ランタイム API を呼び出す
 
@@ -27,9 +27,9 @@ ms.locfileid: "98981871"
 
 .NET プロジェクトには、次のいくつかのオプションがあります。
 
-* .NET 5 Preview 8 以降では、ターゲット フレームワーク モニカー (TFM) をプロジェクト ファイルに追加して、WinRT API にアクセスできます。 このオプションは、Windows 10 Version 1809 以降をターゲットとするプロジェクトでサポートされています。
+* .NET 5 以降では、ターゲット フレームワーク モニカー (TFM) をプロジェクト ファイルに追加して、WinRT API にアクセスできます。 このオプションは、Windows 10 Version 1809 以降をターゲットとするプロジェクトでサポートされています。
 * それ以前のバージョンの .NET では、`Microsoft.Windows.SDK.Contracts` NuGet パッケージをインストールして、プロジェクトに必要なすべての参照を追加できます。 このオプションは、Windows 10 Version 1803 以降をターゲットとするプロジェクトでサポートされています。
-* プロジェクトが、NET 5 Preview 8 以降とそれより前のバージョンの .NET の両方をターゲットとする場合は、両方のオプションを使用するようにプロジェクト ファイルを構成できます。
+* プロジェクトが、.NET 5 以降とそれより前のバージョンの .NET の両方をターゲットとする場合は、両方のオプションを使用するようにプロジェクト ファイルを構成できます。
 
 ### <a name="net-5-use-the-target-framework-moniker-option"></a>.NET 5:ターゲット フレームワーク モニカー オプションを使用する
 
@@ -37,7 +37,7 @@ ms.locfileid: "98981871"
 
 1. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[プロジェクト ファイルの編集]** を選択します。 プロジェクト ファイルの内容は次のようになります。
 
-    ```csharp
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
       <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -55,7 +55,7 @@ ms.locfileid: "98981871"
 
     たとえば、次の要素は Windows 10 Version 2004 をターゲットとするプロジェクト用です。
 
-    ```csharp
+    ```xml
     <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
     ```
 
@@ -63,7 +63,7 @@ ms.locfileid: "98981871"
 
 ### <a name="earlier-versions-of-net-install-the-microsoftwindowssdkcontracts-nuget-package"></a>以前のバージョンの .NET:Microsoft.Windows.SDK.Contracts NuGet パッケージをインストールする
 
-このオプションは、アプリで .NET Core 3.x、.NET 5 Preview 7 以前、または .NET Framework を使用する場合に使用します。 このオプションは、Windows 10 Version 1803 以降の OS リリースをターゲットとするプロジェクトでサポートされています。
+このオプションは、アプリで .NET Core 3.x または .NET Framework を使用する場合に使用します。 このオプションは、Windows 10 Version 1803 以降の OS リリースをターゲットとするプロジェクトでサポートされています。
 
 1. [パッケージ参照](/nuget/consume-packages/package-references-in-project-files)が有効になっていることを確認します。
 
@@ -85,11 +85,11 @@ ms.locfileid: "98981871"
 
 ### <a name="configure-projects-that-multi-target-different-versions-of-net"></a>複数の異なるバージョンの .NET をターゲットとするプロジェクトを構成する
 
-プロジェクトが、NET 5 Preview 8 以降とそれより前のバージョン (.NET Core 3.x と .NET Framework を含む) の両方をターゲットとする場合は、ターゲット フレームワーク モニカーを使用することにより、.NET 5 には WinRT API 参照を自動的に取り込み、それより前のバージョンには `Microsoft.Windows.SDK.Contracts` NuGet パッケージを自動的に使用するようにプロジェクト ファイルを構成できます。
+プロジェクトが、.NET 5 以降とそれより前のバージョン (.NET Core 3.x と .NET Framework を含む) の両方をターゲットとする場合は、ターゲット フレームワーク モニカーを使用することにより、.NET 5 には WinRT API 参照を自動的に取り込み、それより前のバージョンには `Microsoft.Windows.SDK.Contracts` NuGet パッケージを自動的に使用するようにプロジェクト ファイルを構成できます。
 
 1. Visual Studio 上でプロジェクトを開いた状態で、**ソリューション エクスプローラー** でプロジェクトを右クリックし、 **[プロジェクト ファイルの編集]** を選択します。 次に、.NET Core 3.1 を使用するアプリ用のプロジェクト ファイルの例を示します。
 
-    ```csharp
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
       <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -101,22 +101,22 @@ ms.locfileid: "98981871"
 
 2. ファイルの **TargetFramework** 要素を、**TargetFrameworks** 要素 (複数形であることに注意) に置き換えます。 この要素では、ターゲットとするすべてのバージョンの .NET について、ターゲット フレームワーク モニカーをセミコロンで区切って指定します。 
 
-    * .NET 5 Preview 8 以降の場合は、次のいずれかのターゲット フレームワーク モニカーを使用します。
+    * .NET 5 以降の場合は、次のいずれかのターゲット フレームワーク モニカーを使用します。
         * **net5.0-windows10.0.17763.0**:アプリが Windows 10 Version 1809 をターゲットとしている場合は、この値を使用します。
         * **net5.0-windows10.0.18362.0**:アプリが Windows 10 Version 1903 をターゲットとしている場合は、この値を使用します。
         * **net5.0-windows10.0.19041.0**:アプリが Windows 10 Version 2004 をターゲットとしている場合は、この値を使用します。
     * .NET Core 3.x の場合は、**netcoreapp3.0** または **netcoreapp3.1** を使用します。
     * .NET Framework の場合は、**net46** を使用します。
 
-    次に、.NET Core 3.1 と .NET 5 Preview 8 の両方をターゲットとする方法の例を示します (Windows 10 Version 2004 の場合)。
+    次に、.NET Core 3.1 と .NET 5 の両方をターゲットとする方法の例を示します (Windows 10 バージョン 2004 の場合)。
 
-    ```csharp
+    ```xml
     <TargetFrameworks>netcoreapp3.1;net5.0-windows10.0.19041.0</TargetFrameworks>
     ```
 
 3. **PropertyGroup** 要素の後ろに **PackageReference** 要素を追加します。ここには、アプリがターゲットとする任意のバージョンの .NET Core 3.x または .NET Framework 用の `Microsoft.Windows.SDK.Contracts` NuGet パッケージをインストールする条件付きステートメントを含めます。 **PackageReference** 要素は、**ItemGroup** 要素の子である必要があります。 次に、.NET Core 3.1 でこれを行う方法の例を示します。
 
-    ```csharp
+    ```xml
     <ItemGroup>
       <PackageReference Condition="'$(TargetFramework)' == 'netcoreapp3.1'"
                         Include="Microsoft.Windows.SDK.Contracts"
@@ -126,7 +126,7 @@ ms.locfileid: "98981871"
 
     完了すると、プロジェクト ファイルの内容は次のようになります。
 
-    ```csharp
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
       <PropertyGroup>
         <OutputType>WinExe</OutputType>

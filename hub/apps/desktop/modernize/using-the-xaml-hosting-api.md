@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 8427519dd010553eb1f4f00f951dcc747a94b0c0
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 6237fe47a6518ae7d9916be4568bf2cd4295322f
+ms.sourcegitcommit: cc871be2508f52509b6a947fe879aeec360d0fd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89174186"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106270339"
 ---
 # <a name="using-the-uwp-xaml-hosting-api-in-a-c-win32-app"></a>UWP XAML を使用した C++ Win32 アプリでの API のホスト
 
@@ -22,7 +22,7 @@ Windows 10 バージョン 1903 以降、UWP 以外のデスクトップ アプ�
 UWP XAML ホスティング API により、開発者が UWP 以外のデスクトップ アプリに Fluent UI を導入できるように用意されているより幅広い一連のコントロールのための基礎が提供されます。 この機能は *XAML Islands* と呼ばれます。 この機能の概要については、「[デスクトップ アプリで UWP XAML コントロールをホストする (XAML Islands)](xaml-islands.md)」を参照してください。
 
 > [!NOTE]
-> XAML Islands に関するフィードバックがある場合は、[Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)に新しい問題を作成し、そこにコメントを残してください。 個人的にフィードバックを送信したい場合は、XamlIslandsFeedback@microsoft.com に送信できます。 お客様の洞察とシナリオは弊社にとって非常に重要です。
+> XAML Islands に関するフィードバックがある場合は、[Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)に新しい問題を作成し、そこにコメントを残してください。
 
 ## <a name="is-the-uwp-xaml-hosting-api-the-right-choice-for-your-desktop-app"></a>UWP XAML ホスティング API はデスクトップ アプリのための適切な選択肢ですか?
 
@@ -89,7 +89,7 @@ UWP XAML ホスティング API には、次の主な Windows ランタイム型
 ![DesktopWindowXamlSource のアーキテクチャ](images/xaml-islands/xaml-hosting-api-rev2.png)
 
 > [!NOTE]
-> デスクトップ アプリで XAML Islands をホストすると、XAML コンテンツの複数のツリーを同じスレッド上で同時に実行できます。 XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するには、[XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 [CoreWindow](/uwp/api/windows.ui.core.corewindow)、[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)、[Window](/uwp/api/windows.ui.xaml.window) の各 API では、XAML Islands に関する正しい情報が提供されません。 詳しくは、[このセクション](xaml-islands.md#window-host-context-for-xaml-islands)をご覧ください。
+> デスクトップ アプリで XAML Islands をホストすると、XAML コンテンツの複数のツリーを同じスレッド上で同時に実行できます。 XAML Island で XAML コンテンツのツリーのルート要素にアクセスし、それがホストされているコンテキストに関する関連情報を取得するには、[XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) クラスを使用します。 [CoreWindow](/uwp/api/windows.ui.core.corewindow)、[ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview)、[Window](/uwp/api/windows.ui.xaml.window) の各 API では、XAML Islands に関する正しい情報が提供されません。 詳細については、[こちらのセクション](xaml-islands.md#window-host-context-for-xaml-islands)をご覧ください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -97,25 +97,25 @@ UWP XAML ホスティング API には、次の主な Windows ランタイム型
 
 | 問題 | 解決方法 |
 |-------|------------|
-| アプリが、次のメッセージを含む **COMException** を受信します。"DesktopWindowXamlSource をアクティブ化できません。 この型は UWP アプリでは使用できません。" または "WindowsXamlManager をアクティブ化できません。 この型は UWP アプリでは使用できません。" | このエラーは、UWP アプリで UWP XAML ホスティング API を使用しようとしている (具体的には、[DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) または [WindowsXamlManager](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager) 型をインスタンス化しようとしている) ことを示しています。 UWP XAML ホスティング API は、UWP 以外のデスクトップ アプリ (WPF、Windows フォーム、C++ Win32 アプリケーションなど) で使用されることのみを目的にしています。 |
+| アプリで次のメッセージの **COMException** を受信します。"DesktopWindowXamlSource をアクティブ化できません。 この型は UWP アプリでは使用できません。" または "WindowsXamlManager をアクティブ化できません。 この型は UWP アプリでは使用できません。" | このエラーは、UWP アプリで UWP XAML ホスティング API を使用しようとしている (具体的には、[DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) または [WindowsXamlManager](/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager) 型をインスタンス化しようとしている) ことを示しています。 UWP XAML ホスティング API は、UWP 以外のデスクトップ アプリ (WPF、Windows フォーム、C++ Win32 アプリケーションなど) で使用されることのみを目的にしています。 |
 
 ### <a name="error-trying-to-use-the-windowsxamlmanager-or-desktopwindowxamlsource-types"></a>WindowsXamlManager または DesktopWindowXamlSource 型を使用しようとしているときのエラー
 
 | 問題 | 解決方法 |
 |-------|------------|
-| アプリが、次のメッセージを含む例外を受信します。"WindowsXamlManager と DesktopWindowXamlSource は、Windows バージョン 10.0.18226.0 以降を対象とするアプリに対してサポートされています。 アプリケーション マニフェストまたはパッケージ マニフェストを確認し、MaxTestedVersion プロパティが更新されていることを確認してください。" | このエラーは、アプリケーションが UWP XAML ホスティング API で **WindowsXamlManager** または **DesktopWindowXamlSource** 型を使用しようとしたが、そのアプリが Windows 10 バージョン 1903 以降を対象としてビルドされたかどうかを OS が確認できないことを示しています。 UWP XAML ホスティング API は最初、以前のバージョンの Windows 10 でプレビューとして導入されましたが、Windows 10 バージョン 1903 以降でのみサポートされています。</p></p>この問題を解決するには、そのアプリの MSIX パッケージを作成し、それをパッケージから実行するか、または [Microsoft.Toolkit.Win32.UI.SDK](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをプロジェクトにインストールします。  |
+| アプリで次のメッセージの例外を受信します。"WindowsXamlManager および DesktopWindowXamlSource は、Windows バージョン 10.0.18226.0 以降を対象とするアプリでサポートされています。 アプリケーション マニフェストまたはパッケージ マニフェストを確認し、MaxTestedVersion プロパティが更新されていることを確認してください。" | このエラーは、アプリケーションが UWP XAML ホスティング API で **WindowsXamlManager** または **DesktopWindowXamlSource** 型を使用しようとしたが、そのアプリが Windows 10 バージョン 1903 以降を対象としてビルドされたかどうかを OS が確認できないことを示しています。 UWP XAML ホスティング API は最初、以前のバージョンの Windows 10 でプレビューとして導入されましたが、Windows 10 バージョン 1903 以降でのみサポートされています。</p></p>この問題を解決するには、そのアプリの MSIX パッケージを作成し、それをパッケージから実行するか、または [Microsoft.Toolkit.Win32.UI.SDK](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.SDK) NuGet パッケージをプロジェクトにインストールします。  |
 
 ### <a name="error-attaching-to-a-window-on-a-different-thread"></a>別のスレッドのウィンドウにアタッチしているときのエラー
 
 | 問題 | 解決方法 |
 |-------|------------|
-| アプリが、次のメッセージを含む **COMException** を受信します。"指定された HWND が別のスレッドで作成されたため、AttachToWindow メソッドが失敗しました。" | このエラーは、アプリケーションが **IDesktopWindowXamlSourceNative::AttachToWindow** メソッドを呼び出し、それに別のスレッドで作成されたウィンドウの HWND を渡したことを示しています。 このメソッドには、そのメソッドを呼び出しているコードと同じスレッドで作成されたウィンドウの HWND を渡す必要があります。 |
+| アプリで次のメッセージの **COMException** を受信します。"指定された HWND が別のスレッドで作成されたため、AttachToWindow メソッドが失敗しました。" | このエラーは、アプリケーションが **IDesktopWindowXamlSourceNative::AttachToWindow** メソッドを呼び出し、それに別のスレッドで作成されたウィンドウの HWND を渡したことを示しています。 このメソッドには、そのメソッドを呼び出しているコードと同じスレッドで作成されたウィンドウの HWND を渡す必要があります。 |
 
 ### <a name="error-attaching-to-a-window-on-a-different-top-level-window"></a>別のトップレベル ウィンドウのウィンドウにアタッチしているときのエラー
 
 | 問題 | 解決方法 |
 |-------|------------|
-| アプリが、次のメッセージを含む **COMException** を受信します。"指定された HWND が、以前に同じスレッドで AttachToWindow に渡された HWND とは別のトップレベル ウィンドウから派生しているため、AttachToWindow メソッドが失敗しました。" | このエラーは、アプリケーションが **IDesktopWindowXamlSourceNative::AttachToWindow** メソッドを呼び出し、それに同じスレッドでのこのメソッドへの以前の呼び出しで指定されたウィンドウとは別のトップレベル ウィンドウから派生しているウィンドウの HWND を渡したことを示しています。</p></p>アプリケーションが特定のスレッドで **AttachToWindow** を呼び出した後、同じスレッドのその他のすべての [DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトは、**AttachToWindow** への最初の呼び出しで渡されたのと同じトップレベル ウィンドウの子孫であるウィンドウにのみアタッチできます。 特定のスレッドのすべての **DesktopWindowXamlSource** オブジェクトが閉じられた後は、次の **DesktopWindowXamlSource** を再び任意のウィンドウに自由にアタッチできます。</p></p>この問題を解決するには、このスレッドの他のトップレベル ウィンドウにバインドされているすべての **DesktopWindowXamlSource** オブジェクトを閉じるか、またはこの **DesktopWindowXamlSource** のための新しいスレッドを作成します。 |
+| アプリで次のメッセージの **COMException** を受信します。"指定された HWND が、以前に同じスレッドで AttachToWindow に渡された HWND とは別のトップレベル ウィンドウから派生しているため、AttachToWindow メソッドが失敗しました。" | このエラーは、アプリケーションが **IDesktopWindowXamlSourceNative::AttachToWindow** メソッドを呼び出し、それに同じスレッドでのこのメソッドへの以前の呼び出しで指定されたウィンドウとは別のトップレベル ウィンドウから派生しているウィンドウの HWND を渡したことを示しています。</p></p>アプリケーションが特定のスレッドで **AttachToWindow** を呼び出した後、同じスレッドのその他のすべての [DesktopWindowXamlSource](/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource) オブジェクトは、**AttachToWindow** への最初の呼び出しで渡されたのと同じトップレベル ウィンドウの子孫であるウィンドウにのみアタッチできます。 特定のスレッドのすべての **DesktopWindowXamlSource** オブジェクトが閉じられた後は、次の **DesktopWindowXamlSource** を再び任意のウィンドウに自由にアタッチできます。</p></p>この問題を解決するには、このスレッドの他のトップレベル ウィンドウにバインドされているすべての **DesktopWindowXamlSource** オブジェクトを閉じるか、またはこの **DesktopWindowXamlSource** のための新しいスレッドを作成します。 |
 
 ## <a name="related-topics"></a>関連トピック
 
@@ -123,5 +123,5 @@ UWP XAML ホスティング API には、次の主な Windows ランタイム型
 * [C++ Win32 アプリで標準 UWP コントロールをホストする](host-standard-control-with-xaml-islands-cpp.md)
 * [C++ Win32 アプリでカスタム UWP コントロールをホストする](host-custom-control-with-xaml-islands-cpp.md)
 * [C++ Win32 アプリでの XAML Islands の高度なシナリオ](advanced-scenarios-xaml-islands-cpp.md)
-* [XAML Islands のコード サンプル](https://github.com/microsoft/Xaml-Islands-Samples)
+* [XAML Islands コード サンプル](https://github.com/microsoft/Xaml-Islands-Samples)
 * [C++ Win32 XAML Islands のサンプル](https://github.com/microsoft/Xaml-Islands-Samples/tree/master/Samples/Win32/SampleCppApp)

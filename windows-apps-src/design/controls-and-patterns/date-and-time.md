@@ -4,7 +4,7 @@ title: 日付コントロールと時刻コントロールのガイドライン
 ms.assetid: 4641FFBB-8D82-4290-94C1-D87617997F61
 label: Calendar, date, and time controls
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 04/02/2021
 ms.topic: article
 keywords: windows 10, uwp
 pm-contact: kisai
@@ -12,12 +12,12 @@ design-contact: ksulliv
 dev-contact: joyate
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: a7afab6e226a86b7aa8979d5d849376cf83739c4
-ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
+ms.openlocfilehash: 239296cfb2de5b52b9f9ef1498b5c2c22e2be372
+ms.sourcegitcommit: 62a6e7b4d35f63c25cedd61c96dfc251ff19c80d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91829578"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286611"
 ---
 # <a name="calendar-date-and-time-controls"></a>カレンダー、日付、および時刻コントロール
 
@@ -103,6 +103,89 @@ ms.locfileid: "91829578"
 - [カレンダーの日付の選択コントロール](calendar-date-picker.md)
 - [日付の選択コントロール](date-picker.md)
 - [時刻の選択コントロール](time-picker.md)
+
+### <a name="use-a-date-picker-and-time-picker-together"></a>日付の選択と時刻の選択を一緒に使用する
+
+次の例で、`DatePicker` と `TimePicker` を一緒に使用して、ユーザーが到着日時を選択できるようにする方法を示します。 `SelectedDateChanged` イベントと `SelectedTimeChanged` イベントを処理して、`arrivalDateTime` という名前の単一の [DateTime](/uwp/api/windows.foundation.datetime) インスタンスを更新します。 ユーザーは、設定された日付の選択と時刻の選択を後からクリアすることもできます。
+
+:::image type="content" source="images/date-time/date-and-time-picker.png" alt-text="日付の選択、時刻の選択、ボタン、テキスト ラベル。":::
+
+```xaml
+<StackPanel>
+    <DatePicker x:Name="arrivalDatePicker" Header="Arrival date"
+                DayFormat="{}{day.integer} ({dayofweek.abbreviated})"
+                SelectedDateChanged="ArrivalDatePicker_SelectedDateChanged"/>
+    <StackPanel Orientation="Horizontal">
+        <TimePicker x:Name="arrivalTimePicker" Header="Arrival time"
+                MinuteIncrement="15"
+                SelectedTimeChanged="ArrivalTimePicker_SelectedTimeChanged"/>
+        <Button Content="Clear" Click="ClearDateButton_Click"
+                VerticalAlignment="Bottom" Height="30" Width="54"/>
+    </StackPanel>
+    <TextBlock x:Name="arrivalText" Margin="0,12"/>
+</StackPanel>
+```
+
+```csharp
+public sealed partial class MainPage : Page
+{
+    DateTime arrivalDateTime;
+
+    public MainPage()
+    {
+        this.InitializeComponent();
+
+        // Set minimum to the current year and maximum to five years from now.
+        arrivalDatePicker.MinYear = DateTimeOffset.Now;
+        arrivalDatePicker.MaxYear = DateTimeOffset.Now.AddYears(5);
+    }
+
+    private void ArrivalTimePicker_SelectedTimeChanged(TimePicker sender, TimePickerSelectedValueChangedEventArgs args)
+    {
+        if (arrivalTimePicker.SelectedTime != null)
+        {
+            arrivalDateTime = new DateTime(arrivalDateTime.Year, arrivalDateTime.Month, arrivalDateTime.Day,
+                                           args.NewTime.Value.Hours, args.NewTime.Value.Minutes, args.NewTime.Value.Seconds);
+        }
+        arrivalText.Text = arrivalDateTime.ToString();
+    }
+
+    private void ArrivalDatePicker_SelectedDateChanged(DatePicker sender, DatePickerSelectedValueChangedEventArgs args)
+    {
+        if (arrivalDatePicker.SelectedDate != null)
+        {
+            if (VerifyDateIsFuture((DateTimeOffset)arrivalDatePicker.SelectedDate) == true)
+            {
+                arrivalDateTime = new DateTime(args.NewDate.Value.Year, args.NewDate.Value.Month, args.NewDate.Value.Day,
+                                               arrivalDateTime.Hour, arrivalDateTime.Minute, arrivalDateTime.Second);
+                arrivalText.Text = arrivalDateTime.ToString();
+            }
+            else
+            {
+                arrivalDatePicker.SelectedDate = null;
+                arrivalText.Text = "Arrival date must be later than today.";
+            }
+        }
+    }
+
+    private bool VerifyDateIsFuture(DateTimeOffset date)
+    {
+        if (date > DateTimeOffset.Now)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void ClearDateButton_Click(object sender, RoutedEventArgs e)
+    {
+        arrivalDateTime = new DateTime();
+        arrivalDatePicker.SelectedDate = null;
+        arrivalTimePicker.SelectedTime = null;
+        arrivalText.Text = string.Empty;
+    }
+}
+```
 
 ### <a name="globalization"></a>グローバリゼーション
 

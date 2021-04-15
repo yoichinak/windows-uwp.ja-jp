@@ -8,12 +8,12 @@ ms.topic: article
 keywords: rust、windows 10、 microsoft、 rust の学習、windows での rust (初心者向け)、vs code を使用した rust
 ms.localizationpriority: medium
 ms.date: 03/04/2021
-ms.openlocfilehash: 5aac8dd9b9f760f6e1ed49ff0246e44c400d72c4
-ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
+ms.openlocfilehash: fa79808c2a2e69ec7e11c7b212d17021cc13cc50
+ms.sourcegitcommit: 2beecf3e403e9f057aefdc43c2f7db6f621793cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102194157"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106099797"
 ---
 # <a name="set-up-your-dev-environment-on-windows-for-rust"></a>Windows で Rust 用の開発環境を設定する
 

@@ -8,12 +8,12 @@ ms.assetid: 0a8cedac-172a-4efd-8b6b-67fd3667df34
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 9da6b1acf2ce27fa6b4ec6c1b4e4274a28491b8b
-ms.sourcegitcommit: 2b7f6fdb3c393f19a6ad448773126a053b860953
+ms.openlocfilehash: d6ad174a6f3a9795cced8a77accf3eac3bb2a477
+ms.sourcegitcommit: 261c582d23b5d70b5e7b0ff094c212f74246d28a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100335100"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106400780"
 ---
 # <a name="integrate-your-desktop-app-with-windows-10-and-uwp"></a>Windows 10 と UWP にデスクトップ アプリを統合する
 
@@ -30,11 +30,93 @@ ms.locfileid: "100335100"
 
 ユーザーによってパッケージ アプリが使用されるように、移行を促します。
 
+* [既存のデスクトップ アプリをパッケージ アプリにリダイレクトする](#redirect)
 * [既存のスタート タイルとタスク バー ボタンの参照先をパッケージ アプリに設定する](#point)
-* [デスクトップ アプリではなくパッケージ アプリケーションによってファイルが開かれるように設定する](#make)
-* [パッケージ アプリケーションを一連のファイルの種類に関連付ける](#associate)
+* [デスクトップ アプリではなくパッケージ アプリによってファイルが開かれるように設定する](#make)
+* [パッケージ アプリを一連のファイルの種類に関連付ける](#associate)
 * [特定の種類のファイルのコンテキスト メニューにオプションを追加する](#add)
 * [URL を使用して特定の種類のファイルを直接開く](#open)
+
+<a id="redirect"></a>
+
+### <a name="redirect-your-existing-desktop-app-to-your-packaged-app"></a>既存のデスクトップ アプリをパッケージ アプリにリダイレクトする
+
+パッケージ化されていない既存のデスクトップ アプリをユーザーが起動すると、代わりに、MSIX パッケージ アプリが開かれるように構成できます。 
+
+> [!NOTE]
+> この機能は、Windows Insider Preview ビルド 21313 以降のバージョンでサポートされています。
+
+この動作を有効にするには、次のように設定します。
+
+1. パッケージ化されていないデスクトップ アプリの実行可能ファイルをパッケージ アプリにリダイレクトするレジストリ エントリを追加します。
+2. パッケージ化されていないデスクトップ アプリの実行可能ファイルが起動されたときに起動されるパッケージ アプリを登録します。
+
+#### <a name="add-registry-entries-to-redirect-your-unpackaged-desktop-app-executable"></a>パッケージ化されていないデスクトップ アプリの実行可能ファイルをリダイレクトするレジストリ エントリを追加する
+
+1. レジストリの **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options** キーの下に、そのデスクトップ アプリの実行可能ファイル名と同じ名前のサブキーを作成します。
+2. このサブキーの下に、次の値を追加します。
+    * **AppExecutionAliasRedirect** (DWORD): 1 に設定すると、システムは、実行可能ファイルと同じ名前の [AppExecutionAlias](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appexecutionalias) パッケージ拡張機能を確認します。 **AppExecutionAlias** 拡張機能が有効になっている場合、そのパッケージ アプリはこの値を使用してアクティブ化されます。
+    * **AppExecutionAliasRedirectPackages** (REG_SZ): システムは、一覧表示されているパッケージにのみリダイレクトします。 パッケージは、セミコロンで区切られてパッケージ ファミリ名ごとに一覧表示されます。 特別な値 * を使用すると、システムは任意のパッケージから **AppExecutionAlias** にリダイレクトします。
+
+次に例を示します。
+
+```Ini
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\contosoapp.exe 
+    AppExecutionAliasRedirect = 1
+    AppExecutionAliasRedirectPackages = "Microsoft.WindowsNotepad_8weky8webbe" 
+```
+
+#### <a name="register-your-packaged-app-to-be-launched"></a>起動されるパッケージ アプリを登録する
+
+パッケージ マニフェストに、パッケージ化されていないデスクトップ アプリの実行可能ファイルの名前を登録する [AppExecutionAlias](/uwp/schemas/appxpackage/uapmanifestschema/element-uap3-appexecutionalias) 拡張機能を追加します。 次に例を示します。
+
+```XML
+<Package
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  IgnorableNamespaces="uap3">
+  <Applications>
+    <Application>
+      <Extensions>
+        <uap3:Extension Category="windows.appExecutionAlias" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="contosoapp.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+</Package>
+```
+
+#### <a name="disable-the-redirection"></a>リダイレクトを無効にする
+
+ユーザーは、次のオプションを使用することにより、リダイレクトを無効にし、パッケージ化されていないアプリの実行可能ファイルを起動できます。
+
+* ユーザーは、アプリの MSIX パッケージ バージョンをアンインストールできます。
+* ユーザーは、 **[設定]** の **[App execution aliases]\(アプリの実行エイリアス\)** ページで、MSIX パッケージ アプリの **AppExecutionAlias** エントリを無効にできます。
+
+#### <a name="xml-namespaces"></a>XML 名前空間
+
+* `http://schemas.microsoft.com/appx/manifest/uap/windows10/3`
+* `http://schemas.microsoft.com/appx/manifest/desktop/windows10`
+
+#### <a name="elements-and-attributes-of-this-extension"></a>この拡張機能の要素と属性
+
+```XML
+<uap3:Extension
+    Category="windows.appExecutionAlias"
+    EntryPoint="Windows.FullTrustApplication">
+    <uap3:AppExecutionAlias>
+        <desktop:ExecutionAlias Alias="[AliasName]" />
+    </uap3:AppExecutionAlias>
+</uap3:Extension>
+```
+
+|名前 |説明 |
+|-------|-------------|
+|カテゴリ |常に ``windows.appExecutionAlias``。 |
+|[実行可能ファイル] |エイリアスが呼び出されたときに起動する実行可能ファイルの相対パス。 |
+|エイリアス |アプリの短い名前。 常に、拡張子 ".exe" で終わっている必要があります。 |
 
 <a id="point"></a>
 

@@ -4,22 +4,26 @@ title: Web ビュー
 ms.assetid: D3CFD438-F9D6-4B72-AF1D-16EF2DFC1BB1
 label: Web view
 template: detail.hbs
-ms.date: 05/19/2017
+ms.date: 03/30/2021
 ms.topic: article
 keywords: windows 10, uwp
+ms.custom: contperf-fy21q3
 ms.localizationpriority: medium
-ms.openlocfilehash: 3bab93eca2318d7253df5acb16d866ac81d8ae6c
-ms.sourcegitcommit: 4ea59d5d18f79800410e1ebde28f97dd5e45eb26
+ms.openlocfilehash: 5344e42b7c06490a0e4cd0a3ceb3b5f7f7a52974
+ms.sourcegitcommit: d7783efb1c60b81e94898294fc5794c1d3320004
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101824436"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105982645"
 ---
 # <a name="web-view"></a>Web ビュー
 
-Web ビュー コントロールでは、Microsoft Edge レンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューが埋め込まれます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
+Web ビュー コントロールは、Microsoft Edge 従来版のレンダリング エンジンを使って、Web コンテンツをレンダリングするアプリにビューを埋め込みます。 また、Web ビュー コントロールでは、ハイパーリンクの表示と動作が可能です。
 
 > **重要な API**: [WebView クラス](/uwp/api/Windows.UI.Xaml.Controls.WebView)
+
+> [!IMPORTANT]
+> `WebView2` コントロールは、Microsoft Edge (Chromium) をレンダリング エンジンとして使用して、Web コンテンツをアプリに表示します。 `WebView2` は、[Windows UI ライブラリ 3 (WinUI3)](/windows/apps/winui/winui3) の一部として入手できます。 詳細については、WinUI API リファレンスの「[Microsoft Edge WebView2 の概要](/microsoft-edge/webview2/)」、「[WinUI 3 の WebView2 の使用を開始する (プレビュー)](/microsoft-edge/webview2/gettingstarted/winui)」、および [WebView2](/windows/winui/api/microsoft.ui.xaml.controls.webview2) に関するページを参照してください。
 
 ## <a name="is-this-the-right-control"></a>これは適切なコントロールですか?
 
@@ -83,7 +87,7 @@ Source プロパティはコードで設定できますが、それよりも **N
 Web コンテンツを読み込むには、[Navigate](/uwp/api/windows.ui.xaml.controls.webview.navigate) メソッドを http または https スキームを使う **Uri** と共に用います。 
 
 ```csharp
-webView1.Navigate("http://www.contoso.com");
+webView1.Navigate(new Uri("http://www.contoso.com"));
 ```
 
 POST 要求と HTTP ヘッダーを有する URI へと移動するには、[NavigateWithHttpRequestMessage](/uwp/api/windows.ui.xaml.controls.webview.navigatewithhttprequestmessage) メソッドを使います。 このメソッドは、[HttpRequestMessage.Method](/uwp/api/windows.web.http.httprequestmessage.method) プロパティの値として [HttpMethod.Post](/uwp/api/windows.web.http.httpmethod.post) と [HttpMethod.Get](/uwp/api/windows.web.http.httpmethod.get) のみをサポートします。 
@@ -93,13 +97,13 @@ POST 要求と HTTP ヘッダーを有する URI へと移動するには、[Nav
 これらの第 1 レベルのサブフォルダーは、他の第 1 レベルのサブフォルダー内のコンテンツから分離されます。 たとえば「ms-appdata:///temp/folder1/file.html」に移動はできますが、このファイル内のリンクに「ms-appdata:///temp/folder2/file.html」は指定できません。 ただし、**ms-appx-web** スキームを使ってアプリ パッケージの HTML コンテンツにリンクしたり、**http** または **https** の URI スキームを使って Web コンテンツにリンクしたりすることはできます。
 
 ```csharp
-webView1.Navigate("ms-appdata:///local/intro/welcome.html");
+webView1.Navigate(new Uri("ms-appdata:///local/intro/welcome.html"));
 ```
 
 アプリ パッケージからコンテンツを読み込むには、**Navigate** メソッドを [ms-appx-web](/previous-versions/windows/apps/jj655406(v=win.10)) スキームを使った **Uri** と共に用います。 
 
 ```csharp
-webView1.Navigate("ms-appx-web:///help/about.html");
+webView1.Navigate(new Uri("ms-appx-web:///help/about.html"));
 ```
 
 [NavigateToLocalStreamUri](/uwp/api/windows.ui.xaml.controls.webview.navigatetolocalstreamuri) メソッドを使えば、カスタム リゾルバーを通じてローカルのコンテンツを読み込めます。 これにより、Web ベースのコンテンツをオフライン用にダウンロードしたりキャッシュしたり、圧縮ファイルからコンテンツを抽出したりといった高度なシナリオも可能です。
@@ -297,7 +301,7 @@ private void webView_NavigationStarting(WebView sender, WebViewNavigationStartin
 
 この例は、アプリ マニフェストのセクションを示しています。 ここでは、ローカル URI が Windows ランタイムへのアクセスを与えられます。 
 
-```csharp
+```xml
   <Applications>
     <Application Id="App"
       ...
@@ -341,3 +345,6 @@ UI スレッドから外れてコンテンツをホストしている Web ビュ
 ## <a name="related-topics"></a>関連トピック
 
 - [WebView クラス](/uwp/api/Windows.UI.Xaml.Controls.WebView)
+- [Microsoft Edge WebView2 の概要](/microsoft-edge/webview2/)
+- [WinUI 3 の WebView2 の使用を開始する (プレビュー)](/microsoft-edge/webview2/gettingstarted/winui)
+- [WebView2](/windows/winui/api/microsoft.ui.xaml.controls.webview2)

@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: ccd5efd5270ed12d17992f53b3c9ee50feddec4b
-ms.sourcegitcommit: 6b64741cba279ac17f23f07baaf4a92a2696e8e1
+ms.openlocfilehash: 996b34d7e7497bc76f98da0966ce91378597d14d
+ms.sourcegitcommit: 112fdbb3cc545c9dc050608749845ad79e455a05
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97502882"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106232624"
 ---
 # <a name="host-a-standard-winrt-xaml-control-in-a-c-win32-app"></a>C++ Win32 アプリで標準 WinRT XAML コントロールをホストする
 
