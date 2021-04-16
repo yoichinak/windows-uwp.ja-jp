@@ -5,12 +5,12 @@ ms.date: 04/13/2020
 ms.topic: article
 keywords: windows 10, uwp, 標準, c++, cpp, winrt, プロジェクション, 移植, 移行, C#, サンプル, クリップボード, ケース, スタディ
 ms.localizationpriority: medium
-ms.openlocfilehash: f862dd01e91d99e19fb6996921dbc20a33d714da
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: cef005e00302efe850e19fff27318495efb275e9
+ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629370"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107466442"
 ---
 # <a name="porting-the-clipboard-sample-to-cwinrt-from-cmdasha-case-study"></a>C# から C++/WinRT への Clipboard サンプルの移植 &mdash; ケース スタディ
 
@@ -456,7 +456,7 @@ public partial class MainPage : Page
 - ランタイム クラス
 - [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)
 
-**IInspectable** のケースでは、要素自体がランタイム クラスでない場合、それらの要素は [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) との間でボックス化およびボックス化解除できる種類である必要があります。 これは、それらが Windows ランタイム型である必要があることを意味します (「[IInspectable へのスカラー値のボックス化とボックス化解除](./boxing.md)」を参照)。
+**IInspectable** のケースでは、要素自体がランタイム クラスでない場合、それらの要素は [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) との間でボックス化およびボックス化解除できる種類である必要があります。 これは、それらが Windows ランタイム型である必要があることを意味します (「[IInspectable への値のボックス化とボックス化解除](./boxing.md)」を参照)。
 
 このケース スタディでは、**Scenario** をランタイム クラスにしませんでした。 ただし、それでも適切なオプションです。 また、実際の移植作業では、ランタイム クラスを使用する必要がある場合もあります。 たとえば、要素の型を "*監視可能*" にする必要がある場合 (「[XAML コントロール: C++/WinRT プロパティへのバインド](./binding-property.md)」を参照)、または他の理由によって要素がメソッドを持つ必要があり、それが単なるデータ メンバーのセットではない場合などです。
 
@@ -1099,7 +1099,7 @@ void MainPage::Footer_Click(Windows::Foundation::IInspectable const& sender, Win
 }
 ```
 
-いつもと同じように、イベント ハンドラーは `public` にします。 *sender* オブジェクトで [**as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) 関数を使用して、それを **HyperlinkButton** に変換します。 C++/WinRT では、**Tag** プロパティは [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) です ([**Object**](/dotnet/api/system.object) と同等)。 ただし、**IInspectable** には **Tostring** はありません。 代わりに、**IInspectable** をスカラー値 (この場合は文字列) にボックス化解除する必要があります。 ここでも、ボックス化とボックス化解除の詳細については、「[IInspectable へのスカラー値のボックス化とボックス化解除](./boxing.md)」を参照してください。
+いつもと同じように、イベント ハンドラーは `public` にします。 *sender* オブジェクトで [**as**](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) 関数を使用して、それを **HyperlinkButton** に変換します。 C++/WinRT では、**Tag** プロパティは [**IInspectable**](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) です ([**Object**](/dotnet/api/system.object) と同等)。 ただし、**IInspectable** には **Tostring** はありません。 代わりに、**IInspectable** をスカラー値 (この場合は文字列) にボックス化解除する必要があります。 ここでも、ボックス化とボックス化解除の詳細については、「[IInspectable への値のボックス化とボックス化解除](./boxing.md)」を参照してください。
 
 最後の 2 行では前に見た移植パターンが繰り返されており、C# バージョンがほぼ反映されています。
 

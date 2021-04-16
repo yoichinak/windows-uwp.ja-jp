@@ -8,12 +8,12 @@ ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
 ms.custom: 19H1
-ms.openlocfilehash: 4d98877fb0d48d2c3c677af5f2b89d9fd65c05f1
-ms.sourcegitcommit: b4c782b2403da83a6e0b5b7416cc4dc835b068d9
+ms.openlocfilehash: 3358e679b44affdb5207207a30fe6b5282ac6759
+ms.sourcegitcommit: f7c7a2ae6367e114a8b9d438963082440cd24043
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98922745"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107315085"
 ---
 # <a name="host-a-standard-winrt-xaml-control-in-a-wpf-app-using-xaml-islands"></a>XAML Islands を使用して WPF アプリで標準 WinRT XAML コントロールをホストする
 
@@ -74,7 +74,7 @@ WPF (または Windows フォーム) アプリで WinRT XAML コントロール�
 > ファーストパーティの WinRT XAML コントロールをホストするためにこのステップは必要ありませんが、アプリでは、カスタム WinRT XAML コントロールのホストなど、XAML Island の全範囲のシナリオをサポートするために、`XamlApplication` オブジェクトが必要です。 したがって、XAML Islands を使用するすべてのソリューションでは、常に `XamlApplication` オブジェクトを定義することをお勧めします。
 
 1. **ソリューション エクスプローラー** で、ソリューション ノードを右クリックし、 **[追加]**  ->  **[新しいプロジェクト]** を選択します。
-2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 対象バージョンと最小バージョンの両方が **Windows 10 バージョン 1903 (ビルド 18362)** またはそれ以降のリリースに設定されていることを確認します。
+2. ソリューションに **[空白のアプリ (ユニバーサル Windows)]** プロジェクトを追加します。 対象バージョンと最小バージョンの両方が **Windows 10 バージョン 1903 (ビルド 18362)** またはそれ以降のリリースに設定されていることを確認します。 この新しい UWP プロジェクトが、WPF プロジェクトのサブフォルダーにないことも確認します。 そうでないと、WPF アプリにより後で、WPF XAML であるかのように UWP XAML マークアップの作成が試行されます。
 3. UWP アプリ プロジェクトで、[Microsoft.Toolkit.Win32.UI.XamlApplication](https://www.nuget.org/packages/Microsoft.Toolkit.Win32.UI.XamlApplication) NuGet パッケージ (最新の安定バージョン) をインストールします。
 4. **App.xaml** ファイルを開き、このファイルの内容を次の XAML に置き換えます。 `MyUWPApp` を、UWP アプリ プロジェクトの名前空間に置き換えます。
 

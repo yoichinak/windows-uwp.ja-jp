@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1f6474170967986bfee555eb07d7ea41601e9e48
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: 57612b41cc1ee31d2e7fd7c8e91e7b7772dab38d
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339760"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219035"
 ---
 # <a name="introduction-to-windows-app-design"></a>Windows アプリ デザインの概要
 
@@ -49,7 +49,7 @@ UWP は、すべてのデバイスと画面サイズで読みやすく、操作�
     :::column span:::
 UWP アプリでは、UI 要素のサイズ、余白、および位置は、必ず **4 epx の倍数** にする必要があります。
 
-UWP のスケールはデバイスによって異なり、100%、125%、150%、175%、200%、225%、250%、300%、350%、および 400% のスケール プラトーがあります。 基本単位は 4 になりますが、これは、整数以外の数値によってスケーリングできる唯一の整数であるためです (例: 4*1.5 = 6)。 4 の倍数の使用によってすべての UI 要素のピクセル全体が整列し、UI 要素のエッジがすっきりとシャープになります (この要件はテキストには適用されません。テキストのサイズと位置に制限はありません)。
+UWP のスケールはデバイスによって異なり、100%、125%、150%、175%、200%、225%、250%、300%、350%、および 400% のスケール プラトーがあります。 基本単位は 4 になりますが、これは、これらのプラトーに整数としてスケーリングできるためです (例: 4 x 125% = 5、4 x 150% = 6)。 4 の倍数の使用によってすべての UI 要素のピクセル全体が整列し、UI 要素のエッジがすっきりとシャープになります (この要件はテキストには適用されません。テキストのサイズと位置に制限はありません)。
     :::column-end:::
     :::column:::
 ![グリッド](images/4epx.svg)

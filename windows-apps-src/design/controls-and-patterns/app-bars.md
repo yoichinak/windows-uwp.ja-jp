@@ -13,12 +13,12 @@ design-contact: ksulliv
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2a84dcc209fa0fcd897668293cb136a5448e7254
-ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
+ms.openlocfilehash: f3d21f60a26f7a1c6a63d678c60e1d9538580d55
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91829517"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219046"
 ---
 # <a name="command-bar"></a>コマンド バー
 
@@ -126,9 +126,14 @@ PrimaryCommands と SecondaryCommands には、どちらも [AppBarButton](/uwp/
 
 アプリ バーのボタン コントロールは、アイコンとテキスト ラベルによって特徴付けられます。 これらのコントロールは、コマンド バーで使うように最適化されており、コマンド バーとオーバーフロー メニューのどちらで使うかに応じて外観が変化します。
 
-オーバーフロー メニューのアイコンのサイズは 16 x 16 ピクセルで、基本コマンド領域のアイコン (20 x 20 ピクセル) よりも小さくなります。 SymbolIcon、FontIcon、または PathIcon を使うと、コマンドがセカンダリ コマンド領域に表示されるときに、忠実さを失うことなく、適切なサイズに自動的に調整されます。 
+#### <a name="icons"></a>アイコン
 
-### <a name="button-labels"></a>ボタンのラベル
+アイコンのサイズは、基本コマンド領域に表示される場合は 20 x 20 px で、オーバーフロー メニューの場合はアイコンは 16 x 16 px で表示されます。 [SymbolIcon](/uwp/api/windows.ui.xaml.controls.symbolicon)、[FontIcon](/uwp/api/windows.ui.xaml.controls.fonticon)、または [PathIcon](/uwp/api/windows.ui.xaml.controls.pathicon) を使うと、コマンドがセカンダリ コマンド領域に表示されるときに、忠実さを失うことなく、適切なサイズに自動的に調整されます。
+
+アイコンの設定の詳細と例については、[AppBarButton](/uwp/api/windows.ui.xaml.controls.appbarbutton) クラスのドキュメントを参照してください。
+
+#### <a name="labels"></a>ラベル
+
 AppBarButton [IsCompact](/uwp/api/windows.ui.xaml.controls.appbarbutton.IsCompact) プロパティはラベルが表示されるかどうかを決定します。 CommandBar コントロールで、コマンド バーの開閉に応じてコマンド バーがボタンの IsCompact プロパティを自動的に上書きします。
 
 アプリ バー ボタンのラベルを配置するには、CommandBar の [DefaultLabelPosition](/uwp/api/windows.ui.xaml.controls.commandbar.defaultlabelposition) プロパティを使用します。
@@ -211,7 +216,7 @@ private void CommandBar_Closing(object sender, object e)
 
 ### <a name="issticky"></a>IsSticky
 
-コマンド バーが開いているときにユーザーがアプリの他の部分とやり取りすると、コマンド バーは自動的に閉じます。 これは*簡易非表示*と呼ばれます。 簡易非表示動作を制御するには、[IsSticky](/uwp/api/windows.ui.xaml.controls.appbar.issticky) プロパティを設定します。 `IsSticky="true"` の場合、ユーザーが [その他] (\[•••\]) ボタンを押すか、オーバーフロー メニューから項目を選ぶまで、バーは開いたままになります。 
+コマンド バーが開いているときにユーザーがアプリの他の部分とやり取りすると、コマンド バーは自動的に閉じます。 これは *簡易非表示* と呼ばれます。 簡易非表示動作を制御するには、[IsSticky](/uwp/api/windows.ui.xaml.controls.appbar.issticky) プロパティを設定します。 `IsSticky="true"` の場合、ユーザーが [その他] (\[•••\]) ボタンを押すか、オーバーフロー メニューから項目を選ぶまで、バーは開いたままになります。 
 
 固定のコマンド バーは、[簡易非表示およびキーボード フォーカス](./menus.md#light-dismiss)というユーザーが期待する動作と一致しないため、使わないようにすることをお勧めします。
 

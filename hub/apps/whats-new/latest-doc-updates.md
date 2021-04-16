@@ -2,20 +2,20 @@
 description: Windows 開発者向けドキュメントへの最新の追加事項について説明します。
 title: Windows 開発者向けドキュメントの最新の更新
 ms.topic: article
-ms.date: 3/12/2021
+ms.date: 4/9/2021
 ms.localizationpriority: medium
 ms.author: quradic
 author: QuinnRadich
-ms.openlocfilehash: 6c6a254a2272eb9c0c83f5ebb0fa72e6f2f9ae83
-ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
+ms.openlocfilehash: 11d1e203867d9b094172c522dd2e4fbfc18f2093
+ms.sourcegitcommit: 40dc4a908f68d55a58343d1d3002f97cd5dbaf60
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804256"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107381063"
 ---
 # <a name="latest-updates-to-the-windows-developer-docs"></a>Windows 開発者向けドキュメントの最新の更新
 
-Windows 開発者向けドキュメントは、新しい強化された情報とコンテンツによって定期的に更新されます。 2021 年 3 月 10 日時点での変更のまとめを次に示します。
+Windows 開発者向けドキュメントは、新しい強化された情報とコンテンツによって定期的に更新されます。 2021 年 4 月 9 日時点での変更のまとめを次に示します。
 
 注: Windows 10 ビルド19041 (2004 とも呼ばれます) の一部として追加された API の特定のリストについては、[こちらのリスト](/windows/uwp/whats-new/windows-10-build-19041-api-diff)を参照してください。
 
@@ -23,23 +23,27 @@ Windows 開発者向けドキュメントの最新情報について、または
 
 ドキュメント セット全体で配慮にかけた言葉が使用されていないか探して削除を続けてきました。
 
-Microsoft ドキュメントに寄稿する方法の詳細については、[投稿のガイド](/contribute/)を参照してください。
+ドキュメントに寄稿してくださったすべての人に感謝いたします。 修正と提案もぜひお寄せください。 Microsoft ドキュメントに寄稿する方法の詳細については、[投稿のガイド](/contribute/)を参照してください。
 
 今月のハイライトには以下が含まれます。
 
 ### <a name="new-content"></a>新しい内容:
 
-* [WinUI 2.6 ドキュメント](../winui/winui2/index.md)
-* [Windows での Rust を使用した開発](../../dev-environment/rust/index.yml)
-* [Azure Object Anchors](https://techcommunity.microsoft.com/t5/mixed-reality-blog/azure-object-anchors-is-now-in-private-preview/ba-p/1696157)
-* 新しいビデオ: [Visual Studio Code: Containers と Codespaces を使用したリモート開発](https://www.youtube.com/watch?v=ruIoLtqIdNc)
+
+* [Project Reunion](https://docs.microsoft.com/windows/apps/project-reunion/)
+* [WinUI 3](https://docs.microsoft.com/windows/apps/winui/winui3/)
+* [Windows での Rust を使用した開発](https://docs.microsoft.com/windows/dev-environment/rust/)
+* [既存のデスクトップ アプリをパッケージ アプリにリダイレクトする](https://docs.microsoft.com/windows/apps/desktop/modernize/desktop-to-uwp-extensions#redirect)
+
+
 
 ### <a name="related-content"></a>関連コンテンツ 
 
-* [Azure コンテンツ サービス](https://azure.microsoft.com/services/communication-services/)
+* [Azure Communication Services](https://azure.microsoft.com/services/communication-services/)
 
 ### <a name="updated-topics"></a>更新されたトピック
 
+* [C++/WinRT で API を作成する](https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/author-apis)
 * [Project Reunion セットアップ トピック](../project-reunion/index.md)。
 * [WinUI 2](../winui/winui2/index.md) および [WinUI 3](../winui/winui3/index.md) のドキュメントに対する継続的な更新。
 * WSL と Windows ターミナルについて説明している「[Windows 10 で開発環境を設定する](../../dev-environment/overview.md)」に対する定期的な更新。
@@ -47,99 +51,163 @@ Microsoft ドキュメントに寄稿する方法の詳細については、[投
 
 次のリファレンス トピックでは、過去 1 か月に重要な更新が行われました。
 
+
+## <a name="windows-conceptual-content"></a>Windows の概念的コンテンツ
+
 <ul>
-<li><a href="/windows/desktop/Direct2D/effect-shader-linking">効果シェーダーのリンク設定</a></li>
-<li><a href="/windows/desktop/Direct2D/opacity-masks-overview">不透明度マスクの概要</a></li>
-<li><a href="/windows/desktop/DxTechArts/games-and-firewalls">ゲーム開発者向けの Windows ファイアウォール</a></li>
-<li><a href="/windows/desktop/ETW/enumerating-providers">プロバイダーの列挙</a></li>
-<li><a href="/windows/desktop/Midl/declare-guid">declare_guid キーワード</a></li>
-<li><a href="/windows/desktop/Midl/importing-system-header-files">システム ヘッダー ファイルのインポート</a></li>
-<li><a href="/windows/desktop/Midl/sh-composition">sh_composition キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-event">sh_event キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-file">sh_file キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-job">sh_job キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-mutex">sh_mutex キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-pipe">sh_pipe キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-process">sh_process キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-reg-key">sh_reg_key キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-section">sh_section キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-semaphore">sh_semaphore キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-socket">sh_socket キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-thread">sh_thread キーワード</a></li>
-<li><a href="/windows/desktop/Midl/sh-token">sh_token キーワード</a></li>
-<li><a href="/windows/desktop/Midl/system-handle">system_handle 属性</a></li>
-<li><a href="/windows/desktop/VML/basic-vml-types">基本 VML 型</a></li>
-<li><a href="/windows/desktop/WEC/wecutil">Wecutil.exe</a></li>
-<li><a href="/windows/desktop/WinProg64/shared-registry-keys">WOW64 の影響を受けるレジストリ キー</a></li>
-<li><a href="/windows/desktop/WmiSdk/changing-registry-data">レジストリ データの変更</a></li>
-<li><a href="/windows/desktop/direct3d10/d3d10-effect-states">効果状態グループ (Direct3D 10)</a></li>
-<li><a href="/windows/desktop/direct3d12/queries">クエリ</a></li>
-<li><a href="/windows/desktop/direct3d12/swap-chains">スワップ チェーン</a></li>
-<li><a href="/windows/desktop/direct3dhlsl/sm5-object-texture2d">Texture2D</a></li>
-<li><a href="/windows/desktop/direct3dhlsl/texturecube">TextureCube オブジェクト</a></li>
-<li><a href="/windows/desktop/direct3dhlsl/texturecubearray">TextureCubeArray オブジェクト</a></li>
-<li><a href="/windows/desktop/directx-sdk--august-2009-">DirectX SDK の場所</a></li>
-<li><a href="/windows/desktop/inputdev/using-raw-input">未加工の入力の使用</a></li>
-<li><a href="/windows/desktop/lwef/toolbar-buttons-">ツール バー ボタン (Microsoft エージェント文字エディター)</a></li>
-<li><a href="/windows/desktop/lwef/toolbar-buttons">ツール バー ボタン (言語情報サウンド編集ツール)</a></li>
-<li><a href="/windows/desktop/uxguide/ctrl-balloons">バルーン</a></li>
-<li><a href="/windows/desktop/uxguide/inter-touch">タッチ</a></li>
-<li><a href="/windows/desktop/uxguide/mess-confirm">確認</a></li>
-<li><a href="/windows/desktop/uxguide/mess-error">エラー メッセージ (設計の基本)</a></li>
-<li><a href="/windows/desktop/uxguide/vis-std-icons">標準アイコン</a></li>
-<li><a href="/windows/desktop/uxguide/winenv-notification">通知領域</a></li>
-<li><a href="/windows/desktop/w8cookbook/secured-boot">起動時マルウェア対策</a></li>
-<li><a href="/windows/desktop/wcs/a">A</a></li>
-<li><a href="/windows/desktop/wcs/additive-primary-colors">加法混色の原色</a></li>
-<li><a href="/windows/desktop/wcs/b">B</a></li>
-<li><a href="/windows/desktop/wcs/basic-color-management-concepts">基本的な色の管理の概念</a></li>
-<li><a href="/windows/desktop/wcs/c">C</a></li>
-<li><a href="/windows/desktop/wcs/cmm-transform-creation-flags">CMM 変換作成フラグ</a></li>
-<li><a href="/windows/desktop/wcs/cmy-and-cmyk-color-spaces">CMY と CMYK の色空間</a></li>
-<li><a href="/windows/desktop/wcs/color-in-imaging">イメージングの色</a></li>
-<li><a href="/windows/desktop/wcs/color-space-constants">色空間定数</a></li>
-<li><a href="/windows/desktop/wcs/color-space-type-identifiers">色空間の種類識別子</a></li>
-<li><a href="/windows/desktop/wcs/color-spaces">色空間</a></li>
-<li><a href="/windows/desktop/wcs/common-color-messages">一般的な色のメッセージ</a></li>
-<li><a href="/windows/desktop/wcs/d">D</a></li>
-<li><a href="/windows/desktop/wcs/describing-color">色の記述</a></li>
-<li><a href="/windows/desktop/wcs/device-dependent-color-spaces">デバイスに依存する色空間</a></li>
-<li><a href="/windows/desktop/wcs/device-independent-color-spaces">デバイスに依存しない色空間</a></li>
-<li><a href="/windows/desktop/wcs/enumerations">列挙型</a></li>
-<li><a href="/windows/desktop/wcs/error-codes-specific-to-wcs">WCS に固有のエラー コード</a></li>
-<li><a href="/windows/desktop/wcs/functions">関数</a></li>
-<li><a href="/windows/desktop/wcs/further-information">詳細情報</a></li>
-<li><a href="/windows/desktop/wcs/g">G</a></li>
-<li><a href="/windows/desktop/wcs/h">H</a></li>
-<li><a href="/windows/desktop/wcs/hls-color-spaces">HLS 色空間</a></li>
-<li><a href="/windows/desktop/wcs/hsv-color-spaces">HSV 色空間</a></li>
-<li><a href="/windows/desktop/wcs/human-color-perception">人間による色認識</a></li>
-<li><a href="/windows/desktop/wcs/icmprogressproccallback">ICMProgressProcCallback コールバック関数</a></li>
-<li><a href="/windows/desktop/wcs/interfaces">インターフェイス</a></li>
-<li><a href="/windows/desktop/wcs/l">L</a></li>
-<li><a href="/windows/desktop/wcs/obsolete-wcs-functions">廃止された WCS 関数</a></li>
-<li><a href="/windows/desktop/wcs/p">P</a></li>
-<li><a href="/windows/desktop/wcs/profile-management-functions">プロファイル管理関数</a></li>
-<li><a href="/windows/desktop/wcs/r">R</a></li>
-<li><a href="/windows/desktop/wcs/reference">リファレンス</a></li>
-<li><a href="/windows/desktop/wcs/rendering-intents">レンダリングの目的</a></li>
-<li><a href="/windows/desktop/wcs/rgb-color-spaces">RGB 色空間</a></li>
-<li><a href="/windows/desktop/wcs/s">S</a></li>
-<li><a href="/windows/desktop/wcs/srgb--a-standard-color-space">sRGB: 標準の色空間</a></li>
-<li><a href="/windows/desktop/wcs/structures">構造体</a></li>
-<li><a href="/windows/desktop/wcs/subtractive-primary-colors">減法混色の原色</a></li>
-<li><a href="/windows/desktop/wcs/t">T</a></li>
-<li><a href="/windows/desktop/wcs/using-device-profiles-with-wcs">WCS でのデバイス プロファイルの使用</a></li>
-<li><a href="/windows/desktop/wcs/using-gdi-functions-with-wcs">WCS での GDI 関数の使用</a></li>
-<li><a href="/windows/desktop/wcs/using-structures-in-wcs-1-0">WCS 1.0 での構造体の使用</a></li>
-<li><a href="/windows/desktop/wcs/using-wcs-1-0">WCS 1.0 の使用</a></li>
-<li><a href="/windows/desktop/wcs/w">W</a></li>
-<li><a href="/windows/desktop/wcs/wcs-1-0-availability">WCS 1.0 の可用性</a></li>
-<li><a href="/windows/desktop/wcs/wcs-1-0-glossary">WCS 1.0 用語集</a></li>
-<li><a href="/windows/desktop/wcs/wcs-calibration-schema">WCS 調整スキーマ</a></li>
-<li><a href="/windows/desktop/wcs/wcs-constants">WCS 定数</a></li>
-<li><a href="/windows/desktop/wcs/wcs-registry-keys">WCS レジストリ キー</a></li>
-<li><a href="/windows/desktop/wcs/what-s-new-in-windows-vista">Windows Vista の新機能</a></li>
-<li><a href="/windows/desktop/wcs/windows-color-system">Windows カラー システム</a></li>
-<li><a href="/windows/desktop/xaudio2/xaudio2-redistributable">XAudio 2.9 の再頒布可能バージョンに関する開発者向けガイド</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/author-apis">C++/WinRT で API を作成する</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/get-started">C++/WinRT の使用を開始する</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/index">C++/WinRT</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/csharp-winrt/index">C#/WinRT</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/design/basics/content-basics">Windows アプリのコンテンツ デザインの基本</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/design/input/custom-text-input">カスタム テキスト入力の概要</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/design/layout/page-layout">Windows アプリのページ レイアウト</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/design/motion/xaml-animation">アニメーションの概要</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/gaming/cloud-for-games">UWP ゲーム用のクラウド サービスの使用</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/gaming/getting-started">作業の開始</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/monetize/manage-ad-campaigns">広告キャンペーンの管理</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/monetize/query-for-products">製品の照会</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/porting/apps-on-arm">ARM 版 Windows 10</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/publish/store-policies">Microsoft Store ポリシー</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/publish/upload-app-packages">アプリ パッケージのアップロード</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/xbox-apps/uwp-deployinfo-api">デバイス ポータル展開情報 API リファレンス</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/xbox-apps/uwp-remoteinput-api">Device Portal リモコン入力 API リファレンス</a></li>
+<li><a href="https://docs.microsoft.com/windows/uwp/xbox-apps/uwp-sshpins-api">Device Portal の SSH ピン API のリファレンス</a></li>
+</ul>
+
+## <a name="win32-conceptual-content"></a>Win32 の概念的コンテンツ
+
+<ul>
+<li><a href="https://docs.microsoft.com/windows/desktop/Controls/property-sheets">プロパティ シートの概要</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/Controls/pss-propsheetheader">PROPSHEETHEADER 構造 (Prsht.h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/Controls/pss-propsheetpage">PROPSHEETPAGE 構造 (Prsht.h)</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/Tapi/select-an-address">アドレスを選択する</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/ToolHelp/traversing-the-heap-list">ヒープ リストの走査</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/WinProg64/additional-considerations">その他の考慮事項</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/direct3d12/resource-binding-in-hlsl">HLSL でのリソース バインディング</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/wic/-wic-sample-animated-gif">WIC アニメーション Gif サンプル</a></li>
+<li><a href="https://docs.microsoft.com/windows/desktop/wic/-wic-sample-d2d-viewer">Direct2D サンプルを使用した WIC イメージ ビューアー</a></li>
+</ul>
+
+## <a name="win32-api-reference"></a>Win32 API リファレンス
+
+<ul>
+<li><a href="https://docs.microsoft.com/windows/win32/api/azroles/nn-azroles-iazrole">IAzRole (azroles.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/azroles/nn-azroles-iazscope">IAzScope (azroles.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/azroles/nn-azroles-iaztask">IAzTask (azroles.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d2d1/nn-d2d1-id2d1factory">ID2D1Factory (d2d1.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d2d1/nn-d2d1-id2d1geometry">ID2D1Geometry (d2d1.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d10/nn-d3d10-id3d10device">ID3D10Device (d3d10.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d11/nn-d3d11-id3d11device">ID3D11Device (d3d11.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d12/nn-d3d12-id3d12device">ID3D12Device (d3d12.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/d3d9/nn-d3d9-idirect3d9">IDirect3D9 (d3d9.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ddraw/nn-ddraw-idirectdraw7">IDirectDraw7 (ddraw.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/dxgi/nn-dxgi-idxgioutput">IDXGIOutput (dxgi.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/faxcom/nn-faxcom-ifaxdoc">IFaxDoc (faxcom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/faxcom/nn-faxcom-ifaxjob">IFaxJob (faxcom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/faxcom/nn-faxcom-ifaxport">IFaxPort (faxcom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/faxcom/nn-faxcom-ifaxserver">IFaxServer (faxcom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/faxcom/nn-faxcom-ifaxstatus">IFaxStatus (faxcom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/fhcfg/nn-fhcfg-ifhconfigmgr">IFhConfigMgr (fhcfg.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/fsrm/nn-fsrm-ifsrmsetting">IFsrmSetting (fsrm.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gpmgmt/nn-gpmgmt-igpm">IGPM (gpmgmt.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gpmgmt/nn-gpmgmt-igpmbackup">IGPMBackup (gpmgmt.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gpmgmt/nn-gpmgmt-igpmdomain">IGPMDomain (gpmgmt.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gpmgmt/nn-gpmgmt-igpmrsop">IGPMRSOP (gpmgmt.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/gpmgmt/nn-gpmgmt-igpmsom">IGPMSOM (gpmgmt.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iads">IADs (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsclass">IADsClass (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadscomputer">IADsComputer (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadscontainer">IADsContainer (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsdomain">IADsDomain (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsfileshare">IADsFileShare (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsgroup">IADsGroup (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadslocality">IADsLocality (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadso">IADsO (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsprintjob">IADsPrintJob (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsprintqueue">IADsPrintQueue (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsproperty">IADsProperty (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsresource">IADsResource (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsservice">IADsService (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadssession">IADsSession (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadssyntax">IADsSyntax (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/iads/nn-iads-iadsuser">IADsUser (iads.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/ne-icm-bmformat">BMFORMAT </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/nf-icm-cmtranslatergbs">CMTranslateRGBs </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/ns-icm-colormatchsetupa">COLORMATCHSETUPA </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/ns-icm-colormatchsetupw">COLORMATCHSETUPW </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/ns-icm-enumtypea">ENUMTYPEA </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/ns-icm-enumtypew">ENUMTYPEW </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/icm/ns-icm-profileheader">PROFILEHEADER </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/inked/nn-inked-iinkedit">IInkEdit (inked.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/mbnapi/nn-mbnapi-imbnpin">IMbnPin (mbnapi.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/mmc/nn-mmc-iconsole2">IConsole2 (mmc.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/mmc/nn-mmc-iconsole3">IConsole3 (mmc.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/mmc/nn-mmc-iresultdata">IResultData (mmc.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/mmc/nn-mmc-iresultdata2">IResultData2 (mmc.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/msctf/nn-msctf-itfcontext">ITfContext (msctf.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/mstask/nn-mstask-itask">ITask (mstask.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwrule">INetFwRule (netfw.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwrule3">INetFwRule3 (netfw.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/oaidl/nn-oaidl-irecordinfo">IRecordInfo (oaidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/oaidl/nn-oaidl-itypeinfo">ITypeInfo (oaidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/oaidl/nn-oaidl-itypeinfo2">ITypeInfo2 (oaidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/objidl/nn-objidl-imallocspy">IMallocSpy (objidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/objidl/nn-objidl-imoniker">IMoniker (objidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/objidl/nn-objidl-istorage">IStorage (objidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ocidl/nn-ocidl-ifont">IFont (ocidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/ocidl/nn-ocidl-ipicture">IPicture (ocidl.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/pla/nn-pla-idatacollector">IDataCollector (pla.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/pla/nn-pla-idatamanager">IDataManager (pla.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/pla/nn-pla-ivaluemap">IValueMap (pla.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/rend/nn-rend-itdirectory">ITDirectory (rend.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/strmif/nn-strmif-iamtuner">IAMTuner (strmif.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/strmif/nn-strmif-icodecapi">ICodecAPI (strmif.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/strmif/nn-strmif-idvdinfo2">IDvdInfo2 (strmif.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/strmif/nn-strmif-ipin">IPin (strmif.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tapi3/nn-tapi3-itagent">ITAgent (tapi3.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tapi3cc/nn-tapi3cc-itagent">ITAgent (tapi3cc.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tapi3if/nn-tapi3if-ittapi">ITTAPI (tapi3if.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextdocument">ITextDocument (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextfont2">ITextFont2 (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextpara">ITextPara (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextpara2">ITextPara2 (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextrange">ITextRange (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextrange2">ITextRange2 (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextrow">ITextRow (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tom/nn-tom-itextstrings">ITextStrings (tom.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tuner/nn-tuner-idvbtlocator">IDVBTLocator (tuner.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tuner/nn-tuner-ilocator">ILocator (tuner.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/tuner/nn-tuner-ituningspace">ITuningSpace (tuner.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevice">IUPnPDevice (upnp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/vds/nn-vds-ivdslun">IVdsLun (vds.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/vds/nn-vds-ivdsservice">IVdsService (vds.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/vds/nn-vds-ivdssubsystem">IVdsSubSystem (vds.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wabapi/nn-wabapi-iwabobject">IWABObject (wabapi.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wabiab/nn-wabiab-iaddrbook">IAddrBook (wabiab.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wia_xp/nn-wia_xp-iwiaitem">IWiaItem (wia_xp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpcdromburn">IWMPCdromBurn (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpcontrols">IWMPControls (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpmedia">IWMPMedia (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpnetwork">IWMPNetwork (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpplaylist">IWMPPlaylist (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpsettings">IWMPSettings (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wmp/nn-wmp-iwmpsyncdevice">IWMPSyncDevice (wmp.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/wuapi/nn-wuapi-iwebproxy">IWebProxy (wuapi.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/xaudio2/nn-xaudio2-ixaudio2">IXAudio2 (xaudio2.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/xenroll/nn-xenroll-icenroll">ICEnroll (xenroll.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/xenroll/nn-xenroll-ienroll">IEnroll (xenroll.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/xenroll/nn-xenroll-ienroll2">IEnroll2 (xenroll.h) </a></li>
+<li><a href="https://docs.microsoft.com/windows/win32/api/xenroll/nn-xenroll-ienroll4">IEnroll4 (xenroll.h) </a></li>
+</ul>
+
+## <a name="winrt-api-reference"></a>WinRT API リファレンス
+
+<ul>
+
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.itemswrapgrid.itemwidth">Windows.UI.Xaml.Controls.ItemsWrapGrid.ItemWidth</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.wrapgrid.itemheight">Windows.UI.Xaml.Controls.WrapGrid.ItemHeight</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.controls.wrapgrid.itemwidth">Windows.UI.Xaml.Controls.WrapGrid.ItemWidth</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.height">Windows.UI.Xaml.FrameworkElement.Height</a></li>
+<li><a href="https://docs.microsoft.com/uwp/api/windows.ui.xaml.frameworkelement.width">Windows.UI.Xaml.FrameworkElement.Width</a></li>
 </ul>

@@ -5,12 +5,12 @@ ms.date: 07/19/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a3f8644612954c4693ad28d3c1b41870855b37ca
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 903fe20cef1e3ccaa5db4e1cffc6b6583a878376
+ms.sourcegitcommit: f7c7a2ae6367e114a8b9d438963082440cd24043
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034885"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107315095"
 ---
 # <a name="show-multiple-views-with-appwindow"></a>AppWindow を使用して複数のビューを表示する
 
@@ -34,7 +34,7 @@ ms.locfileid: "93034885"
 
 > _ドッキング解除されたカラー ピッカーとセカンダリ ウィンドウを持つサンプル アプリ_
 
-> **重要な API** : [Windows.UI.WindowManagement 名前空間](/uwp/api/windows.ui.windowmanagement)、 [AppWindow クラス](/uwp/api/windows.ui.windowmanagement.appwindow)
+> **重要な API**: [Windows.UI.WindowManagement 名前空間](/uwp/api/windows.ui.windowmanagement)、[AppWindow クラス](/uwp/api/windows.ui.windowmanagement.appwindow)
 
 ## <a name="api-overview"></a>API の概要
 
@@ -122,6 +122,9 @@ appWindow.Closed += delegate
     appWindow = null;
 };
 ```
+
+> [!TIP]
+> 予期せぬ問題を回避するために、`Closed` イベント ハンドラー内のコード量を最小限に抑えることをお勧めします。
 
 ## <a name="track-instances-of-appwindow"></a>AppWindow のインスタンスを追跡する
 
@@ -296,7 +299,7 @@ public sealed partial class AppWindowPage : Page
 colorPickerAppWindow.RequestSize(new Size(300, 428));
 ```
 
-ウィンドウの位置を管理するためのメソッドには、次のように _RequestMove*_ という名前が付けられています。 [RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、 [RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、 [RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、 [RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
+ウィンドウの配置を管理するためのメソッドには、_RequestMove*_ : [RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、[RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、[RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、[RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion) という名前が付けられています。
 
 次の例では、このコードはウィンドウを、そのウィンドウの生成元のメイン ビューの横に移動します。
 
@@ -427,7 +430,7 @@ colorPickerContainer.Children.Remove(colorPicker);
 colorPickerContainer.Visibility = Visibility.Collapsed;
 ```
 
-この後、それを新しい XAML ツリーに追加できます。 ここでは、まず ColorPicker の親コンテナーになる [Grid](/uwp/api/windows.ui.xaml.controls.grid) を作成し、ColorPicker をそのグリッドの子として追加します。 (これにより、後で ColorPicker をこの XAML ツリーから容易に削除できます。)次に、グリッドを新しいウィンドウの XAML ツリーのルートとして設定します。
+この後、それを新しい XAML ツリーに追加できます。 ここでは、まず ColorPicker の親コンテナーになる [Grid](/uwp/api/windows.ui.xaml.controls.grid) を作成し、ColorPicker をそのグリッドの子として追加します。 (これにより、後で ColorPicker をこの XAML ツリーから容易に削除できます。) 次に、グリッドを新しいウィンドウの XAML ツリーのルートとして設定します。
 
 ```csharp
 Grid appWindowRootGrid = new Grid();
@@ -499,7 +502,7 @@ private async void DetachColorPickerButton_Click(object sender, RoutedEventArgs 
 
 既定では、コンテンツ ダイアログはルート [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) を基準としてモーダルに表示されます。 [ContentDialog](/uwp/api/windows.ui.xaml.controls.contentdialog) を [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) の内部で使用する場合は、ダイアログの XamlRoot を XAML ホストのルートに手動で設定する必要があります。
 
-それを行うには、ContentDialog の [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを、既に AppWindow 内にある要素と同じ [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) に設定します。 ここでは、このコードはボタンの [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーの内部にあるため、 _送信者_ (クリックされた Button) を使用して XamlRoot を取得できます。
+それを行うには、ContentDialog の [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) プロパティを、既に AppWindow 内にある要素と同じ [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot) に設定します。 ここでは、このコードはボタンの [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) イベント ハンドラーの内部にあるため、_送信者_ (クリックされた Button) を使用して XamlRoot を取得できます。
 
 ```csharp
 if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
@@ -611,7 +614,7 @@ public sealed partial class MainPage : Page
 }
 ```
 
-## <a name="complete-code"></a>コードを完成させる
+## <a name="complete-code"></a>完成したコード
 
 ### <a name="mainpagexaml"></a>MainPage.xaml
 
@@ -1006,5 +1009,5 @@ namespace HelloAppWindow
 
 ## <a name="related-topics"></a>関連トピック
 
-- [複数のビューを表示する](show-multiple-views.md)
+- [複数のビューの表示](show-multiple-views.md)
 - [ApplicationView を使用して複数のビューを表示する](application-view.md)

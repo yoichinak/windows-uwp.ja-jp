@@ -6,8 +6,13 @@ ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: D451D271-A6CA-4B46-AE99-C2269E8A078C
+ms.openlocfilehash: 269b665eb9f48dd82629371af09310cdf8b2f3cb
+ms.sourcegitcommit: a54eaafdd00991a20be582732e7eb02541d4525c
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107521296"
 ---
-
 # <a name="change-history-for-microsoft-store-policies"></a>Microsoft Store のポリシーの変更履歴
 
 <table>

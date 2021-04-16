@@ -14,12 +14,12 @@ ms.custom: RS5
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: b5e80a1c8f77fe10748eb671476b4cd81d3c4e37
-ms.sourcegitcommit: 23f3d452806f40752d7c2ebd07b7b056ac5d8934
+ms.openlocfilehash: 959fc9f77c94ee05bf4191bd3ce01049a8163bde
+ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107031531"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107466452"
 ---
 # <a name="navigationview"></a>NavigationView
 
@@ -1021,7 +1021,7 @@ namespace winrt::NavigationViewCppWinRT::implementation
 
 上で示した C# および C++/WinRT のコードは、両方のバージョンで同じ XAML マークアップを使用できるように設計されています。 ただし、このセクションに記載されている C++/WinRT バージョンを実装する別の方法があり、これが適切である場合もあります。
 
-次に示すのは、**NavView_ItemInvoked** ハンドラーの別のバージョンです。 このバージョンのハンドラーの手法では、移動先のページの完全な型名を ([**NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem) のタグに) 最初に格納する必要があります。 ハンドラーでは、その値のボックス化を解除し、それを [**Windows::UI::Xaml::Interop::TypeName**](/uwp/api/windows.ui.xaml.interop.typename) オブジェクトに変換し、それを使用して目的のページに移動します。 上記の例に示した `_pages` という名前のマッピング変数は必要ありません。また、ご利用のタグ内の値が有効な型であることを確認するための単体テストを作成することができます。 「[C++/WinRT を使用した IInspectable へのスカラー値のボックス化とボックス化解除](../../cpp-and-winrt-apis/boxing.md)」も参照してください。
+次に示すのは、**NavView_ItemInvoked** ハンドラーの別のバージョンです。 このバージョンのハンドラーの手法では、移動先のページの完全な型名を ([**NavigationViewItem**](/uwp/api/windows.ui.xaml.controls.navigationviewitem) のタグに) 最初に格納する必要があります。 ハンドラーでは、その値のボックス化を解除し、それを [**Windows::UI::Xaml::Interop::TypeName**](/uwp/api/windows.ui.xaml.interop.typename) オブジェクトに変換し、それを使用して目的のページに移動します。 上記の例に示した `_pages` という名前のマッピング変数は必要ありません。また、ご利用のタグ内の値が有効な型であることを確認するための単体テストを作成することができます。 「[C++/WinRT を使用した IInspectable への値のボックス化とボックス化解除](../../cpp-and-winrt-apis/boxing.md)」も参照してください。
 
 ```cppwinrt
 void MainPage::NavView_ItemInvoked(

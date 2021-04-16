@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cppcx
-ms.openlocfilehash: 3f1aeb24a50d0e1f4d1e7c1ee702ea078582b4e5
-ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
+ms.openlocfilehash: c21ea3baaa5992877d1fc0f695e36dda53f69ce2
+ms.sourcegitcommit: 27787a579e497d097382338654ed371b661cc3b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412006"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107321713"
 ---
 # <a name="data-binding-overview"></a>データ バインディングの概要
 
@@ -324,7 +324,7 @@ MainPage::MainPage()
 
 ## <a name="binding-to-a-collection-of-items"></a>項目のコレクションへのバインド
 
-一般的なシナリオでは、ビジネス オブジェクトのコレクションにバインドします。 C# と Visual Basic では、データ バインディングのコレクションには汎用の [**ObservableCollection&lt;T&gt;** ](/dotnet/api/system.collections.objectmodel.observablecollection-1) クラスが適しています。このクラスは [**INotifyPropertyChanged**](/dotnet/api/system.componentmodel.inotifypropertychanged) インターフェイスと [**INotifyCollectionChanged**](/dotnet/api/system.collections.specialized.inotifycollectionchanged) インターフェイスを実装するためです。 これらのインターフェイスは、項目が追加または変更された場合や一覧自体のプロパティが変更された場合に、バインディングに変更を通知します。 コレクション内のオブジェクトのプロパティの変更をバインドされたコントロールに反映する場合は、ビジネス オブジェクトでも **INotifyPropertyChanged** を実装します。 詳しくは、「[データ バインディングの詳細](data-binding-in-depth.md)」をご覧ください。
+一般的なシナリオでは、ビジネス オブジェクトのコレクションにバインドします。 C# と Visual Basic では、データ バインディングのコレクションには汎用の [**ObservableCollection&lt;T&gt;**](/dotnet/api/system.collections.objectmodel.observablecollection-1) クラスが適しています。このクラスは [**INotifyPropertyChanged**](/dotnet/api/system.componentmodel.inotifypropertychanged) インターフェイスと [**INotifyCollectionChanged**](/dotnet/api/system.collections.specialized.inotifycollectionchanged) インターフェイスを実装するためです。 これらのインターフェイスは、項目が追加または変更された場合や一覧自体のプロパティが変更された場合に、バインディングに変更を通知します。 コレクション内のオブジェクトのプロパティの変更をバインドされたコントロールに反映する場合は、ビジネス オブジェクトでも **INotifyPropertyChanged** を実装します。 詳しくは、「[データ バインディングの詳細](data-binding-in-depth.md)」をご覧ください。
 
 [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md) を使用している場合は、「[XAML アイテム コントロール: C++/WinRT コレクションへのバインド](../cpp-and-winrt-apis/binding-collection.md)」で監視可能なコレクションにバインドする方法について詳しく学習できます。 最初にこのトピックを読むと、次に示す C++/WinRT コード一覧の意図が明確になります。
 
@@ -617,6 +617,10 @@ public class StringFormatter : Windows.UI.Xaml.Data.IValueConverter
 ```
 
 ```cppwinrt
+// pch.h
+...
+#include <winrt/Windows.Globalization.h>
+
 // StringFormatter.idl
 namespace Quickstart
 {

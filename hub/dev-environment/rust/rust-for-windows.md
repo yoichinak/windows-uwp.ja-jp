@@ -8,12 +8,12 @@ ms.topic: article
 keywords: rust、windows 10、microsoft、rust の学習、windows での rust (初心者向け)、vs code を使用した rust、windows 用の rust
 ms.localizationpriority: medium
 ms.date: 03/04/2021
-ms.openlocfilehash: aa3288d01207b7f51fe0f63ea996c4ea5cbdde48
-ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
+ms.openlocfilehash: 1ba0acf298a3bd492ceac9adccafcac857f67cba
+ms.sourcegitcommit: f7c7a2ae6367e114a8b9d438963082440cd24043
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102194158"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107315065"
 ---
 # <a name="rust-for-windows-and-the-windows-crate"></a>Windows 用 Rust と *windows* クレート
 
@@ -44,7 +44,7 @@ Windows 用 Rust のリポジトリには、参考にできる[いくつかの�
 
 ## <a name="rust-documentation-for-the-windows-api"></a>Windows API 用の Rust ドキュメント
 
-Windows 用 Rust は、Rust 開発者が利用している洗練されたツールチェーンの恩恵を受けています。 しかし、Windows API 全体を自在に扱うことが少し難しすぎるように思える場合は、[Windows API についての Rust ドキュメント](https://microsoft.github.io/windows-docs-rs/doc/bindings/windows/)も用意されています。
+Windows 用 Rust は、Rust 開発者が利用している洗練されたツールチェーンの恩恵を受けています。 しかし、Windows API 全体を自在に扱うことが少し難しすぎるように思える場合は、[Windows API についての Rust ドキュメント](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/)も用意されています。
 
 このリソースは、基本的に、Windows の API と型が、独特な Rust にどのように投影されるかを文書化するものです。 これを使用して、それについて知る必要があり、呼び出す方法を知る必要がある API の参照や検索を行ってください。
 

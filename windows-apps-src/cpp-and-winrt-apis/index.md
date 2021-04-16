@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 7812eca3263e266820f3624f88aad41b2d6e6ef5
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: 21b7aebe0ad270ab8f722e2cea9d6ac5202381c5
+ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629380"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107466432"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
@@ -54,7 +54,7 @@ C++/WinRT への移植の詳細については、これらのリソースをご�
 | [フォト エディター C++/WinRT サンプル アプリケーション](./photo-editor-sample.md) | フォト エディターは、C++/WinRT 言語プロジェクションでの開発を紹介する UWP のサンプル アプリケーションです。 サンプル アプリケーションを使用すると、**画像** ライブラリから写真を取得し、関連する写真効果で選択したイメージを編集できます。 | 
 | [文字列の処理](./strings.md) | C++/WinRT では、標準的な C++ ワイド文字列型を使用して Windows ランタイム API を呼び出すか、[**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) 型を使用することができます。 |
 | [標準的な C++ のデータ型と C++/WinRT](./std-cpp-data-types.md) | C++/WinRT では、標準的な C++ データ型を使用して Windows ランタイム API を呼び出すことができます。 |
-| [IInspectable へのスカラー値のボックス化とボックス化解除](./boxing.md) | スカラー値は、**IInspectable** を想定している関数に渡す前に、参照クラス オブジェクト内にラップする必要があります。 このラッピング プロセスは、値の *ボックス化* と呼ばれます。 |
+| [IInspectable への値のボックス化とボックス化解除](./boxing.md) | スカラーまたは配列値は、**IInspectable** を想定している関数に渡す前に、参照クラス オブジェクト内にラップする必要があります。 このラッピング プロセスは、値の *ボックス化* と呼ばれます。 |
 | [C++/WinRT で API を使用する](./consume-apis.md) | このトピックでは、C++/WinRT API を実装する Windows、サードパーティ コンポーネント ベンダー、またはユーザー自身に応じた使用方法について説明します。 |
 | [C++/WinRT で API を作成する](./author-apis.md) | このトピックでは、直接的または間接的に **winrt::implements** 基本構造体を使用して、C++/WinRT API を作成する方法を示します。 |
 | [C++/WinRT でのエラー処理](./error-handling.md) | このトピックでは、C++/WinRT でのプログラミング時にエラーを処理するための方法について説明します。 |

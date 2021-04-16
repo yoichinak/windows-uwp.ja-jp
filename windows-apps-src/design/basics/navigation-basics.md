@@ -10,12 +10,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 36a5489ab4fa278163fd5fad53be4d28156d4cf4
-ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
+ms.openlocfilehash: 63ea04040d550bced414e9591dbf3ffd44de8da2
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804463"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219089"
 ---
 # <a name="navigation-design-basics-for-windows-apps"></a>Windows アプリのナビゲーション デザインの基本
 
@@ -154,7 +154,7 @@ ms.locfileid: "104804463"
 
 ナビゲーション構造に複数のレベルがある場合は、現在のサブツリー内のピアにのみリンクするピア ツー ピアのナビゲーション要素を使うことをお勧めします。 2 つのレベルを持つナビゲーション構造を示す横の図について考えてみましょう。
 
-- レベル 1 では、ピア ツー ピアのナビゲーション要素によって、ページ A、B、C、および D へのアクセスが提供されます。
+- レベル 1 では、ピア ツー ピアのナビゲーション要素によって、ページ A、B、および C へのアクセスが提供されます。
 - レベル 2 では、A2 ページのピア ツー ピアのナビゲーション要素は、他の A2 ページにのみリンクしています。 これらのナビゲーション要素は、C サブツリー内にあるレベル 2 のページにはリンクしていません。
     :::column-end:::
 :::row-end:::
