@@ -5,12 +5,12 @@ ms.date: 05/22/2020
 ms.topic: article
 keywords: windows 10 s, 常時接続, ARM, ARM64, x86 エミュレーション
 ms.localizationpriority: medium
-ms.openlocfilehash: abb6e891d1f23ae94d61732d70af6bc3babcb07f
-ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
+ms.openlocfilehash: ff763ea543e8dd6592e1f8502438a684ec38be16
+ms.sourcegitcommit: 6cd970686d1ea7176b7e6651f349a14551709820
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102192934"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107559370"
 ---
 # <a name="windows-10-on-arm"></a>ARM 版 Windows 10
 もともと、Windows 10 (Windows 10 Mobile とは区別されます) は、x86 および x64 プロセッサを搭載した PC でのみ実行できました。 現在、Windows 10 desktop は、ARM64 プロセッサを搭載したコンピューターで実行できます。 ARM CPU アーキテクチャが持つ省電力の性質により、これらの PC のバッテリーが終日持つようになり、モバイル データ ネットワークがサポートされるようになります。 これらの PC にはアプリケーションの互換性が十分に備わっており、既存の x86 win32 アプリケーションを変更せずに実行できます。 詳細やデモについては、「 [常時接続されている PC の Channel 9 ビデオ](https://channel9.msdn.com/Events/Build/2017/P4171)」を参照してください。
@@ -26,14 +26,17 @@ Edge、Cortana、スタートメニュー、エクスプローラーなどの組
 ARM 上の Windows 10 は、Microsoft Store からすべての x86、ARM32、および ARM64 [UWP アプリ](../get-started/universal-application-platform-guide.md) を実行します。 ARM32 アプリと ARM64 アプリはエミュレーションなしでネイティブに実行されますが、x86 アプリはエミュレーションで実行されます。 UWP 開発者の場合、デバイスの最適なユーザー エクスペリエンスを提供するため、必ずアプリの ARM パッケージを提出してください。 詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。
 
 >[!NOTE]
-> ARM64 プラットフォームをネイティブでターゲットとする UWP アプリケーションをビルドするには、Visual Studio 2017 バージョン15.9 以降、または Visual Studio 2019 が必要です。 詳細については、[このブログ投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)を参照してください。
+> ARM64 プラットフォームをネイティブでターゲットとする UWP アプリケーションをビルドするには、Visual Studio 2017 バージョン15.9 以降、または Visual Studio 2019 が必要です。 詳細については、 [このブログの投稿](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development)を参照してください。
 
 
 >[!IMPORTANT]
 > ARM 上の Windows 10 は、ARM64 デバイス上のストアからの x86、ARM32、ARM64 UWP アプリをサポートしています。 ユーザーが ARM64 デバイスに UWP アプリをダウンロードすると、使用可能なアプリの最適なバージョンが OS によって自動的にインストールされます。 アプリの x86、ARM32、ARM64 バージョンをストアに送信すると、アプリの ARM64 バージョンが OS によって自動的にインストールされます。 アプリの x86 と ARM32 のバージョンのみを送信する場合、OS は ARM32 バージョンをインストールします。 アプリの x86 バージョンのみを送信する場合は、OS によってそのバージョンがインストールされ、エミュレーション下で実行されます。 アーキテクチャについて詳しくは、「[アプリ パッケージのアーキテクチャ](/windows/msix/package/device-architecture)」をご覧ください。
 
 ### <a name="win32-apps"></a>Win32 アプリ
-UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように、優れたパフォーマンスとシームレスなユーザーエクスペリエンスで、x86 Win32 アプリを変更せずに実行することもできます。 これらの x86 Win32 アプリは ARM 用に再コンパイルする必要がなく、ARM プロセッサで実行されていることを認識していません。 64ビットの x64 Win32 アプリはサポートされていませんが、ほとんどのアプリには x86 バージョンが用意されています。  アプリのアーキテクチャを選択した場合は、ARM PC 上の Windows 10 でアプリを実行するために、32ビットの x86 バージョンを選択するだけです。
+UWP アプリに加えて、ARM 上の Windows 10 では、PC と同じように、優れたパフォーマンスとシームレスなユーザーエクスペリエンスで、x86 Win32 アプリを変更せずに実行することもできます。 これらの x86 Win32 アプリは ARM 用に再コンパイルする必要がなく、ARM プロセッサで実行されていることを認識していません。
+
+### <a name="x86-64-apps"></a>x86-64 アプリ
+X86-64 アプリケーションの初期サポートは、ビルド21277で追加され、現在開発中です。 アプリの x64 Win32 バージョンが動作しない場合は、ほとんどのアプリで x86 バージョンも使用できます。 アプリのアーキテクチャを選択した場合は、32ビットの x86 バージョンを選択して、ARM PC 上の Windows 10 でアプリの32ビットバージョンを実行するだけです。
 
 ## <a name="downloads"></a>ダウンロード
 

@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, セキュリティ
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a67c88eb7eb70308e6dcbbd096289c0617793b1
-ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
+ms.openlocfilehash: 229f02769c213b1fab04d3694040eb3271f88649
+ms.sourcegitcommit: 6cd970686d1ea7176b7e6651f349a14551709820
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91933073"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107559381"
 ---
 # <a name="web-account-manager"></a>Web アカウント マネージャー
 
@@ -24,7 +24,7 @@ ms.locfileid: "91933073"
 
 まず、Visual Studio で新しい空白のアプリを作成します。 
 
-次に、ID プロバイダーに接続するために、アプリをストアに関連付ける必要があります。 これを行うには、プロジェクトを右クリックし、[**ストア**] [アプリをストアと関連付ける] の順に選択  >  **Associate app with the store**して、ウィザードの指示に従います。 
+次に、ID プロバイダーに接続するために、アプリをストアに関連付ける必要があります。 これを行うには、プロジェクトを右クリックし、[**ストア/発行**] [アプリをストアと関連付ける] の順に選択  >  し、ウィザードの指示に従います。 
 
 3 番目に、シンプルな XAML ボタンと 2 つのテキスト ボックスから成る、非常に基本的な UI を作成します。
 
@@ -76,7 +76,7 @@ private void LoginButton_Click(object sender, RoutedEventArgs e)
 システムは UI シェルのみを提供するため、このウィンドウは空になっています。開発者がこのウィンドウに ID プロバイダーをプログラムで入力します。 
 
 > [!TIP]
-> 必要に応じて、 **[Show](/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** ではなく**[ShowAddAccountAsync](/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** を使用して、操作の状態を照会する**[iasyncaction](/uwp/api/Windows.Foundation.IAsyncAction)** を返します。 
+> 必要に応じて、 **[Show](/uwp/api/windows.ui.applicationsettings.accountssettingspane.show#Windows_UI_ApplicationSettings_AccountsSettingsPane_Show)** ではなく **[ShowAddAccountAsync](/uwp/api/windows.ui.applicationsettings.accountssettingspane.showaddaccountasync)** を使用して、操作の状態を照会する **[iasyncaction](/uwp/api/Windows.Foundation.IAsyncAction)** を返します。 
 
 ## <a name="register-for-accountcommandsrequested"></a>AccountCommandsRequested への登録
 
@@ -133,7 +133,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 
 文字列 "consumers" をオプションの *authority* パラメーターに渡すことにも注意してください。 これは、Microsoft は "消費者 (consumers)" 向けの Microsoft アカウント (MSA) と、"組織 (organizations)" 向けの Azure Active Directory (AAD) という、2 種類の認証を提供しているためです。 "consumers" 権限は、MSA オプションを必要としていることを示します。 企業向けのアプリを開発している場合は、代わりに文字列 "organizations" を使います。
 
-最後に、次のように新しい**[Webaccountprovidercommand](/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、プロバイダーを**AccountsSettingsPane**に追加します。 
+最後に、次のように新しい **[Webaccountprovidercommand](/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** を作成して、プロバイダーを **AccountsSettingsPane** に追加します。 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -351,7 +351,7 @@ private async Task SignOutAccountAsync(WebAccount account)
 
 ## <a name="add-providers-that-dont-support-webaccountmanager"></a>WebAccountManager をサポートしていないプロバイダーの追加
 
-サービスからの認証をアプリに統合するが、そのサービスが WebAccountManager (Google + または Twitter) をサポートしていない場合でも、そのプロバイダーを手動で **AccountsSettingsPane**に追加することができます。 これを行うには、新しい WebAccountProvider オブジェクトを作成し、独自の名前と .png アイコンを指定してから、WebAccountProviderCommands リストに追加します。 いくつかのスタブ コードを次に示します。 
+サービスからの認証をアプリに統合するが、そのサービスが WebAccountManager (Google + または Twitter) をサポートしていない場合でも、そのプロバイダーを手動で **AccountsSettingsPane** に追加することができます。 これを行うには、新しい WebAccountProvider オブジェクトを作成し、独自の名前と .png アイコンを指定してから、WebAccountProviderCommands リストに追加します。 いくつかのスタブ コードを次に示します。 
 
  ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCommandsRequestedEventArgs e)
@@ -420,7 +420,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 理論上は、あらゆることのために設定コマンドを使うことができます。 ただし、上記のような、直観的なアカウント関連のシナリオにのみ使うことをお勧めします。 
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 
 [Windows.Security.Authentication.Web.Core 名前空間](/uwp/api/windows.security.authentication.web.core)
 

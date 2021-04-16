@@ -5,12 +5,12 @@ ms.date: 11/30/2018
 ms.topic: article
 keywords: Windows 10、uwp、標準、c++、cpp、winrt、プロジェクション、ポート、移行、相互運用、ABI
 ms.localizationpriority: medium
-ms.openlocfilehash: 71ae6245fe217277c7408a7eb6b5150900cc45d9
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: ea9c41c134e1da0ffa131a597c856af7d75b5672
+ms.sourcegitcommit: 99a30cc48d02e4034d4365f45d5d154b4c1e37ae
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89170176"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442298"
 ---
 # <a name="interop-between-cwinrt-and-the-abi"></a>C++/WinRT と ABI 間の相互運用
 
@@ -43,7 +43,7 @@ namespace ABI::Windows::Foundation
 
 **IUriRuntimeClass** は COM インターフェイスです。 ただしそれ以上に、ベースは **IInspectable** であるため、**IUriRuntimeClass** は Windows ランタイム インターフェイスです。 **HRESULT** は例外よりも型を返します。 **HSTRING** ハンドルなどのアーティファクトを使用します (完了したら、このハンドルを `nullptr` に戻すように設定することをお勧めします)。 これにより、アプリケーション バイナリ レベル、つまり、COM プログラミング レベルで Windows ランタイムの内容を把握できます。
 
-Windows ランタイムはコンポーネント オブジェクト モデル (COM) API に基づいています。 この方法で Windows ランタイムにアクセスするか、*言語プロジェクション*を介してアクセスすることができます。 プロジェクションは、COM の詳細を隠し、特定の言語により自然なプログラミング エクスペリエンスを提供します。
+Windows ランタイムはコンポーネント オブジェクト モデル (COM) API に基づいています。 この方法で Windows ランタイムにアクセスするか、*言語プロジェクション* を介してアクセスすることができます。 プロジェクションは、COM の詳細を隠し、特定の言語により自然なプログラミング エクスペリエンスを提供します。
 
 たとえば、フォルダー "%WindowsSdkDir%Include\10.0.17134.0\cppwinrt\winrt" 内を見ると (必要に応じて、状況に合った SDK バージョン番号に調整)、C++/WinRT 言語プロジェクション ヘッダーがあります。 Windows 名前空間ごとに 1 つの ABI ヘッダーがあるように、Windows 名前空間それぞれにヘッダーがあります。 次に、いずれかの C++/WinRT ヘッダーを含む例を示します。
 
@@ -309,14 +309,14 @@ static_assert(std::is_same_v<winrt::default_interface<winrt::Sample>, winrt::ISa
 
 | 操作 | 方法 | メモ |
 |-|-|-|
-| **winrt::Sample** から **ISample\*** を抽出する | `p = reinterpret_cast<ISample*>(get_abi(s));` | *s* はオブジェクトをまだ所有しています。 |
-| **winrt::Sample** から **ISample\*** をデタッチする | `p = reinterpret_cast<ISample*>(detach_abi(s));` | *s* はオブジェクトを所有しなくなります。 |
-| **ISample\*** を新しい **winrt::Sample** に転送する | `winrt::Sample s{ p, winrt::take_ownership_from_abi };` | *s* はオブジェクトの所有権を取得します。 |
-| **ISample\*** を **winrt::Sample** に設定する | `*put_abi(s) = p;` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたすべてのオブジェクトはリークされます (デバッグではアサートします)。 |
-| **ISample\*** を **winrt::Sample** に受け取る | `GetSample(reinterpret_cast<ISample**>(put_abi(s)));` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたすべてのオブジェクトはリークされます (デバッグではアサートします)。 |
-| **winrt::Sample** 内の **ISample\*** を置き換える | `attach_abi(s, p);` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたオブジェクトは解放されます。 |
-| **ISample\*** を **winrt::Sample** にコピーする | `copy_from_abi(s, p);` | *s* ではオブジェクトへの新しい参照が作成されます。 *s* によって前に所有されていたオブジェクトは解放されます。 |
-| **winrt::Sample** を **ISample\*** にコピーする | `copy_to_abi(s, reinterpret_cast<void*&>(p));` | *p* はオブジェクトのコピーを受け取ります。 *s* によって前に所有されていたすべてのオブジェクトはリークされます。 |
+| _ **winrt::Sample から ISample\*** _ を抽出する | `p = reinterpret_cast<ISample*>(get_abi(s));` | *s* はオブジェクトをまだ所有しています。 |
+| _ **winrt::Sample から ISample\*** _ をデタッチする | `p = reinterpret_cast<ISample*>(detach_abi(s));` | *s* はオブジェクトを所有しなくなります。 |
+| **ISample\* *_ を新しい _* winrt::Sample** に転送する | `winrt::Sample s{ p, winrt::take_ownership_from_abi };` | *s* はオブジェクトの所有権を取得します。 |
+| **ISample\* *_ を _* winrt::Sample** に設定する | `*put_abi(s) = p;` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたすべてのオブジェクトはリークされます (デバッグではアサートします)。 |
+| **ISample\* *_ を _* winrt::Sample** で受け取る | `GetSample(reinterpret_cast<ISample**>(put_abi(s)));` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたすべてのオブジェクトはリークされます (デバッグではアサートします)。 |
+| _ **winrt::Sample 内の ISample\*** _ を置換する | `attach_abi(s, p);` | *s* はオブジェクトの所有権を取得します。 *s* によって前に所有されていたオブジェクトは解放されます。 |
+| **ISample\* *_ を _* winrt::Sample** にコピーする | `copy_from_abi(s, p);` | *s* ではオブジェクトへの新しい参照が作成されます。 *s* によって前に所有されていたオブジェクトは解放されます。 |
+| **winrt::Sample** を **ISample\** _ にコピーする | `copy_to_abi(s, reinterpret_cast<void_&>(p));` | *p* はオブジェクトのコピーを受け取ります。 *s* によって前に所有されていたすべてのオブジェクトはリークされます。 |
 
 ## <a name="interoperating-with-the-abis-guid-struct"></a>ABI の GUID 構造体との相互運用
 
@@ -362,6 +362,16 @@ void GetString(_Out_ HSTRING* value);
 | **hstring** 内の **HSTRING** を置き換える | `attach_abi(s, h);` | *s* は文字列の所有権を取得します。 *s* によって前に所有されていた文字列は解放されます。 |
 | **HSTRING** を **hstring** にコピーする | `copy_from_abi(s, h);` | *s* では文字列のプライベート コピーが作成されます。 *s* によって前に所有されていた文字列は解放されます。 |
 | **hstring** を **HSTRING** にコピーする | `copy_to_abi(s, reinterpret_cast<void*&>(h));` | *h* は文字列のコピーを受け取ります。 *h* によって前に所有されていたすべての文字列はリークされます。 |
+
+さらに、Windows 実装ライブラリ (WIL) [文字列ヘルパー](https://github.com/microsoft/wil/wiki/String-helpers)は、基本的な文字列操作を実行します。 WIL 文字列ヘルパーを使用するには、[<wil/resource.h>](https://github.com/microsoft/wil/blob/master/include/wil/resource.h) を含め、次の表を参照してください。 詳細については、表内のリンクを参照してください。
+
+| Operation | WIL 文字列ヘルパーの詳細 |
+|-|-|
+| 生の Unicode または ANSI 文字列ポインターとオプションの長さを提供する。適切に特殊化された **unique_any** ラッパーを取得する | [wil::make_something_string](https://github.com/microsoft/wil/wiki/String-helpers#wilmake_something_string) |
+| null で終わる生の Unicode 文字列ポインターが見つかるまでスマート オブジェクトのラップを解除する | [wil::str_raw_ptr](https://github.com/microsoft/wil/wiki/String-helpers#wilstr_raw_ptr) |
+| スマート ポインター オブジェクトによってラップされた文字列を取得する。スマート ポインターが空の場合は空の文字列 `L""` を取得する | [wil::string_get_not_null](https://github.com/microsoft/wil/wiki/String-helpers#wilstring_get_not_null) |
+| 任意の数の文字列を連結する | [wil::str_concat](https://github.com/microsoft/wil/wiki/String-helpers#wilstr_concat) |
+| printf スタイルの書式文字列および対応するパラメーター リストから文字列を取得する | [wil::str_printf](https://github.com/microsoft/wil/wiki/String-helpers#wilstr_printf) |
 
 ## <a name="important-apis"></a>重要な API
 * [AddRef 関数](/windows/desktop/api/unknwn/nf-unknwn-iunknown-addref)

@@ -8,12 +8,12 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10、uwp、トースト通知の送信、通知、送信通知、トースト通知、方法、クイックスタート、作業の開始、コードサンプル、チュートリアル、c#、csharp、win32、デスクトップ
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e6130b703cc1f8a0163ea539ba97cf4a08388b5
-ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
+ms.openlocfilehash: 23896b65bf2e4e0a9fc2edf5744b647d6d9c26ed
+ms.sourcegitcommit: 6cd970686d1ea7176b7e6651f349a14551709820
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804359"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107559394"
 ---
 # <a name="send-a-local-toast-notification-from-c-apps"></a>C# アプリからローカルのトースト通知を送信する
 
@@ -37,13 +37,13 @@ ms.locfileid: "104804359"
 [!INCLUDE [basic toast intro](includes/send-toast-basic-toast-intro.md)]
 
 ```csharp
-// Requires Microsoft.Toolkit.Uwp.Notifications NuGet package
+// Requires Microsoft.Toolkit.Uwp.Notifications NuGet package version 7.0 or greater
 new ToastContentBuilder()
     .AddArgument("action", "viewConversation")
     .AddArgument("conversationId", 9813)
     .AddText("Andrew sent you a picture")
     .AddText("Check this out, The Enchantments in Washington!")
-    .Show();
+    .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 5, your TFM must be net5.0-windows10.0.17763.0 or greater
 ```
 
 このコードを実行すると、通知が表示されます。
