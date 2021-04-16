@@ -761,7 +761,7 @@
           href: ../cpp-and-winrt-apis/strings.md
         - name: 標準 C++ データ型
           href: ../cpp-and-winrt-apis/std-cpp-data-types.md
-        - name: IInspectable へのスカラー値のボックス化とボックス化解除
+        - name: IInspectable への値のボックス化とボックス化解除
           href: ../cpp-and-winrt-apis/boxing.md
         - name: API の使用
           href: ../cpp-and-winrt-apis/consume-apis.md
