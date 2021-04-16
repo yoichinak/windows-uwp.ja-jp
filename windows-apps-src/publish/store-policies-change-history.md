@@ -1,20 +1,14 @@
 ---
 title: Microsoft Store のポリシーの変更履歴
 description: Microsoft Store のポリシーの変更履歴について、各変更の追加、更新、削除に関する説明を含めて表にまとめて説明します。
-ms.date: 10/01/2019
+ms.date: 04/15/2021
 ms.topic: article
 keywords: Microsoft Store ポリシー契約
 ms.localizationpriority: high
 ms.assetid: D451D271-A6CA-4B46-AE99-C2269E8A078C
-ms.openlocfilehash: 7460658e2622fe1a08983a9519e9eda9f5b4b1ac
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161846"
 ---
-# <a name="change-history-for-microsoft-store-policies"></a>Microsoft Store のポリシーの変更履歴
 
+# <a name="change-history-for-microsoft-store-policies"></a>Microsoft Store のポリシーの変更履歴
 
 <table>
 <colgroup>
@@ -31,9 +25,17 @@ ms.locfileid: "89161846"
 </tr>
 </thead>
 <tbody>
+<tr class="even">
+<td>2021 年 4 月 15 日</td>
+<td><a href="https://docs.microsoft.com/windows/uwp/publish/store-policies">7.13</a></td>
+<td><p>製品カテゴリが含まれるメタデータの例が追加されるようにポリシー 10.1 に更新し、ゲームと見なされる製品に関するガイダンスを提供します。 </p>
+<p>PC ゲームのサブスクリプション製品に適用される特定のポリシーを使用して、ポリシー 10.8.6 に更新します。</p>
+<p>Creators 製品の XBL 要件を削除するには、ポリシー 10.13 に更新します。XBL の要件が https://aka.ms/xboxlivepolicy にあるため、Microsoft Store ポリシーからすべての XBL 固有のポリシーも削除されます。</p>
+<p>ユーザー生成コンテンツに関連するポリシー要件を明確にするため、ポリシー 11.12 に更新します。</p></td>
+</tr>
 <tr class="odd">
 <td>2019 年 10 月 1 日</td>
-<td>7.12</td>
+<td><a href="https://docs.microsoft.com/windows/uwp/publish/store-policy-archive/store-policy-7-12">7.12</a></td>
 <td><p>デバイス上で仮想通貨をマイニングするアプリを禁止する新しいポリシー 10.2.6 を追加しました。</p>
 <p>"ルート ボックス" や他のランダム化された仮想アイテムを提供する製品に対して確率の開示要件を追加するために 10.8.4 を更新しました。</p>
 <p>価格設定の規則に関する要件を追加するために 10.8.7 を更新しました。</p>
@@ -194,7 +196,6 @@ ms.locfileid: "89161846"
 </tr>
 </tbody>
 </table>
-
 
 ### <a name="see-also"></a>関連項目
 
