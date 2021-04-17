@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 91daca9b36eca88adbf13ff6be740852f76a1386
-ms.sourcegitcommit: 0be372d792b58a260634b4e008e180f0447a46ff
+ms.openlocfilehash: 6674b18c0a042b857b14972c55e7e57f01acc03d
+ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549668"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107574617"
 ---
 # <a name="build-desktop-windows-apps-with-project-reunion-05"></a>Project Reunion 0.5 を使用してデスクトップ Windows アプリをビルドする
 
@@ -76,12 +76,7 @@ Project Reunion API は、Windows 10 バージョン 1809 以降のすべての�
 - Project Reunion 0.5 NuGet パッケージは、実稼働環境でのデスクトップ (C#/.NET 5 および C++/WinRT) プロジェクトでの使用がサポートされています。 これは、UWP プロジェクトの開発者プレビューとして提供されており、実稼働環境での UWP プロジェクトでの使用はサポートされていません。
 - (**Microsoft.ProjectReunion** と呼ばれる) Project Reunion 0.5 NuGet パッケージには、WinUI、MRT Core、DWriteCore などのコンポーネントの実装を含む他のサブパッケージ (**Microsoft.ProjectReunion.Foundation**、**Microsoft.ProjectReunion.WinUI** など) が含まれています。 これらのサブパッケージは、プロジェクト内の特定のコンポーネントのみを参照するように個別にインストールすることはできません。 すべてのコンポーネントが含まれている、**Microsoft.ProjectReunion** パッケージをインストールする必要があります。  
 - Project Reunion 0.5 NuGet パッケージを既存のプロジェクトにインストールする場合、プロジェクトでの Project Reunion に含まれる WinUI 3 以外のコンポーネントのみを使用できます。 WinUI 3 を使用するには、前のセクションで説明したように、WinUI 3 プロジェクト テンプレートのいずれかを使用して新しいプロジェクトを作成する必要があります。
-- Project Reunion 0.5 NuGet パッケージのインストールは、現在、WPF プロジェクトではサポートされていません。
-- Project Reunion 0.5 NuGet パッケージをインストールすると、**AnyCPU** を対象とするプロジェクトではビルド エラーが発生します。 このエラーを解決するには、プロジェクト ファイルの **PropertyGroup** 要素に次の **ProjectReunionCopyXamlToolingLibs** 要素を追加します。
 
-    ```xml
-    <ProjectReunionCopyXamlToolingLibs>false</ProjectReunionCopyXamlToolingLibs>
-    ```
 
 #### <a name="asta-to-sta-threading-model"></a>ASTA から STA へのスレッド モデル
 
