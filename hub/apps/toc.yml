@@ -94,6 +94,8 @@
           href: project-reunion/index.md
         - name: Project Reunion の概要
           href: project-reunion/get-started-with-project-reunion.md
+        - name: 既存のプロジェクトを最新リリースの Project Reunion に更新する
+          href: project-reunion/update-existing-projects-to-the-latest-release.md
         - name: Project Reunion を使用するアプリを展開する
           href: project-reunion/deploy-apps-that-use-project-reunion.md
         - name: MRT Core を使用してリソースを管理する

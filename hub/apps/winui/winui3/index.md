@@ -3,12 +3,12 @@ title: WinUI 3 Project Reunion 0.5 (2021 年 3 月)
 description: WinUI 3 Project Reunion 0.5 の概要。
 ms.date: 03/19/2021
 ms.topic: article
-ms.openlocfilehash: 685fd1525088bd662435b95f727c1e9fa5de5d81
-ms.sourcegitcommit: 0be372d792b58a260634b4e008e180f0447a46ff
+ms.openlocfilehash: 8e6efbe97e37d7184555b96099952f6b32ea9cb2
+ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549688"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107574637"
 ---
 # <a name="windows-ui-library-3---project-reunion-05-march-2021"></a>Windows UI ライブラリ 3 - Project Reunion 0.5 (2021 年 3 月)
 
@@ -31,7 +31,7 @@ WinUI は Project Reunion の一部として出荷されるので、作業を開
 > [!NOTE]
 > ライブ ビジュアル ツリー、ホット リロード、ライブ プロパティ エクスプローラーなどの WinUI 3 のツールを使用するには、[こちらの手順](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)で説明されているように、Visual Studio のプレビュー機能で WinUI 3 ツールを有効にする必要があります。
 
-開発環境を設定したら、[Visual Studio の WinUI 3 プロジェクト テンプレート](winui-project-templates-in-visual-studio.md)を参照して、使用可能な Visual studio プロジェクトと項目テンプレートについて理解してください。 
+開発環境を設定したら、[Visual Studio の WinUI 3 プロジェクト テンプレート](winui-project-templates-in-visual-studio.md)を参照して、使用可能な Visual studio プロジェクトと項目テンプレートについて理解してください。
 
 WinUI 3 アプリのビルドの概要については、次の記事を参照してください。
 
@@ -60,111 +60,9 @@ Windows コミュニティ ツールキットを使用している場合は、[�
 | 16.9  | はい、ただし、ホット リロード、ライブ ビジュアル ツリー、ライブ プロパティ エクスプローラーは含まれません  |
 | 16.10 プレビュー  | はい、すべての WinUI 3 ツールが含まれます   |
 
-## <a name="updating-your-existing-winui-3-app"></a>既存の WinUI 3 アプリの更新
+## <a name="update-your-existing-winui-3-app"></a>既存の WinUI 3 アプリの更新
 
-WinUI 3 のプレビュー バージョンを使用していたアプリを更新すると、この新しいサポートされているバージョンの WinUI 3 を使用できます。 アプリの種類に基づいて、以下の手順を参照してください。
-
-> [!NOTE] 
-> アプリの個別のシナリオはそれぞれ独自であるため、これらの手順で問題が発生する可能性があります。 これらには慎重に従い、問題が見つかった場合は、[GitHub リポジトリでバグを報告](https://github.com/microsoft/microsoft-ui-xaml/issues/new/choose)してください。 
-
-### <a name="updating-a-winui-3-preview-4-app-to-use-winui-3---project-reunion-05"></a>WinUI 3 - Project Reunion 0.5 を使用するための WinUI 3 Preview 4 アプリの更新
-
-開始する前に、Project Reunion VSIX と NuGet パッケージを含め、すべての WinUI 3 - Project Reunion 0.5 に必要なものがインストールされていることを確認します。 インストール手順は、[こちら](../../project-reunion/get-started-with-project-reunion.md#set-up-your-development-environment)を参照してください。
-
-まず、次の手順に従ってください。 
-- .wapproj ファイルで、TargetPlatformMinVersion が 10.0.17763.0 よりも古い場合は、10.0.17763.0 に変更します 
-
-- アプリで `Application.Suspending` イベントが使用される場合は、`Application.Suspending` がデスクトップ アプリに対して呼び出されなくなったため、その行を削除または変更してください。 詳細については、[API リファレンス ドキュメント](https://docs.microsoft.com/windows/winui/api/microsoft.ui.xaml.application.suspending?view=winui-3.0-preview&preserve-view=true)を参照してください。
-
-  C++ と C# の両方のアプリの既定のプロジェクト テンプレートには、次の行が含まれていることに注意してください。 これらの行がまだコード内に存在する場合は、必ず削除してください。
-
-    C#: `this.Suspending += OnSuspending;`
-  
-    C++: `Suspending({ this, &App::OnSuspending });` 
-
-ここで、プロジェクトにいくつかの変更を加えます。 
-  
-1. Visual Studio で、 **[ツール]**  ->  **[NuGet パッケージ マネージャー]**  ->  **[パッケージ マネージャー コンソール]** の順に移動します。
-2. 「```uninstall-package Microsoft.WinUI -ProjectName {yourProject}```」と入力します
-3. 「```install-package Microsoft.ProjectReunion -Version 0.5.0 -ProjectName {yourProjectName}```」と入力します
-4. アプリケーション (パッケージ).wapproj で次の変更を行います。
-
-    次のセクションを追加します。
-
-    ```xml
-    <ItemGroup>
-      <PackageReference Include="Microsoft.ProjectReunion" Version="[0.5.0]">
-        <IncludeAssets>build</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
-    ```
-
-    その後、次の行を削除します。
-
-    ```xml
-    <AppxTargetsLocation Condition="'$(AppxTargetsLocation)'==''">$(MSBuildThisFileDirectory)build\</AppxTargetsLocation>
-    ```
-
-    ```xml
-    <Import Project="$(AppxTargetsLocation)Microsoft.WinUI.AppX.targets" />
-    ```
-
-5. プロジェクトの {自分のプロジェクト}(パッケージ)/build/ フォルダーにある、既存の `Microsoft.WinUI.AppX.targets` ファイルを削除します。
-
-### <a name="updating-a-winui-3---project-reunion-05-preview-app-to-use-winui-3---project-reunion-05-stable"></a>WinUI 3 - Project Reunion 0.5 (安定版) を使用するための WinUI 3 - Project Reunion 0.5 Preview アプリの更新
-
-開始する前に、Project Reunion VSIX と NuGet パッケージを含め、すべての WinUI 3 - Project Reunion 0.5 に必要なものがインストールされていることを確認します。 インストール手順は、[こちら](../../project-reunion/get-started-with-project-reunion.md#set-up-your-development-environment)を参照してください。
-
-まず、次の手順に従ってください。
-- .wapproj ファイルで、TargetPlatformMinVersion が 10.0.17763.0 よりも古い場合は、10.0.17763.0 に変更します 
-
-- アプリで `Application.Suspending` イベントが使用される場合は、`Application.Suspending` がデスクトップ アプリに対して呼び出されなくなったため、その行を削除または変更してください。 詳細については、[API リファレンス ドキュメント](https://docs.microsoft.com/windows/winui/api/microsoft.ui.xaml.application.suspending?view=winui-3.0-preview&preserve-view=true)を参照してください。
-
-  C++ と C# の両方のアプリの既定のプロジェクト テンプレートには、次の行が含まれていることに注意してください。 これらの行がまだコード内に存在する場合は、必ず削除してください。
-
-    C#: `this.Suspending += OnSuspending;`
-  
-    C++: `Suspending({ this, &App::OnSuspending });` 
-
-ここで、プロジェクトにいくつかの変更を加えます。 
-
-1. Visual Studio で、 **[ツール]**  ->  **[NuGet パッケージ マネージャー]**  ->  **[パッケージ マネージャー コンソール]** の順に移動します。
-2. 「```uninstall-package Microsoft.ProjectReunion -ProjectName {yourProject}```」と入力します
-3. 「```uninstall-package Microsoft.ProjectReunion.Foundation -ProjectName {yourProject}```」と入力します
-4. 「```uninstall-package Microsoft.ProjectReunion.WinUI -ProjectName {yourProject}```」と入力します
-5. 「```install-package Microsoft.ProjectReunion -Version 0.5.0 -ProjectName {yourProjectName}```」と入力します
-6. アプリケーション (パッケージ).wapproj で次の変更を行います。
-  
-    次のセクションを追加します。
-
-    ```xml
-      <ItemGroup>
-        <PackageReference Include="Microsoft.ProjectReunion" Version="[0.5.0]">
-          <IncludeAssets>build</IncludeAssets>
-        </PackageReference>
-      </ItemGroup>
-    ```
-    その後、次の行を削除します。
-    ```xml
-      <AppxTargetsLocation Condition="'$(AppxTargetsLocation)'==''">$(MSBuildThisFileDirectory)build\</AppxTargetsLocation>
-    ```
-    および
-
-    ```xml
-      <Import Project="$(Microsoft_ProjectReunion_AppXReference_props)" />
-      <Import Project="$(Microsoft_WinUI_AppX_targets)" />
-    ```
-    および次の項目グループ:
-    ```xml
-    <ItemGroup>
-        <PackageReference Include="Microsoft.ProjectReunion" Version="[0.5.0-prerelease]" GeneratePathProperty="true">
-          <ExcludeAssets>all</ExcludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="[0.5.0-prerelease]" GeneratePathProperty="true">
-          <ExcludeAssets>all</ExcludeAssets>
-        </PackageReference>
-      </ItemGroup>
-      ```
+以前のプレビューまたはリリース バージョンの WinUI 3 を使用してアプリを作成した場合、最新リリースの WinUI 3 - Project Reunion 0.5 を使用するようにプロジェクトを更新できます。 手順については、「[既存のプロジェクトを最新リリースの Project Reunion に更新する](../../project-reunion/update-existing-projects-to-the-latest-release.md)」をご覧ください。
 
 ## <a name="major-changes-introduced-in-this-release"></a>このリリースで導入される主な変更点
 
@@ -267,18 +165,23 @@ WinUI 3 Preview 4 の新機能で今後は標準になる [CoreWindow](/uwp/api/
 
 ### <a name="known-issues"></a>既知の問題
 
-- Alt + F4 を押しても、デスクトップ アプリ ウィンドウが閉じません。
-
 - [UISettings.ColorValuesChanged Event](/uwp/api/windows.ui.viewmanagement.uisettings.colorvalueschanged) と [AccessibilitySettings.HighContrastChanged Event](/uwp/api/windows.ui.viewmanagement.accessibilitysettings.highcontrastchanged) は、デスクトップ アプリでサポートされなくなります。 これにより、Windows テーマでの変更を検出するためにそれを使用している場合、問題が発生する可能性があります。 
 
 - 以前は、CompositionCapabilities インスタンスを取得するには、[CompositionCapabilites.GetForCurrentView()](/uwp/api/windows.ui.composition.compositioncapabilities.getforcurrentview) を呼び出していました。 しかし、この呼び出しから返される機能は、ビューに依存して "*いませんでした*"。 これを解決して反映するため、このリリースでは静的な GetForCurrentView () を削除したので、[CompositionCapabilties](/uwp/api/windows.ui.composition.compositioncapabilities) オブジェクトを直接作成できるようになりました。
 
-- アクリル ブラシで透明にレンダリングされます。 
+- .NET SDK と winrt.runtime.dll のバージョンが一致しないことによるビルド エラーが発生することがあります。 回避策として、以下を試すことができます。
 
-- C#/WinRT の問題により、一部のフレームワーク要素イベントとページ ナビゲーションをサブスクライブすると、メモリ リークが発生する可能性があります。 
+    - .NET SDK を最新バージョンに明示的に設定します。 これを行うには、.csproj ファイルに次の項目グループを追加してから、プロジェクトを保存します。
 
-- このリリースでは、GC/ObjectDisposedExceptions、マーシャリング値、null 許容型 (TimeSpan、IReference<Vector3> など) のような、その他の C#/WinRT の問題が発生する可能性があります。 
-  - これらは、4 月中旬に出荷される .NET 5 SDK サービス リリースで修正される予定です。 この更新プログラムを選択するには、(ビルド パイプラインなどで) 明示的に、または Visual Studio 更新プログラムを使用して暗黙的に、ダウンロードしてインストールします。
+      ```xml
+      <ItemGroup>            
+          <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.18362.16" />
+          <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.18362.16" />
+      </ItemGroup>
+      ```
+
+    .NET 5.0.6 が 5 月に利用可能になると、これらの行を削除できることに注意してください。 
+
 
 ## <a name="winui-3-controls-gallery"></a>WinUI 3 コントロール ギャラリー
 
