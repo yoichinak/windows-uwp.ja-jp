@@ -165,7 +165,7 @@ WinUI 3 - Project Reunion 0.5 Preview は、Windows 10 October 2018 Update (バ�
 - パッケージ化されていないデスクトップ展開はサポートしていません
 - F5 キーを使用してデスクトップ アプリを実行する場合は、パッケージ プロジェクトを実行していることを確認してください。 アプリ プロジェクトで F5 キーを押すと、パッケージ化されていないアプリが実行されます。これは、WinUI 3 ではまだサポートされていません。
 
-### <a name="missing-platform-features"></a>ラットフォーム機能が不足しています
+### <a name="missing-platform-features"></a>不足しているプラットフォーム機能
 
 - Xbox のサポート
 - HoloLens のサポート
