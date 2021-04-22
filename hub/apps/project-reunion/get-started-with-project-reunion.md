@@ -7,12 +7,12 @@ keywords: windows win32, デスクトップ開発, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: af934c2b1f4eeaa04693c3587915421a6d1453d1
-ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
+ms.openlocfilehash: e3a5c891bb6bbeafa59baf933a4d8886e8430a16
+ms.sourcegitcommit: 2772d98e0c8f039e7356f03fd09054dca1022c3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107574647"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107838694"
 ---
 # <a name="get-started-with-project-reunion"></a>Project Reunion の概要
 
@@ -65,17 +65,6 @@ ms.locfileid: "107574647"
 
 6. Live Visual Tree、ホットリロード、ライブプロパティエクスプローラー (Visual Studio 2019 16.10 Preview) などの WinUI 3 ツールを使用するには、Visual Studio Preview 機能で WinUI 3 ツールを有効にする必要があります。 手順については、「 [VS 16.9 Preview 4 の WinUI 3 の UI ツールを有効にする方法](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)」を参照してください。
 
-7. Project レユニオン0.5 の最新の安定したリリースからすべての修正プログラムを受け取るためには、.NET SDK を最新バージョンに明示的に設定する必要があります。 これを行うには、.csproj ファイルに次の項目グループを追加し、プロジェクトを保存します。
-
-    ```xml
-    <ItemGroup>            
-        <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.18362.16" />
-        <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.18362.16" />
-    </ItemGroup>
-    ```
-
-    .NET 5.0.6 が5月に利用可能になると、これらの行を削除できることに注意してください。 
-    
 ## <a name="create-a-new-project-that-uses-project-reunion"></a>Project Reunion を使用して新しいプロジェクトを作成する
 
 Project レユニオン 0.5 extensions for Visual Studio 2019 (デスクトップアプリの拡張機能と UWP アプリのプレビュー拡張機能を含む) は、WinUI 3 ベースの UI レイヤーでプロジェクトを生成し、他のすべての Project レユニオン Api へのアクセスを提供するプロジェクトテンプレートを提供します。 使用可能なプロジェクトテンプレートの詳細については、「 [Visual Studio の WinUI 3 プロジェクトテンプレート](..\winui\winui3\winui-project-templates-in-visual-studio.md)」を参照してください。
@@ -123,7 +112,9 @@ Project レユニオンを使用する既存のプロジェクトがある場合
 
     ![Project レユニオン NuGet パッケージがインストールされているスクリーンショット](images/reunion-nuget-install.png)
 
-6. パッケージをインストールした後、プロジェクトで次の Project Reunion API とコンポーネントを使用することができます。
+6. **C#/.NET 5 プロジェクトの場合のみ**: プロジェクトレユニオン0.5 の最新の安定したリリースからすべての修正プログラムを受け取るには、プロジェクトファイルを更新して、.net SDK を最新バージョンに明示的に設定する必要があります。 詳細については、「 [.NET SDK のリファレンス](index.md#net-sdk-references)」を参照してください。
+
+7. Microsoft の実行後、プロジェクトでは、次のようにプロジェクトを共同で使用することができます **。**
 
     - [リソース MRT Core を管理する](mrtcore/mrtcore-overview.md)
     - [DWriteCore を使用してテキストを表示する](dwritecore.md)
