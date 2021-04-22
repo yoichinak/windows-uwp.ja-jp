@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 24ba67dfa51c039055cc5bc4cb31d4aff4de6765
-ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
+ms.openlocfilehash: 95adaae83596ab33bccbf5e0268d21dbfd53bad2
+ms.sourcegitcommit: 8f7d30ad2040a3a4b0cb520b86f8fb448086aae6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603893"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107562546"
 ---
 # <a name="progress-controls"></a>プログレス コントロール
 
@@ -172,13 +172,13 @@ Imports muxc = Microsoft.UI.Xaml.Controls
 
 **ProgressRing - 不確定**
 
-![ProgressRing の不確定状態の例](images/PR_IndeterminateExample.png)
+![ProgressRing の不確定状態の例](images/progress-ring-indeterminate-example.png)
 
 ユーザーのそれ以上のアプリとのやり取りが停止されたとき、またはアプリがユーザーの入力を待っているときは、不確定 ProgressRing が使われます。 上記の "サインインしています..." の例は、ProgressRing の完全なシナリオであり、ユーザーはサインインが完了するまでアプリの使用を続けることはできません。
 
 **ProgressRing - 確定**
 
-![ProgressRing の確定状態の例](images/progress_ring_determinate_example.png)
+![ProgressRing の確定状態の例](images/progress-ring-determinate-example.png)
 
 インストール、ダウンロード、設定など、操作の期間がわかっていて、リングのビジュアルが望ましいときは、確定の ProgressRing が最適です。
 
