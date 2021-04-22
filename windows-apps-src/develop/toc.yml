@@ -747,7 +747,7 @@
       items:
         - name: はじめに
           href: ../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md
-        - name: 開始
+        - name: 作業開始
           href: ../cpp-and-winrt-apis/get-started.md
         - name: 新機能
           href: ../cpp-and-winrt-apis/news.md
@@ -819,8 +819,10 @@
           items:
             - name: 値のカテゴリと参照
               href: ../cpp-and-winrt-apis/cpp-value-categories.md
-        - name: C++/WinRT アプリから使用するための C# Windows ランタイム コンポーネントの作成
+        - name: C++/WinRT アプリでの C# コンポーネントの使用
           href: ../cpp-and-winrt-apis/use-csharp-component-from-cpp-winrt.md
+        - name: ネイティブ デバッグ視覚化
+          href: ../cpp-and-winrt-apis/natvis.md
     - name: C#/WinRT
       items:
         - name: 概要

@@ -6,12 +6,12 @@ ms.date: 06/24/2020
 ms.topic: article
 keywords: Windows 10, UWP, ゲーム, セットアップ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: 553069897cc71b45c34159749b7c16bd0af73c7b
-ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
+ms.openlocfilehash: c192a81208c7cf372e27d9fb30233f8391939688
+ms.sourcegitcommit: 73ec979ce6b9701e7135fd0541bf932b0847908e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105939097"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107881705"
 ---
 # <a name="set-up-the-game-project"></a>ゲーム プロジェクトのセットアップ
 
@@ -83,9 +83,9 @@ Windows は、 **IFrameworkView** のメソッドの **App** クラスの実装�
 
 - [**初期化する**](/uwp/api/windows.applicationmodel.core.iframeworkview.initialize)
 - [**SetWindow**](/uwp/api/windows.applicationmodel.core.iframeworkview.setwindow)
-- [**[読み込み]**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
+- [**給紙**](/uwp/api/windows.applicationmodel.core.iframeworkview.load)
 - [**Coreapplicationview:: アクティブ化**](/uwp/api/windows.applicationmodel.core.coreapplicationview.activated)イベントが発生します。 そのため、そのイベントを処理するために (必要に応じて) 登録した場合は、この時点で **Onactivated 化** ハンドラーが呼び出されます。
-- [**[実行]**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
+- [**実行**](/uwp/api/windows.applicationmodel.core.iframeworkview.run)
 - [**解除**](/uwp/api/windows.applicationmodel.core.iframeworkview.uninitialize)
 
 ここで、 **App** クラスのスケルトン (では) が、 `App.cpp` これらのメソッドのシグネチャを示しています。
@@ -171,7 +171,7 @@ void GameMain::Run()
 
 ゲームで使用する機能 (グローバルハイスコアボードの **インターネット** へのアクセスなど) を選択しない場合、対応するリソースや機能にアクセスすることはできません。 新しいゲームを作成するときは、ゲームが呼び出す Api に必要な機能を必ず選択してください。
 
-次に、 **DirectX 11 アプリ (ユニバーサル Windows)** テンプレートに付属しているファイルの残りの部分を見てみましょう。
+次に、 **Simple3DGameDX** サンプルゲームに付属しているファイルの残りの部分を見てみましょう。
 
 ## <a name="review-other-important-libraries-and-source-code-files"></a>その他の重要なライブラリとソースコードファイルを確認する
 
@@ -189,7 +189,7 @@ void GameMain::Run()
 |VertexShader. hlsl および VertexShaderFlat|シェーダー|基本的な頂点シェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |PixelShader および PixelShaderFlat|シェーダー|基本ピクセルシェーダーの高レベルシェーダー言語 (HLSL) コードを格納します。|
 |ConstantBuffers .hlsli|シェーダー|モデルビュープロジェクション (MVP) 行列と頂点ごとのデータを頂点シェーダーに渡すために使用される、定数バッファーおよびシェーダー構造体のデータ構造の定義を格納します。|
-|pch.h/.cpp|なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。|
+|pch.h/.cpp|該当なし|共通の C++/WinRT、Windows、および DirectX のインクルードが含まれています。|
 
 ### <a name="next-steps"></a>次のステップ
 

@@ -5,16 +5,19 @@ keywords: ユーザー アクティビティ、ユーザー アクティビテ�
 ms.date: 04/27/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ebaca3b831ae30637a88d01319a89d139dde1cf8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 45a1d1d319f67dfac5e7c44a4c65c3bf2e3c0335
+ms.sourcegitcommit: 73ec979ce6b9701e7135fd0541bf932b0847908e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162626"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107881695"
 ---
 # <a name="continue-user-activity-even-across-devices"></a>デバイス間でもユーザーのアクティビティを継続する
 
 このトピックでは、前回ユーザーがアプリで実行していた状態から再開できるようにする方法 (PC およびデバイス間で再開する場合にも対応) について説明します。
+
+> [!NOTE]
+> 6月2021から、Microsoft アカウント (MSA) を通じて Windows デバイス間で同期されたアクティビティ履歴を持つユーザーには、タイムラインで新しいアクティビティをアップロードするオプションがなくなりました。 また、タイムラインを使用して、ローカル PC 上のアクティビティ履歴 (最近のアプリ、web サイト、およびファイルに関する情報) を表示することもできます。 AAD に接続されたアカウントは影響を受けません。 
 
 ## <a name="user-activities-and-timeline"></a>ユーザー アクティビティとタイムライン
 
@@ -26,7 +29,7 @@ ms.locfileid: "89162626"
 
 **UserActivity** は、ユーザーがあなたのアプリ内で作業していたことと考えてください。 たとえば、RSSリーダーを使用している場合、**UserActivity** はあなたが読んでいるフィードになります。 ゲームをプレイしている場合、**UserActivity** はあなたがプレイしているレベルになります。 音楽アプリを聴いている場合は、**UserActivity** があなたが聴いているプレイリストになります。 ドキュメントで作業している場合、**UserActivity** は作業を中断した場所になるなどです。  要するに、**UserActivity** は、ユーザーが自分のやっていることを再開できるように、アプリ内の目的地を表すものです。
 
-[UserActivity.CreateSession](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を呼び出して **UserActivity** を使用すると、システムは **UserActivity**の開始時刻と終了時刻を示す履歴レコードを作成します。 時間の経過とともに **UserActivity** を再使用していくと、複数の履歴レコードが記録されます。
+[UserActivity.CreateSession](/uwp/api/windows.applicationmodel.useractivities.useractivity.createsession) を呼び出して **UserActivity** を使用すると、システムは **UserActivity** の開始時刻と終了時刻を示す履歴レコードを作成します。 時間の経過とともに **UserActivity** を再使用していくと、複数の履歴レコードが記録されます。
 
 ## <a name="add-user-activities-to-your-app"></a>アプリにユーザー アクティビティを追加する
 
@@ -77,7 +80,7 @@ private async Task GenerateActivityAsync()
 
 この場合、`ActivationUri` はカスタム スキームであるため、アプリケーション マニフェストにプロトコルを登録する必要もあります。 これは、Package.appmanifest XML ファイルで、またはデザイナーを使用して行います。
 
-デザイナーで変更を加えるには、プロジェクトの Package.appmanifest ファイルをダブルクリックしてデザイナーを起動し、**[宣言]** タブを選択して、**[プロトコル]** 定義を追加します。 記入する必要がある唯一のプロパティは、現在、**名前**です。 上記で指定した URI の `my-app` と一致するはずです。
+デザイナーで変更を加えるには、プロジェクトの Package.appmanifest ファイルをダブルクリックしてデザイナーを起動し、**[宣言]** タブを選択して、**[プロトコル]** 定義を追加します。 記入する必要がある唯一のプロパティは、現在、**名前** です。 上記で指定した URI の `my-app` と一致するはずです。
 
 ここで、プロトコルによって起動されたときに何をすべきかをアプリに伝えるコードを記述する必要があります。 App.xaml.cs の `OnActivated` メソッドを上書きして、メイン ページに URI を渡します。
 

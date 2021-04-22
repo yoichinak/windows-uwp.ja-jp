@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10、uwp、標準、c++、cpp、winrt、プロジェクション
 ms.localizationpriority: medium
-ms.openlocfilehash: 21b7aebe0ad270ab8f722e2cea9d6ac5202381c5
-ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
+ms.openlocfilehash: 66e1f4d7cd126365bb9772ed5063fa49b9a884f9
+ms.sourcegitcommit: a165cd21b214144b967627f1b6f73e1b220640ab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107466432"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107801582"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
@@ -82,6 +82,7 @@ C++/WinRT への移植の詳細については、これらのリソースをご�
 | [実装の種類の拡張ポイント](./details-about-destructors.md) | C++/WinRT 2.0 のこれらの拡張ポイントを使用すると、実装の種類の破棄を延期したり、破棄中に安全にクエリを実行したり、プロジェクションが実行された方法に対してエントリをフックしたりすることができます。 |
 | [単純な C++/WinRT Windows UI ライブラリの例](./simple-winui-example.md) | このトピックでは、C++/WinRT プロジェクト内に WinUI の単純なサポートを追加する処理を順を追って説明します。 |
 | [C++/WinRT を使用した Windows ランタイム コンポーネント](../winrt-components/create-a-windows-runtime-component-in-cppwinrt.md) | このトピックでは、C++/WinRT を使用して Windows ランタイム コンポーネントを作成および使用する方法を示します。このコンポーネントは、任意の Windows ランタイム言語を使用してビルドされたユニバーサル Windows アプリから呼び出すことができます。 |
+| [C++/WinRT 用 Visual Studio ネイティブ デバッグ視覚化 (natvis)](./natvis.md) | [C++/WinRT Visual Studio 拡張機能 (VSIX)](https://marketplace.visualstudio.com/items?itemName=CppWinRTTeam.cppwinrt101804264) は、C++/WinRT の投影された型の Visual Studio ネイティブのデバッグの視覚化 (natvis) を提供します。 これにより、C# デバッグと同様のエクスペリエンスが実現します。 |
 
 ### <a name="topics-about-the-c-language"></a>C++ 言語に関するトピック
 
